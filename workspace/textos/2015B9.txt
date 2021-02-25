@@ -1,0 +1,5743 @@
+SISTEMA DE INFORMACIÓN Y DE APOYO A LA TOMA DE DECISIONES EN
+
+LOS PROCESOS DE COMPRA Y VENTA DEL ESTABLECIMIENTO
+PÚBLICO ROGERS
+
+JUAN SEBASTIÁN MEJÍA GOYENECHE!
+
+ba
+
+Universidad
+del Valle
+
+ 
+
+ 
+
+UNIVERSIDAD DEL VALLE
+
+FACULTAD DE INGENIERÍA
+
+ESCUELA DE INGENIERÍA DE SISTEMAS Y CIENCIAS DE LA
+COMPUTACION
+
+INGENIERÍA DE SISTEMAS
+
+TULUÁ
+
+ABRIL DE 2017
+
+l sebastian.mejia.7100 gmail.comSISTEMA DE INFORMACIÓN Y DE APOYO A LA TOMA DE DECISIONES EN
+LOS PROCESOS DE COMPRA Y VENTA DEL ESTABLECIMIENTO PÚBLICO
+ROGER'S
+
+TRABAJO DE GRADO PRESENTADO COMO REQUISITO PARA OPTAR
+POR EL TITULO DE INGENIERO DE SISTEMAS
+
+DIRECTOR DE TRABAJO DE GRADO
+ING. ROYER DAVID ESTRADA ESPONDA?
+
+ba
+
+Universidad
+del Valle
+
+ 
+
+UNIVERSIDAD DEL VALLE
+
+FACULTAD DE INGENIERÍA
+
+ESCUELA DE INGENIERÍA DE SISTEMAS Y CIENCIAS DE LA
+COMPUTACION
+
+INGENIERÍA DE SISTEMAS
+
+TULUÁ
+
+ABRIL DE 2017
+
+?royer.estrada(Ocorreounivalle.edu.coNOTA DE ACEPTACIÓN
+
+Ing. Royer David Estrada Esponda
+
+Director
+
+Jurado 1 Jurado 2DEDICATORIAS
+
+A Dios, porque a lo largo de la vida me ha dado la fuerza, la voluntad y la
+
+fortaleza para emprender distintas metas y luchar una y otra vez hasta
+alcanzarlas.
+
+A mis padres, Albeiro y Luz Elena, porque gracias a ellos, a sus enseñanzas, a
+sus sacrificios, a sus consejos, he tenido las herramientas para encaminarme
+hacia distintas metas y alcanzarlas de buena manera; a mis hermanas, Luisa
+Fernanda y María Camila, por ser parte esencial en mi vida, por el apoyo y la
+compañía incondicional que significan para mí; a mi novia, Vidalia, por
+demostrarme que todo es posible con esfuerzo, paciencia y voluntad; a mis
+abuelos maternos, por sus consejos, su bendición y sus palabras de aliento.
+
+A mis amigos y compañeros de carrera, porque de cada uno de ellos aprendí
+cómo ser mejor persona, cómo ser un buen profesional y porque junto a ellos
+he vivido experiencias muy enriquecedoras.
+
+Sebastián.AGRADECIMIENTOS
+
+Agradezco inmensamente a mi familia y a mi novia por el apoyo incondicional
+que me brindan en cada uno de los procesos que emprendo y por ser mis más
+confiables consejeros.
+
+A los profesores, que en su ardua labor dan lo mejor de sí para lograr la
+transmisión de su conocimiento de tal manera que podamos formarnos como
+buenos profesionales y como mejores personas.
+
+A mi director de trabajo de grado por el apoyo, los consejos, el esfuerzo, el
+tiempo que invirtió para guiarme en este proceso de tal manera que fuese
+exitoso, y sobre todo, por la motivación que supo brindarme en todo momento.ÍNDICE GENERAL
+
+DEDICATORIAS oooccccccccncccnccnnnonocnnnononnnnnnnnnnnnnnonnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnonannnnonos l
+AGRADECIMIENTOS cooocccncccnnccncccnnonoccononnncnnnonnnnnnonnnnnnnononnnnnnnnnnnnnnnnnnnnnnnnnnnnnannnnnnnaniness lll
+A 7
+NANO 8
+1. INTRODUCCIÓN. .cocccnnccconccnncnnncnnnnnn conc conc c once 9
+1.1. DESCRIPCIÓN DEL PROBLEMA .....occcccoccocconcconcnonononcnnnonn conc nonn cnn nononannncnncannons 10
+1.2... FORMULACIÓN DEL PROBLEMA ..0ooccocccocconcconononononcnoncnn conc nonn cnn nononcnnncnnnannons 11
+1.3. OBJETIVOS cooooocccccnocccncccooconononncncononnnnonnnnnnnononnnnnonnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnininnos 11
+1.3.1. OBJETIVO GENERAL ...occoooccnnccccccncccncconononccnnononcnnonnnnnnconnnnnonnnnnnnononenenonanans 11
+1.3.2. OBJETIVOS ESPECÍFICOS..oococnccconioninnoncncccncoconooconcononcnnonornonrononnonnnornnnnnoo 11
+1.3.3. RESULTADOS ESPERADOS .oocccocccccnccncnnnononnnnnonncnnonnnnnnnnnnnnnnnnnnannnnnannnenanoss 11
+ATAN 12
+2. MARCO REFERENCIAL ....ooocccccccccnnoncccnnconoccnnononcnncnnncnnnononcnnnnnnnnnnononnnncnnanenennonoos 13
+2.1. MARCO TEÓRICO ooconcococcncococonnoncononnnnononnncononnnnononnnncnnnnnnnnnnnnnnrnonnrnnnnnnnnnnnnnnos 13
+2.1.1. Sistema de Información .....coocncccnnncocnnnconnnnconnnccnnnncnnnnnnonnnnnnnnnnonnnnnnnnnnnnnnnnnnnnss 13
+2.1.2. Inteligencia de Negocio .....oooncccconcccconccconcccconncccononcnnnnnnonncncnnnrnnnnnrnnonrnnnnncnnnnnes 14
+2.1.3. Sistema de Recomendación .....oooccccocnccccnccconncncnnnnccnnnnnonnnncnnnnnonnnnnnnnnrnnnnnnnnnnns 15
+2.2. MARCO CONCEPTUAL o.00occcccoccncncccccnncccccnnnoconcnnnnnonnnnononnnnnnnannnnononnnnononcnnnonanos 17
+AA O 17
+2.2.1.1. Inventario FÍSICO ......ccooocccnnicccnnconnncnnnnnonncnncnonnrnnonnnnnnnnnnnnonnrnnnnnnnnnrnonannnannnnnos 17
+2.2.1.2. Tipos de InventariO.....occcoonccconnccconnnccononcnnncncnnnnnnnnccnnonrrnnnnrnnnnnrnrnnnrnnnnnnnnnnos 18
+2.2.2. Minería de 0atOS.....cooccconcccocnccccnconnncnnnnnonncnncnonnrnnnnrnnnnnnnnnnnnnrnnnnnnrnnrnonaninaninnnos 18
+2.2.3. Data WarehQ0uUS€...ocoonccconnccocnccccnconcnconnnnnnnonnrncnnrnnnnrnnnnnnrnnnnnnrnnnnrrrnarnnnannnaninnnos 20
+A E 21
+2.2.5. Metodología SCRUM...oooconcconccnccconcnnconoconncnnncononnnnrnnonnnrnnnonnnrncnnannnnrnnnrrnnnnanos 22
+2.3. ANTECEDENTES ...ooocccccccccnnccnnccnnononcnnnononcnnononnnnonnnnnnnnnnnnnnnnnnnnnnnnannnnnnnnnennonaness 24
+3. DESARROLLO DEL PROYECTO ooooccoocccnncnncnnncnoncnnnnnonnnnnnoncnnnonannnnononnnnnnnanencnnonos 27
+3.1. DISEÑO cocooccocoocononnonnononnoncononnonnononnonnonnononno non nor non nn non nn nnnornn ron nr non nr nan ninnnnnnnnss 30
+3.1.1. HISTORIAS DE USUARIO ...oooccccccccccccccccncoconcnnnconnnonononnnnnnnnnnnnononnnnnnnncnnnonanos 30
+3.1.2. DIAGRAMAS DE SECUENCIA ...ooccccccocccncccoccnnncccncnnononcnnnnonnnnnononnnnnnnanennonanos 35
+3.2. DESCRIPCIÓN GENERAL DEL SISTEMA ...oooooncccoccconccnnconnnoncnonanoncnnccanananannns 39
+3.2.1. MÓDULO DE USUARIOS ..ccooccccnccccnnocononconnonononnonnononoonononnononnononnnnnrnnannncnnnnos 40
+3.2.2. MÓDULO DE PRODUCTOS eococcoccccncoconononnnnnononnononnonoonononnnnonnnnonnnnnrnnnnnnrnnnnos 403.2.2.1.  SUBMÓDULO ADMINISTRAR PRODUCTO occoccccoccccocccnconconcnnnoninnonncnnnnons 40
+
+3.2.2.2... SUBMÓDULO ADMINISTRAR CATEGORÍAS DE PRODUCTOS ............ 41
+3.2.3... MÓDULO DE TERCEROS c.coccccoccnoccnnnnoncnonononcnnnonononn non cnnn conc con cnn ncnncanncan nan 41
+3.2.3.1.  SUBMÓDULO ADMINISTRAR PROVEEDORES ..00ccocccccocconcconccanccnninnncnns 41
+3.2.3.2. SUBMÓDULO ADMINISTRAR CLIENTES ..00cocccccccocccoccnonconcconocanccananananns 42
+3.2.3.3. SUBMÓDULO ADMINISTRAR PERSONAS ...cccococccocccoccnnconncanacanacanananinns 43
+3.2.4. MÓDULO DE TRÁMITES ...ooccococccocconnnononononononnncnn nono n non c ono noc cnn cnn nanncanncan nan 43
+3.2.4.1.  SUBMÓDULO ADMINISTRAR COMPRAS ..ccoccccocccoccconcnonconncanccanacananananns 43
+3.2.4.2.  SUBMÓDULO ADMINISTRAR TRASLADOS DE BODEGA .00cccccicccnnccnns 44
+3.2.4.3. SUBMÓDULO ADMINISTRAR VENTAS ..0coiccoccccococoncconcnncanncanccanccananancnns 44
+3.2.5... MÓDULO DE DATOS BÁSICOS ...ococcciccnocononcnonconccononanononcno nano ncnn nano cannann canos 45
+3.2.5.1. SUBMÓDULO ADMINISTRAR BODEGAS ..0ccocccoccconcconcnonconncanacanccananananns 45
+3.2.6. MÓDULO DE INTELIGENCIA DE NEGOCIO ...oooocccoccconcconcnoncnnncnnccanacananananns 45
+3.2.6.1.  SUBMÓDULO ADMINISTRAR DATOS DE ANÁLISIS ...ooconconcinnnnnciocccno: 46
+3.2.6.2... SUBMÓDULO ANÁLISIS DE DATOS ...ooocciocccocccnnconnconcnancno nano ncnnncancnanannns 46
+3.3. ARQUITECTURA DEL SISTEMA IMPLEMENTADO ...ococccccccocconcconccancconacananns 47
+3.4. DETALLES DE IMPLEMENTACIÓN ..0oooocccccocconcconcconcnnncnnncnnnnnn con ncnnncanncancnn nano 49
+A UI 59
+A NAS 59
+3.6. ANÁLISIS DE RESULTADOS ...oooccccocconcnoncnonononcnncno nono n ono conn cnn ncnn cnn nannccnnian nan 67
+4. CONCLUSIONES Y TRABAJOS FUTUROS c..cccccccccccconcnoncnnncnnncnnnnncnncno nana nanacóns 83
+41. CONCLUSIONES .0ococcccoccconcnonononcnnnnoncnnnono nono n conc nan can nann nc nn nan anna nanncancns 83
+4.2. TRABAJOS FUTUROS ..ocococccccccnnconcnonononononcnnncnnnnnn conc cnn nono cnn canon ancan cnn 83
+A. (APÉNDICE A..occciccnncnncnnconnnono conan conoci 84
+B. APÉNDICE B.ocoicninnnonnnoncnononncnn cnn cnn 87
+C. APÉNDICE Coooccnncnnnonincnnnconnnoncnn crono 89
+5. REFERENCIAS BIBLIOGRÁFICAS....oococcciccnoncconcnnnconncnnncnnc conc nn ncnnccnn cnn ccnncnnncnns 90ÍNDICE DE FIGURAS
+
+Figura 2.2.5.1 Metodología SCRUM. ¿oocococcccncnncccnnnonccnnonancnnnnnnccnnnnnrnnnnnnrrnnnnanrnnnnnnnonos 23
+Figura 2.2.5.2 Roles de la metodología SCRUÚM ..ooocccooccnccnnnconcocononcnonnnonnnnonnnnnnnanonoos 24
+Figura 3.1.2.1 DS5: Registro de PersonaS....oooocccccconccnccnooconononcnnnnnnnnonoonnnrnnnnannnnennnnnnos 35
+Figura 3.1.2.2 DS9: Registro de Clientes........oooccccooncccccoonconononccncnnannnnconnnenconannnnonnnnnnos 36
+Figura 3.1.2.3 DS13: Registro de ProductoS......cccooncncccconcncconoconcccononononnnononnononnnnnanenoos 36
+Figura 3.1.2.4 D17: Registro de Ingredientes.........oocccoonccconnccconnccconnncnnnnnnonncnnnncnnnonannns 37
+Figura 3.1.2.5 DS22: Registro de COMPTAS ...ooccccccoocnncccnccnnconnnnncnnnnnnnnnnnnnnnnnnnnnnnnnaninoss 37
+Figura 3.1.2.6 DS23: Registro de VentaS.....ooooooncccoconcccnoconcononnnccnnonancnnnnnnrnncnnanrnnnnnnnnnos 38
+Figura 3.1.2.7 DS24: Sincronizar Data Mart.....oocccoonnccccooccnnccnncnncncnnoncnonanonennnnnnnnonanonoos 38
+Figura 3.1.2.8 DS25: Analizar COMpIAS ..oooccccconncccononccnnononcnnnonnnnnnnnnnnononnnrrncnnanrnnennananos 39
+Figura 3.1.2.9 DS26: Analizar VentaS.....ooocccccconncccononncnnonancnnnnnncnnnnnnncnnonnnrrncnnanrnnnnannnnos 39
+Figura 3.2.1.1 Formulario registro de USUANIO .....coooncccooncccononccononccnnnnnnnnnncnnnnnnonanonenecnos 40
+Figura 3.2.2.1.1 Formulario registro de producto .....cccooonccconcccconcncconnncnnnnncnnnnnnnnccononccnos 41
+Figura 3.2.3.1.1 Formulario registro de proVeedor ...cccoonccconcccconccccoocnconncncnnnnnnnnnnnnnnccnns 42
+Figura 3.2.3.2.1 Formulario registro de Cliente............ooooccconnccconnccconcncnonnnnonnnnnonnnnnonccnns 42
+Figura 3.2.4.1.1 Formulario registro de COMPIA ...cooocccoocccconccccononcconnncnnncncnnnnnnnncrnnnnccnos 44
+Figura 3.2.4.3.1 Formulario registro le Venta ....ocooonccccoocccconccccononccnnnncnnnnncnnnnnnonnrnnonccnns 45
+Figura 3.2.6.1.1 Sincronización de OatOS .....ccoonnccccconncnccconcnncnnnnnnconannnnnonanencnnanrnnennnnnnos 46
+Figura 3.2.6.2.1 Formulario Analizar Venta .....ooooccconccccnocnncnncnnonncnnonncnnnnncnnnnnrnnnnnnnnnnoos 47
+Figura 3.2.6.2.2 Formulario Analizar COMPTA ...oooccconccconcccconocccononcnonnncnnnnncnnncnnnnnrnnonecnos 47
+Figura 3.3.1 Arquitectura del SiSteMa......oooooccccoonccococnnonocnnnnncnnnnncnnnnncnnnnncnnnnnrnnnnrrnnnncnos 48
+Figura 3.3.2 Patrón de diseño MVC vs Patrón de diseño HMVC ..o.coooccccccoccnccncocono.. 49
+E 52
+Figura 3.4.2 FP-Tree aplicando UMbIal....ooooccccnoccccnnccccnncnnnnnconnnncnnnnncncnnncnnnnnrnnnnnnnnnnoos 53
+Figura 3.4.3 FP-Diagrama de Flujo — Complejidad Ciclomática FP Growth ................ 57
+Figura 3.4.4 FP-Diagrama de Flujo — Complejidad Ciclomática KNNÑN....o.oooccccccoo...... 58
+Figura A.1 DS Consultar Cliente .......oococooonccnccoconcccononccncnnancnnnnnncnnnonancnnonnnnrnnonrrnnnnnnnonos 84
+Figura A.2 DS Consultar COMPIA cocooocccccnncccnncnoncnnnnnnccnnnnnncnnnnnnrrnnnnnnrnnnnnnrrnnnnnrrnnnnnnnins 84
+Figura A.3 DS Consultar Ingrediente ........occccoonncccoconccnncconcnnnnnncnnnonannnnonnnrnncnnanrncnnnnnnnos 85
+Figura A.4 DS Consultar ProductO....occccooonccccccooncccoconccnnnnancnnnnnncnnnnnnrnnnnnnrrnnnnarennonannnnos 85
+Figura A.5 DS Consultar Provee TF ooocccoooncccccooccccononccnnnnancononnncnnnnnnnrnnnnnnnrnnnnanrnnnnnnnnnos 86
+Figura A.6 DS Consultar Venta...oooooonncccoconccnncnoncncnnnncnnnnnancnnnnnnrrnnnnnnrnnrnnnrnnnnnanrnnnnanznnos 86ÍNDICE DE TABLAS
+
+Tabla 1.3.3.1 Resultados esperados. ...cccoocccoccccoccccccnnonononnnncnnnconcnnnnnnnnnnnnnnnnnonncnnnnnnanos 11
+Tabla 2.2.4.1 Comparación entre Data Warehouse y Data Mart .....ooooccccnonccncccncnnnnnnns. 22
+Tabla 3.1.1.1 HU1 - Registro de proveedores ....occcoocccoccccccnccocncconononncnncnonnnnnonenonannnnnnos 31
+Tabla 3.1.1.2 HU9 — Registro de Clientes.........ooccccconnnncccconnccconononcnnonnnononnncnnnnnanennnnnnos 31
+Tabla 3.1.1.3 HU13 — Registro de ProductoS.......ccoocccoccccccnconcncconnnnnncnncnnnncnconnnonannnnnoos 32
+Tabla 3.1.1.4 HU17 — Registro de ingredientes .........ccooocccconcccnonccccnncnnonacononacnconaninonoss 32
+Tabla 3.1.1.5 HU22 — Registro de COMPIAS ..ooccoocccccnccnccncononnccnnnncnnonncononnrnnnnncnconannnnnaos 33
+Tabla 3.1.1.6 HU23 — Registro de VentaS......oooooncccconcccooccncnnconcnncnnonncnnnnncnnnnncnnnancnnnnnoos 33
+Tabla 3.1.1.7 HU24 — Sincronizar Data Malt....oooccccconnconononccncccnncnnonnnnencnnnnnnnonnnrencnnnnos 34
+Tabla 3.1.1.8 HU24 — Analizar COMpTA ...ccccooccncoccccnnncncnncnncnnnononncononncnnonnrnnnnnrrnnnnrnnnnoss 34
+Tabla 3.1.1.9 HU24 — Analizar Venta ....occoncccoccccoccncccnnononononncnnnonnnnnonnnnnnnnnnnnnnnnncnnnncnnros 35
+Tabla 3.4.1 Comparación algoritmos asociatiVOS ........cocooonccnccoooncnnconanoncnonnnonnonanenennnnos 51
+Tabla 3.4.2 Conjunto de transacciOnNes......oocccccccnnccnccncnonnnonnnnnonnnnnonnnononnnnnnnnnnnnannnnnanoss 52
+Tabla 3.4.3 Evaluación Complejidad Ciclomática............ooooccccconnconcoooncnconancnnnonaronconanens 56
+Tabla 3.5.1.1 Prueba de Sistema - Registrar COMPIA...cooooccccconocnccnconnnonononcnnononnnnnnnanos 60
+Tabla 3.5.1.2 Prueba de Sistema - Actualizar Inventario por COMpIA ....ooocccccccccncccno... 62
+Tabla 3.5.1.3 Prueba de Sistema - Registrar Venta.......ooooccccconncococooncncooonconnonarencnnnnoos 62
+Tabla 3.5.1.4 Prueba de Sistema - Actualizar Inventario por Venta ........ooccccconccnccc..... 64
+Tabla 3.5.1.5 Prueba de Sistema -— Sincronizar Data Malt...oooooocccccconccccononcnnnnoncnnnnnanos 65
+Tabla 3.5.1.6 Prueba de Sistema — Analizar COMPIAS ...coooccccconocccccconnnnnononcnnnnnncnnnonanos 65
+Tabla 3.5.1.7 Prueba de Sistema — Analizar VentaS....oooooonccnccooncnncononcncnnncononnnnencnnanons 66
+Tabla 3.6.1 Criterios Análisis de ventas por lapSO.......oocooonccnccoonconconononconancnnoonaronconanoos 67
+Tabla 3.6.2 Resultado esperado: Clientes frecuentes por lapSO .....ooooccccconccncconcconnnnoo» 68
+Tabla 3.6.3 Resultado esperado: Productos frecuentes por Cliente...................o........ 68
+Tabla 3.6.4 Resultado esperado: Productos recomendados por Cliente..................... 69
+Tabla 3.6.5 Resultado esperado: Productos recomendados por lapso .............oo........ 69
+Tabla 3.6.6 Resultado obtenido: Clientes frecuentes por lapSO.......oooccccccnnccnccconnnnonono» 69
+Tabla 3.6.7 Profiler — Obtener clientes frecuentes .....ooocoooncccccoonconccnnccncnnncnnonnanencnnnnoos 70
+Tabla 3.6.7 Resultado obtenido: Productos frecuentes por Cliente.................o.cccc....... 70
+Tabla 3.6.8 Resultado obtenido: Productos recomendados por Cliente ...................... 71
+Tabla 3.6.10 Profiler — Recomendar productos por cliente................cooooccccnnccconccnnooco.. 71
+Tabla 3.6.9 Criterios Análisis de ventas por cliente..........ooccccconnccccoonncnccooncnnconaconcnnnnoos 72
+Tabla 3.6.10 Resultado esperado: Cliente específico para procesa .ocooonccccconccncnnnoo.. 72
+Tabla 3.6.11 Resultado esperado: Productos frecuentes por Cliente específico ......... 72
+Tabla 3.6.12 Resultado esperado: Productos recomendados por Cliente específico .. 73
+Tabla 3.6.13 Resultado esperado: Productos recomendados por cliente.................... 73
+Tabla 3.6.16 Resultado obtenido: Cliente específico a procesar ....oooocccccconccnccooncnnonono» 73
+Tabla 3.6.17 Profiler — Validar cliente a procesar....oooocooncccconcccccooccconacnnonncnnonacnnonannnnnons 73
+Tabla 3.6.15 Resultado obtenido: Productos frecuentes por Cliente........................... 74
+Tabla 3.6.19 Resultado obtenido: Productos recomendados para el cliente ............... 74
+Tabla 3.6.20 Profiler — Recomendar productos por cliente................ccoooccccoonccconccnnonco.. 74
+Tabla 3.6.17 Resultado obtenido: Productos recomendados por cliente...................... 75
+Tabla 3.6.18 Criterios Análisis de compras por lapSO .....ooonccccononccccconnnonononcnnnnonnnnnnnanos 76
+Tabla 3.6.19 Resultado esperado: Proveedores frecuentes por lapSO............cco.o......... 76
+Tabla 3.6.20 Resultado esperado: Ingredientes recomendados por Proveedor .......... 177
+Tabla 3.6.21 Resultado esperado: Ingredientes recomendados por lapso.................. 17
+Tabla 3.6.26 Resultado obtenido: Proveedores frecuentes por lapSO ......o.coonccccocccco.... 17Tabla 3.6.27 Profiler — Obtener proveedores frecuentes.....occccoccncccoconccocnnonncnnnncnnonanoss 78
+
+Tabla 3.6.28 Resultado obtenido: Ingredientes recomendados por Proveedor ........... 78
+Tabla 3.6.27 Profiler —- Recomendar ingredientes por proveedor ...oooccccocccccncccconccncnnos» 78
+Tabla 3.6.24 Ingredientes recomendados por lapSo .....ooocooocccconccnnoncnnonncnnonccnnoncnonnncnos 79
+Tabla 3.6.25 Criterios Análisis de CoMpras por proVeedoOr ...cccoooccccccocccccononccnnnonccnnnnanos 79
+Tabla 3.6.32 Resultado esperado: Proveedor específico para procesal ....ooccccccocccco.... 80
+Tabla 3.6.27 Resultado esperado: Ingredientes recomendados por Proveedor
+
+A] 80
+Tabla 3.6.28 Resultado esperado: Ingredientes recomendados por Proveedor .......... 80
+Tabla 3.6.29 Resultado obtenido: Proveedor específico a procesar ...cocccccocccconccncnnos. 80
+Tabla 3.6.36 Profiler — Validar proveedor a procesar ...oocccccocccconccnconcnnonncnnonccnnonccnnnncnos 81
+Tabla 3.6.30 Resultado obtenido: Ingredientes recomendados para el proveedor ...... 81
+Tabla 3.6.38 Profiler —- Recomendar ingredientes por proveedor ....ooccccocccccocccconccncnnos: 81
+Tabla 3.6.31 Resultado obtenido: Ingredientes recomendados por proveedor............ 81ÍNDICE DE FÓRMULAS
+
+Fórmula 3.4.1 Valor de divergencia ........coocconnccnnoconoocnconcnononnnonnncnnnnonanccnancncnnoncon cnica nn conancnnnnos 54
+Fórmula 3.4.2 Distancia euclidiana ...........oonoococnnocccooocccnooonnnononncnnnnncnonnnononnnnnonnnnnononnncnnnnnnnnnss 54
+Fórmula 3.4.3 Distancia euclidiana para la similitud entre productos..................o........... 54
+Fórmula 3.4.4 Distancia euclidiana para la similitud entre productos..................c........... 54
+Fórmula 3.4.5 Distancia euclidiana para la similitud entre productos..................c........... 55
+Fórmula 3.4.6 Valor de recomendacióÓn.......ooococonoccnoncconocnconnnconnnnonnnconn conan non ncnnoncnnannnconnncnnoss 55
+Fórmula 3.4.7 Complejidad Ciclomática — Forma 7.....ooccoocccnccccnoncconnnoonnnonnnncnrnnononnnnnnnconnnos 56
+Fórmula 3.4.8 Complejidad Ciclomática — ForMa B.....oococcconccccooccnonnnnonnnonnnncnnnncnonnnonnnconnnos 56
+Fórmula 3.4.9 Complejidad Ciclomática — Forma B....oooonococicocccocccoooncnonononnnnononncnonnnnnnnconnnos 56RESUMEN
+
+La ausencia de una herramienta tecnológica para administrar los procesos de
+compra y venta llevados a cabo dentro del establecimiento público Roger's,
+dedicado a la producción y venta de comida rápida, asados y productos light,
+puede significarle al establecimiento atraso en la competitividad en el mercado
+en el que se desempeña y desorden en el manejo de la información de sus
+procesos. Debido a esto surge la necesidad de sistematizar los procesos de
+compra y venta llevados a cabo.
+
+En este trabajo de grado se desarrolló un sistema que no solamente se
+enfocará en administrar la información resultante de los procesos diarios del
+establecimiento público Roger's sino que también, por medio de la minería de
+datos, apoyará la toma de decisiones en los procesos de compra de
+ingredientes y venta de productos; buscando así mejorar la eficiencia y
+competitividad.ABSTRACT
+
+The absence of technological tool to manage the processes of purchase and
+sale carried out within the public establishment Roger's, dedicated to the
+production and sale of fast food, roast and light products, can mean to the
+establishment delay in competitiveness in the market and disorder in the
+handling of its information. Due to this, arises the need to systematize the
+processes of purchase and sale carried out.
+
+In this work a system was developed that will not only focus on the
+management of information resulting from the daily processes of the Roger's
+public establishment, but also, through data mining, will support the decision
+making in the purchase of ingredient and the sale of food; seeking to increase
+efficiency and competitiveness.1. INTRODUCCIÓN
+
+El poder competitivo de una organización, independientemente del sector en el
+que se desempeñe, se basa en la calidad y en la cantidad de información que
+utilice para la toma de decisiones [1]; las cuales determinan su perfil
+competitivo y tienen como objetivo encontrar posibilidades de éxito y de
+mejoras, asociadas a la consolidación en el mercado y a la fidelización de
+clientes. Debido a esto, la administración y el manejo de la información se
+vuelven vitales al interior de la organización. Sin embargo, estos aspectos son
+un factor del que carecen algunas empresas pequeñas enfocadas en la
+producción y venta de alimentos (restaurantes), ya que en ellas se suele
+evidenciar falta de apoyo en herramientas tecnológicas para la gestión del
+conocimiento; lo cual conlleva a atrasos en el desarrollo, en la competitividad y
+a la falta de claridad en la toma de decisiones en las dos puntas de la cadena
+que la componen: los suministros (a quién comprarlos) y los clientes (qué
+venderles). En una organización de este tipo es de gran relevancia saber
+interpretar la información que se recolecta del entorno para desarrollar
+habilidades competitivas que se basen en la capacidad de análisis estratégico
+[2]. Una forma de hacerlo es por medio de la Inteligencia de Negocios o
+Business Intelligence (Bl), la cual proporciona herramientas para explotar los
+datos almacenados en un sistema de información de tal manera que la
+información obtenida a partir de ellos se pueda utilizar como respaldo en la
+toma de decisiones, reduciendo los efectos negativos en la organización [1].
+
+La inteligencia de Negocios hace uso de la técnica de Minería de Datos, la cual
+consiste en identificar tendencias, comportamientos y patrones, no muy
+evidentes en la mayoría de los casos, a partir de una colección amplia de datos
+(base de datos). En otras palabras, la Minería de Datos permite descubrir la
+información oculta en los datos, la cual pasa a ser de gran importancia
+estratégica, siendo este factor el que permite determinar el valor real de los
+datos reside en la información que contienen, a partir de la cual se puede
+apoyar la toma de decisiones y/o mejorar la comprensión de los fenómenos
+presentes en el entorno de operación [3].
+
+El establecimiento público Rogers alberga procesos que van desde el
+suministro de las materias primas, pasando por el manejo y control de su
+inventario, hasta los procesos de venta y facturación de los productos. Además
+se llevan a cabo procesos de administración tradicionales, donde los datos se
+conservan de manera física (como por ejemplo, en facturas), lo que dificulta su
+consulta y posterior análisis. Partiendo de esta situación, la aplicación de
+Inteligencia de Negocios, haciendo uso de la Minería de Datos como una de
+sus técnicas, se muestra favorable para el desarrollo de la actividad productiva
+del establecimiento público Roger's.
+
+Durante el presente documento se expondrán y sistematizarán los procesos de
+compra y venta llevados a cabo en Roger's, y la determinación de los datosmás relevantes en cada uno de ellos para la aplicación de la minería de datos,
+con el fin de obtener información significativa que apoye la toma de decisiones
+a nivel general.
+
+1.1. DESCRIPCIÓN DEL PROBLEMA
+
+Con el paso del tiempo, las organizaciones han empezado a considerar la
+información como un recurso principal, ya que ésta no solo es un producto de
+sus procesos sino también una fuente que alimenta los negocios y que puede
+ser determinante para lograr el éxito o caer en el fracaso. Sin embargo, para
+encaminarse hacia la vía de la explotación de la información y obtener de ella
+apoyo para la toma de decisiones, es necesario primero aplicar métodos
+adecuados para la producción, distribución, almacenamiento y recuperación de
+dicha información; de tal manera que de ésta se pueda obtener conocimiento
+nuevo acerca del negocio [13].
+
+Actualmente el establecimiento público Rogers no cuenta con la
+implementación de un mecanismo que garantice la información oportuna,
+permitiéndole coordinar y responder eficientemente a las demandas del
+
+mercado y a las necesidades presentes en cada uno de sus procesos. Estos
+procesos involucran tanto a clientes como a proveedores y el eje entre ambas
+partes es la administración del inventario, cuya finalidad es contar con los
+suministros necesarios para suplir la demanda por parte de los clientes y para
+reducir las pérdidas en dichos suministros. La información de estos procesos
+se maneja de forma manual y se almacena en archivos físicos, lo cual dificulta
+el aprovechamiento que se puede obtener de ella ya que al no estar organizada
+no se puede consultar de manera rápida ni se pueden determinar patrones y
+tendencias de comportamiento en los procesos.
+
+Ahora bien, no es suficiente con tener la información almacenada dentro de un
+sistema si no se tienen las herramientas para sacar provecho de ella, es decir,
+algo peor que no tener información disponible es tener demasiada información
+y no saber qué hacer con ella [3]. En ese caso, lo ideal es que por medio de
+dicha información se puedan generar escenarios, pronósticos y reportes que
+apoyen la toma de decisiones, lo que se traduce en una ventaja competitiva [3].
+Sin embargo, en este caso, no se dispone de información de calidad y
+detallada para apoyar la toma de decisiones ni se cuenta con una herramienta
+tecnológica adecuada para la explotación y el análisis de datos que permita el
+descubrimiento de conocimiento nuevo alrededor del negocio.
+
+Teniendo en cuenta todo lo anterior, se hace necesario establecer control y
+orden en el manejo de la información, y obtener apoyo en la toma de
+decisiones de compra (suministros) y venta (productos) de Roger's, el cual no
+cuenta con la capacidad de innovación tecnológica de las grandes
+organizaciones. Como resultado, se espera una mejora notable en la gestión
+
+10de la relación con los clientes (fidelización y satisfacción del cliente) y en la
+gestión de la cadena de suministro (control en la obtención y almacenaje de las
+materias primas/ingredientes).
+
+1.2. FORMULACIÓN DEL PROBLEMA
+
+¿Cómo gestionar la información y apoyar la toma de decisiones a la hora de
+comprar y vender en el establecimiento público Rogers?
+
+1.3.0BJETIVOS
+1.3.1. OBJETIVO GENERAL
+
+Desarrollar un sistema de información que permita la administración de
+la información y que por medio de la minería de datos, apoye la toma de
+decisiones en los procesos de compra y venta llevados a cabo en el
+establecimiento público Roger's.
+
+1.3.2. OBJETIVOS ESPECÍFICOS
+
+1. Implementar un sistema para la administración de la información.
+
+2. Implementar una técnica de Minería de Datos para determinar
+patrones y reglas en los datos almacenados por el sistema de
+
+información.
+
+3. Determinar predicciones automatizadas de tendencias y
+comportamientos en los procesos de compra y venta.
+
+1.3.3. RESULTADOS ESPERADOS
+
+Descripción Objetivo Específico
+Resultado esperado
+
+ 
+
+Sistema de información web | OEO01
+RO1 implementado
+
+Mecanismo de minería de datos
+integrado al sistema de
+información
+
+Funcionalidad del sistema que
+permita generar las
+
+recomendaciones a partir de las
+tendencias y los
+comportamientos  evidenciados
+en los procesos de compra y
+venta por medio de la inclusión
+de técnicas de minería de datos
+
+ 
+
+ 
+
+ 
+
+Tabla 1.3.3.1 Resultados esperados
+
+111.4. ALCANCE
+
+El presente proyecto comprende el planteamiento y desarrollo de un sistema
+web que permita la administración (adquisición, almacenamiento, organización
+y recuperación) de la información correspondiente a las compras y ventas del
+establecimiento público Roger's; aplicando conceptos propios del desarrollo de
+software, complementándose con la aplicación de conceptos asociados a la
+inteligencia de negocios.
+
+Se tomará como fuente inicial de datos la información registrada en las facturas
+de compra y de venta que se tienen almacenadas, para llevar a cabo el
+proceso de extracción, transformación y carga de datos (ETL) [21]. Igualmente,
+se implementará un mecanismo de apoyo a la toma de decisiones en los
+procesos de compra y venta de Roger's, haciendo uso de la minería de datos y
+de sus técnicas, como clasificación y asociación, obteniendo de éstas árboles
+de decisión y reglas de asociación a partir de la información almacenada en el
+sistema. Será necesario entonces, modelar los datos en un Data Mart [22] para
+posteriormente obtener información que pueda ser utilizada de manera
+estratégica en el negocio y por medio de la cual se determinen variables que
+indiquen qué materias primas obtener, qué productos vender y que sean
+presentadas al usuario por medio del sistema.
+
+Adicional a esto, el sistema contará con los siguientes módulos:
+
+1) Autenticación
+
+2) Usuarios
+
+3) Productos
+
+4) Terceros
+
+5) Trámites
+
+6) Datos Básicos
+
+7) Inteligencia de Negocio
+
+Quedará por fuera del alcance del sistema cualquier otro módulo y/o
+funcionalidad que no se haya especificado en este documento.
+
+122. MARCO REFERENCIAL
+
+2.1.MARCO TEÓRICO
+2.1.1. Sistema de Información
+
+Una de las definiciones más precisas de lo que es un sistema de información
+es la siguiente:
+
+«Es el conjunto formal de procesos que operando sobre una colección de datos
+estructurada de acuerdo con las necesidades de una empresa, recopila,
+elabora y distribuye la información necesaria para la operación de dicha
+empresa y para las actividades de dirección y control correspondientes,
+apoyando, al menos en parte, los procesos de toma de decisiones necesarios
+para desempeñar las funciones de negocio de la empresa de acuerdo con su
+estrategia» [8].
+
+La base de los sistemas de información son los datos. Éstos se almacenan,
+procesan y transforman para obtener la información, la cual se puede poner en
+poder de aquellos miembros de la empresa que la requieran para la toma de
+decisiones, para el control estratégico o para la puesta en práctica de las
+decisiones adoptadas [9]. Además de los datos, otros dos componentes
+importantes dentro de un sistema de información son los usuarios (personal
+directivo, empleados y en general cualquier agente de la organización
+empresarial que utilice la información en su puesto de trabajo) y los equipos
+(informáticos, software, hardware y tecnologías de almacenamiento de la
+información y de las telecomunicaciones). Normalmente se presenta confusión
+respecto a lo que es un sistema de información ya que se suele relacionar el
+término directamente con estos últimos componentes; los cuales hacen parte
+de un sistema informático [10]. En realidad, un sistema de información es
+mucho más que un sistema informático. Los sistemas informáticos nacen de la
+interconexión de numerosos componentes de hardware y software, y son
+básicamente sistemas deterministas y formales, de tal forma que a partir de
+una entrada determinada siempre se va a obtener una misma salida. Por su
+parte, los sistemas de información son sistemas sociales cuyo comportamiento
+se ve influenciado por los objetivos, valores y creencias de individuos y grupos,
+así como por el desempeño de la tecnología; lo cual hace que su
+comportamiento no sea determinista ni se ajuste a la representación de ningún
+modelo algorítmico formal [11].
+
+La implementación de un sistema de información dentro de la organización
+tiene como finalidad:
+
+e Apoyar los objetivos y estrategias de la empresa; ya que se busca
+suministrar a la organización toda la información necesaria para su
+correcto funcionamiento.
+
+13e Controlar las actividades de la empresa y comprobar el cumplimiento de
+las metas establecidas por la organización.
+
+e Adaptar las necesidades de información a la evolución de la empresa; ya
+que conforme la empresa va creciendo y desarrollándose, surgen
+nuevas necesidades que han de ser satisfechas por el sistema de
+información, por lo que es necesario que éste evolucione y se adecue a
+las nuevas circunstancias del entorno.
+
+e Satisfacer las necesidades de los diferentes agentes de la organización
+de manera rápida y eficaz. La interactividad y flexibilidad de los sistemas
+de información constituyen un punto clave en el éxito o fracaso [10].
+
+Para alcanzar estos objetivos, el sistema de información debe recibir y procesar
+los datos de manera eficaz y sin errores, suministrar los datos en el momento
+preciso, evaluar la calidad de los datos de entrada, eliminar la información poco
+útil, evitar redundancias, almacenar los datos y asegurar su disponibilidad para
+el usuario, proporcionar seguridad evitando la perdida de información o la
+intrusión de personal no autorizado o agentes externo a la compañía y generar
+información de salida útil para los usuarios, que ayude en el proceso de toma
+de decisiones [10].
+
+2.1.2. Inteligencia de Negocio
+
+Es la habilidad corporativa para tomar decisiones a partir del conocimiento
+obtenido una vez aplicada la recolección, depuración y transformación de
+datos; identificando así los problemas del negocio que pueden ser corregidos y
+las oportunidades que pueden ser aprovechadas [1]. De esta manera, el
+principal objetivo de la inteligencia de negocios es apoyar de forma sostenible y
+continuada a la organización para mejorar su competitividad, facilitando la
+información necesaria para la toma de decisiones. Su origen va ligado a
+proveer acceso directo a la información para ayudar en la toma de decisiones.
+Otros beneficios que Bl brinda a la organización son:
+
+e Beneficios tangibles como la reducción de costos, generación y/o
+aumento de ingresos y reducción de tiempos para las distintas
+actividades del negocio.
+
+e Beneficios intangibles; como el hecho de tener disponible la información
+para la toma de decisiones.
+
+e Beneficios estratégicos; a través de la obtención del conocimiento que
+
+indique a qué clientes, a qué mercados o con qué productos dirigirse
+[12].
+
+La inteligencia de negocios cubre cuatro etapas primordiales:
+
+14e Análisis: Se determinan los datos a recopilar, a partir del entendimiento
+básico de cómo opera la organización, además de aspectos que son
+relevantes para los clientes, proveedores, empleados; y factores que
+afectan los insumos, la producción, el costo y la calidad.
+
+e Reflexión: Nace de un análisis libre de preguntas encaminadas a
+descubrir patrones relevantes. Es un estudio minucioso de hechos y de
+la situación de la organización, con el fin de determinar el rumbo que
+tomará el caso de estudio.
+
+e Acción: Se lleva a cabo el proceso de toma de decisiones, en donde las
+acciones son el resultado de dichas decisiones. La toma de decisiones,
+al estar basada en la Inteligencia de Negocios, ofrece mejores
+condiciones para identificar oportunidades, orientar las acciones, la
+experimentación, la prueba y la retroalimentación.
+
+e Medición: Se evalúan los resultados al compararlos contra los
+estándares cuantitativos y las expectativas planteadas originalmente;
+con lo cual se da vida a otro ciclo de análisis, reflexión, acción y medida.
+En la Inteligencia de Negocios se pueden establecer estándares para
+pruebas de comparación que faciliten monitorear el desempeño y
+proveer retroalimentación para cada área funcional del negocio [13].
+
+La inteligencia de negocios o Bl (Bussiness Intelligence) permite soportar las
+decisiones que se toman al interior de una organización y a nivel externo
+produce ventajas sobre los competidores. Sin embargo, en la implementación
+de la inteligencia de negocios se pueden cometer errores en la definición del
+planteamiento de las necesidades de conocimiento de la organización, que
+pueden evitar que se logren todos los beneficios brindados por Bl e incluso
+pueden repercutir en el fracaso del proyecto [1].
+
+2.1.3. Sistema de Recomendación
+
+Un sistema de recomendación es una aplicación que ayuda a los usuarios a
+encontrar elementos u objetos útiles de manera automática, reduciendo el
+conjunto de opciones de tal manera que se mantengan solamente las más
+relevantes dentro del dominio; es decir, un sistema de recomendación es un
+amigo virtual que mezcla los gustos de los miembros de una comunidad de
+usuarios al fin de determinar los gustos más relevantes dentro de dicha
+comunidad [17]. Los sistemas de recomendación manejan algoritmos que
+operan sobre tensores (objetos geométricos que describen relaciones lineales
+entre vectores, escalares, tensores y otros) de segundo orden, o matrices, que
+representan relaciones binarias entre usuarios y recursos (por ejemplo, el
+historial de compra de un usuario en un sitio de comercio electrónico), con el
+objetivo de recomendar al usuario ciertos recursos adaptados a sus gustos, o,
+en Ocasiones, que no estaba esperando encontrar pero que le resultan útiles
+[32]. Dos ejemplos claros de sistemas de recomendación son los sitios de
+
+15comercio electrónico Amazon 3, que proporciona recomendación de productos
+(por ejemplo, libros), y Netflix, que se centra en la recomendación de películas.
+
+Las principales clasificaciones que se dan a los sistemas de recomendación a
+partir del método que utilizan son: Los sistemas basados en contenido y los
+sistemas basados en el filtrado colaborativo. Los sistemas basados en
+contenido permiten sugerir al usuario elementos similares a los elementos que
+el usuario ha calificado anteriormente. Esta similitud entre elementos se
+determina partiendo del contenido (descripción) de los mismos. Como
+resultado, el sistema presentará al usuario los elementos que más se
+aproximen a sus preferencias (perfil de usuario), las cuales son obtenidas
+explícitamente, mediante formularios o cuestionarios, o implícitamente,
+analizando los registros de compra, enlaces visitados, artículos vistos oO
+votados, entre otros [33].
+
+Por otra parte, los sistemas de recomendación basados en el filtrado
+colaborativo suelen utilizar el algoritmo basado en memoria (o también
+conocido como el algoritmo de los vecinos cercanos) o el algoritmo basado en
+modelo para hacer las sugerencias al usuario. El primero de ellos, utiliza toda la
+base de datos de elementos y usuarios para generar predicciones. Este
+algoritmo parte de técnicas estadísticas para encontrar los vecinos, es decir,
+usuarios con un historial de valoraciones sobre los elementos similar al usuario
+actual. Una vez que se han identificado los vecinos, se combinan sus
+preferencias para generar una lista con los N elementos más recomendables
+para el usuario actual. La ventaja que tiene es que presenta elementos dentro
+del sistema que el usuario actual desconoce pero que de alguna forma le
+pueden interesar. Por otra parte, presenta la desventaja de que necesita
+disponer de un número mínimo de usuarios con un número mínimo de
+predicciones sobre diferentes elementos del sistema, incluido el usuario para el
+que se pretende realizar la recomendación [33]. El segundo algoritmo trata el
+problema como un problema de predicción estadística, es decir, calcula el valor
+esperado para elemento en función de los ratings anteriores. Para ello utiliza
+distintos algoritmos de aprendizaje Clustering o redes neuronales como las
+Redes de Funciones de Base Radial (RBFN)*. Por ejemplo utilizando clustering
+se trata de clasificar a un usuario en particular dentro de una clase de usuarios
+y a partir de ahí se estiman las probabilidades condicionadas de esa clase
+hacia los elementos a evaluar. Este tipo de algoritmo presenta la ventaja de
+responder más rápido que los basados en memoria, pero tiene la desventaja de
+que inicialmente necesita de un proceso de aprendizaje intensivo [33].
+
+Un problema común de los sistemas de recomendación se presenta cuando un
+usuario nuevo usa el sistema y no es posible generar recomendaciones hasta
+que su perfil no se encuentre lo suficientemente determinado como para
+encontrar su grupo de vecinos cercanos o elementos que puedan ser de su
+interés. A este problema se le conoce como Cold Start y se puede presentar
+también con la llegada de un nuevo elemento al sistema, debido a que no
+
+3 https://en.wikipedia.org/wiki/Radial_basis function_network
+
+16cuenta aún con calificaciones por parte de los usuarios. En la mayoría de los
+casos, se ataca el problema exigiendo a los usuarios nuevos calificaciones
+sobre una serie de elementos a manera de poder determinar un perfil inicial
+para realizar las primeras recomendaciones [40].
+
+2.2. MARCO CONCEPTUAL
+2.2.1. Inventario
+
+Es el conjunto de mercancías o artículos que tiene la organización para
+comerciar, permitiendo la compra y venta o la fabricación primero, antes de
+venderlos, en un periodo económico determinado. El manejo de inventarios
+dentro de la organización surge del desfase que existe entre la demanda de los
+consumidores y la producción o suministro de los productos y a las
+fluctuaciones aleatorias de la demanda y de los tiempos de reposición [28].
+
+2.2.1.1. Inventario físico
+
+Es la verificación que realizan las organizaciones de manera periódica sobre la
+existencia e integridad de los productos y materiales por medio de conteo físico
+con el objetivo de garantizar su existencia real.
+
+Las fases para la toma física de inventarios son:
+
+1. Preparación del inventario. Es el proceso previo a la realización del
+conteo físico (inventario) en el cual se deben tener en cuenta los
+siguientes elementos
+
+a. Documentos: Se deben tener en cuenta todos aquellos
+documentos que estén dentro de la fecha de corte programada
+para el inventario y que registren entradas y salidas del almacén,
+facturas, recibos de caja, así como el kárdex* de productos.
+
+b. Recurso humano.
+
+Área a inventariar.
+
+Papelería. Se determinarán formatos para el registro de los
+
+productos a inventariar junto con la fecha en la que se realiza el
+
+proceso y las cantidades a registrar una vez finalizado dicho
+proceso.
+
+e. Jefe de inventario. Debe garantizar que el proceso de inventario
+cumpla con su objetivo.
+
+2. Conteo físico. Se procede a realizar el conteo de los elementos definidos
+y a registrar la información correspondiente (código del elemento,
+nombre, fecha, cantidad, unidad) a ellos en los formatos establecidos. Al
+finalizar el conteo, se consolida la información obtenida.
+
+o
+
+* http://empresayeconomia.republica.com/aplicaciones-para-empresas/kardex-que-es.html
+
+17Post-inventario. Se procede a recopilar, organizar y clasificar la
+información resultante del inventario físico. Posteriormente, se confronta
+la información obtenida durante este proceso con la información
+registrada en las bases de Datos, aplicativos, hojas de cálculo, kárdex;
+que reflejen movimientos de entrada y salida de inventario a modo de
+
+determinar posibles diferencias. En caso de haber diferencias, se
+procederá a determinar sus causantes [28].
+
+2.2.1.2. Tipos de Inventario
+
+Inventario de materia prima, el cual comprende una variedad de
+elementos básicos y materiales que serán sometidos a un proceso para
+obtener un artículo terminado o producto.
+
+Inventario de productos en proceso, el cual comprende productos
+parcialmente terminados cuyo valor aumenta a medida que se
+transforma de materia prima al producto terminado como consecuencia
+del proceso de producción.
+
+Inventario de productos terminados, el cual comprende los artículos
+transferidos por el departamento de producción al almacén de productos
+terminados por haber alcanzado su grado de terminación total y que a la
+hora de la toma física de inventarios se encuentran aún en los
+almacenes, es decir, los que todavía no han sido vendidos. El nivel de
+inventario de productos terminados va a depender directamente de las
+ventas, es decir su nivel está dado por la demanda.
+
+Inventarios de materiales y suministros
+a. Materias primas secundarias.
+
+b. Artículos de consumo, los cuales están destinados para ser
+usados en la operación de la industria.
+
+Cc. Los artículos y materiales de reparación y mantenimiento de las
+maquinarias y aparatos operativos.
+
+Inventario de Seguridad, el cual comprende los artículos, materias
+primas y/o elementos utilizados para impedir la interrupción en el
+aprovisionamiento causado por demoras en la entrega o por el aumento
+imprevisto de la demanda durante un periodo de reabastecimiento [28].
+
+2.2.2. Minería de datos
+
+La minería de datos se encarga de agrupar las ventajas presentes en las áreas
+de la estadística, la inteligencia artificial, la computación gráfica, las bases de
+
+18datos y el procesamiento masivo, utilizando como materia prima las bases de
+datos [14] para obtener como resultado el descubrimiento automático de
+patrones o de modelos interesantes y no obvios escondidos en una base de
+datos, los cuales tienen un gran potencial para contribuir en los aspectos
+principales del negocio; apoyado la definición de estrategias y tácticas
+encaminadas a cumplir con los objetivos de la organización.
+
+Es decir, la minería de datos se puede ver como un sistema de extracción de
+relaciones que agrupa métodos basados en la inteligencia artificial (redes
+neuronales artificiales, árboles de decisión, inducción de reglas, lógica difusa y
+algoritmos genéticos) y que requiere poca participación por parte del analista
+en la obtención de información relevante [15].
+
+Con el tiempo, la minería de datos ha conllevado a la sustitución del análisis
+tradicional de datos por el análisis de datos dirigido al descubrimiento del
+conocimiento; diferenciándose estos dos tipos de análisis de datos en que el
+enfoque hacia el descubrimiento del conocimiento no requiere de una
+formulación de una hipótesis previa. Al intentar explorar datos precedentes de
+repositorios de gran tamaño y complejidad, la minería de datos se muestra
+ventajosa ya que permite la aplicación automatizada de algoritmos que pueden
+detectar patrones en los datos, mientras que los métodos tradicionales de
+análisis de datos no son capaces de encontrar toda la información útil. Las
+técnicas utilizadas dentro de la minería de datos se encuentran en constante
+evolución como resultado de la colaboración entre campos de investigación
+como bases de datos, reconocimiento de patrones, inteligencia artificial,
+sistemas expertos, estadística, visualización, recuperación de información, y
+computación de altas prestaciones [16].
+
+Sin embargo, existe un concepto más amplio de la minería de datos el cual
+incluye, además de lo mencionado anteriormente, la confirmación o prueba de
+las relaciones reveladas por medio de la aplicación de métodos estadísticos
+clásicos y Bayesianos. En este caso, el analista entra a desarrollar un rol más
+importante a la hora de obtener información relevante y el proceso de minería
+de datos pasa a ser semiautomático [15].
+
+Debido a esto, el concepto de minería de datos ha evolucionado al
+generalizarse como el proceso de descubrir conocimiento en las bases de
+datos (KDD Knowledge Discovery in Databases), por medio del uso de diversas
+técnicas (algoritmos), y el análisis de los datos [15].
+
+Los objetivos de la aplicación de la minería de datos son:
+
+e Descripción. El principal resultado del proceso de minería de datos es el
+descubrimiento de patrones y reglas en los datos, lo cual dejará ver
+relaciones entre las diferentes variables del negocio, enriqueciendo el
+análisis y la descripción de la forma en que opera la organización y
+
+19ayudando a planificar y diseñar futuros cambios que puedan mejorar los
+diversos procesos llevados a cabo.
+
+e Predicción. A partir de los patrones y reglas descubiertas, se pueden estimar
+algunas variables de salida, complementando las técnicas estadísticas
+tradicionales con aquellas provenientes de la inteligencia artificial (como
+algoritmos genéticos y redes neuronales). El uso complementario de las
+técnicas de inteligencia artificial permite realizar predicciones más acertadas,
+especialmente en casos de gran complejidad [14].
+
+2.2.3. Data Warehouse
+
+Es un depósito de datos utilizado por las organizaciones para adaptarse a los
+cambios del mercado, en el cual se almacenan datos del negocio para ser
+optimizados y analizados [17]. La creación de un Data Warehouse implica la
+aplicación de metodologías y técnicas con el fin de que la estructura que se le
+defina refleje las necesidades y características del negocio; necesarias para
+responder a los interrogantes presentes a la hora de tomar decisiones, y que
+con el tiempo se convierta en la memoria corporativa; la cual describa el
+pasado y presente de la organización [1].
+
+El Data Warehouse suele ser la base de los sistemas de información gerencial
+al integrar datos tácticos y estratégicos provenientes de diversas fuentes
+(bases corporativas, bases propias) y aplicaciones (internas y externas), y al
+permitir desglosar, resumir, ordenar y comparar dichos datos; pero por sí sólo
+no permite el descubrimiento del conocimiento ni la predicción de
+comportamientos del negocio [1]. A pesar de esto, es posible aplicar minería de
+datos para obtener información oculta en ellos. La información obtenida puede
+incluir movimientos que modifican el estado del negocio, interacciones que se
+tengan con los clientes y proveedores, y demás datos que ayuden a
+comprender la evolución del negocio. Como consecuencia del uso del Data
+Warehouse en la organización, se puede dar respuestas a preguntas propias
+del negocio, que apoyen la toma de decisiones para lograr ventajas
+competitivas en el mercado, como por ejemplo:
+
+e ¿Cuál es el perfil de los clientes”
+
+e ¿Cómo es el comportamiento de los clientes”
+
+e ¿Qué productos consumen los clientes?
+
+e ¿Qué productos son los más consumidos por los clientes”?
+
+e ¿Qué productos son los menos consumidos por los clientes”?
+
+e ¿Qué productos son los que más se consumen juntos por los clientes?
+
+e ¿Qué productos/materias primas comprar?
+
+e ¿Qué cantidad de productos/materias primas comprar en una semana,
+en un mes?
+
+e ¿Qué productos/materias primas comprar juntos”?
+
+e ¿Cuál es la rentabilidad que me deja”?
+
+20e ¿Cuál es el riesgo que corro”?
+e ¿Qué servicios y productos utilizar y cómo puedo incrementarlos”?
+
+Además, se aplican técnicas de limpieza e integración de datos, esto asegura
+la existencia de estructuras homogéneas persistentes en el tiempo [17].
+
+En la construcción de un Data Warehouse se establecen tres etapas:
+
+e Examinar el esquema entidad relación de la base de datos operacional,
+generando los esquemas multidimensionales candidatos.
+
+e Recoger los requisitos de usuario por medio de entrevistas, para obtener
+información acerca de las necesidades de análisis de estos.
+
+e Contrastar la información obtenida en la segunda etapa, con los
+esquemas multidimensional candidatos formados en la primera etapa
+generando así, una solución que refleja los requisitos de usuario [1].
+
+2.2.4. Data Mart
+
+Es una base de datos que se especializa en el almacenamiento de datos de un
+área de negocio específica. El Data Mart cuenta con una estructura óptima de
+datos para analizar la información al detalle desde todas las perspectivas que
+afecten a los procesos del departamento. Un Data Mart puede alimentarse
+desde los datos de un Data Warehouse o integrar por sí mismo un compendio
+de distintas fuentes de información [27].
+
+A continuación se detallan las principales diferencias entre un Data Warehouse
+y un Data Mart:
+
+21Alcance
+
+Objetivo
+
+Características de los datos
+
+Pertenencia
+
+Administración
+
+Data Warehouse
+
+Construido para satisfacer las
+necesidades de información de toda
+la organización.
+
+Diseñado para optimizar la
+integración y la administración de los
+datos fuente.
+
+Administra grandes cantidades de
+datos históricos a nivel atómico.
+
+Pertenece a toda la organización
+
+Es administrado por la unidad de
+sistema de la organización.
+
+Data Mart
+
+Construido para satisfacer las
+necesidades de información de un
+área de negocios específica.
+
+Diseñado para optimizar la entrega
+de información de soporte de
+decisiones.
+
+Se  concentta en administrar
+resúmenes y/o datos totalizados.
+
+Pertenece al área de negocio a la
+cual está orientado.
+
+Es administrado por el personal de
+sistema de la unidad propietaria del
+
+Data mart.
+
+Tabla 2.2.4.1 Comparación entre Data Warehouse y Data Mart. Tomado de [27]
+
+2.2.5. Metodología SCRUM
+
+Bajo la metodología SCRUM se aplica un conjunto de mejores prácticas para
+trabajar en equipo, en las cuales se realizan entregas parciales del producto,
+priorizadas por el beneficio que aportan al cliente; enmarcadas bajo una serie
+de iteraciones. Cada iteración proporciona un resultado completo que implica
+un incremento al producto final que puede ser entregado al cliente.
+
+El proceso que sugiere la metodología SCRUM consta de [36]:
+
+1. Planificación de la iteración (Scrum panning)
+
+a. Selección de requisitos; en la cual el cliente presenta la lista de
+requisitos priorizada del producto al equipo de trabajo para
+determinar los requisitos que se completarán y, si es el caso, que
+entregarán al finalizar la iteración.
+
+b. Planificación de la iteración; en la cual se elabora una lista de
+tareas necesaria para completar cada requisito que se ha
+comprometido y se estima el esfuerzo necesario para llevar a
+cabo cada tarea.
+
+2. Ejecución de la iteración (Daily Scrum).
+
+a. Diariamente se comunica al equipo las tareas realizadas (done),
+
+las tareas en progreso (in progress) y las tareas por realizar (to
+
+22do) durante el día y se evalúan los impedimentos que se han
+presentado o que se pueden presentar en la consecución de las
+mismas para darles solución, buscando siempre aumentar la
+productividad.
+
+3. Inspección y adaptación.
+
+a. Revisión del Sprint (Sprint Review); en la cual se presentan al
+cliente los requisitos completados durante la iteración para
+determinar si es necesario realizar ajustes sobre los mismos o
+para aprobar lo entregado, con el fin de crear el producto de
+software con los requisitos exactos del cliente.
+
+b. Retrospectiva del Sprint (Sprint Retrospective); en la cual se
+evalúan los aciertos y desaciertos durante la ejecución de la
+iteración con el fin de reducir los errores y mejorar la ejecución del
+siguiente Sprint.
+
+NEAR ol
+Peticiones de clientes > ES de Ea
+internos o externos mM Burndown/up
+
+Serum Daily Scrum
+Master Meeting
+
+ 
+
+     
+  
+
+      
+       
+   
+
+AA
+Mm m, a
+> T2 De1a4
+da Equipo Scrum semanas Sprint Review
+itos y | confirmación del
+| trabajo posible Equipo, duración
+| en el sprint Backlog i Susi pie E Incremento de producto
+| as de Sprint en el Sprint
+Reunión de
+Backlog de planificación
+producto del Sprint Sprint
+Retrospective
+
+ 
+
+Figura 2.2.5.1 Metodología SCRUM. Tomado de [29]
+
+Adicional a lo anterior, SCRUM cuenta con los siguientes roles [36]:
+
+1. Dueño del producto (Product Owner); representado por las personas que
+requieren el software.
+
+2. Director Scrum (Scrum Master); es la persona que supervisa al equipo
+para que se lleven a cabo las reuniones, se haga uso de los artefactos,
+apoya y orienta la toma de decisiones y provee solución a los problemas
+e impedimentos que se puedan presentar.
+
+233. Miembros del equipo (Team Members); compuesto por las personas
+encargadas de desarrollar el software.
+
+     
+
+ 
+
+1
+E
+
+Figura 2.2.5.2 Roles de la metodología SCRUM. Tomado de [30]
+
+2.3. ANTECEDENTES
+
+La implementación de herramientas Bl en la organización permite el apoyo en
+la toma de decisiones produciendo ventajas sobre los competidores que se
+tengan en el mercado. En algunos casos no es posible obtener todos los
+beneficios que brinda Bl debido a que se pueden cometer errores en la
+definición de las necesidades de conocimiento de la organización y en la
+determinación de la magnitud de los problemas de información. Actualmente,
+se está planteando un concepto llamado Agile B/ Governance, el cual propone
+todo lo necesario para implantar una infraestructura para Bl, combinando
+conceptos de /T Governance [23], Manifiesto Ágil [24] y Data Governance [25],
+para lograr un alcance que encierre las unidades de negocio y soporte el
+proceso estratégico de obtención de valor del Bl en la organización. Como
+resultado de esto, se permite conocer cómo controlar un sistema de estas
+características, qué políticas se deben aplicar, qué métodos de control se
+deben que poner en marcha y cómo se debe gobernar los sistemas de Bl.
+
+Agile Bl Governance establece los siguientes valores básicos:
+
+e Adaptabilidad Continúa. En este tipo de proyectos, el punto de vista
+analítico es cambiante debido a que el cambio continuo es el estado
+natural de los sistemas de toma de decisiones.
+
+24e Trabajo Conjunto. El usuario operativo del software es parte activa
+dentro de los grupos de IT que desarrollan los sistemas de Bl.
+
+e Jerarquías Flexibles. Los grupos de trabajo dentro del Agile Bl
+Governance se estructuran con jerarquías flexibles que fomentan el
+intercambio de información.
+
+e Personas Antes que Procesos. Se da prioridad a la entrega de la
+información a las personas que controlan los procesos y no tanto a la
+definición de los procesos que han de controlar las personas [1].
+
+En la tesis de maestría titulada “Las Redes Neuronales Artificiales como
+Elementos del Sistema de Soporte a las Decisiones en la Administración
+Universitaria” de la Universidad Nacional del Mar de la Plata, Argentina, se
+presenta una propuesta metodológica para el diseño de un sistema de soporte
+a las decisiones en el área académica de la universidad. El sistema busca
+analizar los datos de los estudiantes, como sexo, edad, dirección etc., y
+relacionarlos con otros datos como la duración de la carrera, la ubicación
+geográfica; para sacar distintas conclusiones. Este trabajo muestra un avance
+significativo ya que realiza una mezcla de datos y variables interesantes del
+contexto que maneja y da lugar a trabajos futuros que se encarguen de cubrir
+otras áreas dentro de la misma universidad, como por ejemplo recursos
+disponibles, tasas de deserción etc. [20].
+
+Por el lado de la minería de datos, en la actualidad existen diversas técnicas
+las cuales abordan los problemas siguiendo aproximaciones distintas. Entre las
+técnicas de minería de datos se encuentran [5]:
+
+e Análisis Factoriales Descriptivos. Permiten visualizar realidades
+multivariantes complejas y manifestar las regularidades estadísticas, así
+como eventuales discrepancias respecto de aquella y sugerir hipótesis
+de explicación.
+
+e Análisis de la cesta de compras (Market Basket Analysis). Permite
+detectar qué productos se adquieren conjuntamente, y utiliza variables
+para determinar también el día de la semana, la localización, la forma de
+pago, entre otras, en los cuales se adquiere el/los producto/s.
+
+e Técnicas de Clustering. Son técnicas que utilizan una medida de
+proximidad entre individuos para buscar los grupos de individuos más
+similares entre sí.
+
+e Series Temporales. Parte de una serie de comportamiento histórico para
+realizar las predicciones futuras.
+
+e Redes bayesianas. Se representan los posibles sucesos de interés
+mediante un grafo de probabilidades, permitiendo establecer relaciones
+causales y efectuar predicciones.
+
+e Modelos Lineales Generalizados. Permiten tratar diferentes tipos de
+variables de respuesta, como la preferencia entre productos
+concurrentes en el mercado. A la vez, los modelos estadísticos se
+
+25enriquecen cada vez más y se hacen más flexibles y adaptativos,
+permitiendo abordar problemas cada vez más complejos.
+
+Previsión local. Parte de la idea de que individuos parecidos tendrán
+comportamientos similares respecto de una cierta variable de respuesta,
+por lo que dichos individuos se sitúan en un espacio euclídeo [26] y se
+hacen predicciones de su comportamiento a partir del comportamiento
+observado en sus vecinos.
+
+Redes neuronales. Aunque son generalizaciones de modelos
+estadísticos clásicos, presentan la capacidad de contar con aprendizaje
+secuencial al utilizar transformaciones de las variables originales.
+Árboles de decisión. Permiten obtener de forma visual las reglas de
+decisión bajo las cuales operan los consumidores, a partir de datos
+históricos almacenados.
+
+Algoritmos genéticos. Al igual que la técnica de redes neuronales, se
+simula el modelo biológico de la evolución de las especies, solo que a
+una velocidad infinitamente mayor. En principio cualquier problema que
+se plantee, como la optimización de una combinación entre distintas
+componentes, estando estas componentes sujetas a restricciones,
+puede resolverse mediante algoritmos genéticos.
+
+Algunas herramientas que se han desarrollado para la aplicación de la Minería
+de Datos son:
+
+Weka, cuya principal característica es el aprendizaje automático y la
+minería de datos, siendo una plataforma de software en Java y
+desarrollado en la Universidad de Waikato. Ha sido utilizada como apoyo
+en el proceso de minería de datos aplicado en un caso de estudio
+referenciado en el proyecto “Minería de Datos con Weka para la
+Predicción del Precio de Automóviles de Segunda Mano” de la
+Universidad Politécnica de Valencia; del cual se concluye que la minería
+de datos es una herramienta con un potencial increíble y aplicable en un
+sinfín de proyectos, circunstancias y finalidades [18].
+
+RapidMiner, la cual permite el desarrollo de procesos de análisis de
+datos mediante el encadenamiento de operadores a través de un
+entorno gráfico. Se usa en investigación, educación, capacitación,
+creación rápida de prototipos y en aplicaciones empresariales; por lo que
+fue utilizada en el proyecto “Análisis para Predicción de Ventas
+Utilizando Minería de Datos en Almacenes de Ventas de Grandes
+Superficies” de la Universidad Tecnológica de Pereira, con el fin de
+encontrar relaciones entre dos o más productos implicados en las
+ventas. Como resultado, se obtuvo acceso fácil y rápido a la información
+
+pero hubo problemas en el manejo de las bases de datos, la extracción y
+limpieza de los datos [19].
+
+263. DESARROLLO DEL PROYECTO
+
+El desarrollo del presente trabajo de grado se llevó a cabo haciendo uso de la
+metodología ágil SCRUM debido a la necesidad de obtener resultados pronto y
+a la naturaleza del proyecto que suponía requisitos cambiantes o poco
+definidos y donde la innovación, la competitividad y la productividad son
+fundamentales. A continuación se detallan a fondo los criterios tenidos en
+cuenta para la selección de la metodología [41]:
+
+e Presupuesto disponible: En el desarrollo de un proyecto de software los
+costos de implementación de cada metodología varían dependiendo de
+los requerimientos específicos que cada una de ellas posee, por lo cual
+Scrum, por ser metodología ágil, no demanda muchos gastos en
+cuestiones de personal y recursos para el desarrollo de los proyectos.
+
+e Tamaño del proyecto: Las metodologías tradicionales van enfocadas
+principalmente hacia proyectos grandes que conlleven desarrollos a
+largo plazo. En el caso de Scrum, está orientada principalmente a
+proyectos no demasiado extensos.
+
+e Tiempos límites de entrega: Las metodologías ágiles se caracterizan por
+tener tiempos cortos de diseño e implementación por sus cortas
+iteraciones. Por el contrario, las metodologías tradicionales poseen una
+mejor organización a la hora de la división del trabajo, conllevando
+iteraciones más prolongadas.
+
+e Necesidad de documentación: Para diversos equipos de trabajo,
+dependiendo de su tamaño y organización, se hace necesaria la
+creación de documentos con una mayor o menor profundidad; es decir,
+no todos los proyectos requieren documentación exhaustiva sobre su
+software o los procesos para llevarlo a cabo. Scrum carece del manejo
+de una documentación formal para el desarrollo de los proyectos ya que
+la única documentación que ofrece es el código resultado de las
+diferentes iteraciones.
+
+e Personal necesario: Scrum es la metodología que menos personal
+necesita ya que posee muy pocos roles y su tamaño crece dependiendo
+del grupo de programación.
+
+e Adaptabilidad, respuesta a cambios: Scrum, como metodología ágil,
+posee gran flexibilidad respuesta a los cambios que se pueden presentar
+en el desarrollo del proyecto mientras que las metodologías tradicionales
+son sensibles a cambios, principalmente en etapas avanzadas del
+proyecto.
+
+e Imposibilidad del cliente: Scrum tiene al cliente como parte del equipo
+llamándolo Product Owner, el cual participa constantemente de las
+correcciones y observaciones en las diferentes entregas de los Sprints.
+
+A continuación se detallan los roles de la metodología Scrum dentro del
+proyecto:
+
+271.
+
+Dueño del producto (Product Owner); en el desarrollo de este proyecto,
+este rol lo asumió el señor Andrés Tamayo quien fue la persona
+encargada de aclarar las necesidades del negocio y la forma en que se
+esperaba cubrir esas necesidades.
+
+Director Scrum (Scrum Master); este rol lo asumió el profesor Royer
+Estrada quien supervisó el avance del proyecto y las actividades
+llevadas a cabo en cada etapa para alcanzar los objetivos planteados.
+Miembros del equipo (Team Members); este rol lo asumió el estudiante
+Juan Sebastián Mejía, quien fue la persona encargada de diseñar y
+desarrollar el sistema SIATOD partiendo de las necesidades
+presentadas por el cliente, los requerimientos levantados a partir de
+dichas necesidades y la supervisión y guía brindada por el profesor y
+director de trabajo de grado, Royer Estrada.
+
+A continuación se presentan las iteraciones llevadas a cabo dentro del
+desarrollo del proyecto y las actividades desarrolladas:
+
+lteración 1
+o Planificación de la iteración
+"= Levantamiento de requerimientos del módulo Login.
+"= Planeación de desarrollo del módulo Login.
+o Ejecución de la iteración
+= Instalación del entorno de desarrollo.
+"= Configuración del entorno de desarrollo.
+"= Diseño del módulo Login.
+"= Desarrollo del módulo Login.
+"= Desarrollo documento de trabajo de grado.
+o Inspección y adaptación
+"= Reunión con stakeholders (muestra de prototipo).
+"= Pruebas.
+= Corrección de errores.
+= Actualización documento de trabajo de grado.
+Con esta iteración se trabaja en la consecución del objetivo específico 1.
+
+lteración 2
+
+o Planificación de la iteración
+"= Levantamiento de requerimientos del módulo Usuarios.
+"= Planeación de desarrollo del módulo Usuarios.
+
+o Ejecución de la iteración
+"= Diseño del módulo Usuarios.
+"= Desarrollo del módulo Usuarios.
+"= Desarrollo documento de trabajo de grado.
+
+o Inspección y adaptación
+"= Reunión con stakeholders (muestra de prototipo).
+"= Pruebas.
+"= Corrección de errores.
+
+28Con esta iteración se trabaja en la consecución del objetivo específico 1.
+
+e  lteración 3
+
+o Planificación de la iteración
+"= Levantamiento de requerimientos del módulo Productos.
+= Planeación de desarrollo del módulo Productos.
+
+o Ejecución de la iteración
+"= Diseño del módulo Productos.
+"= Desarrollo del módulo Productos.
+"= Desarrollo documento de trabajo de grado.
+
+o Inspección y adaptación
+"= Reunión con stakeholders (muestra de prototipo).
+"= Pruebas.
+"= Corrección de errores.
+
+Con esta iteración se trabaja en la consecución del objetivo específico 1.
+
+e  lteración 4
+
+o Planificación de la iteración
+"= Levantamiento de requerimientos del módulo Terceros.
+"= Planeación de desarrollo del módulo Terceros.
+
+o Ejecución de la iteración
+"= Diseño del módulo Terceros.
+"= Desarrollo del módulo Terceros.
+"= Desarrollo documento de trabajo de grado.
+
+o Inspección y adaptación
+"= Reunión con stakeholders (muestra de prototipo).
+"= Pruebas.
+"= Corrección de errores.
+
+Con esta iteración se trabaja en la consecución del objetivo específico 1.
+
+e  lteración 5
+
+o Planificación de la iteración
+"= Levantamiento de requerimientos del módulo Trámites.
+"= Planeación desarrollo del módulo Trámites.
+
+o Ejecución de la iteración
+= Diseño del módulo Trámites.
+"= Desarrollo del módulo Trámites.
+"= Desarrollo documento de trabajo de grado.
+
+o Inspección y adaptación
+"= Reunión con stakeholders (muestra de prototipo).
+"= Pruebas.
+
+29"= Corrección de errores.
+Con esta iteración se trabaja en la consecución del objetivo específico 1.
+
+e  lteración 6
+o Planificación de la iteración
+"= Levantamiento de requerimientos del módulo Datos
+básicos.
+= Planeación de desarrollo del módulo Datos básicos.
+o Ejecución de la iteración
+"= Diseño del módulo Datos básicos.
+"= Desarrollo del módulo Datos básicos.
+"= Desarrollo documento de trabajo de grado.
+o Inspección y adaptación
+"= Reunión con stakeholders (muestra de prototipo).
+"= Pruebas.
+"= Corrección de errores.
+Con esta iteración se trabaja en la consecución del objetivo específico 1.
+
+e  lteración 7
+o Planificación de la iteración
+"= Levantamiento de requerimientos del módulo Inteligencia
+de negocio.
+"= Planeación de desarrollo del módulo Inteligencia de
+negocio.
+o Ejecución de la iteración
+"= Diseño del módulo Inteligencia de negocio.
+"= Desarrollo del módulo Inteligencia de negocio.
+"= Desarrollo documento de trabajo de grado.
+o Inspección y adaptación
+"= Reunión con stakeholders (muestra de prototipo).
+"= Pruebas.
+= Corrección de errores.
+"= Desarrollo manual de instalación.
+"= Desarrollo manual de usuario.
+Con esta iteración se trabaja en la consecución de los objetivos
+específicos 2 y 3.
+
+3.1. DISEÑO
+
+3.1.1. HISTORIAS DE USUARIO
+
+ 
+
+Historia de Usuario
+
+ 
+
+Número: 1 Usuario: Administrador, Usuario privilegiado
+
+ 
+
+ 
+
+30Nombre historia: Registro de Proveedores
+
+ 
+
+Prioridad en negocio: Alta (Valor de priorización) Riesgo en desarrollo: Baja (Impacto en el sistema)
+
+Estimación: 4 (horas) lIteración asignada: 4 (Iteración en la que se desarrolla)
+
+ 
+
+Programador responsable: Juan Sebastián Mejía Goyeneche
+
+ 
+
+Descripción: Como usuario Administrador quiero registrar proveedores para almacenar de manera ordenada la
+información referente a ellos.
+
+ 
+
+Observaciones:
+
+ 
+
+Tabla 3.1.1.1 HU1 - Registro de proveedores. Fuente: Elaboración propia
+
+ 
+
+Historia de Usuario
+
+ 
+
+Número: 9 Usuario: Administrador, Usuario privilegiado
+
+Nombre historia: Registro de Clientes
+
+Prioridad en negocio: Alta Riesgo en desarrollo: Baja
+
+ 
+
+Estimación: 4 Iteración asignada: 4
+
+ 
+
+Programador responsable: Juan Sebastián Mejía Goyeneche
+
+Descripción: Como usuario Administrador quiero registrar personas para almacenar de manera ordenada la
+información referente a ellas.
+
+Observaciones: Cada persona registrada en el sistema tendrá un usuario asignado con su respectiva contraseña para
+el acceso al sistema. El registro de personas busca controlar el acceso al sistema.
+
+ 
+
+Tabla 3.1.1.2 HU9 — Registro de Clientes. Fuente: Elaboración propia
+
+ 
+
+Historia de Usuario
+
+ 
+
+Número: 13 Usuario: Administrador, Usuario privilegiado
+
+ 
+
+Nombre historia: Registro de Productos
+
+ 
+
+31Prioridad en negocio: Alta Riesgo en desarrollo: Baja
+
+ 
+
+Estimación: 4 lIteración asignada: 3
+
+Programador responsable: Juan Sebastián Mejía Goyeneche
+
+ 
+
+ 
+
+Descripción: Como usuario Administrador quiero registrar productos para almacenar de manera ordenada la
+información referente a ellos.
+
+ 
+
+Observaciones:
+
+ 
+
+Tabla 3.1.1.3 HU13 — Registro de Productos. Fuente: Elaboración propia
+
+ 
+
+Historia de Usuario
+
+ 
+
+Número: 17 Usuario: Administrador, Usuario privilegiado
+
+Nombre historia: Registro de Ingredientes
+
+ 
+
+Prioridad en negocio: Alta Riesgo en desarrollo: Baja
+
+ 
+
+Estimación: 4 Iteración asignada: 3
+
+Programador responsable: Juan Sebastián Mejía Goyeneche
+
+Descripción: Como usuario Administrador quiero registrar ingredientes para almacenar de manera ordenada la
+información referente a ellos.
+
+ 
+
+ 
+
+Observaciones:
+
+ 
+
+Tabla 3.1.1.4 HU17 — Registro de ingredientes. Fuente: Elaboración propia
+
+Historia de Usuario
+
+ 
+
+Número: 22 Usuario: Administrador, Usuario privilegiado
+
+ 
+
+Nombre historia: Registro de Compras
+
+ 
+
+Prioridad en negocio: Alta Riesgo en desarrollo: Alta
+
+ 
+
+ 
+
+32Puntos estimados: 5 Iteración asignada: 5
+
+ 
+
+ 
+
+Programador responsable: Juan Sebastián Mejía Goyeneche
+
+Descripción: Como usuario Administrador quiero registrar compras para mantener actualizado el inventario y
+almacenar información de la compra, correspondiente al proveedor, los ingredientes comprados, el valor total de la
+compra, hora de la compra, etc., la cuál será relevante al momento de aplicar minería de datos.
+
+ 
+
+Observaciones:
+
+ 
+
+Tabla 3.1.1.5 HU22 — Registro de compras. Fuente: Elaboración propia
+
+Historia de Usuario
+
+ 
+
+Número: 23 Usuario: Administrador, Usuario privilegiado
+
+ 
+
+Nombre historia: Registro de Ventas
+
+Prioridad en negocio: Riesgo en desarrollo:
+
+Alta Alta
+
+ 
+
+Puntos estimados: 5 lteración asignada: 5
+
+ 
+
+Programador responsable: Juan Sebastián Mejía Goyeneche
+
+Descripción: Como usuario Administrador quiero registrar ventas para mantener actualizado el inventario y
+almacenar información de la venta, correspondiente al cliente, los productos vendidos, el valor total de la venta, hora de
+la venta, mesa, etc., la cuál será relevante al momento de aplicar minería de datos.
+
+ 
+
+Observaciones:
+
+ 
+
+Tabla 3.1.1.6 HU23 — Registro de Ventas. Fuente: Elaboración propia
+
+ 
+
+Historia de Usuario
+
+me Usuario: Administrador, Usuario privilegiado
+
+ 
+
+33Nombre historia: Sincronizar Data Mart
+
+ 
+
+Prioridad en negocio: Riesgo en desarrollo:
+
+Alta Alta
+
+Puntos estimados: 5 lteración asignada: 7
+Programador responsable: Juan Sebastián Mejía Goyeneche
+
+Descripción:
+
+Como usuario Administrador quiero disponer de información consistente en el sistema para generar recomendación
+en los proceso de compra y venta precisa.
+
+ 
+
+Observaciones:
+
+ 
+
+Tabla 3.1.1.7 HU24 — Sincronizar Data Mart. Fuente: Elaboración propia
+
+ 
+
+Historia de Usuario
+
+ 
+
+Número: 25 Usuario: Administrador, Usuario privilegiado
+
+ 
+
+ 
+
+Nombre historia: Analizar compra
+
+ 
+
+ 
+
+Prioridad en negocio: Riesgo en desarrollo:
+Alta Alta
+Puntos estimados: 5 Iteración asignada: 7
+
+ 
+
+ 
+
+Programador responsable: Juan Sebastián Mejía Goyeneche
+
+ 
+
+Descripción:
+
+Como usuario Administrador quiero consultar qué ingredientes podría comprarle a cada proveedor para apoyar el
+proceso de compra de ingredientes a los proveedores.
+
+ 
+
+Observaciones:
+
+ 
+
+Tabla 3.1.1.8 HU24 — Analizar compra. Fuente: Elaboración propia
+
+34Historia de Usuario
+
+ 
+
+Número: 26 Usuario: Administrador, Usuario privilegiado
+
+ 
+
+Nombre historia: Analizar venta
+
+ 
+
+ 
+
+Prioridad en negocio: Riesgo en desarrollo:
+Alta Alta
+Puntos estimados: 5 lteración asignada: 7
+
+ 
+
+ 
+
+Programador responsable: Juan Sebastián Mejía Goyeneche
+
+ 
+
+Descripción:
+
+Como usuario Administrador quiero consultar qué productos podría ofrecerle a cada cliente para apoyar el proceso de
+venta logrando determinar ofertas de productos y consiguiendo la fidelización del cliente.
+
+ 
+
+Observaciones:
+
+ 
+
+Tabla 3.1.1.9 HU24 — Analizar venta. Fuente: Elaboración propia
+
+3.1.2. DIAGRAMAS DE SECUENCIA
+
+ 
+
+in Creátely
+
+Figura 3.1.2.1 DS5: Registro de Personas. Fuente: Elaboración propia
+
+35GUI Clientes Controlador Cliente Modelo Cliente
+
+Usuario
+
+    
+      
+ 
+   
+   
+   
+   
+
+1. iniciaSesion()
+
+2. creaCliente() . !
+3. registraCliente()
+
+   
+
+4. insCliente()
+
+5, executeQue
+
+6. Retorna éxito
+
+7. Retorna éxito
+
+8. Retorna éxito
+
+| ee
+[onkine hiagramming £ design] creátel y com
+
+Figura 3.1.2.2 DS9: Registro de Clientes. Fuente: Elaboración propia
+
+GUI Productos Controlador Producto Modelo Producto
+
+Usuario
+
+     
+   
+   
+   
+   
+   
+   
+
+E Inicaseñoni 2. creaProducto()
+
+3. registraProducto()
+
+4. insProducto()
+
+5, executeQuery
+
+6. Retorna éxito
+
+7. Retorna éxito
+
+8. Retorna éxito
+
+| lo
+¡onkine hiagramming 4 design] creátely.com
+
+Figura 3.1.2.3 DS13: Registro de Productos. Fuente: Elaboración propia
+
+36GUI Ingredientes Controlador Ingrediente Modelo Ingrediente
+
+Usuario
+
+        
+ 
+   
+     
+   
+   
+  
+
+1. iniciaSesion()
+
+2. crealngrediente() . !
+3. registralngrediente()
+
+4. insIngrediente()
+
+6. Retorna éxito
+
+7. Retorna éxito
+
+. 8. Retorna éxito
+9. Notifica crbación exitosa
+
+   
+     
+
+| ls
+ioníine hiagramming 4 design] creátely.com
+
+Figura 3.1.2.4 D17: Registro de Ingredientes. Fuente: Elaboración propia
+
+GUI Compras Controlador Compra Modelo Compra
+
+Usuario
+
+1. iniciaSesion()
+2. registroComprad)
+
+3. registraCompral)
+
+4. insCompra()
+
+5. executeQuery()
+
+B. Retorna éxito 7. Retorna éxito
+
+9. registraMovico
+10. registraMovicomp()
+
+|
+
+|
+
+|
+
+|
+
+! ”
+
+l 13, Retorna éxito
+|
+
+|
+
+| 14. actualizaDatos()
+|
+
+19. Notifica registro exitoso 18. Retorna éxito 17. Retorna éxito
+
+lo,
+“Cf
+j I [onfing diagramming 4 design] créately.com
+
+Figura 3.1.2.5 DS22: Registro de Compras. Fuente: Elaboración propia
+
+37T GUI Ventas OR Modelo Venta
+
+Usuario
+
+        
+      
+    
+    
+    
+ 
+   
+   
+
+1. iniciaSesion()
+2. registroVenta()
+
+3. registraWenta()
+
+4. insVenta
+
+5, executeQuery()
+
+A Retommadbdio 7. Retorna éxito
+
+   
+
+10. registraMovivent()
+
+13. Retorna éxito
+
+14. actualizaDatos()
+
+   
+
+18. Retorna éxito 17. Retorna éxito
+
+Po,
+a
+¿ 1 [onfing diagramming 4 design] creéately com
+
+Figura 3.1.2.6 DS23: Registro de Ventas. Fuente: Elaboración propia
+
+Usuario
+
+ 
+   
+   
+   
+ 
+   
+ 
+  
+
+1. iniciaSesion()
+
+2. sincronizaDW()
+
+3. sincronizaDW()
+
+4. sincDWO
+
+5. executeQue
+
+   
+
+6. executeQuery()
+
+7. Retorna éxito
+
+    
+    
+ 
+ 
+  
+
+     
+
+10. Retorna éxito 9, Retorna éxito 8. Retorna éxito
+
+11. Notifica Actualización
+exitpso
+
+  
+ 
+
+Nm.
+! | | | (dnine diagramming £ design] crbately com
+
+Figura 3.1.2.7 DS24: Sincronizar Data Mart. Fuente: Elaboración propia
+
+38] |
+Usuario
+! I
+
+|
+
+   
+
+ 
+   
+   
+
+1. iniciaSesion()
+
+2. analizaCompras()
+3. analizaCompras()
+
+ 
+   
+
+  
+
+|
+|
+|
+|
+|
+|
+|
+4. biCompras() |
+|
+
+   
+
+5. executeQuery()
+
+   
+  
+  
+
+6. Retorna datos
+
+    
+
+7. Retorna datos
+
+   
+
+9. presentaRecomendacion()
+
+  
+   
+  
+
+    
+ 
+
+| | |
+l ! bn ne diagramming 4 design] create! y com
+
+Figura 3.1.2.8 DS25: Analizar compras. Fuente: Elaboración propia
+
+Í GUIA Controlador E Modelo Bl
+
+Usuario
+
+   
+ 
+  
+
+    
+
+1. iniciaSesion()
+
+ 
+
+2. analizaWentas()
+
+3. analizaWentasl)
+
+    
+   
+
+4, biVentas()
+
+     
+
+5, executeQueryl)
+
+   
+ 
+
+6. Retorna datos
+
+       
+
+7. Retorna datos
+
+|
+l ! bn ne diagramming 4 design] create! Y com
+
+Figura 3.1.2.9 DS26: Analizar ventas. Fuente: Elaboración propia
+
+3.2. DESCRIPCIÓN GENERAL DEL SISTEMA
+
+El sistema de información SIATOD (Sistema de información y de apoyo a la
+toma de decisiones) cuenta con seis módulos que brindan las funcionalidades
+necesarias para la sistematización de los procesos de compra y venta dentro
+del establecimiento público Roger's y la posibilidad de brindar apoyo en la toma
+de decisiones al determinar predicciones en las compras y ventas realizadas
+como consecuencia de explotar los datos contenidos en el sistema de
+
+39información, convirtiéndolos en un valor agregado para la organización y
+generando una ventaja competitiva en el sector.
+
+3.2.1. MÓDULO DE USUARIOS
+
+Este módulo permite la administración de los usuarios dentro del sistema. Por
+medio de la creación y la asignación de un usuario a una persona se permitirá
+el acceso de la persona al sistema y se brindarán permisos sobre las opciones
+
+del sistema dependiendo el perfil que se asocie al usuario. El módulo de
+usuarios cuenta con la el submódulo Administrar Usuario que a su vez cuenta
+
+con las opciones Crear Usuario, para el registro de nuevos usuarios en el
+sistema, y Consultar Usuario, por medio de la cual es posible consultar los
+usuarios existentes en el sistema, modificarlos y eliminarlos.
+
+La información que se maneja por usuario es la siguiente: Usuario, clave,
+estado y perfil.
+
+ 
+
+Crear Usuario
+
+Registro de Usuarios
+
+Usuario Clave
+
+Estado Perfil
+
+1 - Activo v 1 - Administrador
+
+Figura 3.2.1.1 Formulario registro de usuario. Fuente: Elaboración propia
+
+3.2.2. MÓDULO DE PRODUCTOS
+
+Este módulo permite la administración de los productos que ofrece el
+establecimiento público Rogers y cuenta con los submódulos Administrar
+Producto y Administrar Categorías de Productos.
+
+3.2.2.1. SUBMÓDULO ADMINISTRAR PRODUCTO
+
+Este submódulo cuenta con las opciones Crear Producto, para el registro de
+nuevos productos en el sistema; Consultar Producto, por medio de la cual es
+posible consultar los productos existentes en el sistema, modificarlos y
+eliminarlos; y Composición de Producto, por medio de la cual es posible indicar
+qué ingredientes componen un producto y en qué cantidad, a modo de generar
+
+40las actualizaciones correspondientes en el inventario al momento de registrar la
+salida de algún producto.
+
+La información que se maneja por producto es la siguiente: Nombre, categoría
+y estado.
+
+Crear Producto
+
+Registro de Productos
+
+Nombre Categoría
+
+Estado
+
+1 - Activo
+
+Edi
+
+Figura 3.2.2.1.1 Formulario registro de producto. Fuente: Elaboración propia
+
+3.2.2.2. SUBMÓDULO ADMINISTRAR CATEGORÍAS DE
+PRODUCTOS
+
+Este submódulo cuenta con las opciones Crear Categoría, para el registro de
+nuevas categorías de productos en el sistema; y Consultar Categoría, por
+medio de la cual es posible consultar las categorías de productos existentes en
+el sistema, modificarlas y eliminarlas. Las categorías se asocian al producto en
+el momento en que éste se registra en el sistema por medio de la opción Crear
+
+Producto.
+
+La información que se maneja por categoría es la siguiente: Nombre y estado.
+
+3.2.3. MÓDULO DE TERCEROS
+
+Este módulo permite la administración de los terceros relacionados al
+establecimiento público Roger's y cuenta con los submódulos Administrar
+Proveedores, Administrar Clientes y Administrar Personas.
+
+3.2.3.1. SUBMÓDULO ADMINISTRAR PROVEEDORES
+
+Este submódulo cuenta con las opciones Crear Proveedor, para el registro de
+nuevos proveedores en el sistema; y Consultar Proveedor, por medio de la cual
+es posible consultar los proveedores existentes en el sistema, modificarlos y
+eliminarlos. Los proveedores son aquellas personas o entidades a quienes se
+les compran los ingredientes que hacen parte del inventario y con los cuales se
+preparan los productos que se ofrecen a los clientes.
+
+41La información que se maneja por proveedor es la siguiente: Código, nombre,
+dirección, teléfono, estado y email.
+
+ 
+
+Crear Proveedor
+
+Registro de Proveedores
+
+Código Proveedor Nombre Proveedor
+Dirección Teléfono
+
+Estado Email
+
+Figura 3.2.3.1.1 Formulario registro de proveedor. Fuente: Elaboración propia
+
+3.2.3.2. SUBMÓDULO ADMINISTRAR CLIENTES
+
+Este submódulo cuenta con las opciones Crear Cliente, para el registro de
+nuevos clientes en el sistema; y Consultar Cliente, por medio de la cual es
+posible consultar los clientes existentes en el sistema, modificarlos y
+eliminarlos. Los clientes son aquellas personas que consumen los productos
+ofrecidos por el establecimiento público Roger's.
+
+La información que se maneja por cliente es la siguiente: Código, nombres y
+apellidos, género, teléfono, ciudad, dirección, email, fecha de nacimiento y
+estado.
+
+Crear Cliente
+
+Registro de Clientes
+
+Código Cliente Nombres y Apellidos
+
+Género Teléfono
+
+1 - Masculino
+
+Ciudad Dirección
+
+05001 - MEDELLIN
+
+Email Fecha de Nacimiento
+
+dd/mm/aaaa
+
+Estados
+
+1 - Activo
+
+ 
+
+Figura 3.2.3.2.1 Formulario registro de cliente. Fuente: Elaboración propia
+
+423.2.3.3. SUBMÓDULO ADMINISTRAR PERSONAS
+
+Este submódulo cuenta con las opciones Crear Persona, para el registro de
+nuevas personas en el sistema; y Consultar Persona, por medio de la cual es
+posible consultar las personas existentes en el sistema, modificarlas y
+eliminarlas. Las personas son aquellos empleados del establecimiento público
+Roger's encargados de administrar el sistema. Cada persona tiene asociado un
+usuario único para controlar los accesos al sistema. El usuario a su vez está
+asociado a un perfil, otorgándole o denegándole así permisos sobre las
+opciones del sistema.
+
+La información que se maneja por persona es la siguiente: Código, nombres,
+apellidos, email, ciudad, dirección, teléfono, usuario y estado.
+
+3.2.4. MÓDULO DE TRÁMITES
+
+Este módulo permite el registro de los trámites llevados a cabo en el
+establecimiento público Rogers y cuenta con los submódulos Administrar
+Compras, Administrar Traslados de Bodega y Administrar Ventas.
+
+3.2.4.1. SUBMÓDULO ADMINISTRAR COMPRAS
+
+Este submódulo cuenta con las opciones Registrar Compra, para el registro en
+el sistema de las compras de ingredientes llevadas a cabo; y Consultar
+Compra, por medio de la cual es posible consultar las compras realizadas,
+modificarlas y eliminarlas. Durante el registro de la compra se asocia el
+proveedor al cual se le está comprando la mercancía. Posteriormente, se
+registran los movimientos de compra donde se indica el ingrediente que se
+compra, su cantidad, su costo unitario y la bodega a la cual ingresa el
+ingrediente. Al registrarse la compra y sus movimientos, se actualizará el
+inventario con los ingredientes registrados.
+
+La información que se maneja por compra es la siguiente: Código, proveedor,
+fecha, costo, estado y descripción.
+
+La información que se maneja por movimiento de compra es la siguiente:
+Secuencia, ingrediente, cantidad, costo unitario, costo total, bodega y estado.
+
+43Crear Compra
+
+Registro de Compras
+
+Código Compra Proveedor
+
+20160005 0987-34 - RICA
+
+Fecha Costo
+
+ddimm/aaaa 0
+
+Estado Descripción
+
+1 - Activo
+Es
+
+Movimientos de Compra
+
+Secuencia ingrediente Cantidad Costo Unitario Costo Total Bodega Estado
+
+1 2 - PRUEBA v 0 BOD1 - BODEGA PRINCIP2 Y 1-Activo Y
+
+Figura 3.2.4.1.1 Formulario registro de compra. Fuente: Elaboración propia
+
+3.2.4.2. SUBMÓDULO ADMINISTRAR TRASLADOS DE
+BODEGA
+
+Este submódulo cuenta con las opciones Registrar Traslado de Bodega, para el
+
+registro en el sistema de los movimientos de los ingredientes de una bodega a
+otra; y Consultar Traslado de Bodega, por medio de la cual es posible consultar
+
+los movimientos entre bodegas de los ingredientes.
+
+La información que se maneja por traslado de bodega es la siguiente: Bodega
+fuente, ingrediente, cantidad, bodega destino y observación.
+
+3.2.4.3. SUBMÓDULO ADMINISTRAR VENTAS
+
+Este submódulo cuenta con las opciones Hegistrar Venta, para el registro en el
+sistema de las ventas de productos llevadas a cabo; y Consultar Venta, por
+medio de la cual es posible consultar las ventas realizadas, modificarlas y
+eliminarlas. Durante el registro de la venta se asocia el cliente al cual se le está
+registrando la venta. Posteriormente, se registran los movimientos de venta
+donde se indica el producto que se vende, su cantidad, su costo unitario y la
+bodega de la cual se descuentan los ingredientes con los cuales se prepara el
+producto vendido. Al registrarse la venta y sus movimientos, se actualizará el
+inventario con los ingredientes afectados.
+
+La información que se maneja por venta es la siguiente: Código, cliente, fecha,
+costo, estado y descripción.
+
+La información que se maneja por movimiento de venta es la siguiente:
+Secuencia, producto, cantidad, costo unitario, costo total, bodega y estado.
+
+44Registrar Venta
+
+Registro de Ventas
+
+Código Venta Cliente
+
+20170012 1113219112 - MAIRA ALEJANDRA VICTORIA GOMEZ
+Fecha Costo
+0
+Estado Descripción
+
+1 - Activo
+
+Movimientos de Venta
+
+Secuencia Producto Cantidad Costo Unitario Costo Total Bodega Estado
+
+1 1 - COSTILLA AHUMADA v 0 BOD1 - BODEGA PRINCIPA Y 1-Activo Y
+
+Figura 3.2.4.3.1 Formulario registro de venta. Fuente: Elaboración propia
+
+3.2.5. MÓDULO DE DATOS BÁSICOS
+
+Este módulo permite la administración de los parámetros del sistema y
+cuenta con el submódulo Administrar Bodegas.
+
+3.2.5.1. SUBMÓDULO ADMINISTRAR BODEGAS
+
+Este submódulo cuenta con las opciones Crear Bodega, para el registro en el
+sistema de las bodegas en las cuales se almacenará el inventario; y Consultar
+Bodega, por medio de la cual es posible consultar las bodegas existentes en el
+sistema, modificarlas y eliminarlas.
+
+La información que se maneja por bodega es la siguiente: Código, nombre y
+estado.
+
+3.2.6. MÓDULO DE INTELIGENCIA DE NEGOCIO
+
+Este módulo permite aplicar minería de datos sobre los datos registrados en el
+sistema con el fin de determinar tendencias y comportamientos en los procesos
+
+de compra y venta, y generar predicciones sobre éstos. Cuenta con los
+submódulos Administrar Datos de Análisis y Análisis de Datos.
+
+453.2.6.1. SUBMÓDULO ADMINISTRAR DATOS DE ANÁLISIS
+
+Este submódulo cuenta con la opción Sincronizar Datos de Análisis, para
+sincronizar los datos del almacén de datos (Data Mart) con los registrados en la
+base de datos transaccional, ya que la minería de datos se aplica sobre el
+almacén de datos.
+
+Sincronización de Datos
+
+La Sincronización de datos le permite generar los procesos de Inteligencia de Negocio con los datos almacenados hasta la fecha actual; de lo contrario,
+la información empleada por estos procesos puede ser inconsistente
+
+Última sincronización ejecutada: 2017-03-16 00:04:05
+
+Figura 3.2.6.1.1 Sincronización de datos. Fuente: Elaboración propia
+
+3.2.6.2. SUBMÓDULO ANÁLISIS DE DATOS
+
+Este submódulo cuenta con las opciones Analizar Compras, para aplicar la
+minería de datos sobre los registros de las compras; y Analizar Ventas, para
+aplicar la minería de datos sobre los registros de las ventas. Por medio de
+estas opciones se determinan las tendencias de comportamiento en los
+procesos de compra y venta; y se generan las recomendaciones partiendo de
+los clientes más frecuentes y los productos más consumidos (para el caso de
+las ventas) y de los proveedores más frecuentes y los ingredientes más
+comprados (para el caso de las compras).
+
+La información que se maneja para el análisis de las ventas es la siguiente:
+Fecha de inicio, fecha final, frecuencia mínima de ventas, porcentaje de
+recomendación mínimo y cliente.
+
+46Analizar Venta
+
+Rango de Fechas
+
+Fecha Inicio Fecha Final
+
+dd/mm/aaaa ddimm/aaaa
+
+Frecuencia Mínima Porcentaje de Recomendación Mínimo
+
+1 1
+
+Cliente
+
+Consulta de Clientes
+
+Q
+
+Código Nombres y Apellidos Género Ciudad  FechaNacimiento TotalVentas Valor Acumulado Ventas
+
+Figura 3.2.6.2.1 Formulario Analizar venta. Fuente: Elaboración propia
+
+La información que se maneja para el análisis de las compras es la siguiente:
+Fecha de inicio, fecha final, frecuencia mínima de compras, porcentaje de
+recomendación mínimo y proveedor.
+
+Analizar Compras
+
+Criterios de Análisis
+
+Fecha Inicio Fecha Final
+
+dd/mm/aaaa dd/mm/aaaa
+
+Frecuencia Mínima de Compras Porcentaje de Recomendación Mínimo
+
+1 1
+
+Proveedor
+
+Resultado Análisis
+
+Código Nombre Valor Acumulado Compras Total Compras
+
+Figura 3.2.6.2.2 Formulario Analizar compra. Fuente: Elaboración propia
+
+3.3. ARQUITECTURA DEL SISTEMA IMPLEMENTADO
+
+La figura 3.3.1 describe el funcionamiento del sistema, los componentes que
+hacen parte de él y cómo se relacionan entre sí. El sistema cuenta con una
+arquitectura tipo cliente servidor, donde el servidor anfitrión, y sobre el cual está
+
+alojada la aplicación web, se encarga de procesar y dar respuesta a las
+peticiones recibidas por parte del cliente a través de una intranet o de internet.
+
+47Servidor Wamp o
+Front o Javascript
+A >
+=
+«¡Query
+
+mer
+Internet/Intranet PHP és php)
+
+Aplicación Web
+
+ 
+
+ 
+
+  
+
+Back End
+BD
+Transaccional
+MySQL
+UN
+
+= Base de Datos - di
+E Servidor = =
+Cliente a
+
+Figura 3.3.1 Arquitectura del sistema. Fuente: Elaboración propia
+
+La aplicación web responde a un patrón de diseño hmvc: Modelo-vistacontrolador jerárquico (hierarchical model-viwe-controller). El patrón de diseño
+mvc: modelo-vista-controlador separa los datos de la aplicación, la interfaz de
+usuario y la lógica de negocio en tres componentes distintos. Por su parte, el
+hmvc es una mejora del mvc donde su más grande característica y beneficio es
+dividir la aplicación en sub-aplicaciones (submódulos) donde cada subaplicación cuenta con su propio mvc.
+
+48Modelo Vista Controlador
+
+Modelo Vista Controlador Jerárquico dira d creately com
+
+Figura 3.3.2 Patrón de diseño MVC vs Patrón de diseño HMVC. Fuente:
+Elaboración propia
+
+3.4. DETALLES DE IMPLEMENTACIÓN
+
+Para el desarrollo del proyecto con el fin de dar cumplimiento a cada uno de los
+objetivos planteados, se inició con la realización de entrevistas para conocer en
+detalle los procesos de compra y venta llevados a cabo en el establecimiento
+público Roger's. Estas entrevistas se llevaron a cabo con la persona encargada
+de la administración del establecimiento y se apoyaron con el suministro de
+material físico con información relevante para los procesos (listados de
+ingredientes, productos y composición de ingredientes por producto).
+
+49Para cumplir con el primer objetivo (Implementar un sistema para la
+administración de la información), se llevó a cabo la implementación de los
+módulos Usuarios, Productos, Terceros, Trámites y Datos Básicos.
+
+Para cumplir con el segundo objetivo (Implementar una técnica de Minería de
+Datos para determinar patrones y reglas en los datos almacenados por el
+sistema de información), se llevó a cabo la implementación del módulo
+Inteligencia de Negocio. Para la implementación este módulo fue necesario
+seleccionar una técnica de minería de datos a partir de la cual obtener las
+reglas de asociación de los datos de interés en los procesos de compra y venta
+del establecimiento público. Para la técnica de reglas de asociación existen una
+serie de algoritmos tales como: A priori, DHP, Partition, FP-Growth y Eclat, de
+los cuales se seleccionó el más adecuado teniendo en cuenta los siguientes
+criterios: [31]
+
+e Accesos a la base de datos. Es importante que los algoritmos minimicen
+el recorrido por el almacén de datos debido a que el número de reglas
+crece exponencialmente con el de elementos considerados, lo cual
+puede afectar considerablemente el rendimiento del algoritmo.
+
+e Costo computacional: El algoritmo no debería realizar un gran número
+de operaciones.
+
+e Tiempo de ejecución: Se busca que no se requieran constantes accesos
+a la base de datos, reduciendo así el tiempo utilizado para la generación
+de reglas.
+
+e Rendimiento: El algoritmo debe realizar las operaciones y procesos
+adecuándose a los recursos disponibles.
+
+A continuación se presenta una tabla comparativa entre los algoritmos
+mencionados:
+
+ 
+
+Algoritmo
+
+Acceso a la B.D.
+
+Costo Computacional
+
+Rendimiento
+
+ 
+
+A priori
+
+ 
+
+Requiere varios accesos
+a la base de datos ya
+que busca directamente
+en ella los conjuntos de
+ítems frecuentes.
+
+Requiere de varios
+accesos a la base de
+datos ya que emplea una
+tabla hash con un valor
+
+hash dependiente de las
+ocurrencias en la base
+de datos de los conjuntos
+candidatos.
+
+ 
+
+Costoso debido a que el
+número de subconjuntos
+frecuentes en cada
+candidato es cada vez
+mayor y los niveles en el
+árbol de candidatos
+incrementa
+
+Memoria insuficiente
+cuando se utilicen tablas
+hash muy grandes.
+Emplea una tabla hash
+para reducir el número
+de candidatos y el
+espacio de memoria
+empleado por la tabla
+compite con el
+necesitado por el árbol
+
+ 
+
+50
+
+Presenta algunas
+mejoras en el
+rendimiento
+
+Se ve afectado si la
+tabla hash a utilizar
+produce insuficiencia
+en la memoriahash
+
+ 
+
+ 
+
+Partition Requiere de dos accesos | Más eficiente que el A Mejora el rendimiento
+a la base de datos para priori pero el costo en al reducir el número de
+el cálculo de ítems memoria es alto. ítems que contienen
+frecuentes. Requiere almacenar para | subconjuntos
+
+cada ítem el conjunto de | infrecuentes al igual
+transacciones que lo que el A priori
+contiene. El cálculo del
+soporte de un candidato
+obtenido por la unión de
+dos conjuntos frecuentes
+obliga a intersectar los
+dos conjuntos.
+ECLAT Requiere de un solo Alto costo en memoria. El realizar tareas de
+
+FP-Growth
+
+ 
+
+acceso a la base de
+datos.
+
+Requiere de pocos
+accesos a la base de
+datos.
+
+ 
+
+Requiere almacenar para
+cada ítem el conjunto de
+transacciones que lo
+contiene. El cálculo del
+soporte de un candidato
+obtenido por la unión de
+dos conjuntos frecuentes
+obliga a intersectar los
+dos conjuntos.
+
+Costo computacional
+bajo a pesar de requerir
+la creación de un árbol
+de prefijos de la base de
+datos de transacciones.
+
+ 
+
+agrupamiento requiere
+de pasos adicionales
+en su funcionamiento.
+Computacionalmente
+es más eficiente que el
+A priori.
+
+Se adecua a los
+recursos disponibles ya
+que genera un árbol
+FP-Tree de una base
+de datos proyectada si
+el árbol inicial no se
+puede alojar
+completamente en la
+memoria principal.
+
+ 
+
+Tabla 3.4.1 Comparación algoritmos asociativos. Adaptado a partir de [31]
+
+A partir del análisis anterior se seleccionó el algoritmo FP-Growth debido a la
+rápida determinación de asociaciones entre los ítems y a la adecuación que
+presenta a los recursos disponibles al momento de su ejecución. De la misma
+manera, se tiene en cuenta su eficiencia al momento de buscar los Ítems
+frecuentes.
+
+El algoritmo FP-Growth se apoya en una estructura de datos llamada FP-Tree
+(árbol de patrones frecuentes). En esta estructura de datos se busca almacenar
+información acerca de conjuntos de ítems frecuentes de forma compacta,
+logrando así tener mayor eficiencia al momento de realizar las consultas sobre
+los datos; es decir, se reduce el costo de computación del proceso de
+obtención de reglas de asociación ya que no es necesario generar los
+conjuntos de ítems candidatos a frecuentes y tampoco verificar si estos
+superan el umbral determinado [35].
+
+51Debido a que las transacciones de conjuntos de datos suelen compartir ítems
+frecuentes, el tamaño del árbol FP-Tree suele ser mucho menor que el tamaño
+del conjunto de datos original [35].
+
+La estructura del árbol FP-Tree consta de un nodo raíz que siempre es nulo y
+un conjunto de subárboles (correspondientes a las transacciones) hijos del
+nodo raíz (nodo nulo). Para la construcción del árbol, se recorre el conjunto de
+transacciones (movimientos de compras y de ventas) en busca de los ítems
+frecuentes (ingredientes y productos) y se contabilizan sus frecuencias para ser
+ordenados por esas frecuencias de manera decreciente. De esta forma, los
+ítems más frecuentes ocuparán los niveles de menor nivel (los más cercanos a
+la raíz) del árbol. Posteriormente, se recorre el conjunto de transacciones
+solamente con los ítems frecuentes para obtener las ramas del árbol [35].
+
+A continuación se presenta un ejemplo del proceso de creación del FP-Tree.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Id. Transacción Ítems Ítems frecuentes
+1 f,a,c,d,g,¡,m,p f,c,a,m,p
+2 a,b,c,f,l,m,o f,c,a,b,m
+3 b,f,h,j,o f.b
+4 b,c,k,s,p c,b,p
+5 a,f,c,e,!,p,m,n f,c,a,m,p
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 3.4.2 Conjunto de transacciones. Tomado de [35]
+
+Como resultado, se obtiene el FP-Tree presentado a continuación:
+
+ 
+
+ 
+
+O —h
+
+ 
+
+p Figura 3.4.1 FP-Tree. Tomado de [35]
+
+52A partir de la figura anterior se concluye que el ítem f está presente en cuatro
+transacciones a pesar de ser almacenado una sola vez en el árbol. Así mismo
+se concluye que las combinaciones (f,c,a,m,pj y [f,c,a,m) están presentes dos
+veces y que las combinaciones [f,c,a) y ([f,c) están presente tres veces. Si se
+determina que el umbral para la ejecución del algoritmo es 3, el resultado
+obtenido al podar el árbol con conjuntos de ítems frecuentes que cumplan con
+esa condición es el siguiente:
+
+Figura 3.4.2 FP-Tree aplicando umbral. Tomado de [35]
+
+ 
+
+Posteriormente, fue necesario determinar una manera de generar la
+recomendación a partir de los resultados obtenidos al ejecutar el algoritmo FPGrowth. Para ello se seleccionó el algoritmo Knn (K- vecinos más cercanos o
+algoritmo de los vecinos cercanos) teniendo en cuenta las siguientes
+características [34]:
+
+e Laspredicciones se realizan basándose en los elementos más parecidos
+al que hay que predecir.
+
+e Se determina un conjunto de referencia FR el cuál es el conjunto de
+prototipos sobre el que se buscan los vecinos más cercanos.
+
+e No hay un modelo global asociado a los conceptos a aprender.
+
+e El coste del aprendizaje es O ya que todo el coste pasa al cálculo de la
+predicción.
+
+e Se conoce como mecanismo de aprendizaje perezoso (lazy learning?).
+
+e Se debe especificar una métrica para poder medir la proximidad. La
+distancia euclidiana suele utilizarse por razones computacionales para
+este fin.
+
+Para la implementación de este algoritmo se llevaron a cabo los siguientes
+pasos:
+
+e En primer lugar se realiza el cálculo de la distancia euclidiana de cada
+muestra de entrenamiento hacia todas las demás. En este caso, la
+
+> https://en.wikipedia.org/wiki/Lazy_learning
+
+53muestra de entrenamiento corresponde al conjunto de ingredientes que
+componen a un producto. Este producto se toma como resultado de la
+ejecución del algoritmo FP-Growth. Los demás conjuntos corresponden
+a los ingredientes de los productos con los cuales se va a comparar el
+producto de referencia. Si los dos conjuntos en comparación tienen
+diferente número de elementos, se adiciona la cantidad de elementos
+necesaria al conjunto de menor cantidad de elementos para equilibrar
+las cantidades. Al comparar el conjunto (producto) de referencia R' con
+otro conjunto (producto) C, se genera un conjunto adicional V con los
+valores a utilizar en el cálculo de la distancia euclidiana. Si un elemento
+del conjunto de referencia R está presente en el conjunto C, se asigna
+un valor de cero (0) para esa relación de elementos; de lo contrario, se
+
+asigna un valor igual a
+
+1
+V = 7 *100
+
+Fórmula 3.4.1 Valor de divergencia
+
+Donde t es el número de elementos a comparar.
+
+Una vez obtenido el conjunto de valores V se procede a calcular la
+distancia euclidiana:
+
+d(R, C) = (Ry — C1)* + (R) — C2)* q tas (Ra — Cn)
+Fórmula 3.4.2 Distancia euclidiana
+
+Siendo R; el ingrediente ¡ del producto de referencia R y C; el ingrediente
+¡ del producto a comparar C.
+
+Donde R,, — Cn = Y, por lo que tenemos:
+
+d(R,C) = v (11)? + (12)? + + (1,)*
+
+Fórmula 3.4.3 Distancia euclidiana para la similitud entre productos
+
+Combinando Formula 3.1 con Fórmula 3.3, se tiene que:
+
+1 1 21 , 1 ,
+d(R,C)= [+ 100) + (+ 100) + (¿+ 100)3 + +-=+ (<* 100);
+
+Fórmula 3.4.4 Distancia euclidiana para la similitud entre productos
+
+54Obteniendo finalmente:
+
+100
+t
+
+ 
+
+A(R,CO)= [n*(—y?
+
+Fórmula 3.4.5 Distancia euclidiana para la similitud entre productos
+
+Donde:
+n: Cantidad de elementos que difieren entre los conjuntos
+t: Cantidad total de elementos del conjunto más grande.
+
+De esta forma, se obtiene el valor de la distancia euclidiana por cada
+producto C con el que se compara el producto A.
+e Se determina los productos C más similares a R. Entre más cercano sea
+
+el valor de la distancia euclidiana a cero, hay mayor similitud entre el
+producto C y el producto de referencia R; de lo contrario, entre mayor
+sea el valor obtenido, más difiere el producto C del producto de
+
+referencia A.
+e Como valor de recomendación, se plantea:
+
+r=100-— d(R,C)
+Fórmula 3.4.6 Valor de recomendación
+
+Donde d(R,C) es el valor de la distancia euclidiana entre el producto de
+referencia R y el producto en comparación C.
+
+e Se presentan como recomendaciones aquellos productos cuyo valor de
+recomendación supere el umbral de confiabilidad determinado.
+
+Una forma de obtener una medición cuantitativa de la complejidad lógica del
+programa es a través del cálculo de la complejidad ciclomática, la cual es una
+métrica del software. Esta métrica no se centra en los ciclos o bucles del
+programa sino en las decisiones (condiciones), las cuales están ligadas
+directamente a la complejidad lógica del código [37].
+
+Existen tres formas de calcular la complejidad ciclomática. Siendo:
+
+CC = Complejidad Ciclomática.
+
+A = Número de aristas del grafo (Una arista conecta dos vértices si una
+sentencia puede ser ejecutada inmediatamente después de la primera).
+
+N = Número de nodos del grafo correspondientes a sentencias del programa.
+
+meP = Número de nodos predicados (Aquellos nodos cuyo grado de salida es dos.
+Normalmente representados en un diagrama de flujo por condiciones
+booleanas).
+
+R = Número de regiones cerradas del grafo.
+
+Forma 1:
+
+CC=A-=N+2
+
+Fórmula 3.4.7 Complejidad Ciclomática — Forma 1
+
+Esta forma realiza un conteo de todas las aristas del grafo de nodos, luego
+cuenta la cantidad de nodos totales (nodos tradicionales + nodos predicados),
+finalmente sustrae la cantidad de nodos obtenida a la cantidad de aristas y le
+suma 2.
+
+Forma 2:
+
+CC=P+1
+
+Fórmula 3.4.8 Complejidad Ciclomática — Forma 2
+
+Aquí se realiza un conteo de los nodos predicados solamente y se le suma 1.
+Forma 3:
+
+CC=R+1
+
+Fórmula 3.4.9 Complejidad Ciclomática — Forma 3
+
+La tercera forma de cálculo propone identificar las regiones (cerradas) del grafo
+y le suma 1 para obtener el resultado.
+
+Según la complejidad ciclomática obtenida, el programa puede clasificarse de
+la siguiente manera:
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Complejidad ciclomática Evaluación de riesgo
+1-10 Programa simple sin mucho riesgo
+11-20 Programa complejo con riesgo moderado
+21-50 Programa muy complejo de alto riesgo
+50 Programa no testeable de muy alto riesgo
+
+ 
+
+Tabla 3.4.3 Evaluación Complejidad Ciclomática. Tomado de [38]
+
+A continuación se presenta la complejidad ciclomática de los algoritmos FPGrowth y Knn implementados en el desarrollo llevado a cabo:
+
+56FP-Growth (Ver Apéndice B).
+
+1
+
+   
+    
+ 
+    
+
+    
+ 
+
+   
+
+si si
+
+al E
+
+   
+ 
+
+no
+
+ 
+
+[a]
+a
+si UN a si
+il 13 Ñl 11 10
+5 16 1 18
+no
+26
+
+1
+
+   
+    
+ 
+
+si
+
+     
+ 
+
+pa
+Fl
+E
+E
+Fl
+no
+1
+
+a
+11
+
+  
+
+E
+0
+
+hs Ls
+[onkne diagramming 4 design] (Cf WWW cam
+[onfine diagramming 4 design] ( -l y
+
+ 
+
+AT
+
+Figura 3.4.3 FP-Diagrama de Flujo — Complejidad Ciclomática FP Growth.
+
+Elaboración propia
+
+57Obteniendo los siguientes valores:
+
+A =40
+N = 31
+P=16
+R=1
+
+Reemplazando los valores en la fórmula 3.4.7, se tiene que:
+CC =11.
+
+Reemplazando los valores en la fórmula 3.4.8, se tiene que:
+CC = 17.
+
+Reemplazando los valores en la fórmula 3.4.9, se tiene que:
+CC =2.
+
+KNN
+
+(Ver Apéndice C).
+
+ 
+
+no
+
+ 
+
+yl
+
+ho)
+
+ 
+
+agramming 4 design] create!y.com
+
+Figura 3.4.4 FP-Diagrama de Flujo — Complejidad Ciclomática KNN.
+Elaboración propia
+
+58Obteniendo los siguientes valores:
+
+A = 40
+N = 31
+P=16
+R=1
+
+Reemplazando los valores en la fórmula 3.4.7, se tiene que:
+CC =11.
+
+Reemplazando los valores en la fórmula 3.4.8, se tiene que:
+CC = 17.
+
+Reemplazando los valores en la fórmula 3.4.9, se tiene que:
+CC =2.
+
+Con base en los cálculos presentados anteriormente, se observa que en la
+mayoría de los casos la complejidad fue superior a 10 e inferior a 20, lo cual,
+según la tabla 3.4.3, indica que los algoritmos corresponden a un programa
+complejo con riesgo moderado, a excepción del cálculo de la complejidad
+ciclomática con la fórmula 3.4.9, en la cual, para los dos casos, el resultado es
+inferior a 10, lo cual indica que es un programa simple sin mucho riesgo. A
+partir de lo anterior, se puede decir que el aporte de este trabajo, a pesar de
+ser un poco complejo, resulta eficiente desde el punto de vista computacional.
+
+3.5. PRUEBAS
+
+Para comprobar el correcto comportamiento del sistema se aplicaron pruebas
+de sistema.
+
+3.5.1. PRUEBAS DE SISTEMA
+
+A continuación se presentan las pruebas aplicadas sobre los trámites de
+compra y ventas, y sobre el módulo de Inteligencia de Negocio.
+
+59PRUEBA DE ACEPTACIÓN
+
+ 
+
+ 
+
+ 
+
+NÚMERO DE PRUEBA 1
+NOMBRE DE LA PRUEBA Registrar compra
+TÍTULO HISTORIA DE USUARIO Registro de Compras
+
+ 
+
+ 
+
+DETALLE DE LA PRUEBA: Probar que se soliciten los datos requeridos para el registro de Compras
+
+ 
+
+RESULTADO ESPERADO RESULTADO OBTENIDO
+
+ESCENARIO 1: Intentar almacenar | Mensaje de error indicando el campo que | Mensaje de error indicando el
+la compra dejando campos debe ser diligenciado de forma campo que debe ser diligenciado de
+requeridos en nulo. obligatoria. forma obligatoria.
+
+ 
+
+ESCENARIO 2: Intentar almacenar
+la compra diligenciando todos los
+campos.
+
+Mensaje indicando que la creación de la Mensaje indicando que la creación
+compra fue exitosa. de la compra fue exitosa.
+
+ 
+
+ 
+
+ 
+
+ESTADO DE LA PRUEBA
+
+ 
+
+APROBADA NO APROBADA
+
+FIRMAS
+
+ 
+
+Juan Sebastián Mejía
+
+ELABGHA Goyeneche
+
+APROBÓ Andrés Tamayo
+
+ 
+
+ 
+
+ 
+
+OBSERVACIONES
+
+ 
+
+FECHA DE ELABORACIÓN 20-02-2017
+
+ 
+
+ 
+
+Tabla 3.5.1.1 Prueba de Sistema - Registrar Compra
+
+PRUEBA DE ACEPTACIÓN
+
+NÚMERO DE PRUEBA 1
+
+ 
+
+ 
+
+NÚMERO DE HISTORIA 1
+
+ 
+
+60NOMBRE DE LA PRUEBA Actualizar inventario por compra
+
+ 
+
+TÍTULO HISTORIA DE USUARIO Registro de Compras
+
+DETALLE DE LA PRUEBA: Probar que se actualice el inventario para los ingredientes con las cantidades indicadas
+
+en los movimientos de la compra.
+
+ 
+
+RESULTADO ESPERADO RESULTADO OBTENIDO
+
+ 
+
+ESCENARIO 1:
+
+1. Consultar las cantidades de un
+ingrediente en una bodega
+determinada.
+
+2. Crear una compra registrando
+
+movimientos de compra para el
+ingrediente y la bodega Actualización de la cantidad del Actualización de la cantidad del
+
+consultados previamente. ingrediente en bodega. ingrediente en bodega.
+
+3. Consultar nuevamente la
+cantidad del ingrediente para la
+bodega seleccionada y validar
+que dicha cantidad haya
+aumentado en las cantidades
+ingresadas en los movimientos
+de compra registrados.
+
+ 
+
+ESCENARIO 2:
+
+1. Partiendo de la compra registrada
+en el escenario 1, consultar las
+cantidades actuales del
+ingrediente en la bodega
+seleccionada.
+
+2. Eliminar uno o varios de los
+movimientos de compra del Actualización de la cantidad del Actualización de la cantidad del
+
+ingrediente y la bodega ingrediente en bodega. ingrediente en bodega.
+
+consultados previamente.
+
+3. Consultar nuevamente la
+cantidad del ingrediente para la
+bodega seleccionada y validar
+que dicha cantidad haya
+disminuido en las cantidades de
+los movimientos de compra
+eliminados.
+
+ 
+
+ 
+
+ESTADO DE LA PRUEBA
+
+ 
+
+APROBADA Xx NO APROBADA
+
+ 
+
+ 
+
+ 
+
+ 
+
+FIRMAS
+
+ 
+
+Juan Sebastián Mejía
+
+Goyeneche APROBO Andrés Tamayo
+
+ELABORÓ
+
+61OBSERVACIONES
+
+ 
+
+FECHA DE ELABORACIÓN 20-02-2017
+
+ 
+
+ 
+
+Tabla 3.5.1.2 Prueba de Sistema - Actualizar Inventario por Compra
+
+ 
+
+PRUEBA DE ACEPTACIÓN
+
+ 
+
+ 
+
+ 
+
+NÚMERO DE PRUEBA 1
+NÚMERO DE HISTORIA 1
+NOMBRE DE LA PRUEBA Registrar venta
+
+TÍTULO HISTORIA DE USUARIO Registro de Ventas
+
+ 
+
+ 
+
+DETALLE DE LA PRUEBA: Probar que se soliciten los datos requeridos para el registro de Ventas
+
+ 
+
+RESULTADO ESPERADO RESULTADO OBTENIDO
+
+ 
+
+ESCENARIO 1: Intentar almacenar | Mensaje de error indicando el campo que | Mensaje de error indicando el
+la venta dejando campos debe ser diligenciado de forma campo que debe ser diligenciado de
+requeridos en nulo. obligatoria. forma obligatoria.
+
+ 
+
+ESCENARIO 2: Intentar almacenar
+la venta diligenciando todos los
+campos.
+
+Mensaje indicando que la creación de la Mensaje indicando que la creación
+venta fue exitosa. de la venta fue exitosa.
+
+ 
+
+ 
+
+ESTADO DE LA PRUEBA
+
+ 
+
+APROBADA NO APROBADA
+FIRMAS
+
+Juan Sebastián Mejía
+Goyeneche
+
+FECHA DE ELABORACIÓN 20-02-2017
+
+ELABORÓ
+
+APROBÓ Andrés Tamayo
+
+ 
+
+ 
+
+Tabla 3.5.1.3 Prueba de Sistema - Registrar Venta
+
+62PRUEBA DE ACEPTACIÓN
+
+ 
+
+NÚMERO DE PRUEBA 1
+
+NÚMERO DE HISTORIA 1
+
+NOMBRE DE LA PRUEBA Actualizar inventario por venta
+
+ 
+
+TÍTULO HISTORIA DE USUARIO Registro de Ventas
+
+ 
+
+ 
+
+DETALLE DE LA PRUEBA: Probar que se actualice el inventario para los ingredientes implicados en los productos,
+con las cantidades indicadas, de los movimientos de la venta.
+
+ 
+
+RESULTADO ESPERADO RESULTADO OBTENIDO
+
+ 
+
+ESCENARIO 1:
+
+Consultar la composición de
+ingredientes de un producto
+determinado.
+
+Consultar las cantidades de los
+ingredientes del producto en una
+bodega determinada.
+
+Crear una venta registrando
+movimientos de venta para el Actualización de la cantidad del Actualización de la cantidad
+
+producto y la bodega ingrediente en bodega. del ingrediente en bodega.
+
+seleccionados.
+
+Consultar nuevamente la cantidad
+de los ingredientes para la bodega
+seleccionada y validar que dicha
+cantidad haya disminuido en las
+cantidades indicadas en la
+composición del producto por las
+cantidades ingresadas en los
+movimientos de venta registrados.
+
+ 
+
+ESCENARIO 2:
+
+Partiendo de la venta registrada en
+el escenario 1, consultar las
+cantidades actuales de los
+ingredientes del producto en la
+bodega seleccionada.
+
+Eliminar uno o varios de los
+movimientos de venta del producto | Actualización de la cantidad del Actualización de la cantidad
+
+y la bodega seleccionados. ingrediente en bodega. del ingrediente en bodega.
+
+Consultar nuevamente la cantidad
+de los ingredientes para la bodega
+seleccionada y validar que dicha
+cantidad haya aumentado en las
+cantidades indicadas en la
+composición del producto por las
+cantidades ingresadas en los
+movimientos de venta eliminados.
+
+ 
+
+ 
+
+ 
+
+63ESTADO DE LA PRUEBA
+
+ 
+
+APROBADA Xx NO APROBADA
+
+ 
+
+Juan Sebastián Mejía
+
+ 
+
+ 
+
+ELABORÓ APROBÓ Andrés Tamayo
+Goyeneche
+
+OBSERVACIONES
+
+FECHA DE ELABORACIÓN 20-02-2017
+
+ 
+
+ 
+
+Tabla 3.5.1.4 Prueba de Sistema - Actualizar Inventario por Venta
+
+PRUEBA DE ACEPTACIÓN
+
+ 
+
+NÚMERO DE PRUEBA
+
+ 
+
+NÚMERO DE HISTORIA
+
+NOMBRE DE LA PRUEBA Sincronizar Data Mart
+
+ 
+
+TÍTULO HISTORIA DE USUARIO Sincronizar Data Mart
+
+ 
+
+ 
+
+DETALLE DE LA PRUEBA: Probar la sincronización del data mart para mantener los datos fuente de las
+recomendaciones consistentes con los trámites registrados en el sistema.
+
+ 
+
+RESULTADO ESPERADO RESULTADO OBTENIDO
+
+ 
+
+Mensaje indicando que la
+sincronización fue exitosa. Al
+ingresar nuevamente a la opción de
+sincronización, se indica la fecha
+actual como fecha de la última
+sincronización ejecutada.
+
+ESTADO DE LA PRUEBA
+
+FIRMAS
+
+Mensaje indicando que la sincronización
+ESCENARIO 1: Presionar clic en el fue exitosa. Al ingresar nuevamente a la
+botón de sincronización del data opción de sincronización, se indica la
+mart. fecha actual como fecha de la última
+sincronización ejecutada.
+
+ 
+
+ 
+
+ 
+
+Juan Sebastián Mejía
+
+ELABORÓ Goyeneche
+
+APROBÓ Andrés Tamayo
+
+ 
+
+ 
+
+ 
+
+ 
+
+64OBSERVACIONES
+
+ 
+
+FECHA DE ELABORACIÓN 20-02-2017
+
+ 
+
+ 
+
+Tabla 3.5.1.5 Prueba de Sistema — Sincronizar Data Mart
+
+ 
+
+PRUEBA DE ACEPTACIÓN
+
+ 
+
+ 
+
+ 
+
+NÚMERO DE PRUEBA 1
+NÚMERO DE HISTORIA 1
+NOMBRE DE LA PRUEBA Analizar compras
+
+TÍTULO HISTORIA DE USUARIO Analizar Compra
+
+ 
+
+ 
+
+DETALLE DE LA PRUEBA: Probar la recomendación de ingredientes por proveedor bajo los criterios determinados
+por el usuario.
+
+ 
+
+RESULTADO ESPERADO RESULTADO OBTENIDO
+
+ 
+
+ESCENARIO 1: Probar la consulta de | Lista de proveedores frecuentes que Lista de proveedores frecuentes
+
+proveedores frecuentes para unos cumplan con los criterios establecidos que cumplan con los criterios
+criterios determinados. por el usuario. establecidos por el usuario.
+
+ 
+
+Ingredientes más comprados al
+proveedor en cuestión, teniendo en
+cuenta los criterios de
+recomendación indicados por el
+usuario.
+
+Ingredientes más comprados al
+proveedor en cuestión, teniendo en
+cuenta los criterios de recomendación
+indicados por el usuario.
+
+ESCENARIO 2: Generar
+recomendación de ingredientes a
+comprar a un proveedor determinado.
+
+ 
+
+ 
+
+ESTADO DE LA PRUEBA
+
+ 
+
+APROBADA Xx NO APROBADA
+
+ 
+
+FIRMAS
+
+ 
+
+Juan Sebastián Mejía
+
+ 
+
+ 
+
+ 
+
+ELABORÓ APROBÓ Andrés Tamayo
+Goyeneche
+
+OBSERVACIONES
+
+FECHA DE ELABORACIÓN 20-02-2017
+
+ 
+
+ 
+
+Tabla 3.5.1.6 Prueba de Sistema — Analizar compras
+
+65PRUEBA DE ACEPTACIÓN
+
+ 
+
+NÚMERO DE PRUEBA 1
+
+NÚMERO DE HISTORIA 1
+
+NOMBRE DE LA PRUEBA Analizar ventas
+
+ 
+
+TÍTULO HISTORIA DE USUARIO Analizar Venta
+
+ 
+
+ 
+
+DETALLE DE LA PRUEBA: Probar la recomendación de productos por cliente bajo los criterios determinados por el
+
+usuario.
+
+ 
+
+RESULTADO ESPERADO
+
+RESULTADO OBTENIDO
+
+ 
+
+ESCENARIO 1: Probar la consulta Lista de clientes frecuentes que
+de clientes frecuentes para unos cumplan con los criterios establecidos
+
+criterios determinados. por el usuario.
+
+Lista de clientes frecuentes que
+cumplan con los criterios
+establecidos por el usuario.
+
+ 
+
+ESCENARIO 2: Generar
+
+recomendación de productos para un
+
+cliente determinado. oo
+indicados por el usuario.
+
+Productos recomendados para el
+cliente en cuestión, teniendo en cuenta
+los criterios de recomendación
+
+ 
+
+Productos recomendados para el
+cliente en cuestión, teniendo en
+cuenta los criterios de
+recomendación indicados por el
+usuario.
+
+ESTADO DE LA PRUEBA
+
+APROBADA NO APROBADA
+
+ 
+
+FIRMAS
+
+ 
+
+Juan Sebastián Mejía
+Goyeneche
+
+ELABORÓ
+
+ 
+
+APROBÓ
+
+Andrés Tamayo
+
+ 
+
+ 
+
+OBSERVACIONES
+
+FECHA DE ELABORACIÓN
+
+ 
+
+20-02-2017
+
+ 
+
+Tabla 3.5.1.7 Prueba de Sistema — Analizar ventas
+
+663.6. ANÁLISIS DE RESULTADOS
+
+A continuación se presentan los resultados obtenidos a partir de las pruebas
+realizadas al sistema para algunos escenarios específicos en la recomendación
+para las ventas a los clientes y para las compras a los proveedores.
+
+VENTAS
+
+Para la ejecución del análisis de las ventas se tuvieron en cuenta dos
+escenarios: Recomendación de productos a los clientes más frecuentes para
+un lapso y recomendación de productos a un cliente específico a partir de todo
+su registro de ventas.
+
+Los escenarios se desarrollan bajo un total de cincuenta clientes registrados,
+los cuales, a su vez, están asociados a diferentes ventas y se tienen en cuenta
+los siguientes criterios para la recomendación:
+
+e Fecha de inicio: Fecha a partir de la cual se tendrán en cuenta las
+ventas registradas en el sistema. Este criterio debe ser nulo si el criterio
+Cliente toma valor.
+
+e Fecha final: Fecha hasta la que se tendrán en cuenta las ventas
+registradas en el sistema. Este criterio debe ser nulo si el criterio Cliente
+toma valor.
+
+e Frecuencia mínima de ventas: Número mínimo de ventas registradas a
+un cliente para considerarlo como cliente frecuente y también número
+mínimo de ventas de un producto a un cliente para determinarlo como
+producto frecuente.
+
+e Porcentaje de recomendación mínimo: Es el valor mínimo de similitud
+entre el producto a recomendar y el producto de referencia (producto
+comprado frecuentemente por el cliente) para considerarlo como
+producto recomendado.
+
+e Cliente: Es el código del cliente para el que se desea realizar la
+
+recomendación de productos. Este criterio debe ser nulo si los criterios
+Fecha inicial y Fecha final toman valor.
+
+Escenario 1
+
+Propósito: Obtener los productos recomendados a vender para los
+clientes más frecuentes del sistema en un lapso determinado (sin indicar
+el cliente), a partir de los siguientes criterios:
+
+ 
+
+ 
+
+Fecha de inicio Fecha final Frecuencia mínima Porcentaje de
+de ventas recomendación
+mínimo
+01-06-2016 10-05-2017 5 60
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 3.6.1 Criterios Análisis de ventas por lapso
+
+67Resultados esperados: Al ingresar los criterios descritos anteriormente,
+
+se espera que el sistema obtenga un total de cinco (5) clientes
+frecuentes:
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Código Género Ciudad Fecha de Valor Total
+Cliente nacimiento acumulado en | ventas
+ventas
+
+1116323448 Femenino TULUA 1995-11-25 $49,500 5
+1116252828 Femenino TULUA 1991-09-20 $87,500 6
+1117665123 Masculino TULUÁ 1988-12-06 $71,300 7
+1113219112 Femenino SANTIAGO 1991-11-05 $147,500 6
+
+DE CALI
+1116222290 Masculino TULUÁ 1991-04-26 $124,600 10
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 3.6.2 Resultado esperado: Clientes frecuentes por lapso
+
+Por cada cliente frecuente, se espera que el sistema obtenga los
+
+siguientes productos más frecuentes a partir de las ventas registradas al
+cliente:
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Código cliente | Código producto/s Nombre Productos Frecuencia de
+frecuente/s venta por
+producto
+1116323448 [1,9] [Costilla ahumada, chuzo de [2,3]
+cerdo]
+1116252828 [9] [Chuzo de cerdo] [6]
+1117665123 [16] [Hamburguesa de res] [7]
+1113219112 [17] [Hamburguesa mixta] [6]
+1116222290 [17,18] [Hamburguesa mixta, chuzo [5,5]
+mixto]
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 3.6.3 Resultado esperado: Productos frecuentes por Cliente
+
+Al ejecutar la recomendación de productos a vender a cada cliente, se
+espera que el sistema arroje por lo menos las siguientes
+recomendaciones para los productos cuya frecuencia de venta por
+cliente supere la indicada en los criterios iniciales (5):
+
+ 
+
+Código cliente Código producto/s Nombre Productos
+recomendado/s
+
+1116323448 No hay
+recomendaciones
+
+1116252828 [13,18] [Chuzo de pollo, Chuzo mixto]
+
+ 
+
+ 
+
+ 
+
+ 
+
+681117665123 [17,18] [Hamburguesa mixta, Chuzo
+mixto]
+1113219112 [13,15] [Chuzo de pollo, hamburguesa
+
+triple]
+
+ 
+
+1116222290 [9,13,15] [chuzo de cerdo, chuzo de
+
+pollo, hamburguesa triple]
+
+ 
+
+ 
+
+ 
+
+Tabla 3.6.4 Resultado esperado: Productos recomendados por Cliente
+
+Finalmente, se espera que los productos recomendados sean los
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+siguientes:
+
+Código Nombre Frecuencia de
+Producto recomendación
+
+9 Chuzo de cerdo 1
+
+13 Chuzo de pollo 3
+
+15 Hamburguesa triple carne 2
+
+17 Hamburguesa mixta 1
+
+18 Chuzo mixto 2
+
+ 
+
+ 
+
+ 
+
+Tabla 3.6.5 Resultado esperado: Productos recomendados por lapso
+
+Resultados obtenidos: Al ejecutar el proceso de análisis de ventas en
+el sistema con los criterios descritos anteriormente, se obtuvieron los
+siguientes clientes frecuentes:
+
+ 
+
+ 
+
+ 
+
+Código Género Fecha de Valor Total
+Cliente nacimiento | acumulado | ventas
+en ventas
+
+1116323448 | Femenino 1995-11-25 $49,500 5
+1116252828 | Femenino 1991-09-20 $87,500 6
+1117665123 | Masculino 1988-12-06 | $71,300 7
+1113219112 | Femenino | SANTIAGO | 1991-11-05 | $147,500 6
+
+DE CALI
+1116222290 | Masculino | TULUÁ 1991-04-26 | $124,600 10
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 3.6.6 Resultado obtenido: Clientes frecuentes por lapso
+
+Adicional a lo anterior, por medio de la clase Profiler? de Codeigniter, se
+monitoreó el rendimiento de los procesos ejecutados desde el sistema
+de tal manera que se logró conocer los recursos, las consultas
+realizadas a la base de datos y los tiempos de respuesta en cada caso.
+A continuación se presenta el monitoreo realizado con la clase Profiler
+en la búsqueda de los clientes frecuentes por lapso:
+
+€ https: //www.codeigniter.com/userguide2/general/profiling.html
+
+69BENCHMARKS
+Loading Time: Base Classes 0.1711
+Controller Execution Time (Bi/ConsultaClientesFrecuentes) 0.0662
+Total Execution Time 0.2378
+
+ 
+
+ 
+
+MEMORY USAGE
+2,436.352 bytes
+POST DATA
+$ POSTI[fechalnic”] 2016-06-01
+
+ 
+
+ 
+
+$ POST[fechaFina'] 2017-05-10
+$ POST[frecuMini” 5
+$ POST['porceMini” 60
+
+$ POST['cliente”]
+
+DATABASE: siatod QUERIES: 1
+
+ 
+
+ 
+
+ 
+
+SELECT *
+FROM factventas
+
+WHERE venta_fecha BETWEEN STR_TO_DATE( “2016-06-01?” ,>”2%Y-%m-%d? )
+AND STR_TO_DATE( “2017-05-10? ,”2%Y-%m-%d? )
+
+ORDER BY id _ venta
+
+ 
+
+Tabla 3.6.7 Profiler — Obtener clientes frecuentes
+Donde:
+
+e Benchmarks hace referencia los tiempos de carga, de ejecución
+del controlador y tiempo total de ejecución, indicado en segundos.
+
+e Memory Usage, hace referencia al uso de memoria en la
+ejecución del proceso, indicado en bytes.
+
+e Post data, hace referencia a los datos recibidos como criterios
+desde el formulario.
+
+e DATABASE, hace referencia a las consultas ejecutadas en la
+base de datos y su tiempo de ejecución en segundos.
+
+Por cada cliente frecuente, el sistema obtuvo los siguientes productos
+más frecuentes a partir de las ventas registradas al cliente:
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Código cliente | Código producto/s Nombre Productos Frecuencia de
+frecuente/s venta por
+producto
+1116323448 [1,9] [Costilla ahumada, chuzo de [2,3]
+cerdo]
+1116252828 [9] [Chuzo de cerdo] [6]
+1117665123 [16] [Hamburguesa de res] [7]
+1113219112 [17] [Hamburguesa mixta] [6]
+1116222290 [17,18] [Hamburguesa mixta, chuzo [5,5]
+mixto]
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 3.6.8 Resultado obtenido: Productos frecuentes por Cliente
+
+Al ejecutar la recomendación de productos a vender a cada cliente, el
+sistema arrojó las siguientes recomendaciones partiendo de los
+
+productos cuya frecuencia de ventas por cliente superó la indicada en
+los criterios iniciales (5):
+
+70Código cliente Código Porcentaje de recomendación (confianza >
+producto/s 60%) por producto/s
+
+1116323448 [-] No hay recomendaciones
+
+ 
+
+1116252828 [1,13,18] [66.67,62.26,66.67]
+
+ 
+
+1117665123 [17,18] [62,66.67]
+
+ 
+
+1113219112 [13,15] [70,86.67]
+
+ 
+
+1116222290 [1,9,13,15] [66.67,74.46,76,60.05,72.26]
+
+ 
+
+ 
+
+ 
+
+Tabla 3.6.9 Resultado obtenido: Productos recomendados por Cliente
+
+A continuación se presenta el monitoreo realizado con la clase Profiler
+en la recomendación de productos por cliente:
+
+BENCHMARKS
+Loading Time: Base Classes
+Controller Execution Time (Bi/ConsultaProduClien)
+Total Execution Time
+
+ 
+
+ 
+
+MEMORY USAGE
+2,432.656 bytes
+POST DATA
+
+$ POSTTidCliente] 1117665123
+
+$ POST[frecuMini”] 5
+
+$ POST['porceMini” 60
+DATABASE: siatod QUERIES: 1
+
+ 
+
+ 
+
+SELECT *
+FROM factventas,dimmovivent
+
+WHERE venta_cliente_id = “1117665123”
+AND id _movivent_venta = id_venta
+
+ 
+
+Tabla 3.6.10 Profiler — Recomendar productos por cliente
+
+A continuación se presentan los productos obtenidos como
+recomendación para cada uno de los clientes frecuentes:
+
+Análisis:
+
+e La primera parte del proceso de análisis de ventas para determinar
+los productos recomendados a los clientes se encarga de obtener los
+clientes con mayor frecuencia de ventas a partir de los criterios
+indicados. Los clientes obtenidos por el sistema como frecuentes
+(Tabla 3.6.6) coinciden con los clientes que se esperaban obtener
+(Tabla 3.6.2), logrando así un resultado exitoso en esta primera parte
+del proceso.
+
+e Posteriormente, en la segunda parte del proceso, el sistema obtiene
+los productos más vendidos a los clientes frecuentes (Tabla 3.6.7),
+los cuales cumplen con los productos presentados en la Tabla 3.6.3
+como resultado esperado. La ejecución de la segunda parte del
+proceso presenta resultados exitosos para el escenario planteado.
+
+71e Finalmente, por cada cliente se generan las recomendaciones de
+productos (Tabla 3.6.8) las cuales contienen las recomendaciones
+esperadas (Tabla 3.6.4). Sin embargo, el sistema generó algunos
+productos recomendados adicionales a los esperados (Tabla 3.6.4)
+debido a que los cálculos aplicados en los algoritmos utilizados (FPGrowth y KNN) determinaron un alto grado de similitud entre la
+composición de estos productos recomendados y la de los productos
+frecuentes.
+
+e Según la figura 3.6.1 y la figura 3.6.2, los datos tratados en el
+proceso son consistentes con los criterios enviados desde el
+formulario de Análisis de ventas; y el tiempo de ejecución es bajo y
+consistente con la complejidad condicional calculada previamente.
+
+Escenario 2
+
+Propósito: Obtener los productos recomendados a vender para un
+cliente específico (sin indicar fecha inicial ni fecha final), a partir de los
+
+siguientes criterios:
+
+ 
+
+ 
+
+Cliente Frecuencia mínima Porcentaje de
+de ventas recomendación
+mínimo
+1116252828 5 60
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 3.6.11 Criterios Análisis de ventas por cliente
+
+Resultados esperados: Al ingresar los criterios descritos anteriormente,
+se espera que el sistema valide si el cliente cumple con la frecuencia
+mínima de ventas indicada (5):
+
+ 
+
+Código Género Ciudad Fecha de Valor Total
+Cliente nacimiento | acumulado | ventas
+en ventas
+
+ 
+
+1116252828 | Femenino | TULUÁ 1991-09-20 | $87,500 6
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 3.6.12 Resultado esperado: Cliente específico para procesar
+
+Para el cliente a procesar, se espera que el sistema obtenga los
+siguientes productos más frecuentes a partir de las ventas registradas al
+cliente:
+
+ 
+
+Código cliente | Código producto/s Nombre Productos Frecuencia de
+frecuente/s venta por
+producto
+
+1116252828 [9] [Chuzo de cerdo] [6]
+
+ 
+
+Tabla 3.6.13 Resultado esperado: Productos frecuentes por Cliente específico
+
+72Al ejecutar la recomendación de productos a vender al cliente, se espera
+que el sistema arroje por lo menos las siguientes recomendaciones para
+los productos cuya frecuencia de venta por cliente supere la indicada en
+los criterios iniciales (5):
+
+ 
+
+ 
+
+Código cliente Código producto/s Nombre Productos
+recomendado/s
+1116252828 [13,18] [Chuzo de pollo, Chuzo
+mixto]
+
+ 
+
+ 
+
+Tabla 3.6.14 Resultado esperado: Productos recomendados por Cliente
+específico
+
+Finalmente, se espera que los productos recomendados sean los
+
+ 
+
+siguientes:
+Código Nombre Frecuencia de
+Producto recomendación
+
+Chuzo de pollo
+Chuzo mixto
+
+Tabla 3.6.15 Resultado esperado: Productos recomendados por cliente
+
+ 
+
+ 
+
+ 
+
+ 
+
+Resultados obtenidos: Al ejecutar el proceso de análisis de ventas en
+el sistema con los criterios descritos anteriormente, se obtuvieron los
+siguientes clientes frecuentes:
+
+ 
+
+Código Género Ciudad Fecha de Valor Total
+
+Cliente nacimiento acumulado en | ventas
+ventas
+
+1116252828 Femenino TULUÁ 1991-09-20 $87,500 6
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 3.6.16 Resultado obtenido: Cliente específico a procesar
+
+A continuación se presenta el monitoreo realizado con la clase Profiler
+en la validación del cliente a procesar:
+
+BENCHMARKS
+
+ 
+
+Loading Time: Base Classes 0.1741
+Controller Execution Time (Bi/ConsultaClientesFrecuentes) 0.0635
+
+ 
+
+Total Execution Time 0.2380
+MEMORY USAGE
+
+ 
+
+2,432.960 bytes
+
+POST DATA
+$ POST[fechalnic]
+
+ 
+
+$ POSTI[fechaFina]
+$ _POSTI[frecuMini]
+
+ 
+
+$ _POST[porceMini] 60
+
+ 
+
+$ _POST[cliente”] 1116252828
+DATABASE: siatod QUERIES: 1
+
+SELECT *
+FROM factventas
+
+WHERE venta_cliente_id = “1117665123”
+ORDER BY id_venta
+
+ 
+
+Tabla 3.6.17 Profiler — Validar cliente a procesar
+
+73Donde:
+
+e Benchmarks hace referencia los tiempos de carga, de ejecución
+del controlador y tiempo total de ejecución, indicado en segundos.
+
+e Memory Usage, hace referencia al uso de memoria en la
+ejecución del proceso, indicado en bytes.
+
+e Post data, hace referencia a los datos recibidos como criterios
+desde el formulario.
+
+e DATABASE, hace referencia a las consultas ejecutadas en la
+base de datos y su tiempo de ejecución en segundos.
+
+Para el cliente indicado, el sistema obtuvo los siguientes productos más
+frecuentes a partir de las ventas registradas al cliente:
+
+ 
+
+ 
+
+Código cliente | Código producto/s Nombre Productos Frecuencia de
+frecuente/s venta por
+producto
+1116252828 [9] [Chuzo de cerdo] [6]
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 3.6.18 Resultado obtenido: Productos frecuentes por Cliente
+
+Al ejecutar la recomendación de productos a vender al cliente, el sistema
+arrojó las siguientes recomendaciones:
+
+ 
+
+ 
+
+Código cliente Código Porcentaje de recomendación (confianza >
+producto/s 60%) por producto/s
+1116252828 [1,13,18] [66.67,62.26,66.67]
+
+ 
+
+ 
+
+ 
+
+Tabla 3.6.19 Resultado obtenido: Productos recomendados para el cliente
+
+A continuación se presenta el monitoreo realizado con la clase Profiler
+en la recomendación de productos por cliente:
+
+BENCHMARKS
+
+ 
+
+Loading Time: Base Classes
+Controller Execution Time (Bi/ConsultaProduClien)
+Total Execution Time
+MEMORY USAGE
+2,434. 800 bytes
+
+POST DATA
+
+$ _POST[idCliente”] 1116252828
+$ POSTI[frecuMini”
+$ POST[porceMini']
+
+DATABASE: siatod QUERIES: 1
+
+SELECT *
+FROM factventas,dimmovivent
+
+WHERE venta_cliente_id = “1117665123”
+AND id_movivente_venta = id venta
+
+ 
+
+Tabla 3.6.20 Profiler — Recomendar productos por cliente
+
+A continuación se presentan los productos obtenidos como
+recomendación para el cliente:
+
+74Código Nombre Frecuencia de
+Producto recomendación
+
+1 Costilla ahumada 1
+Chuzo de pollo
+Chuzo mixto
+
+Tabla 3.6.21 Resultado obtenido: Productos recomendados por cliente
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Análisis:
+
+e La primera parte del proceso de análisis de ventas para determinar
+los productos recomendados a un cliente específico se encarga de
+validar si dicho cliente cumple con los criterios indicados. En este, el
+resultado obtenido (Tabla 3.6.15) coincide con el resultado esperado
+(Tabla 3.6.11), logrando así un resultado exitoso en esta primera
+parte del proceso.
+
+e Posteriormente, en la segunda parte del proceso, el sistema obtiene
+los productos más vendidos al cliente específico (Tabla 3.6.16), los
+cuales coinciden con los productos presentados en la Tabla 3.6.12
+como resultado esperado. La ejecución de la segunda parte del
+proceso presenta resultados exitosos para el escenario planteado.
+
+e Finalmente, se generan las recomendaciones de productos para el
+cliente (Tabla 3.6.17) las cuales contienen las recomendaciones
+esperadas (Tabla 3.6.13). Sin embargo, el sistema generó algunos
+productos recomendados adicionales a los esperados (Tabla 3.6.13)
+debido a que los cálculos aplicados en los algoritmos utilizados (FPGrowth y KNN) determinaron un alto grado de similitud entre la
+
+composición de estos productos recomendados y la de los productos
+frecuentes.
+
+e Según la figura 3.6.3 y la figura 3.6.4, los datos tratados en el
+proceso son consistentes con los criterios enviados desde el
+formulario de Análisis de ventas; y el tiempo de ejecución es bajo y
+consistente con la complejidad condicional calculada previamente.
+
+COMPRAS
+
+Para la ejecución del análisis de las compras se tuvieron en cuenta dos
+escenarios: Recomendación de ingredientes a comprar a los proveedores más
+frecuentes para un lapso y recomendación de ingredientes a comprar a un
+proveedor específico a partir de todo su registro de compras.
+
+Los escenarios se desarrollan bajo un total de quince proveedores registrados,
+los cuales, a su vez, están asociados a diferentes compras y se tienen en
+cuenta los siguientes criterios para la recomendación:
+
+75e Fecha de inicio: Fecha a partir de la cual se tendrán en cuenta las
+compras registradas en el sistema. Este criterio debe ser nulo si el
+criterio Proveedor toma valor.
+
+e Fecha final: Fecha hasta la que se tendrán en cuenta las compras
+registradas en el sistema. Este criterio debe ser nulo si el criterio
+Proveedor toma valor.
+
+e Frecuencia mínima de compras: Número mínimo de compras
+registradas a un proveedor para considerarlo como proveedor frecuente
+y también número mínimo de compras de un ingrediente hechas a un
+proveedor para determinarlo como ingrediente frecuente.
+
+e Porcentaje de recomendación mínimo: Es el valor mínimo de
+recomendación de un ingrediente para sugerirlo como ingrediente a
+comprar a un proveedor.
+
+e Proveedor: Es el código del proveedor para el que se desea realizar la
+
+recomendación de ingredientes a comprar. Este criterio debe ser nulo si
+los criterios Fecha inicial y Fecha final toman valor.
+
+Escenario 1
+
+Propósito: Obtener los ingredientes recomendados a comprar a los
+proveedores más frecuentes del sistema en un lapso determinado (sin
+indicar el criterio Proveedor), a partir de los siguientes criterios:
+
+ 
+
+ 
+
+ 
+
+Fecha de inicio Fecha final Frecuencia mínima Porcentaje de
+de compras recomendación
+mínimo
+01-05-2017 10-05-2017 2 30
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 3.6.22 Criterios Análisis de compras por lapso
+
+Resultados esperados: Al ingresar los criterios descritos anteriormente,
+se espera que el sistema obtenga un total de cuatro (4) proveedores
+
+ 
+
+ 
+
+ 
+
+frecuentes:
+Código Valor acumulado en Total
+Proveedor compras compras
+890903939-5 $7'800,000 12
+859170424-7 $4'800,000 6
+872071372-7 $8,550,000 11
+860005224-6 $6'480,000 9
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 3.6.23 Resultado esperado: Proveedores frecuentes por lapso
+
+76Al ejecutar la recomendación de ingredientes a comprar a cada
+proveedor, se espera que el sistema arroje por lo menos las siguientes
+recomendaciones:
+
+ 
+
+ 
+
+ 
+
+Código Código ingrediente/s Nombre Ingrediente/s
+Proveedor recomendado/s
+890903939-5 [8,4,10] [Gaseosa Manzana,
+Jugo Hit Naranja Piña,
+Gaseosa Uva]
+859170424-7 [1,17,18] [Carne de res, papa
+
+criolla, papa R12]
+
+[carne de cerdo]
+[Cerveza Reds, Cerveza
+Aguila]
+
+Tabla 3.6.24 Resultado esperado: Ingredientes recomendados por Proveedor
+
+ 
+
+872071372-7
+860005224-6
+
+[2]
+[15,18]
+
+ 
+
+ 
+
+ 
+
+ 
+
+Finalmente, se espera que los ingredientes recomendados sean los
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+siguientes:
+
+Código Nombre Frecuencia de
+ingrediente recomendación
+
+1 Carne de res 1
+
+2 Carne de cerdo 1
+
+4 Jugo Hit Naranja Piña 1
+
+1
+
+1
+
+    
+
+10 Gaseosa Uva
+13
+15
+
+Cerveza Aguila
+Cerveza Reds
+Papa criolla
+Papa R12
+
+ 
+
+17
+18
+
+Tabla 3.6.25 Resultado esperado: Ingredientes recomendados por lapso
+
+ 
+
+mundo. | lo
+
+ 
+
+ 
+
+Resultados obtenidos: Al ejecutar el proceso de análisis de compras
+
+en el sistema con los criterios descritos anteriormente, se obtuvieron los
+siguientes proveedores frecuentes:
+
+ 
+
+ 
+
+ 
+
+ 
+
+Código Valor acumulado en Total
+Proveedor compras compras
+890903939-5 $7'800,000 12
+859170424-7 $4'800,000 6
+872071372-7 $8,580,000 11
+860005224-6 $6'480,000 9
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 3.6.26 Resultado obtenido: Proveedores frecuentes por lapso
+
+A continuación se presenta el monitoreo realizado con la clase Profiler
+
+en la búsqueda de los proveedores frecuentes por lapso:
+
+BENCHMARKS
+
+ 
+
+Loading Time: Base Classes
+
+Controller Execution Time
+(Bi/ConsultaProveedoresFrecuentes)
+
+ 
+
+Total Execution Time
+
+ 
+
+MEMORY USAGE
+
+ 
+
+772,439.512 bytes
+
+POST DATA
+
+$ POST[fechalnic”] 2017-04-01
+$ POSTI[fechaFina”] 2017-05-10
+$ POSTI[frecuMini']
+
+$ POST[porceMini'] 30
+
+ 
+
+ 
+
+$ POST[ proveedor]
+DATABASE: siatod QUERIES: 1
+
+ 
+
+SELECT *
+FROM factcompras
+
+WHERE compra_fecha BETWEEN STR_TO_DATE(*2017-04-01?” ,”%Y-%m-%d? )
+AND STR_TO_DATE( “2017-05-10” ,”2%Y-%m-%d? )
+
+ORDER BY id_compra
+
+ 
+
+Tabla 3.6.27 Profiler — Obtener proveedores frecuentes
+
+Al ejecutar la recomendación de ingredientes a comprar a cada
+proveedor, el sistema arrojó las siguientes recomendaciones partiendo
+de los ingredientes cuya frecuencia de compras por proveedor superó la
+indicada en los criterios iniciales (2):
+
+ 
+
+Código Proveedor Código Porcentaje de recomendación (confianza >
+ingrediente/s 30%) por ingrediente/s
+
+890903939-5 [8,4,10] [30.33, 33.33, 30]
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+859170424-7 [1,17,18] [33.33, 30, 30]
+872071372-7 [1,2] [30,33.33]
+860005224-6 [15,18] [46.66, 30]
+
+ 
+
+Tabla 3.6.28 Resultado obtenido: Ingredientes recomendados por Proveedor
+
+A continuación se presenta el monitoreo realizado con la clase Profiler
+en la recomendación de ingredientes por proveedor:
+
+BENCHMARKS
+Loading Time: Base Classes
+Controller Execution Time (Bi/ConsultalngreProve)
+Total Execution Time
+
+ 
+
+ 
+
+MEMORY USAGE
+2,433.424 bytes
+POST DATA
+$ POSTI[idProveedor” 890903939-5
+$ POSTI[frecuMini']
+$ POST[porceMini'] 30
+DATABASE: siatod QUERIES: 1
+
+ 
+
+ 
+
+ 
+
+SELECT *
+FROM factcompras,dimmovicomp
+
+WHERE compra_proveedor_id = “890903939-5”
+AND id_movicomp_compra = id_compra
+
+ 
+
+Tabla 3.6.29 Profiler —- Recomendar ingredientes por proveedor
+
+A continuación se presentan los ingredientes obtenidos como
+recomendación para cada uno de los proveedores frecuentes:
+
+ 
+
+Código Nombre Frecuencia de
+Ingrediente recomendación
+
+Carne de res
+Carne de cerdo
+
+ 
+
+ 
+
+ 
+
+ 
+
+784 Jugo Hit Naranja Piña 1
+8 Gaseosa Manzana 1
+10 Gaseosa Uva 1
+13 Cerveza Águila 1
+15 Cerveza Reds 1
+17 Papa criolla 1
+18 Papa R12 1
+
+ 
+
+ 
+
+ 
+
+Tabla 3.6.30 Ingredientes recomendados por lapso
+
+Análisis:
+
+e La primera parte del proceso de análisis de compras para determinar
+los ingredientes recomendados por proveedor se encarga de obtener
+los proveedores con mayor frecuencia de compras a partir de los
+criterios indicados. Los proveedores obtenidos por el sistema como
+frecuentes (Tabla 3.6.22) coinciden con los proveedores que se
+esperaban obtener (Tabla 3.6.19), logrando así un resultado exitoso
+en esta primera parte del proceso.
+
+e Finalmente, por cada proveedor se generan las recomendaciones de
+ingredientes — (labla  3.6.23) las cuales contienen las
+recomendaciones esperadas (Tabla 3.6.20). Sin embargo, el sistema
+generó algunos ingredientes recomendados adicionales a los
+esperados (Tabla 3.6.20) debido a que los cálculos aplicados en los
+algoritmos utilizados (FP-Growth y KNN) determinaron otros
+ingredientes como frecuentes.
+
+e Según la figura 3.6.5 y la figura 3.6.6, los datos tratados en el
+proceso son consistentes con los criterios enviados desde el
+formulario de Análisis de compras; y el tiempo de ejecución es bajo y
+consistente con la complejidad condicional calculada previamente.
+
+Escenario 2
+
+Propósito: Obtener los ingredientes recomendados a comprar a un
+proveedor específico (sin indicar fecha inicial ni fecha final), a partir de
+los siguientes criterios:
+
+ 
+
+Código Proveedor Frecuencia mínima Porcentaje de
+de compras recomendación
+mínimo
+
+ 
+
+890903939-5 2 30
+
+ 
+
+Tabla 3.6.31 Criterios Análisis de compras por proveedor
+
+Resultados esperados: Al ingresar los criterios descritos anteriormente,
+se espera que el sistema valide si el proveedor cumple con la frecuencia
+mínima de compras indicada (2):
+
+79Código Valor Total
+
+ 
+
+Proveedor acumulado en | compras
+compras
+890903939-5 $7'800,000 12
+
+ 
+
+ 
+
+Tabla 3.6.32 Resultado esperado: Proveedor específico para procesar
+
+Al ejecutar la recomendación de ingredientes a comprar al proveedor, se
+espera que el sistema arroje por lo menos las siguientes
+recomendaciones:
+
+ 
+
+ 
+
+Código Código ingrediente/s Nombre Ingrediente/s
+Proveedor recomendado/s
+890903939-5 [8,4,10] [Gaseosa Manzana,
+
+Jugo Hit Naranja Piña,
+Gaseosa Uva]
+
+Tabla 3.6.33 Resultado esperado: Ingredientes recomendados por Proveedor
+específico
+
+ 
+
+ 
+
+Finalmente, se espera que los ingredientes recomendados sean los
+
+ 
+
+siguientes:
+Código Nombre Frecuencia de
+ingrediente recomendación
+
+Jugo Hit Naranja Piña
+Gaseosa Manzana
+10 Gaseosa Uva 1
+
+Tabla 3.6.34 Resultado esperado: Ingredientes recomendados por Proveedor
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Resultados obtenidos: Al ejecutar el proceso de análisis de compras
+en el sistema con los criterios descritos anteriormente, se obtuvieron los
+siguientes datos del proveedor a procesar:
+
+ 
+
+ 
+
+Código Valor acumulado en Total
+Proveedor compras compras
+890903939-5 $7'800,000 12
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 3.6.35 Resultado obtenido: Proveedor específico a procesar
+
+A continuación se presenta el monitoreo realizado con la clase Profiler
+en la validación del proveedor a procesar:
+
+BENCHMARKS
+
+Loading Time: Base Classes
+
+Controller Execution Time
+(Bi/ConsultaProveedoresFrecuentes)
+
+Total Execution Time
+
+ 
+
+ 
+
+MEMORY USAGE
+EAS
+
+2,436.672 bytes
+POST DATA
+
+ 
+
+$ POSTI[fechalnic”]
+$ POSTI[fechaFina”]
+$ POST[frecuMini” 2
+
+ 
+
+ 
+
+ 
+
+80$ POSTI[porceMini'] 30
+
+$ POST[ proveedor] 890903939-5
+
+DATABASE: siatod QUERIES: 1
+
+SELECT *
+
+FROM factcompras
+WHERE compra_proveedor_id = “890903939-5”
+ORDER BY id_compra
+
+ 
+
+Tabla 3.6.36 Profiler — Validar proveedor a procesar
+
+Al ejecutar la recomendación de ingredientes a comprar al proveedor, el
+sistema arrojó las siguientes recomendaciones:
+
+ 
+
+Código Proveedor Código Porcentaje de recomendación (confianza >
+ingrediente/s 30%) por ingrediente/s
+890903939-5 [8,4,10] [30.33, 33.33, 30]
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 3.6.37 Resultado obtenido: Ingredientes recomendados para el
+proveedor
+
+A continuación se presenta el monitoreo realizado con la clase Profiler
+en la recomendación de ingredientes por proveedor:
+
+BENCHMARKS
+Loading Time: Base Classes
+Controller Execution Time (Bi/ConsultalngreProve
+Total Execution Time
+MEMORY USAGE
+2,437.968 bytes
+POST DATA
+$ POSTI[idProveedor” 890903939-5
+$ POST[frecuMini']
+$ POSTI[porceMini'] 30
+
+DATABASE: siatod QUERIES: 1
+
+SELECT *
+FROM factcompras,dimmovicomp
+
+WHERE compra_proveedor_id = “890903939-5”
+AND id_movicomp_compra = id_compra
+
+ 
+
+Tabla 3.6.38 Profiler —- Recomendar ingredientes por proveedor
+
+A continuación se presentan los ingredientes obtenidos como
+recomendación para el proveedor:
+
+ 
+
+Código Nombre Frecuencia de
+Ingrediente recomendación
+
+Jugo Hit Naranja Piña
+Gaseosa Manzana
+Gaseosa Uva
+
+Tabla 3.6.39 Resultado obtenido: Ingredientes recomendados por proveedor
+
+ 
+
+ 
+
+ 
+
+ 
+
+Análisis:
+
+e La primera parte del proceso de análisis de compras para determinar
+los ingredientes recomendados a comprar a un proveedor específico
+
+81se encarga de validar si dicho proveedor cumple con los criterios
+indicados. En este, el resultado obtenido (Tabla 3.6.29) coincide con
+el resultado esperado (Tabla 3.6.26), logrando así un resultado
+exitoso en esta primera parte del proceso.
+
+Finalmente, se generan las recomendaciones de ingredientes a
+comprar al proveedor (Tabla 3.6.30) las cuales contienen las
+recomendaciones esperadas (labla 3.6.27), logrando así un
+resultado exitoso y preciso a partir de los cálculos aplicados en los
+algoritmos utilizados (FP-Growth y KNN).
+
+Según la figura 3.6.7 y la figura 3.6.8, los datos tratados en el
+proceso son consistentes con los criterios enviados desde el
+formulario de Análisis de ventas; y el tiempo de ejecución es bajo y
+consistente con la complejidad condicional calculada previamente.
+
+824. CONCLUSIONES Y TRABAJOS FUTUROS
+
+En este capítulo se presentan las conclusiones del trabajo de grado con
+respecto a los objetivos cumplidos y en general al proceso de desarrollo del
+sistema. Finalmente se presentan algunas líneas de trabajo futuro.
+
+4.1. CONCLUSIONES
+
+A partir de la revisión bibliográfica llevada a cabo, se concluye que la
+información siempre estará presente en todo negocio, sin importar el
+área a la que pertenezca, y de su explotación y buen uso depende en
+gran medida el éxito o el fracaso en el mercado.
+
+Las técnicas de asociación son determinantes para obtener un análisis
+preciso, basado en grandes volúmenes de datos. En este caso, permite
+identificar de manera rápida y fácil los comportamientos presentes en la
+compra de ingredientes a los proveedores y en las ventas realizadas a
+los clientes, a fin de tomar decisiones ventajosas en cuanto a lo que se
+compra y lo que se vende
+
+Aplicar una técnica de minería de datos siempre dependerá de diversos
+factores como la lógica de negocio que se maneja, la cantidad de datos
+que se tienen, los atributos que se quieren analizar y el rendimiento; por
+lo cual no hay una técnica que se pueda considerar a nivel general como
+más ventajosa que las demás.
+
+La combinación de una técnica de asociación, como lo es el algoritmo
+FP-Growth y una técnica de clasificación, como lo es el algoritmo Knn,
+resulta eficiente en cuestiones de rendimiento y consistente en relación
+a los resultados generados desde diversos escenarios.
+
+4.2. TRABAJOS FUTUROS
+
+Integrar al sistema de información el proceso de facturación para
+centralizar toda la operación del establecimiento público Roger's en el
+sistema.
+
+Integrar al sistema de información recomendaciones a partir de diversos
+criterios, por ejemplo, lo más comprado por un cliente en un determinado
+día de la semana, las horas en las que más se realizan ventas y qué es
+lo que más se vende, qué es lo que más consumido por los hombres y
+por las mujeres, entre otras.
+
+Integrar al sistema de información alertas que ayuden a controlar las
+existencias (escasez o exceso) de los ingredientes en el inventario.
+
+83A. APÉNDICE A
+
+HISTORIAS DE USUARIO
+
+GUI Cliente Controlador Cliente Modelo Cliente
+
+Usuario
+
+      
+   
+  
+  
+
+1. iniciaSesion()
+
+ 
+   
+
+2. consultaCliente() .
+3. consultaCliente()
+
+ 
+
+ 
+  
+
+4. consCliente()
+
+      
+   
+  
+  
+
+5. executeQuery
+
+   
+ 
+  
+
+6. Retorna datos
+
+ 
+
+ 
+ 
+
+7. Retorna datos
+8. Retorna datos | llsoo=======
+
+ 
+ 
+
+|
+|
+9. presntaDatos
+
+|
+[onind diagramming 4 design] créately com
+
+Figura A.1 DS Consultar Cliente. Elaboración propia
+
+GUI Compra Controlador Compra Modelo Compra
+
+|
+
+Usuario |
+| J
+|
+
+     
+ 
+  
+
+ 
+   
+
+1. iniciaSesion()
+
+ 
+
+2. consultaCompral()
+3. consultaCompra()
+
+    
+
+4. consCompra()
+
+ 
+  
+
+   
+
+ 
+  
+     
+ 
+ 
+  
+
+5. executeQuery!
+
+6. Retorna datos
+
+    
+ 
+   
+ 
+
+ 
+ 
+ 
+    
+
+  
+
+7. Retorna datos
+8. Retorna datos | ecceaam mm m
+
+ 
+
+ 
+
+9. presfnta Datosí)
+
+| |
+[on ná diagramming 4 design] create! y com
+
+Figura A.2 DS Consultar Compra. Elaboración propia
+
+84GUI Ingrediente Controlador Ingrediente Modelo Ingrediente
+
+Usuario
+
+   
+   
+      
+
+1. iniciaSesion() |
+2. consultalngrediente
+
+4, consingrediente
+
+0
+
+6. Retorna datos
+
+7. Retorna datos
+8, Retorna datos — MMS
+
+ 
+
+Figura A.3 DS Consultar Ingrediente. Elaboración propia
+
+GUI Producto Controlador Producto Modelo Producto
+
+Usuario
+
+ 
+   
+ 
+   
+ 
+
+1. iniciaSesion()
+
+  
+
+2. consultaProducto()
+
+  
+   
+
+3. consultaProducto()
+
+4. consProducto()
+
+5. executeQuery!
+
+6. Retorna datos
+
+ 
+
+7. Retorna datos
+8. Retorna datos IM cu cm o
+
+ 
+
+|
+|
+9, presfntaDatos
+
+Figura A.4 DS Consultar Producto. Elaboración propia
+
+85
+
+     
+  
+
+   
+
+lontind diagramming 4. design] create! y com
+
+  
+ 
+  
+
+   
+
+[onind diagramming 4 design] créatel y comGUI Proveedor Controlador Proveedor Modelo Proveedor
+
+Usuario
+
+      
+ 
+  
+   
+  
+
+1. iniciaSesion()
+
+2. consultaProveedor( 3. consultaProveedor
+
+0
+
+   
+
+ 
+
+: 8. Retorna datos
+
+Figura A.5 DS Consultar Proveedor. Elaboración propia
+
+4. consProveedor()
+
+7. Retorna datos
+
+6. Retorna datos
+
+  
+   
+    
+  
+
+loniink diagramming 4 design] create! y com
+
+GUI Venta Controlador Venta Modelo Venta
+
+Usuario
+
+     
+   
+   
+  
+
+1. iniciaSesion()
+
+2. consultaWenta()
+3. consultaVenta(]
+
+4. consVenta()
+
+   
+
+7. Retorna datos
+
+ 
+
+8. Retorna datos
+
+Figura A.6 DS Consultar Venta. Elaboración propia
+
+86
+
+6. Retorna datos
+
+  
+   
+    
+  
+
+aa
+
+[onink diagramming 4 design] create! y comB. APÉNDICE B
+COMPLEJIDAD CICLOMÁTICA -— ALGORITMO FP-GROWTH
+
+1. Inicio
+2. $fechalnic = $ POST['fechalnic'];
+
+$fechaFina = $ POST[ 'fechaFina'];
+
+$frecuMini = $ POST['frecuMini'];
+
+$porceMini = $ POST['porceMini'];
+
+$cliente = $ POST['cliente'];
+
+$clienteCodi = substr(fcliente,0,strpos($cliente,'-',0) - 1);
+
+$this->load->model('bi_model')>);
+
+$ventas = $this->bi_model>consClieVvent($fechalInic,$fechaFina,$clienteCodi);
+. if(fventas != false)
+. if(is array($this->frequentltem))
+. if(is array($value))
+. if (empty($this->supportCount[$v]))
+. $this->supportCount[$v] = 1;
+. $this->supportCount[$v] = $this->supportCount[$v] + 1;
+. ksort($this->supportCount);
+
+arsort($this->supportCount);
+
+10.if(is array(f$fsupportCount))
+11. if (f$value >= $minimumSupportCount)
+12. $this->supportCount[$key] = $value;
+13. if(isset(fv[$key]))
+14. fordered[$key] = $v[$key]';
+15. if(is array(forderedFrequentlItem))
+16. case 2
+17. if(empty($FPTree[0]['child'][fitemValue]))
+18. $FPTree[0]['child'][fitemValue] = array('item' => fitemValue,'count' =>
+1,'child' => null,);
+19. $FPTree[0][ 'child'][fitemValue]['count'] =
+$FPTree[o]['child'][fitemValue] ['count'] + 1;
+20. case 3
+21. if(empty($FPTree[0e]['child'][$FPTreeTempKey[1]]['child'][f$itemValue]))
+22. $FPTree[0][ 'child'][$FPTreeTempKey[1]]['child'][fitemValue] =
+array('item' => fitemValue,'count'=> 1,'child' => null,);
+23. $FPTree[0][ 'child'][$FPTreeTempKey[1]]['child'][f$itemValue]['count'] =
+$FPTree[o]['child'][$FPTreeTempKey[1]]['child'][S$itemValue]['count'] + 1;
+24. case 4
+25.if(empty($FPTree[0]['child'][$FPTreeTempKey[1]]['child'][$FPTreeTempKey[2]
+J[*child'][$f$itemValue]))
+26.
+$FPTree[0]['child'][$FPTreeTempKey[1]]['child'][$FPTreeTempKey[2]]['child'J[$
+itemValue] = array('item' => fitemValue, 'count' => 1,'child' => null,);
+27.
+$FPTree[o]['child'][$FPTreeTempKey[1]]['child'][$FPTreeTempKey[2]]['child'][$
+itemValue]['count'] =
+$FPTree[0o]['child'][$FPTreeTempKey[1]]['child'][$FPTreeTempKey
+[2]]['child'][fitemValue]['count'] + 1;
+28. Case 5
+
+WO XQ ul By
+
+8729.
+if(empty($FPTree[0o]['child'][$FPTreeTempKey[1]]['child'][$FPTreeTempKey[2]]['
+child'][$FPTreeTempKey[3]]['child'][$itemValue]))
+
+30.
+$FPTree[0]['child'][$FPTreeTempKey[1]]['child'][$FPTreeTempKey[2]]['child'][$
+FPTreeTempKey[3]]['child'][fitemValue] = array('item' =>
+fitemValue,'count' => 1,'child' => null,);
+
+31.
+
+$FPTree[0]['child'][$FPTreeTempKey[1]]['child'][$FPTreeTempKey[2]]['child'][$
+FPTreeTempKey[3]]['child'][fitemValue]['count'] =
+$FPTree[0]['child'][$FPTreeTempKey
+[1]]['child'][$FPTreeTempKey[2]]['child'][$FPTreeTempKey[3]]['child'][S$itemVa
+lue]['count'] + 1;
+
+32. Fin
+
+88C. APÉNDICE C
+COMPLEJIDAD CICLOMÁTICA — ALGORITMO KNN
+
+1. Inicio
+
+2. if(is array(f$produFpgrowth->FPTree))
+
+3. if(fkeyNivel2 == "child” 88 is array(f$nivel2))
+
+4. if(fkeyProducto == "item")
+
+5. fingrProdRefes = $this->bi_model->selIngrProd($idProdRefe);
+
+$refesIngrProd = array();
+. if(is array(fingrProdRefes))
+. frefesIngrProd[] = f$ingrProdRefe[| 'ingreprodu_ingrediente id'];
+. $ProdCate = f$this->bi_model->selProdCate($idCategoria,fidProdRefe);
+. if(is array($ProdCate))
+10. if(is array(fingrProds))
+11. if($fkeyProducto == "count")
+12. $frecuencia = f$producto;
+13. if(empty($this->recomendados))
+14. echo("No hay recomendaciones.");
+15. f$this->imprimeProductos();
+16. echo("no_array”)>);
+17. fingrProd[] = $ingrProdu[ 'ingreprodu_ingrediente_id'];
+18. $cantIngrProd = count(f$ingrProd);
+19. if($fcantIngrProdRefe >= f$cantIngrProd)
+20. if(is array(fingrProdRefe) 88 is array(f$ingrProd))
+21. fingrDife = array_diff(f$ingrProdRefe,$ingrProd);
+22. if(is array(fingrProdRefe) 88 is array(fingrProd))
+23.f$ingrDife = array_diff(fingrProd,f$ingrProdRefe);
+24. $distanciaEuclidiana = sqrt(fcantidadDife * pow((100/$fcantidadIngre),2));
+25. if($fvaloSimi >= f$porceMini)
+26. $this->recomendados[$prod['id _producto']] = f$valoSimi;
+27. Fin
+
+o O
+
+895. REFERENCIAS BIBLIOGRÁFICAS
+
+[1] Rosado, Alveiro., Rico, Dewar. Inteligencia de Negocios: Estado del Arte.
+Scientia Et Technica, vol. XVI, núm. 44, Universidad Tecnológica de Pereira,
+Pereira, Colombia, abril, 2010.
+
+[2] Babini Pablo. Inteligencia de Negocios. Dónde y cómo se abastecen las
+empresas de un insumo estratégico clave para competir y crecer. Wobi Content
+Team. Volumen 15, marzo/abril 2010.
+
+[3] Vallejos Sofía J. Trabajo de adscripción Minería de Datos. Universidad
+Nacional del Nordeste. 2006.
+
+[4] Mosquera Alexander, Rincón Derlisiret y Romero María. La organización
+basada en los sistemas de información. Unidad Académica Ciencias del
+Lenguaje y la Comunicación, Departamento de Ciencias Humanas, Facultad
+Experimental de Ciencias, Universidad del Zulia, Maracaibo, Venezuela, 2001.
+
+[5] Aluja Tomás. La minería de datos entre la estadística y la inteligencia
+artificial. Questiio, vol 25, 3, p. 479-498, 2001.
+
+[6] Naranjo Roberto, Sierra Luz. Herramienta software para el análisis de
+canasta de mercado sin selección de candidatos. Revista Ingeniería e
+investigación Vol. 29 No. 1, abril, 2009.
+
+[7] Castañeda José, Rodríguez Miguel. La minería de datos como herramienta
+de marketing: Delimitación y medida de evaluación del resultado. Universidad
+de Granada, Facultad de CC.EE. y EE. Departamento de Comercialización e
+Investigación de Mercados, Granada.
+
+[8] Andreu, R., Ricart J. E. y Valor, J. Estrategia y Sistemas de Información. Mc
+Graw-Hill, Madrid, 1991.
+
+[9] Menguzzato, M. y J. J. Renau. La Dirección Estratégica de la empresa. Un
+enfoque innovador del Management, Ariel, Barcelona, 1991.
+
+[10] Hernández, Alejandro. Los sistemas de información: Evolución y
+desarrollo. Departamento de Economía y Dirección de Empresas, Universidad
+de Zaragoza. 2003.
+
+[11] Lapiedra, Rafael., Devece, Carlos. y Guiral, Joaquín. Introducción a la
+gestión de sistemas de información en la empresa. Universitat Jaume l, 2011.
+
+[12] Cano, Josep. Business intelligence, competir con información. En 12”
+
+Simposio nacional, 1” Internacional. Business Intelligence Gestión Estratégica
+de la Información. Symposium conducted at the meeting of Asociación
+
+90Colombiana de Facultades de Administración (ASCOLFA), Escuela
+Colombiana de Ingeniería Julio Garavito, Bogotá, noviembre, 2012.
+
+[13] Abreu, José., Calzada, Leticia. El impacto de las herramientas de
+inteligencia de negocio en la toma de decisiones de los ejecutivos. Daena:
+International Journal of Good Conscience. Septiembre, 2009.
+
+[14] Virseda, Fernando., Carrillo, Javier. Minería de datos y aplicaciones.
+
+[15] Castañeda, José., Rodríguez, Miguel. La minería de datos como
+herramienta de Marketing: Delimitación y medidas de evaluación del resultado.
+
+[16] Moreno, María., Miguel, Luis., García, Francisco y Polo, José. Aplicación
+de técnicas de minería de datos en la construcción y validación de modelos
+predictivos y asociativos a partir de especificaciones de requisitos de software.
+Universidad de Salamanca, Departamento de Informática y Automática.
+Salamanca, España. 2006.
+
+[17] Mendez, A., Mártire, A., Britos, P. y García-Martínez R. Fundamentos de
+Data Warehouse. Reportes Técnicos en Ingeniería del Software. Vol. 5, Pág.
+19-26. Instituto Tecnológico de Buenos Aires, Buenos Aires, Argentina. 2003.
+
+[18] Calleja, A Minería De Datos Con Weka Para La Predicción Del Precio De
+Automóviles De Segunda Mano. 2010.
+
+[19] García, J., y Acevedo, A. Análisis Para Predicción De Ventas Utilizando
+Minería de Datos en Almacenes de Ventas de Grandes Superficies.
+Universidad Tecnológica de Pereira, Pereira, Colombia. 2010.
+
+[20] Passoni, L. Las Redes Neuronales Artificiales como Elementos del Sistema
+de Soporte a las Decisiones en la Administración Universitaria. 2003
+
+[21] ETL Process. ¡Recuperado el 7 de enero de 2016, de
+http://datawarehouse4u.info/ET L-process.html.
+
+[22] Data Mart Concepts. Recuperado el 7 de enero de 2016, de
+https://docs.oracle.com/ntml/E10312_01/dm_concepts.htm
+
+[23] Gobernanza de las tecnologías de la información. Recuperado el 6 de
+febrero de 2016, de
+htips://es.wikipedia.org/wiki/Gobernanza_de las tecnologwC3%ADas de la_i
+nformaciC3%B3n
+
+[24] Manifiesto ágil. Recuperado el 6 de febrero de 2016, de
+https://es.wikipedia.org/wiki/Manifiesto_%C3%A1 gil.
+
+91[25] Data governance. Recuperado el 6 de febrero de 2016, de
+https: //en.wikipedia.org/wiki/Data_governance.
+
+[26] Espacio euclídeo. ¡Recuperado el 6 de febrero de 2016, de
+htips://es.wikipedia.org/wiki/Espacio euclY%C3%ADdeo.
+
+[27] Castillo, Julio y Palomino, Luis. Implementación de un Data Mart como una
+solución de Inteligencia de Negocios para el área de logística de T-Impulso.
+Revista de investigación de sistemas e informática, Facultad de Ingeniería de
+Sistemas e Informática, Universidad Nacional Mayor de San Marcos. 2012.
+
+[28] Reyes, Víctor. Procedimiento para la toma física de los inventarios en las
+organizaciones. Centro de gestión de mercados, logística y tecnologías de la
+información, SENA.
+
+[29] linove. Coaching y consultoría Scrum. URL
+http://www.itnove.com/sites/default/files/pictures/scrum_ES.pna.
+
+[30] Softeng. URL
+
+httos://softeng.blob.core.windows.net/softengpublish/invar/96d5cb2a-34dc-4f52a56c-4462aeb03c4b.
+
+[31] Naranjo, Roberto y Sierra, Luz Marina. Herramienta de software para el
+análisis de canasta de mercado sin selección de candidatos. Revista Ingeniería
+e Investigación VOL 29 No1. Abril de 2009.
+
+[32] L. Balby, A.s Hotho, R. Jáschke, A. Nanopoulus, S. Rendle, L. SchmiadtThieme, G. Stumme, y P. Symeonidis. Recommender systems for social
+
+tagging systems. SpringerBriefs in Electrical and Computer Engineering 2012.
+Springer. 2012.
+
+[33] Marina Pepa, Sofía. Suite de algoritmos de recomendación en aplicaciones
+reales. Universidad Autónoma de Madrid. Departamento de ingeniería
+informática. Madrid. Mayo de 2014.
+
+[34] García Cambronero, Cristina y Gómez Moreno, lrene. Algoritmos de
+aprendizaje KNN y KMEANS. Universidad Carlos Il de Madrid. Madrid.
+
+[35] Pinho Lucas, Joel. Métodos de clasificación basados en asociación
+aplicados a sistemas de recomendación. Departamento de Informática y
+Automática. Universidad de Salamanca, Salamanca, España. Octubre de 2010.
+
+[36] Pérez A., Oiver Andrés. Cuatro enfoques metodológicos para el desarrollo
+de Software RUP — MSF - XP - SCRÚUM. Revista inventum, [s.!.], n. 10, jun.
+2011. lssn 1909-2520.
+
+92Disponible
+en:<http://biblioteca.uniminuto.edu/ois/index.php/inventum/article/view/9/9>.
+
+ 
+
+[37] Cardacci, Darío. Refactorización de código y consideraciones sobre la
+complejidad ciclomática. Universidad del Cema, Buenos Aires, Argentina.
+Septiembre de 2016.
+
+[38] Complejidad ciclomática. URL:
+htips://es.wikipedia.org/wiki/Complejidad_ciclom%C3%A1tica
+
+[39] Sergio Galán. Filtrado colaborativo y sistemas de recomendación.
+Exercise, 2007.
+
+[40] Betarte, L, Machado, R y Molina, VW. PGMUSICA: sistema de
+recomendación de música basado en filtrado colaborativo. Tesis de grado.
+
+Universidad de la República. Facultad de Ingeniería. Instituto de Computación.
+Uruguay. 2006.
+
+[41] Florez, Leonardo y Grisales, Felipe. Formulación de criterios para la
+selección de metodologías de desarrollo de software. Universidad Tecnológica
+de Pereira, Colombia. 2014.
+
+93

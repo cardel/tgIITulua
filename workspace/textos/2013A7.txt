@@ -1,0 +1,3595 @@
+SISTEMA DE RECOMENDACIÓN WEB PARA LA SELECCIÓN DE
+PERSONAL BASADO EN AGENTES DE SOFTWARE.
+
+ROYER DAVID ESTRADA ESPONDA !
+JUAN JOSE ARAGON CAMPO ?
+
+sy
+
+Universidad
+del Valle
+
+ 
+
+UNIVERSIDAD DEL VALLE
+FACULTAD DE INGENIERÍA
+
+ESCUELA DE INGENIERÍA DE SISTEMAS Y CIENCIAS DE LA
+COMPUTACIÓN
+INGENIERIA DE SISTEMAS
+TULUA
+
+2014
+
+ 
+
+Iroger.univalleQgmail.com
+
+“iuan.aragon.iscQgmail.comSISTEMA DE RECOMENDACIÓN WEB PARA LA SELECCIÓN DE
+PERSONAL BASADO EN AGENTES DE SOFTWARE.
+
+TRABAJO DE GRADO PRESENTADO COMO REQUISITO PARA OPTAR
+POR EL TÍTULO DE INGENÍERO DE SISTEMAS
+
+DIRECTORA DE TRABAJO DE GRADO
+ING. YURI MERCEDES BERMÚDEZ MAZUERA 3
+
+sy
+
+Universidad
+del Valle
+
+ 
+
+UNIVERSIDAD DEL VALLE
+FACULTAD DE INGENIERÍA
+
+ESCUELA DE INGENIERÍA DE SISTEMAS Y CIENCIAS DE LA
+COMPUTACIÓN
+INGENIERIA DE SISTEMAS
+TULUA
+
+2014
+
+ 
+
+3ybermudez21840gmail.comNOTA DE ACEPTACIÓN
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Ing. Yuri Mercedes Bermúmez Mazuera
+
+Directora
+
+ 
+
+ 
+
+Jurado 1 Jurado 2Dedicatorias
+
+Royer David Estrada Esponda
+Este trabajo de grado está dedicado primero a Dios por ser esa fuerza omnipresente y alentadora que cada día y cada noche que me recordó que la educación es
+
+uno de los caminos más adecuados e importantes en la vida.
+
+A mis abuelos maternos, mi señora madre y mis hermanos por ser ese apoyo
+
+inagotable durante toda mi experiencia académica y en toda mi vida.
+
+A mis compañeros y amigos que indubablemte sin ellos la magia de la vida uni
+versitaria no se hibiese materializado.
+Juan José Aragon Campo
+
+Este trabajo va dedicado a aquellos que creyeron en mí, me dieron fuerzas para
+
+salir adelante, a mi madre y a mi padre que me dieron todo su apoyo.
+
+Mis hermanos y mi sobrino que fueron testigos de momentos difíciles y agrada
+bles, y me daban consejos para poder continuar adelante.
+Mi tíos que a pesar que no los tuve al lado, siempre me ofrecieron lo mejor de ellos.
+
+Mis compañeros universitarios con quienes compartí grandes momentos, y sin la
+
+ayuda de ellos no pudiese haber culminado mis estudios.
+
+11Agradecimientos
+
+(Jueremos sinceramente expresan nuestros agradecimientos a la Universidad del
+Valle por proveer las herramientas, conceptos y conocimientos necesarios para poder
+
+formarnos como nuevos profesionales de nuestra querida patria.
+
+A los profesores que sin lugar a duda a lo largo del proceso académico fueron
+
+pacientes y comprensivos en el momento de instruirnos.
+
+A nuestra directora de trabajo de grado por su conocimiento y constante moti
+vación para que se logrará esta anhelada meta.
+
+PIÍndice general
+
+Dedicatorias
+Agradecimientos
+
+Resumen
+Abstract
+
+1. Introducción
+
+1.1. Descripción del problema .......... e...
+
+1.2. Formulación del problema ......... e...
+
+1.3. Objetivos ........
+
+1.3.1. Objetivo General .............. e...
+1.3.2. Objetivos ESpecifiCOS . ........... . . .. e...
+
+1.4. Alcance .......
+
+1.5. Estructura del Documento
+
+2. Marco de Referencia
+
+2.1. Marco Teórico . . .. .
+
+2.1.1. Agentes de SOÍtware ............. o...
+2.1.1.1. Agentes de InterÍace ................ ..
+2.1.1.2. Agentes Colaborativos . ............... ..
+2.1.1.3. Agentes Móviles .............. . ... ..
+
+2.1.1.4. Agentes Recuperaión de Información .........
+
+2.1.2. Lógica Difusa
+
+TI
+
+YT1I
+
+10
+12
+13
+13
+13
+13
+14
+15
+
+16
+16
+16
+18
+18
+18
+19
+19Índice general 2
+2.2. Marco Conceptual... 21
+2.2.1. Selección de Personal ..................... .. 21
+2.2.2. Etapas Durante la Selección de Personal ............ 22
+2.23. Reclutador.... 23
+DIA AMtecedentes 23
+2.3.1. Sistema de selección de personal inspirado en agentes inteligeMtes Alo 24
+2.3.2. Sistema de información aplicado a la selección de personal de
+recursos humanos basado en competencias [5] ......... 24
+2.3.3. Software integral para el reclutamiento, selección y evaluación
+de personal 22). 0... oo... 25
+2.3.4. Multi-attribute approach to personnel selection [23]. ........ 20
+3. Desarrollo del Proyecto 27
+A SU
+3.1.1. Historias de Usuario ..... 30
+3.1.2. Diagramas de Clase ........... .. . . o... +. 33
+3.1.3. Diagramas de Secuencia ....... e... 34
+3.1.4. Agentes de SOÍtWale . ....... 35
+3.1.4.1. Modelo de Agentes . ................... 35
+3.1.4.2. Modelo de Tareas. ........... . . . . . . .. 38
+3.1.4.3. Modelo de Coordinación ............. . . . 0. 38
+3.1.4.4. Modelo de Comunicación ............... 40
+3.1.4.5. Modelo de Organización .............. .. 40
+3.2. Descripción General del Sistema . .............. ... . .. 41
+3.2.1. Interfaz Gráfica de UsuariO ......... o... 41
+3.2.2. Módulo de Selección 42
+3.2.2.1. Submodulo Hoja de vida. ............... 42
+3.2.2.2. Submodulo Solicitud de Personal ........... 42
+3.2.2.3. Submodulo CONVOCAatorlas ....... ... . . . . 0. 43
+3.2.2.4. Submodulo Pruebas .............. . . .. 43
+3.2.2.5. Submodulo Informe de Selección ........... 43
+
+ 
+
+3.2.2.6. Submodulo Recomendación .............. 43Índice general 3
+3.2.3. Módulo de Parametrización ...... e... 44
+
+3.2.3.1. Perfiles SiStema ............. .... .. .. 44
+
+3.2.2.  USUUALTOS 44
+
+3.2.3.3. Perfiles Cargos ............. . . . . ... . . +. 44
+
+3.2.3.4. Parámetros Generales .............. . . .. 44
+
+3.2.3.9. Cargos Empresa ........... e... e... 45
+
+3.2.4. Módulo de Registro de Hoja de Vida ............... 45
+
+3.3. Arquitectura del Sistema Implementado ................ 45
+3.4. Detalles de Implementación ......... e... 47
+A 94
+3.5.1. Pruebas de Aceptación ...... e... 54
+
+3.9.2. Pruebas de Sistema... 56
+
+3.5.3. Pruebas de Integración ............. o... ... 98
+
+4. Conclusiones y Trabajos Futuros 59
+Al Conclusiones 599
+4.2. Trabajo Futuro... 60
+A. Historias de usuario 61
+B. Diagramas de Clase y de Secuencia 65
+
+C. Pruebas 71Índice de figuras
+
+Zo
+
+3.1.
+dede
+3.3.
+3.4.
+3.0.
+3.6.
+del
+3.0.
+
+3.9.
+
+LO,
+ell,
+3.12.
+lo
+3.14.
+ld,
+10.
+dll Y
+AL.
+
+Estructura Fuzzy (B......... o... . e... 20
+Metodología SCRUM (28)... 0... . o... . e... e... 28
+DC1: Selección de Personal. ............. e... e... 33
+DC2: Login y Acceso a Contenido del Sistema .............. 33
+D51: Creación Usuarios Empleados ................... 34
+D52: Creación Usuarios Aspirantes ................... 34
+DS3: Consulta y Filtro de Hoja de Vida ................ 35
+Modelo de tareas agentes de SOÍtWare .............. . . .. . .. 38
+
+Diagrama de secuencia para las interacciones de la conversación entre
+
+ARMS 39
+Canales básicos de comunicación y flujo de conversaciones entre agen
+Les de SOÍtware. ... 39
+Modelo de comunicación agentes de SOÍtWare . .............. 40
+Modelo de organización, agentes de SOÍtWare. . ............. 41
+Aspecto inicial de la aplicación para un usuario Administrador. .. . 42
+Arquitectura del Sistema... 46
+Módulo de registro de hoja de vida, sección datos personales. . . . ... 48
+Módulo de selección, Submódulo de Hoja de vida. Consulta. ......... 48
+Gráficos Disponibles para análisis de información. ........... 49
+Flujo del proceso de recomendación... e... 50
+
+Reglas generadas usando el algoritmo de generación automática de
+
+reglas y distancia euclidiana. ............ e... e... 52Índice de figuras 5
+3.19. Opción dispuesta para que se inicie el proceso dinámico de la lógica
+BuzZZY. 99
+B.1. DC3: Registro de Hoja de Vida .................. . . . . . . . .. 65
+Bl. DC Spa l 66
+B.3. DS4: Acceso Usuarios Empleados ............. . . . . . . 0. 66
+B.4. DS5: Diligenciar Hoja de Vida ........... .. . . . . . . . o. 67
+B.5. D56: Editar Hoja de Vida .............. . . . . . . . . . 0... 67
+B.6. DS7: Validar Hoja de Vida . ............ ..... o. 68
+B.7. D58: Clasificar Hoja de Vida... .......... . . . . ........ 69
+B.8. DS9: Solicitar Personal ............ e... 70Indice de cuadros
+
+ell.
+das
+3.3.
+3.4.
+3.0.
+3.6.
+3.
+3.0.
+3.9.
+3.10.
+
+dell,
+de LA
+3.13.
+
+C.l.
+¡A
+
+HUl1: Login y creación de Usuarios Aspirantes. ............. 30
+HU2: Diligenciar Hoja de Vida. ............. .. . . .. . . .. 31
+HU4: Acceso Usuarios. .... 32
+MA1: Modelo de agente Receptor de parámetros. ........... 36
+MA2: Modelo de agente Buscador de información ............ 36
+MA3: Modelo de agente evaluador ............ . . . . . . . 0. 37
+MA4: Modelo de agente comunicador de recomendaciones. ........ 37
+PA1: Validación apariencia Acceso hoja de vida. . ........... 54
+PA2: Validación secciones para registro de hoja de vida. . ......... 54
+
+PA3: Validación de conformidad para acceso al sistema por parte de
+
+ 
+
+USUALIOS EeMpleados. 99
+P51: Validación de acceso a hoja de vida... ................. 56
+P52: Validación de acceso a usuarios empleados al sistema. . ....... 97
+PI: Prueba de integración PHP y JAVA................. 98
+. HU3: Edición de Hoja de vida . .......... .. . . . . . +...) 61
+. HU5: Creación Usuarios .... 62
+. HU6: Solicitud de Personal .............. e. 62
+. HU7: Filtro Hoja de Vida ............ . . . e... 63
+. HUs: Validación Hoja de Vida . ............ . . . . +... 0. 63
+. HU9: Clasifición Hoja de Vida . .............. . . . +... . 0) 64
+. HU10: Referir Hoja de Vida ............... . . . . . +... .. 64
+PA”7: Prueba de Aceptación, Solicitud de Personal . ........... 71
+PA9: Prueba de Aceptación, Consulta y Filtro Hoja de Vida ........ 712Índice de cuadros 7
+
+ 
+
+C.3. PA10: Prueba de Aceptación, Validación Hoja de Vida ......... 712
+C.4. PA14: Prueba de Aceptación, Consulta Aspirantes Convocatorias . . 73
+C.5. PS8: Prueba de Sistema, Solicitud de Personal ............. 714
+
+C.6. PS11: Prueba de Sistema, Validación Hoja de Vida .......... 15Resumen
+
+Los procesos de selección de personal cada vez son más importantes para los
+empresarios que siempre buscan tomar decisiones adecuadas al momento de vincular
+personal a sus instituciones, la gran cantidad de aspirantes propicia que dicho proceso
+esté rodeado por un gran volumen de información que casi siempre se encuentra
+en medios físicos y por ende ocasiona demoras, confusión o desorganización en el
+proceso. Este trabajo se realiza con el fin de dar solución a problemas reales que se
+presentan en las actividades de reclutamiento y selección de personal dentro de las
+empresas, proporcionando un sistema de información web que además de sistematizar
+los mencionados procesos tiene la característica de recomendar aspirantes sin que
+se quiera desplazar el criterio humano de expertos o encargados de llevar a cabo
+actividades del proceso.
+
+Con base en lo anterior se plantea una solución combinando diversos conceptos
+y tecnologías, entre los aspectos más relevantes por mencionar se comenta que se
+integra el sistema de información web mencionado anteriormente con agentes de
+software que tienen como comportamiento principal generar una recomendación de
+aspirantes que se adhieran a un perfil determinado, también es importante mencionar
+que los agentes implementados aplican lógica difusa para producir su recomendación,
+de modo que con esto se logra eliminar subjetividades y sesgos que normalmente
+afectan negativamente las decisiones en un proceso de selección.
+
+Otros aspectos, tecnologías y conceptos para la realización de este proyecto se
+detallarán más adelante.
+
+Palabras Claves: Recursos Humanos, Reclutamiento y Selección de personal,
+Agentes de Software, Lógica Fuzzy, Ciclo de Vida del Software, Scrum, MAS Com
+monKADS, EXtreme Programming, Sistemas de Recomendación.Abstract
+
+The recruitment and personnel selection is today very important in many companies, that find take recommendations for get the best candidates to fill a vacancy.
+This paper involves and describes the procedure to help the departments of Humans
+Resources (HR) take a good decision by a Web System without displace human
+judgment.
+
+In this project we have proposed a Web Information-System to support the personnel selection process. Applying several technologies and concepts most relevants
+for build the System with the aid from Software Agents, that have how goals take
+a set of candidates and select those that best features to have, trying delete several
+
+aspect unwanted be able to get a bad decision.
+
+Key Words: Human Resources, Recruitment and Personnel Selection, Software
+Agents, Fuzzy Logic, Software's Life Cycle, Serum, MAS-CommonKADS, EXtreme
+
+Programming.Capítulo 1
+
+Introducción
+
+Los procesos de selección de personal en la mayoría de empresas toman gran relevancia debido a la constante necesidad que tienen los empleadores de contar con un
+recurso humano calificado y preparado para afrontar los retos propios de estructuras
+organizacionales, normalmente le corresponde a las áreas de recurso humano cumplir
+con tan importante proceso en las compañías, en dichas áreas se evidencian problemas reales de congestión por la gran cantidad de información en medios físicos, poca
+oportunidad en la atención de solicitudes para cubrir vacantes y desmejoramiento en
+la comunicación acertiva entre quienes solicitan personal y aquellos que adelantan
+el proceso de selección, estos problemas son producto precisamente de la constante
+necesidad que tienen las empresas por acoger los empleados más idóneos para desem
+peñar sus actividades.
+
+Con base en lo anterior se han desarrolldo sistemas de información que buscan
+apoyar los procesos de selección de personal, de modo que estos proporcionan la
+sistematización y por ende contribuyen a la descongestión de los mismos, así pues,
+como valor agregado se incluye el concepto de sistemas de recomendación en dichos
+procesos, estos últimos benefician la gestión, análisis y administración general de las
+actividades llevadas a cabo en la selección. Los sistemas de recomendación reúnen
+diversas características y propiedades que tienen como mayor propósito filtrar o predecir escenarios que mejor se acoplen a parámetros dados, este proyecto lo que busca,
+
+además de proporcionar un sistema de información web con un componente impot
+10Capítulo 1. Introducción 11
+
+ 
+
+tante de parametrización, es ofrecer la posibilidad de desplegar un “ránking” en
+relación al total de aspirantes vinculados a un proceso de selección, con el objetivo
+de facilitar el proceso sin dejar de lado el criterio humano de expertos y finalmente
+
+favorecer a los aspirante más adecuados y de mayor adhesión a un perfil establecido.
+
+A lo largo de este documento se expone el proceso de selección tal como fue estudiado en una gran empresa de la región, además de esto se presenta los componentes
+más relevantes que fueron tomados como parámetros para la posterior evaluación
+de aspirantes, definiciones y conceptos en relación a agentes de software con un
+comportamiento importante de lógica difusa que es la que permite que se supriman
+ambiguedades o subjetividades que sesgan los procesos de selección tal cual como se
+
+adelantan en la mayoría de organizaciones en la actualidad.Capítulo 1. Introducción 12
+
+ 
+
+1.1. Descripción del problema
+
+Los procesos de selección de personal han sido determinantes en el desarrollo
+positivo de cualquier companía, incluso literatura relacionada al tema menciona que
+“sastos por concepto de Recursos Humanos se consideran inversiones estratégicas,
+más que como un simple costo que deba minimizarse “ [1|, dichos procesos normalmente se llevan a cabo en los departamentos de gestión humana de las empresas, en
+donde los reclutadores basados en la planificación de las vacantes son quienes deciden
+
+que personas serán favorecidos para ocupar los cargos ofertados.
+
+Con base en lo anterior, en el contexto Colombiano y considerando la dinámica común de oferta y demanda laboral se evidencia una realidad que parece difícil
+superar, esta realidad se fundamenta en altas tasas de desempleo que hace que la
+demanda sea bastante superior a la oferta del sector privado, público o de cualquier
+tipo. En el caso particular de Colombia el desempleo es del 11,8% a febrero del 2013
+[110], la demanda anteriormente mencionada, ocasiona que los departamentos de Gestión Humana cada vez encuentran más problemas para seleccionar a los aspirantes
+calificados que deban ocupar los puestos vacantes, así pues; la necesidad de evaluar
+o considerar demasiadas opciones o candidatos implica un aumento en asignación de
+tiempos de estudio de curriculums, así como recursos económicos y demás factores
+que deben ser tenidos en cuenta durante la ejecución de un proceso de selección de
+
+personal.
+
+Debido a lo anterior y aprovechando el auge informático de la actualidad, las
+compañías han optado por utilizar herramientas sistematizadas para apoyar los procesos de selección de personal en etapas de reclutamiento ó incluso en la gestión total
+del recurso humano, dichas herramientas en su mayoría son utilizadas como fuentes
+
+de datos e información en la web.
+
+Por último y teniendo en cuenta que la constante necesidad que experimentan las
+empresas por seleccionar a candidatos idóneos propicia que estas busquen algo más
+que solo datos, se prevé qué herramientas sistematizadas que proporcionen resulta
+dos adicionales y que aporten un valor agregado a procesos de selección de personal,Capítulo 1. Introducción 13
+
+ 
+
+sean de interés para empresas que deseen agilizar y mejorar procesos tan importantes
+
+como el mencionado anteriormente.
+
+1.2. Formulación del problema
+
+¿Como agilizar los procesos de selección de personal que habitualmente se ejecu
+tan en las empresas?
+
+1.3. Objetivos
+
+1.3.1. Objetivo General
+
+Desarrollar un sistema de recomendación web basado en agentes de software que
+
+apoye los procesos de selección de personal en las empresas.
+
+1.3.2. Objetivos Específicos
+
+1. Implementar un sistema de información web que gestione las etapas de reclutamiento en procesos de selección de personal proporcionando módulos de
+
+recolección, administración y análisis de la información.
+
+2. Determinar la clase de agentes de software que se adapten al volumen y tipo
+
+de información relacionado a los procesos de selección de personal.
+
+3. Implementar los agentes de software e incorporarlos al sistema de información
+
+web para apoyar los procesos de selección de personal.Capítulo 1. Introducción 1,
+
+ 
+
+1.4. Alcance
+
+La elaboración del proyecto comprende el desarrollo de un sistema web que cumpla con las funciones de recepcionar, evaluar y recomendar las hojas de vida que
+participan en un proceso de selección de personal, dichas funcionalidades se implementarán utilizando conceptos propios de desarrollo de software, agentes de software
+
+y conceptos relacionados a sistemas recomendación.
+
+El sistema estará disponible como herramienta de apoyo a procesos de selección
+de personal, de modo que a partir de un conjunto total de hojas de vida u opciones el
+sistema reportará los aspirantes más destacados y con las mejores características en
+relación a las entradas proporcionadas al sistema, dichas características dependen de
+los criterios de evaluación implementados por cada empresa que ejecuta un proceso
+de selección de personal, finalmente el desarrollo del proyecto garantiza no beneficiar
+a un único aspirante, de manera que los pasos posteriores del proceso de selección
+
+sean exclusivamente responsabilidad de quien adelante dicha actividad.
+
+Por último es importante mencionar que luego de la recepción, clasificación y
+análisis de la información que suministra cada uno de los aspirantes que desea ser
+parte de un proceso de selección, se termina propocionando un ranking donde se ubica
+cada uno de ellos dependiendo de los resultados obtenidos despues de la aplicación
+de logica difusa como comportamiento principal de un grupo de agentes de software
+
+implementados para la recomendación de aspirantes.Capítulo 1. Introducción 15
+
+ 
+
+1.5. Estructura del Documento
+
+El presente documento se compone de 4 capítulos en donde el primero de ellos
+concluye en este punto después de citar aspectos generales, objetivos y alcance del
+proyecto. El capítulo 2 denominado Marco de referencia reúne aportes teóricos, conceptuales y un grupo de antecedentes que tienen como objetivo contextualizar al
+lector en relación al tema principal de este proyecto, por otro lado el capítulo 3
+describe el proceso de ingeniería de software llevado a cabo para el desarrollo del
+proyecto, así como también expone brevemente la metodología usada, los artefactos
+utilizados y las pruebas realizadas; entre otros elementos. Por último el capítulo 4
+expone las conclusiones y trabajos futuros que podrían presentarse.
+
+También se dedica parte de este documento para anexos y artefactos diseñados.Capítulo 2
+
+Marco de Referencia
+
+2.1. Marco Teórico
+
+2.1.1. Agentes de Software
+
+Existen diversas definiciones en relación a los agentes de software, a continuación
+
+se relacionan algunas de las más representativas.
+
+= Un agente es cualquier cosa que perciba su entorno a través de sensores y actúe
+
+en consecuencia en dicho entorno a través de accionadores. [18]
+
+= Un agente de software es un programa que actúa en nombre del usuario o de
+otro programa. El hecho de actuar “en nombre de”, implicar la autoridad de
+
+decidir si es apropiado actuar o no, y cuándo hacerlo. [18]
+
+La definición de agentes de software no es muy estricta, debido a que dicha
+definición varía dependiendo del contexto en el cual se utilicen. No por eso se debe
+dejar de mencionar que los agentes pueden tener diferentes y variados atributos, tales
+
+atributos están en función de:
+
+= Autonomía: Permite que los agentes puedan operar sin la intervención directa
+de nadie, ya sea de humanos o de software y tiene el control sobre sus propios
+actos [19].
+
+16Capítulo 2. Marco de Referencia 17
+
+ 
+
+= BDI (Beliefs, Desire and Intentions):
+
+e Creencias: Conocimiento o semilla inicial, así como responsabilidades sen
+cillas.
+e Deseos: Objetivos a cumplir por el agente.
+
+e Intenciones: Planes que se llevarán a cabo para cumplir con los objetivos.
+
+= Reactividad: Los agentes perciben su entorno el cual puede ser físico o por
+medio de una interfaz de usuario, incluso puede existir una combinación de
+
+ambos. Una vez se percibe algún cambio en el entorno reacciona ante ello. [19]
+
+= Proactividad:Los agentes no sólo deben responder a un estímulo del ambiente
+
+sino que también deber tener iniciativa y responden hasta poder lograrlo.
+
+= Sociabilidad: Capacidad o medida en la cual un agente se comunica con otros
+
+agentes.
+
+= Adaptabilidad: De acuerdo a los cambios producidos en el entorno provocan
+
+que los agentes se estén continuamente adaptando a dichos cambios [19).
+
+= Comunicación y sociabilidad: El agente es capaz de comunicarse por medio de
+
+un lenguaje común con otros agentes.
+
+"= Continuidad temporal: Los agentes no sólo se ejecutan en cierto momento determinado sino que, desde su invocación, pasan a un estado de espera hasta
+que cualquier evento provocado por algún otro agente o usuario, o cualquier
+cambio producido en el entorno les haga cambiar de estado y estos vuelvan a
+
+ejecutarse. [19]
+
+= Movilidad: Habilidad de trasladarse en una red de comunicación informática,
+relacionándose e interactuando con varios equipos de trabajo, con el fin de
+obtener información y en base a ello actuar como dueño, una vez finalizado el
+
+proceso de búsqueda de información, regresa a su estado inicial [8].
+
+= Veracidad: No comunica información falsa intencionalmente [9], toda la información extraída de otro equipo o proceso es totalmente cierta a como es
+
+recibida en el equipo o proceso que se invoca.Capítulo 2. Marco de Referencia 18
+
+ 
+
+= Benevolencia: No tiene objetivos contradictorios y siempre intenta realizar la
+tarea que se le solicita, adicionalmente puede estar en capacidad de ayudar a
+algunos otros agentes que se le soliciten de su ayuda, presentándose este en un
+
+estado interrumpido o en espera. |9|
+
+= Racionalidad: Tiene unos objetivos específicos y siempre intenta llevarlos a
+cabo, garantizando que todos los procesos que lleva a cabo se ejecuten y se
+
+realicen de la manera correcta.
+
+Los agentes presentan una clasificación de acuerdo a los atributos mencionados
+
+anteriormente, de modo que existen: [20]
+
+2.1.1.1. Agentes de Interface
+
+Son aquellos que asisten directamente a usuarios cuando interactúa con una o
+varias aplicaciones, se traducen en guías que reducen el trabajo de sobrecarga de
+información, monitorea acciones de los usuarios, le indica atajos y mejores formas
+
+de realizar una tarea.
+
+2.1.1.2. Agentes Colaborativos
+
+Son sistemas multiagentes, por lo que se ve involucrado muchos agentes para
+suplir las necesidades de los usuarios. Es importante para ellos tener una comunicación coherente con el fin de que ellos puedan intercambiar conocimiento y estar
+en contacto, deben poseer grado de autonomía para poder actuar con los demás,
+estos hacen con el fin de resolver problemas muchos más complejos, interconectar
+
+múltiples sistemas y manejar información de diversas fuentes.
+
+2.1.1.3. Agentes Móviles
+
+Son agentes capaces de viajar por una red de computadoras, interactuando con
+componentes externos, recolectando información al equipo local y son capaces de
+
+completar tareas establecidas en el momento de retorno.Capítulo 2. Marco de Referencia 19
+
+ 
+
+2.1.1.4. Agentes Recuperaión de Información
+
+El patrón principal para este tipo de agentes es obtener información por el usuario.
+Una de las claves para la construcción de este tipo de agentes ha sido la expansión
+del internet, con demasiados volúmenes de información para procesar. Con ello es
+
+disminuir esta información en algo más conciso y coherente para el usuario.
+
+2.1.2. Lógica Difusa
+
+La lógica Difusa es también conocida como lógica borrosa o lógica fuzzy. Su definición va más allá de ser aquella lógica que en sí solo obtiene un valor concreto,
+por lo que ésta puede tomar uno o varios valores. La naturaleza de la lógica difusa
+posee un cierto grado de incertidumbre de acuerdo a varios fenómenos que se puedan presentar, en distintos casos un mismo concepto puede incluso tomar diferentes
+grados de imprecisión o conceptos, no es recomendable utilizarla cuando se conoce
+la existencia de un algoritmo o un modelo matemático que defina de manera clara
+
+la solución del problema [21].
+
+La lógica Difusa pretende imitar el comportamiento del ser humano [21]. Un
+ejemplo de una aplicación de la lógica difusa es aquel de poder calcular cual puede
+ser un estado que presenta la temperatura, dado que para muchos seres humanos de
+distintas partes del mundo se puede afirmar: si se presenta una temperatura mayor
+a 20C puede darse una interpretación válida, para otros entre 20C y 25C, es una
+temperatura ambiente, para otros entre 10%C y 25C se puede hablar de un estado
+templado. Y es así que con estas variables de entrada resulta complicado aplicar un
+
+modelo matemático para poder descifrar con exactitud cual es la solución adecuada.
+
+Como se ha apreciado, la lógica difusa es aplicable en procesos demasiado complejos, cuando no existe un modelo de solución simple o un modelo matemático preciso.
+De igual forma se puede aplicar cuando ciertas partes de un sistema a controlar son
+desconocidas y no son medibles de forma confiable y cuando el ajuste de una variable
+
+puede producir el desajuste de otras. [21]Capítulo 2. Marco de Referencia 20
+
+ 
+
+   
+
+entrada
+
+   
+
+Base Matemática
+
+ 
+ 
+
+Figura 2.1: Estructura Fuzzy [3].
+
+La lógica difusa contiene grados o salidas que se les denomina variables lingúísticas, que son caracterizadas mediante un nombre, adjetivo o etiqueta y comprenden
+un intervalo de valores, que es donde se encuentra definida dicha variable. La función
+
+de pertenencia posee valores que van entre O y 1.
+
+Entre esas funciones de pertenencia podemos encontrar distintas funciones y figuras geométricas, las más comunes son la función delta, triangular, trapezoidal y
+
+campana de gauss.
+
+A continuación se explica el proceso de manera estructurada. Ver figura 2.1
+
+1. Fusificación: Es aquella de convertir valores reales en variables difusas, a estas
+variables se les asignan grados de pertenencia que corresponden a los conjuntos
+
+difusos previamente mencionados.
+
+2. Base de conocimiento: Para este proceso se definen las reglas lingúísticas con
+
+base para tomar las respectivas determinaciones.
+
+3. Inferencia:Es la relación entre las variables de entrada y salida con la Base de
+
+conocimiento por el cual se definen reglas por medio del uso de condicionales.
+
+4. Defusificación: Es el proceso de convertir todas aquellas valores difusos gene
+rados en la inferencia en valores reales, que posteriormente se han de utilizarCapítulo 2. Marco de Referencia 21
+
+ 
+
+estos valores en algún proceso. La defusicación puede emplear algunos métodos
+matemáticos como lo son el cálculo de centro de masa o gravedad, la media
+
+ponderada, y el del Medio máximo.
+
+2.2. Marco Conceptual
+
+2.2.1. Selección de Personal
+
+Los procesos de selección de personal representan un conjunto de actividades encaminadas a predecir el comportamiento de futuros empleados una vez hagan parte
+de una organización, dicha organización mediante un proceso de planificación de
+vacantes es la que pone a disposición u oferta gran variedad de puesto de trabajo.
+Así pues, se observa que un proceso de selección de personal se ejecuta de manera secuencial y coherente, dando resultados de diferentes características a corto, mediano
+
+y largo plazo, algunos autores se refieren al tema de la siguiente manera.
+
+Es un proceso de varias etapas o fases secuenciales que atraviesan los candidatos.
+En las etapas iniciales se aplican las técnicas más sencillas, económicas y fáciles; en
+las finales, se aplican las técnicas más costosas y sofisticadas. Cuanto mayor sea el
+número de técnicas de selección, tanto mayor será la oportunidad de obtener infor
+mación de selección para trabajar y mayor el tiempo y su costo operacional [2].
+
+Otros puntos de vista mencionan que la selección de personal forma parte del
+proceso de provisión de personal, y viene luego del reclutamiento [7]. De igual manera se expone que dichos procesos de selección de personal apuntan a dos fines
+fundamentales, uno y el primero de ellos la Adecuación del hombre al cargo y por
+
+último la Eficiencia del hombre en el cargo.
+
+Con base en lo anterior se puede apreciar lo valioso de dichos procesos en las
+organizaciones, de modo que la ejecución correcta de estos contribuirá sin lugar a
+duda a la adecuación o adaptabilidad de los nuevos empleados en todos los procesos
+
+inherentes a su cargo.Capítulo 2. Marco de Referencia 22
+
+ 
+
+2.2.2. Etapas Durante la Selección de Personal
+
+Al interior del proceso de selección de personal, cada una de la etapas de este
+representan una pieza clave que tienen las empresas para poder tener de manera clara
+y estructurada qué actividades o procesos se deben llevar a cabo para planificar y
+
+controlar los mismos. A continuación se mencionan brevemente las etapas estudiadas
+en una gran empresa de la región y como se adicionó la recomendación en medio de
+
+estas.
+
+= Reclutamiento: Es el proceso de captación de la información de las hojas de
+vida, donde los aspirantes soportan su información personal, de contacto, es
+tudios realizados, y experiencia laboral realizada.
+
+= Necesidad: Existen diversos motivos que puedan ocasionar la necesidad de un
+nuevo empleado como es el de la creación de un nuevo proyecto, renuncia de
+
+otro empleado, o cubrir alguna otra vacante.
+
+= Solicitud y aprobación de vacante: En esta etapa es donde se manifiesta de
+manera formal a los encargados de llevar a cabo el proceso de selección sobre
+
+la necesidad de una nueva persona para cubrir una vacante en particular.
+
+= Selección de candidaturas para ocupar una vacante: En esta etapa se realiza un
+análisis de aquellos aspirantes que se presentan o que son previamente aptos
+
+para cubrir el cargo en particular del cual se desea cubrir la necesidad
+
+= Convocatoria: En esta fase se da inicio a los procesos y trámites de aquellos
+aspirantes que cumplen con los criterios para la solicitud o estan clasificados
+
+para cargos que cubren la necesidad de personal.
+
+= Citación a Pruebas: Se cita para realizar pruebas a los aspirantes, donde se les
+evalúan aspectos psicotécnicos, técnicos, conocimientos específicos y entrevistas
+
+con jefes de área y profesionales en psicología.
+
+= Aplicación de Pruebas: Los aspirantes aplican las pruebas que estan definidas
+
+para el cargo al que aspiran.Capítulo 2. Marco de Referencia 23
+
+ 
+
+= Preseleccionados: Habiendo culminado la fase anterior se tienen en cuenta aquellos aspirantes que superaron todas pruebas definidas y finalmente se aplica el
+
+proceso de
+
+= Recomendación: Es aquí donde el software contribuye con un ranking por medio
+de la aplicación de logica difusa para faciliar la decisión de los encargados sobre
+
+el total de aspirantes preseleccionados.
+
+= Contratación y Vinculación: Durante esta etapa aquellos aspirantes que superaron satisfactoriamente todas las fases previas, son llamados a cubrir la
+vacante requerida, los encargados inician el trámite de la documentación per
+tinente para que este pueda llevar a cabo la contratación.
+
+= Inicio de labores: En esta etapa el ahora empleado comienza a desempeñar sus
+
+laborales.
+
+2.2.3. Reclutador
+
+También conocido a menudo como Headhunter ó Cazatalentos, en el contexto
+de la gestión de los recursos humanos, es la persona encargada de llevar a cabo el
+
+proceso de selección de personal en sus etapas iniciales o incluso la totalidad de ellas.
+
+2.3. Antecedentes
+
+En la actualidad el recurso humano representa una ventaja competitiva en todo
+
+ámbito productivo, esto debido a que son las personas que hacen parte de dicho
+
+recurso las que finalmente administran, gestionan y cumplen con todas las funciones
+necesarias en cada empresa, de esta manera se hace indispensable elegir adecuada
+mente a todas aquellas personas que serán parte del ya mencionado recurso.
+
+De acuerdo a lo anterior en diferentes situaciones se han desarrollado sistemas que
+permiten automatizar el proceso mencionado anteriormente, dichos sistemas utilizan
+
+técnicas ingenieriles diversas, como Inteligencia artificial o simplemente se comportanCapítulo 2. Marco de Referencia 24
+
+ 
+
+como sistemas de información convencionales, a continuación se exponen algunos
+
+Casos.
+
+2.3.1. Sistema de selección de personal inspirado en agentes
+
+inteligentes [4]
+
+Sistema Web para la selección de personal desarrollado en el lenguaje de programación Java, basado en la evaluación de cuestionarios disenados como criterios para
+la selección de personal, y que dependen directamente de un agente de software que
+se encarga de ir adaptando dichos cuestionarios por medio de un aleoritmo de premio
+y castigo. El agente evaluador encargado de inspeccionar los formularios cuenta con
+el apoyo de otros agentes que se encargan de monitorear y administrar la razon de ser
+del sistema. También los reclutadores de personal tienen la posibilidad de indicar al
+agente evaluador que cuestionarios pueden ser mejorados para posteriores procesos.
+Este sistema ofrece interfaces austeras o poco amigables, lo cual indica que quizás
+no se usaron Frameworks para el diseño de las mismas, este último puede ser un
+
+aspecto a mejorar en este proyecto.
+
+2.3.2. Sistema de información aplicado a la selección de per
+sonal de recursos humanos basado en competencias
+[5]
+
+Aquí se plantean actividades que ilustran la selección de personal talvez de una
+manera muy tradicional, pero enfatizan en la optimización de ingreso de currículums,
+mantenimiento de hojas de vidas de empleados y la manera de abordar las requisiciones de personal, de modo que estas sean atendidas haciendo uso de recursos internos
+o bien recursos externos. También se hace hincapié en lo provechoso de hacer uso
+de sistemas informáticos en los procesos de selección de personal, de modo que se
+menciona la generación de entrevistas conductuales como guia para la entrevista de
+candidatos externos o incluso internos. Finalmente lo que podría ser interpretado
+como desventaja e incluso aprovechado para mejora, es que dicho sistema no cuenta con la administración de procesos inherentes al de selección de personal, lo cual
+
+puede ser un aspecto importante para implentar como componente de este proyecto.Capítulo 2. Marco de Referencia 25
+
+ 
+
+2.3.3. Software integral para el reclutamiento, selección y
+
+evaluación de personal |22].
+
+ArmsSTRONGO) es un sistema que actualmente gestiona de manera más eficiente
+la operación del departamento de Recursos Humanos, reflejando minimización de
+costos y tiempos en cada una de las etapas inherentes al proceso de reclutamiento,
+selección y evaluación continua del personal, y por consecuencia en la maximización
+de las utilidades. Adicionalmente brinda al reclutador reportes de manera gráfica y
+fáciles de entender con datos históricos y estadísticos lo que se traduce en una ventaja
+evidente ya que de manera visual se exponen a los interesados datos puntuales en
+relación a sus requerimientos, por otro lado y probablemente desde diferentes puntos
+de vista puede ser interpretado como una desventaja el hecho de que ArmSTRONG(G)
+se apropie tanto de la información que le proporcionan las empresas para realizar
+diagnósticos o radiografías laborales de sus aspirantes lo cual puede ser mejorado
+con desarrollos que trabajen únicamente en las redes corporativas de cada companía,
+
+logrando así exclusividad y privacidad de toda la información.
+
+2.3.4. Multi-attribute approach to personnel selection [23].
+
+Este trabajo se basa en una lista de posibles candidatos que se clasifican en variables de acuerdo a un orden jerárquico, a raíz de esto se menciona que la evaluación es
+a partir de datos cualitativos, utilizando una herramienta denominada Dexi, que es
+una herramienta interactiva, la cual resuelve problemas muy complejos dividiendolos
+en problemas de menor grado de complejidad, esto ayuda a la generación de reportes
+y exportación de datos a otros programas para posteriores análisis y toma de decisiones. Por último es importante mencionar que este antecedente nos propociona un
+idea acerca de herramientas que con base en variables cuantitativas generan informes
+
+para interpretación y análisis de evaluaciones aplicadas.
+
+Adicionalmente a los trabajos mencionados anteriormente, en Colombia las personas que buscan empleo hacen uso de diferentes herramientas para apoyar dicha
+búsqueda, así pues, se encuentran portales como el elempleo.com [24], computra
+bajo.com.co [25], zonajobs.com.co [26], entre otros; todos estos son dispuestos alCapítulo 2. Marco de Referencia 26
+
+ 
+
+público de manera gratuita lo cual puede representar una ventaja y una opción para
+muchas personas, pero es claro que la razon de ser de estos sitios web esta basada
+
+básicamente en la oferta y demanda de empleo.
+
+Todos los desarrollos mencionados como antecedentes apuntan a mejorar de alguna manera los procesos de selección de personal, unos contribuyendo con la evaluación
+de aspirantes, otros con la simple sistematización del proceso y por último aquellos
+que se prestan como intermediarios en actividades de oferta y demanda laboral. Lo
+que se busca con el desarrollo de este proyecto es propocionar un sistema Web que
+sistematice el proceso de selección de personal en actividades de reclutamiento y
+de selección, pero con el valor agregado de emitir recomendaciones sobre aspirantes
+considerados para un proceso en particular, haciendo uso de lógica difusa como comportamiento principal de agentes de software de modo que se eliminen ambiguedades
+y sesgos que normalmente afectan los procesos y contribuyen al desmejoramiento en
+la toma de decisiones. Este sistema tiene la ventaja de unir dos importantes aspectos
+estudiados en los antecedentes, el primero y muy importante de estos es porpocionar
+una herramienta para gestión del proceso como tal y el segundo es la posibilidad
+de generar recomendaciones en etapas de selección, es decir una cobertura completa
+en el proceso general, además en el desarrollo del sistema se agrego un componente
+importante de parametrización lo cual permite que el sistema puedar se usado por
+diversas empresas teniendo en cuenta el cambio de parámetros para cada interesado
+
+en particular.
+
+Por último el desarrollo del proyecto contempla futuras etapas a implementar y
+que se llevan a cabo en áreas de recursos humanos, tales como viculación, mejora
+miento continuo, entre otras.Capítulo 3
+
+Desarrollo del Proyecto
+
+Para el desarrollo de este proyecto se utilizaron dos metodologías, cada una atendiendo una necesidad específica, para el caso del sistema de información web se
+usó una metodología denominada Extreme programming o más conocida como XP.
+En este proyecto dicha metodología fue apoyada por el marco de trabajo SCRUM,
+por otra parte para la implementación de los agentes de software se utilizó la metodología MAS COMMONKADS , esta última provee los artefactos y procedimientos
+para la correcta adecuación de un sistema basado en agentes de software. También
+se usó la herramienta JADE por medio del lenguaje de Programacion Java para el
+
+desarrollo de los agentes.
+
+Por otro lado SCRUM es un marco de trabajo para la gestión y desarrollo de
+software basado en un proceso iterativo e incremental utilizado comúnmente en entornos basados en el desarrollo ágil de software. Dicho marco fue desarrollado por
+Ken Schwaber y Jeff Sutherland y precisamente por esas características fue elegido
+
+para desarrollar este proyecto.
+
+Scrum se compone de equipos Scrum, roles, eventos y artefactos. Cada componente dentro del marco de trabajo sirve a un propósito específico y es esencial para el
+éxito de Scrum y para su uso. De este modo SCRUM cuenta con 3 roles principales;
+El dueño del producto o Product Owner, el Equipo de Desarrollo o Development
+
+Team y un Scrum Master, de igual manera con 3 artefactos principales; estos son
+
+21Capítulo 3. Desarrollo del Proyecto 28
+
+ 
+
+la lista de producto o Product Backlog, lista de pendientes o Sprint Backlog y por
+
+último con incremento o Carta burndown.
+
+Finalmente en Scrum existen eventos predefinidos con el fin de crear regularidad
+y minimizar la necesidad de reuniones no definidas, el más general de ellos es el Sprint
+que contiene o consisten de la Reunión de Planificación del Sprint (Sprint Planning
+Meeting), los Scrums Diarios (Daily Scrums), el trabajo de desarrollo, la Revisión
+
+del Sprint (Sprint Review), y la Retrospectiva del Sprint (Sprint Retrospective).
+
+La figura 3.1 ilustra el concepto de SCRUM haciendo enfasis en los sprints.
+
+Requisitos de Reunion
+Et diaria
+
+   
+
+  
+   
+ 
+
+Reunion
+mensual*
+
+> Entregable
+
+Sprint
+(Reraciones)
+
+ 
+
+Figura 3.1: Metodología SCRUM [28].
+
+Como se aprecia en la figura 3.1 se evidencia que el proceso para obtener un
+entregable comienza con el levantamiento de requisitos de la aplicación, estos son
+obtenidos del Product Owner, dichos requisitos son consecuencia de entrevistas o
+reuniones más formales sin que estas últimas sean extensas y por ende agotadoras,
+usualmente se usan historias de usuario en donde se consignan todos los aspectos o
+características que van surgiendo y por ende se van adicionando a la lista del producto que es gestionada por el Scrum Master. La documentación detallada en relación
+
+a SCRUM puede ser consultada en su guia oficial [29].Capítulo 3. Desarrollo del Proyecto 29
+
+ 
+
+Por último MAS COMMONKADS es una metodología para el análisis y desarrollo de construcción de sistemas multiagentes, que ofrece un estándar de comunicaciones de varios aspectos incluyendo sistemas, agentes, usuarios y organización,
+permitiendo reutilización de varios de estos, ofreciendo modelos y artefactos que resultan ser muy fáciles de comprender. La metodología extiende de la metodología
+
+CommonKADS$ utilizando sus modelos, además utiliza una estructura orientada a
+objetos [32].
+
+En la metodología se incluyen diferentes fases de conceptualización donde el sistema forma parte de un sistema multiagente, se identifican distintas propiedades, tales
+como análisis, donde los diferentes modelos de desarrollo se analizan para tener en
+cuenta diferentes puntos de vista y la relación entre las fases, diseño que se enfoca en
+las operaciones de los agentes, la implementación y pruebas que no son expresadas
+
+explícitamente en la metodología [33].
+
+Para el uso de la metodología MAS-CommonKADS no es estrictamente el uso
+de alguna metodología de complemento que sirva de soporte y modelado de los artefactos, se pueden plantear diferentes lenguajes de modelamiento, y además no existe
+ningún ejemplo base o guía que se deba seguir a cabalidad, se pueden combinar al
+gunas otras metodologías como son XP o RUP [33].
+
+En los modelos que plantea metodologia se destacan:
+
+= Modelo Agentes
+
+= Modelo Tareas
+
+= Modelo de Coordinación
+= Modelo de Comunicación
+
+"= Modelo de OrganizaciónCapítulo 3. Desarrollo del Proyecto
+
+SU
+
+ 
+
+3.1. Diseno
+3.1.1. Historias de Usuario
+
+Historias de usuario
+Login y creación de usuarios aspirantes
+dd [13 [módulo | togim | Feha | 21/10/2013
+Como usuario aspirante $e necesita que la aplicación proporcione la opción de crear y
+permitir el acceso a usuarios de ese tipo, para que estos tengan acceso a la información que
+diligenciaron en el sistema.
+
+Estimación [3 [Prioridad [5 [Dependencia | Ninguna |
+Pruebas del sistema
+
+* Verificar que se crea el usuario.
+Verificar que la información que se guarda sea acorde al usuario creado.
+
+Intentar acceder después de la creación de la cuenta con el usuario que se haya
+registrado con el fin de modificar la información.
+
+5i se supera un máximo de 3 intentos fallidos al ingresar, el sistema bloqueara el
+acceso de modo que este solo sea reactivado por el administrador del sistema.
+
+Observaciones
+5e debeteneren cuenta que para trabajar con ello se empleará un nombre de usuario de tal
+manera que será el correo electrónico y la contraseña. Para la creación del mismo se le
+solicitará la confirmación, la contraseña debe ser encriptada en md5 y deberá actualizarse
+cada cierto periodo de tiempo.
+
+O Jaime Vélez Hoyos (Gerente IPS
+
+Fuente Administrativo y Financiero) Responsable Royer David Estrada
+e OOOO
+Responsable
+
+Cuadro 3.1: HU1l: Login y creación de Usuarios Aspirantes.Capítulo 3. Desarrollo del Proyecto
+
+31
+
+ 
+
+Historias de usuario
+
+Diligenciar Hoja de vida
+Registro Hoja
+2 Módulo de vida Fecha 01/10/2013
+
+Descripción
+Como usuario aspirante 5e necesita que la aplicación proporcione la opción de
+
+diligenciar datos de una hoja de vida, para posteriormente tener acceso a dichos
+datos por medio del sistema
+
+Pruebas del sistema
+
+e Verificar que la opción almacene todos los datos requeridos.
+
+e Verificar que todos los datos guardados sean coherentes entre si, y que lo que
+se haya diligenciado sea guardado correctamente.
+
+Observaciones
+Se debe tener en cuenta el formato de Hoja de vida institucional con código interno F
+GA-035 de manera que el aspirante tenga la posibilidad de dilisenciar todos esos
+datos en el sistema.
+
+Jaime Vélez Hoyos
+(Gerente Administrativo y
+Financiero) Responsable Royer David Estrada
+
+Cuadro 3.2: HU2: Diligenciar Hoja de Vida.Capítulo 3. Desarrollo del Proyecto
+
+Ie
+
+ 
+
+Acceso a usuarios con privilegios del sistema
+¡al promo | tegim | rem | 810205
+
+-0110 usuario del sistema quiero que se me proporcione la opción de logueo para
+poder tener acceso y permisos a cada uno de los módulos y funcionalidades del
+sistema.
+
+Estimación 5 rioridad 5 ho ependencia | Minguna
+Pruebas del sistema
+
+* Verificar que las funcionalidades a las que tengo permiso sean visibles y
+restringir lo que no es permitido.
+
+* Verificar por medio de la URL que no se pueda acceder a una opción que na
+le corresponde al usuario.
+Verificar que la contraseña que el usuario ingresa sea encriptada, y no permita
+capturarla por ningún mecanismo ajeno a la aplicación.
+Cuando ingreso por primera vez al sistema pueda yo como usuario modifica
+la contraseña a una que me sea fácil de recordar.
+51 supera un máximo de 3 intentos fallidos al ingresar al sistema, el sistema
+bloqueará el acceso por un periodo de tiempo.
+
+definido por el administrador y que será parametrizable en el modelo de datos de 1
+aplicación, la contraseña temporal es generada por el sistema de manera aleatoria.
+
+Clara Isabel Herrera
+Fuente  |((Directora Gestión Humana)| Responsable Rover David Estrada
+
+Cuadro 3.3: HU4: Acceso Usuarios.Capítulo 3. Desarrollo del Proyecto
+
+13
+
+ 
+
+3.1.2.
+
+Diagramas de Clase
+
+ 
+
+a — .
+erre Hojapevida
+usuano mostrarH ojasDeWVida()
+password
+q: cargos]
+non
+visualizarH ojaDeVida()
+validarH V()
+perilarH W()
+clasificarH V() :
+mostrarSolicitudPersonalí) descalCargoDefnto)
+
+ 
+
+guardarS olicitudPersonal()
+mostrarSolicitudesPersonal()
+actualizarSolicitudPersonal()
+
+ 
+
+Figura 3.2: DC1: Selección de Personal
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figura 3.3: DC2: Login y Acceso a Contenido del SistemaCapítulo 3. Desarrollo del Proyecto
+
+ 
+
+3.1.3. Diagramas de Secuencia
+
+Crear Usuarios
+
+Asignar
+
+Permisos
+
+     
+   
+       
+
+login_user()
+
+contenido()
+
+<< TA A
+
+crearllsuario()
+
+asignarPermisos(
+
+Figura 3.4: DS1: Creación Usuarios Empleados
+
+As pirante
+
+res prregistrar Ácoeso( email, pas sword]
+
+Figura 3.5: D52: Creación Usuarios Aspirantes
+
+$4Capítulo 3. Desarrollo del Proyecto 35
+
+ 
+
+Hoja de Vida
+
+   
+      
+
+filtrsBusquedal )
+
+buscarHojasd Med
+
+  
+ 
+
+Jefe d resultadorIltrosB usqueda(;
+
+mostrarHojas Dev idad)
+
+desplegarlatosP ersonales()
+
+ 
+
+E SA AS AS Sas ls 2 2 552 2...
+
+nm desplegarDalostamillares()
+
+Enmico desplegar ormaciona.cademicat)
+
+< desplegarEx penencial aboral(]
+desplegaránex 0s()
+
+<= === === ====M.)
+
+Figura 3.6: DS3: Consulta y Filtro de Hoja de Vida
+
+3.1.4. Agentes de software
+
+3.1.4.1. Modelo de Agentes
+
+Los cuadros 3.4. 3.5, 3.6 y 3.7 describen cada uno de los agentes utilizados
+
+para el sistema de recomendación.Capítulo 3. Desarrollo del Proyecto
+
+36
+
+ 
+
+CI
+Capacidades de Razonamiento Agente activo a la espera de información
+
+Descripción Agente que va a estar de entrada en el
+proceso, este se encargará de obtener los
+parámetros que se le dan para que los
+organice y se los comunique al agente
+encargado de buscar la información.
+
+Cuadro 3.4: MA1: Modelo de agente Receptor de parámetros.
+
+ 
+
+oo
+
+Capacidades de Razonamiento Agente encargado de realizar acciones
+específicas.
+
+ 
+
+Descripción Agente que se encargará de buscar la
+información que se encuentra en la base de
+datos, teniendo en cuenta la información
+recibida del agente receptor, para así
+trasladarla al agente evaluador.
+
+Cuadro 3.5: MA2: Modelo de agente Buscador de informaciónCapítulo 3. Desarrollo del Proyecto
+
+37
+
+ 
+
+oro
+
+Capacidades de Razonamiento Agente que se encargará de evaluar un
+conjunto de entradas específico.
+
+Descripción Es el agente que aplicará la lógica del
+algoritmo para poder definir un conjunto de
+ponderaciones y así arrojará una serie de
+resultados que serán interpretados por el
+sistema web.
+
+ 
+
+Cuadro 3.6: MA3: Modelo de agente evaluador
+
+Capacidades de Razonamiento Agente que se encargará de entregar un
+informe de resultados.
+
+Descripción Agente encargado de recibir una lista
+calculada de recomendaciones que le
+entrega el agente Evaluador, este se
+encargará de ordenar la lista y entregar un
+informe de cuales aspirantes han sido
+clasificado y se pueden recomendar.
+
+ 
+
+Cuadro 3.7: MA4: Modelo de agente comunicador de recomendaciones.Capítulo 3. Desarrollo del Proyecto
+
+8
+
+ 
+
+3.1.4.2. Modelo de Tareas
+
+La figura 3.7 expone el modelo general de tareas de los agentes.
+
+ 
+
+Figura 3.7: Modelo de tareas agentes de software
+
+3.1.4.3. Modelo de Coordinación
+
+La figura 3.8 y 3.9 exponen el modelo de coordinación de los agentes.Capítulo 3. Desarrollo del Proyecto 39
+
+ 
+
+ 
+
+:Evaluador :Comunicador
+
+ 
+
+enviarInformacionAgenteReceptor() 
+A
+
+Array:buscarAspirantes (convocatoria)
+
+Array:buscaCriterios Evaluacion(cargo)
+
+enviarinformacionProcesada(aspirantes.criterios
+
+er
+
+Array: determinarRecomehdaciones()
+
+Figura 3.8: Diagrama de secuencia para las interacciones de la conversación entre
+agentes.
+
+Receptor envarInformacionAgenteReceptor() Buscador de
+Información
+envarinformacionProcesada(aspirantes, criterios)
+
+Figura 3.9: Canales básicos de comunicación y flujo de conversaciones entre agentes
+de software.
+
+  
+     
+
+ 
+    
+ 
+
+entregarRecomendaciones() EvaluadorCapítulo 3. Desarrollo del Proyecto 40
+
+ 
+
+3.1.4.4. Modelo de Comunicación
+
+La figura 3.10 enseña el modelo de comunicación de los agentes para el sistema
+
+de recomendación.
+
+    
+ 
+     
+ 
+
+solicitarRecomendacion(convocatoria, cargo)
+
+ 
+
+enviarInformacionAgenteReceptor()
+
+ 
+
+ 
+
+¿Comunicador
+
+obtenerinformeDeResultados ()
+
+ 
+
+informeDeResultados()
+
+Figura 3.10: Modelo de comunicación agentes de software
+
+3.1.4.5. Modelo de Organización
+
+La figura 3.11 enseña el modelo de organización de los agentes para el sistema
+
+de recomendación.Capítulo 3. Desarrollo del Proyecto
+
+ 
+
+rr
+
+ 
+
+ 
+
+Agente Receptor
+
+ 
+
+convocatoria
+
+(o
+
+envariniormacionA genteReceptor)
+
+ 
+
+ 
+
+ 
+
+ 
+
+Agente Evaluador
+
+recomendaciones
+
+Array: determinarRecomendaciones()
+
+ 
+
+ 
+
+ 
+
+ 
+
+Agente Buscador de Informac ión
+
+aspirantes
+enteños _evaluacion
+
+Array:buscarÁspirantes (convocatoria)
+Array:busca Criterios Evaluacion(cargo)
+envardriormacionP mcesada
+(aspirames,crtenios)
+
+ 
+
+ 
+
+Base de datos
+
+q q í A _—___________ 4
+
+ 
+
+Agente Deliberativo
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Agente Buscador de Información
+
+hstaRecomendacionesOrganizada
+
+oblenerlnmiormeDeResultados()
+informeDe Resultados()
+
+Figura 3.11: Modelo de organización, agentes de software.
+
+3.2. Descripción General del Sistema
+
+41
+
+El sistema de información desarrollado y nombrado como SIGHU que represen
+ta “Sistema Integrado de Gestión Humana” cuenta con tres módulos que reúnen
+
+las funcionalidades necesarias para la sistematización del proceso de selección, y la
+
+posibilidad de generar recomendaciones haciendo uso de agentes de software que
+
+aplican lógica difusa para dicho cometido. Actualmente la aplicación se encuentra
+
+en ambiente de producción en una gran empresa de la ciudad de Tuluá y por ende
+
+constantemente se realizan actividades de desarrollo adicional para ellos.
+
+3.2.1. Interfaz Gráfica de Usuario
+
+La interfaz gráfica de usuario pone a disposición los métodos y funcionalidades
+
+desarrolladas para la sistematización del proceso de selección en departamentos deCapítulo 3. Desarrollo del Proyecto 42
+
+ 
+
+recursos humanos. La figura 3.12. evidencia el inicio de la aplicación para un usuario
+
+administrador.
+
+”” A E
+
+c PUTRTTCOA a
+
+2? HanciscO A EN
+
+Talud al aance de 10303
+
+  
+
+ 
+
+ 
+
+Inicio fe Selección O Parametrización Y Opciones = ADMINISTRADOR
+$3 Tipo de gráfico
+3 Elementos de estudio Bienve n ido a S | G H U
+
+ES SOLICITUDES DE
+
+PERSONAL
+
+SOLICITUDES DE PERSONAL
+
+E CONVOCATORIAS
+Ml PENDIENTE
+
+ES ASPIRANTES Ml APROBADA
+
+En HOJA DE VIDA
+
+ 
+
+UNIVERSIDAD DEL VALLE TODOS LOS DERECHOS RESERVADOS CALLE 43 NO 43-33
+
+Figura 3.12: Aspecto inicial de la aplicación para un usuario Administrador.
+
+A continuación se describen brevemente los módulos mencionados anteriormente.
+
+3.2.2. Módulo de Selección
+
+Toda la gestión en relación al proceso de selección y reclutamiento de personal
+fue implementada en un módulo denominado selección, a continuación se detallan
+
+brevemente las funcionalidades del mismo.
+
+3.2.2.1. Submodulo Hoja de vida
+
+Dicho submódulo proporciona las opciones de consulta de hojas de vida, así como
+la validación, clasificación y referenciación de las mismas, también aquí se permite
+visualizar y descargar la autorización de manejo de datos personales que diligencian
+
+cada uno de los aspirante que deciden registrarse en el sistema.
+
+3.2.2.2. Submodulo Solicitud de Personal
+
+En este submódulo se gestiona el proceso de solicitudes de personal para usuarios
+
+que tengan dicha posibilidad, el proceso consta de opciones para solicitar, consultar yCapítulo 3. Desarrollo del Proyecto 43
+
+ 
+
+cancelar las requisiciones de personal, también en este submódulo es posible convocar
+aspirantes a nuevas convocatorias después de una clasificación automática que ejecuta
+
+el sistema.
+
+3.2.2.3. Submodulo Convocatorias
+
+El submódulo de convocatorias gestiona todas las actividades a la fecha documentadas en relación a la consulta de aspirantes asociados a convocatorias activas,
+también gestiona el proceso de contacto o llamados realizados así como la progra
+mación a pruebas de los aspirantes.
+
+3.2.2.4. Submodulo Pruebas
+
+Este submódulo propocionar la funcionalidad para la creación de agenda para
+posteriores programaciones a pruebas, el registro de calificaciones obtenidas por los
+aspirantes en las diferentes etapas del proceso y por último permite la realización de
+referenciación laboral a la cual es sometida la experiencia laboral relacionada por los
+
+aspirantes en el proceso de diligenciamiento de hoja de vida.
+
+3.2.2.5. Submodulo Informe de Selección
+
+Este submódulo proporciona la funcionalidad que permite cruzar el rendimiento
+de un aspirante en el proceso con los ítems parametrizados según sea el cargo al que
+se aspira, aquí se evidencia la adhesión que tiene un aspirante al perfil para el cual
+
+se le requiere.
+
+3.2.2.6. Submodulo Recomendación
+
+Por último, en el submódulo de recomendación es donde se implementa la funcionalidad que conecta el lenguaje de programación Php con el lenguaje Java de modo
+que producto de dicha relación sea posible generar recomendaciones de aspirantes
+haciendo uso de agentes de software con un comportamiento de lógica difusa.
+
+Es importante mencionar que los submódulos anteriormente nombrados cuentan
+con opciones para la generacion de listados de la información que ofrece cada uno de
+
+ellos.Capítulo 3. Desarrollo del Proyecto 44
+
+ 
+
+3.2.3. Módulo de Parametrización
+
+Para el desarrollo de la aplicación se dispuso que esta tuviera un componente importante de parametrización lo permite que el mantenimiento de la misma en diversas
+funcionalidad trate de ser siempre el mínimo. Veamos brevemente los submódulos
+
+desarrollados para ello.
+
+3.2.3.1. Perfiles Sistema
+
+Este submódulo permite la creacion de perfiles del sistema que posteriormente
+serán asignados a nuevos usuarios de la aplicación. En la creación de dichos perfiles
+el sistema proporciona la funcionalidad para que a dicho perfil se asignen módulos y
+
+submódulos del sistema.
+
+3.2.3.2. Usuarios
+
+Aquí se proporciona la funcionalidad para la creación de usuarios con contraseña
+inicial automática y un login establecido por la aplicación, impresión de tirilla en
+impresora POS con los datos del nuevo usuario así como sus credenciales de acceso.
+En este submódulo también se ofrece la asignación de permisos adicionales para los
+usuarios, áreas de influencia y la digitalización de la firma que se almacena en base
+de datos en formato de bytes por seguridad. Finalmente este submódulo ofrece la
+
+posibilidad de inactivar usuarios y realizar cambios de perfil de los mismos.
+
+3.2.3.3. Perfiles Cargos
+
+Este submódulo ofrece la funcionalidad para creación, modificación, inactivación
+
+e impresión de los perfiles asociados a cada cargo interno de la empresa que cuenta
+
+con SIGHU.
+
+3.2.3.4. Parámetros Generales
+
+El submódulo de Parámetros Generales proporciona la funcionalidad para que
+usuarios del sistema con dicha posibilidad puedan crear, modificar e inactivar parámetros del modelo de datos. Dicha funcionalidad es posible asociando tablas de tipo
+
+parámetro a usuarios que puedan alterar el contenido de dicha tabla por medio deCapítulo 3. Desarrollo del Proyecto 45
+
+ 
+
+la aplicación, esto se realiza para que se reduzca la cantidad de personas administradoras del sistema que pueden acceder al motor de base de datos, lo que genera que
+la responsabilidad de los datos preferiblemente sean del dominio de pocas personas
+
+o incluso un solo DBA.
+
+Para el caso de la creación de parámetros el submódulo ofrece la posibilidad de
+
+importar archivos en formato *.csv
+
+3.2.3.5. Cargos Empresa
+
+Este submódulo proporciona la funcionalidad para relacionar cargos internos de
+la empresa con cargos subalternos, de modo que dicha relación sea útil para la con
+formación de perfiles de los cargos.
+
+3.2.4. Módulo de Registro de Hoja de Vida
+
+El Módulo de registro de hoja de vida es el que está disponible para personas que
+buscan empleo en la empresa y en vez de dejar soportes físicos aceptan diligenciar
+su currículum en el aplicativo, este módulo ofrece secciones para datos personales,
+familiares, formación académica, experiencia laboral y una última sección para toma
+de fotografía y adjuntar soportes que respalden la información diligenciada por el
+aspirante. Dicho módulo en inició esta disponible para ser accedido desde la red
+interna de la compañía de modo que empleados activos consulten y actualicen su
+hoja de vida y que los terceros que buscan empleo puedan hacer uso de dicho módulo
+
+en un lugar y horario establecido por la empresa que usa SIGHU.
+
+3.3. Arquitectura del Sistema Implementado
+
+La figura 3.13 describe el esquema o funcionamiento de la aplicación y evidencia
+cada uno de los componentes que se relacionan entre sí, la arquitectura utilizada fue
+de tipo cliente- servidor, de este modo se observa como los clientes por medio de la
+red empresarial interactúan y realizan peticiones al servidor anfitrión del aplicativo
+SIGHU, a su vez este último es el que se encarga de responder a las peticiones reali
+zadas por cada uno de los clientes. Para la generación de recomendación automáticaCapítulo 3. Desarrollo del Proyecto 46
+
+ 
+
+se hizo necesario la utilización de otro lenguaje de programación diferente a PHP,
+
+en este caso JAVA fue el seleccionado.
+
+       
+
+Motor de Base de
+atos POSTGRESQL
+RED
+
+EMPRESARIAL Bootstrap
+
+A
+
+Codelgniter
+
+des
+
+Agentes de
+Software
+
+Figura 3.13: Arquitectura del Sistema
+
+El proceso de recomendación inicia cuando un cliente genera dicha acción por medio del sistema de información WEB, este último gestiona la petición encargándose
+de aplicar el componente estático de la lógica difusa, el cual consiste en la generación
+automática de reglas de inferencia para la posterior evaluación, para esto el sistema
+hace uso de los FrameWorks Bootstrap y Codelgniter que se utilizaron para la construcción ágil del sistema. Una vez el componente estático de lógica difusa finaliza se
+integra el lenguaje de programación JAVA por medio de la definición de un WebService, de este modo es posible utilizar la herramienta JADE para la implementación
+de los agentes de software que serán los encargados de emitir recomendaciones ejecutando el componente dinámico de la lógica difusa. En este punto es donde se extiende
+el sistema de información WEB a un sistema de recomendación para la selección de
+personal.
+
+Es preciso aclarar que la figura 3.13 muestra que el servidor de aplicación y
+de base de datos estan en distintas ubicaciones, esto puede variar dependiendo de
+
+la infraestructura con la que se cuenta para la puesta en marcha del sistema deCapítulo 3. Desarrollo del Proyecto 47
+
+ 
+
+recomendación, es decir ambos servidores pueden ser ubicar en un mismo hardware.
+
+3.4. Detalles de Implementación
+
+Para el desarrollo del proyecto y por ende lograr la consecución de cada uno de
+sus objetivos, se inició con la realización de entrevistas para conocer el proceso de
+selección de personal, dichas entrevistas se llevaron a cabo con personal del área
+de gestión humana, tal como lo indica la metodología utilizada, paralelo a esto se
+invirtió tiempo en la búsqueda de las tecnologías adecuadas para el desarrollo del
+
+proyecto teniendo en cuenta el tiempo establecido para ello.
+
+Para el logro del primer objetivo (Implementar un sistema de información
+web que gestione las etapas de reclutamiento en procesos de selección de
+personal proporcionando módulos de recolección, administración y análisis de la información), se inició con el desarrollo del módulo de registro de hoja
+de vida añadiendo a este las funcionalidades programadas y extraídas de la lista de
+
+tareas.
+
+Una vez dicho desarrollo alcanzó un punto estable se empiezan a abordar funcionalidades de los módulos que permiten administrar y analizar la información, que por
+medio del módulo de registro de hoja de vida es almacenada en el modelo de datos
+del sistema. Por ejemplo; en el submódulo de hoja de vida del módulo de selección
+se permite visualizar y administrar la información captada por medio del módulo de
+
+registro de hoja de vida.
+
+Las figuras 3.14, 3.15 y 3.16 evidencian el diligenciamiento, manipulación y
+
+análisis de la información.Capítulo 3. Desarrollo del Proyecto
+
+48
+
+ 
+
+   
+
+MenúQO): Opciones *t
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+DOCUMENTO LUGAR DE EXPEDICIÓN LIBRETA MILITAR TIPO DE SANGRE
+ec 1) (1116247617 TULUA-VALLE DEL CAUCA-COLOMBI y] s: O mO AB+ +)
+
+NOMBRE(S) APELLIDO(S) GENERO FECHA DE NACIMIENTO
+
+ROYER DAVID ESTRADA ESPONDA Mascuino O Femenino O 1990-07-06
+
+LUGAR DE NACIMIENTO LUGAR DE RESIDENCIA BARRIO DIRECCION DE RESIDENCIA
+TULUA-VALLE DEL CAUCA-COLOMBI y TULUAVALLE DEL CAUCA-COLOMBIA + [SAN PEDRO CLAVER ) CALLE 25 B N* 305 )
+
+TELEFONO(S) MOVIL TELEFONO(S) FIJO CORREO ELECTRONICO
+
+Geraezas7 EA) rogerumaleghotmalcom
+
+ 
+
+UNIVERSIDAD DEL VALLE TODOS LOS DERECHOS RESERVADOS CALLE 43 NO 43-33
+
+Figura 3.14: Módulo de registro de hoja de vida, sección datos personales.
+
+ULTIMA FECHA DE ACTUALIZACIÓN: 2014-04-17 12:22
+
+ 
+
+ 
+
+INGENIERO (A) PROCESOS NO VIGENTE Cambiar Estado
+INGENIERO (A) SISTEMAS VIGENTE Cambiar Estado
+
+ 
+
+ 
+
+ 
+
+UNIVERSIDAD DEL VALLE TODOS LOS DERECHOS RESERVADOS CALLE 43 NO 43-33
+
+Figura 3.15: Módulo de selección, Submódulo de Hoja de vida. Consulta.Capítulo 3. Desarrollo del Proyecto 49
+
+ 
+
+ASPIRANTES
+SOUCITUDES DE PERSONAL
+
+vencienre MN
+
+ALIADA
+
+EN TRAMITE
+VISTO BUENO /
+mi 15 0 - h
+A
+
+SOLICITUDES DE PERSONAL
+
+ 
+
+Figura 3.16: Gráficos Disponibles para análisis de información.
+
+La implementación de los demás submódulos tanto de selección como de para
+metrización también son relevantes para el cumplimiento del objetivo.
+
+Por otro lado y con base en la investigación realizada se decide utilizar 4 agentes
+
+con las siguientes características.
+
+1. Agente Receptor de parámetros, Reactivo. Recibe del sistema de información
+una serie de parámetros que codifica y los envía al agente encargado de buscar
+
+la información sujeta a evaluación.
+
+2. Agente Buscador de información, Proactivo. Con los parámetros recibidos del
+receptor, este se encarga de buscar los aspirantes y criterios de evaluación de
+la convocatoria que coincida con los parámetros recibidos, finalmente pasa esta
+
+información al agente evaluador.
+
+3. Agente Evaluador, Reactivo. Recibe la información de aspirantes y criterios de
+evaluación, aplica la lógica de evaluación que se le presenta y con esta obtiene
+
+un arreglo de características que finalmente es interpretado en el sistema.
+
+4. Agente Comunicador de resultados, Deliberativo. Recibe la información del
+evaluador y la transmite al sistema de información entregando la lista de re
+sultados y las recomendaciones sobre el conjunto total de aspirantes.Capítulo 3. Desarrollo del Proyecto 50
+
+ 
+
+      
+   
+
+Parametros
+Convocatoria
+
+O Solicitar OS
+
+Recomendacion a
+E ny e —
+— ( Entregar SN
+xNosutads «os )
+( Buscar DD
+termación y
+| Lista de
+l Recomendaciones
+
+        
+   
+ 
+
+   
+
+Criterios
+Evaluación
+
+Aspirantes
+Convocatoria
+
+ 
+
+Pa licar Lógoa”
+Seleccion  /
+
+Figura 3.17: Flujo del proceso de recomendación.
+
+La figura 3.17 expone brevemente el flujo de una recomendación.
+
+Los cuatro agentes de software mencionados anteriormente y el flujo del proceso
+de recomendación, figura 3.17; son producto de la investigación realizada y permiten
+dar cumplimiento al objetivo número dos (Determinar la clase de agentes de
+software que se adapten al volumen y tipo de información relacionado a
+
+los procesos de selección de personal.)
+
+Del mismo modo la implementación del submódulo de Recomendación junto con
+el desarrollo realizado en el lenguaje de programación JAVA permiten dar cumpli
+miento al objetivo tres (Implementar los agentes de software e incorporarlosCapítulo 3. Desarrollo del Proyecto 51
+
+ 
+
+al sistema de información web para apoyar los procesos de selección de
+
+personal) de la siguiente manera.
+
+El sistema de información Web tiene la responsabilidad de ejecutar el componente estático de la lógica difusa, de este modo desde el sistema se consultan los
+criterios de evaluación activos, funciones de pertenencia, funciones de importancia,
+intervalos difusos de los criterios de evaluación y los intervalos difusos de la salida
+esperada. Se debe tener en cuenta que los criterios de evaluación se parametrizan en
+base datos como conjuntos difusos y no como datos concretos. Precisamente por el
+aspecto parametrizable de la aplicación a continuación se detallan un par de ejemplos
+
+de criterios de evaluación.
+
+= Puntaje obtenido en prueba de Cultura General: Criterio de evaluación que
+consta de dos intervalos difusos, el intervalo de “aprobado” y el de “no apro
+bado”, Este criterio tiene una importancia del 70% del total del proceso.
+
+= Puntaje obtenido en Dinámica Grupal: Criterio de evaluación que consta de
+3 intervalos difusos, “Regular”, “Bueno” y “Sobresaliente”, Este criterio tiene
+
+una importancia del 30% del total del proceso.
+
+Los anteriores ejemplos son casos que podrían ser llevados al modelo de datos y
+
+por ende ser aplicados a un proceso.
+
+Continuando con la descripción de las actividades realizadas por el sistema web
+en el aspecto estático de lógica fuzzy, se debe comentar que en dichas actividades se
+incluyó la construcción de combinaciones de los intervalos de cada uno de los criterios
+de evaluación para la generación de reglas, esto porque el motor de inferencia sigue
+la definición tipo Mamdani [30], es decir Antecedente entonces Consecuente. Debido
+a que la cantidad de reglas tiene un crecimiento exponencial en función al número
+de criterios de evaluación aplicados, se decide usar un Algoritmo para la generación
+automática de reglas |31], de igual modo se aplica la distancia euclidiana para
+
+calcular distancias entre conjuntos.Capítulo 3. Desarrollo del Proyecto 52
+
+ 
+
+RECOMENDACIÓN DIFUSA DE ASPIRANTES
+
+Reglas automaticas producto de la parametrización registrada en el sistema.
+
+Contirmar las reglas Y
+
+Regla Prueba Técnica Entrevista Técnica Experiencia laboral (Meses) SALIDA
+
+1 Aprueba Aprueba Baja (B) TOTALMENTE ACEPTADO
+
+2 Aprueba Aprueba Muy baja (MB) TOTALMENTE ACEPTADO
+
+3 Aprueba Aprueba Normal(N) TOTALMENTE ACEPTADO
+
+4 Aprueba Aprueba Alta (A) TOTALMENTE ACEPTADO
+
+5 Aprueba Aprueba Muy alta (MA) TOTALMENTE ACEPTADO
+
+6 Aprueba No Aprueba Baja (B) PENDIENTES POR LLAMADO
+7 Aprueba No Aprueba Muy baja (MB) PENDIENTES POR LLAMADO
+8 Aprueba No Aprueba Normal(N) PENDIENTES POR LLAMADO
+9 Aprueba No Aprueba Alta (A) PENDIENTES POR LLAMADO
+10 Aprueba No Aprueba Muy alta (MA) PENDIENTES POR LLAMADO
+11 No aprueba Aprueba Baja (B) PENDIENTES POR LLAMADO
+12 No aprueba Aprueba Muy baja (MB) TOTALMENTE RECHAZADO
+13 No aprueba Aprueba Normal(N) PENDIENTES POR LLAMADO
+14 No aprueba Aprueba Alta (A) PENDIENTES POR LLAMADO
+15 No aprueba Aprueba Muy alta (MA) PENDIENTES POR LLAMADO
+16 No aprueba No Aprueba Baja (B) TOTALMENTE RECHAZADO
+17 No aprueba No Aprueba Muy baja (MB) TOTALMENTE RECHAZADO
+18 No aprueba No Aprueba Normal(N) TOTALMENTE RECHAZADO
+19 No aprueba No Aprueba Alta (A) TOTALMENTE RECHAZADO
+20 No aprueba No Aprueba Muy alta (MA) TOTALMENTE RECHAZADO
+
+Figura 3.18: Reglas generadas usando el algoritmo de generación automática de reglas
+y distancia euclidiana.
+
+La figura 3.18 muestra las combinaciones resultantes producto de la aplicación de
+3 criterios de evaluación, Prueba Técnica, Entrevista Técnica y Experiencia laboral
+en meses y su correspondiente salida que es calculada de manera automática. Por
+nombrar una de las reglas se observa que un aspirante que supere la prueba técnica
+y entrevista técnica queda totalmente aceptado aunque su experiencia laboral sea
+“Muy baja” (Regla número 2 de la figura). Así pues una vez finalizada la generación
+de reglas (Fuzzy estático) se pone a disposición del usuario la opción para aplicar el
+
+componente dinámico.
+
+Para el componente Fuzzy dinámico del proceso de recomendación se aplica la
+lógica difusa convencional que consta de la fuzzificación, aplicación de inferencia y
+
+defuzzificación. Todo esto como comportamiento de los agentes de software imple
+mentados en JAVA.Capítulo 3. Desarrollo del Proyecto 53
+
+ 
+
+RECOMENDACIÓN DIFUSA DE ASPIRANTES
+
+Reglas automaticas producto de la parametrización registrada en el sistema.
+
+Mostrar las reglasWY
+
+Seleccione la convocatoria a recomendar.
+
+NÚMERO CONVOCATORIA |
+
+Figura 3.19: Opción dispuesta para que se inicie el proceso dinámico de la lógica
+Fuzzy.
+
+Las tecnologías usadas en el desarrollo del aplicativo son:
+
+"= Php: Php [11] es un lenguaje de programación de proposito general y codigo
+
+abierto para el desarrollo web.
+
+= Java: Java [12] es un lenguaje de programación de propósito general, concu
+rrente y orientado a objetos.
+
+= Codelgniter : Codelgniter [14] es un framework de código abierto para Php
+que agiliza el desarrollo de aplicaciones web proporcionando potentes y variadas
+
+funcionalidades.
+
+= Bootstrap: Bootstrap |13] es un fron-end framework para el diseño responsable
+
+de aplicativos Web.
+
+= Postgresql : Postgresql: Posteresql [15] es un motor de base de datos libre,
+
+robusto y proporciona buenos niveles de seguridad.
+= JQuery: JQuery [16] es un framework para JavaScript.
+
+= JADE: JADE [17] es una herramienta para el desarrollo de agentes de software
+que emplea JAVA y está basado en el estándar FIPA.Capítulo 3. Desarrollo del Proyecto
+
+94
+
+ 
+
+3.0.
+
+Pruebas
+
+Las pruebas realizadas para verificar el correcto comportamiento del sistema fue
+ron pruebas de aceptación, pruebas de sistema y por último de integración.
+
+3.0.1.
+
+Pruebas de Aceptación
+
+ 
+
+ 
+
+PRUEBA DE ACEPTACIÓN
+NÚMERO DE PRUEBA 1
+NÚMERO DE HISTORIA 1
+
+NOMBRE DE LA PRUEBA Apariencia acceso hoja de vida
+TITULO HISTORIA DE USUARIO Login de usuarios aspirantes
+
+DETALLE DE LA PRUEBA: Mostrar el acceso para el registro de aspirantes al modulo de
+registro de hoja de vida. Aquí se detallan cada uno de los componentes relacionados para dicho
+acceso. Campo para correo electrónico, campo para diligenciamiento de contraseña para usuarios
+registrados, campo para repetir contraseña para nuevos usuarios y por último la opción “Olvide mi
+contraseña”
+
+ 
+
+ESTADO DE LA PRUEBA
+
+FIRMAS
+
+Clara Henera
+OBSERVACIONES ADICIONALES:
+
+FECHA DE ELABORACIÓN: 28/10/2013
+
+ 
+
+ 
+
+Cuadro 3.8: PA1: Validación apariencia Acceso hoja de vida.
+
+PRUEBA DE ACEPTACIÓN
+
+NÚMERO DE PRUEBA 3
+
+NÚMERO DE HISTORIA 2
+
+ 
+
+NOMBRE DE LA PRUEBA Verificar conformidad con formularios para el
+diligenciamiento de hojas de vida.
+
+TITULO HISTORIA DE USUARIO Diligenciar hoja de vida
+
+DETALLE DE LA PRUEBA: Se expone una a una las secciones contenidas en el modulo de
+registro de hoja de vida. Estas son: Datos personales, Datos familiares, Formación académica,
+Experiencia laboral y Anexos. Dichas secciones se implementaron con base en el formato interno
+
+número F-GH-035|
+
+ 
+
+ 
+
+ 
+
+ 
+
+ESTADO DE LA PRUEBA
+
+APROBADA Xx NO APRODADA
+
+FIRMAS
+
+ELABORÓ: Royer David Estrada | APROBÓ: Clara Herrera
+OBSERVACIONES ADICIONALES: Ninguna
+
+FECHA DE ELABORACIÓN: 28/10/2013
+
+ 
+
+ 
+
+Cuadro 3.9: PA2: Validación secciones para registro de hoja de vida.Capítulo 3. Desarrollo del Proyecto 55
+
+ 
+
+ 
+
+PRUEBA DE ACEPTACIÓN
+
+NÚMERO DE PRUEBA 4
+
+NÚMERO DE HISTORIA 4
+NOMBRE DE LA PRUEBA Apariencia acceso usuarios del sistema.
+TITULO HISTORIA DE USUARIO Acceso usuarios con privilegios del sistema
+
+DETALLE DE LA PRUEBA: Se mostró el acceso al sistema para usuarios empleados registrados
+en la aplicación. Se entendieron cada uno de los componentes relacionados en dicho acceso, tales
+como login de acceso, contraseña y opción para recuperación de contraseña.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ESTADO DE LA PRUEBA
+
+APROBADA XxX NO APRODADA
+
+FIRMAS
+
+ELABORÓ: Royer David Estrada  |APROBÓ: Clara Herrera
+OBSERVACIONES ADICIONALES:
+
+FECHA DE ELABORACIÓN: 28/10/2013
+
+ 
+
+Cuadro 3.10: PA3: Validación de conformidad para acceso al sistema por parte de
+usuarios empleados.
+
+Las demás pruebas de aceptación realizadas las puede detallar en el documento
+
+Anexo, Apéndice D.Capítulo 3. Desarrollo del Proyecto
+
+96
+
+ 
+
+3.9.2.
+
+Pruebas de Sistema
+
+NÚMERO DE PRUEBA
+
+NÚMERO DE HISTORIA
+NOMBRE DE LA PRUEBA
+TITULO HISTORIA DE USUARIO
+
+Validación acceso hoja de vida
+Login de usuarios aspirantes
+
+DETALLE DE LA PRUEBA: Probar escenarios específicos que validen que el acceso al modulo
+
+de registro de hoja de vida por parte de aspirantes.
+
+ESCENARIO 1: Intentar Acceder con
+contraseña incorrecta.
+
+ESCENARIO 2: Intentar acceder con contraseña
+correcta pero con correo electrónico incorrecto.
+
+ESCENARIO 3: Intentar acceder con contraseña
+correcta y correo electrónico correcto.
+
+APROBADA
+
+ELABORÓ: Royer David Estrada
+OBSERVACIONES ADICIONALES:
+FECHA DE ELABORACIÓN:
+
+RESULTADO RESULTADO
+ESPERADO OBTENDIO
+
+Bloqueo y la siguiente|Bloqueo y la siguiente
+notificación “EL [notificación “EL
+CORREO ELECTRÓNICO|CORREO ELECTRÓNICO
+
+YA EXISTE EN  EL[(YA EXISTE EN EL
+SISTEMA. VERIFIQUE |SISTEMA., VERIFIQUE
+
+LA CONTRASEÑA” LA CONTRASEÑA”
+
+Bloqueo y la siguiente|Bloqueo y la siguiente
+
+notificación - “EL [notificación “EL
+CORREO ELECTRÓNICO|CORREO ELECTRÓNICO
+
+NO ESTÁ REGISTRADO|NO ESTÁ REGISTRADO
+EN EL SISTEMA, EN EL SISTEMA,
+
+VERIFIQUELO O POR[VERIFIQUELO O POR
+FAVOR REGISTRESE” FAVOR REGISTRESE”
+
+Acceso exitoso, | Acceso exitoso,
+
+despliegue modulo defdespliegue modulo de
+registro de hoja de vida [registro de hoja de vida
+
+NO APRODADA
+
+APROBÓ: Juan José Aragon.
+
+ 
+
+28/10/2013
+
+Cuadro 3.11: PS1: Validación de acceso a hoja de vida.Capítulo 3. Desarrollo del Proyecto 57
+
+ 
+
+NÚMERO DE PRUEBA
+NÚMERO DE HISTORIA
+
+NOMBRE DE LA PRUEBA Validación acceso usuarios del sistema.
+TITULO HISTORIA DE USUARIO Acceso usuarios con privilegios del sistema
+
+DETALLE DE LA PRUEBA: Probar escenarios específicos que validen que el acceso al sistema
+por parte de los usuarios empleados sea el indicado.
+
+RESULTADO RESULTADO
+ESPERADO OBTENDIO
+
+ESCENARIO 1: Intentar Acceder  con|Bloqueo y la siguiente|Bloqueo y la siguiente
+
+contraseña incorrecta. notificación “Datos | notificación Datos
+incorrectos” incorrectos”
+
+ESCENARIO 2: Intentar acceder con contraseña | Bloqueo y la siguiente|Bloqueo y la siguiente
+correcta pero con correo electrónico incorrecto. [notificación “Datos | notificación “Datos
+incorrectos”
+
+ESCENARIO 3: Intentar acceder con contraseña | Acceso exitoso, | Acceso exitoso,
+correcta y correo electrónico correcto. despliegue del inicio|despliegue del inicio
+del sistema. del sistema.
+
+ESCENARIO 4: Diligenciamiento de caracteres| Bloqueo y la siguiente|Bloqueo y la siguiente
+especiales que podrían ocasionar un error. notificación “Datos |notificación “Datos
+incorrectos”
+
+APROBADA NO APRODADA
+
+ELABORÓ: Royer David Estrada | APROBÓ: Juan Josd Aragon.
+OBSERVACIONES ADICIONALES:
+FECHA DE ELABORACIÓN: 28/10/2013
+
+ 
+
+Cuadro 3.12: PS2: Validación de acceso a usuarios empleados al sistema.
+
+Las demás pruebas de sistema realizadas las puede detallar en el documento
+
+Anexo, Apéndice D.Capítulo 3. Desarrollo del Proyecto
+
+gÓ
+
+ 
+
+3.0.3.
+
+Pruebas de Integración
+
+NUMERO DE PRUEBA
+
+NOMBRE DE LA PRUEBA
+
+Solicitud de recomendación diente PHP
+
+servidor JAVA
+
+DETALLE DE LA PRUEBA: Validar que las solicitudes de recomendación generadas desde
+cliente PHP obtengan respuesta desde servidor JAVA.
+
+PREREQUISITOS
+
+ESCENARIO 1: Pedir recomendación desde
+cliente PHP con servidor JAWA desconectado,
+
+ESCENARIO 2: Fedir recomendación desde|
+
+cliente PHP con servidor JAVA conectado y
+retorno de respuesta de tipo Array
+
+ESCENARIO 3: Solicitar recomendación de una
+convocatoria sin aspirantes listos para dicho
+proceso,
+
+5ubmódulo de recomendación del modulo de
+selección, algoritmo automático de generación
+
+de reglas y petición de recomendación.
+
+ESCENARIOS
+
+RESULTADO
+ESPERADO
+
+Visualización de la
+siguiente notificación
+“Información del
+
+sistemal Error al
+obtener una
+
+recomendación.
+Visualización de la
+siguiente notificación
+* Recomendación
+generada
+salistactoriamente” con
+retorno de estructura de
+datos de tipo Array.
+
+Visualización de la
+siguiente notificación
+“Información del
+sistemal La búsqueda
+no tuvo éxito,”
+
+RESULTADO
+OBTENDIO
+
+Visualización de la
+siguiente notificación
+“Información del
+sistema!  Emor al
+oblener una
+recomendación. *
+
+Visualización de la
+siguiente — notificación
+“Recomendación
+generada
+satistacioriamente” con
+retorno de estructura de
+datos de tipo Array.
+
+Visualización de la
+siguiente — notificación
+“Información del
+sistema! La búsqueda
+no tuvo éxito,”
+
+APROBADA lx [NOAPRODADA [2323737 |
+
+ELABORÓ: Juan José Aragon APROBÓ:
+
+Yuri Mercedes
+Bermudez.
+
+FECHA DE ELABORACIÓN: 19/04/14
+
+ 
+
+Cuadro 3.13: PI1: Prueba de integración PHP y JAVA.Capítulo 4
+
+Conclusiones y Trabajos Futuros
+
+4.1.
+
+Conclusiones
+
+Con base en el trabajo desarrollado se puede concluir que la sistematización de
+los procesos de selección de personal contribuyen en oportunidad, descongestión
+
+documental y trazabilidad que deben caraterizar dichos procesos.
+
+La utilización de diversos FrameWoks en procesos de ingeniería de software
+agilizan el desarrollo de los mismos. Es el caso de Bootstrap y Codelgniter que
+
+se integraron facilmente y existe amplia documentación y soporte de estos.
+
+La generación manual de gran cantidad de reglas de inferencia para la evaluación difusa representa una actividad totalmente complicada, debido al crecimiento exponencial en función de las variables consideradas para una evaluación, de modo que es útil hacer uso de algoritmos para la generación automática
+
+de dichas reglas.
+
+El uso de lógica difusa en procesos de selección de personal contribuye a la
+reducción de ambiguedad y sesgos que normalmente afectan la evaluación de
+un aspirante, esto porque aparta de la interpretación de resultados calificaciones
+concretas y mas bien proporciona intervalos de pertenencia a cada una de las
+
+variables de evaluación.
+
+El desarrollo de este proyecto solo en su parte de captación de información, es
+
+99Capítulo 4. Conclusiones y Trabajos Futuros 60
+
+ 
+
+decir ofrecer la posibilidad de sistematizar el registro, actualización y consulta
+de hojas de vida redujo en su totalidad las hojas de vida recibidas en formato
+físico y mas bien se capto por medio del sistema un total de 96 hojas de vida en
+el mes de mayo del 2014. Este ejemplo nos permite concluir que evidentemente
+se aporta al proceso agilidad y facilidad para la manipulación de información
+
+que estrará dispuesta para futuros procesos de selección.
+
+= Una vez se culmina el desarrollo del proyecto se concluye que cada uno de
+los objetivos previstos en el mismo se cumplieron de manera adecuada, de
+modo que se alcanzó a porpocionar los módulos necesarios para la recolección,
+manipulación y análisis de información inherente a procesos de selección de
+personal. También, para la incorporación de agentes de software se consigno en
+este documento las caracteristicas que fueron tenidas en cuenta para el correcto
+uso de los mismos en la evaluación de aspirantes dentro de procesos de selección
+
+de personal.
+
+4.2. Trabajo Futuro
+
+= Implementar módulos de vinculación y contratación, empleados, mejoramiento
+
+continuo y administración de eventos de la companía que cuenta con el software.
+
+= Propocionar la utilización de funciones de pertenencia diferentes a las triangulares y trapezoidales de modo que la aplicación de logica difusa pueda ser
+dispuesta a mayor cantidad de ensayos que brinden más información util al
+
+momento de la toma de decisiones.
+
+= Incrementar aspectos de seguridad para que el módulo de registro de hoja de
+vida sea accesible por internet y no necesariamente por la red interna de la
+
+empresa para el caso de aspirantes que buscan una oportunidad laboral.Apéndice A
+Historias de usuario
+
+En este Anexo se relaciona parte de las Historias de Usuario (HU) que fueron
+
+necesarias para el desarrollo de este proyecto.
+
+Historias de usuario
+
+Titulo Editar Hoja de vida
+Registro Hoja de
+3 Modulo Vida Fecha 01/11/2013
+
+Descripción
+Como usuario aspirante quiero que se me proporcione la opción de actualizar mi
+hoja de vida para poder tener la información correcta de acuerdo a las condiciones
+actuales.
+
+Login y creación de
+Estimación 5 [Prioridad | 3 | Dependencia |usuarios aspirantes
+Pruebas del sistema
+
+e Verificar que el sistema guarde lo que el usuario está modificando.
+e Verificar que el sistema almacene la fecha de actualización.
+e Verificar que puedo saltarme la navegación libremente.
+
+Observaciones
+
+Considerar que alsunos puntos que son no modificables solo sean de lectura.
+Jaime Vélez Hoyos (Gerente Juan José Aragón
+Administrativo y Financiero). Responsable Campo
+
+Cuadro A.1: HU3: Edición de Hoja de vida
+
+ 
+
+61Apéndice A. Historias de usuario
+
+62
+
+ 
+
+Historias de usuario
+
+Titulo Creación de usuarios y permisos
+
+18/11/2013
+Como administrador quiero que se me proporcione la opción de crear usuarios y
+permisos para poder administrar el acceso al sistema de manera correcta y por
+aplicación.
+
+E
+Estimación Prioridad Ninguna
+
+Pruebas del sistema
+
+*« Que el usuario al que se le asignó permisos, cuando inicie sesión verificar
+que estos son los permisos que se le asignaron.
+*« Que solo yo como administrador tenga la posibilidad de crear usuarios y
+darles permisos.
+Cuando se crean usuarios se consideran el nombre de usuario y una contraseña
+
+generada por el sistema, una vez que el usuario ingrese por primera vez, tendrá que
+modificarla a una que le sea facil memorizar sigmiendo recomendaciones
+
+establecidas.
+
+Luz Nelly Porras Solano Rover David Estrada
+Fuente Jefe de área Responsable Esponda
+
+Cuadro A.2: HU5: Creación Usuarios
+
+ 
+
+Historias de usuario
+
+Titulo
+ld [6 [Módulo | Selección | Fecha | 18112013 |
+Como jefe de área quiero que la aplicación proporcione la opción de solicitud de
+personal, para poder cubrir las necesidades que tengo dentro de mi propia área y
+hacer seguimiento del estado de la misma.
+
+Priorida Acceso a usuarios con
+Estimación 5 d 5 | Dependencia | privilesios del sistema
+Pruebas del sistema
+
+e Verificar que la opción almacene todos los datos requeridos.
+
+e Verificar que todos los datos guardados sean coherentes entre si, y que lo que
+se haya diligenciado sea guardado correctamente.
+
+« Que solo se tenga el acceso a usuarios que son Únicamente jefes en su área y
+solo puedan solicitar lo pertinente a su dependencia.
+
+Observaciones
+
+5e debe tener en cuenta el formato de solicitud de personal con código interno F
+GHA-002 de manera que el jefe de area tenga la posibilidad de diligenciar todos esos
+datos en el sistema
+
+mA Clara Isabel Herrera pu] Juan José Aragón
+Fuente Directora Gestión Humana) | Responsable Campo
+
+Cuadro A.3: HU6: Solicitud de PersonalApéndice A. Historias de usuario
+
+65
+
+ 
+
+Consultar y filtrar hojas de vida
+fa | fiódalo | selección | Fecha | 1801008
+
+omo usuario psicólogo(a) quiero que la aplicación proporcione la opción de filtra
+hojas de vida, para poder consultarlas de acuerdo a un área especifica o algún nombre
+en particular.
+
+Acceso a usuarios con privilegios
+Estimación 7 [Prioridad |5 [Dependencia (del sistema
+Pruebas del sistema
+
+* Verificar que los datos consultados sean acordes a los que se solicitan en la
+búsqueda.
+
+« Que la opción de buscar hojas de vida solo este disponible para usuarios que
+tenga un perfil que se relacione a dicha posibilidad.
+
+Observaciones
+
+se debe tener en cuenta que el usuario puede filtrar el listado de acuerdo a la
+identificación del aspirante, nombre, apellidos, estado de la hoja de vida, titulo
+obtenido, fecha de actualización, experiencia laboral y expectativa laboral.
+
+Clara Isabel Herrera (Directora Responsable
+Gestión Humana Responsable | Royer David Estrada
+
+Cuadro A.4: HU7: Filtro Hoja de Vida
+
+Validar hojas de vida.
+
+Td |8 |Módulo 18/11/2013
+
+Como usuario psicólogo (a) quiero que la aplicación proporcione la opción de validar
+las hojas de vida, para poder verificar que la información en ella sea veraz y poder
+tenerla en cuenta para posteriores procesos.
+
+Consultar y filtrar hojas de
+Estimación 3 Prioridad | 5 | Dependencia | vida
+Pruebas del sistema
+
+e Que la hoja de vida validada sea acorde y me desaparezca la opción de validarla
+dado que ya se encuentra validada.
+e Una vez validada la hoja de vida, no pueda deshacer el
+
+Observaciones
+
+Juliana Sánchez Gil (Secretaria Juan José Aragón
+Fuente Gestión Humana) Responsable Campo
+
+Cuadro A.5: HU8S: Validación Hoja de VidaApéndice A. Historias de usuario
+
+ 
+
+Clasificar hojas de vida
+
+ld |9 Módulo 18/11/2013
+Como psicólogo(a). Se necesita que la aplicación proporcione la opción de clasificar las
+
+hojas de vida relacionándola a más de un cargo de la lista de cargos que posee la
+institución, para poder asociarlo a una convocatoria que se presente.
+
+Priorida
+Estimación |3 |d 5 |Dependencia | Validar hojas de vida
+
+Pruebas del sistema
+
+e Verificar que la clasificación sea la elegida.
+
+e Si he clasifico un usuario con cualquier cargo, no he guardado los datos y cierro
+la aplicación, no me permitirá guardar lo que temporalmente he colocado.
+
+e Verificar que el usuario no pueda clasificarse más de una vez en el mismo cargo.
+
+Fuente Gestión Humana Responsable | Juan José Aragón Campo
+
+Cuadro A.6: HU9: Clasifición Hoja de Vida
+
+ 
+
+Historias de usuario
+
+Opción referido por
+Selección de personal. 18/11/2013
+Descripción
+Como psicólogo(a), subgerente o gerente general, Se necesita que la aplicación
+
+proporcione la opción de incluirle a una hoja de vida la opción de colocar un referido por,
+para poder conocer que persona ya sea externa o un funcionario fue la que recomendó a el
+
+aspirante.
+
+Priorida
+Estimación | 3 d 5 Dependencia | Consultar Hoja de vida
+
+Pruebas del sistema
+
+e Solo los usuarios mencionados pueden hacer este tipo de acciones, ningún otro
+usuario puede colocar este tipo de información. Para ello entonces se considera
+crear un permiso específico para ello.
+
+Observaciones
+
+Ninguna.
+
+Administrativo y Financiero Responsable Rover David Estrada
+
+Cuadro A.7: HU1O: Referir Hoja de Vida
+
+ 
+
+04Apéndice B
+Diagramas de Clase y de Secuencia
+
+A continuación se exponen algunos de los artefactos diseñados para la realización
+de este proyecto. Tenga presenta que en medio magnetico se encuentran los soportes
+
+de manera independiente, de forma que su visualización e interpretación sea mas
+clara y oportuna.
+
+ 
+
+ 
+
+pora
+
+PIDA CCESO)
+register Acceso!)
+verticar Acesso!)
+verntcarcoreoó
+
+ 
+
+ 
+
+ 
+
+ 
+
+   
+
+ 
+
+di 4 Y
+Des reso DetosF amilisres. Arcos _ a
+a =— 1
+_ a 0sos* amilares
+reo pS tpoArcAVO DrmaconAcacemica
+ADO nom Con uge nio A
+Mores er AS nulo
+tboSangre term emocony ue Ja
+normar nomiresti are Caro
+apellaos apical sore pd N ARTO 13.
+peer Ni lao cara vos
+a e == a
+GEN menAsaae presen arar
+¡ARAS Ora tchaNacimientoPadre MOST FOME conAcicemica
+bario
+2 Ñ nomerejo Mostra sí)
+AreccioResidencia apstco=lo r Visualiz ar Arcrivost)
+ero io _
+reletonoFio nomrenijestros. _
+comecAsprame aoetconjssi ra
+teraNscm enoijestos
+aperos Pe snsles bcn aa ns Pesonses
+purga DarosPersonsias) paremescoF millar memo Ss ar
+conmar FormaconAcsdemica) Dm ema no red a
+
+OmMbreñieterencia mesicsoF or macondompiemernar e
+ONO Ta
+
+ 
+
+OstosFamhisres
+sormacionAcademica
+ama Comas
+reos Dechilerao
+lee brmaconCompiemerntar:
+cespegard a ostamiar es) esobe pracicaProtesona!
+pon e OSEA experiencia DON
+guardas Padres) ra tuconBacrilersio SANOS SUDDOS
+A ciUadB aer ano to
+a yesr Barber
+Dueaers amilermemod mestecnber
+COMAS, MITONALICENIZIO emoresaPracica
+
+cergoPraciica
+POMEPra cios
+
+   
+
+do o main cadena)
+gue darPregrado)
+puemarPosgrado!)
+
+peca ner no)
+
+puedsF q meinAcacemica
+
+pueceraiomast)
+PUR PINN
+com nuerEx per enciaLanor a()
+
+Figura B.1: DC3: Registro de Hoja de Vida
+
+65Apéndice B. Diagramas de Clase y de Secuencia
+
+66
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Log
+cameo
+peso
+PUBDACIE SO)
+megsterAcceso)
+1, mestiza ceso)
+veia Caro)
+sensei)
+Comento. logre 4
+panes] y
+operas
+amenido) A PA
+1 cuerpos ess
+[ars utersol cusresona)
+Crea uso Arosa) E
+usuato t vsua (zsojade e a)
+lo
+al 5 :
+casco
+cesa to etc sota seca | +
+4h. de
+Wsssizs Osos
+Escaojes Deo — == An ER Dota Archos. e
+5 7 Y] a
+mum Doce SA ema perales
+Lanrrarar ha Experian rate Fe poes Acce coreo a padel ArrraconAcademica
+'rurme Dldenticas on l ps: nome es Conuze POr oregad nombe eeSracics rana do mes.
+nombres pri ace naco Ue chileno
+s Pega pr
+elo pam tneimemcomu Ge iran nara panes
+estacomo pod mee a E precia eo ras
+PO Acatemco mos ce note di 2OrACMO) oa
+peo ncatanltds teparicoFe gado era
+| craneo are a teta ac ionFegyado diia a 21 hios Subitos.
+ad E AER eo geo an : ? da]
+ABACO decos 3
+Era e aa) a A LO En sos gado a el ra Formo nacemos)
+EreccarTes cencia ssro rEtu COSO gado a o)
+metro vos rr UR estes asado nu zac os
+teetrofyo Porte paros ae
+AS Pomar az Aecem oPosrado Ez
+tara zacor Ford
+1. Fexrae: po eden teria a]
+E 5) Ls ca o Croma
+pr CNE aAcae mea) oro da tomo caleta
+dom Lores.
+metrretenda e bodllead
+core 3 bra onComemensta
+esp Dreri ses escioe AS
+aC onu moss leo ii
+msc iure) puets Tee) nsañucion Sache O
+aca rezo ts mps eo e
+ros taza ich esPesona pan ps ros) yrssamle
+a ac Ue on tama!) AS Coma
+CN US FOTO NAC ema) em estraios eo rec IOnA ca demica:
+cris Simacaditeao)
+otra Jetfrcica eco eme)
+reccon Empresañracica eros
+uesrracica ero
+sesanicoce cios E
+erica armarios)
+Aca dma) |
+ps Pregrado)
+Queda Fosgrado
+Deo)
+Moe
+ques Pract carrots on y
+camrurboe tenda Lora)
+
+ 
+
+ 
+
+Figura B.2: DC4: Sprint 1
+
+ 
+
+usuario contenido()
+
+Figura B.3: DS4: Acceso Usuarios EmpleadosApéndice B. Diagramas de Clase y de Secuencia
+
+67
+
+ 
+
+   
+
+desplegarDatosFamiliares()
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figura B.4: DS5: Diligenciar Hoja de Vida
+
+ 
+   
+
+     
+  
+
+       
+
+     
+
+des plegarF omacionA cademica() |.- 95 PlegsrExperiencialsboral() |. desplegrAnexos()_
+actualiz arDatos Pers onales( editsrFamiliarífamiliar) » nl mos trarExperiencias Laborales() <- visualizarArchivos() _ o
+editerFormacionAcademical) editarEx periencisLsboral()
+
+   
+      
+
+ 
+
+   
+
+eliminsrArchivos ()
+
+ 
+
+ 
+
+Figura B.5: DS6: Editar Hoja de VidaApéndice B. Diagramas de Clase y de Secuencia
+
+68
+
+ 
+
+     
+  
+   
+    
+
+Validar Hoja de
+Vida
+
+vwsualizarHojadeWida()
+
+E MU UA E SE E E A
+
+Psicologo validarHV()
+
+vwsualizarHojadeWida()
+
+Figura B.6: DS7: Validar Hoja de VidaApéndice B. Diagramas de Clase y de Secuencia
+
+69
+
+ 
+
+Clasificar Hoja
+de Vida
+
+vwsualizarHojadeWida()
+
+E A
+
+Psicologo mostrarClasificarHV()
+
+e o a
+pertilarHW()
+
+  
+
+clasificarHW()
+
+Figura B.7: DS8: Clasificar Hoja de VidaApéndice B. Diagramas de Clase y de Secuencia
+
+70
+
+ 
+
+  
+ 
+  
+ 
+ 
+   
+
+mostrarSolicitudPersonal()
+
+Jóte de ET TT TT TITO
+área  guardarSolicitudPersonal()
+
+actualizarSolicitudPersonal()
+
+consultarSolicitudPersonal()
+
+Figura B.8: DS9: Solicitar PersonalApéndice C
+
+Pruebas
+
+Este Anexo contiene pruebas de Aceptación y Sistema realizadas para validar
+
+funcionalidades del Sistema.
+
+£
+
+PRUEBA DE ACEPTACION
+
+NÚMERO DE HISTORIA
+
+NOMBRE DE LA PRUEBA Validación de aspecto visual y secuencial de una solicitud
+de personal.
+
+TITULO HISTORIA DE USUARIO Solicitud de personal
+
+DETALLE DE LA PRUEBA: Exponer el aspecto visual y describir el proceso de solicitud de personal en su
+
+componente secuencial a los interesados.
+
+ESTADO DE LA PRUEBA
+APROBADA NO APRODADA
+
+ELABORÓ: Royer David Estrada APROBÓ: Clara isabel Herrera
+FECHA DE ELABORACIÓN: 28/10/2013
+
+ 
+
+Cuadro C.1: PA7: Prueba de Aceptación, Solicitud de Personal
+
+711Apéndice C. Pruebas
+
+12
+
+ 
+
+PRUEBA DE ACEPTACIÓN
+
+NÚMERO DE PRUEBA CON
+NÚMERO DE HISTORIA
+
+NOMBRE DE LA PRUEBA Validación de aspecto visual del formulario para filtrar
+consultas de hojas de vida y el despliegue de los
+resultados.
+
+TITULO HISTORIA DE USUARIO Consultar y filtrar hojas de vida.
+
+DETALLE DE LA PRUEBA: Mostrar el aspecto visual de los filtros dispuestos para búsquedas de hojas de vida
+y el despliegue de los resultados.
+
+ESTADO DE LA PRUEBA
+APROBADA NO APRODADA
+
+FIRMAS
+
+ELABORÓ: Royer David Estrada APROBÓ: Clara isabel Herrera
+OBSERVACIONES ADICIONALES:
+
+FECHA DE ELABORACIÓN: 28/10/2013
+
+ 
+
+Cuadro C.2: PA9: Prueba de Aceptación, Consulta y Filtro Hoja de Vida
+
+PRUEBA DE ACEPTACIÓN
+
+NÚMERO DE PRUEBA
+NÚMERO DE HISTORIA CN
+
+NOMBRE DE LA PRUEBA] Validación de aspecto visual de la opción para la
+validación de hojas de vida ubicada en la consulta de la
+misma.
+
+TITULO HISTORIA DE USUARIO Validar Hojas de Vida
+
+DETALLE DE LA PRUEBA: Verificar si los interesados están conformes con la ubicación que se le da a la
+
+opción de validación de hojas de vida.
+ESTADO DE LA PRUEBA
+
+APROBADA NO APRODADA
+FIRMAS
+
+ELABORÓ: Royer David Estrada APROBÓ: Clara Isabel Herrera
+OBSERVACIONES ADICIONALES:
+
+FECHA DE ELABORACIÓN: 04/11/2013
+
+ 
+
+Cuadro C.3: PA10: Prueba de Aceptación, Validación Hoja de VidaApéndice C. Pruebas
+
+15
+
+ 
+
+PRUEBA DE ACEPTACIÓN
+NÚMERO DE PRUEBA 14
+
+NÚMERO DE HISTORIA 11
+
+NOMBRE DE LA PRUEBA Verificación visualización de aspirantes en
+convocatorias.
+
+DETALLE DE LA PRUEBA: Evidenciar la funcionalidad y diseño visual del submódulo de
+
+z
+
+convocatorias, allí se exponen formularios para búsqueda de convocatorias así como el detallado
+de las mismas.
+
+ESTADO DE LA PRUEBA
+APROBADA NO APRODADA
+
+ELABORÓ: Royer David Estrada | APROBÓ: Clara Herrera
+OBSERVACIONES ADICIONALES:
+FECHA DE ELABORACIÓN: 04/11/2013
+
+ 
+
+Cuadro C.4: PA14: Prueba de Aceptación, Consulta Aspirantes ConvocatoriasApéndice C. Pruebas
+
+14
+
+ 
+
+NÚMERO DE PRUEBA
+NÚMERO DE HISTORIA
+
+NOMBRE DE LA PRUEBA
+
+TITULO HISTORIA DE USUARIO
+
+DETALLE DE LA PRUEBA: Probar escenarios específicos que validen que las solicitudes de personal cumplan con
+lo establecido en la lista de tareas.
+
+Someter a diferentes escenarios posibles el proceso de
+
+solicitud de personal
+Solicitud de personal
+
+RESULTADO
+ESPERADO
+
+ESCENARIO 1: Intentar generar una solicitud sin ningún| Noti ficación “Debe
+
+RESULTADO
+OBTENDIO
+
+Notificación
+
+campo del formulario dispuesto para ello diligenciado. diligenciar y seleccionar las | diligenciar y seleccionar las
+
+“Debe | Notificación
+diligenciar y seleccionar las [diligenciar y seleccionar las
+
+ESCENARIO 2: Intentar generar una solicitud dejando
+por cada ensayo realizado algún campo sin diligenciar.
+
+ESCENARIO 3: Intentar generar una solicitud de personal
+con todos los campos del formulario dispuesto para ello
+
+totalmente diligenciados.
+
+ESCENARIO 4: Consultar el listado de solicitudes
+
+generadas.
+
+ESCENARIO 5: Intentar generar solicitudes de personal
+con un usuario que no tenga asociada ninguna área.
+
+Solicitud generada
+exitosamente y despliegue
+
+de dicha solicitud para
+proporcionar su edición.
+
+Despliegue del listado de
+todas las solicitudes
+relacionadas a áreas de
+influencia que tenga el
+usuario.
+
+Opción para generación de
+solicitud bloqueada y
+mensaje “EL USUARIO
+NO TIENE ASOCIADO
+NIGÚN ÁREA”
+
+Solicitud generada
+exitosamente y despliegue
+
+de dicha solicitud para
+proporcionar su edición.
+
+Despliegue del listado de
+todas las solicitudes
+
+relacionadas a áreas de
+influencia que tenga el
+usuario.
+
+Opción para generación de
+solicitud bloqueada y
+mensaje “EL USUARIO
+NO TIENE ASOCIADO
+NIGÚN ÁREA”
+
+APROBADA Ex [roarmomama
+
+ELABORÓ:
+
+Royer David Estrada
+
+OBSERVACIONES ADICIONALES:
+FECHA DE ELABORACIÓN:
+
+Cuadro C.5: PS8: Prueba de Sistema, Solicitud de Personal
+
+APROBÓ:
+
+28/10/2013Apéndice C. Pruebas
+
+15
+
+ 
+
+PRUEBA DE SISTEMA
+
+NOMBRE DE LA PRUEBA Someter a diferentes escenarios posibles el proceso
+de validación de hoja de vida que realiza un usuario
+con dicho permiso.
+
+TITULO HISTORIA DE USUARIO Validar Hojas de Vida
+
+DETALLE DE LA PRUEBA: Probar escenarios especificos que verifiquen que el proceso de validación de
+hoja de vida no rompa la funcionalidad del proceso general de selección.
+
+RESULTADO RESULTADO
+ESPERADO OBTENDIO
+
+ESCENARIO 1: Intente validar una hoja de vida con| Despliegue de la hoja del Despliegue de la hoja de
+un usuario que no tenga el permiso parametrizado|wida sin la opción para|wida sin la opción para
+
+para ello.
+ESCENARIO 2: Corulte una hoja de vida sin| Despliegue de la hoja del Despliegue de la hoja de
+
+validar con un usuario con permisos para hacerlo. vida con la opción para| vida con la opción para
+validarla, validarla,
+
+ESCENARIO 3: Se realiza el proceso de validación| Despliegue de la hoja del Despliegue de la hoja de
+de hoja de vida. vida después de aceptar|wida después de aceptar
+la — notificación que sejla notificación que se
+muestra. Si el usuario muestra. Si el usuario
+
+tiene permiso  para|tiene permiso para
+
+clasificar hojas de vida,| clasificar hojas de vida,
+
+también se desplegará[también se desplegará
+
+dicha opción. dicha opción.
+ESTADODE LA PRUEBA
+
+APROBADA NO AFRODADA
+ELABORÓ: Royer David Estrada APROBÓ: Juan José Aragon.
+
+OBSERWYACIONES ADICIONALES: Ninguna
+
+FECHA DEELABORACIÓN: 0411/2013
+
+ 
+
+Cuadro C.6: PS11: Prueba de Sistema, Validación Hoja de VidaBibliografía
+
+Libros Y/O Documentos.
+
+11] G. W. Bohlander, A. W Sherman and $. A. Snel, Administración de Recursos
+
+Humanos, International T'homson Editores 2001
+
+[2] Idalberto Chiavenato, Gestión de Talento Humano, Editorial Mc Graw Hill,5
+Edición 2002
+
+[3] ALEJOS, R, Base Matemática de un Modelo Fuzzy, Feb-2008
+
+[4] D. Camargo M, Sistema de selección de personal inspirado en agentes inteligen
+tes, Universidad de las Américas, Puebla, México 2007
+
+15] M. E. Echeverría, Sistema de información aplicado a la selección de personal de
+
+recursos humanos basado en competencias, Universidad Francisco Marroquín,
+Ciudad de Guatemala, Guatemala 2003
+
+16] Kent Beck, Extreme Programming Explained: Embrace Change, AddisonWesley Professional 1999
+
+WEB:
+
+17] H. Bachenheimer, Selección de persona, Pontificia universidad javerianal, http:
+//drupal.puj.edu.co/files/01050_Herman_0.pdf Jun-2014
+
+18] Matías I. San Martín, Un servicio de movilidad de agentes de software para
+JADE basado en OSGi, http://materias.fi.uba.ar/7500/SanMartin.pdf
+Jun-2012
+
+76Bibliografía 77
+
+ 
+
+(22,
+
+Liliana Patricia Santacruz Valencia, AGENTES TAXONOMÍA Y APLICACIONES, http: //www.lite.etsii.urjc.es/liliana/agentes.pdf Jun-2014
+
+DANE, Gran Encuesta Integrada de Hogares, http://ww.dane.gov.co/
+
+files/investigaciones/boletines/ech/ech/pres_web_ech_feb_largal13.
+pdf Jun-2013
+
+Php.net, PHP, http: //www.php.net/ Jun-2014
+
+ORACLE, Java, http: //www.oracle.com/es/technologies/java/
+
+overview/index.html?ssSourceSiteld=nul1 Jun-2014
+
+Twitter, Bootstrap, http: //getbootstrap.com Jun-2014
+
+EllisLab, Codelgniter, http: //ellislab.com/codeigniter Jun-2014
+PosgreSQL, PosgreSQL, http: //www.postgresql.org Jun-2014
+
+The ¡Query Foundation, JQuery, http: //jquery.com/ Jun-2014
+Telecom Italia SpA, JADE, http: //jade.tilab.com May-2014
+
+Wikipedia the free encyclopedia, Software Agent, http://en.wikipedia.org/
+wiki/Software_agent. Jun-2014
+
+C. Carrascosa, Definición y clasificación de los agentes de software, http:
+//personales.upv.es/ccarrasc/doc/2003-2004/A1_Web/definicion.html
+Jun-2014
+
+G. Tolosa, F'. Alfredo, Tecnologías de agentes de software, http: //www.scielo.
+br/pdf/ci/v28n3/v28n3a8.pdf Jun-2014
+
+Osvaldo Ramírez Ramos, Simulación en simmechanics de un sistema de control difuso para el robot udlap, http://catarina.udlap.mx/u_dl_a/tales/
+
+documentos/lmt/ramirez_r_o/ Jun-2008
+
+ArmsSTRONGO,, Software integral para el reclutamiento, selección y evaluación
+
+de personal, http: //www.armstrong.com.mx/ Jun-2014Bibliografía 78
+
+ 
+
+(231
+
+24]
+25]
+
+26]
+
+ 
+
+ 
+
+27]
+
+E. Jereb , U. Rajkovic and V. Rajkovic, Multi-attribute approach to personnel
+selection, University of Maribor, Slovenia, http://lopes1.fov.uni-mb.si/
+za_PES_PO0_net/JEREB-Multi-Attribute/20Aproach/20to/20Personnel?,
+20Selection.doc Jun-2014
+
+El Empleo.com, Portal ElEmpleo.com, http: //www.elempleo.com/ Jun-2014
+Computrabajo, Computrabajo, http: //www.computrabajo.com/ Jun-2014
+ZonaJobs, Portal web ZonaJobs, https: //www.zonajobs.com.co/ Jun-2014
+
+Wikipedia en Español, Programación extrema, http://es.wikipedia.org/
+
+wiki/Programaci7/C3/B3n_extrema Jun-2014
+
+Wikimedia Commons, Marco de Trabajo SCRUM, http://commons.
+wikimedia.org/wiki/File:Scrumm.PNG Jun-2014
+
+Scrum.org, Guia Oficial SCRUM, https: //www.scrum.org/scrum-guide Jun2014
+
+Universidad Politécnica de Madrid, Método Mamdani, http: //www.dma.fi.
+upm.es/java/fuzzy/fuzzyinf/mamdani.htm Jun-2014
+
+Iván Darío Gómez Araújo, Jabid Eduardo Quiroga Méndez y Neyid Mauricio Jasbón Carvajal, Calificación De Estudiantes Por Medio De Un Sistema De LÓgica Difusa, http: //www.educacioneningenieria.org/index.php/
+edi/article/view/83/73 Jun-2009
+
+Jaime Guzmán, Alejandro Sánchez, Durley Torres, Sistema Multiagente Para La Recuperación De Documentos Digitales, Universidad Nacional
+de Colombia, http: //scienti.colciencias.gov.co:8084/publindex/docs/
+articulos/1692-7257/5/79.pdf Consultado: Jun-2014
+
+Carlos A. Iglesias, Mercedes Garijo, The Agent-Oriented Methodology
+
+MAS-CommonKADS5S, Technical University of Madrid, Spain,http://www.
+irma-international.org/viewtitle/5055/ Consultado: Jun-2014

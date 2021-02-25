@@ -1,0 +1,3909 @@
+Diseño e implementación del módulo de integración bajo el estándar Learning
+Tools Interoperability (LTD) como parte del proyecto de desarrollo de software
+
+“KME LX 2016” para NM S.A.S
+
+Guillermo Castillo Patiño
+
+guillermo.castillo.patino O correounivalle.edu.co
+
+Universidad del Valle sede Tuluá
+Escuela de Ingeniería de Sistemas y Computación
+
+Programa de Ingeniería de Sistemas
+Tuluá, 2016Diseño e implementación del módulo de integración bajo el estándar Learning
+
+Tools Interoperability (LTD) como parte del proyecto de desarrollo de software
+“KME LX 2016” para NM S.A.S
+
+Guillermo Castillo Patiño
+
+guillermo.castillo.patino O correounivalle.edu.co
+
+Trabajo de grado en modalidad pasantía para optar el título de
+Ingeniero de Sistemas
+
+Director:
+Joshua David Triana Madrid, Ing
+
+Codirector:
+Carolina Samacá Romero, Ing
+
+Universidad del Valle sede Tuluá
+Escuela de Ingeniería de Sistemas y Computación
+
+Programa de Ingeniería de Sistemas
+Tuluá, 2016Notas de aceptación
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Presidente del Jurado
+
+ 
+
+Jurado 1
+
+ 
+
+Jurado 2
+
+Tuluá, Valle del Cauca _/ /Dedicatoria
+
+Este trabajo de grado se lo dedico a mi padre
+Guillermo Arnul Castillo y a mi madre Blanca Emma Patiño,
+quienes son el pilar fundamental de mi vida,
+y que con su apoyo logré terminar esta formación académica.Agradecimientos
+
+A mi familia, por su apoyo, esfuerzo y sacrificios que me permitieron terminar esta carrera.
+A mis compañeros de estudio, que fueron parte en este proceso de aprendizaje.
+A los profesores de la Universidad del Valle, por brindar sus conocimientos y experiencias.
+
+A mi director Joshua David Triana, por su acompañamiento y consejos
+que me permitieron culminar esta pasatía.
+
+A la familia de la empresa Nuevos Medios, con ellos viví un proceso de aprendizaje
+en el que logré crecer no sólo como profesional, sino también como persona.Resumen
+
+La empresa Nuevos Medios, tiene como producto una plataforma de aprendizaje en línea (elearning) llamada kme Lx (Knowledge Management Environment, Learning Experience) que le
+permite a sus clientes administrar su ambiente de aprendizaje, olvidando los obstáculos de espacio, tiempo y distancia, brindando la posibilidad de gestionar las capacitaciones e inducciones
+de sus empleados. De igual forma los cursos para que los estudiantes tengan acceso de manera virtual, haciéndoles un continuo seguimiento desde cualquier dispositivo, sean computador,
+tablet o smartphone.
+
+Debido a que el aprendizaje y el modo en que la persona adquiere conocimientos no tiene un
+forma definida como normalmente se piensa, la empresa Nuevos Medios con su plataforma de
+aprendizaje kme Lx, tomó la decisión de expandirse implementando el estándar LTI, (Learning
+tools interoperability) que permitirá a los administradores y tutores reutilizar contenidos que
+han creado otras personas, que viven en el ecosistema educativo virtual o e-learning y que está
+alojado en varios sitios por todo el internet, satisfacer las necesidades de sus usuarios. Si se
+reúne un conjunto de contenidos, que satisfacen necesidades específicas en un curso de kme
+Lx. El resultado será un curso con contenidos variados que hará la experiencia de aprendizaje
+más amena y de alta calidad para el estudiante y para el tutor o administrador.
+
+Con este módulo y bajo este estándar LTI, que facilita mucho la comunicación entre
+plataformas y herramientas externas, la plataforma kme Lx logrará ampliar y obtener una alta
+calidad en el proceso de formación del estudiante y que ayudará al tutor a crear sus cursos
+de manera fácil, rápida y económica, debido a que se va a reutilizar y adaptar los recursos
+disponibles que proveen estas herramientas de aprendizaje. Además de eso, se busca que la
+plataforma pueda proveer los cursos y contenidos que se han creado nativamente en ella y
+puedan utilizarse en otros ambientes de aprendizaje que lo requieran.
+
+Palabras claves: Learning tools interoperability, conocimiento, plataforma de aprendizaje,
+e-learningAbstract
+
+The main product of the "Nuevos Medios” company is an online learning platform (elearning) called kme Lx (Knowledge Management Environment, Learning Experience) which
+allows 1ts customers to manage their learning environment, removing the barriers of space, time
+and distance, providing the possibility to manage the training and inductions of its employees.
+Similarly courses so that students have access virtually, making continuous monitoring from
+any device, whether computer, tablet or smartphone.
+
+Since that the learning and how the person acquired knowledge does not have a unique shape
+as usually thought, the “Nuevos Medios” company with their learning platform kme Lx, made
+the decision to expand it by implementing the LTT standard (Learning tools interoperability) that
+allow administrators and tutors, reuse content that other people have created, living in virtual
+education ecosystem or e-learning and is hosted at several sites around the internet, to meet the
+needs of its users. If you have a set of content that satisfies specific needs on a course of kme Lx,
+the result 1s a course with varied content that will make more enjoyable the experience learning
+and with high quality for the student and the tutor or administrator.
+
+With this module and under the LTI standard, which greatly facilitates communication between platforms and external tools, the kme Lx platform will achieve expansion and high quality
+in the training process of the student and will help the tutor to create courses easily, fast and
+cheap, because it will reuse and adapt the resources available that provide these learning tools.
+Besides that, 1t also seeks that the platform may be able to provide the courses and content that
+have been natively created in 1t so these can be used in other learning environments that require
+1.
+
+Keywords: Learning tools interoperability, knowledge, learning platform, e-learningÍndice seneral
+
+1. Introducción 6
+1.1. Descripción general ............... ... . . . . . . . . . . . ... 6
+1.2. Contexto de la Organización ............... e...
+
+LIZA. MSIÓN
+AZ MASÓN
+1.2.3. Descripción y estado actual de NM S.A.S, Nuevos Medios ....... 7
+1.2.4. Justificación ......... 8
+1.3. Objetivos ...... 8
+1.3.1. Objetivo general ................. . .. . .. . ..... 8
+1.3.2. Objetivos especÍÍiCOS . ............ . . . . . . . . . . . .... 8
+1.4. Resultados esperados ........... . . . . . . . . . . . . . . . . .. . .«. .. 9
+
+1.5. Alcance de la propuesta .................... . . . . . . . . .. 9
+
+2. Marco referencial 11
+2. MALO teÓrrcoO 11
+2.1.1. Learning Tools Interoperability .......... o... o... ... 11
+
+2.1.2. Oauth2.014] ............................... 12
+
+2.1.3. DjangolS] .......... o... .... . .. . . . . . . . . . ... 14
+
+2.1.4. Python[6] ........... o... ...... . . . . . . . . . ... 14
+
+2.1.5. Basededatos[7] ............................. 14
+
+2.1.6. JavaScript[8S] ................... . . . . . . . . . . ... 15LL,
+
+2.1.7.
+
+2.1.8.
+
+2.1.9.
+
+2.1.10.
+
+2.1.11.
+
+2.1.12.
+
+HTML [9] .
+CSS3 [10]. .
+AJAX [11]
+
+JQuery [12] .
+Bootstrap [13]
+
+Serum| 14]
+
+Antecedentes
+
+2.2.1.
+
+Zapilagila
+
+2.2.3.
+
+2.2.4.
+
+Blackboard
+
+Coursera
+
+Edx
+
+Moodle
+
+2.3. Glosario .
+
+3. Aspectos del desarrollo de software
+
+3.1.
+
+3.2.
+
+3.3.
+
+Metodología .
+
+3.1.1.
+
+Roles
+
+Desarrollo del proyecto
+
+Fases de desarrollo del proyecto
+
+3.3.1.
+
+3.3.2.
+
+3.3.3.
+
+3.3.4.
+
+Fase de investigación .
+
+Fase de análisis .
+
+3.3.2.1. Definición del Product Backlog . . . .
+3.3.2.2. Planeación de los sprints
+
+Componente de registro
+
+3.3.3.1. Diseño
+
+3.3.3.2. Implementación
+
+3.3.3.3. Pruebas
+
+Componente de autenticación
+
+3.3.4.1. Diseño
+
+16
+
+17
+
+18
+
+18
+
+19
+
+19
+
+21
+
+21
+
+22
+
+22
+
+23
+
+23
+
+25
+
+25
+
+27
+
+28
+
+28
+
+28
+
+32
+
+32
+
+33
+
+34
+
+34
+
+37
+
+39
+
+39
+
+393.3.4.2.
+
+3.3.4.3.
+
+Implementación ................... . . ...
+
+Pruebas ........
+
+3.3.5. Componente de calificaciones .............. . . +... . . ..
+
+3.3.5.1.
+
+3.3.5.2.
+
+3.3.5.3.
+
+Resultados
+
+DISEÑO...
+Implementación ................... . . ...
+
+Pruebas .......
+
+4.1. Conclusiones y resultados. ..........
+
+4.2. Experiencia sobre desarrollo de la pasantía . ...................
+
+4.3. Trabajos futuros
+
+Bibliografía
+
+. Historias de Usuario
+
+. Diagrama de Clases
+
+PP... .............s....o......oo (e oq). o.
+
+. Diagrama de base de datos
+
+. Casos de prueba
+
+45
+
+45
+
+45
+
+46
+
+46
+
+51
+
+60
+
+61
+
+62Indice de cuadros
+
+1.1.
+
+A.l.
+
+A.2.
+
+A.3.
+
+A4.
+
+A.S.
+
+A.6.
+
+A.7.
+
+A.S.
+
+A.9.
+
+A.10. Historia de usuario:
+
+Resultados esperados
+
+Historia de usuario:
+
+Historia de usuario:
+
+Historia de usuario:
+
+Historia de usuario:
+
+Historia de usuario:
+
+Historia de usuario:
+
+Historia de usuario:
+
+Historia de usuario:
+
+Historia de usuario:
+
+Registrar herramienta externa como administrador .
+Registrar herramienta externa como tutor .
+
+Registro de contenido LTT como tutor
+
+Ingreso a la herramienta externa como administrador
+Ingreso a la herramienta externa como tutor
+
+Ingreso a la herramienta externa como estudiante
+Obtención de notas como tutor
+
+Obtención de notas como estudiante
+
+Obtención de datos para compartir curso
+
+Autenticación como tutor
+
+D.1. Caso de prueba, Registro de herramienta externa .
+
+D.2.
+
+D.3.
+
+D.4.
+
+D.5.
+
+D.6.
+
+D.7.
+
+D.s.
+
+Caso de prueba, Registro de contenido LTI en un curso
+
+Caso de prueba, Campo URL no diligenciado
+
+Caso de prueba, Ingreso a la herramienta de aprendizaje .
+
+Caso de prueba, Herramienta de aprendizaje no envía nota
+
+Caso de prueba, Información de los estudiantes
+
+Caso de prueba, Registro de una nueva herramienta consumidora .
+
+Caso de prueba, Acceso a kme desde plataforma externa
+
+51
+
+52
+
+53
+
+54
+
+55
+
+56
+
+57
+
+58
+
+58
+
+59
+
+62
+
+63
+
+64
+
+65
+
+66
+
+67
+
+68
+
+68Índice de figuras
+
+2.1. Vista de LTT básicolI2] ..................... e... ... 12
+2.2. Flujo de eventos Oauth [4] ............ o... ....... . . .... 13
+2.3. Formulario para agregar una herramienta en Blackboard [16] .......... 21
+3.1. Ciclo del sprint[B36] ................. o. 21
+3.2. Arquitectura básica de lanzamiento IMS-LTI v1.0137l. ............. 29
+3.3. Arquitectura básica de lanzamiento IMS-LTI v1.1[37]1.............. 30
+3.4. Arquitectura básica de lanzamiento IMS-LTI v1.2[W37].............. 30
+3.5. Emulador LTI Tool Provider[38] ......................... 31
+3.6. Emulador LTI Tool Consumer[39] ........................ 32
+3.7. Backlog del producto ............. e... 33
+3.8. Registro de herramienta externa para usuario final con permisos ........ 36
+3.9. Formulario de registro de contenido LT ..................... 37
+3.10. XML resultado de una eliminación[3] ...................... 43
+B.1. Diagrama de clases ............. e... 60
+C.l. Diagrama de base de dat0S ............... .. . +... e... o... 61Capítulo 1
+
+Introducción
+
+1.1. Descripción general
+
+Este trabajo de grado modalidad pasantía se realiza bajo el convenio entre la empresa Nuevos Medios, NM S.A.S, y la Universidad del Valle sede Tuluá, para optar el título de Ingeniero
+de Sistemas. En él se describe la implementación de un módulo bajo el estándar LTT (Learning
+Tools Interoperability) para la utilización de herramientas de aprendizaje y la distribución de
+conocimiento de la plataforma en la plataforma de aprendizaje kme Lx.
+
+kme Lx, actualmente está compuesta de un conjunto de aplicaciones y módulos que complementan la funcionalidad del módulo LMS (Learning Management System). Ejemplos de
+ello, son los blogs, los foros, las videoconferencias y el muro de comentarios, que han sido
+desarrollados con base en las necesidades expresadas por los clientes a lo largo del tiempo.
+
+Respecto a la plataforma que la empresa Nuevos Medios ha creado, se puede observar que
+ésta no es tan dinámica, personalizable y flexible como se desea. Un caso en particular sería
+cuando un cliente desee cambiar la forma de ver los cursos, contenidos o herramientas de la
+plataforma, sería necesario en primer lugar, hacer una modificación desde el núcleo de la misma o desde los diferentes módulos que la conforman. En segunda instancia, al hacerse dicha
+modificación habría que desarrollar nuevas funcionalidades y aplicaciones que sólo usaría ese
+cliente, las cuales pasarían a ser lo que se denomina un desarrollo a la medida. Situación última
+que la empresa evitaría por no ser rentable desde ningún punto de vista, pues implicaría más
+esfuerzo y más tiempo en un sólo servicio por tratarse de suplir las necesidades de una pequeña
+comunidad. Lo anterior, no significa que sea algo indeseado y que afecte negativamente a la
+plataforma. Por el contrario, con las necesidades que han expresado los clientes a la empresa
+sobre el producto, la plataforma se ha desarrollado. Pero, ha llegado el momento de estandarizarla, de tal manera que esté en condiciones de responder a las necesidades de los clientes con
+las herramientas que posee, o en caso de no ser así, que sea lo realmente flexible para que el
+cambio tenga un impacto menor y no afecte su núcleo.
+
+Ahora bien, para que la plataforma sea aún más dinámica, flexible y personalizable paralos administradores, tutores y estudiantes, Nuevos Medios tomó la decisión de integrarse con
+otras plataformas y herramientas externas de aprendizaje que permitan acceder a sus cursos,
+contenidos, archivos multimedia y otros servicios que compensen sus necesidades de manera
+puntual, haciendo más significativa la experiencia de aprendizaje ofreciendo un valor agregado
+que le permita atraer más usuarios. De igual forma, la empresa NM hará que el conocimiento
+no quede únicamente en la plataforma, sino que también pueda ser accedido desde otras.
+
+1.2. Contexto de la organización
+
+1.2.1. Misión
+
+Ampliar la cobertura y la calidad de la formación.
+
+1.2.2. Visión
+
+Nuevos Medios será una empresa insertada en el concierto global de la gestión de conocimiento, reconocida por la probidad en su actuar y como líder en el mantenimiento de sus
+productos y servicios al seguir las tendencias web (Web social, web semántica) como base en
+la innovación y mejoramiento continuo.
+
+1.2.3. Descripción y estado actual de NM S.A.S, Nuevos Medios
+
+NM S.A.S, Nuevos Medios, es una compañía de tecnología especializada en el desarrollo de
+software para la gestión del conocimiento (E-learning) en entidades corporativas e instituciones
+educativas] 1].
+
+El producto principal de la empresa es la plataforma de aprendizaje KME (Knowledge
+management environment), la cual es una solución para la gestión del conocimiento basada en
+la guía para la formación, la capacitación y el estándar para compartir contenidos de e-learning:
+
+SCORM.
+
+Con kme se pueden establecer necesidades de capacitación, planear el proceso de formación, administrar la ejecución del plan de formación b-learning, formación virtual y/o presencial, y evaluar los resultados de la ejecución.
+
+Por lo tanto, para satisfacer las nuevas necesidades de sus clientes e incursionar en otras
+formas de transferir el conocimiento, NM S.A.S tomó la decisión de implementar el módulo
+bajo el estándar LTT. Así, más personas podrán tener acceso al conocimiento y tendrán una
+gran experiencia de aprendizaje debido a la gran variedad de aplicacionesque existen en los
+diferentes campos del e-learning.1.2.4. Justificación
+
+Al implementar el módulo bajo el estándar LTT (Learning tools interoperability), la empresa
+no tendrá que centrarse en nuevos desarrollos y mantenimiento de implementaciones personalizadas, que sólo un cliente podría usar, sino en aquellas necesidades o ideas que van encaminadas
+al plan de mejoramiento que la empresa tiene planeado para el producto.
+
+Además, los administradores y tutores podrán crear cursos de manera fácil, rápida y económica, accediendo a contenidos pedagógicos que han creado otras personas en el ámbito del
+e-learning, en formatos como: web, indexación de contenidos, glosarios, videos, evaluaciones,
+cuestionarios, wikis, blog, foros, chats, entre otros. También permitirá distribuir el conocimiento que ha sido recolectado en los cursos y contenidos que están alojados en la plataforma para
+que más usuarios puedan acceder y aprender de ellos.
+
+Al desarrollar este proyecto para una plataforma de aprendizaje, se aplicarán los conocimientos obtenidos en la carrera de Ingeniería de Sistemas al contexto laboral. Ejemplos de
+ello son: la metodología de desarrollo de software, diseño y construcción de un módulo de un
+sistema, diseño y construcción de aplicaciones web, diseño de base de datos relacional, con
+una curva de aprendizaje en: el estudio del estándar LTI, el manejo de credenciales con oauth,
+el framework de Django y del lenguaje de programación Python. Además del uso de las herramientas, se ganará experiencia debido al ámbito labora, aprendiendo a trabajar con nuevas
+personas y retroalimentando las experiencias vividas y conocimientos adquiridos con equipo de
+trabajo de la empresa.
+
+1.3. Objetivos
+
+1.3.1. Objetivo general
+
+Diseñar y desarrollar los módulos que permitan a la plataforma de aprendizaje en línea
+kme Lx, consumir los contenidos de herramientas externas y a su vez, proveer sus contenidos
+utilizando el estándar Learning Tools Interoperability (LTD) en su versión 1.1.
+
+1.3.2. Objetivos específicos
+
+= Desarrollar el componente de registro en el módulo de LT Consumer, para las herramientas de aprendizaje a consumir y para el módulo de LTT Producer, para las plataformas que
+consumirán los servicios de kme Lx.
+
+= Desarrollar el componente de autenticación que ayudará a la plataforma acceder a las
+herramientas de aprendizaje y validar las solicitudes de las plataformas externas para el
+consumo de servicios.
+
+= Desarrollar el componente de calificaciones tanto para los módulos LTT Consumer y LTI
+provider utilizando el servicio REST.1.4. Resultados esperados
+
+ 
+
+Objetivos Específicos Producto(s) Esperados
+
+ 
+
+ 
+
+Desarrollar el componente de registro
+en el módulo de LTI Consumer, para
+las herramientas de aprendizaje a
+consumir y para el módulo de LTI = Diagramas de clases
+Producer, para las plataformas que
+consumirán los servicios de kme Lx
+
+= Backlog de producto
+
+= Modelo de bases de datos
+
+= Informe de resultados de pruebas
+
+ 
+
+Desarrollar el componente de
+autenticación que ayudará a la
+
+= Backlog de producto
+plataforma acceder a las herramientas
+
+de aprendizaje y validar las solicitudes = Diagramas de clases
+de las plataformas externas para el
+consumo de servicios. = Modelo de bases de datos
+
+= Informe de resultados de pruebas
+
+ 
+
+Desarrollar el componente de
+calificaciones tanto para los módulos
+LTT Consumer y LTI provider
+
+utilizando el servicio REST. = Diagramas de clases
+
+= Backlog de producto
+
+= Modelo de bases de datos
+
+= Informe de resultados de pruebas
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cuadro 1.1: Resultados esperados
+
+1.5. Alcance de la propuesta
+
+En el estudio del estándar de Learning Tools Interoperability (LTD), el cuál define por medio de reglas básicas la forma de comunicarse entre plataformas y herramientas externas que
+también tengan implementado el estándar, se han definido dos roles, Tool Consumer, que generalmente es una plataforma de aprendizaje o LMS, y el Tool Producer (herramientas externas
+de aprendizaje). La empresa desea que la plataforma cumpla con esos dos roles, los cuales se
+definieron como módulos.
+
+Para la realización de cada módulo, se tendrán en cuenta las fases de desarrollo de software:
+análisis, diseño, implementación, pruebas e implantación usando la metodología SCRUM, el
+cual ayudará controlar mejor el proyecto debido a que se cuenta con pequeños progresos o productos parciales obtenidos en periodos de tiempo, usualmente entre dos y cuatro semanas, esto
+último es lo que se denomina Sprint y con base al estado actual del proyecto, el equipo podrátomar mejores decisiones y planear mejor para que el proyecto obtenga el resultado esperado
+y satisfaga al cliente. Estos módulos hacen parte del proyecto “KME LX 2016”, el cual busca
+actualización en la estructura de la plataforma y servicios que presta hoy en día.
+
+Cada módulo será implementado usando el framework Django, en su versión 1.9, y el lenguaje de programación Python en su versión 2.7. La versión del estándar LTI será la versión
+1.1, en el cual, no sólo se ha definido el lanzamiento básico de credenciales entre la plataforma
+de aprendizaje (Tool Consumer) y una herramienta externa (Tool Producer), la cual se asegura
+con el protocolo oauth, sino que además se ha incluido el mecanismo de retroalimentación del
+Tool Provider al Tool Consumer. Para el mapeo de datos en la base de datos se usará Postgres
+en su versión 9.3.1.
+
+El desarrollo para el módulo de LTI Consumer será dividido en tres componentes: Registro,
+autenticación y registro de calificaciones. Se definirán los criterios de aceptación de acuerdo a
+las siguientes funcionalidades: El componente de registro deberá permitir al usuario administrador o tutor, registrar los datos requeridos de una nueva herramienta externa en la plataforma
+desde su panel de administración o desde el panel de administración de un curso. El componente de autenticación se encargará del lanzamiento básico de credenciales usando los datos del
+usuario, estudiante o tutor de kme Lx, el curso y de la herramienta externa para que pueda acceder, usar el recurso solicitado. Para el componente de calificaciones permitirá a la herramienta
+externa la consulta, actualización y eliminación de la calificación de un estudiante en el libro
+de calificaciones de la plataforma. Por último, se entregará el módulo probado y configurado
+consumiendo, como mínimo, tres herramientas de aprendizaje que la empresa defina que son
+
+de utilidad.
+
+El desarrollo para el módulo de LTI Producer también será dividido en tres componentes:
+Registro, autenticación y registro de calificaciones. Se definirán los criterios de aceptación de
+acuerdo a las siguientes funcionalidades: El componente de registro deberá permitir almacenar
+la información de una plataforma u otra herramienta consumidora, generando las claves con la
+que se validará su ingreso. El componente de autenticación se encargará de validar que los datos
+de la solicitud de una herramienta consumidora sean correctos con base a los datos guardados
+en la plataforma y dará acceso al recurso solicitado que se encuentra en la plataforma kme Lx.
+Para el componente de registro de calificaciones, este se encargará de enviar la calificación que
+haya obtenido el usuario a la herramienta consumidora.
+
+Los módulos nombrados anteriormente serán terminados, pero no pasarán al ambiente de
+producción debido a que la empresa espera tener definido un pequeño catálogo de aplicaciones
+de aprendizaje que sean de ayuda para los diferentes clientes que actualmente tiene la empresa
+y así es más fácil enseñarles la importancia que tiene este módulo.
+
+Hay que aclarar que para la presentación de los productos esperados, no van a estar completos, como el “Product Backlog” y/o van a tener cambios de nombres, como los diagramas,
+debido al acuerdo de privacidad que tiene el estudiante con la empresa NM S.A.S.
+
+10Capítulo 2
+
+Marco referencial
+
+2.1. Marco teórico
+
+En esta sección se mostrarán los siguientes conceptos teóricos que servirán para el desarrollo del trabajo de grado.
+
+2.1.1. Learning Tools Interoperability
+
+Es una estándar de interoperabilidad, cuyo objetivo es la integración de cualquier LMS con
+toda aplicación de aprendizaje desarrollada por terceros. [2]
+
+En este estándar se describen dos piezas de software. Lo que comúnmente se piensa como
+LMS, es referido como una herramienta consumidora (TC: Tool Consumer). La herramienta
+externa o contenido es llamada herramienta proveedora (TP: Tool Provider).
+
+También se hace uso del término context (contexto), que se refiere a los cursos, proyectos o
+a cualquier colección de recursos con un conjunto común de usuarios y roles. Dentro del contexto, los usuarios pueden crear muchos objetos de contenido LTI, organizándose en carpetas.
+LTT permite al TP diferenciar entre los enlaces que hay en el curso con el concepto de un resource_link_id, logrando mostrar las características de ese contenido a los usuarios determinados,
+como un tutor o un instructor. [3]
+
+El estándar utiliza el protocolo OAuth como un mecanismo de seguridad diseñado para
+proteger las peticiones en el lanzamiento de datos y en el intercambio de los mensajes que serán
+serializados y enviados entre las dos aplicaciones, esto es posible debido a que en el proceso se
+comparte una clave secreta la cual es usada para “firmar” los mensajes que se envía, el TP es el
+encargado de validar en cada mensaje recibido.
+
+S1 durante el proceso, un usuario, en este caso un estudiante, abre un contenido LTI de un
+curso; el LMS (TC), de inmediato preparará un conjunto de parámetros de lanzamiento, que son
+parte del paquete de datos que se van a incluir en el mensaje de autenticación. Al tener definidos
+
+11TOOL LTI TOOL
+PROVIDER SERVICES CONSUMER
+
+   
+  
+
+Instructor
+Administrator
+
+Figura 2.1: Vista de LTT básico [2]
+
+los parámetros a enviar, se utilizará el protocolo OAuth para “firmar” digitalmente el paquete,
+de tal manera que se asegurará la integridad de los datos que se van a enviar a la herramienta
+externa (TP). Una vez realizados estos pasos, el TC devuelve los datos procesados al navegador,
+en un formulario oculto, que se enviará al TP automáticamente, ejecutando el código Javascript,
+siempre y cuando el navegador permita la ejecución de dicho código, en caso de no ser así, el
+usuario deberá mandarlos manualmente, haciendo clic en un botón del formulario.
+
+A partir de la versión de IMS-LTI v1.1, se ofrece un mecanismo para retorno de resultados
+(outcome services) que permite a la herramienta externa leer, escribir o borrar un valor del libro
+
+de calificaciones de la TC. [2]
+
+2.1.2. Oauth 2.014]
+
+Es un protocolo de autorización que permite a terceros (clientes) acceder a contenidos propiedad de un usuario (alojados en aplicaciones de confianza, servidor de recursos) sin que éstos
+tengan que manejar ni conocer las credenciales del usuario.
+
+En un escenario se pueden distinguir tres partes:
+
+A Propietario de recursos: Es una entidad capaz de dar acceso a recursos protegidos. Cuando
+es una persona nos referiremos a él como usuario final.
+
+B Cliente. Es la aplicación que hace peticiones a recursos protegidos en nombre de un
+propietario de recursos con la autorización del mismo.
+
+12| Resource
+Owner
+
+Authorization
+Sermnver
+
+Provider .
+(E) Access Token 2
+AV Reource
+(FhProtected Resource Server
+|
+
+Figura 2.2: Flujo de eventos Oauth [4]
+
+ 
+
+C Proveedor: Es la entidad que tiene los recursos protegidos. Es capaz de aceptar y responder peticiones usando un token de acceso que debe venir en el cuerpo de la petición.
+
+Por otro lado, el servidor de autorización, que puede ser el servidor de recursos, es el responsable de generar tokens de acceso y validar usuarios y credenciales.
+
+El flujo de autenticación usando el protocolo de autenticación Oauth es el siguiente:
+
+A El cliente solicita autorización al propietario del recurso. La petición se puede hacer directamente al servidor de autenticación en lugar del propietario del recurso.
+
+B El propietario del recurso da la autorización para acceder al recurso informando al cliente sobre uno de los cuatro tipos de autorización disponibles: (código de autenticación,
+implícito, credenciales de contraseña del dueño del recurso, credenciales del cliente).
+
+C El cliente pide un token de acceso, identificándose y presentando la autorización obtenida
+en el paso anterior.
+
+D El servidor de autenticación valida las credenciales del cliente y de la autenticación, si
+son válidas, devuelve un token.
+
+E De aquí en adelante, el servidor de recursos y el cliente ya son capaces de intercambiar
+peticiones seguras con el token de acceso para proteger el contenido.
+
+132.1.3. Django[5]
+
+Es un framework de desarrollo web de código abierto, escrito en el lenguaje de programación Python, que implementa el patrón MVC (modelo-vista-controlador). Inicialmente se
+originó para gestionar noticias de la World Company de Lawrence, Kansas, y fue liberada al
+público bajo una licencia BSD en julio de 2005; el framework fue nombrado en alusión al
+guitarrista de jazz gitano Django Reinhardt.
+
+La meta fundamental de Django es facilitar la creación de sitios web complejos, debido a
+que se enfoca en el re-uso, la conectividad y extensibilidad de componentes, el desarrollo ágil
+y el principio No te repitas (DRY, del inglés Don”t Repeat Yourself).
+
+2.1.4. Python[6]
+
+Es un lenguaje de programación de alto nivel, interpretado y multipropósito. Es open source,
+cualquiera puede contribuir al desarrollo y distribución. Actualmente, es uno de los lenguajes
+de programación más empleados para el desarrollo de software.
+
+Puede ser utilizado en diversas plataformas y sistemas operativos, entre los que podemos
+destacar los más populares, como Windows, Mac OS X y Linux. Además, con Python es posible desarrollar aplicaciones científicas, para comunicaciones de red, aplicaciones de escritorio
+con interfaz gráfica de usuario (GUD), juegos, aplicaciones para smartphones y por supuesto,
+aplicaciones web.
+
+Entre las principales razones para elegir Python, son muchos los que argumentan que sus
+principales características lo convierten en un lenguaje muy productivo. Se trata de un lenguaje
+potente, flexible y con una sintaxis clara y concisa. Además, no requiere dedicar tiempo a su
+compilación debido a que es interpretado.
+
+2.1.5. Base de datos[7 ]
+
+Conjuntos de datos interrelacionados entre sí y su fin es servir a uno O varios usuarios, sin
+redundancias perjudiciales e innecesarias, es independiente de la aplicación que la utilice y tiene
+Operaciones específicas.
+
+Entre las principales características de los sistemas de base de datos podemos mencionar:
+
+A Independencia lógica y física de los datos.
+
+B —Redundancia mínima.
+
+C Acceso concurrente por parte de múltiples usuarios.
+D Integridad de los datos.
+
+E Consultas complejas optimizadas.
+
+14F Seguridad de acceso y auditoría.
+G Respaldo y recuperación.
+
+H Acceso a través de lenguajes de programación estándar.
+
+Existen programas denominados sistemas gestores de bases de datos; los sistemas de gestión
+de bases de datos (en inglés: database management system, abreviado DBMS) son un tipo de
+software muy específico, dedicado a servir de interfaz entre la base de datos, el usuario y las
+aplicaciones que la utilizan.
+
+Entre los más destacados se encuentran:
+
+A MySql: es una base de datos con licencia GPL basada en un servidor. Se caracteriza por
+
+su rapidez. No es recomendable usar para grandes volúmenes de datos.
+
+B PostgreSQL: Sistema de gestión de base de datos relacional orientada a objetos y libre,
+publicado bajo la licencia BSD. Como muchos otros proyectos de Código abierto, el
+desarrollo de PostgreSQL no es manejado por una sola empresa sino que es dirigido por
+una comunidad de desarrolladores y organizaciones comerciales las cuales trabajan en su
+desarrollo. Dicha comunidad es denominada el PGDG (PostgreSQL Global Development
+Group).
+
+C Oracle: Fabricado por Oracle Corporation, utiliza la arquitectura cliente/servidor. Ha
+incorporado en su sistema el modelo objeto-relacional, pero al mismo tiempo garantiza
+la compatibilidad con el tradicional modelo relacional de datos. Así ofrece un servidor
+de bases de datos híbrido. Es uno de los más conocidos y ha alcanzado un buen nivel de
+madurez y de profesionalidad. Se destaca por su soporte de transacciones, estabilidad y
+escalabilidad.
+
+D Access: Es una base de datos desarrollada por Microsoft. Esta base de datos, debe ser
+creada bajo el programa Access, el cual crea un archivo .mdb con la estructura ya explicada.
+
+E Microsoft SQL Server: es una base de datos más potente que Access desarrollada por
+Microsoft. Se utiliza para manejar grandes volúmenes de información.
+
+2.1.6. JavaScript[S]
+
+Es un lenguaje de scripting multiplataforma y orientado a objetos. Es un lenguaje pequeño y
+liviano. Dentro de un ambiente de host, javaScript puede conectarse a los objetos de su ambiente
+y proporcionar control programático sobre ellos.
+
+Contiene una librería estándar de objetos, tales como Array, Date, y Math, y un conjunto
+central de elementos del lenguaje, tales como operadores, estructuras de control, y sentencias. El
+
+15núcleo de JavaScript puede extenderse para varios propósitos, complementándolo con objetos
+
+adicionales, por ejemplo:
+
+A
+
+Client-side JavaScript extiende el núcleo del lenguaje proporcionando objetos para controlar un navegador y su modelo de objetos (o DOM, por las iniciales de Document Object
+Model). Por ejemplo, las extensiones del lado del cliente permiten que una aplicación coloque elementos en un formulario HTML y responda a eventos del usuario, tales como
+clics del ratón, ingreso de datos al formulario y navegación de páginas.
+
+Server-side JavaScript extiende el núcleo del lenguaje proporcionando objetos relevantes a la ejecución de javaScript en un servidor. Por ejemplo, las extensiones del lado del
+servidor permiten que una aplicación se comunique con una base de datos, proporcionar continuidad de la información de una invocación de la aplicación a otra, o efectuar
+manipulación de archivos en un servidor.
+
+2.1.7. HTMLS [9]
+
+Es la última versión de HTML. Diseñado para ser utilizable por todos los desarrolladores de
+
+Open Web, que contiene un conjunto más amplio de tecnologías que permite a los sitios Web y
+
+a las aplicaciones ser más diversas y de gran alcance. Podemos agrupar estas nuevas tecnologías
+
+según su función:
+
+A
+
+B
+
+Semántica: Permite describir con mayor precisión cuál es su contenido.
+Conectividad: Permite comunicarse con el servidor de formas nuevas e innovadoras.
+
+Sin conexión y almacenamiento: Permite a las páginas web almacenar datos localmente
+en el lado del cliente y operar sin conexión de manera más eficiente.
+
+Multimedia: Nos otorga un excelente soporte para utilizar contenido multimedia como
+lo son audio y video nativamente.
+
+Gráficos y efectos 2D/3D: Proporciona una amplia gama de nuevas características que
+se ocupan de los gráficos en la web como lo son canvas 2D, WebGL, SVG, etc.
+
+Rendimiento e Integración: Proporciona una mayor optimización de la velocidad y un
+mejor uso del hardware.
+
+Acceso al dispositivo: Proporciona APIs para el uso de varios componentes internos de
+entrada y salida de nuestro dispositivo.
+
+162.1.8.  CSS3 [10]
+
+CSS es un lenguaje utilizado para dar estética a un documento HTML (colores, tamaños de
+las fuentes, tamaños de elemento, con css podemos establecer diferentes reglas que indicarán
+cómo debe presentarse un documento. Podemos indicar propiedades como el color, el tamaño y
+tipo de la letra, si es negrita, si es itálica, también se puede dar forma a otras cosas que no sean
+letras, como colores de fondo de una página, tamaños de un elemento (por ejemplo el alto y el
+ancho de una tabla).
+
+Las principales características de esta nueva versión del CSS son:
+
+A Atributo gradiente de colores en borde: Posibilidad de definir el un gradiente de color
+en el borde de los elementos con CSS, en un atributo no estándar de Firefox.
+
+B—Bordes redondeados: Las características de CSS 3 incluyen bordes redondeados, a través
+del atributo border-radius, que define la curvatura que debe tener el borde del elemento.
+
+C Salto de línea: Una propiedad de CSS 3 que sirve para romper las palabras que son
+demasiado largas y no caben enteras por la anchura de una caja.
+
+D Textos multi-columna: incorpora nuevos atributos para que el navegador se encargue
+de producir texto multicolumna, es decir, que maquete directamente el texto en varias
+columnas sin tener que hacer nosotros nada.
+
+E Bordes con imágenes: El atributo border-image y varios otros de CSS 3 harán posible
+la utilización de imágenes como bordes de los elementos de la página, sin código HTML
+especial, simplemente con hojas de estilo. Sombras:
+
+F Crear sombras: Con el atributo box-shadow. Por fin podremos aplicar sombras a los
+
+elementos de la página, sin usar imágenes, Javascript ni nada extra, simplemente con un
+atributo de CSS 3.
+
+G Posicionar posición a imagen de fondo: La propiedad background-origin permite decide
+la posición de la imagen de fondo con respecto al borde, padding o el contenido del
+elemento.
+
+H Limitar contenido: Descripción de los atributos de CSS3 overflow-x y overflow-y, que
+sirven para definir cómo renderizar un contenido cuando sobrepasa los límites de un
+contenedor en la horizontal o vertical.
+
+I Utilizar de cualquier tipografía: Sintaxis y principales características de Ofont-face,
+que nos permite utilizar cualquier tipografía en una página web.
+
+J Sombras en el texto: Cómo aplicar sombras y otros efectos en los textos con CSS y el
+atributo text-shadow.
+
+172.1.9. AJAX [11]
+
+Ajax son las siglas de “Asynchronous JavaScript And XML” y es una tecnología que
+permite a una página web actualizarse de forma dinámica sin que tenga que recargarse completamente. JavaScript es el encargado de comunicarse con el servidor enviando y recibiendo
+datos desde la página web, en el servidor la solicitud es procesada y se envía una respuesta que
+es interpretada de nuevo por JavaScript en la página web.
+
+Aunque con Ajax se puede solicitar cualquier tipo de recurso web, el intercambio de datos
+entre la página web y el servidor ha sido realizado tradicionalmente, como el propio nombre
+indica, en formato XML (eXtensible Markup Language), un lenguaje de marcas que permite
+definir una gramática específica y, por tanto, permite el intercambio de información estructurada
+y legible.
+
+Pero con la llegada de JSON (JavaScript Object Notation), siendo más ligero y con una
+notación más simple, se convirtió en el formato más utilizado para el intercambio de datos
+cuando se trabaja con Ajax. Además, con una ligera variación (JSONP) puede utilizarse en
+solicitudes Ajax entre diferentes dominios (cross-domain).
+
+2.1.10. JQuery [12]
+
+Es una biblioteca de javascript, creada inicialmente por John Resig, que permite simplificar la manera de interactuar con los documentos HTML, manipular el árbol DOM, manejar
+eventos, desarrollar animaciones y agregar interacción con la técnica AJAX a páginas web. Fue
+presentada el 14 de enero de 2006 en el BarCamp NYC. ¡Query es la biblioteca de javascript
+más utilizada.
+
+]JQuery es software libre y de código abierto, posee un doble licenciamiento bajo la Licencia MIT y la Licencia Pública General de GNU v2, permitiendo su uso en proyectos libres y
+privados. ¡Query, al igual que otras bibliotecas, ofrece una serie de funcionalidades basadas en
+javascript que de otra manera requerirían de mucho más código, es decir, con las funciones
+propias de esta biblioteca se logran grandes resultados en menos tiempo y espacio.
+
+Las características principales de JQuery son:
+
+A Selección de elementos DOM.
+
+B Interactividad y modificaciones del árbol DOM, incluyendo soporte para CSS 1-3 y un
+plugin básico de XPath.
+
+C Eventos.
+D Manipulación de la hoja de estilos CSS.
+E Efectos y animaciones. Animaciones personalizadas.
+
+F AJAX.
+
+18G Soporta extensiones.
+
+H Utilidades varias como obtener información del navegador, operar con objetos y vectores,
+funciones para rutinas comunes, etc.
+
+I Compatible con los navegadores Mozilla Firefox 2.0+, Internet Explorer 6+, Safari 3+,
+Opera 10.6+ y Google Chrome 8.5+
+
+2.1.11. Bootstrap [13]
+
+Es un framework desarrollado y liberado por Twitter que tiene como objetivo facilitar el
+diseño web. Permite crear de forma sencilla webs de diseño adaptable, es decir, que se ajusten
+a cualquier dispositivo y tamaño de pantalla y siempre se vean igual de bien. Es Open Source o
+código abierto, por lo que lo podemos usar de forma gratuita y sin restricciones.
+
+Las principales ventajas que ofrece son:
+
+A Simplificar el proceso de maquetación, sirviéndose de guía para aplicar las buenas prácticas y los diferentes estándares.
+
+an
+
+La curva de aprendizaje hace que su manejo sea asequible y rápido si ya sabes maquetar.
+
+A
+
+Permite utilizar muchos elementos web: desde iconos a desplegables, combinando HTML3,
+CSS y Javascript.
+
+El diseño será adaptable, no importa el dispositivo, la escala o resolución.
+Facilita la maquetación y configuración por columnas.
+Se integra muy bien con las principales librerías Javascript.
+
+Cuenta con implementaciones externas para WordPress, Drupal, etc.
+
+ION —e $ 80
+
+Nos permite usar Less, para enriquecer aún más los estilos de la web.
+
+2.1.12. Scrum]14]
+
+Es un marco metodológico para el desarrollo de software en el cual se puede hacer frente
+a problemas complejos sin interrumpir el proceso creativo y productivo para la generación de
+productos de alto valor.
+
+Se ha utilizado para gestionar el desarrollo de productos complejos desde principios de
+los 90”. No se trata de un proceso o una técnica para el desarrollo de productos sino de un
+marco que permite la utilización de varios procesos y técnicas. Scrum pone evidencia el nivel
+de eficiencia de las prácticas de administración de proyectos y de desarrollo, lo que permite
+mejorarlas. Consiste en la creación de Equipos y roles asociados, Eventos, Objetos y Reglas,
+
+19donde cada componente tiene un propósito específico y es esencial para el éxito y el uso de
+Scrum.
+
+Además, se basa en la teoría de control de procesos empíricos (empiricism en inglés). Esta
+teoría afirma que el conocimiento proviene de la experiencia y de las decisiones basadas en
+lo que se conoce. Scrum emplea un enfoque iterativo e incremental (Sprints) para optimizar
+la previsibilidad y el control de riesgos. Tres pilares soportan cada aplicación de control de
+procesos empíricos:
+
+A Transparencia, donde los aspectos definidos deben ser claros para que todo el equipo
+tenga la misma visión.
+
+B Inspección, se busca con frecuencia los Artefactos y el progreso hacia los objetivos del
+Sprint para detectar variaciones no deseadas.
+
+C Adaptación, donde se ajusta el proceso o el material que está siendo procesado y que
+se considera inaceptable o desvaría del objetivo. Este tipo de ajustes debe realizarse tan
+pronto como sea posible para minimizar aún más la desviación.
+
+202.2. Antecedentes
+
+En esta sección, se mostrarán otras plataformas de aprendizaje que han decidido implementar el estándar LTI, algunas sólo tienen el módulo de LTT Consumer y otras han implementado
+ambos módulos, éstas son:
+
+2.2.1. Blackboard
+
+Proveedor de sistemas de "e-learning" más grande del mundo, y sus plataformas se utilizan
+en las universidades más prestigiosas. Desde hace casi una década, ULACIT adquirió Blackboard, y se propuso lograr que todos sus cursos tuviesen un aula virtual de apoyo.[15]
+
+Blackboard tiene en su sistema de integraciones el estándar LTI, y es consumidora de herramientas de aprendizaje. Les permite a sus tutores administrar esas herramientas en sus cursos,
+Para las instituciones con múltiples monitores que utilizan la misma herramienta, o simplemente para ayudar a los instructores en la creación de direcciones URL para acceder a estas, los
+administradores pueden gestionar la información del proveedor de todo su sistema. [16]
+
+Create Placement
+
+* indicates o required field,
+
+l. Placement Information
+
+H Label virtual Bio Lab E
+
+Description
+
+AEL
+
+Eo >
+
+The Virtual Blology Lab provides Interactive activitles that demonstrate concepts in the course.
+experiments. Students manipulate experimental parameters and observe the results.
+
+Handle viral bio lab O
+
+Type
+
+ 
+
+ 
+
+ 
+ 
+   
+
+   
+
+Co Student Tool
+Gs) Cortent Type Placernen allows grading
+dices mente O
+ii Browse guild Content (Mashups)
+Build Coment (Croaro)
+
+Figura 2.3: Formulario para agregar una herramienta en Blackboard [16]
+
+Además, Blackboard tiene su propia Tool Provider de Blackboard Collaborate que implementa la versión 1.1 del estándar y fue lanzada en 2012. [17] Con esto permite integrarse con
+otras plataformas como Moodle.
+
+212.2.2. Coursera
+
+Es una plataforma que ofrece cursos online masivos y abiertos, conocidos como MOOC
+por sus siglas en inglés: Massive Open Online Course. Se creó en 2012 gracias a la iniciativa
+de dos profesores de la Universidad de Stanford con la finalidad de hacer posible el acceso
+gratuito a educación de calidad para cualquiera y desde cualquier lugar. Desde entonces se
+han ido seleccionando y añadiendo cada vez más cursos, universidades y organizaciones hasta
+llegar a tener más de 500 cursos de distinta temática y en 13 idiomas distintos, a los que se han
+matriculado más de 21 millones de personas repartidas por 190 países.[18]
+
+Coursera implementa el estándar LTI 1.1 como una de sus integraciones, con el objetivo de
+consumir los servicios que las herramientas de aprendizaje proveen. Este proceso se centra en
+dos casos de uso: El lanzamiento de credenciales y el outcome o la recepción de datos desde la
+herramienta de aprendizaje, este caso es opcional. [19]
+
+2.2.3. Edx
+
+Puede integrar herramientas externas de aprendizaje, como aplicaciones y libros de texto,
+en su curso con el componente de Learning Tools Interoperability (LTD). El componente de LTI
+se basa en las especificaciones del estándar creado por la IMS Global en la versión 1.1.1.[20]
+
+Se puede usar el componente LTT de varias maneras:
+
+A Añadir una herramienta de aprendizaje que muestra un único contenido y que no requiere
+una respuesta del aprendiz, ej.: un documento en formato PDF.
+
+B Agregar una herramienta de aprendizaje que muestra un único contenido y que requiere
+una respuesta del aprendiz. La herramienta califica la respuesta.
+
+C Usar el componente LTT como un marcador para sincronizar con un sistema de calificación remota.
+
+El sitio de edx Edge puede ser configurado para ser un proveedor de interoperabilidad herramienta de aprendizaje (LTI) a otros sistemas y aplicaciones que utilizan las instituciones asociadas. Después de la configuración inicial y las pruebas entre Edge y su sistema o aplicación esté
+completada, los creadores de contenidos pueden utilizar esta función para volver a utilizar el
+contenido del curso Edge, incluyendo los tipos de problemas avanzados y videos, en un campus
+o en LMS local. Existen ejemplos de cursos corriendo en Canvas y Blackboard. [21]
+
+222.2.4. Moodle
+
+Es un LMS muy usado en el ámbito del e-learning por la diversidad de herramientas que
+ofrece en un entorno integrado, lo que permite establecer múltiples escenarios de aprendizaje.
+
+Entre los recursos y las herramientas educativas que ofrece Moodle, se encuentra una denominada “external tool” o herramienta externa que permite a los participantes interactuar con
+actividades y recursos de aprendizaje compatibles con LTI en otros sitios web. (LTI es un estándar IMS (Information Management System) para Learning Tool Interoperability (LTD. [22]
+
+Por ejemplo, una herramienta externa podría proporcionar acceso a un nuevo tipo de actividad, o material de aprendizaje de algún editor. Para la plataforma se ha creado un plugin que
+permite a sistemas remotos de usuarios (LTI consumers) acceder a los cursos de Moodle o a las
+actividades que hay en los cursos. Permite compartir actividades y cursos entre implementaciones de Moodle sin configurar una conexión en particular. Entre las características principales
+están: Acceso total a cursos y actividades, personalización de la interfaz de los cursos y activ1dades. Enviar calificaciones a LTI Consumer. [23]
+
+2.3. Glosario
+
+2.3.1. E-learning: Proceso de aprendizaje que se apoya en medios electrónicos para su
+realización, sin importar la modalidad a distancia o presencial en que se contextualiza. Generalmente, es el aprendizaje basado o apoyado en tecnologías de redes como complemento del
+aprendizaje presencial o con diversos medios en el aula formal o en grupos no formales de
+aprendizaje donde es posible incluir ejercicios de simulación, participar de discusiones grupales, enlaces de sitios de Internet, trabajos colaborativos, entre otros (Fainholc, 2008)
+
+2.3.2. LMS: Un LMS (Learning Management System) es un sistema de gestión de aprendizaje online, que permite administrar, distribuir, monitorear, evaluar y apoyar las diferentes
+actividades previamente diseñadas y programadas dentro de un proceso de formación completamente virtual (e-Learning), o de formación semi-presencial (Blended Learning). [24]
+
+2.3.3. Desarrollo de software: Proceso por el cual las necesidades del usuario se traducen
+en un producto de software. Las necesidades del usuario se traducen en los requerimientos del
+software, la transformación de los requerimientos de software en el diseño, la implementación
+del diseño en el código, luego la verificación del funcionamiento del código, y en ocasiones la
+instalación. Nota: estas actividades pueden superponerse o ser realizado de forma iterativa.[25]
+
+2.3.4. Historias de usuario: Son un instrumento para el levantamiento de requerimientos
+para el desarrollo de un software, que ha emergido con la aparición de los nuevos marcos de
+trabajo de desarrollo ágil, como por ejemplo Scrum o las diferentes técnicas que comprenden
+el Extreme Programming.[26]
+
+2.3.5. Diseño: El diseño es técnicamente la parte central de la ingeniería del software. Durante el diseño se desarrollan, revisan y se documentan los refinamientos progresivos de las
+
+23estructuras de datos, de la estructura del programa y de los detalles procedimentales. El diseño
+da como resultado representaciones cuya calidad puede ser evaluada. [27]
+
+2.3.6. Implementación: Durante esta la etapa se realiza la tarea que comúnmente se conoce
+como programación; que consiste, esencialmente, en llevar a código fuente, en el lenguaje de
+programación elegido, todo lo diseñado en la fase anterior. Esta tarea la realiza el programador,
+siguiendo por completo los lineamientos impuestos en el diseño y en consideración siempre a
+los requisitos funcionales y no funcionales (ERS) especificados en la primera etapa.[28]
+
+2.3.7. Prueba: Las pruebas de software (testing en inglés) son los procesos que permiten
+verificar y revelar la calidad de un producto software antes de su puesta en marcha. Básicamente,
+es una fase probar las aplicaciones construidas.[29]
+
+2.3.8. Framework: Es una plataforma para desarrollar aplicaciones de software. Éste provee lo esencial para que cualquier programador pueda construir sus programas para una plataforma en particular. [30]
+
+2.3.9. Sprint: Es un intervalo prefijado durante el cual se crea un incremento de producto “Hecho o Terminado” utilizable, potencialmente entregable. A lo largo del desarrollo hay
+Sprints consecutivos de duración constante y cuenta con una definición de lo que se va a construir, un diseño y un plan flexible que guiará la construcción del plan, el trabajo, y el producto
+resultante.[31|]
+
+2.3.10 Paradigma orientado a objetos: El paradigma orientado a objetos (OO) define los
+programas en términos de comunidades de objetos. Los objetos con características comunes se
+agrupan en clases (un concepto similar al de tipo abstracto de dato (TAD)). Los objetos son
+entidades que combinan un estado (es decir, datos) y un comportamiento (esto es, procedimientos o métodos). Estos objetos se comunican entre ellos para realizar tareas. Es en este modo
+de ver un programa donde este paradigma difiere del paradigma imperativo o estructurado, en
+los que los datos y los métodos están separados y sin relación. El paradigma OO surge para
+solventar los problemas que planteaban otros paradigmas, como el imperativo, con el objeto de
+elaborar programas y módulos más fáciles de escribir, mantener y reutilizar. Entre los lenguajes
+que soportan el paradigma OO están Smalltalk, C++, Delphi (Object Pascal), Java y CH. [32]
+
+2.3.11 Middleware: Es un sub framework que permite modificaciones al sistema de procesamiento de request/response de Django. Es un sistema de plugins liviano y de bajo nivel que
+permite alterar globalmente las entradas y salidas de Django. Cada componente middleware es
+responsable de hacer alguna función específica. [33]
+
+2.3.12 MTV (Model-Template-View): Es la interpretación de Django al patrón de arquitectura MVC (Model-View-Controller). Model (Modelo), es la capa contiene toda la información
+sobre los datos: cómo acceder a éstos, cómo validarlos, cuál es el comportamiento que tiene
+y las relaciones entre ellos.Template (Plantilla), es la capa que contiene las decisiones relacionadas a la presentación: como algunas cosas son mostradas sobre una página web u otro tipo
+de documento. View (Vista), es la capa contiene la lógica que accede al modelo y la delega a la
+plantilla apropiada: puedes pensar en esto como un puente entre los modelos y las plantillas.[34]
+
+24Capítulo 3
+
+Aspectos del desarrollo de software
+
+En este capítulo se describe el proceso de desarrollo de software en la empresa Nuevos Medios. En la primera sección se hablará una introducción a la metodología SCRUM y cómo esta
+fue adaptada a las necesidades de Nuevos Medios para la implementación de sus proyectos,
+centrándonos más en el proceso del módulo LTI. En la segunda sección se hablará en detalles
+sobre los procesos y planeaciones en la implementación del módulo en la empresa. En la tercera sección se hablará sobre el desarrollo del proyecto, iniciando con la creación del backlog,
+priorizando tareas, planeación de los sprints, la creación de los artefactos de diseño, la implementación y definición de los casos de prueba para cada uno de los componentes que hacen
+parte del módulo utilizando el estándar LTT.
+
+3.1. Metodología
+
+La metodología que se aplica en la empresa Nuevos Medios, NM S.A.S, es Scrum. Este
+último es un framework para que las personas puedan hacerles frente a los problemas adaptativos complejos, mientras productiva y efectivamente entregan productos con el más alto valor
+
+posible.[36]
+Para el control del proceso de desarrollo, Scrum se centra en tres aspectos:[35]
+
+A Transparencia: Cada miembro del equipo debe ser honesto, compartiendo las dificultades
+y éxitos que tuvo durante el desarrollo.
+
+B Inspección: El proceso es siempre verificado en busca de oportunidades de mejora.
+
+C Adaptación: Al final de cada iteración, se hace una reunión para poner en práctica los
+cambios para que el siguiente sprint o iteración sea mejor que la anterior.
+
+Dicho lo anterior en la empresa Nuevos Medios, NM S.A.S, en su proceso de implementación
+inicia con la definición del backlog del producto, que son el conjunto priorizado de historias de
+
+25usuarios necesarias para el producto. Este conjunto de historias puede sufrir alteraciones durante
+ciclo de vida del proyecto, se pueden añadir historias de usuario, quitarlas o modificarlas.
+
+Después, se crea el backlog del sprint, es decir, se definen las historias de usuario que se
+van a implementar en la iteración, que son las más urgentes o que ofrecen mayor valor para el
+producto. En la empresa, cada sprint tiene una duración entre 2 - 4 semanas. La definición de
+este conjunto de historias y su priorización, la hace el product owner y se compartirá en una
+reunión entre el product owner, el serum master y el equipo del proyecto, donde se descompondrá las historia en tareas y se estimaron los tiempos de cada una. Para esto último, cada persona
+propondrá una estimación, sus razones para proponerlo (opcional) y se escoge el mayor tiempo.
+El serum master junto con el product owner hará los respectivos ajustes en el backlog del sprint.
+Esta reunión es donde se planea el sprint y toma alrededor de 2 horas aproximadamente, en el
+primer día de la primera semana.
+
+Teniendo las historias del sprint planeadas, el equipo se pone en marcha y al final del día
+se hace una reunión de entre 15 - 30 min, entre el scrum master y el equipo de desarrollo para
+hablar sobre lo que logró hacer, qué impedimentos se tuvo y proponer posibles soluciones. Estas
+reuniones se hacen una vez al día y sirve para evaluar en qué estado se encuentra el proyecto, si
+el equipo lo va a lograr o no, si hay que correr, entre otros.
+
+Para terminar una tarea, el desarrollador debe cumplir con los requeridos en la definición
+de terminado, esta definición fue creada por todo el equipo de trabajo y menciona los aspectos necesarios que el desarrollador debe cumplir dar por terminada la tarea. Uno de los aspectos
+más importante es la realización de pruebas unitarias, pruebas de configuración, en los cuales se
+ayuda con los test de usabilidad de google, validación de w3, se prueba en navegadores como
+Chrome, Firefox e Internet explorer. Además cada funcionalidad se prueba en tres instancias
+particulares de la plataforma, debido a que entre estas presenta cierta particularidad en su configuración. Después de verificar todo, el equipo de servicio y soporte al final de cada sprint hace
+pruebas de caja negra, verificando que el comportamiento de la funcionalidad sea correcto para
+ello usa insumos ya sea de casos de prueba, o de matrices de calidad. Ellos serán los que dan la
+última palabra sobre el éxito de la tarea del Sprint.
+
+Al final de cada iteración se hace una reunión, el viernes al medio día de la última semana,
+de cierre del sprint donde participa en product owner, el serum master y el equipo de desarrollo.
+La reunión inicia con la retrospectiva, se da respuesta a tres preguntas: ¿Qué estuvo bien?,
+¿Qué se puede mejorar? y Comentarios. Cada persona escribe en el tablero respondiendo desde
+su punto de vista lo que fue el sprint. Después de que todos hayan participado, se empieza a
+dialogar sobre cada punto: qué hizo para que funcionara, qué se puede hacer para evitar ese
+percance que hubo, el porqué dijo ese comentario, entre otros. El product owner, registra todos
+esos puntos en cada sprint. Luego se hace un análisis de las gráficas de rendimiento y velocidad
+del equipo y un resumen de lo que viene del siguiente sprint.
+
+26COFFEE 2008-2010 PITICH LALEF
+
+ATP PTA? OA
+
+Figura 3.1: Ciclo del sprint [36]
+
+3.1.1. Roles
+
+Para el desarrollo del proyecto, se cuenta con el siguiente equipo de trabajo en cada uno de
+los siguientes roles [35]:
+
+A Scrum master: Carolina Samacá. Es la jefe de desarrollo y encargada de validar que
+la aplicación de la metodología se lleve de manera adecuada, de vigilar al equipo para
+que no decaiga su rendimiento. Es la que escucha y entiende la dinámica del equipo y
+resuelve los conflictos que se presenten en el.
+
+B Product Owner: Juan David Soto. Es el C.O. de la empresa y define qué es lo que se
+debe hacer del producto que genere mayor valor a la organización. También se encarga
+de administrar, definir claramente la pila del producto(Product Backlog) y definir las
+prioridades de las tareas de la pila del producto.
+
+C Development Team: Guillermo Castillo. Es el personal encargado de ejecutar la visión
+del product owner con la ayuda del scrum master.
+
+273.2. Desarrollo del proyecto
+
+La implementación del módulo bajo el estándar LTTI, se inicia con una fase investigativa
+respondiendo a las pregunta qué es el estándar y qué se necesita para implementarlo, ejemplos
+de plataformas que lo hayan implementado y que aplicaciones de aprendizaje pueden ser útiles.
+
+Después de ello, se comparte la información con el Scrum master y el Product Owner e
+inicia la fase de análisis, definiendo las historias de usuario que conformarán el backlog del
+producto. Luego se definen los sprints que se implementarán durante el tiempo de vida del
+proyecto.
+
+En cada sprint, se hace la etapa de diseño, creando los artefactos para el módulo, implementación del módulo, se evalúa cada tarea con la definición de terminado y en la fase de pruebas,
+donde se definen los casos de prueba, los tipos de prueba del conjunto de historias planeado.
+Según lo estipulado en la metodología se tuvo reuniones diarias con el Scrum master, socializando el estado actual del proyecto, las dificultades que se tuvo y que medidas debería tomar.
+En el cierre de cada sprint se hacía la reunión con el scrum master y product owner, donde se
+mostraba el resultado y definir algunos ajustes que podrían surgir y planearlos para el siguiente
+sprint.
+
+3.3. Fases de desarrollo del proyecto
+
+3.3.1. Fase de investigación
+
+El desarrollo de este proyecto, se inicia con una fase investigativa sobre qué es el estándar
+LTT (Learning Tools Interoperability), cómo funciona, qué se necesita para implementarlo y si
+existen algunas herramientas que puedan apoyar al proceso.
+
+El estándar LTT, cuenta con una página oficial del IMS Global Learning Consortium[3], el
+cual es una organización sin ánimo de lucro que fomenta a nivel global el crecimiento y el impacto de las tecnologías de aprendizaje en los ámbitos educativos y de formación de empresas.
+
+En este estándar, se habla de dos roles muy importante para la interoperabilidad, el Tool
+Consumer y el Tool Provider. El primero, generalmente es un LMS (Learning Management
+System), en este caso es kme, que tiene toda la información de los estudiantes y el contexto, que
+sería equivalente a un curso o un conjunto de unidades de aprendizaje, donde se va a integrar con
+la aplicación y éste debe asegurar que todos los parámetros sean comunicados a la herramienta
+externa para llevar a cabo exitosamente el proceso de autenticación. En cambio el Tool Provider,
+es un servicio que sirve cierto contenido educativo al Tool Consumer y que están alojados fuera
+de éste.
+
+Para kme, se requiere que la plataforma cumpla con ambos roles, que en sus cursos pueda
+consumir de contenidos de aprendizaje externos a ella, sin necesidad de integraciones personalizadas y tener un servicio para proveer los cursos que sus usuarios quieren compartir.
+
+28Del estándar LTI, se conocen tres versiones:
+
+A LTI v1.0: El cual fue la primera versión del estándar y fue muy básica en su momento. Lanzada en el 2010, esta versión sólo se enfocaba en el servicio de lanzamiento a
+la aplicación. Por ejemplo, un estudiante hace clic en un recurso LTT dentro del LMS,
+que puede ser kme, moodle, coursera, entre otros; este LMS prepara un conjunto de parámetros necesarios para la conexión cifrada al navegador, este enviará a la herramienta
+proveedora del contenido y este se ejecutará con todo lo necesario para que el estudiante pueda desarrollar su aprendizaje. Hasta esta parte llega esta versión y no existía una
+retroalimentación o un seguimiento de lo que hace el estudiante.[37]
+
+Launchod Tool
+a a
+a
+
+Figura 3.2: Arquitectura básica de lanzamiento IMS-LTI v1.0[37].
+
+  
+
+ 
+
+B'—LTI v1.1: En esta versión del 2012, se agrega un servicio de retorno de resultados. En
+el cual la herramienta proveedora de contenido podrá consultar, editar o borrar en el
+libro de calificaciones del usuario que está almacenado en el LMS. Para que funcione
+este servicio, se deben agregar dos parámetros al lanzamiento de la aplicación, definidos
+en la versión 1.0, uno se compone de una URL, donde el LMS será notificado y otra
+es un parámetro de la librería Oauth, que identificará al LMS de manera única ante la
+herramienta proveedora de contenido. [37]
+
+29Submit Oulcome
+
+  
+
+Figura 3.3: Arquitectura básica de lanzamiento IMS-LTI v1.1[37]
+
+C ETI v1.2: Soluciona la situación del registro de los resultados de las evaluaciones mediante un componente que simplifica la navegación por los libros de calificaciones y la
+selección del libro (registrar los resultados de una actividad en diversos libros de califica
+ciones).[37]
+
+Negotiated Registration
+
+REST3 web services
+
+ 
+
+Figura 3.4: Arquitectura básica de lanzamiento IMS-LTI v1.2[37]
+
+Al tener definidas cada una las versiones que se han creado en el estándar, se escogió la versión
+1.1 debido a que es la más usada entre las herramientas proveedoras y consumidoras. Además
+la versión 1.2 muestra una solución que no es aplicable aún para el alcance de este proyecto
+y esta va a incluirse en la nueva versión del estándar que es la 2.0. Por lo anterior, se decide
+implementar la versión 1.1 del estandar LTI.
+
+Después, se investiga sobre las herramientas de la que depende el estándar, el cual es Oauth,
+un protocolo que sirve para encriptar los datos que viajan por la Internet para que sólo los involucrados puedan saber de qué se trata. El estándar LTT v1.1 requería de Oauth v1.0, pero en la
+plataforma kme se contaba con una implementación usando la versión 2.0, por lo que se investiga si se podría reutilizar el trabajo que se había hecho con esa versión. Desafortunadamente,
+
+30el funcionamiento de ambas versiones son diferentes, puesto que la versión 1.0 de Oauth, trabajo con el envío de tokens, claves secretas compartidas entre el cliente y el servidor que son
+usadas para calcular las firmas, permitiendo al servidor verificar la autenticidad de la solicitud
+y estos parámetros están dentro de lo especificado en el estándar, así que se descarta la versión
+2.0 además de que esta no usa claves sino certificados SSL.
+
+Luego de entender el funcionamiento de Oauth 1.0, se investiga sobre librerías para Django
+que permita hacer ese tipo de servicios de autenticación y pueda ser fácilmente adaptable en
+la integración con la plataforma. Se encontraron las siguientes librerías de python: dce_lti_py,
+blti_py e ims_lti_py. Cada una de las librerías fue probada con un código sencillo emulando
+un Tool Consumer en un emulador online Tool Provider[38], que en la página del IMS Global Learning Consortium auspicia. Con cada uno se probó el funcionamiento, y se descartó el
+blti_py debido a que presentaba una inconsistencia con los parámetros Oauth, específicamente
+hablando oauth_signature, puesto que el Tool Provider con los datos dados, el calcula un signature y ese es el que espera, pero esa librería generaba otro y por eso nunca se pudo tener una
+buena comunicación. Al final se decide utilizar blti_py, y no ims_lti_py debido a que la primera
+se basa en la segunda y tiene unas mejoras en la parte de comunicación, a parte de eso, tuvo una
+mejor documentación para entenderla.
+
+Anteriormente se habló de un emulador online de Tool Provider, también existe un emulador
+de Tool Consumer, se pueden encontrar referencias a estas herramientas en la página oficial del
+estándar LTT y ambas puede configurarse para que reciban los parámetros según la versión del
+estándar. Estas herramientas serán de mucha ayuda para la fase de pruebas en que la herramienta
+actuará como Tool Consumer 4 Tool Provider.
+
+lethod: [HMAC-SHA1 l
+
+ 
+
+Figura 3.5: Emulador LTI Tool Provider[38]
+
+31EA A JISC-funded project
+
+R Creating Environments for Learning IMS GLOBAL
+Ce C using Tightly Integrated Components A
+
+IMS LTI Tool Consumer emulator
+
+This is a very simple emulator of an IMS Learning Tools Interoperability (LTI) 1.1.1 tool consumer (TC, e.g. a VLE) launch of a tool provider (TP, e.g. a blog or
+premium content). lt includes support for the LTI 1.1 Basic Outcomes service and the unofficial extensions for memberships, outcomes and setting services.
+
+ 
+
+€ t Registrations:
+The Tool Settings service (defined in LTI 2.0) and the Content-Item message are also supported. Beta versions of the Outcomes Management 2, Memberships imscert.org
+
+and Caliper Profile services have also been added.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Gradebook| [Tool settings| [) Display optional parameters?
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+asicitancequest RRE
+
+mn: [eriipo [RI iversity of JISC Ha
+r vieQuniacuk"> >]
+|
+
+10d: | HMAC-SHA1 Y]
+
+ 
+
+Figura 3.6: Emulador LTT Tool Consumer[39]
+
+3.3.2. Fase de análisis
+
+Concluida la fase de investigación, se hace una reunión con el Product Owner y Scrum
+master para definir cuál es el alcance y qué es lo que se debe hacer para lograrlo. Para ello,
+como lo sugiere Scrum, se inicia identificando las necesidades prioritarias con las que se debe
+iniciar a trabajar.
+
+3.3.2.1. Definición del Product Backlog
+
+Siguiendo la metodología Scrum, lo primero que se hace es la definición del Backlog del
+Producto, siendo este el primer documento para la definición de requerimientos. Este consiste
+de un conjunto de historias de usuario de forma priorizada que refleja las necesidades que
+debe cumplir el módulo. Cada historia de usuario, expresa a grandes rasgos en qué consiste la
+necesidad sin caer en la ambigiedad, para así determinar las tareas y el tiempo que se llevará
+hacerlas.
+
+32a de Enunciado de la Historia Alias | En Td Prioridad
+
+NM-CLIENTE-0001 | Como un administrador necesito registrar, en el panel de administración de herramientas | de LTI Consumer en a
+externas, los datos de nombre, dominio, clave, clave secreta, parámetros varios. con la finalidad | el panel de administración
+de tener una configuración básica de la herramienta externa
+
+NM-CLIENTE-0002 | Como tutor necesito registrar los datos de nombre, dominio, clave, clave secreta, parámetros registro de LT| Consumer en Media
+varios con la finalidad de que en caso de no estar registrada en la plataforma, pueda añadirla el curso
+
+NM-CLIENTE-0003 | Como tutor necesito registrar como un objeto de el curso, los datos de un contenido registro de contenido de Álta
+perteneciente a una herramienta externa. con la finalidad de que los estudiantes del curso herramienta externa en el
+puedan acceder a él. curso
+
+NM-CLIENTE-0004 | Como administrador Deseo ingresar por medio de un enlace en la vista de edición de curso, con  |imgreso de administrador a la Álta
+mi cuenta de la plataforma, al contenido de la herramienta de aprendizaje si esta ultima me lo herramienta
+permite con la finalidad de hacer configuraciones en la herramienta externa
+
+NM-CLIENTE-0005 | Como tutor Deseo ingresar pormedio de un enlace en la edición de curso, con mi cuenta, dela — [ingreso como tutor ala 5 2 Álta
+plataforma a la herramienta de aprendizaje si esta última me lo permite con la finalidad de hacer [herramienta
+configuraciones en el contenido que hay en ella
+
+NM-CLIENTE-0006 | Como estudiante Deseo ingresar por medio de un botón, al contenido de la herramienta de ingreso como estudiante a la 5 2 Álta
+aprendizaje con la finalidad de hacer los ejercicios y prácticas que ayuden en el parendizaje del | herramienta Po
+curso
+
+STA
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+NM-CLIENTE-0007 | Como tutor Deseo obtener información de las notas de los estudiantes en el curso con la finalidad | Listado de motas para el tutor 5 3 Álta
+| de evaluar su desempeño en el parendizaje de los temas
+NM-CLIENTE-0008 | Como estudiante Deseo ver la calificación en el listado de contenidos del curso con la finalidad |Wisualización de la mota al 5 3 Álta
+| de saber mi desempeño en el contenido estudiante
+NM-CLIENTE-0009 | Como administrador Deseo tener los datos necesarios para registrar la herramienta kme en mi Registro en plataforma 5 4 Media
+plataforma de aprendizaje con la finalidad de que mis clientes puedan tener acceso a sus cursos | extena por parte del admin
+
+NM-CLIENTE-0010 [Como tutor Deseo obtener los datos necesarios para registrar la herramienta kme en la plataforma | Regitro en plataforma Media
+de aprendizaje con la finalidad de que mis estudiantes tengan accesos a cursos que modere en |exterma por parte del tutor
+kme
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+NM-CLIENTE-0011 [Como administrador Deseo tener acceso a un curso de kme desde mi plataforma de aprendizaje | Ingreso de una admin a kme Álta
+con el fin de cambiar alguma configuración en el curso desde plataforma externa
+
+NM-CLIENTE-0012 | Como tutor Deseo tener acceso a un curso de kme desde mi plataforma de aprendizaje con el fin | Ingreso de una tutor a kme 3 5 Álta
+de cambiar alguna configuración en el curso desde plataforma externa
+
+NM-CLIENTE-0013 | Como estudiante Deseo tener acceso a un curso de kme desde mi plataforma de aprendizaje con| Ingreso de una tutor a kme 3 5 Álta
+el fin de realizar todos los contenidos que hay en el curso alojado en kme desde plataforma externa
+
+Figura 3.7: Backlog del producto
+
+Este artefacto fue registrado en la cuenta corporativa de google drive usando Google Spreadsheet. El enunciado de cada historia de usuario, está definido usando la siguiente estructura:
+
+A Identificador: Código único que identifica a la historia de usuario en el proyecto.
+B'—Rol: Es el tipo de usuario que está ejecutando cierta acción.
+C Funcionalidad: Representa la acción que el usuario quiere o necesita hacer en el sistema.
+
+D Resultado: Es la consecuencia de ejecutar la acción desde el punto de vista del usuario.
+
+Este formato puede verse en las historias de usuario que están en el anexo A.
+
+3.3.2.2. Planeación de los sprints
+
+Para priorizar las historias de usuario primero se agruparon en los componentes de registro
+(ya sea del Tool Consumer o Tool Provider), autenticación y calificación. Después se tomó
+la decisión de que lo más urgente y fácil de obtener era tener a kme como una herramienta
+consumidora (LTT Tool Consumer), por lo que las historias de cada componente se dividieron
+en los roles de Tool Consumer éz Tool Provider, quedando las primeras historias de usuario
+a ejecutar eran las del rol Tool Consumer en orden de componentes registro, autenticación y
+calificación.
+
+Una vez organizadas y priorizadas las historias de usuario, en el primer sprint planning se
+toma la decisión de distribuirlas en 6 sprints, donde cada uno tiene una duración de 5 semanas,
+de la siguiente manera:
+
+33Sprint 1: Se hacen las actividades referentes al componente de registro para el módulo de
+LTT Consumer.
+
+Sprint 2: Se hacen las actividades referentes al componente de autenticación para el módulo
+de LTT Consumer.
+
+Sprint 3: Se hacen las actividades referentes al componente de calificaciones para el módulo
+de LTT Consumer.
+
+Sprint 4: Se hacen las actividades referentes al componente de registro para el módulo de
+LTT Consumer.
+
+Sprint 5: Se hacen las actividades referentes al componente de autenticación para el módulo
+de LTT Consumer.
+
+Sprint 6: Se hacen las actividades referentes al componente de calificaciones para el módulo
+de LTT Consumer.
+
+3.3.3. Componente de registro
+
+Como se mencionó anteriormente, la ejecución de este componente se hizo en dos momentos. El primero, es tener a la plataforma como una herramienta consumidora (Tool Consumer).
+En él, se registran las herramientas externas que los usuarios administradores y tutores necesiten
+para sus cursos. La segunda parte, en tener la plataforma como herramienta proveedora (Tool
+Provider), donde en la plataforma, se hará el registro por usuario en el cual, obtendrá los datos
+necesarios para la posterior autenticación.
+
+3.3.3.1. Diseño
+
+Teniendo en cuenta que se trabajó con una metodología Scrum, en esta etapa del componente se optó por realizar solo la documentación necesaria para el desarrollo del proyecto, es
+por esta razón que se omite el realizar diagramas de casos de uso ya que parte de estos se encuentran detallados dentro del esquema utilizado al realizar de manera adecuada las Historias
+de Usuario. Por otro lado,se crearon diagrama de clases, modelo base de datos y prototipos,
+todos ellos basados en las historias de usuario.
+
+A Modelo de datos
+
+Teniendo en cuenta patrón de diseño del framework Django, MTV (model, template and
+view), se inicia con la definición de los modelos ToolConsumerData y ToolProviderData,
+ambos son la descripción de los datos en la Base de Datos representadas como clases en
+el código Python. Es por ello que se puede tener acceso, validación, comportamiento y
+relaciones cuando se manipula un objeto de un modelo. Utilizando la propiedad de herencia del paradigma orientado a objetos, las clases creadas heredan atributos y métodos
+
+34de las clases padre ToolConsumer y ToolProvider de la librería dce_lti_py.
+
+En el modelo ToolProviderData se guardan los datos básicos que necesita una herramienta externa para comunicarse. Estos son: nombre, url, clave, clave_secreta, parametros_adicionales. Este último es un string, con la forma de un tipo de dato Dictionary,
+con los datos que requiere la herramienta además de los que cita el estándar para poder
+funcionar correctamente, este campo es opcional debido a que depende de la herramienta
+externa.
+
+Ahora bien, para agregar un contenido de una herramienta externa en un curso se crea un
+nuevo modelo llamado ContentLTI, donde se guarda los datos de nombre, descripción,
+fecha_disponible, evaluable, fecha_creación, fecha_actualización, url, puntaje_mínimo,
+parámetros_adicionales. Si no se diligencia la url y los parámetros adicionales, estos se
+toma del ToolProviderData con el que se relaciona.
+
+Este modelo se asocia con ObjectModule, el cual es el encargado de relacionar cualquier tipo de contenido con el módulo de un curso. Estos modelo, ya hacen parte de la
+plataforma de aprendizaje.
+
+Por otro lado, se tiene el registro de las herramientas consumidoras (otras plataformas
+de aprendizaje). Para ello, se inicia con el modelo ToolConsumerData, el cual tiene los
+campos nombre, clave, clave_secreta. Las claves las genera kme aleatoriamente y queda
+registrada por petición de un usuario de la plataforma, de allí que esté relacionada con el
+modelo User.
+
+Todos los modelos y campos descritos anteriormente se puede ver en el diagrama de
+clases (Anexo 2) y el diagrama de base de datos (Anexo 3)
+
+Prototipos
+
+Para el registro de una herramienta externa por parte de usuarios tipo administrador o
+staff, se hace uso de la interfaz de administración que provee Django, la cual facilita operaciones como búsqueda, creación, edición, eliminación, validación de los campos en el
+formulario.
+
+Debido a que el registro de una herramienta externa, no sólo es para usuarios administradores, sino usuarios finales, como tutores que tengan el permiso de registrar nuevas
+herramientas, se creó un prototipo para este tipo de usuarios. El cual puede ser accedido
+desde la creación de contenido.
+
+35Registrar nueva herramienta de aprendizaje
+
+ 
+
+Nombre:
+
+ 
+
+ 
+
+URL de dominio:
+
+ 
+
+ 
+
+Clave:
+
+ 
+
+ 
+
+Clave secreta:
+
+ 
+
+ 
+
+Parámetro
+personalizados:
+
+ 
+
+ 
+
+ 
+
+Ele
+
+Figura 3.8: Registro de herramienta externa para usuario final con permisos
+
+Ahora bien, para la creación del contenido LTI, se reutilizó la interfaz que se maneja en la
+creación de los diferentes objetos en los cursos de la plataforma para seguir un estándar en el
+proceso de creación/edición de un curso. El formulario va a ser un modal que aparecerá al hacer
+clic en “Agregar contenido LTT” desde las propiedades de un módulo.
+
+36Agregar contenido externo por LT!
+
+Mombre:
+
+Descripción:
+
+Evaluable: LJ)
+Dirección web: |
+
+Puntaje
+minimo
+
+Es]
+
+Parámetro
+personalizados:
+
+Tool provider: | --------- >] Agregar nuevo
+
+Cancel El
+
+Figura 3.9: Formulario de registro de contenido LTT
+
+3.3.3.2. Implementación
+
+Para la implementación de este componente, se hace uso del patrón de diseño de Django
+MTV (model, template and view).
+
+Para el registro de herramientas externas a la plataforma de aprendizaje, se inicia con la
+creación del modelo ToolProviderData, con sus atributos y métodos definidos. Al utilizar Djan
+37go, el modelo se convierte en una tabla de la base datos, es allí donde se registran los datos
+de cada herramienta externa que se le añada a la plataforma. Para ayudar con el registro de la
+herramienta y hacer las validaciones necesarias para que los datos sean correctos, se crea un
+formulario, el cual es un objeto en django que utiliza el modelo como referencia y que permite
+asegurar que los datos que llegan sean válidos, también pueden hacerse validaciones personalizadas.
+
+Debido a que el registro de la herramienta se va a hacer por la administración de la plataforma, la cual hereda de la administración de Django, se hace una clase admin para registrar el
+modelo en el “sitio de administración” y se usa el formulario anteriormente creado para mostrar
+los campos correctamente.
+
+Luego se programa la vista, que es donde se maneja la información que viene de la interacción del usuario final y decide que es lo que va a mostrar a este último, por eso, la vista está
+conectada con la plantilla. Para el caso del registro de la herramienta externa, la vista tiene la
+función de mostrar al usuario el formulario con los campos para llenar y de recibir los campos
+diligenciados que vienen de la plantilla, validarlos con la ayuda del objeto formulario que se
+creó anteriormente y guardarlos en la base de datos. La vista también verifica si el usuario en
+sesión y que está tratando de registrar la herramienta, en verdad tenga el permiso para realizar
+esta acción.
+
+Por último tenemos la plantilla, en él se utiliza la sintaxis de Django_Template, el cual
+ayuda a renderizar los datos que vengan de la vista, a parte de eso, se usa html5, css3, JQuery
+y Javascript y Bootstrap para presentar al usuario el formulario de una manera más amigable y
+usable.
+
+Este mismo proceso se repite para registrar una plataforma que consumirá de kme y que
+tendrá acceso a sus cursos. En el se tiene el modelo ToolConsumerData, con su respectivo
+formulario. Pero no se va registrar por la administración de la plataforma sino que será un
+formulario que se le mostrará a la persona que tenga el permiso de hacerlo.
+
+Para el caso de agregar un contenido de una herramienta externa a la plataforma, se hace
+el mismo comportamiento que hay para otros objetos del curso como videoconferencia, foros,
+temas de discusión, enlaces favoritos, etc. Inicialmente se pensó en reutilizar el modelo Videoconferencia, porque ese modelo tenía lo mínimo necesario para registrar este tipo de contenidos
+en el curso y sólo sería agregarle una relación con el modelo ToolProviderData, además de que
+cumplía con el alcance inicial, que era utilizar un servicio de videoconferencias por medio del
+estándar. Pero se observó que eso crearía un conflicto en el entendimiento no sólo del usuario
+final, sino en el grupo de trabajo, además de que tenía gran potencial no sólo en un servicio de
+videoconferencias sino en cualquier tipo de contenido académico por lo que se decide crear un
+nuevo modelo ContentLTI en base al modelo de Videoconferencia, junto con un formulario que
+utilizaría ese modelo para guardar los datos correctamente.
+
+Se crea una vista para que renderize el formulario en una plantilla a la persona que pueda
+realizar la acción y de recibir los campos diligenciados y con la ayuda del formulario validar
+y guardar el registro en la base de datos. La plantilla será en html5 y utilizando la sintaxis de
+Django_Template. En esa plantilla se le agrega un botón que redireccionará al registro de una
+
+38nueva herramienta externa.
+
+Como se quiere seguir el mismo comportamiento, se agrega un botón en la plantilla de
+curso, el cual hará un llamado utilizando AJAX a la vista que se creó, ella responderá con un
+template renderizado que se mostrará al usuario en forma de modal (cuadro emergente). El
+usuario llenará los campos y luego por medio de AJAX, se hará el llamado a misma vista para
+que guarde los datos.
+
+3.3.3.3. Pruebas
+
+Para este componente, el proceso de pruebas unitarias se usó el módulo de test unitarios que
+Django provee. Dicho módulo hace uso de la biblioteca estándar de Python llamada unittest.
+
+La elaboración de dichos test se hicieron con base en los criterios de aceptación y casos
+de pruebas. Esto permitió detectar errores como problema en la codificación de cadenas con
+caracteres especiales que venían de los nombres y descripciones de los contenidos LTT. Con
+esto se hizo la corrección de la codificación y validar caracteres extraños en los nombres que
+puedan causar un error en el futuro.
+
+Para las pruebas funcionales, se requirió el apoyo del equipo de “servicio”, el cual es el
+encargado de dar soporte a los clientes de la plataforma. Con ellos, se programó que hicieran
+la revisión del funcionamiento y que registran los hallazgos en un documento compartido de
+Google sheets (Hoja de cálculo de Google).
+
+3.3.4. Componente de autenticación
+
+Para desarrollar este componente, se tuvo dos enfoques. El primero, la plataforma para consumir de herramientas de aprendizaje externas, debe tener los datos necesarios y crear las claves
+de autenticación para que la herramienta externa tenga conocimiento de que es ella y qué es lo
+que necesita exactamente. Por otro lado, tenemos a la plataforma como proveedora de cursos
+para plataformas de aprendizaje u otro tipo de herramienta consumidora. Esta tuvo un impacto
+en la planeación, debido a una investigación adicional sobre el mecanismo de autenticación del
+framework Django, el cual es en la que se basa kme, para poder autenticar un usuario que viene
+de la herramienta consumidora en la plataforma, registrarlo en el curso como normalmente lo
+hace utilizando el estándar LTI.
+
+3.3.4.1. Diseño
+
+A Modelo de datos:
+
+Para esta etapa, se crearon nuevos modelos para la autenticación de una plataforma de
+aprendizaje u otra herramienta consumidora a kme, y se usa las funciones de los modelos
+ToolProvider y ToolConsumer para generar los datos necesarios.
+
+39Para la autenticación de las herramientas consumidoras se crearon los siguientes modelos:
+
+CourseLTI: Relaciona el modelo curso de la plataforma con el identificador del contexto (curso) y el identificador del recurso (objeto del curso que hace el llamado) de una
+herramienta de aprendizaje específica, con ello identificará que con ese Id del contexto,
+la plataforma puede servir ese curso.
+
+UserLTT: Este modelo identificará a un usuario una herramienta consumidora específica con una cuenta en kme.
+
+NonceLTI: Es modelo donde se guarda los registros de tiempo de una herramienta de
+aprendizaje. Con ello, se busca validar que la petición que llegue a la plataforma kme sea
+legítima.
+
+Todos los modelos y campos descritos anteriormente se puede ver en el diagrama de
+clases (Anexo 2) y el diagrama de base de datos (Anexo 3)
+
+3.3.4.2. Implementación
+
+Para la autenticación de la plataforma kme con una herramienta de aprendizaje, se crea una
+vista de lanzamiento. Esta vista recoge los datos de usuario en sesión, identificador del curso,
+identificador del recurso. Esta vista, creará los datos necesarios según lo propone el estándar
+LTI. Entre estos datos estan: versión del estándar, tipo de petición, identificador del recurso,
+título del recurso, identificador del usuario, rol del usuario, nombre completo del usuario (en
+kme), identificador del contexto (curso), nombre del contexto, parámetros adicionales (si es
+requerido por la herramienta externa), las credenciales generadas por la librería Oauth y por
+último parámetros para que la herramienta externa devuelva la calificación, esto es opcional.
+
+Estos datos, serán retornado en un formulario mostrado en un Template usando la sintaxis
+Django_Template, que se enviará a la URL registrada en el modelo ToolProviderData o en ContentLTI. Como consecuencia, al usuario le abrirá en una nueva ventana o pestaña del navegador,
+la interfaz de la herramienta externa.
+
+Por otro lado, para autenticarse desde otra plataforma, se tuvo que hacer una investigación
+sobre el proceso de autenticación en el framework Django. Como resultado, se crea un middleware, el cual es un proceso que se ejecutará cuando se intenta tener acceso a la plataforma por
+medio de datos del estándar LTI.
+
+El middleware validará que todos los parámetros obligatorios, como los de oauth, la clave
+secreta, si está registrada en la plataforma, si es una petición válida haciendo uso del modelo
+NonceLTT. Si todo es correcto, verificará si ese usuario con esa herramienta consumidora está
+registrado en kme, si no lo está creará el registro y cargará los demás datos de la petición en la
+sesión del usuario.
+
+40Luego de que el usuario logre autenticarse a la plataforma, se crea una función views llamado Initialize, la cual usará los datos cargados en la sesión del usuario para evaluar si el usuario
+es un estudiante o un tutor o administrador. Si es estudiante, el sistema le mostrará el curso
+requerido y logre hacer las actividades, si el usuario no está inscrito, el sistema lo inscribe en la
+sesión que fue definida en los parámetros personalizables o en la sesión más próxima disponible. En caso de que sea tutor, el sistema le mostrará ventana de edición del curso para que haga
+los respectivos cambios.
+
+3.3,4,3. Pruebas
+
+Para proceso de pruebas unitarias se usó el módulo de test unitarios que Django provee.
+Dicho módulo hace uso de la biblioteca estándar de Python llamada unittest. Con ello, se hicieron pruebas sobre las funciones necesarias que proveía la librería dce_lti_py, puesto que es
+la encargada de ayudar con la autenticación de la plataforma en una herramienta externa. Con
+esto se verifica que todos los datos que describe el estándar para el proceso de la autenticación
+hayan sido generados.
+
+Luego se hicieron pruebas funcionales con el emulador ToolProvider que recomienda la
+IMS Global Learning Consortium. Con este emulador se valida que los datos del usuario, recurso, curso y los que genera la librería oauth sean correctos. Esta herramienta fue de mucha
+ayuda, ya que se logró entender mejor la forma en que debía pasarse esos parámetros a las
+herramientas. En las pruebas que se hicieron con la herramienta se detectó que se estaba generando mal la firma Oauth de los parámetros, por lo que generaba error en el emulador del
+ToolProvider. Por alguna razón, la librería Oauth que se usaba generaba un espacio en vez de el
+signo más(+), lo que provocaba un firma diferente a la que el ToolProvider calculó y esperaba
+recibir, así que en la función que genera los parámetros de lanzamiento, se evalúa que no existan
+espacios en el parámetro de la firma y si existe se reemplaza por el carácter más(+).
+
+Para el caso en que la plataforma tiene el rol de ToolProvider, se hace uso de una instalación
+limpia de moodle, sin personalizaciones. En la ejecución de los casos de prueba, se observa que
+moodle manda muchos más parámetros sobre la información de la herramienta consumidora,
+aunque estos parámetros en el estándar LTI son opcionales, se tomó la decisión de enviar también esos parámetros cuando kme intente conectarse con otros ToolProvider y no exista algún
+problema cuando exista el caso de que requieran esa información. También se observó que en
+los parámetros personalizables, moodle tiene una forma de llamar esos parámetros, por ejemplo
+custom_nombreParámetro.
+
+Por lo anterior, se hizo una investigación en las diferentes plataformas como por ejemplo en
+Canvas, donde usa canvas_custom_nombreParámetro como el nombre del parámetro. Esto se
+comunicó al equipo, y se tomó la decisión que en alcance de este proyecto se iba a enfocar en
+moodle, puesto esta plataforma es la que más usa sus clientes y es con la que más se le compara.
+
+También se detectó un problema en el momento en el que moodle intentaba abrir kme, por
+medio de un iframe. Esto era debido a una restricción de seguridad que tiene kme sobre este
+tema, por lo que hay que tener en cuenta la restricción de que sólo debe abrirse en una pestaña
+
+41o ventana nueva del navegador.
+
+3.3.5. Componente de calificaciones
+
+Para desarrollar este componente, se tuvo que hacer la investigación sobre LTI Basic Outcomes Service, el cual es la funcionalidad dentro del estándar que dicta cuáles son los parámetros
+que hay que enviar o recibir, cómo deben enviarse y cómo usar Oauth para asegurar que esta
+transferencia y que pueda ser leída por el receptor.
+
+3.3.5.1. Diseño
+
+A Modelo de datos:
+
+Para este componente se crea un nuevo modelo llamado OutcomeServices, que será encargado de registrar la nota de un estudiante en un contenido de una herramienta externa.
+Es allí donde la herramienta externa podrá leer, reemplazar y eliminar la nota de ese estudiante. También se encargará de recibir los datos que lleguen de la herramienta externa,
+procesarlos y decidir qué tipo de petición es: lectura, edición y eliminación. Por otro lado
+tiene la función de generar la respuesta de la acción requerida por la herramienta externa
+usando los parámetros que dicta el estándar LTI.
+
+3.3.5.2. Implementación
+
+Para la implementación del registro de calificaciones por parte de herramientas externas en
+kme, primero en la parte de la autenticación debieron haberse enviado dos parámetros. El primero es un identificador formado por el id del contexto, el recurso y el id del usuario (estudiante),
+separados por *:::”. El segundo es una dirección URL, que es donde se enviará la petición con
+la nota usando XML.
+
+Para el envío de la nota se ha creado un servicio API, en el cual recibirá los parámetros
+anteriormente nombrados por el método POST. En este servicio se ha reemplazado el token de
+seguridad que maneja el framework Django para este tipo de peticiones por la librería Oauth,
+con este último se verificará que las claves de autenticación coincidan con las que hay registradas en la plataforma, si pasa ese filtro, los parámetros serán procesados por una función views.
+
+Esta función buscará los datos del curso, usuario, recurso y el tipo de petición (lectura, eseritura o eliminación) en el XML recibido y realizará las acciones pertinentes como se describe
+a continuación:
+
+A Lectura, buscará con los datos del curso, usuario y recurso si hay algún registro en el
+modelo OutcomeServices, si es así prepará un respuesta con los parámetros que dicta
+en estándar con la nota encontrada en un archivo XML, en caso contrario preparará una
+respuesta de el proceso falló usando el mismo mecanismo.
+
+42B Escritura, el sistema buscará por un registro en el modelo y reemplazará la nota, o en caso
+que no lo encuentre, creará el registro. De igual forma con el método anterior prepará una
+respuesta de éxito o falla usando XML.
+
+C Eliminación, buscará con los datos del curso, usuario y recurso si hay algún registro en el
+modelo, si es así eliminará el registro y prepará una respuesta de éxito usando XML, en
+caso contrario preparará una respuesta de el proceso falló usando el mismo mecanismo.
+Esta respuesta es la que se le devolverá a la herramienta externa en formato XML.
+
+Aquí se tiene un ejemplo de un XML.
+
+<?2xml version ="1.0" encoding = "UTF-8”?>
+<imsx_POXEnvelopeRequest xmins = "http://www.imsglobal.org/services/Itiv1p1/xsd/imsoms_v1p0">
+<imsx_POXHeader>
+<imsx_POXRequestHeaderlnfo>
+<imsx_version>V1.0</imsx_version>
+<imsx_messageldentifier>=999999123</imsx_messageldentifier>
+</imsx_POXRequestHeaderInfo>
+</imsx_POXHeader>
+<imsx_POXBody>
+«deleteResultRequest>
+<resultRecord>
+<sourcedGUID>
+esourcedld>3124567</sourcedid>
+</sourcedGUID>
+</resultRecord>
+</deleteResultRequest>
+</imsx_POXBody>
+
+</imsx_POXEnvelopeRequest>
+
+Figura 3.10: XML resultado de una eliminación[3]
+
+Para el registro de kme a la herramienta consumidora, el proceso es casi el mismo. El
+registro se ejecuta en segundo plano, usando un servicio de tareas asíncronas encoladas, cuando
+el estudiante ingresa al curso y cuando exista un cambio en la nota del curso producto de la
+interacción del usuario en los contenidos. Se pensó de esta forma puesto que este proceso puede
+demorar cierto tiempo, mientras se obtiene respuesta de la petición que se hizo a un servidor
+externo para mantener la nota del usuario actualizada, y que podría afectar la experiencia de
+usuario.
+
+43La tarea que ejecuta hace el siguiente proceso: Con la nota que obtiene del usuario en el
+curso, manda una petición de lectura formado los parámetros del estándar LTI: tipo de petitción,
+identificador del libro de calificaciones, identificador como herramienta proveedora, etc, en un
+XML y asegurándolo con la librería Oauth. Este recibirá una respuesta en XML, de la misma
+manera en que se hizo en el proceso que describió anteriormente. Si no encuentra resultado,
+enviará una petición de escritura con el identificador y la nota el curso, en caso de que haya
+obtenido un resultado, el sistema validará si la nota obtenida de la respuesta es menor que la
+que obtuvo usuario en el curso actualmente, si es así manda la petición de escritura con la nueva
+nota para que la edite, en caso contrario no hará nada.
+
+3.3.5.3. Pruebas
+
+Para las pruebas de este componente, se hace uso de la instalación de moodle y del emulador
+de la herramienta proveedora. En las ejecución de los casos de prueba, se detectaron varios
+errores a la hora de formar el XML para la comunicación entre kme y moodle para el envío de
+la nota, lo cual se fue ajustando poco a poco.
+
+Luego de este proceso, se instala en un servidor de pruebas y con la ayuda del equipo de
+servicio para las pruebas finales. Los hallazgos evidenciados, fueron programadas y ejecutadas
+en la última semana del sprint.
+
+44Capítulo 4
+
+Resultados
+
+En este capítulo se discuten los resultados y experiencias durante la pasantía, con respecto a
+los objetivos propuestos, el proceso de desarrollo y posibles trabajos futuros que pueda hacerse
+al módulo LTT (Learning Tools Interoperability).
+
+4.1. Conclusiones y resultados
+
+Con la implementación de este módulo, se abre un gran universo de posibilidades para kme.
+Puesto que permitirá la utilización de recursos pedagógicos provenientes de entes externos, que
+extienden las funcionalidades de la plataforma kme, sin recurrir a implementaciones a la medida
+que demandan mucho tiempo, esfuerzos y recursos, tanto tecnológicos como económicos, y
+satisfacer las necesidades puntuales de los clientes y de los usuarios finales de éstos.
+
+Con esto, para los administradores y/o tutores, ofrece una atractiva manera de crear cursos
+de manera fácil y sin tantas limitaciones, donde sólo se deberá pensar en mejores estrategias de
+enseñanza, sin pensar en los aspectos técnicos. Sólo seleccionando y conectando las aplicaciones y recursos ajustados a esas estrategias de enseñanza y a las necesidades de los estudiantes.
+
+Otra ventaja que ofrece para los clientes de la empresa que tienen implementado un LMS
+en sus servidores, como por ejemplo Moodle, si quiere pasarse a kme, pero no puede dejar
+de lado ese LMS, puede seguir usando su LMS y compartir por medio de LTT los cursos que
+hay alojados en kme, siendo este último una herramienta proveedora, y así los usuarios tendrán
+acceso a ellos desde el LMS instalado en los servidores del cliente.
+
+4.2. Experiencia sobre desarrollo de la pasantía
+
+Estar inmerso en un ambiente laboral, permitió desarrollar competencias tanto profesionales como personales. Competencias tanto en las diferentes tecnologías, como lenguajes de
+programación. Hacer parte de un equipo multidisciplinar en pro de un producto, ayudó a afinar
+
+45la capacidad de trabajar en equipo y en las habilidades de comunicación. También hubo mucho apoyo entre los diferentes miembros del equipo no sólo en cuanto a la programación sino
+también en el área de diseño, experiencia de usuario y servicio.
+
+Al inicio de la pasantía, se evidenció que existían algunas fallas en la implementación de
+metodología y la falta de documentación de los desarrollos y de un manual de uso del producto
+actualizado, lo que hizo difícil en aprendizaje del ambiente de desarrollo en que trabajaban
+como en el desarrollo de este proyecto de pasantía. En cuanto a la metodología, a pesar de que
+en las empresas no siguen al pie de la letra todo la reglamentación de esta, en la empresa se
+estaba implementando una mezcla de dos tecnologías cascada y scrum, lo que afectaba en la
+ejecución exitosa en todos los proyectos de la empresa. Pero, se ha tomado medidas para la
+implementación de la metodología serum, cambiando poco a poco la forma de trabajo en la
+empresa, logrando mejor orden y más productividad en los procesos de desarrollo del producto.
+
+También hubo capacitaciones en cuanto al desarrollo personal, fue un proceso muy enriquecedor en pos de “obtener la mejor versión de si mismo”. En ella, se pudo compartir experiencias
+personales de todo el personal de trabajo que ayudó mejorar las relaciones laborales y personales entre las diferentes personas que conforman los equipos.
+
+4.3. Trabajos futuros
+
+Actualmente el módulo permite compartir cursos enteros de kme, debería pensarse en la
+forma de compartir contenidos: Evaluaciones, multimedia, presentaciones.
+
+Debería pensarse en implementar la siguiente versión del estándar LTI, la versión 2.0, el
+cual es una reestructuración importante del estándar LTTv.1.x y mejoras en la comunicación
+tanto de LTT Consumer y LTT Provider, como el uso de servicios REST para el acceso a recursos
+específicos. Esta versión no tiene problemas de compatibilidad con las versiones anteriores.
+
+Mejorar el proceso de registro de una herramienta externa usando XML, debido a que las
+herramientas externas comparten su configuración por medio de este tipo de archivos.
+
+46Bibliografía
+
+[1] Nuevos Medios(2012). Presentación Inducción Nuevos Medios. (pág. 2).
+
+[2] Soto, C., Menéndez, V. and Aguilar, R. (2015). Interoperabilidad entre el LMS Moodle y
+las aplicaciones educativas de propósito específico utilizando servicios del IMS-LTI. Revista
+Apertura, [online] 72).
+
+Recuperado de http://www.udgvirtual.udg.mx/apertura/index.php/apertura/article/view/724/470
+
+[3] Imsglobal.org, (2012). Learning Tools Interoperability v1.1 Implementation Guide | IMS
+Global Learning Consortium. [Online]
+Recuperado de https://www.imsglobal.org/specs/ltiv1p1/1implementation-guide
+
+[4] González, A. (2012). Conceptos básicos de voAuth2. The Game of Code.
+Recuperado de http://www.thegameofcode.com/2012/07/conceptos-basicos-de-oauth2.html
+
+[5] Django en español. (2016). Django | Documentación de Django.
+Recuperado de http://django.es/docs/
+
+[6] Santana Roldán, C. (2013). ¿Qué es Python”? Codejobs.
+Recuperado de https: //www.codejobs.biz/es/blog/2013/03/02/que-es-python
+
+[7] Ecured.cu. (2015). Bases de datos.
+Recuperado de http://www.ecured.cu/Bases_de_datos
+
+[S] Mozilla Developer Network. (2015). Introducción.
+Recuperado de https: //developer.mozilla.org/es/docs/Web/JavaScript/Guide/Introducción
+
+[9] Mozilla Developer Network. (2016). HTMLS3. [online]
+Recuperado de: https://developer.mozilla.org/es/docs/HTML/HTML5
+
+47[10] Ecured.cu. (2016). CSS3 - EcuRed. [online] Recuperado de: https: //www.ecured.cu/CSS3.
+
+[11] Padial, J. 2016). Ajax con ¡Query, JSON y PHP: ejemplo paso a paso. CYBMETA. Recuperado de https: //cybmeta.com/ajax-con-]son-y-php-ejemplo-paso-a-paso
+
+[12] Qué Es ¡Query. (016). Tutoriales En Linea.
+Recuperado de http://tutorialesenlinea.es/382-que-es-]query.html
+
+[13] Domínguez, M. (2016). Qué es Bootstrap y cuáles son sus ventajas. Punto Abierto. Recuperado de http://puntoabierto.net/blog/que-es-bootstrap-y-cuales-son-sus-ventajas
+
+[14] IDS Comercial. (2014) ¿Qué es Scrum?
+Recuperado de http://www.ids.com.mx/desarrollo-profesional/comunidad-ids/blog/que-es-scrum/
+
+[15] Ulacit.ac.cr. (016). Blackboard [Online]. Recuperado de http://www.ulacit.ac.cr/blackboard/
+
+[16] Blackboard Help. (2015). Learning Tools Interoperability (LTD).Recuperado de
+https://en-us.help.blackboard.com/Learn/Administrator/SaaS/Tntegrations
+/Learning_Tools_Interoperability
+
+[17] Imseglobal.org. (2016). Blackboard Collaborate LTT v1.1.0 | IMS Global Learning Consortium.
+Recuperado de http://www.imsglobal.org/compliance/blackboard-collaborate-Iti-v110
+
+[18] Vall, A. 2014). ¿Qué es Coursera? Wanderlust translator.
+Recuperado de http://wanderlustranslator.com/2014/02/07/que-es-coursera-2/
+
+[19] Engineering, C. (2016). LTIT Integration - Coursera Technology. Tech.coursera.org.
+Recuperado de https://tech.coursera.org/app-platform/lt1/
+
+[20] Edx. (2016). 9.21. LTI Component — Building and Running an edX Course documentation. Recuperado de
+
+http://edx.readthedocs.i0/projects
+/edx-partner-course-staff/en/latest/exercises_tools/lti_component.html
+
+[21] Edx.readthedocs.org. (2016). 11.6. Using edX as an LTT Tool Provider — Building and
+Running an edX Course documentation.Recuperado de
+http://edx.readthedocs.org/projects/edx-partner-course-staff/en/latest/course_features
+/Mti/Aindex.html
+
+48[22] MoodleDocs, (2016). Herramienta externa. [Online]
+Recuperado de https: //docs.moodle.org/all/es/Herramienta_externa
+
+[23] MoodleDocs, (2016). LTI Provider. [Online]
+Recuperado de https://docs.moodle.org/28/en/LTI_Provider
+
+[24] Mayor, A. C. (2012). Centro de Comunicación y Pedagogía.
+Recuperado de http://www.centrocp.com/lms-y-lems-funcionalidades-y-beneficios/
+
+[25] Fda.gov, (2016). Glossary of Computer System Software Development Terminology (8/95).
+Recuperado de http://www.fda.gov/iceci/inspections/inspectionguides/ucm074875.htm
+
+[26] Pmoinformatica.com. (2013) ¿Qué son las historias de usuario?: 7 preguntas y respuestas
+- La Oficina de Proyectos de Informática.
+Recuperado de http://www.pmoinformatica.com/2013/04/que-son-las-historias-de-usuario-7.html
+
+[27] Torres, M. (2016). Fundamentos del diseño de software (p. 1). Almería: Universidad de
+Almería.
+Recuperado de http://indalog.ual.es/mtorres/LP/FundamentosDiseno.pdf
+
+[28] Ciclodevidasoftware.wikispaces.com, (2016). Ciclo de vida software - Diseño del Sistema.
+Recuperado de https: //ciclodevidasoftware.wikispaces.com/+Dise %C3 %B lo+del+Sistema
+
+[29] CIBERTEC. (s.f.). Fundamentos de Pruebas de software. En Pruebas de software (pág. 8).
+
+[30] Christensson, P. (2013). Framework Definition. Recuperado de http://techterms.com.
+
+[31] Tendencias e Innovacion OBS. (2015). Las 5 etapas en los “Sprints” de un desarrollo
+Scrum. Recuperado de
+
+http://www.obs-edu.com/blog-investigacion/project-management
+/las-5-etapas-en-los-sprints-de-un-desarrollo-scrum/
+
+[32] Universidad de Antioquia (2015). El paradigma 00: una forma de ver el mundo. Recuperado de http://aprendeenlinea.udea.edu.co/lms/men_udea/mod/page/view.php?id=19537
+
+[33] Conti, J. (2009). Django Middleware. [Blog]. Recuperado de
+http://www.juanjoconti.com.ar/2009/08/15/django-middleware/
+
+49[34] Librosweb.es. (2016). 5.2. El patrón de diseño MTV (El libro de Django 1.0). [online] Recuperado de: http://librosweb.es/libro/django_1_0/capitulo_5/el_patron_de_diseno_mtv.html
+
+[35] Jon Academia (2015). Qué es SCRUM?[Archivo de video]. Recuperado de
+https: //www.youtube.com/watch?v=qRx8Bkj] Y 81 Y
+
+[36] Mitch, L. (2012). The Scrum field guide: Practical advice for your first year (1 ed.). Estados
+Unidos: Addison-Wesley.
+
+[37] Soto Cardinault, C., Menéndez Domínguez, V., £ Aguilar Vera, R. (2015). Interoperabilidad entre el LMS Moodle y las aplicaciones educativas de propósito específico utilizando
+servicios del IMS-LTI (1st ed., pp. 6,7). México: Revista apertura.
+
+Recuperado de http://www.scielo.org.mx/pdf/apertura/v7n2/2007-1094-apertura-7-02-00024 pdf
+
+[38]IMS LTI tool provider emulator. (2016). Ltiapps.net.
+Recuperado de http://Itiapps.net/test/tp.php
+
+[39] IMS LTI Tool Consumer emulator. (016). Ltiapps.net.
+Recuperado de http://Itiapps.net/test/tc.php
+
+S0Apéndice A
+
+Historias de Usuario
+
+ 
+
+ 
+
+Universidad
+del Vale
+
+ 
+
+Identificador de HU
+
+ 
+
+NM-CLIENTE-0001
+
+ 
+
+ 
+
+ 
+
+ 
+
+Rol | Como administrador
+Funcionalidad | necesito registrar, en el panel de administración de
+herramientas externas, los datos de nombre,
+dominio, clave, clave secreta, parámetros varios.
+Resultado | con la finalidad de tener una configuración básica
+
+de la herramienta externa
+
+ 
+
+Número de escenarios
+
+l
+
+2
+
+ 
+
+Criterios de aceptación
+
+ingreso de dominio,
+claves compartida y
+secreta
+
+validación de iguales
+
+ 
+
+En caso que el usuario no
+complete los campos de
+
+En caso que el nombre de
+la nueva herramienta
+
+ 
+
+ 
+
+ 
+
+Contexto l externa a registrar sea
+domino, clave compartida |. ,
+igual a otra que esté
+y secreta
+registrada
+cuando envíe los datos al | cuando envíe los datos al
+Evento
+servidor servidor
+El sistema deberá El sistema deberá validar
+Comportamiento | notificarle al usuario que | y notificar al usuario que
+esperado | esos campos son la herramienta ya está
+
+ 
+
+obligatorios
+
+ 
+
+registrada.
+
+ 
+
+Cuadro A.1: Historia de usuario: Registrar herramienta externa como administrador
+
+51Identificador de HU
+
+ 
+
+NM-CLIENTE-0002
+
+ 
+
+ 
+
+ 
+
+ 
+
+Rol | Como un tutor
+. . necesito registrar los datos de nombre, dominio,
+Funcionalidad , l
+clave, clave secreta, parámetros varios
+con la finalidad de que en caso de no estar
+Resultado
+
+registrada en la plataforma, pueda añadirla
+
+ 
+
+Número de escenarios
+
+l
+
+2
+
+ 
+
+Criterios de aceptación
+
+ingreso de dominio,
+claves compartida y
+secreta
+
+ingreso al formulario de
+registro
+
+ 
+
+En caso que el usuario no
+complete los campos de
+
+en caso de que el usuario
+de clic en el botón de
+
+ 
+
+ 
+
+ 
+
+Contexto o. a .
+dominio, clave añadir herramienta
+compartida y secreta externa
+cuando envíe los datos al | cuando esté en la ventana
+Evento . a .
+servidor de añadir contenido LTI
+El sistema deberá El sistema deberá mostrar
+Comportamiento | notificarle al usuario que | en una nueva ventana, el
+esperado | esos campos son formulario para agregar
+
+ 
+
+obligatorios
+
+ 
+
+una herramienta externa.
+
+ 
+
+Cuadro A.2: Historia de usuario: Registrar herramienta externa como tutor
+
+52Identificador de HU
+
+ 
+
+NM-CLIENTE-0003
+
+ 
+
+ 
+
+ 
+
+ 
+
+Rol | Como un tutor
+necesito registrar como un objeto del curso, los
+Funcionalidad | datos de un contenido perteneciente a una
+herramienta externa.
+con la finalidad de que los estudiantes del curso
+Resultado
+
+puedan acceder a él.
+
+ 
+
+Número de escenarios
+
+l
+
+2
+
+ 
+
+Criterios de aceptación
+
+selección de herramienta
+externa
+
+llenar el campo url
+
+ 
+
+En caso de que el usuario
+
+en caso de que el usuario
+
+ 
+
+ 
+
+ 
+
+Contexto | de clic en la opción de deje vacío el campo de
+herramienta externa url del formulario
+, cuando esté guardando
+cuando esté en la ventana .
+Evento e . los datos del formulario
+de añadir contenido LTI .
+en el servidor
+el sistema deberá mostrar . ,
+el sistema deberá rellenar
+. el nombre de todas las o.
+Comportamiento el campo con el dominio
+herramientas externas .
+esperado de la herramienta externa
+
+ 
+
+registradas en la
+plataforma.
+
+ 
+
+seleccionada
+
+ 
+
+Cuadro A.3: Historia de usuario: Registro de contenido LTI como tutor
+
+53Identificador de HU
+
+ 
+
+NM-CLIENTE-0004
+
+ 
+
+ 
+
+ 
+
+ 
+
+Rol | Como administrador
+Deseo ingresar por medio de un enlace en la vista
+. . de edición de curso, con mi cuenta de la plataforma,
+Funcionalidad a
+al contenido de la herramienta de aprendizaje si
+esta última me lo permite
+con la finalidad de hacer configuraciones en la
+Resultado
+
+herramienta externa
+
+ 
+
+Número de escenarios
+
+l
+
+2
+
+ 
+
+Criterios de aceptación
+
+Ingreso a la herramienta
+externa
+
+Error al ingresar a la
+herramienta externa
+
+ 
+
+En caso de que el usuario
+de clic en el botón
+
+En caso de que el usuario
+de clic en el botón
+
+ 
+
+ 
+
+ 
+
+Contexto | ,,., . Moo
+abrir", perteneciente al abrir", perteneciente al
+contenido contenido
+cuando aparezca una cuando aparezca una
+Evento | ventana diciendo que será | ventana diciendo que será
+redireccionado redireccionado
+o La herramienta externa
+. y mostrará la interfaz a l
+Comportamiento . deberá notificar al usuario
+propia de la herramienta
+esperado el problema que se
+
+ 
+
+externa
+
+ 
+
+presenta
+
+ 
+
+Cuadro A.4: Historia de usuario: Ingreso a la herramienta externa como administrador
+
+54Identificador de HU
+
+ 
+
+NM-CLIENTE-0005
+
+ 
+
+ 
+
+Como tutor
+
+ 
+
+Funcionalidad
+
+Deseo ingresar por medio de un enlace en la
+edición de curso, con mi cuenta, de la plataforma a
+la herramienta de aprendizaje si esta última me lo
+
+permite
+
+ 
+
+Resultado
+
+con la finalidad de hacer configuraciones en el
+
+contenido que hay en ella
+
+ 
+
+Número de escenarios
+
+l
+
+2
+
+ 
+
+Criterios de aceptación
+
+Ingreso a la herramienta
+externa
+
+Error al ingresar a la
+herramienta externa
+
+ 
+
+En caso de que el usuario
+de clic en el botón
+
+En caso de que el usuario
+de clic en el botón
+
+ 
+
+ 
+
+ 
+
+Contexto | ,,., . Moo
+abrir", perteneciente al abrir", perteneciente al
+contenido contenido
+cuando aparezca una cuando aparezca una
+Evento | ventana diciendo que será | ventana diciendo que será
+redireccionado redireccionado
+o La herramienta externa
+. y mostrará la interfaz a l
+Comportamiento . deberá notificar al usuario
+propia de la herramienta
+esperado el problema que se
+
+ 
+
+externa
+
+ 
+
+presenta
+
+ 
+
+Cuadro A.5: Historia de usuario: Ingreso a la herramienta externa como tutor
+
+55Identificador de HU
+
+ 
+
+NM-CLIENTE-0006
+
+ 
+
+ 
+
+ 
+
+ 
+
+Rol | Como estudiante
+. . Deseo ingresar por medio de un botón, al contenido
+Funcionalidad . o.
+de la herramienta de aprendizaje
+con la finalidad de hacer los ejercicios y prácticas
+Resultado J y PE
+
+que ayuden en el aprendizaje del curso
+
+ 
+
+Número de escenarios
+
+l
+
+2
+
+ 
+
+Criterios de aceptación
+
+Error al ingresar a la
+herramienta externa
+
+Error al ingresar a la
+herramienta externa
+
+ 
+
+En caso de que el usuario
+de clic en el botón
+
+En caso de que el usuario
+de clic en el botón
+
+ 
+
+ 
+
+ 
+
+Contexto | ,,., . Moo .
+abrir”, perteneciente al abrir", perteneciente al
+contenido contenido
+cuando aparezca una cuando aparezca una
+Evento | ventana diciendo que será | ventana diciendo que será
+redireccionado redireccionado
+La herramienta externa La herramienta externa
+Comportamiento | deberá notificar al usuario | deberá notificar al usuario
+esperado | el problema que se el problema que se
+
+ 
+
+presenta
+
+ 
+
+presenta
+
+ 
+
+Cuadro A.6: Historia de usuario: Ingreso a la herramienta externa como estudiante
+
+56má | Identificador de HU NM-CLIENTE-0007
+Rol | Como tutor
+. . Deseo obtener información de las notas de los
+Funcionalidad .
+estudiantes en el curso
+Resultado con la finalidad de evaluar su desempeño en el
+
+aprendizaje de los temas
+
+ 
+
+Número de escenarios
+
+l
+
+2
+
+ 
+
+Criterios de aceptación
+
+calificación del estudiante
+en los reportes
+
+La herramienta no tiene
+el componente de
+calificaciones
+
+ 
+
+Al ver el reporte de
+detalle del curso en la
+
+Al ver el reporte de
+detalle del curso en la
+
+ 
+
+ 
+
+ 
+
+Contexto sesión del curso de un sesión del curso de un
+estudiante estudiante
+cuando el sistema enviará | cuando el sistema enviará
+Evento | los datos de la sesión y el | los datos de la sesión y el
+estudiante estudiante
+Mostrará una tabla con
+todos los contenidos, El sistema mostrará la
+Comportamiento | objetos y tareas del curso, | nota del contenido
+esperado | junto con las notas. Los usando 0 (no lo ha visto),
+
+ 
+
+contenidos LTI se
+mostrará
+
+ 
+
+100 (lo ha visto)
+
+ 
+
+Cuadro A.7: Historia de usuario: Obtención de notas como tutor
+
+57Identificador de HU
+
+ 
+
+NM-CLIENTE-0008
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Rol | Como estudiante
+. . Deseo ver la calificación en el listado de contenidos
+Funcionalidad
+del curso
+con la finalidad de saber mi desempeño en el
+Resultado . p
+contenido
+Número de escenarios | 1 2
+
+ 
+
+Criterios de aceptación
+
+La herramienta no envía
+alguna calificación
+obtenido del estudiante a
+la plataforma
+
+La herramienta envía la
+calificación obtenida del
+estudiante a la plataforma
+
+ 
+
+En caso de que el usuario
+termine de interactuar Oo
+
+En caso de que el usuario
+termine de interactuar o
+
+ 
+
+ 
+
+ 
+
+Contexto
+de ver el contenido de la | de ver el contenido de la
+plataforma externa plataforma externa
+cuando el sistema no
+., cuando el sistema
+obtenga una calificación o,
+Evento obtenga la calificación de
+del estudiante de la
+la herramienta externa
+herramienta externa
+El sistema deberá ,
+uardará un los de que el El sistema guardará la
+Comportamiento Suera! Bd calificación del libro de
+usuario vio el contenido y .
+esperado calificaciones con una
+
+ 
+
+se calificará con nota 100
+por haberlo visto
+
+ 
+
+nota de O a 100
+
+ 
+
+Cuadro A.8: Historia de usuario: Obtención de notas como estudiante
+
+ 
+
+ 
+
+ 
+
+Identificador de HU
+
+ 
+
+NM-CLIENTE-0009
+
+ 
+
+ 
+
+ 
+
+ 
+
+Rol | Como administrador
+. . Deseo tener los datos necesarios para registrar la
+Funcionalidad o.
+herramienta kme en mi plataforma de aprendizaje
+con la finalidad de que mis clientes puedan tener
+Resultado 3 P
+
+acceso a Sus Cursos
+
+ 
+
+Número de escenarios
+
+l
+
+ 
+
+Criterios de aceptación
+
+El sistema deberá registrar los datos de la nueva
+
+herramienta consumidora
+
+ 
+
+Cuando el usuario ingrese los datos básicos de la
+
+ 
+
+ 
+
+ 
+
+ 
+
+Contexto
+plataforma
+Evento | De clic en el botón enviar
+Comportamiento | El sistema deberá mostrar la clave pública y privada
+esperado | con la que se conectará desde la plataforma externa.
+
+ 
+
+Cuadro A.9: Historia de usuario: Obtención de datos para compartir curso
+
+58ty Identificador de HU NM-CLIENTE-0010
+Rol | Como tutor
+; ; Deseo tener acceso a un curso de kme desde mi
+Funcionalidad o.
+plataforma de aprendizaje
+con el fin de cambiar alguna configuración en el
+Resultado
+
+curso
+
+ 
+
+Número de escenarios
+
+l
+
+ 
+
+Criterios de aceptación
+
+El usuario intenta acceder a la kme desde
+plataforma externa exitosamente
+
+ 
+
+En caso de que la plataforma externa genera envía
+
+ 
+
+ 
+
+ 
+
+ 
+
+Contexto
+los datos
+cuando kme los reciba, deberá verificar los datos
+Evento | requeridos por el estándar y los requeridos para la
+autenticación
+Comportamiento | Deberá autenticarlo con su cuenta en kme y
+esperado | dirigirlo al curso.
+
+ 
+
+Cuadro A.10: Historia de usuario: Autenticación como tutor
+
+59péndice B
+
+lagrama de Clases
+
+ 
+
+ToolConsumer
+
+- consumer_key: String
+
+- consumer_secret: String
+- launch_params: Dict
+
+- url: String
+
++ hasRequiredParama(): Boolean
++ launchData(): Dict
+
+ 
+
+ 
+
+    
+ 
+ 
+
+ToolProvider
+
+  
+ 
+
+- consumer_key: String
+- consumer_secret: String
+- launch_params: Dict
+
++ isinstructo): Boolean
++ isStudentó: Boolean
++ hasRoleírole: String): Boolean
++ postReadResult)): Boolean
++ postReplaceResult: Boolean
+
+ 
+
+ 
+
+ToolConsumerData
+
+ 
+
+- id: Integer
+- name: String
+- key: String
+- secret: String
+
++ setParams(name: String, url: String, user: User)
+
+ 
+
+ 
+
+  
+   
+  
+    
+ 
+
+ 
+
+ToolProviderData
+
+- id: Integer
+
+- name: String
+
+- domain: String
+
+- customParams: String
+- key: String
+
+- secret: String
+
++ getCustomParamsO): Dict
+
+ 
+
+ 
+
+Figura B.1: Diagrama de clases
+
+ 
+
+NonceLTI
+
+- id: Integer
+- nonce_value: String
+- time: String
+
+ 
+
+ 
+
+ 
+
+¡A ___] UserLTI
+
+ 
+
+- id: Integer
+- user_extern_id:
+Integer
+
+ 
+
+ 
+
+CourseLTI
+
+-resource_id: Integer
+
+ 
+
+-id: Integer
+-context_id: Integer
+
+ 
+
+ 
+
+ContentLTI
+
+- id: Integer
+
+-name: String
+«description: String
+-evalueable: Boolean
+-created: Date
+-update: Date
+
+-url: String
+-accepted_score: Float
+- customParams: String
+
+ 
+
+ 
+
++ thisTypeO: String
++ getAbsoluteURLO: String
++ isUnavailable(): Boolean
+
+60
+
+ 
+
+  
+
+OutComeServices
+
+ 
+ 
+ 
+ 
+
+   
+
+- id
+-resource_id
+-score
+
+  
+ 
+
++ getGrade(): float
+
+ 
+
+ObjectModule
+
+ 
+
+DateRangeApéndice C
+
+Diagrama de base de datos
+
+ContentLTI
+
+PKiid)
+
+       
+     
+   
+ 
+
+name
+
+description DateRange
+ToolProviderData evaluable
+
+created PK(id)
+PKtid) updated initialDate
+name url finalDate
+domain accepted_score
+key customParams
+secret FKitoolProviderld)
+customParams FKidateRangeld)
+
+ObjectmModule
+
+  
+
+PKtid)
+NonceLTI FKíobjectld)
+PKid) FKícourse)
+
+noncevalue
+time
+
+ToolConsumerData FKitoolConsumerld)
+
+PKtid)
+
+name
+
+key
+
+secret
+
+FKí(userld) PKiid)
+userExternid
+FKtuserld) PKtid)
+
+A FKitoolConsumerld) description
+
+CourseLTI Session
+
+User
+
+Pk(username) PK(id) PK(id)
+hame contextld FKícourse)
+lastnhame resourceld description
+email FKitoolConsumen) pos
+FKícourseld) date
+
+OutcomesServices
+
+PKtid)
+resource_id
+
+score
+FKíuserld)
+FKísessionid)
+
+Figura C.1: Diagrama de base de datos
+
+61Apéndice D
+
+Casos de prueba
+
+ 
+
+ 
+
+Universidad
+del Vale
+
+ 
+
+CP_NM_CLIENTE_0001
+
+ 
+
+ 
+
+Id caso de prueba
+
+CP_NM_CLIENTE_0001
+
+ 
+
+Nombre caso de prueba
+
+Registro de herramienta externa como administrador
+
+ 
+
+Descripción
+
+Registro de una herramienta externa desde la pantalla de
+administración de la plataforma
+
+ 
+
+Pasos y condiciones
+para la ejecución
+
+A El usuario ingresa a la administración de la
+plataforma
+
+B En la sección de LTI, dar clic en “Herramientas de
+aprendizaje”
+
+C El usuario dar clic en el botón “A gregar herramienta
+externa”
+
+D El sistema mostrará los campos requeridos
+E El usuario ingresa los datos solicitados.
+
+F' El usuario da clic en guardar.
+
+ 
+
+Resultado esperado
+
+El sistema guardará el registro de la nueva herramienta.
+
+ 
+
+Estado caso de prueba
+
+Terminado
+
+ 
+
+Respuesta obtenida
+
+El sistema mostrará en el listado la nueva herramienta
+
+ 
+
+Errores asociados
+
+Ninguno
+
+ 
+
+Comentarios
+
+ 
+
+ 
+
+ 
+
+Cuadro D.1: Caso de prueba, Registro de herramienta externa
+
+62Universidad
+del Vale
+
+ 
+
+CP_NM_CLIENTE_0002
+
+ 
+
+ 
+
+ 
+
+ 
+
+Id del caso de prueba | CP_NM_CLIENTE_0002
+Nombre del caso de | Registro de contenido LTT
+prueba
+Descripción | Registrar un contenido LTI de una herramienta en un
+
+curso
+
+ 
+
+Pasos y condiciones
+para la ejecución
+
+A El usuario ingresa a la administración del curso
+deseado.
+
+B El usuario da clic en las opciones del módulo
+deseado.
+
+C El selecciona la opción “Agregar contenido externo
+LTT”
+
+D El sistema mostrará en un modal con el formulario.
+E El usuario registrará los campos solicitados
+
+F El usuario da clic en la opción “Guardar”
+
+ 
+
+Resultado esperado
+
+El sistema guardará el registro del contenido externo
+
+ 
+
+Estado caso de prueba
+
+Terminado
+
+ 
+
+Respuesta obtenida
+
+El sistema mostrará en el listado de contenidos del curso,
+el contenido
+
+ 
+
+Errores asociados
+
+Ninguno
+
+ 
+
+ 
+
+Comentarios
+
+ 
+
+Antes de guardar un contenido LTI, se debió haber
+registrado al menos una herramienta externa de
+aprendizaje.
+
+ 
+
+Cuadro D.2: Caso de prueba, Registro de contenido LTT en un curso
+
+63niwersl idad
+del Vañe
+
+ 
+
+CP_NM_CLIENTE_0003
+
+ 
+
+ 
+
+ 
+
+ 
+
+Id del caso de prueba | CP_NM_CLIENTE_0003
+Nombre del caso de | Campo URL no diligenciado en el formulario
+prueba
+Descripción | Al registrar un contenido LTI de una herramienta externa,
+
+el usuario no diligencia el campo URL
+
+ 
+
+Pasos y condiciones
+para la ejecución
+
+A El usuario ingresa a la administración del curso
+deseado.
+
+B El usuario da clic en las opciones del módulo
+deseado.
+
+C El selecciona la opción “Agregar contenido externo
+LTT”
+
+D El sistema mostrará en un modal con el formulario.
+
+E El usuario registrará los campos solicitados, menos
+el campo URL
+
+F El usuario da clic en la opción “Guardar”
+
+ 
+
+Resultado esperado
+
+El sistema guardará el registro del contenido externo, con
+la URL de la herramienta externa
+
+ 
+
+Estado caso de prueba
+
+Terminado
+
+ 
+
+Respuesta obtenida
+
+El sistema mostrará en el listado de contenidos del curso,
+el contenido
+
+ 
+
+Errores asociados
+
+Ninguno
+
+ 
+
+ 
+
+Comentarios
+
+ 
+
+Antes de guardar un contenido LTI, se debió haber
+registrado al menos una herramienta externa de
+aprendizaje.
+
+ 
+
+Cuadro D.3: Caso de prueba, Campo URL no diligenciado
+
+64CP_NM_CLIENTE_0004
+
+ 
+
+ 
+
+ 
+
+ 
+
+Id del caso de prueba | CP_NM_CLIENTE_0004
+Nombre del caso de | Autenticarse en la herramienta externa
+prueba
+Descripción | Ingresar al contenido de la herramienta externa
+
+ 
+
+Pasos y condiciones
+para la ejecución
+
+A El usuario ingresa a al curso.
+B —Dar clic en el botón “Abrir” del contenido
+
+C Se abrirá una nueva pestaña o ventana con el
+mensaje “Estamos redirigiendo al contenido”
+
+D El sistema automáticamente enviará los datos a la
+herramienta externa.
+
+ 
+
+Resultado esperado
+
+Se visualiza la interfaz de la herramienta externa
+
+ 
+
+ 
+
+ 
+
+Estado caso de prueba | Terminado
+Respuesta obtenida | Interfaz de la herramienta externa.
+Errores asociados | Ninguno
+
+ 
+
+ 
+
+Comentarios
+
+ 
+
+ 
+
+Cuadro D.4: Caso de prueba, Ingreso a la herramienta de aprendizaje
+
+65CP_NM_CLIENTE_0005
+
+ 
+
+ 
+
+ 
+
+ 
+
+Id del caso de prueba | CP_NM_CLIENTE_0005
+Nombre del caso de | Herramienta externa no envía calificación
+prueba
+Descripción | El estudiante ingresa a una herramienta externa que no
+
+envía una calificación
+
+ 
+
+Pasos y condiciones
+para la ejecución
+
+A El usuario ingresa a al curso.
+B —Dar clic en el botón “Abrir” del contenido
+
+C Se abrirá una nueva pestaña o ventana con el
+mensaje “Estamos redirigiendo al contenido”
+
+D El sistema automáticamente enviará los datos a la
+herramienta externa.
+
+E El usuario termina de interactuar con la plataforma
+
+ 
+
+Resultado esperado
+
+En el listado de contenidos del curso, el estudiante en el
+contenido deberá tener nota de 100
+
+ 
+
+Estado caso de prueba
+
+Terminado
+
+ 
+
+Respuesta obtenida
+
+Muestra el listado con el contenido LTI creado en el caso
+de prueba 002 con nota 100.
+
+ 
+
+Errores asociados
+
+Ninguno
+
+ 
+
+ 
+
+Comentarios
+
+ 
+
+La calificación de 100 es debido a que la plataforma
+reconoce como un contenido que el estudiante sólo debe
+ver
+
+ 
+
+Cuadro D.5: Caso de prueba, Herramienta de aprendizaje no envía nota
+
+66Universidad
+del Vale
+
+ 
+
+CP_NM_CLIENTE_0006
+
+ 
+
+ 
+
+ 
+
+ 
+
+Id del caso de prueba | CP_NM_CLIENTE_0006
+Nombre del caso de | Ver calificaciones del estudiante en los diferentes
+prueba | contenidos
+Descripción | Cuando el tutor ingrese a la administración de sesiones,
+
+pueda ver las notas de los estudiantes de los contenidos
+LTI
+
+ 
+
+Pasos y condiciones
+para la ejecución
+
+A El usuario ingresa a al curso.
+
+B El usuario ingresa a la administración de la sesión
+deseada
+
+C El usuario al dar clic sobre el nombre de usuario de
+la lista de estudiantes
+
+D El sistema mostrará el reporte de “Detalle del
+curso”.
+
+ 
+
+Resultado esperado
+
+En el listado del curso debe aparecer los nombre de los
+contenidos LTI con las notas de 0-100
+
+ 
+
+Estado caso de prueba
+
+Terminado
+
+ 
+
+Respuesta obtenida
+
+Muestra el listado con el contenido LTI creado en el caso
+de prueba 002 con nota 100.
+
+ 
+
+Errores asociados
+
+Ninguno
+
+ 
+
+ 
+
+Comentarios
+
+ 
+
+Para obtener una nota mayor a O, el estudiante debió haber
+abierto el contenido o interactuar con él.
+
+ 
+
+Cuadro D.6: Caso de prueba, Información de los estudiantes
+
+67ntwersl idad
+del Vale
+
+ 
+
+CP_NM_CLIENTE_0007
+
+ 
+
+ 
+
+Id del caso de prueba
+
+CP_NM_CLIENTE_0007
+
+ 
+
+Nombre del caso de
+prueba
+
+Registrar los datos de una herramienta consumidora.
+
+ 
+
+Descripción
+
+Registro de datos de una herramienta consumidora como
+una plataforma de aprendizaje (LMS)
+
+ 
+
+Pasos y condiciones
+para la ejecución
+
+A En el menú principal, El usuario da clic en
+configuración
+
+B En la opción “Agregar plataforma externa”
+C El sistema mostrará un formulario
+D El usuario digita los campos solicitados
+
+E El usuario da clic en el botón guardar
+
+ 
+
+Resultado esperado
+
+El sistema mostrará la clave pública y clave secreta
+
+ 
+
+Estado caso de prueba
+
+Terminado
+
+ 
+
+Respuesta obtenida
+
+El sistema muestra los datos de clave y clave secreta.
+
+ 
+
+Errores asociados
+
+Ninguno
+
+ 
+
+ 
+
+Comentarios
+
+ 
+
+ 
+
+Cuadro D.7: Caso de prueba, Registro de una nueva herramienta consumidora
+
+ 
+
+ 
+
+Universi idad
+del Vale
+
+ 
+
+CP_NM_CLIENTE_0008
+
+ 
+
+ 
+
+Id del caso de prueba
+
+CP_NM_CLIENTE_0008
+
+ 
+
+Nombre del caso de
+prueba
+
+Acceso a kme desde la plataforma externa
+
+ 
+
+Descripción
+
+Acceso desde una plataforma externa (LMS) a kme
+
+ 
+
+Pasos y condiciones
+para la ejecución
+
+A El usuario ingresa al curso de la plataforma externa
+
+B El usuario abre el contenido LTI del curso
+
+ 
+
+Resultado esperado
+
+Kme deberá mostrar al usuario el curso asociado al
+contenido LTI de la plataforma externa
+
+ 
+
+ 
+
+ 
+
+Estado caso de prueba | Terminado
+Respuesta obtenida | Se muestra el curso de prueba alojado en kme
+Errores asociados | Ninguno
+
+ 
+
+ 
+
+Comentarios
+
+ 
+
+Se debe haber registrado previamente las credenciales y
+datos del curso de kme en la plataforma externa.
+El usuario debe tener previamente un usuario en kme.
+
+ 
+
+Cuadro D.8: Caso de prueba, Acceso a kme desde plataforma externa
+
+68

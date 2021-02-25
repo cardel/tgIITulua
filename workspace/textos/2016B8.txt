@@ -1,0 +1,3099 @@
+VIDEOJUEGO DE APOYO A TERAPIAS FÍSICAS EN MIEMBROS
+INFERIORES PARA PACIENTES ADULTOS DEL HOSPITAL
+UNIVERSITARIO DEL VALLE
+
+ÁLVARO ANDRÉS LOAIZA DUQUE
+CÓDIGO 201355982
+ALVARO.ANDRES.LOAIZAQCORREOUNIVALLE.EDU.CO
+
+DIRECTORA
+ING. YURI MERCEDES BERMÚDEZ, MBA.
+
+CO-DIRECTORES
+MARÍA PATRICIA TRUJILLO URIBE, PH.D.
+ING. EDWIN RICARDO GAMBOA
+
+ 
+
+Universidad
+del Valle
+
+ 
+
+Escuela de Ingeniería de Sistemas y Computación
+Facultad de Ingeniería
+
+Universidad del Valle
+
+Cali, Colombia
+Diciembre 2017Álvaro Andrés Loaiza Duque, Videojuego de apoyo a terapias físicas en miembros inferiores para
+pacientes adultos del Hospital Universitario del Valle, (C) Diciembre 2017Dedicado a la reina de mi corazón, mi abuelita Flora(q.e.p.d.), gracias por abrirme las puertas de su casa y hacer parte de este proceso, brindarme sus palabras de aliento y abrazos
+llenos de amor, dónde estés, se que estarás muy contenta celebrando esta victoria y dando
+su bendición por este nuevo reto que comienza.
+
+También a quienes me brindaron la vida, su nobleza, entrega y constancia para lograr que
+hoy pueda escuchar y comunicarme, por siempre creer en mí. Este esfuerzo también es de
+ustedes.
+
+A mi hermana Andrea y su esposo Alan, gracias por sus consejos y palabras para insistir
+en este camino. A mi sobrino Emiliano que está en camino, espero celebrar contigo el día del
+grado.
+
+A mi tío Hernan, por brindar apoyo e interceder en nuestra familia cuando lo necesitaba,
+su esposa Johanna por sus charlas, por siempre preguntar cómo voy y dar motivos para se
+guir adelante.
+
+Primate y colega Jorge, gracias por los consejos profesionales y personales para culminar
+esta carrera.
+
+A toda mi familia, por estar pendiente de estos años de esfuerzo.
+A mis amigos Felipe y Andrés, por siempre estar allí presentes.
+
+A los que creyeron en mí y a los que no, a todos gracias.
+
+111“En vez de intentar producir un programa que simule la mente adulta,
+
+¿por qué no tratar de producir uno que simule la mente del niño?
+
+S1 ésta se sometiera entonces a un curso educativo adecuado se obtendría el cerebro de adulto.”
+- Alan Turing
+
+AGRADECIMIENTOS
+
+ 
+
+A mi directora y profesora Ing. Yuri Mercedes Bermúdez, MBA, por guiarme, aconsejarme,
+por su paciencia y darme a conocer un área de mi carrera que despertó mucho interés en mi:
+Interacción Persona Ordenador. A la profesora, la doctora Patricia Trujillo, por brindarme la
+oportunidad de pertenecer a este grupo de investigación y poder participar en el proyecto de
+investigación del que hizo parte mi trabajo de grado. También, al Ing. Edwin Gamboa, por
+su temblanza, paciencia y guía en este proceso. De igual manera, a los compañeros del proyecto Playtherapy: Juan Diego, Álvaro, Camilo, Miguel Ángel, Domenico y Mauricio, por sus
+aportes. A los otros compañeros del grupo de investigación, Augusto, Juan Salazar, Andrés
+Martínez, Juan Suaza, a todos, por compartir en los espacios que el laboratorio facilitó.
+
+A María Isabel Pavas y el equipo de trabajo de la Unidad de Medicina Física y Rehabilitación, por facilitar el espacio y asesorarnos en todo lo relacionado con las terapias de
+
+rehabilitación física.
+
+A los profesores del que hicieron parte de esta carrera, por impulsar a la formación de
+nuevos profesionales, por compartir su conocimiento y experiencia.
+
+A los compañeros de mi carrera, por compartir estos cinco años de formación.
+
+A la Universidad del Valle y su equipo de trabajo, por brindar la oportunidad de formarme
+como profesional.
+
+1vABSTRACT
+
+ 
+
+The degree project is placed in the setting of a project called “Playtherapy” that is led by
+the Multimedia and Computer Vision Research Group of the University of Valle in collaboration with the Physical Medicine and Rehabilitation Unit of the “Hospital Universitario del
+Valle”. Its main objective is increasing motivation of patients who are in process of physical
+rehabilitation through interactive tools. Therefore, it developed a mini-game which is called
+“Fútbol Libre”. On the one hand, its contribution is increasing the supply of mini-games; on
+the other hand, as a source of enjoyment and entertainment for users forget that they are in
+a clinical environment.
+
+The game includes flexion and extension movements for hip and knee. These ones are
+detected by means of Kinect sensor 2.0. Also, it contributes to the realization of a guidelines
+and measuring instrument that allows to assess the Player Experience (PX) of the video game
+based on the playability within an interactive system.
+
+For development, two methodologies were used: Game Scrum for the development of videogames and Usability and Accessibility Engineering Process Model (MPlu+a) as a strategy of
+implementing usability and playability as an added value the interactive system.
+
+Finally, it concluded that a proposal of serious videogames within a context such as physical rehabilitation therapy gets good acceptance by users, because tests and interaction with
+patients and therapists demonstrated this.
+
+Keywords: Videogames, Physical Therapy, Playability, Player Experience, Heuristic Evaluation.RESUMEN
+
+ 
+
+Este trabajo de grado se encuentra en el marco de un proyecto denominado Playtherapy
+que es liderado por el grupo de investigación en Multimedia y Visión por Computador de la
+Universidad del Valle en colaboración de la Unidad de Medicina Física y Rehabilitación del
+Hospital Universitario del Valle. El objetivo principal consiste en aumentar la motivación de
+los pacientes que se encuentran en proceso de rehabilitación física a través de herramientas
+interactivas. Por ello, se desarrolló un minijuego que se denominó "Fútbol Libre". Por un lado, contribuyendo de este modo al aumento de la oferta de minijuegos y por otro lado, como
+fuente de goce y entretenimiento y que el usuario olvide que se encuentra en un ambiente
+clínico.
+
+Este juego, incluye los movimientos de flexión y extensión de cadera y rodilla. Estos movimientos son detectados a través del sensor Kinect 2.0. También, se tiene como aporte la
+realización de una guía de estilo y el uso de un instrumento de medida que permita valorar
+el grado de la experiencia del jugador (PX) del videojuego en base a la Jugabilidad dentro de
+un sistema interactivo.
+
+Para el desarrollo, se utilizaron dos metodologías: Game Scrum para el desarrollo de videojuegos y el Modelo de Proceso de la Ingeniería de la usabilidad y de la accessibilidad como estrategia
+para implementar la Usabilidad y Jugabilidad como valor agregado al sistema interactivo.
+
+Finalmente, se logró concluir que una propuesta de videojuegos serios dentro de un contexto como la terapia de rehabilitación física, tiene buena aceptación por parte de los usuarios
+
+finales, ya que las pruebas y la interacción con los pacientes y terapeutas así lo demostró.
+
+Palabras Claves: Videojuego, Terapia Física, Jugabilidad, Experiencia del Jugador, Evaluación Heurística.
+
+viÍNDICE GENERAL
+
+ 
+
+1.
+
+INTRODUCCIÓN
+
+LI. Problema ..........
+1.1.1. Descripción del Problema ............. o... o... .......
+1.1.2. Formulación del Problema ........... o... o... .. e... .
+
+DR. ODMJetIVOS
+121. Objetivo General ... ooo. ..«0«0...2. 0.20. 060:03000800m000024050s
+1.2.2. Objetivos ESpecÍficOS . ..... o... o... .. +... ..... o...
+
+1.3. Justificación ......
+
+IN
+
+MARCO REFERENCIAL
+
+2.1. Marco TeóriCO .......
+2.1.1. Interacción Persona-Ordenador -IPO ....................
+2.1.2. Diseño Centrado en el Usuario -DCU........... o... ...
+2.1.3. Usabilidad ................ e...
+214. Jugabilidad .. ++. 2. 0842202010 +.+.+.000%4%7%%9958084440r0
+2. VMIdeOJUegOs -.........
+2.1.6. Kinect como apoyo a terapias fÍSICAS . ....... o... ....«..«....
+217 lerapla FÍSICA ¿+++ .00400109 ++. .€0%0%4%1*+*++08%8%4%4040
+
+2.2. Estado del Arte .............. e...
+
+2.3. Antecedentes .......
+
+PLAYTHERAPY
+
+3.1. Descripción General de Playtherapy ...........o.o oo... ooo... o.
+3.1.1. Descripción del Proyecto ....... o... o... e... . . . . . . . 0
+3.1.2. Equipo de desarroll0 ............ o... oo... . . . . . . . . 0
+
+3.2. Metodología ........
+AR GAMA UA
+3.2.2. Modelo de Proceso de la Ingeniería de la usabilidad y de la accessibili
+dad (MPlurad)
+
+3.2.3. Game Scrum €: MPlu+a ................ e...
+2. Herramientas .....
+
+PRE-PRODUCCIÓN
+
+4.1. Análisis de Requisit0S ........... o... .... e...
+4.1.1. Entrevista y Observación de CaMmp0 ......o. ooo... oo... .o.
+
+BR DIS ......
+4.2.1. Selección de MOVIMIeNtOS .............. o...
+4.2.2. Idea de Mini-Juego .........
+4.2.3. Game Design Document. ......................... ..
+4.2.4. Product Backlog .................... e...
+
+vii
+
+0 XI XNXNXN UI UY OOO cn Aa
+
+11
+2
+15
+15
+16
+17
+18
+18
+18
+18
+19
+19ÍNDICE GENERAL
+
+4.2.5. Selección de HeurÍstiCaS . ......... e... .. +... e... 29
+
+4.2.6. GuíadeBEstilo . ............. o... . e. ..... 30
+
+4.2.7. Evaluación HeuríStiCa ................ +... Sí
+
+4.3. Dificultades, Retos y Aprendizajes ........ o... ... e... . ...... 34
+
+5. PRODUCCIÓN 36
+5.1. Prototipado e Implementación ......... o... ooo... oo... e... 36
+DL. Game Serena... 36
+
+5.1.2. Interaction Elements ........... o... . e... .. e... 37
+
+5.1.3. Movement Control ................ e... 38
+
+GA. SCOTT Systems ....... 38
+
+5.1.5. Feedback SysteM .......... o... .... +... e... 40
+
+5.1.6. Parameters Ócreen ....... 40
+
+5.1.7. Game Persistence ......... 42
+
+5.1.8. GameTutorlal ................... e... 42
+
+5.1.9. Final Animation .......... 42
+
+5.1.10. Results Screen ....... 43
+
+5.2. Implementación de las características de Usabilidad y Jugabilidad ....... 43
+5.3. Dificultades, Retos y Aprendizajes .......... o... ......... .... 44
+
+6. POST-PRODUCCIÓN 46
+6.1. Evaluación ........ 46
+6.1.1. Pruebas Funcionales ............... e... 46
+
+6.1.2. Pruebas de Jugabilidad .......... o... oo... o... . . . . 0 47
+
+6.1.3. Pruebas de RendimientO0.............. e... . e... 53
+
+a. Lanzamiento 53
+6.3. Dificultades, Retos y Aprendizajes ...... o... oo... o... e... ... 54
+6.4. Divulgación de Resultados ......... o... . o... ... .. e... +. 55
+
+7. APORTES ADICIONALES 57
+7.1. Playtherapy .......— 57
+7.1.1. Pruebas Funcionales .................... .. e... o. 57
+
+7.1.2. Evaluación Heurística ................ e... e... 57
+
+7.2. EnglishPlay ........... 58
+
+8. CONCLUSIONES Y TRABAJOS FUTUROS 59
+BL. Conclusiones... 59
+8.2. Trabajos Futuros.........— 61
+BIBLIOGRAFÍA 62
+
+viilÍNDICE DE FIGURAS
+
+ 
+
+NANA
+
+PY PI
+
+10.
+11.
+
+13.
+14.
+15.
+16.
+17.
+18.
+19.
+20.
+21.
+22.
+23.
+24.
+25.
+26.
+
+Objetivos, Resultados y Contribuciones .......... o... .... 4
+Interacción Persona-Ordenador ........ ooo... o... ..... 8
+Proceso del Diseño Centrado en el Usuari0 ................ 9
+Anatomía de un Videojuego ...... o... oo... o... e... .. 14
+Modelo de Proceso de la Ingeniería de la Usabilidad y la Accesibilidad
+
+MPlur 20
+Game Scrum é: MPlu+a .......... o... . e... .... ..... 21
+SHOLYÓDOAA 3
+Ejemplo Evaluación HeurístiCa ....... o... oo... o... ... yz
+Tipos de grÁÍiCOS ..... o... o... ........... e... . 0. 35
+Propuestas de Escenari0S ....... o... o... o... . e... ... 36
+Propuestas de Personaje ......... o... .... e... .. .... 37
+Prototipo Cute Male .............o o... o... oo... ... 37
+Implementación de Porl en Escenari0 ...........o ooo ooco.. 38
+Panel de Puntos ............ e... 39
+LUTMOS 220.2. :<:< «09.200: 0 aos sos 40
+Prototipo de pantalla de parámetrOS .........o.o ooo... .... 41
+Pantalla de ParámetroS ........ o... ...... e... .. 41
+Umtocial ii: +. 92 08988%2403R+r9883424+rr9984404r0 42
+Animación Final ............ o... . e... e... 43
+Pantalla de Resultados ......... o... o... e... e... .. +. 43
+Pruebas de jugabilidad ............ o... ooo... o... .. A7
+Valoración Jugabilidad Fútbol Libre .................... 49
+Resultados evaluación heurística por atributos y facetas ........ 52
+Prueba de rendimiento ................ e... 53
+Issues... 55
+Playlist ....................... o... 56
+
+1XxÍNDICE DE TABLAS
+
+ 
+
+NY NI DU 2Y.NA
+
+Aa
+ah O
+
+Relación Objetivos Específicos con Resultados Esperados ........ =
+Resumen de documentos de análisis de requisitos ............ 26
+Selección de Movimientos Plano Frontal .................. 27
+Implementación de Usabilidad y Jugabilidad ............... 44
+Casos de prueba................... e... 46
+Perfil demográfico de los pacientes . .........o.o.o ooo oooo.. 48
+Parámetros por paciente ........ o... .. .. . +... . . . .. 48
+Test por Observación ........ oo... 50
+Resumen entrevista post-test pacientes. ........ o... o... .. 51
+Resumen entrevista post-test terapeuta ........ o... o... .. 52
+Issues ..... 54ACRÓNIMOS
+
+ 
+
+IPO Interacción Persona-Ordenador
+
+HUV Hospital Universitario del Valle
+
+MPlu+a Modelo de Proceso de la Ingeniería de la Usabilidad y la Accesibilidad
+DCU Diseño Centrado en el Usuario
+
+ESE Empresa Social del Estado
+
+ISO International Organization for Standardization
+
+IEC International Electrotechnical Commission
+
+GDD Game Design Document
+
+mmv-lab Laboratorio de Multimedia y Visión por Computador
+
+x1INTRODUCCIÓN
+
+ 
+
+Este trabajo de grado está enmarcado dentro del proyecto de investigación "PLAYTHERAPY, VIDEOJUEGO DE APOYO A TERAPIAS DE RECUPERACIÓN FÍSICA” aprobado por
+la Vicerrectoría de Investigaciones de la Universidad del Valle en el año 2016 como parte de
+la tercera convocatoria interna para la conformación del banco de proyectos de investigación.
+
+El presente documento se encuentra estructurado de la siguiente manera:
+
+1.1
+
+1.1.1
+
+En el presente Capítulo 1: que describe el problema, formula la pregunta de investigación, así como los objetivos general y específicos del proyecto, la justificación y el
+alcance.
+
+En el Capítulo 2: Marco Referencial, se presentan el marco teórico en donde se realiza
+resumen a conceptos importantes del presente trabajo de grado, luego el estado del arte
+donde se exponen algunos videojuegos desarrollados por otras empresas y finalmente
+los antecedentes, que expone el avance actual de Playtherapy.
+
+En el Capítulo 4: Pre-producción, que presenta la fase análisis de requisitos y el diseño
+del juego, selección de heurísticas, elaboración de la guía de estilo y finalmente el plan
+de evaluación heurística
+
+En el Capítulo 5: Producción, que desarrolla la fase de prototipado e implementación
+del juego
+
+En el Capítulo 6: Post-Producción, en la que se realiza la fase de evaluación y lanzamiento.
+
+En el Capítulo 7: Se presentan los aportes externos al trabajo de grado, pero que es
+complementario y relacionado con los temas que se desarrollaron en el proceso del
+trabajo de grado.
+
+En el Capítulo 8: Que expone las conclusiones y trabajos futuros.
+
+PROBLEMA
+
+Descripción del Problema
+
+El hospital Universitario del Valle, cuenta con la Unidad de Medicina Física y Rehabilitación que se encarga principalmente de realizar terapias físicas a la población del suroccidente
+colombiano (Chocó, Valle del Cauca, Cauca y Nariño). Los pacientes provienen un 65% de
+Cali y el 35% restante provienen de los municipios aledaños del Valle del Cauca, Chocó,1.1 PROBLEMA
+
+Nariño y Cauca. (Personería Santiago de Cali, 2015)
+
+Dentro de las actividades que se realizan en el Hospital Universitario, se encuentran las
+terapias físicas, las cuales tienen como objetivo principal el desarrollo, mantenimiento y la
+recuperación de la funcionalidad y movimiento de un individuo en sus actividades diarias
+(World Confederation for Physical Therapy, 2014), sin embargo, para los pacientes estas terapias, se pueden convertir en algo repetitivo, aburrido, doloroso y fatigante, ya que para el
+éxito del tratamiento se requiere alta disciplina y compromiso.
+
+Una de las principales causas de la falta de motivación por parte del paciente, es quizás, la
+monotonía de la rutina del ejercicio que requiere para su rehabilitación, ya que normalmente, se basa en repeticiones con fin el de fortalecer una parte del cuerpo. El desafío está en
+encontrar metodologías y herramientas innovadoras e interactivas que faciliten el trabajo de
+las terapias físicas y además, motive a los pacientes.
+
+Otra causa de la desmotivación de los pacientes, es que las sesiones de terapia no cuentan
+con los estímulos adecuados, dando como efecto, una carga adicional para los terapeutas,
+ya que además de dirigir el tratamiento para que se ejecute correctamente, se debe esforzar
+para lograr que el paciente se concentre y realice con motivación las tareas asignadas. Lo anterior, ha sido referenciado por varios autores como un gran determinante de cambio en las
+habilidades motoras de los pacientes, ya que permite que estén más propensos a participar
+activamente en comparación con los que no están (Bartlett €: Palisano, 2002).
+
+Existen estudios sobre el uso de videojuegos como apoyo a las terapias físicas, que han
+mostrado resultados positivos en términos de aumento de motivación permitiendo que los
+usuarios perciban cambios con respecto a la monotonía de las tareas a realizar; a la par, la
+actividad del videojuego ha sido empleada para diversos tipos de terapia (no solo física) y
+con distintos tipos de pacientes (Burdea, 2012), incluso el uso de estos videojuegos ha demostrado resultados satisfactorios pues los pacientes consideran que las actividades apoyadas
+con multimedia son agradables y alcanzables (Shelton é Scott, 2015). Por ello, el grupo de
+Multimedia y Visión por Computador, perteneciente a la Escuela de Ingeniería de Sistemas y
+Computación, en apoyo con el Departamento de Medicina física y rehabilitación en la Facultad de Salud, se realiza el proyecto “Playtherapy, Videojuego de apoyo a terapias de recuperación
+física” con el fin de implementarlo en la Unidad de Medicina física y Rehabilitación del Hospital Universitario del Valle, Evaristo García ESE.
+
+Actualmente, el proyecto requiere apoyo para aumentar la oferta de juegos, ya que hoy solo
+cuenta con un par orientados a terapia física de hombro y codo; el objetivo, es ofrecer varios
+videojuegos, cada uno orientados a movimientos que permitan la rehabilitación de una zona
+del cuerpo, como columna, cadera, rodilla, etc. Además, se espera Playtherapy no solo cumpla
+con su propósito funcional, sino que asegure una buena experiencia como usuario y como
+
+jugador.1.2 OBJETIVOS
+
+1.1.2 Formulación del Problema
+¿Cómo apoyar el proceso de terapia física de la Unidad de Medicina Física y Rehabilitación
+
+del Hospital Universitario del Valle a través de metodologías y herramientas interactivas para
+que los pacientes se sientan motivados?.
+
+1.2 OBJETIVOS
+1.2.1 Objetivo General
+= Desarrollar un videojuego basado en sistemas interactivos, como herramienta de apo
+yo a terapias físicas en miembros inferiores para pacientes adultos de la Unidad de
+Medicina Física y Rehabilitación del Hospital Universitario del Valle, Evaristo Garcia
+
+ESE.
+
+1.2.2 Objetivos Específicos
+
+La Tabla 1 relaciona cada objetivo específico con el capítulo de este documento en donde
+se exponen los resultados de cada uno de los mismos.
+
+Tabla 1: Relación Objetivos Específicos con Resultados Esperados
+
+OBJETIVO ESPECÍFICO CAPÍTULO
+
+ 
+
+Construir una historia, reglas y estructura para el videojuego
+
+orientada por los fisioterapeutas del Hospital Universitario del Capítulo 4
+Valle
+Definir las características de Usabilidad y Jugabilidad para el Caví
+
+o e apítulo 4
+desarrollo del videojuego como apoyo a la rehabilitación física
+Aplicar mecanismos que apoyen el proceso de interacción entre
+el usuario y el videojuego, con el fin de mejorar la experiencia Capítulo 4
+
+del jugador
+
+Implementar el ambiente del videojuego de acuerdo a la historia,
+reglas, estructura, estrategias de interacción y las características Capítulo 5
+de usabilidad y jugabilidad definidas
+
+Diseñar una estrategia que permita validar el cumplimiento de Capítulo 4 y Capítulo 6
+las características de usabilidad y jugabilidad del videojuego
+
+ 
+
+La Figura 1 resume los aspectos más importantes del proyecto de trabajo de grado.1.3 JUSTIFICACIÓN
+
+P. ¿Cómo apoyar el proceso de terapia física de la
+Unidad de medicina física y rehabilitación del
+
+Hospital Universitario del Valle a través de
+metodologías y herramientas interactivas para que
+los pacientes se sientan motivados?
+
+ 
+
+Objetivo 1 Objetivo 2 Objetivo 3
+
+Rest 3: Se tiene en cuenta
+aspectos del factor humano
+dentro de la Interacción Persona
+Ordenador como el sistema
+visual, auditivo y la percepción,
+
+Cont 1: Selección de movimientos Cont 4: Batería de heurísticas Cont 6: Guía de estilo
+Cont 2: Análisis contextual de Conta: Selección de heurísioss
+tareas
+Cont 3: Game Design Document
+
+Objetivo 4 Objetivo 5
+
+Rest 5: Planeación de evaluación
+heurística, combinando otras
+
+Rest 1: Análisis de requerimientos Rest 2: Búsqueda biográfica
+y entrevista con terapeutas del sobre los antecedentes del tema
+
+HUV con el fin de seleccionar de heurísticas de usabilidad y
+movimientos jugabilidad
+
+  
+
+Restá4: Fútbol Libre, minijuego
+
+para terapias de rehabilitación
+
+física en miembros inferiores
+(cadera y rodilla)
+
+P: Problema
+estrategias de evaluación:
+
+inspección, indagación y
+observación
+
+  
+
+Rest:
+Resultado Cont 7: Aumento oferta minijuegos Cont 8: Guía de evaluación
+de Playtherapy heurística
+Cont 9: Ejecución evaluación
+Cont: heurística
+
+Contribución
+
+ 
+
+Figura 1: Objetivos, Resultados y Contribuciones
+
+1.3 JUSTIFICACIÓN
+
+El uso de videojuegos como apoyo a la rehabilitación física ya ha demostrado resultados
+satisfactorios desde dos perspectivas: la primera, en el mundo se ha utilizado este sistema
+interactivo en este tipo de terapias, ya que se evidencia que el paciente lo encuentra agradable, lo que permite que esté con una mejor disposición, además, para el personal de terapia,
+les facilita el trabajo. La segunda, los videojuegos también han demostrado ser una buena
+fuente de motivación, e igualmente, una alternativa que permite disminuir la monotonía de1.4 ALCANCE
+
+las sesiones y/o ejercicios; es decir, hay variedad de opciones con el objetivo de realizar un
+mismo movimiento.
+
+Por lo anterior, un videojuego de apoyo a las terapias físicas en el Hospital Universitario
+del Valle, podría ser usado por los profesionales de salud, permitiendo aumentar la motivación de los pacientes y facilitar el trabajo de la sesión, ya que podría haber una mayor
+disposición de realizar las terapias.
+
+Por ello, a través del grupo de Multimedia y Visión por Computador en colaboración con
+el Departamento en Medicina Física y Rehabilitación de la misma universidad y la Unidad de
+Medicina Física y de Rehabilitación del Hospital Universitario del Valle, se realiza el proyecto
+denominado “PlayTherapy: Videojuego de apoyo a terapias de recuperación física”, que consiste en
+desarrollar un conjunto de minijuegos orientados a ejercicios individuales, como elemento
+innovador, ya que los videojuegos existentes tales como Virtual Rehab (Virtualware Group,
+2014), MIRA (MIRA Rehab, 2014), SeeMe (Brontes Processing, 2016), están orientadas al desarrollo de videojuegos para una terapia particular.
+
+De igual manera, para asegurar que el proyecto cumpla eficazmente con los objetivos
+de una buena interacción, se le agregarán dos características de las IPO a este videojuego:
+Usabilidad y Jugabilidad, la primera, permitirá asegurar que el sistema sea fácil de usar,
+entender y aprender; una razón, se debe a que el personal médico va a utilizar y configurar
+el juego (es decir, el modo de uso), lo ideal es que sea con una curva de aprendizaje baja y
+además entienda los parámetros de configuración y asegure unas buenas guías de usuario,
+por otro lado, el paciente, debe entender los cambios, reacciones e instrucciones que arroje
+en pantalla. La segunda característica, asegura una buena calidad del videojuego y permite
+que el paciente realmente disfrute, goce y tenga una buena experiencia como jugador, ya que
+a la hora del juego, es importante que durante la terapia el jugador no se desmotive.
+
+1.4 ALCANCE
+
+El videojuego tuvo enfoque en terapias físicas para adultos, el área del cuerpo al que se
+aplicó fueron para los miembros inferiores (cadera y rodilla), se evaluaron movimientos como flexión, extensión, abducción con el fin de establecer una historia, reglas y estructura
+para el juego, que permita en lo posible reunir la mayor parte de movimientos.
+
+Igualmente se estableció el GDD donde se encuentran los requerimientos de diseño y desarrollo del videojuego y se realizarán pruebas en el área de aplicación (Unidad de Medicina
+Física y Rehabilitación del HUV) tanto con profesionales y pacientes, con el fin de verificar
+si se está cumpliendo con lo establecido en el documento.
+
+Para el desarrollo, se aplicó las tres fases genéricas establecido en el documento de Game Scrum (Godoy éz Barbosa, 2010), en cada fase, se tendrá uno o más ciclos internos, que
+pueden terminar, pausar o trabajar en el ciclo, gracias a la flexibilidad de las metodologías1.4 ALCANCE
+
+ágiles y el modelo MPlu+a (Granollers, 2016), que permitirá asegurar el cumplimiento de lo
+establecido en los documentos de Usabilidad y Jugabilidad.
+
+El entregable es un prototipo de videojuego, ya que el concepto de desarrollo del videojuego es interdisciplinar y el presente proyecto solo se realizará a través de un estudiante, ese
+minijuego, fue agrupado con los demás juegos que ya están implementados y/o a implementarse, dentro del proyecto global: Playtherapy.
+
+Igualmente, este proyecto también tiene la capacidad de almacenar información de la sesión de terapia, aspecto que le permitirá al profesional hacer seguimiento y obtener criterios
+si realmente la terapia cumple con el objetivo de rehabilitación y progreso.MARCO REFERENCIAL
+
+ 
+
+2.1 MARCO TEÓRICO
+2.1.1 Interacción Persona-Ordenador - IPO.
+
+La interacción persona-ordenador se basa en que la interacción de las personas y los ordenadores, se hace por medio de una interfaz reflejando las propiedades físicas de los que
+interactúan, las funciones que hay que realizar y el balance de poder y control; por tanto,
+existe un punto de contacto que permite transmitir información, órdenes y datos como sensaciones, intuiciones y nuevas formas de ver las cosas. Por ello, se destaca la importancia
+
+de reflejar el modelo mental de quienes utilizarían el producto. (Saltiveri, Vidal €£ Delgado,
+2011a)
+
+Por ello, hoy día, ya es adoptado como una disciplina y se tiene la siguiente definición
+
+propuesta por el grupo Special Interest Group in Computer Human Interaction (SIGCHI),
+que ha trabajado en temas de IPO:
+
+“Human-computer interaction is a discipline concerned with the design, evaluation and
+
+implementation of interactive computing systems for human use and with the study of major
+phenomena surrounding them.”(Hewett y col., 1996)
+
+Esta disciplina hace énfasis en los aspectos relacionados con el proceso interactivo que se
+produce entre una o más personas y uno o más ordenadores o sistemas interactivos en general; por tanto, es transcendental el estudio del usuario, en qué condiciones se encuentra,
+cómo utiliza el dispositivo y las características físicas en la que interviene la interacción (ver
+Figura 2). Esta importancia incluso es reflejada en las normas ISO 13407, el cual describe el
+proceso de diseño de sistemas centrados en el usuario para que sean fáciles de aprender y
+de utilizar.
+
+Otras metas que también hacen parte de la IPO: Desarrollar y mejorar la seguridad, utili
+dad, eficiencia y usabilidad de sistemas basados en computadoras e incrementar la usabilidad de los sistemas.
+
+2.1.2 Diseño Centrado en el Usuario - DCU.
+
+Se define como Diseño Centrado en el Usuario como un enfoque de diseño cuyo proceso
+está dirigido por información sobre las personas que van a hacer uso del producto. Este enfoque nos permite observar la gente cómo usa los sistemas y a partir de allí, obtener y ajustar2.1 MARCO TEÓRICO
+
+Use and Context
+
+Ul Social Organization and Work se U3 Human-Machine Fit and Adaptation
+
+ 
+    
+     
+
+U2 Application Areas
+Computer
+
+   
+ 
+   
+
+C2 Dialogue C4 Computer
+Techniques Graphics
+
+0
+Information Y
+E) JO. a
+C3 Dialogue C5 Dialogue
+Cenre Architecture
+
+   
+      
+
+Comuintunication
+
+H3 C1 Input and
+and Interaction
+
+Ergonomics Output Devices
+
+ 
+
+< 2
+2
+
+Dá4 Example Systems
+D3 Evaluation and Case Studies A D2 Implementation
+Techniques LE Techniques and Tools
+D1 Design
+Approaches
+
+Development Process ——————————_—___ 2
+
+Figura 2: Interacción Persona- Ordenador. (Hewett y col., 2009)
+
+los modelos mentales y conceptuales del proceso de interacción. (Sánchez kz Jordi, 2011)
+
+El proceso del DCU es cíclico y se puede dividir en cuatro fases:
+
+1. Entender y especificar el contexto de uso: Identificar a las personas a las que se dirige el
+producto, para qué lo usarán y en qué condiciones.
+
+2. Especificar requisitos: Identificar los objetivos del usuario y determinar requerimientos
+funcionales y no funcionales.
+
+3. Producir soluciones de diseño: Esta fase se puede subdividir en diferentes etapas secuenciales, desde las primeras soluciones conceptuales hasta la solución final de diseño.
+
+4. Evaluación: Es la fase más importante del proceso, en la que se validan las soluciones
+de diseño (el sistema satisface los requisitos) o por el contrario se detectan problemas
+de usabilidad, normalmente a través de test con usuarios.
+
+2.1.3 Usabilidad
+
+Coloquialmente la Usabilidad hace referencia a sistemas fáciles de aprender y de utilizar y
+está compuesta por dos componentes según Nielsen (2012): primero, de funcionalidad (para2.1 MARCO TEÓRICO
+
+Planificación
+
+   
+
+Je) [Jal]
+el contexto de uso
+
+  
+  
+
+El sistema satisface Especificar
+los requisitos requisitos
+
+ 
+
+dolo Wa
+soluciones de diseño
+
+   
+
+Figura 3: Proceso del Diseño Centrado en el Usuario. (Hassan-Montero € Ortega-Santamarla, 2009)
+
+qué fue desarrollado el sistema) y segundo, el modo en el que los usuarios pueden usar esta
+funcionalidad, lo que da la razón de interés en el estudio de la usabilidad.
+
+Para la definir este concepto, hay un conjunto de autores e investigadores de reconocido
+prestigio internacional, cuyas definiciones son:
+
+Jacob Nielsen, pionero de la difusión de la usabilidad. Señala que un sistema usable debe
+poseer los siguientes atributos: capacidad de aprendizaje, eficiencia en el uso, facilidad de
+memorizar, tolerante a errores y subjetivamente satisfactorio. (Nielsen, 2012).
+
+De igual manera, Jenny Preece, autora de multitud de estudios de usabilidad, propone la
+definición más corta, pero quizá la más intuitiva. Se refiere a la usabilidad como el “desarrollo de sistemas fáciles de usar y de aprender” (Preece y col., 1994).
+
+Otra ilustración dada por Niegel Bevan, como la “facilidad de uso y la aceptabilidad de un
+sistema o producto para una clase particular de usuarios que llevan a cabo tareas específicas
+en un entorno específico” (Bevan, 1991).
+
+Finalmente, Redish (1995), reconocida profesional de usabilidad, define que el objetivo de
+las personas que trabajan no es otro que producir trabajos para sus usuarios (works for its
+users) proporcionando a los usuarios las herramientas para poder:
+
+i) Encontrar lo que necesitan,
+11) Entender lo que encuentran,
+
+111) Actuar apropiadamente sobre este entendimiento y,
+iv) Hacer todo esto con el tiempo y esfuerzo que ellos creen necesario.2.1 MARCO TEÓRICO
+
+Igualmente podemos encontrar definiciones en ISO (Saltiveri, Vidal €£z Delgado, 2011b):
+
+ISO 9241-11 (Guidance on Usability - 1998): Proporciona la definición de usabilidad que
+se utiliza en estándares ergonómicos:
+
+“La medida en la que un producto puede ser usado por determinados usuarios para conseguir
+objetivos específicos con efectividad, eficiencia y satisfación en un contexto de uso especificado”.
+
+Efectividad como precisión y plenitud en la que los usuarios alcanzan objetivos especificados, tales como la facilidad de aprendizaje, baja taza de errores y facilidad del sistema para
+ser recordado. Eficiencia hace referencia a los recursos empleados en la relación con la precisión y plenitud con la que los usuarios alcanzan los objetivos. Y Satisfacción como ausencia
+de incomodidad y la actitud positiva en el uso del producto.
+
+ISO/IEC 9126 (Software engineering — Product quality - 2001) Define la usabilidad como una contribución independiente a la calidad del software asociado con el diseño y la
+evaluación de la interfaz de usuario y la interacción.
+
+“Un conjunto de atributos que influyen en el esfuerzo necesario para el uso, y en el asesoramiento
+individual de cada uso para un conjunto de usuarios definidos o implicados”.
+
+Los siguientes son los atributos que se pueden aplicar a un sistema interactivo para mejorar
+su usabilidad (Granollers, 2016):
+
+= Facilidad de aprendizaje: Se refiere a que la curva de aprendizaje debe ser mínima,
+la ayuda que requiera el usuario durante el aprendizaje sea bajo y puedan llegar a un
+nivel de conocimiento alto.
+
+= Sintetizable: Cuando hay cambios de estado en un sistema interactivo, es importante
+que la transición sea captada por el usuario final.
+
+= Familiar: Definido como correlación que existe entre el conocimiento que posee el usuario y el que requiere para la interacción con un nuevo sistema.
+
+= Consistencia: Hace referencia a que todos sus mecanismos se usan siempre de la misma
+manera, sea cual sea el momento y la forma en la que se haga.
+
+= Flexibilidad: Se define como las múltiples maneras en que el usuario y el sistema
+pueden intercambiar información.
+
+= Robustez: Característica que le permite al usuario poder cumplir con sus objetivos y el
+asesoramiento necesario para ello.
+
+= Recuperabilidad: Habilidad que permite al usuario corregir una acción una vez éste
+ha reconocido un error.
+
+= Tiempo de respuesta: Se define generalmente como el tiempo que necesita el sistema
+para expresar los cambios de estado del usuario, cabe destacar que es importante que
+el tiempo de respuesta sea soportable al usuario.
+
+102.1 MARCO TEÓRICO
+
+Adaptación de tareas: Los servicios que el sistema brinda para dar soporte al usuario
+en sus tareas que requiere y deben estar adaptadas a su modelo mental, no al del
+desarrollador.
+
+Disminución de la carga cognitiva: Los usuarios tienden a confiar más en lo que reconocen que en lo que recuerdan, por tanto, la interfaz debe proporcionar los mecanismos
+que permitan reconocer las acciones y no tengan que recordar su realización.
+
+2.1.4 Jugabilidad
+
+En la literatura sobre Jugabilidad, se puede encontrar dos definiciones o énfasis:
+
+1.
+
+Conjunto de propiedades que describen la experiencia del jugador (PX) utilizando un
+sistema de juego específico cuyo objetivo principal es proporcionar disfrute y entretenimiento, por ser creíble y satisfactoria, cuando juega solo o en equipo (González Sánchez,
+Padilla Zea € Gutiérrez, 20009).
+
+. Término utilizado en análisis y diseño de videojuegos que describe la calidad de un
+
+videojuego en términos de sus reglas, mecánica, metas y su diseño (J. L. G. Sánchez,
+Vela, Simarro ézr Padilla-Zea, 2012).
+
+Existen siete atributos que permiten medir la jugabilidad y caracterizar la experiencia del
+jugador a la hora de interactuar con un videojuego:
+
+Satisfacción: Hace referencia a la gratificación o placer que obtiene el jugador.
+
+Facilidad de Aprendizaje: Capacidad para entender, dominar el juego (como sistema)
+y mecánica.
+
+Eficacia: Tiempo y recursos necesarios con el fin de ofrecer experiencia divertida y
+entretenida.
+
+Inmersión: Capacidad del contenido del videojuego para ser creíble, es decir, lograr
+que el jugador se sienta involucrado en el mundo virtual
+
+Motivación: Características que incitan al jugador realizar acciones específicas y lleve a
+continuar hasta que haya completado la tarea.
+
+Emoción: Impulsos involuntarios del jugador en respuesta a los estímulos del juego
+
+Socialización: Dimensión social.
+
+La siguiente descomposición permite identificar y medir más fácilmente los atributos de
+jugabilidad, y a la vez, permite relacionarlos con los elementos concretos del videojuego, por
+ello, el proceso de análisis ya está centrado en los distintos elementos que pueden aparecer
+en el videojuego, estas son, las facetas de jugabilidad (J. L. G. Sánchez, 2010a):
+
+112.1 MARCO TEÓRICO
+
+Jugabilidad Intrínseca: Medida en la naturaleza del juego y cómo se presenta al jugador (reglas, objetivos, ritmo y mecánicas).
+
+Jugabilidad Mecánica: Asociada a la calidad del juego como software (fluidez de las
+escenas, cinemática, iluminación, sonido, gráficos y entorno).
+
+Jugabilidad Interactiva: Todo lo relacionado con la interacción del jugador (Uso e interfaz).
+
+Jugabilidad Artística: Referente a la calidad y adecuación artística y estética (calidad
+grafica y visual, efectos sonoros, melodías y banda sonora, narración y ambientación).
+
+Jugabilidad Intrapersonal o Personal: Perspectivas individuales, percepciones y sensaciones que produce el juego, esta faceta tiene alta valoración subjetiva.
+
+Jugabilidad Interpersonal o Social: Sentimientos o percepciones de los usuarios cuando se juega en compañía.
+
+2.1.5 Videojuegos
+
+Se define como videojuego, un programa informático creado expresamente para divertir,
+basado en la interacción entre una persona y una máquina donde se ejecuta el videojuego.
+Estos recrean entornos virtuales en los cuales el jugador puede controlar a un personaje o
+cualquier otro elemento de dicho entorno, para conseguir uno o varios objetivos por medio
+de unas reglas determinadas (J. L. González, Cabrera 6 Gutiérrez, 2007).
+
+Las características que debe cumplir los videojuegos son (J. L. G. Sánchez, 2010b):
+
+Existencia de un héroe o protagonista con el cual el jugador debe identificarse sin
+provocarle rechazo.
+
+Existencia de antagonistas o retos que proponen nuevos desafíos a superar.
+Proporcionar una realimentación constante, sobre todo si los avances son significativos.
+
+Crear un efecto inmersivo que permita al jugador insertarse en la mecánica del juego.
+Esto, a veces, se ha visto como algo negativo al ser considerado, en muchos casos, un
+factor “adictivo”.
+
+2.1.5.1 Clasificación de los Videojuegos
+
+A continuación se muestran los factores que permiten clasificar el videojuego (J. L. G.
+Sánchez, 20100):
+
+= Juego individual o en grupo: Hace referencia al modo social del juego. Para el caso de
+juegos grupales, pueden ser competitivos, colaborativos o cooperativos.
+
+122.1 MARCO TEÓRICO
+
+= Género: Especifica qué tipo de videojuego será, es decir, cuál es la temática central.
+Algunos géneros más representativos son: Acción, Aventura, De rol, Estrategia, Simulación, Educativos / Mentales, Carreras, Musicales, Bélicos, Deportivos, Lucha.
+
+= Contenido: Es la forma cómo se va a mostrar el contenido interactivo al jugador, que
+puede ser:
+
+1. Intrísecos: El contenido se ajusta con precisión a la acción del juego, en estos casos,
+los juegos debe corresponder a su propia naturaleza.
+
+2. Extrínsecos: En este tipo de juego, a diferencia del ítem anterior, el contenido se
+inserta a la estructura del juego por una entrada solicitada al usuario.
+
+3. A ritmo propio: Son aquellos que el tiempo puede ser detenido o que no se tiene en
+cuenta, permitiendo al jugador pensar su ejecución o evaluar qué acción realizar.
+
+4. Á ritmo externo: A diferencia del anterior, el tiempo sí cuenta, por ende el jugador
+se ve en la necesidad de medir su rapidez y agilidad ante una respuesta o estímulo
+del juego.
+
+2.1.5.2 Anatomía de los Videojuegos
+
+Un videojuego observado desde el interior del desarrollo puede ser entendido como un
+conglomerado de partes que interactúan entre sí. Thorn divide un videojuego en un conjunto
+de tres partes fundamentales que son (Thorn, 2013):
+
+1. Motor: Este componente contiene las características que son comunes en todos los
+juegos, permitiendo una reutilización de piezas en futuros desarrollos sin tener que
+crearlas nuevamente, ahorrando costos de desarrollo e implementación. En el motor se
+encuentran las características de los juegos que tienen vida, es decir, la parte del juego
+que puede actuar dinámicamente.
+
+2. Assets: Son los componentes del juego contrarios al motor, ya que si el anterior posee
+todos los componentes que son generales para los videojuegos, en la definición de
+assets entran todas las características que son específicas y se crean solamente para los
+videojuegos que están en un mismo contexto.
+
+3. Reglas: Es llamada también la "lógica del juego", son las instrucciones que le dicen
+al motor del juego cómo debe gobernar los assets durante la ejecución para un juego
+específico
+
+2.1.5.3 Arquitectura del Videojuego
+
+La arquitectura de un videojuego está definido por una serie de capas de la siguiente forma
+(McShatffry € Graham, 2013):
+
+1. Capa de aplicación: Esta es la capa que conecta nuestro juego con la máquina en la
+cual se ejecutará.
+
+132.1 MARCO TEÓRICO
+
+ 
+
+Figura 4: Anatomía de un Videojuego. (Thorn, 2013)
+
+2. Capa de lógica del juego: Este es el juego como tal. El código que contiene el funcionamiento del videojuego y que en lo ideal se pudiera correr en cualquier máquina
+
+3. Capa del videojuego: Es el encargado de hacer la interacción con el jugador y otros
+posibles actores. Presenta y recibe los comandos para ser enviados a la lógica del videojuego. Se puede decir que existen tres tipos de vistas la del jugador, de la inteligencia
+artificial, y la del jugador remoto.
+
+2.1.5.4 Desarrollo de Videojuegos
+
+El videojuego, a pesar de ser considerado como un software, no existe una metodología
+estándar que asegure un buen desarrollo y calidad, ya las empresas adoptan una mística para sus procesos de ingeniería de software aplicado a desarrollo de videojuegos, pero autores
+como Rollings y Adams (2003), Callele, Neufeld y Schneider (2005) y Bethke (2003) proponen segmentar el ciclo de vida en tres fases: Pre-producción, Producción y Post-producción
+y va de la mano con lo propuesto en artículo Game Scrum escrito por Godoy y Barbosa (2010).
+
+Pre-Producción: Esta fase se define de idea del juego, involucrando aspectos como: género,
+historia, bocetos, gameplay. De esta fase surgen las primeras especificaciones del videojuego
+e igualmente existe un documento denominado "Game Design Document'(GDD) que contiene lo siguiente: Género, Jugadores, Historia, Look és Feel, Interfaz de Usuario, Objetivos, Reglas,
+Características, Gameplay, Diseño de niveles y Requerimientos Técnicos.
+
+Producción: Es la etapa más importante, en donde ya empieza la diseño y producción del
+
+videojuego y donde se invierte el mayor esfuerzo. El GDD se fortalece con: Diseño del juego,
+Diseño Artístico, Diseño Mecánico, Motor del Juego, Diseño Técnico, Implementación, Pruebas, y
+
+142.1 MARCO TEÓRICO
+
+Lanzamiento.
+
+Post-Producción: Ya es la puesta en marcha y utilización por parte del publico objetivo,
+puesto en el mercado.
+
+2.1.6 Kinect como apoyo a terapias físicas
+
+El Kinect es un dispositivo de detección de movimiento y que fue originalmente desarrollado para la consola de videojuegos Xbox 360 (Pagliari €z Pinto, 2015) . Este dispositivo cuenta
+con los siguientes componentes principales:
+
+= Cámara de color: Esta es la cámara responsable de capturar los datos de vídeo de
+color(RGB). Soporta una velocidad de 30 frames por segundo en una resolución de
+1920 x 1080 píxeles y camara 16:9, los valores de los frames por segundo pueden variar
+según la resolución escogida. El rango de visibilidad es de 60 grados vertical y 70
+grados horizontal.
+
+= Emisor de infrarrojos y sensor de profundidad: El sensor de profundidad consiste en
+dos emisores de rayos infrarrojos que emiten y calculan la profundidad con distancias
+de 0.5 a 4.5 metros.
+
+= Micrófonos: El Kinect cuenta con cuatro micrófonos, en un orden lineal, que funciona
+a 48KHz.
+
+= Led: Está situado entre la cámara y proyector infrarrojo e indica el estado del Kinect.
+
+2.1.7 Terapia Física.
+
+La confederación mundial para la terapia física define que esta se ocupa de proveer servicios a individuos y población para desarrollar, mantener y restaurar el movimiento máximo
+y habilidad funcional durante la vida. Esto incluye proveer servicios en donde el movimiento
+y la funcionalidad que han sido causados por el envejecimiento, lesiones, dolores, enfermedades, desórdenes o factores ambientales. Los movimientos funcionales son la base para tener
+un estado saludable. («The World Confederation for Physical Therapy», 2011)
+
+Además, las terapias físicas se encuentran bajo supervisión y la dirección del terapeuta
+físico, que incluye en sus actividades:
+
+= Evaluación y valoración: Se realizan pruebas a los individuos, y se sintetizan todos los
+datos verificando limitaciones en los pacientes.
+
+= Diagnóstico: En base a los resultados de la valoración se define el caso clínico del
+paciente categorizando su limitación.
+
+= Pronóstico: Se define el tratamiento a seguir, negociando con el paciente los objetivos
+de este.
+
+152.2 ESTADO DEL ARTE
+
+= Intervención y tratamiento: Se implementan actividades con el fin de alcanzar el objetivo: ejercicio terapéutico, entrenamiento funcional en el autocuidado, manejo de casa,
+trabajo, comunidad, técnicas de terapia manual, modalidades electroteraputicas, etc.
+
+= Reevaluación: Etapa donde se evalúan los resultados del tratamiento.
+
+2.2 ESTADO DEL ARTE
+
+En Colombia, según lo investigado a través del laboratorio de Multimedia y Visión por
+computador, actualmente no hay videojuegos que apoyen las terapias físicas, sin embargo,
+en el ámbito internacional ya existen diversas implementaciones que se acercan a lo que este
+proyecto quiere conseguir, a continuación se describen las más relevantes:
+
+= Virtual Rehab: Es un producto desarrollado por la empresa VitualWare que permite
+el tratamiento de diferentes funciones para las siguientes patologías: enfermedades
+neurodegenerativas, (esclerosis múltiple, enfermedad de Parkinson, esclerosis lateral
+amiotrófica (ALS), enfermedad de Alzheimer), trastornos neuromusculares (Distrofias,
+las miopatías, amiotrófica un Neuropatías), neurovascular trastornos mentales "Trauma
+(trazo y lesiones cerebrales traumáticas), y movilidad para las personas mayores. Existe
+un módulo llamado virtualrehab body el cual utiliza la tecnología Kinect para el manejo
+de terapias, además de permitir el seguimiento de cada paciente con una evaluación y
+análisis gráfico de los pacientes, monitoreo de cada paciente. (Virtualware Group, 2014)
+
+= MIRA: Al igual que VirtualRehab, MIRA ofrece un videojuego que apoya las terapias
+mediante la detección de Movimientos con el sensor Microsoft Kinect basado en minijuegos que acompañan al paciente mientras este realiza los movimientos inherentes a
+su tipo de terapia. También posee tutoriales que hacen que los usuarios de la aplicación la entiendan más fácilmente ya que está diseñada para ser usable tanto en el hogar
+como en el centro de salud.
+
+Como ventaja adicional también trae utilidades para los profesionales de la salud, permitiéndoles programar planes de ejercicios personalizados para cada paciente, un mo
+nitoreo constante y estadísticas que pueden ser extraídas para propósitos investigativos.
+(MIRA Rehab, 2014)
+
+= SeeMe: Aunque esta dista un poco más de las anteriores dos implementaciones, sigue
+empleando como sensor de movimiento la misma tecnología y también es posible realizar las terapias tanto en el hogar como en los centros de salud. "También su metodología
+de juego permanece igual que en los anteriores videojuegos, es decir, se trata de que
+el paciente con las partes del cuerpo que se quieran desarrollar realice las actividades
+que se proponen en la aplicación. Como ventaja para los fisioterapeutas tiene un panel
+de control que permite mostrar estadísticas en tiempo real durante la realización de las
+terapias, lo que permite observar inmediatamente si el paciente está realizando los movimientos adecuadamente. Además, dicho panel de control también permite el cambio
+de dificultades y de partes del cuerpo a emplear en el videojuego al instante, lo que
+
+162.3 ANTECEDENTES
+
+quiere decir que asegura una flexibilidad para cada paciente lograda también gracias a
+su sistema de gestión de usuarios que guarda las personalizaciones de ejercicios para
+cada paciente en particular. (Brontes Processing, 2016)
+
+2.3 ANTECEDENTES
+
+Al comenzar el trabajo de grado, el proyecto Platherapy contaba con dos minijuegos que
+permiten movimientos para hombro y codo; estos, contienen un par de módulos: el primero,
+reconoce el seguimiento al progreso motriz del paciente, con el fin de evidenciar el avance
+terapéutico del paciente. El segundo, permite hacer seguimiento del estado del jugador, pero
+faltan elementos que permita mejorar la experiencia de uso y de juego.
+
+Finalmente, el videojuego desarrollado durante el trabajo de grado, no sólo apoyará terapias físicas en miembros inferiores para pacientes adultos del HUV, sino que también contó
+con elementos de que permitan al desarrollador aplicar buenas características de calidad en
+el videojuego, gracias a las guías y modelos de evaluación de usabilidad y jugabilidad. Estas
+pautas que surgieron durante la ejecución del presente trabajo, también serán de utilidad
+
+para playtherapy, ya que se podrán aplicar en los implementados, los desarrollados al mismo
+tiempo y los que se desarrollarán a futuro.
+
+17PLAYTHERAPY
+
+ 
+
+Este capítulo permite conocer el contexto del proyecto de investigación del que hizo parte
+el trabajo de grado, ¿Cuál es su objetivo?, el equipo de trabajo, las metodologías con las
+que se trabajó y como se relacionaron sus fases y etapas y finalmente, algunas herramientas
+empleadas durante el desarrollo del juego.
+
+3.1 DESCRIPCIÓN GENERAL DE PLAYTHERAPY
+3.1.1 Descripción del Proyecto
+
+Playtherapy, videojuego de apoyo a terapias de recuperación física es un proyecto aprobado por
+la vicerrectoría de investigaciónes durante la tercera convocatoria de proyectos de investigación de la Universidad del Valle en el año 2016, es ejecutado por el grupo de investigación
+en Multimedia y Visión por computador, adscrito a la Escuela de Ingeniería de Sistemas
+y Computación, liderado por la profesora Patricia Trujillo, Ph.D. Este proyecto, tiene como
+objetivo principal el desarrollo de un videojuego interactivo que consiste en un conjunto de
+minijuegos orientados a movimientos específicos.
+
+Playtherapy está compuesto por dos principales aplicaciones: el primero, el videojuego, en
+el cuál el terapeuta seleccionara uno o varios minijuegos con el fin de que el paciente interactúe y realice la sesión terapéutica. El segundo, una aplicación web con fines administrativos
+de uso para el terapeuta y profesionales involucrados en la Unidad de Medicina Física y
+Rehabilitación, en él se podrá ingresar y consultar la historia clínica e igualmente el progreso
+del paciente.
+
+Este proyecto inició en Agosto del 2016 y espera culminar en el año 2018.
+
+3.1.2 Equipo de desarrollo
+
+El equipo de Playtherapy actualmente cuenta con seis estudiantes de últimos semestres
+de Ingeniería de Sistemas (Camilo Ruiz, Miguel López, Domenico Di Mambro, Mauricio
+Castillo, Andrés Cortés y Álvaro Loaiza) encargados del desarrollo de videojuegos y de la
+aplicación web. Igualmente se cuenta con un estudiante de Maestría en Ingeniería de Sistemas, Ing. Edwin Gamboa, que se encarga de coordinar al equipo de desarrollo y cuenta
+con el liderazgo de la profesora Patricia Trujillo Ph.D. Igualmente, se cuenta con un equipo
+de Usabilidad /Jugabilidad encargado de plantear, gestionar y desarrollar las pruebas de su
+competencia a los minijuegos y aplicación web, integrado por la profesora Ing, Yuri Bermú
+183.2 METODOLOGÍA
+
+dez, Ing. Edwin Gamboa y el autor de este documento, Álvaro Loaiza. En cuanto al tema de
+terapia física, se cuenta con el apoyo de la estudiante de fisioterapia Andrea Coral.
+
+3.2 METODOLOGÍA
+
+El presente trabajo, siguió la metodología descrita en Subsección 3.2.1 y modelo en la
+Subsección 3.2.2; con el fin de cumplir los objetivos, en especial, mejorar la motivación y
+disfrute por parte del paciente en el uso del videojuego, y paralelamente cumplir con los
+criterios de Usabilidad y Jugabilidad.
+
+3.2.1
+
+Game Scrum
+
+Esta metodología es tomar las ideas de Scrum y eXtreme Programing (XP). La primera metodología se basa en pequeñas iteraciones llamadas sprints, en el cual se realiza seguimiento
+y evaluación del estado de la tareas asignadas en el sprint. Las reuniones que se realizan
+en esta metodología son: planificación, acompañamiento, revisión e inspección. La segunda
+metodología, generalmente utilizada para desarrollo de videojuegos y creación de contenido
+multimedia, se basa en cinco principios o valores: comunicación, valor, retroalimentación,
+respeto y simplicidad (Godoy é Barbosa, 2010).
+
+Game Scrum está dividido en tres fases:
+
+1.
+
+Pre-Producción: Es la fase en la que se define en forma, el concepto, los objetivos y diseño del juego; igualmente, se definen aspectos técnicos como lenguaje de programación,
+plataforma, hardware.
+
+En esta etapa está el prototipo y el “Game Design Document” que permitió definir el
+alcance, desarrollo y prueba del videojuego, con el fin de pasar a la siguiente fase para
+darle desarrollo al proyecto.
+
+. Producción: Una vez definida la idea y alcance del juego a desarrollar a través del GDD
+
+inicial, se comienza la implementación de los productos del proyecto subdividido por
+actividades, se irá iterando e incrementando hasta obtener un videojuego con suficiente
+madurez para ser lanzado.
+
+. Post-Producción: Una vez completo el juego, se pasa a las pruebas tanto de expertos
+
+como implicados o usuarios finales, con el fin de hacer retroalimentación y ajustes al
+proyecto.
+
+Después de las pruebas, el videojuego ya tiene una madurez suficiente para realizar el
+lanzamiento o puesta en marcha hacia la empresa o publico objetivo, en caso de uso
+comercial, se realizan campañas de marketing y divulgación masiva.
+
+193.2 METODOLOGÍA
+
+3.2.2 Modelo de Proceso de la Ingeniería de la usabilidad y de la accessibilidad (MPlu+a)
+
+La idea central de este modelo es poder concatenar el proceso de desarrollo de sistemas
+interactivos con la ingeniería de usabilidad y accesibilidad proporcionando herramientas que
+permitan guiar el proceso de implementación de un sistema interactivo. (Granollers, 2016)
+
+Este esquema esta compuesto por tres pilares que permite determinar en que fase del
+desarrollo se encuentra una actividad específica:
+
+= Ingeniería de Software: Comprende las etapas genéricas del ciclo de vida del software:
+Análisis de requisitos, diseño, implementación y lanzamiento.
+
+= Prototipado: Engloba las técnicas que permitirán la posterior fase de evaluación.
+
+= Evaluación: Caracteriza las técnicas de evaluación existentes.
+
+    
+      
+
+   
+
+PS
+e 8
+
+Y s
+// USUARIOS *
+
+    
+
+ 
+
+EVALUACIÓN
+
+  
+
+IMPLEMENTACIÓN
+
+> LANZAMIENTO )
+
+Figura 5: Modelo de Proceso de la Ingeniería de la Usabilidad y la Accesibilidad (MPlu+a). (Granollers, 2016)
+
+ 
+
+ 
+
+Este paradigma, propone un modelo iterativo como se puede ver en la Figura 5, que establece procesos repetitivos, e invita a la participación activa del usuario en todas las etapas
+
+203.2 METODOLOGÍA
+
+del desarrollo del proyecto. Igualmente, este modelo es flexible, es decir, no es necesario realizar las fases de manera lineal o en cascada, sino que el proyecto particular, las reuniones
+de planeación son la que definirá la cantidad de iteraciones necesarias para cumplir con lo
+propuesto.
+
+3.2.3 Game Scrum € MPluz+a
+
+El siguiente gráfico, se muestra cómo se dividieron las fases del modelo MPlu+a dentro
+de las etapas de Game Scrum.
+
+Análisis de
+
+Pre-Producción Requisitos
+
+Producción Prototipado Implementación
+
+Post-Produción Evaluación PS Lanzamiento
+
+ 
+
+Figura 6: Game Scrum € MPlu+a
+
+3.2.4 Herramientas
+
+A continuación se relacionan las principales herramientas que se utilizaron para el desarrollo del trabajo de grado.
+
+= Taiga: Es una herramienta de código abierto para gestión de proyectos ágiles, starups,
+bajo Scrum o Kanban, permitiendo administrar historias de usuario, sprints, tareas e
+issues.
+
+= Unity: Es un motor de desarrollo de videojuegos multiplataforma en 2D y 3D (web, PC,
+móviles, Smart TV, consolas y realidad virtual) desarrollado por Unity Technologies.
+
+213.2 METODOLOGÍA
+
+= Unity Collaborate: Permite almacenar, compartir y guardar los proyectos de Unity en
+la nube.
+
+= C Sharp: Es un lenguaje de Programación Orientado a Objetos desarrollado por Microsoft, es uno de los lenguajes soportados en Unity para el desarrollo de scripts.
+
+22PRE-PRODUCCIÓN
+
+ 
+
+Este capítulo de Pre-producción expone las fases de análisis de requisitos y diseño de la
+metodología MPlu+a propuesto por Granollers, 2016; en esta etapa, se realizó reconocimiento
+del ambiente de terapia física e igualmente una propuesta de minijuego para miembros
+inferiores en pacientes adultos en el Hospital Universitario del Valle Evaristo García, ESE;
+paralelamente, se realiza una selección de heurísticas de jugabilidad para desarrollar la guía
+de estilo y el plan de evaluación heurística.
+
+4.1 ANÁLISIS DE REQUISITOS
+
+Esta fase corresponde al análisis del ambiente de terapia física dentro del Hospital Universitario del Valle, con el fin de hacer reconocimiento de cómo los terapeutas y los pacientes
+realizan las tareas, con el fin de capturar sus necesidades y la experiencia real durante la
+sesión terapéutica.
+
+d Ed isto, vamos a realizar
+Llego con un diagnóstico una valoración inicial, con
+
+Esta es mi deficiencia y el fin de establecer unos
+limitaciones objetivos para esta terapia
+
+ 
+
+El terapeuta registra el
+
+diagnóstico, la valoración
+inicial, el objetivo y el plan de
+> trabajo.
+
+Terapeuta
+
+ 
+
+ 
+
+ 
+
+ 
+
+Paciente
+
+ 
+
+De acuerdo al plan de trabajo, el
+terapeuta selecciona elementos
+
+físicos que le permitan realizar las El terapeuta explicará cómo deberá realizar el
+terapias físicas de rehabilitación. ejercicio terapéutico.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Paciente
+
+ 
+
+ 
+
+El paciente realiza el ejercicio físico indicado por : Al finalizar la sesión de terapia,
+el terapeuta. el terapeuta registra información
+post-terapia y post-evaluación
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Paciente
+
+ 
+
+Figura 7: Storyboard
+
+234.1 ANÁLISIS DE REQUISITOS
+
+4.1.1 Entrevista y Observación de Campo
+
+Con el fin de caracterizar la metodología de Diseño Centrado en el Usuario descrito en
+la Subsección 2.1.2 para tener concordancia entre los requisitos fijados y la consecución de
+los mismos, se realizaron reuniones con el personal de la Unidad de Medicina Física del
+Hospital Universitario del Valle, realizando entrevistas y retroalimentación de propuesta de
+minijuego.
+
+Inicialmente consistió en realizar entrevistas y observación de campo, para la primera
+parte, el equipo de Usabilidad y Jugabilidad en Playtherapy, conformado por la Ing. Yuri
+Bermúdez, MBA, el Ing. Edwin Gamboa y el estudiante Álvaro Loaiza en reunión interna
+definieron realizar una entrevista semi-estructurada, formulando las siguientes preguntas
+como guía:
+
+1. ¿Cuál es el proceso que se sigue antes de iniciar una sesión de terapia?
+2. ¿Qué tipo de terapias son las más frecuentes?
+
+3. ¿Cómo es la disposición del paciente para realizar la terapia al inicio de la sesión? ¿en
+las primeras sesiones?, ¿En las últimas?
+
+4. ¿Cuáles considera que son las principales dificultades y emociones a las que se enfrentan los pacientes cuando realizan las terapias?, ¿Son las mismas dificultades para
+jóvenes y para adultos?
+
+5. ¿Qué cantidad de pacientes no culminan la cantidad de sesiones recomendadas para
+su terapia? ¿De 100 cuántos?
+
+6. ¿Podría describir el proceso que se lleva a cabo durante una sesión de terapia?, ¿Quienes intervienen?, ¿Cuánto tiempo dura?, ¿Se recoge alguna información durante la
+terapia?
+
+7. ¿Cómo se realiza el seguimiento de los pacientes a lo largo de las terapias?
+
+Esta entrevista fue realizada a dos terapeutas de la Unidad de Medicina Física y Rehabilitación del HUV, los resultados de la entrevista (audio y resumen de respuestas) se puede
+encontrar en los anexo Pre-producción / Análisis de Requisitos /EntrevistaUno
+
+Una segunda entrevista se realizó con las siguientes preguntas:
+
+Caracterización de los pacientes:
+= Niños (5-12 años)
+= Jóvenes (12-18 años)
+
+= Adultos Edad Temprana (18-35 años)
+
+244.1 ANÁLISIS DE REQUISITOS
+
+= Adultos Edad Media (35-60 años)
+= Adultos Mayores (>60 años)
+
+1. Caracterización: Nivel educativo, estrato social, género (De acuerdo a sus experiencias
+e impresiones)
+
+2. Disposición para realizar terapias (Por caracterización del paciente)
+3. Existen terapias específicas para estos tipos de pacientes
+
+4. Preferencia de ejercicios: ¿Cuales les gustan?, ¿Por qué?, ¿Cuales no?, ¿Por qué?
+
+Relación y conocimiento frente a TIC's
+
+1. ¿Qué tan familiarizado está con las tecnologías? ¿Aplicaciones en la web? ¿Videojuegos?
+¿Qué tipo de videojuegos?, ¿Sobre qué temáticas?, Dar ejemplos de aplicaciones.
+
+2. ¿Qué esperaría que le permita realizar el videojuego a usted como terapeuta?
+3. ¿Qué esperaría que le permita realizar el videojuego a los pacientes?
+
+4. ¿Qué esperaría que le permita realizar la aplicación web? Sugerencia: Podría darle
+algunos ejemplos de funcionalidades para empezar
+
+Terapia
+
+1. ¿Cuáles son las tareas específicas que realizan los auxiliares en cada terapia? Si tienen
+o no autonomía para asignar ejercicios?
+
+2. ¿Qué rol podría cumplir los auxiliares cuando se use el videojuego para apoyar las
+terapia físicas?
+
+3. ¿Qué función considera que debería cumplir Playtherapy dentro de las terapias físicas?,
+¿Cuándo y cómo sería conveniente usarlo? (Importante aclarar que Playtherapy no es
+un sustituto)
+
+Preguntas adicionales
+
+1. ¿Podría indicar en qué consisten los ejercicios de calentamiento? Ejemplos? Difieren de
+acuerdo al tipo de Terapia?
+
+2. ¿Qué similitudes y diferencias hay en la terapia ocupacional frente a las terapias físicas?
+(Con el objetivo de determinar si Playtherapy podría apoyar terapias ocupacionales)
+
+En esta oportunidad se tuvo oportunidad de entrevistar a tres terapeutas de la Unidad de
+Medicina Física y Rehabilitación, se omitieron preguntas adicionales debido a dificultades
+con el tiempo. Los resultados de la entrevista dos (audio y resumen de respuestas) se puede
+encontrar en los anexos Pre-producción / Análisis de Requisitos / EntrevistaDos.
+
+Una vez realizadas las entrevistas, se procede a realizar el análisis de información recolectada, generándose los siguientes documentos resumidos en la siguiente Tabla 2:
+
+254.2 DISEÑO
+
+Tabla 2: Resumen de documentos de análisis de requisitos
+
+NÚMERO DOCUMENTO DESCRIPCIÓN UBICACIÓN EN ANEXOS
+
+ 
+
+Documento que describe el
+
+contexto del lugar de traba
+Análisis Etno- Pre-producción / Análisis de
+
+1 » z *
+gráfico jo y cómo el personal realiza requisitos
+las tareas y sus responsabilidades y expectativas
+o Documento que identifica los
+Análisis de . dios
+> implicados usuarios, el impacto en el Pre-producción/ Análisis de
+(stakehol ders) proyecto, sus expectativas e requisitos
+intereses
+Análisis con- Documento que describe có- l o
+nod Pre-producción / Análisis de
+3 textual de mo realizan las tareas en el requisitos
+tareas ambiente de trabajo 3
+Historieta que muestra cómo
+es el proceso de interacción
+4 Storyboards antes del proyecto y cómo se Pre-producción / Análisis de
+
+pretende una vez se imple- requisitos /Storyboards
+mente en la Unidad de Medicina Física del HUV
+
+4.2 DISEÑO
+
+En esta etapa comprende la selección de movimientos, la creación de una historia, reglas
+y estructura para el minijuego, la selección de características de Usabilidad y Jugabilidad y
+finalmente el diseño de una guía de estilo que comprende los mecanismos que permitirán
+mejorar la experiencia de juego.
+
+4.2.1 Selección de Movimientos
+
+Se realiza identificación de los movimientos en miembros inferiores con asesoría de la estudiante de fisioterapia Andrea Carolina Coral y validación con la coordinadora de la Unidad
+de Medicina Física y Rehabilitación del Hospital Universitario del Valle Mg. María Isabel
+Pavas, requiriendo los siguientes movimientos resumidos en Tabla 3. Para mayor detalle, se
+puede remitir al documento ubicado en los anexos: Pre-producción / Análisis de Requisitos /Selección de Movimientos.
+
+264.2 DISEÑO
+
+Tabla 3: Selección de Movimientos Plano Frontal
+
+DESCRIPCIÓN MOVIMIENTO IMAGEN
+
+ 
+
+= Flexión de cadera con flexión de rodilla
+(plantiflexión neutro o dorsiflexion)
+
+billo neutro
+
+a
+
+Pa
+= Flexión de cadera, extensión de rodilla y FP.
+dorsiflexión de tobillo pes
+
+= Extensión de cadera, extensión de rodilla y
+tobillo a neutro
+
+ 
+
+4.2.2 Idea de Mini-Juego
+Con el fin de crear una historia, reglas y estructura para el videojuego, se cita a una
+reunión al equipo de Playtherapy para realizar y socializar una lluvia de ideas y concretar
+
+una representación de juego llegando a un concepto concreto que se detallará en la siguiente
+sección.
+
+4.2.3 Game Design Document
+
+Siguiendo la metodología de desarrollo de videojuegos Game Scrum (Godoy éz Barbosa,
+2010) y con el fin de concretar la idea de juego en un documento formal, se elabora en el Ga
+274.2 DISEÑO
+
+me Design Document (ver anexo: Preproducción/Game Design Document). A continuación,
+se resume la idea de minijuego:
+
+"= Nombre: Fútbol Libre
+
+= Ambiente: Parque
+
+= Personaje: Adulto joven que desea practicar fútbol libre
+
+= Objetivo Principal: Mantener pelota de fútbol en el aire
+
+= Miembros del cuerpo involucrados: Cadera, Rodilla y Pie
+= Planos: Frontal
+
+= Configuraciones:
+e Ángulo Mínimo y Máximo (Flexiones)
+e Tiempo rebote de la pelota
+e Rápido: Resistencia
+
+e Lento: Potencia
+
+= Reglas:
+
+e Mantener la pelota en el aire levantando la rodilla o el pie según lado que corresponda
+
+e La cantidad de rutinas correctas determinará la victoria del jugador
+
+4.2.4 Product Backlog
+
+Dentro de las reglas de trabajo de Playtherapy, se considera que todo mini-juego debe
+contener las siguientes historias de Usuario (Nota: Es importante resaltar que que la documentación del desarrollo del proyecto se realiza en inglés, por ende, cada HU se presentará
+en el idioma definido de desarrollo):
+
+1. Game Scenario: Son los elementos del ambiente de juego, que puede ser un parque,
+una casa, una playa y demás objetos que acompañen el escenario.
+
+2. Movement Control: Hace referencia a los movimientos que debe ejecutar el avatar de
+acuerdo a las entradas del sensor de movimiento (Kinect 2.0).
+
+3. Interaction Elements: Son los elementos con los que interactuará el personaje del juego.
+
+4. Scoring System: El sistema de puntos de acuerdo a las características y naturaleza del
+juego, debe existir dos módulos: Repeticiones y tiempo.
+
+5. Feedback System: El juego debe contar con un sonido de ambiente, aciertos, desaciertos
+e igualmente indicaciones para que el jugador sepa que movimientos debe ejecutar.
+
+284.2 DISEÑO
+
+6. Parameters Screen: Son los parámetros/reglas para que el terapeuta pueda configurar
+el modo de juego, elementos como tiempo, repeticiones, ángulos, partes del cuerpo a
+trabajar, etc.
+
+7. Game Persistence: El juego debe contener una base de datos con el fin de que pueda
+almacenar información como ángulos, desempeño, etc.
+
+8. Game Tutorial: En él debe estar contenidas las instrucciones para poder interactuar con
+el juego.
+
+9. Final Animation: Una vez finalizado el juego, debe contener una animación creativa
+antes de desplegar la pantalla de parámetros.
+
+10. Results Screen: Es la pantalla en la que se mostrará el nivel de desempeño del jugador.
+
+4.2.5 Selección de Heurísticas
+
+Con el fin de definir cuáles son las características de Usabilidad y Jugabilidad para el
+desarrollo del proyecto Playtherapy, inicialmente se realiza una revisión de los antecedentes
+relacionado a la evaluación heurística y los principios desarrollados por expertos en el tema.
+
+Del estado del arte, se seleccionaron las siguientes lecturas:
+
+= Heuristic And Usability Guidelines For The Creation And Evaluation Of Fun In
+Video Games (Federoff, 2002): Propone una lista estándar de heurísticas para desarrolladores de videojuegos, comparándolos con los principios heurísticos de Nielsen, 2005
+y finalmente define una batería de heurísticas a partir de un estudio exploratorio con
+un equipo que estaba en la fase inicial (pre-producción) de un videojuego.
+
+Las batería de Heurísticas propuestas por Federoff se pueden ver en los anexos: Preproducción / Análisis de Requisitos / Batería de heurísticas.
+
+= Game Usability Heuristics (PLAY) For Evaluating And Designing Better Games: The
+Next Iteration (Desurvire $ Wiberg, 2009): Este trabajo toma como base Heuristic Evaluation for Playability (HEP) (Desurvire, Caplan € Toth, 2004), pero debido a que es
+limitado, desean ampliar y generar conjuntos heurísticos y que sea útil en todo el proceso de desarrollo de videojuegos. Estos principios fueron desarrollados a través de
+voluntarios que colaboraron en el proyecto durante una conferencia anual de videojuegos, llenando un cuestionario acerca del juego seleccionado a partir de una lista.
+Los resultados de la encuesta, permitieron a los investigadores seleccionar una lista de
+heurísticas que denominaron PLAY.
+
+Las batería de Heurísticas propuestas (Heuristics of Playability - PLAY) se pueden ven
+en los anexos: Pre-producción / Análisis de Requisitos / Batería de heurísticas.
+
+= Jugabilidad. Caracterización de la experiencia del jugador en videojuegos (J. L. G.
+Sánchez, 2010a): Este documento define la jugabilidad como un elemento inherente a
+
+294.2 DISEÑO
+
+un sistema interactivo que son los videojuegos, por tanto, se define como un conjunto
+de propiedades que describen la experiencia del jugador ante la interacción con el juego,
+ya que los mismos, tienen como objetivo de divertir y entretener “de forma satisfactoria
+y creíble” a nivel personal o social. Esta tesis doctoral plantea una herramienta para el
+análisis y evaluación de jugabilidad guiado por heurísticas.
+
+El autor genera una batería de heurísticas y se puede encontrar en el anexo: Preproducción / Análisis de Requisitos / Batería de heurísticas.
+
+Con base a las anteriores lecturas, se revisó cada una de las baterías de heurísticas por los
+miembros del equipo de Usabilidad /Jugabilidad, hallando que las heurísticas recopiladas
+por J. L. G. Sánchez, 2010a son tomadas en base a las de Federoff, 2002 y de Desurvire y
+Wiberg, 2009; por lo que se decide dejar únicamente, las que se encuentran en la tesis doctoral. Posteriormente, se hizo revisión de cada principio tomando como base la características
+del proyecto Playtherapy, si aplican o no. Junto con el equipo de Usabilidad / Jugabilidad se
+realizó una reunión con el fin de concretar cuáles harían parte de las guías de estilo y test
+heurístico. Las heurísticas que finalmente quedaron seleccionadas se puede ver en la hoja de
+cálculo “Selección de Heurísticas” que se puede hallar en el anexos: Pre-producción / Análisis
+de Requisitos / Batería de heurísticas.
+
+4.2.6 Guía de Estilo
+
+Con el fin de que se pueda aplicar mecanismos que apoye el proceso de interacción entre
+el usuario y el videojuego y mejorar la experiencia del jugador, se diseñó una guía de estilo
+que toma los siguientes tópicos:
+
+1. Estructura del juego: El equipo de Playtherapy definió unos requerimientos mínimos
+que deben contener la estructura de juego
+
+2. Pantalla de configuración/Parámetros: En ella se plasma los principios de agrupación o
+distribución de elementos Gestalt en la pantalla de parámetros, se define que significa
+cada distribución con un prototipo de cómo usarlos y advertencias de configuración
+inadecuada de los elementos. Se explica en detalle los que más se adecúan al proyecto:
+
+= Proximidad: Hace referencia al uso de patrones horizontales y/o verticales, manteniéndose de manera ortogonal y escalable (mayor-menor).
+
+= Similitud: Ante la variedad de objetos, permite agruparlos bajo el principio de
+semejanza o que son parecidos dentro de sus propiedades, que permite percibirlos
+como un todo conceptual.
+
+= Región Común: Permite que los elementos sean vistos como un grupo o un conjunto
+a través de rasgos o eventos comunes.
+
+= Conexión entre los elementos: Permite minimizar la diferencia entre los elementos,
+que permite percibir que el elemento anterior o el siguiente están correlacionados.
+
+304.2 DISEÑO
+
+3. Juego: Dentro del juego, se dan recomendaciones generales frente al correcto uso de
+colores dentro de la interfaz, información visual, sonido, percepción, que debe tener
+como mínimo el tutorial y qué es Low Poly y sus razones de uso en el proyecto.
+
+4. Jugabilidad: En este ítem se relacionan los principios heurísticos que se adecúan para
+una buena experiencia del juego y de usuario.
+
+Este documento se puede encontrar en el anexos: Pre-Producción / Análisis de requisitos.
+
+4.2.7 Evaluación Heurística
+
+Para este proyecto, con esta evaluación se busca verificar la calidad de un sistema interactivo con una serie de principios llamados “heurísticas” previamente establecidos. Se llevó
+a cabo por un evaluador experto en el tema (para este caso en jugabilidad) que actúa en
+representación del usuario final al interactuar con el sistema que se está evaluando. Esta evaluación tiene como objetivo medir la calidad del sistema interactivo (videojuego) en relación
+al funcionamiento del juego, su diseño y la caracterización de la experiencia del jugador durante la interacción (M. P. González, Pascual € Lorés, 2001).
+
+La evaluación heurística tiene como ventaja ser de bajo costo para su aplicación, pero a
+la vez tiene como principal desventaja la opinión subjetiva a la está sometida la valoración
+del experto y no de los propios usuarios del sistema. Siguiendo lo afirmado o definido por
+J. L. G. Sánchez, 2010d, el equipo de Usability /Playability de Playtherapy dividió la evaluación heurística y a la vez integró cada heurística relacionando o aplicando tres estrategias de
+evaluación de los sistemas interactivos definidos dentro de la Interacción Persona Ordenador:
+Inspección, Indagación y Observación de Campo (Abascal, Cafias, Gea, Gil € Lores, 2006).
+
+1. Inspección: Consiste en que el evaluador inspecciona o examina unos aspectos relacionados con el tema de jugabilidad, dentro de los métodos de inspección se encuentra la
+evaluación heurística, que se encarga de analizar la conformidad del sistema interactivo
+con los principios reconocidos por expertos en el tema.
+
+2. Indagación: Consiste en obtener la información a través del diálogo con los usuarios
+mediante preguntas verbales o escritas, para este fin, se preparará previamente una
+entrevistas semi-estructurada.
+
+3. Observación de Campo: Consiste en ejecutar el sistema interactivo en el ambiente real
+en la cual los usuarios finales interactuarán, los evaluadores observarán sus interacciones, reacciones e identificar incidentes críticos, para preguntarles a los usuarios qué
+ocurrió y complementar la información.
+
+4.2.7.1 Planificación de Evaluación Heurística
+
+Con las heurísticas seleccionadas en Subsección 4.2.5, se realizó una pre-selección de cada
+principio heurístico con la respectiva justificación del porque se debe evaluar bajo uno de los
+
+314.2 DISEÑO
+
+tres métodos seleccionados previamente, una vez terminado, llevó a cabo una reunión con el
+equipo de Usabilidad /Jugabilidad para concretar la selección de heurísticas en cada uno de
+los métodos. La batería de heurísticas agrupadas por cada método de evaluación se puede
+ver en el anexo: Pre-producción / Análisis de requisitos / Evaluación Heurística.
+
+Con las heurísticas agrupadas por las distintas estrategias de evaluación, se procede a
+elaborar la plantilla de Evaluación Heurística, en dos formatos: primero en Hoja de Cálculo
+de Google y una versión para descargar y usar en Microsoft Excel que se encuentran en el
+anexo: Pre-producción / Análisis de requisitos /Evaluación Heurística.
+
+4.2.7.2 Puesta En Marcha De La Evaluación Heurística
+
+Se elabora el documento “Guía de Evaluación Heurística Playtherapy” con el fin de orientar al evaluador encargado el paso a paso de la puesta en marcha de la evaluación heurística,
+que se encuentra en los anexos: Pre-producción / Análisis de requisitos / Evaluación Heurística. A continuación se relacionan los aspectos más importantes:
+
+El perfil de los evaluadores pueden ser:
+
+= Especialistas de Jugabilidad
+= Consultores de desarrollo de videojuegos con experiencia en Jugabilidad
+
+= Personas del equipo de trabajo con conocimiento del tema de Jugabilidad
+
+1. Evaluación por Inspección: Para la ejecución de esta evaluación, el evaluador analiza,
+contrasta y valida el conjunto de principios heurísticos definido mediante la observación e interacción del juego. A cada principio, el evaluador agrega un valor entero entre
+1 y 5; 1 como poco o nada y 5 como Mucho o bastante. Ejemplo:
+
+E Se puede jugar al juego sin hacer uso del manual o libreto
+
+aj El juego dispone de distintos niveles de dificultad y/o un sistema de dificultad que se adapta a las habilidades del a
+jugador
+
+3 | El juego no penaliza con repetir la misma acción hasta superar un reto 3. |
+
+Figura 8: Ejemplo Evaluación Heurística
+
+ 
+
+2. Evaluación por Indagación: Para la ejecución de esta evaluación, el evaluador realizará
+una entrevista en la que indaga aspectos claves en la jugabilidad mediante una entrevista semi-estructurada a los usuarios potenciales del sistema (Pacientes y Terapeutas).
+
+La ejecución de esta evaluación cuenta con los siguientes pasos:
+
+a) Pre-test: En ella, se le hará un perfil demográfico
+b) Test: Interacción del jugador con el juego en ejecución
+
+c) Post-test: Realización de entrevista semi-estructurada
+
+324.2 DISEÑO
+
+El documento para la realización del test se encuentra en el anexo: Pre-producción / Evaluación
+Heurística
+
+Una vez realizado el test, el evaluador se remite a la plantilla de evaluación heurística,
+agregando los valores enteros de 1 a 5 como en el ítem anterior, en los principios
+heurísticos que corresponda.
+
+. Evaluación por Observación: Para la ejecución de esta evaluación, el evaluador realizará una observación de campo del comportamiento de los usuarios del videojuego,
+tomando en cuenta las reacciones, pausas y su modo de interacción con el sistema
+interactivo.
+
+Aspectos a tener en cuenta durante la observación:
+
+1) Entendimiento del terapeuta en la configuración del juego
+b) El tiempo de uso del juego, completo o desiste en seguir jugando antes de acabarse
+c) El paciente entiende las acciones del juego (precisión)
+
+d) Intentos exitosos y fallidos (Las veces que el usuario debe realizar una acción
+frente al juego)
+
+e) El tiempo que el paciente demora por reto (tiempo suficiente para realizar la acción)
+
+f) Uso de los retos / objetivos secundarios
+
+2) Uso del juego posterior al tutorial (memorización del juego y sus reglas)
+
+h) Uso repetido de tutorial
+
+1) Tiempo entre retos (Sea suficiente para un nuevo reto)
+
+J) Comportamiento del usuario (agrado, concentración, frustración, interés, etc.)
+
+Una vez realizada la observación, el evaluador se remite a la plantilla de evaluación
+heurística, agregando los valores enteros de 1 a 5 como en el ítem anterior, en los
+principios heurísticos que corresponda.
+
+Los principios heurísticos para test por observación solo aplican para una única faceta
+de jugabilidad: personal
+
+4.2.7.3 Resultados
+
+El evaluador debe brindar informe de sus resultados, dando a conocer:
+
+= Los principios heurísticos con valores críticos (1,2) y las razones por la que tuvo esos
+valores
+
+= Los principios heurísticos con valor aceptable (3,4) y las razones por la que tuvo esos
+valores
+
+= Recomendaciones generales, comentarios y sugerencias
+
+334.3 DIFICULTADES, RETOS Y APRENDIZAJES
+
+Igualmente, la plantilla mostrará una valoración promedio por Atributos, Facetas de Jugabilidad y general.
+
+El valor promedio se interpretará de la siguiente manera:
+= Valor crítico: entre 1.0 a 2.9
+= Valor Medio: entre 3.0 a 3.9
+= Valor Aceptable: 4.0 a 4.4
+= Valor Excelente: 4.5 a 5.0
+
+Igualmente, por facetas, por atributos y combinado, brindando tres tipos de gráficos que
+se pueden ver en la Figura 9:
+
+a. Gráfico de radar
+b. Gráfico de columnas
+
+c. Gráfico de torta
+
+El gráfico de radar permite visualizar de manera compartida cómo es la relación frente
+a los atributos y las facetas, entre los valores 1 a 5 mostrando la relación entre la situación
+actual frente a la deseada (Encima de 4). Con el gráfico de barras se podrá observar de
+manera cuantitativa los aspectos más valorados y los que se podrían mejorar y finalmente,
+el gráfico de pastel permite conocer cómo es la relación porcentual y su proporción entre los
+distintos elementos que fueron evaluados.
+
+4.3 DIFICULTADES, RETOS Y APRENDIZAJES
+
+En esta primer etapa, a nivel personal se tuvieron las siguientes dificultades, retos y aprendizajes:
+
+= Se aprendió a relacionar el modelo mental de los involucrados con el modelo conceptual existente en la bibliografía y reconocer su importancia en la disciplina de Interacción Persona-Ordenador.
+
+= Se aprendió a desarrollar entrevistas con los involucrados, cómo se debe dialogar con
+ellos con el fin de obtener información relevante para el proyecto.
+
+= Con las entrevistas, se fortalece el conocimiento para lograr el perfil de analista funcional o de requerimientos, mejorando la comunicación con el fin de que los involucrados
+entiendan la pregunta, cómo lograr que ellos den información indispensable y sean
+conscientes que son parte del proceso. Igualmente, lograr comunicarse con profesionales de otras áreas para llegar a un acuerdo con el producto a desarrollar.
+
+344.3 DIFICULTADES, RETOS Y APRENDIZAJES
+
+ 
+
+ 
+
+Jugabilidad Intrínseca
+
+Satisfacción
+4,00
+
+3,00
+
+Emoción
+
+2,00
+
+Motivación
+
+ 
+
+Inmersión
+
+(a) Radar
+
+Aprendizaje
+
+Efectividad
+
+ 
+
+ 
+
+Satisfacción | EA AMINO END cs: Ms E | Efectividad
+
+Jugabilidad Interactiva
+
+Inmersión Motivación Emoción
+
+ 
+
+(b) Columnas
+
+ 
+
+ 
+
+Jugabilidad Artística
+
+ 
+
+ 
+
+ 
+
+(c) Torta
+
+Figura 9: Tipos de Gráficos
+
+Hubo dificultades con la disponibilidad de los terapeutas como de la coordinadora
+e igualmente al momento de realizar las entrevistas, ya que, las entrevistas fueron
+realizadas en el ambiente laboral. Por tanto, es mejor buscar un lugar como una sala de
+juntas, que sea independiente del lugar de trabajo.
+
+Se aprende a realizar documentación de diseño del juego, concretamente Game Design
+
+Document.
+
+Se aprende a cómo se deben crear buenas historias de usuario para posteriormente ser
+aplicada y administrada en una herramienta: Taiga.
+
+Se conoce el estado del arte de jugabilidad y sus dos principales enfoques: primero,
+como una forma de caracterizar la experiencia del jugador (PX) y segundo, como una
+medida de calidad del videojuego como software.
+
+El ambiente del proyecto de investigación permite de alguna manera enfrentarse a lo
+que sería un ambiente al laboral, el reto de trabajar en equipo. A través de ello, se logra
+identificar dificultades de manejo de tiempo y comunicación grupal.
+
+35PRODUCCIÓN
+
+ 
+
+En este capítulo se presentan las fases de prototipado e implementación en MPluza, en
+la cual se codifica y se da cumplimiento a las Historias de Usuarios definidas en el Product
+Backlog propuesto durante la etapa anterior, se realizara por cada HU y sus evidencias del
+cumplimiento de las tareas. El desarrollo fue a través de Unity versión 2017.1 y la administración de tareas de Scrum con Taiga.
+
+5.1 PROTOTIPADO E IMPLEMENTACIÓN
+5.1.1 Game Scenario
+
+Para el cumplimiento de la presente Historia de Usuario, se realizaron dos propuestas:
+primero, el escenario fuera en un estadio de fútbol y segundo, un parque.
+
+ 
+
+(a) Soccer Stadium (b) Park
+
+Figura 10: Propuestas de Escenarios
+
+Durante la realización de la presente historia de usuario, el equipo de Playtherapy concretó
+el uso el concepto gráfico de Low-Poly, con el fin de optimizar el rendimiento del hardware
+y el desarrollo del juego, por lo que se opta por utilizar la segunda propuesta, ya que cumple
+con los requerimientos técnicos.
+
+El escenario se obtuvo a través del Asset Store de Unity.5.1 PROTOTIPADO E IMPLEMENTACIÓN
+
+5.1.2 Interaction Elements
+
+5.1.2.1 Personaje
+
+Una vez organizado el escenario y la escena, se procede a realizar una búsqueda de Assets
+de tipo personajes, optando por dos propuestas para ser validadas con Andrea Coral (asesora
+en terapia física) y María Isabel Pavas (Coordinadora de la Unidad de Medicina Física y
+Rehabilitación) y con asesoría del equipo de Playtherapy que fueron:
+
+ 
+
+(a) Cute Male (b) Porl
+
+Figura 11: Propuestas de Personaje
+
+Se decide dejar el personaje Porl, ya que cuenta con un piernas más largas, dando más
+visibilidad a los movimientos seleccionados a diferencia de Cute Male.
+
+ 
+
+Figura 12: Prototipo Cute Male
+
+Para la implementación, siguiendo la recomendación de la guía de estilo desarrollada en
+Subsección 4.2.6, se cambia los colores predefinidos inicialmente creando contraste medio y
+con poco nivel de brillo. La implementación de Porl se puede ver en Figura 13
+
+375.1 PROTOTIPADO E IMPLEMENTACIÓN
+
+5.1.2.2 Balón
+
+Con el fin de ser acorde a los modelos mentales de los usuarios, se opta por buscar e
+implementar un balón de fútbol genérico, no usar modelos modificados en eventos especiales
+como Copa Mundial de la FIFA o la Champions League.
+
+ 
+
+ 
+
+Figura 13: Implementación de Porl en Escenario
+
+5.1.3. Movement Control
+
+La implementación de esta historia de usuario se requiere:
+
+1. Hacer uso del hardware Kinect 2
+2. Implementar el esqueleto para el personaje
+
+3. Hacer uso de la librería de detección de movimientos implementada por dos desarrolladores de Playtherapy
+
+4. Hacer lectura de los ángulos acorde a los movimientos seleccionados en la Subsección 4.2.1
+
+Para el caso del esqueleto, ya se encontraba implementado por el equipo de desarrollo, por
+lo que se hace reutilización de los Game Objects y Assets disponibles y se prueba que funcionen correctamente. De la librería de detección de movimientos, se realiza reconocimiento del
+código fuente y se utilizan de los siguientes métodos para realizar la lectura de los ángulos:
+
+= kneeRigthMovement y kneeLeftMovement para detectar el ángulo de flexión de rodilla.
+
+= hipRigthFlexMovement e hipLeftFlexMovement para detectar el ángulo de flexión de cadera.
+
+5.1.4 Scoring Systems
+
+Para el sistema de puntos, se dividen por dos sistemas:5.1 PROTOTIPADO E IMPLEMENTACIÓN
+
+1. Repeticiones: Se basa en la cantidad de levantamientos correctos de pelota, el número
+de repeticiones será configurado previamente por el terapeuta, el nivel de desempeño será la razón entre los levantamientos correctos sobre el número de repeticiones
+predefinidas.
+
+2. Tiempo: Se basa en un tiempo por minutos configurado previamente por el terapeuta,
+el punto será por el número de levantamientos que pueda realizar durante el tiempo
+configurado. El número de repeticiones esperado será la razón entre el tiempo total
+sobre el tiempo de rebote y el nivel de desempeño será la razón entre los levantamientos
+correctos sobre los levantamientos esperados.
+
+Para cada sistema de puntos se implementa un par de interfaces para diferenciar entre
+repeticiones y puntos en la esquina superior derecha y ambas tienen el número de aciertos
+en la esquina superior izquierda (ver Figura 14):
+
+ 
+
+ 
+
+(b) Tiempo
+
+Figura 14: Panel de Puntos
+
+Estos paneles siguen la guía de estilo de la Subsección 4.2.6 usando contrastes altos y
+usando cajas (ítem 3.2).
+
+395.1 PROTOTIPADO E IMPLEMENTACIÓN
+
+5.1.5 Feedback System
+
+5.1.5.1 Sonido
+
+Se realiza búsqueda de recursos gratuitos y libres por internet, a través de la página web
+Free Sound seleccionando tres tipos de sonido:
+
+= Ambiental: Game Show Theme Tune
+= Golpe Pelota: soccer football ball sounds
+
+= Pelota al suelo: Game Sound Wrong
+
+5.1.5.2 Turnos
+
+Para la gestión de turnos, se configuró que las rutinas programadas (rodilla, pie, izquierda,
+derecha) sean aleatorias, mientras que para una única rutina (rodilla izquierda o derecha o
+pie izquierdo o derecho), no es necesario gestionar los turnos. Para indicar la rutina a realizar,
+se hará una iluminación en la parte correspondiente como se puede ver a continuación:
+
+ 
+
+(a) Rodilla derecha (b) Rodilla Izquierda (c) Pie derecho (d) Pie izquierdo
+
+Figura 15: Turnos
+
+5.1.6 Parameters Screen
+
+Para la elaboración de la pantalla de parámetros se contó con la asesoría de la estudiante de
+Fisioterapia Andrea Coral y la Coordinadora de la Unidad de Medicina Física y Rehabilitación
+Mg. María Isabel Pavas indagando cuáles son los parámetros que se deben configurar de
+acuerdo a la estructura del juego y se elabora un prototipo de papel que se puede ver en la
+Figura 16.
+
+= Modo de juego por tiempo o repeticiones
+= Rodilla, pie o mixto
+
+= Lado derecho, lado izquierdo o ambos
+
+405.1 PROTOTIPADO E IMPLEMENTACIÓN
+
+= Plano Frontal
+" Ángulo Mínimo (desde 30)
+" Ángulo Máximo (hasta 1359)
+
+= Tiempo de rebote
+
+ 
+
+(a) Parámetros (b) Prototipo
+
+Figura 16: Prototipo de pantalla de parámetros
+
+Con el visto bueno de las terapeutas, siguiendo el estilo sugerido por el equipo de Playtherapy (fuentes, colores, etc) y siguiendo las recomendaciones de la Subsección 4.2.6 ítem 2.1
+(Distribución de elementos), se implementa la pantalla de parámetros que se puede ver en la
+Figura 17.
+
+ 
+
+Figura 17: Pantalla de Parámetros
+
+415.1 PROTOTIPADO E IMPLEMENTACIÓN
+
+5.1.7 Game Persistence
+
+Para la persistencia, se hace el uso de tres métodos de la clase TherapySessionObject desarrollada por el equipo de Playtherapy, que permiten almacenar los datos necesarios del juego
+que son:
+
+= fillLastSession: Almacenando las repeticiones totales, la cantidad de aciertos y el tiempo de juego.
+
+= saveLastGameSession: Almacenando los datos del paciente y la sesión terapeutica.
+
+= savePerformance: Almacenando los ángulos y movimientos realizados.
+
+5.1.8 Game Tutorial
+Para el desarrollo de la HU se tiene en cuenta dos tópicos: objetivo del juego y cómo
+
+se debe cumplir (movimientos a ejecutar). En la Figura 18 se detalla las instrucciones y el
+tutorial implementado.
+
+Siguiente Siguiente
+
+ 
+
+Figura 18: Tutorial
+
+5.1.9 Final Animation
+Para la animación final, se implementó un script que permitiera duplicar el número de
+
+balones y los posicionarlos aleatoriamente en toda la vista de juego, una vez desplegados en
+la pantalla, se encuentran en caída libre y rebotan.
+
+42Bra IMPLEMENTACIÓN DE LAS CARACTERÍSTICAS DE USABILIDAD Y JUGABILIDAD
+
+ 
+
+Figura 19: Animación Final
+
+5.1.10 Results Screen
+
+La pantalla de parámetros sigue el estándar del equipo de Playtherapy, por tanto, se reutilizan los Game Objects disponibles para el fin, el nivel de desempeño será reflejado de
+acuerdo con lo establecido en la sección Subsección 5.1.4
+
+Menu Principal
+
+ 
+
+Figura 20: Pantalla de Resultados
+
+5.2 IMPLEMENTACIÓN DE LAS CARACTERÍSTICAS DE USABILIDAD Y JUGABILIDAD
+
+La guía de estilo mencionada en Subsección 4.2.6 en el ítem 4, se encuentran las heurísticas
+que se seleccionaron durante la fase de diseño en Subsección 4.2.5. En la Tabla 4 se presenta
+un resumen de las recomendaciones para la implementar la Usabilidad y Jugabilidad en el
+juego.
+
+435-3 DIFICULTADES, RETOS Y APRENDIZAJES
+
+Tabla 4: Implementación de Usabilidad y Jugabilidad
+
+HEURÍSTICA
+
+RECOMENDACIONES
+
+ 
+
+Permitir al jugador desempeñarse en el juego sin necesidad de manual o libreto; por
+tanto, debe ofrecer un tutorial claro, entendible y fácil de aprender
+
+El nivel de dificultad se adapta de acuerdo
+a las necesidades de la terapia física y de las
+habilidades del jugador (no confundir con
+capacidad)
+
+El juego no debe penalizar al jugador con
+repetir una misma acción hasta superar el
+reto
+
+El juego no debe presionar al jugador sin
+frustrar con experiencias negativas
+
+Los gráficos y texturas se deben mostrar de
+manera correcta
+
+El tutorial debe explicar las reglas y objetivo
+del juego, además los movimientos que se
+debe aplicar tanto textual como visual
+
+El juego debe contar con una pantalla de parámetros configurable por el terapeuta, que
+decidirá el modo de juego
+
+La mecánica del juego debe permitir que
+el jugador siga jugando independiente del
+ítem correcto, tampoco penalizarlo restando
+puntos
+
+Por el contexto de terapia física, los ítem incorrectos no deberían estar restando puntos,
+mantienen neutral
+
+Las imágenes, texturas u otros gráficos no
+deben mostrarse pixelados
+
+ 
+
+La interfaz del juego debe ser lo menos intrusiva posible
+
+Las reglas del juego son adecuadas a la naturaleza del juego y al contexto de terapia
+física
+
+533 DIFICULTADES, RETOS Y APRENDIZAJES
+
+La pantalla de parámetros deben seguir los
+principios de agrupación presentes en la
+guía de estilo
+
+El juego debe cumplir con los movimientos
+seleccionados en asesoría con los fisioterapeutas del HUV y estar relacionados con el
+ambiente del juego
+
+Como dificultad se tuvo con la implementación del plano sagital debido a que el Kinect
+trabaja en modo de seguimiento como se puede evidenciar en los otros juegos implementados dentro del proyecto Playtherapy y no en modo de “Mirroring/Espejo” requiriendo que
+el personaje se encuentre de frente y no del mismo plano en el que se encuentra el usuario,
+se pidió ayuda tanto al equipo de Playtherapy como en foros de desarrolladores de Unity sin
+
+resultados satisfactorios.
+
+445.3 DIFICULTADES, RETOS Y APRENDIZAJES
+
+El principal reto en esta etapa fue en esencia aprender a programar videojuegos a través
+de Unity; de igual manera, se puede destacar que durante la etapa de desarrollo es indispensable desarrollar prototipos y realizar validaciones con los usuarios finales, con el fin
+de disminuir la necesidad de hacer cambios en fases posteriores, caso como ocurrió con
+el personaje que se planteó inicialmente, a pesar de ser llamativo, era “pequeño” para los
+movimientos seleccionados a diferencia del que quedo implementado.
+
+45POST-PRODUCCIÓN
+
+ 
+
+6.1 EVALUACIÓN
+6.1.1 Pruebas Funcionales
+
+Para las pruebas funcionales, el equipo de Playtherapy se encargó probar y ejecutarlas. A
+continuación se presenta un resumen de los resultados.
+
+Tabla 5: Casos de prueba
+
+ 
+
+ 
+
+ 
+
+CASO DE PRUEBA RESULTADO
+Create game scenario Aprobado
+Movement control Aprobado
+Interaction elements Aprobado
+Scoring system Aprobado
+Implement Feedback system Aprobado
+Implement parameters screen Aprobado
+Save game state in BD Aprobado
+Create game tutorial Aprobado
+Final animation Aprobado
+Results screen Aprobado
+
+La plantilla de las pruebas funcionales se puede encontrar en los siguiente anexo: Postproducción /Pruebas funcionales.6.1 EVALUACIÓN
+
+ 
+
+Q (d)
+
+ 
+
+Figura 21: Pruebas de jugabilidad
+
+6.1.2 Pruebas de Jugabilidad
+
+6.1.2.1 Pre-test
+
+Siguiendo las pautas del plan de evaluación heurística descrita en la Subsubsección 4.2.7.2,
+se procede realizar un pre-test a los pacientes que participaron de la prueba del minijuego.
+Los datos recolectados se pueden observar en la Tabla 6.
+
+476.1 EVALUACIÓN
+
+Tabla 6: Perfil demográfico de los pacientes
+
+ 
+
+ 
+
+INFORMACIÓN PACIENTE 1 PACIENTE 2 PACIENTE 3
+Edad 26 40 49
+Género Masculino Femenino Masculino
+¿Hace cuánto juega vi- 
+6-10 años No juega No juega
+deojuegos?
+¿En qué plataforma de Playstation, Xbox, Te- N/A N/A
+juegos ha jugado? tris y máquinas
+¿Frecuencia de uso de vi- Semanal N/A N/A
+deojuegos?
+¿Alguna vez le han realizado terapias de rehabili- Sí/Rodilla y Pie Si/Rodilla y cadera Si/Rodilla
+
+tación física?
+
+6.1.2.2 lTest
+
+Para la ejecución del test, se realizan los siguientes parámetros de configuración por paciente validado por el fisioterapeuta Luis Hurtado con el fin de probar el minijuego, se pueden
+
+ver en la Tabla 7.
+
+Tabla 7: Parámetros por paciente
+
+ 
+
+ 
+
+PARÁMETRO PACIENTE 1 PACIENTE 2 PACIENTE 3
+Movimientos Pie Rodilla y pie Rodilla
+
+Lados Derecha Izquierda y derecha Izquierda y derecha
+Tiempo o Repeticiones 2 min 25 rep 25 rep
+
+Ángulo Mínimo 30 40 30
+
+Ángulo Máximo 70 90 60
+
+Tiempo de Rebote 8 seg 5 seg 6 seg6.1 EVALUACIÓN
+
+6.1.2.3 Post-test
+
+A continuación se relacionan los principales resultados arrojados por cada una de las tres
+estrategias descritas en la Subsubsección 4.2.7.2
+
+1. Evaluación por Observación
+
+De acuerdo con los diez aspectos dados en la Guía de Evaluación Heurística Playtherapy en el ítem HI para tener en cuenta durante la evaluación por observación en
+la interacción paciente-juego, se concluyen los siguientes resultados resumidos en la
+
+Tabla 8.
+
+2. Evaluación por Indagación
+
+Una vez finalizada la interacción entre el paciente y el minijuego, se procede a realizar
+una entrevista semi-dirigida con las preguntas que se encuentran Guía de Evaluación
+Heurística Playtherapy ítem Il, descrita en la Subsubsección 4.2.7.2. En la Tabla 9 y
+Tabla 10 se resume el resultado de la entrevista a pacientes y terapeuta. Los audios de
+la entrevista completa se encuentra en el anexo: Postproducción / Entrevista post-test.
+
+3. Evaluación por Inspección
+
+Valoración General del juego: 4.64 (Ver Figura 22).
+
+Satisfacción Aprendizaje Efectividad Inmersión Motivación Emoción
+
+A so | aso | 300 | 483 | 433 [| 500 | 449
+O soo | 433 [| soo | som | 500 | 500
+E  s00 | 467 | 500 | aso | 467 | 483
+
+TO e iso | so [sm
+Jugabilidad Personal 450 |
+
+ 
+
+ 
+
+ 
+
+Figura 22: Valoración Jugabilidad Fútbol Libre
+
+La inspección heurística fue realizada por el compañero del proyecto Playtherapy Camilo Ruiz e igualmente, se relacionan los anteriores tests en la plantilla de Evaluación
+Heurística descrita en Subsubsección 4.2.7.1 con los siguientes resultados agrupados
+por atributos y facetas de jugabilidad que se pueden ver en la figura Figura 23.
+
+De acuerdo con los resultados y la guía de evaluación heurística, la caracterización en
+base a la jugabilidad de Fútbol Libre se encuentra dentro del rango de una excelente
+experiencia de juego por parte del jugador (entre 4.5 a 5). De igual modo, deja unas
+recomendaciones generales con el fin de seguir mejorando algunas facetas y atributos:
+
+= Jugabilidad intrínseca y personal/Atributo efectividad: Se recomienda agregar
+retos secundarios / alternativos para que la mecánica del juego no solo sea únicamente mantener golpear el balón y mantenerlo en el aire.
+
+49USUARIO
+
+6.1 EVALUACIÓN
+
+Tabla 8: Test por Observación
+
+RESUMEN DE LA OBSERVACIÓN
+
+PLAN DE MEJORA
+
+ 
+
+Paciente 1
+
+Paciente 2
+
+Paciente 3
+
+Terapeuta
+
+Entendió las reglas del juego, presentó dificultades con el tema del
+equilibrio debido a sus limitaciones, igualmente, problemas en golpear el balón, ya que era rápido el
+rebote, prueba superada al insertar
+más segundos en el tiempo de rebote
+
+Entendió las reglas del juego una
+vez observó el tutorial, presentó dificultades con el resaltado en los
+pies o rodillas, por lo que en ocasiones no lograba golpear la pelota;
+se notó interés con el juego
+
+Comprende las reglas del juego, tuvo algunos golpes fallidos debido
+a la poca visibilidad en el resaltado en las rodillas y pies; en general,
+concentrado y le llamó la atención
+el videojuego
+
+El terapeuta logra captar los parámetros y distintos valores que son
+configurables en el juego, comprende la velocidad de reacción del paciente y con el mismo criterio aplicar si mermar o aumentar el tiempo de rebote, muestra disgusto con
+la sincronización de la pelota durante el juego
+
+Sincronizar mejor el balón, ya que
+algunos golpes elevan mucho la pelota hacia arriba, se notó que gozaba el juego
+
+Sincronizar la pelota y aumentar el
+contraste y brillo del resaltado en
+las rodillas y pies, lo bueno,
+
+Mejorar el contraste y brillo del resaltado en las rodillas y pies
+
+Sicronizar la pelota
+
+= Jugabilidad intrínseca y personal/Atributo motivación: A pesar de haber un buen
+puntaje (4,33), se observó que existe un único reto de mantener el balón en el aire
+y no retos alternativos, puede hacer que se vuelva rutinario lo que puede afectar
+el factor sorpresa en el juego.
+
+= Jugabilidad mecánica y personal /Atributo aprendizaje: Debido a que la coordinación entre el golpe al balón y el movimiento ejecutado por el paciente, es
+
+BOTabla 9: Resumen entrevista post-test pacientes
+
+6.1 EVALUACIÓN
+
+ 
+
+ 
+
+PREGUNTA PACIENTE 1 PACIENTE 2 PACIENTE 3
+¿Interés y diversión? SÍ SÍ SÍ
+¿Conciencia de  en- Sí SÍ Sí
+torno?
+¿Tutorial claro? SÍ SÍ SÍ
+;¡Regl l 3 la-  ,. - ¿Reglas del juego cla SÍ SÍ Sí
+ras?
+¿Objetivos del juego SÍ SÍ SÍ
+claros?
+¿Acciones del juego a
+¿ Jueg
+realizar? Regular Regular Regular
+¿Objetivos alcanzables? A veces SÍ SÍ
+¿Interfaz gráfica agra- Me gustaría un nue- SÍ Sí
+dable? vo fondo
+;] Ó 1 1u- 2 , ¿Interés en volver a ju SÍ SÍ SÍ
+garlo?
+
+Excelente herra
+Aspectos Positivos
+
+mienta interactiva
+
+Propuesta diferente
+
+Terapia divertida
+
+ 
+
+Aspectos Negativos
+
+Ninguno
+
+En ocasiones no se
+lograba golpear el
+balón
+
+Mejorar sincronía
+del balón
+
+ 
+
+Recomendaciones, comentarios y  sugerenclas
+
+Nuevo fondo, cas
+gente
+
+Quizás hacer más
+lento el balón para
+golpear
+
+as,
+
+Ninguna
+
+afectada durante el juego, se requiere aprender la táctica configurando el tiempo
+de rebote más lento. Por ende, se puede mejorar optimizando la sincronización
+(tiempo de respuesta entre el movimiento y el kinect).
+
+= Jugabilidad Personal/Atributo Inmersión: En ocasiones se presentó la perdida de
+sincronía para ejecutar el golpe al balón por parte del paciente, lo que puede elevar el nivel de frustración durante el juego, por ende se recomienda dialogar con
+los fisioterapeutas qué tan viable es el uso de estímulos visuales que indiquen al
+
+516.1 EVALUACIÓN
+
+Tabla 10: Resumen entrevista post-test terapeuta
+
+PREGUNTA TERAPEUTA
+
+ 
+
+¿Qué tan fácil fue configurar el minijue
+Fue fácil
+go?
+
+¿Cómo consideró la pantalla de paráme
+tros? Buena, agradable y fácil de usar
+
+Buena propuesta, podría trabajarse con
+pacientes avanzados e inclusive cambiar
+de rutina
+
+¿Opinión frente a una propuesta de uso
+de videojuegos en rehabilitación física?
+
+Lo mejora, porque permitiría cambiar la
+monotonía, fuente motivador importante
+y mejorar la rehabilitación
+
+¿Impacto del uso de videojuegos en rehabilitación física?
+
+Permite trabajar aspectos como coorAspectos positivos dinación, equilibrio, ubicación tempoespacial
+
+El paciente en ocasiones no realiza los
+
+Aspectos negativos
+ítems correctos y se puede frustrar
+
+¿Recomendaciones, comentarios y suge- .. ,
+Sincronía de pelota
+
+   
+
+rencias?
+Jugabilidad: Atributos Jugabilidad: Facetas
+5.00 5.00
+leia 475 4,90 a O
+E
+400 Ta 400 Ne
+: A Eolo
+3,00
+3,00
+2,00
+2,00
+1,00
+¿e . $ ye ¿$ E ES 1.00
+¿$ SP PS e S $ Jugabilidad Jugabilidad Jugabilidad Jugabilidad Jugabilidad
+PS $ e " SD Intrínseca Mecánica Interactiva Artística Personal
+(a) Atributos (b) Facetas
+
+Figura 23: Resultados evaluación heurística por atributos y facetas
+
+jugador cuándo es el momento de realizar los movimientos, ya que ellos previamente han manifestado que los videojuegos también pueden ser utilizados para
+trabajar la coordinación motora.
+
+B26.2 LANZAMIENTO
+
+6.1.3 Pruebas de Rendimiento
+
+Para la prueba de rendimiento, con el fin de detectar que el juego funcione de manera
+fluida y sin problemas de lentitud o caídas en las animaciones. Para ello, se utilizó un equipo
+con Windows 10 de 64 bits, procesador Intel Core i5 de 2.6 GHz y 6GB de memoria RAM,
+los resultados se pueden observar en la Figura 24.
+
+ 
+
+Figura 24: Prueba de rendimiento
+
+De acuerdo con la prueba, el juego trabaja en promedio 30 frames por segundo, que es
+la medida recomendada por el equipo de Playtherapy, por tanto, se concluye que el juego
+cumple con las condiciones técnicas de rendimiento. Sin embargo, lo ideal es que los picos
+que se muestran en la gráfica no superen los 30 FPS.
+
+6.1.3.1 Mejoras a minijuego post-pruebas
+
+Gracias al conjunto de pruebas, se tuvo un conjunto de issues que permitieron mejorar el
+juego, en la Tabla 11 se relacionan los principales que se tuvieron para el minijuego y en la
+Figura 25 se muestran las evidencias de las mejoras realizadas.
+
+6.2 LANZAMIENTO
+
+Para la fase de lanzamiento, el minijuego de fútbol libre ya se encuentra integrado en el
+menú principal del juego y del playlist desarrollado por parte del equipo de desarrollo.
+
+Se prevé que durante el primer semestre del año 2018 ya se encuentre todos los minijuegos
+desarrollados e integrados dentro del menú principal, e igualmente, la Unidad de Medicina Física y Rehabilitación del HUV ya cuente con el espacio adecuado para el desarrollo de
+terapias físicas mediante Playtherapy, con el televisor, equipo de cómputo y Kinect instalados.
+
+536.3 DIFICULTADES, RETOS Y APRENDIZAJES
+
+Tabla 11: Issues
+
+ISSUES
+
+RESULTADO
+
+ 
+
+Tutorial destruido
+
+Botón reiniciar no funciona
+
+Se arregló el bug
+
+Se adicionó el método correspondiente al
+botón
+
+ 
+
+Resaltado de los pies se ve separado
+
+Error de ortografía en pantalla de parámetros
+
+Ángulo mínimo con 30" por defecto
+
+Las estrellas y nivel de desempeño no se
+muestran en la pantalla de resultados
+
+Cambio de color para el resaltado en pies y
+rodilla
+
+Ayuda dinámica que oriente al jugador el
+momento a realizar los movimientos y golpee la pelota correctamente
+
+Se mejora disminuyendo la distancia del
+efecto (Particle effect)
+
+Se realiza corrección
+
+Se deja 30” por defecto
+Se arregla el bug
+
+Se cambia de color a naranja sugerido por
+los terapeutas
+
+Se agrega la ayuda visual
+
+ 
+
+Agregar nueva página del tutorial sobre la
+ayuda dinámica (flecha)
+
+Agregar a la pantalla de parámetros Limpilar assets no usados
+
+Se agrega nueva página en el tutorial que
+explica la mecánica
+
+Se eliminaron assets no usados
+
+La Figura 26 evidencia la integración del minijuego en Playtherapy.
+
+6.3 DIFICULTADES, RETOS Y APRENDIZAJES
+
+En esta etapa como principal dificultad se tuvo de concretar una cita en el HUV con el
+fin de hacer las pruebas y retroalimentación final del juego, por un lado, se aplazaron las
+reuniones varias semanas y por otro, disponibilidad del personal encargado de la Unidad de
+Medicina Física brindaran el espacio y tiempo. El reto que se enfrenta en las pruebas es la
+realización de las entrevistas, lograr que el entrevistado entienda la pregunta, en caso contrario, reformular las preguntas con el fin de obtener la información necesaria. Igualmente, que
+los usuarios den sus respuestas sin ningún tipo de compromiso o por no quedar mal.
+
+546.4 DIVULGACIÓN DE RESULTADOS
+
+ 
+
+(a) Panel de resultados (b) Panel de parámetros
+
+ 
+
+(c) Resaltado Naranja (d) Ajuste tutorial
+
+ 
+
+(e) Nueva página tutorial
+
+Figura 25: Issues
+
+Como aprendizaje queda la importancia de hacer pruebas durante todo el proceso de
+desarrollo de software: primero, que el producto final se encuentre con un mínimo de errores
+y segundo, que el juego cumpla con la expectativas de los terapeutas y pacientes. De igual
+manera, no basta con hacer una única prueba sino de un conjunto de pruebas suficiente para
+asegurar que el programa ya se puede lanzar.
+
+6.4 DIVULGACIÓN DE RESULTADOS
+
+Este proyecto fue divulgado en los siguientes eventos:
+
+556.4 DIVULGACIÓN DE RESULTADOS
+
+   
+ 
+    
+     
+
+Futbol Libre y Empezar
+
+Eg
+
+ 
+ 
+
+  
+
+Figura 26: Playlist
+
+XXI Semana de la Expresión Universitaria - 22-26 Mayo/2017, Universidad del Va
+lle, Sede Tuluá: Socialización del proyecto Playtherapy, videojuego de apoyo a terapias de
+rehabilitación física.
+
+VI Encuentro Departamental de Semilleros de Investigación - Nodo Valle del Cauca
+- 25 Mayo/2017, Unidad Central del Valle, Tuluá(Valle): Ponencia: Videojuego de apoyo
+a terapias físicas en miembros inferiores para pacientes adultos del Hospital Universitario del
+Valle. Clasificado para presentar en el encuentro regional en Manizales.
+
+VII Encuentro Regional de Semilleros de Investigación - Manizales (Caldas) - 18-19
+Octubre/2017, Escuela de Carabineros Alejandro Gutierrez: Ponencia: Videojuego de
+
+apoyo a terapias físicas en miembros inferiores para pacientes adultos del Hospital Universitario
+del Valle Puntaje 96/100.
+
+V Jornada de Investigadores y Semilleros de Investigación en Fisioterapia. Octubre
+13-15/2017: PlayTherapy presentación Póster en Universidad Mariana de Pasto. Ganadores en Categoría: Póster proyecto en curso.
+
+Second International Seminar on Technological Innovation for the Support of Health.
+Octubre 13/2017, Universidad del Valle, Cali(Valle): Proyecto Playtherapy Invitado.APORTES ADICIONALES
+
+ 
+
+El presente capítulo es parte complementaria del trabajo de grado, como monitor del grupo
+de investigación en Multimedia y Visión por Computador, a continuación se relacionan las
+principales actividades realizadas:
+
+7.1 PLAYTHERAPY
+7.1.1 Pruebas Funcionales
+
+Como parte de la ejecución del proyecto Playtherapy se brindó apoyo al desarrollo de pruebas funcionales a dos minijuegos: Atrapalo V1 y Sushi Samurai e igualmente a la aplicación
+web que acompaña el proyecto. Las evidencias de las pruebas se pueden ver en los anexos
+(Aportes adicionales / Pruebas); una vez finalizadas las pruebas, aquellas que no fueron aprobadas, se les informa agregando el plan de mejora o corrección (Issues).
+
+7.1.2 Evaluación Heurística
+
+Se realizó la evaluación heurística a los siguientes minijuegos:
+
+= Dulce Hogar: El juego tuvo una valoración global de 4.41.
+
+Principales recomendaciones: Ampliar el tutorial con información de los objetivos y
+estructura del juego, no solo la mecánica (control de movimientos); Agregar ayuda
+contextual o dinámica durante el juego y eliminar la penalización a través de puntos
+negativos con el fin de eliminar las experiencias negativas.
+
+= Cavano: El juego tuvo una valoración global de 4.36.
+
+Principales recomendaciones: Ampliar el tutorial con información de los objetivos y
+estructura del juego, no solo la mecánica (control de movimientos); Agregar ayuda
+contextual o dinámica durante el juego y mejorar los sonidos de ítem correctos e incorrectos, ya que no son perceptibles a nivel sonoro.
+
+= El Gran Viaje: El juego tuvo una valoración global de 4.81.
+Principales recomendaciones: Agregar ayuda contextual o dinámica durante el juego y
+eliminar la penalización con puntos negativos.
+
+= Topos: El juego tuvo una valoración global de 4.58.
+
+Principales recomendaciones: Agregar ayuda contextual al juego y agregar objetivos
+secundarios.
+
+577.2 ENGLISHPLAY
+
+= Tiro Libre: El juego tuvo una valoración global de 4.60.
+
+Principales recomendaciones: Eliminar la penalización con puntos negativos.
+
+= Rieles: El juego tuvo una valoración global de 4.65.
+
+Principales recomendaciones: Usar contrastes con los elementos de interacción, que no
+sea similar al color el ambiente y mejorar la perspectiva de los rieles.
+
+= Piano: El juego tuvo una valoración global de 4.60.
+
+Principales recomendaciones: Eliminar la penalización con puntos negativos y agregar
+objetivos secundarios.
+
+= Vecinos Invasores: El juego tuvo una valoración global de 4.65.
+
+Principales recomendaciones: Eliminar la penalización con puntos negativos y agregar
+objetivos secundarios.
+
+= Figuras Mágicas: El juego tuvo una valoración global de 4.64.
+
+Principales recomendaciones: Usar mejores contraste entre la linea de figura y ofrecer
+ayuda dinámica durante el juego
+
+7.2 ENGLISHPLAY
+
+EnglishPlay es una herramienta interactiva que implementa la tecnología de las TIC”s en el
+aula de Lectura de "Textos Académicos en inglés I, para la Universidad del Valle, sede Tuluá.
+Mediante el uso de esta herramienta se pretende reforzar los temas que se enseñan en la
+asignatura de una manera dinámica y más entretenida, en donde el estudiante se olvidará
+del rol alumno-profesor y pasará a ser un jugador que conforme avanza dentro del juego,
+aprenderá. Este proyecto está conformado por cuatro estudiantes de últimos semestres de
+Ingeniería de Sistemas y cuentan con la asesoría de la profesora Ing. Yuri Bermúdez y el Ing.
+Edwin Gamboa, ambos con experiencia en temas de desarrollo de videojuegos, gamificación
+y jugabilidad.
+
+Gracias a la experiencia adquirida con el proyecto Playtherapy, se brindó ayuda con la
+aplicación de la metodología de Game Scrum a los miembros del equipo de Englishplay,
+realizando reuniones de planeación (Release Plan y Sprint Planning), orientación para la
+redacción de historias de usuario, criterios de aceptación y estimación de tiempo para HU
+(estimación póker), capacitación en el uso del framework Taiga para la gestión tareas bajo
+Scrum. De igual manera, se brindó apoyo para aplicar el tema de Jugabilidad para el proyecto
+(Guías de estilo, selección de heurísticas y plan de evaluación heurística).CONCLUSIONES Y TRABAJOS FUTUROS
+
+ 
+
+En este capítulo se presentan las conclusiones y trabajos futuros con respecto al proceso
+de desarrollo de desarrollo del Fútbol Libre, guías de estilo y evaluación heurística.
+
+8.1 CONCLUSIONES
+
+El uso de videojuegos como apoyo a terapias de rehabilitación física tiene un impacto social, de aprendizaje y laboral. El primero, se debe a que se usa un sistema interactivo de uso
+masivo con fines de ocio y entretenimiento en un contexto real donde hay unas necesidades
+específicas de mejorar la motivación y recuperación del paciente, de igual manera, estos juegos permiten dar un valor agregado, comenzando porque cuenta con una alternativa para
+realizar las sesiones distintas a las tradicionales, permitiendo de este modo, poder que el
+usuario no se encuentre muy consciente del ambiente clínico y tenga motivos para volver y
+terminar su tratamiento. Segundo, un impacto de aprendizaje a nivel personal, ya que no
+solo se aprende a la rama de desarrollo de videojuegos, sino también de aplicarlos en un ambiente real, donde hay que aprender conceptos de terapias físicas, juegos serios, emociones
+y cómo lograr que el juego tenga un impacto positivo en el lugar de aplicación, distinto al
+proceso creativo que tienen las propuestas comerciales y que logre una aceptación masiva
+del público. Finalmente, se tiene un impacto laboral para los terapeutas de la Unidad de
+Medicina y Rehabilitación del HUV, ya que les permitirá facilitar su trabajo desde el punto
+de vista que ya no requiera motivar al paciente de manera verbal, sino también, cuenta con
+unos elementos que permitirá salir de la rutina con el paciente y despierte su interés por
+terminar las sesiones.
+
+La metodología Game Scrum fue apropiada para el desarrollo del proyecto Playtherapy,
+primero, por contar con un una planeación inicial de las actividades a realizar, un plan de
+seguimiento de las tareas y reunión con los usuarios finales, igualmente, su propuesta de
+división por tres etapas (pre-producción, producción y post-producción) fue adecuado, primero, porque se hace un proceso creativo y verificación de requerimientos antes de ir a la
+implementación del juego con ideas concretas de lo que se pretende desarrollar.
+
+El modelo MPlu+a también fue adecuado para el desarrollo del sistema interactivo, ya
+que inicialmente contó con un plan de conocer el ambiente real, los usuarios potenciales, la
+forma en cómo se realizan las tareas, conocer el modelo mental y contrastarlo con el modelo
+conceptual, una vez clara las ideas para el proyecto, se procede al desarrollo y su verificación
+final, con test heurístico y las pruebas funcionales, e igualmente, concatenar este modelo con
+Game Scrum no fue traumático, sino que permitió mejorar el proceso.
+
+598.1 CONCLUSIONES
+
+El diseño centrado en el usuario permitió la asesoría, negociación y la construcción de
+la historia, estructura y reglas del juego acorde con la expectativas de los usuarios finales,
+verificar que los movimientos seleccionados cumplan con las terapias físicas en miembros
+inferiores, las instrucciones dadas en el tutorial sean claras por parte de los terapeutas y pacientes.
+
+En relación al modelo conceptual y el modelo mental, fue posible concatenarlos y aplicarlo
+en este trabajo de grado como en Playtherapy separando la terapia física en tres etapas: Evaluación y diagnóstico; Sesión Terapéutica; Seguimiento y Evaluación, permitiendo de este
+modo, integrar la sesión de juego paralelo en la sesión terapéutica. La evidencia de esto se
+puede ver en anexos: Pre-producción / Analisis de Requisitos / Análisis contextual de tareas y
+en Pre-producción / Análisis de Requisitos /Storyboards.
+
+El presente trabajo tuvo como artefactos la guía de estilo, batería de heurísticas y el plan de
+evaluación heurística, no solo es aplicable a los demás juegos propuestos en Playtherapy, sino
+también en otros proyectos del laboratorio de Multimedia y Visión por Computador como
+EnglishPlay, Strong Shot 2 e inclusive, también aplicarlo para nuevas propuestas de juegos
+serios y mejorar los ya implementados.
+
+El desarrollo de videojuegos a través de Unity es una excelente opción, ya que que es multiplaforma (PC, móvil, Web, TV), el proceso es ágil, permite reutilización de recursos y tiene
+un alto soporte. Además, cuenta con un excelente gestor de versiones (Unity Collaborate)
+para el trabajo en equipo y controlar el código fuente.
+
+Esta propuesta de juegos para terapias de rehabilitación física se puede aplicar para ser
+un producto de uso masivo vendiendo licencias a clínicas de rehabilitación y/o hospitales,
+inclusive, ofrecer los minijuegos a usuarios específicos de acuerdo a sus necesidades de reha
+bilitación. Esto, gracias a la buena aceptación tanto de los terapeutas como de los pacientes
+en el HUV.
+
+Es necesario crear conciencia a los equipos de desarrollo de tener en cuenta la usabilidad
+en sistemas interactivos y jugabilidad en videojuegos como valor agregado de calidad, ya
+que los mismos permiten una buena probabilidad de que el sistema sea aceptado por los
+usuarios finales. El primero, permite que los sistemas sean fáciles de aprender y de usar y
+el segundo, permite a través de un conjuntos de propiedades (atributos y facetas) disfrute y
+entretenimiento como experiencia de juego (PX). Por tanto, se hace necesario desde el inicio
+de los proyectos capacitar a los integrantes sobre la importancia del tema, no durante el intermedio o al final.
+
+La pruebas demostraron que una propuesta de desarrollo de videojuegos serios tiene una
+
+buena aceptación por parte de los usuarios finales, también se evidenció que los pacientes
+se divirtieron y estaban concentrados, que es una buena fuente de motivación y sentir que
+
+608.2 TRABAJOS FUTUROS
+
+podrán salir de la rutina frente a las terapias tradicionales.
+
+Tener en cuenta desde el inicio del desarrollo de videojuegos los principios de Usabilidad
+y Jugabilidad, e inclusive, a los usuarios finales permitieron que el producto final tuviera una
+buena valoración en relación a la experiencia del jugador y de igual manera, que el producto
+fuera aceptado por los pacientes y terapeutas.
+
+8.2 TRABAJOS FUTUROS
+
+Actualmente, Playtherapy cuenta con doce minijuegos finalizados y uno en proceso de
+desarrollo, lo que evidencia la necesidad de seguir ampliando la ofertas de juegos, primero,
+los movimientos que aún no se encuentran cubiertos y segundo, los ya cubiertos, con el fin
+de ofrecer variabilidad y no sean los mismos juegos para realizar los ejercicios terapéuticos.
+
+El juego desarrollado en este trabajo de grado (Fútbol Libre) sólo cubre miembros inferiores (rodilla y cadera), pero las características del juego y del código fuente, permiten ampliar
+los movimientos a miembros superiores y asemeje más al Fútbol de estilo libre cubriendo
+hombro, cabeza y tronco.
+
+Una de las dificultades tecnológicas son la precisión de movimientos, por ende, se requiere
+un interpretador o evaluador de movimientos que permita predecir y manejar mejor los movimientos, cuya estrategia puede ser implementada con algoritmos de Inteligencia Artificial
+o Procesamiento de Imágenes.
+
+Uno de los requerimientos solicitados por el equipo de trabajo de la Unidad de Medicina
+Física y Rehabilitación del HUV para el juego fue plano sagital y que no se logró desarrollar
+debido a la dificultad de encontrar modelos que cumplan con el efecto Mirroring, se requiere
+desarrollarlo con ayuda del diseñador gráfico y su posterior implementación con el desarrollador de videojuegos.
+
+Integrar personal como Diseñadores Gráficos, de Medios Interactivos, en Comunicación
+Gráfica, profesionales en Recreación, Terapeutas y Psicólogos permitiendo de este modo,
+mejorar mejorar la precisión de movimientos, la calidad gráfica, las mecánicas del juego,
+la motivación acorde al modelo de emociones y a la vez, sea más acorde a disciplinas de
+desarrollo de videojuegos e interaccion persona-ordenador, que se caracterizan por ser multidisciplinarias.
+
+La propuesta de videojuegos serios también se pueden ampliar para el área de ejercicios de
+
+calentamiento, aeróbicos y de coordinación motora, inclusive, optar por nuevas tecnologías
+de control de movimientos como Oculus Rift para realidad virtual.
+
+61BIBLIOGRAFÍA
+
+ 
+
+Abascal, J., Cafias, J., Gea, M., Gil, A. éz Lores, J. (2006). Libro Interaccion Persona Ordenador
+- Capítulo 4: Evaluación.
+
+Bartlett, D. J. 8£z Palisano, R. J. (2002). Physical Therapists” Perceptions of Factors Influencing
+the Acquisition of Motor Abilities of Children With Cerebral Palsy: Implications for
+Clinical Reasoning. Physical Therapy, 82(3), 237-248. Recuperado desde http: / /ptjournal.
+apta.org /content/82/3/237
+
+Bethke, E. (2003). Game Development and Production. Wordware game developer's library.
+Wordware Pub. Recuperado desde https: / /books.google.com.co/books?id=ms5exIODbtqkC
+
+Bevan, N. (1991). What is Usability? Disponible en: https: / /pdfs.semanticscholar.org/6ebb /
+d15d.pdf. [Accesado 12-Nov-2016].
+
+Brontes Processing. (2016). SeeMe Rehabilitation. Disponible en: http: / /www.virtual-realityrehabilitation.com /products /seeme /what-is-seeme. [Accesado 15-Nov-2016].
+
+Burdea, G. (2012). Key Note Address: Virtual Rehabilitation, Benefits and Challenges. Disponible
+en: http: / /ti.rutgers.edu / publications / papers /2002_ vrmhr_burdea.pdf. [Accesado
+15-Nov-2016].
+
+Callele, D., Neufeld, E. € Schneider, K. (2005). Requirements engineering and the creative
+process in the video game industry. En 13th IEEE International Conference on Requirements Engineering (RE"05) (pp. 240-250). doi:10.1109/RE.2005.58
+
+Desurvire, H., Caplan, M. €z Toth, J. A. (2004). Using heuristics to evaluate the playability of
+games. En CHT'o4 extended abstracts on Human factors in computing systems (pp. 1509-1512).
+ACM.
+
+Desurvire, H. £ Wiberg, C. (2009). Game usability heuristics (PLAY) for evaluating and designing better games: The next iteration. En International Conference on Online Communities
+and Social Computing (pp. 557-566). Springer.
+
+Federoff, M. A. (2002). Heuristics and usability guidelines for the creation and evaluation of fun in
+video games (Tesis doctoral, Indiana University Bloomington).
+
+Godoy, A. «€ Barbosa, E. F. (2010). Game-scrum: An approach to agile game development.
+Proceedings of SBGames, 292-295.
+
+González Sánchez, J. L., Padilla Zea, N. 6 Gutiérrez, F. L. (2009). From Usability to Playability:
+Introduction to Player-Centred Video Game Development Process. En Proceedings of the
+1st International Conference on Human Centered Design: Held As Part of HCI International
+2009 (pp. 65-74). HCD 09. San Diego, CA: Springer-Verlag. doi:10.1007 / 978-3-64202806-9_9
+
+González, J. L., Cabrera, M. € Gutiérrez, F. L. (2007). Diseño de Videojuegos aplicados a la
+Educación Especial. Recuperado de http://aipo. es/articulos/1/12410. pdf.
+
+González, M. P., Pascual, A. éz Lorés, J. (2001). Evaluación heuristica. 2001). Introducción a la
+Interacción Persona-Ordenador. AIPO: Asociación Interacción Persona-Ordenador.
+
+62Bibliografía
+
+Granollers, T. (2016). Modelo de Proceso de la Ingeniería de la usabilidad y de la accessibilidad. Disponible en: http: / /www.grihotools.udl.cat/mpiua/. [Accesado 25-Nov-2016].
+
+Hassan-Montero, Y. €£ Ortega-Santamara, S. (2009). Informe APEI sobre usabilidad.
+
+Hewett, Baecker, Card, Carey, Gasen, Mantei, ... Verplank. (1996). ACM SIGCHI Curricula
+for Human-Computer Interaction. Disponible en: http:/ /old.sigchi.org/cdg/cdg2.html.
+[Accesado 5-Nov-2016].
+
+Hewett, Baecker, Card, Carey, Gasen, Mantei, ... Verplank. (2009). Human-Computer Interaction. Tomado de: http: / /old.sigchi.org/cdg/figure_1.pdf. [Accesado 18-Dic-2016].
+
+McShaffry, M. £: Graham, D. (2013). Game Coding Complete. (Vol. 4th ed, pp. 26-28). Course
+Technology PTR.
+
+MIRA Rehab. (2014). MIRA. Disponible en: http: / /www.mirarehab.com. [Accesado 15-Nov2016].
+
+Nielsen, J. (2005). Ten usability heuristics. http://www. nngroup. com /articles /ten-usabilityheuristics / (acc-essed December 19, 2013).
+
+Nielsen, J. (2012). Usability 101: Introduction to Usability. Disponible en: https: / / www.
+nngroup .com / articles / usability - 101 - introduction -to- usability/. [Accesado 5-Nov2016].
+
+Pagliari, D. € Pinto, L. (2015). Calibration of Kinect for Xbox One and Comparison between the Two Generations of Microsoft Sensors. Sensors, 15(11), 27569. doi:10.3390 /
+5151127569
+
+Personería Santiago de Cali. (2015). Frente al seguimiento adelantado por la Personería Municipal a la situación del HUV, se recomienda habilitar servicios en los hospitales de
+baja complejidad que cuentan con estructura para ser habilitados en mediana complejidad. Disponible en: http: / /www.personeriacali.gov.co /noticias / frente-al-seguimientoadelantado-por-la-personer %C3% ADa- municipal - la - situaci%.C3% B3n- del - huv-se.
+[Accesado 5-Nov-2016].
+
+Preece, J., Carey, T., Rogers, Y., Holland, S., Sharp, H. € Benyon, D. (1994). Human-Computer
+Interaction. lcs Series. Addison-Wesley Publishing Company. Recuperado desde https:
+/ /books.google.com.co /books?id=BfFQAAAAMAAJ
+
+Redish, J. (1995). Are We Really Entering a Post-usability Era? SIGDOC Asterisk J. Comput.
+Doc. 19(1), 18-24. doi:10.1145/203586.203590
+
+Rollings, A. £ Adams, E. (2003). Andrew Rollings and Ernest Adams on game design. New Riders.
+
+Saltiveri, T., Vidal, J. £z Delgado, J. (2011a). Diseño de sistemas interactivos centrados en el
+usuario. (Cap. 1, pp. 23-49). Formació de postgrau (Universitat Oberta de Catalunya).
+Castellá. Editorial UOC, S.L.
+
+Saltiveri, T., Vidal, J. 8£z Delgado, J. (2011b). Diseño de sistemas interactivos centrados en el
+usuario. (Cap. 1, pp. 96-97). Formació de postgrau (Universitat Oberta de Catalunya).
+Castellá. Editorial UOC, S.L.
+
+Sánchez, J. L. G. (2010a). Jugabilidad. Caracterización de la experiencia del jugador en videojuegos
+(Tesis doctoral, Universidad de Granada).
+
+Sánchez, J. L. G. (2010b). Jugabilidad. Caracterización de la experiencia del jugador en video
+juegos. (p. 57).Bibliografía
+
+Sánchez, J. L. G. (2010c). Jugabilidad. Caracterización de la experiencia del jugador en videojuegos. (pp. 67-72).
+
+Sánchez, J. L. G. (2010d). Jugabilidad. Caracterización de la experiencia del jugador en videojuegos. (pp. 356-357).
+
+Sánchez, J. L. G., Vela, F. L. G., Simarro, F. M. € Padilla-Zea, N. (2012). Playability: analysing
+user experience in video games. Behaviour és Information Technology, 31(10), 1033-1054.
+doi:10.1080/0144929X.2012.710648. eprint: http: / /dx.doi.org/10.1080/0144929X.2012.
+710648
+
+Sánchez «£ Jordi. (2011). En busca del Diseño Centrado en el Usuario (DCU): definiciones,
+técnicas y una propuesta. No Solo Usabilidad Journal, (10), 1-21.
+
+Shelton, P. €z Scott, R. (2015). Gaming for health. The Journal of mHealth, 2(4), 42-44. Recuperado desde https: / /issuu.com /journalofmhealth /docs /the_journal_of_mhealth_vol_2
+issue__5554ae4413af6e
+
+The World Confederation for Physical Therapy. (2011). Disponible en: http: / /www.wept.
+org/policy /ps-descriptionPT. [Accesado 25-Nov-2016].
+
+Thorn, A. (2013). Game Development Principles. (pp. 11-16). EBSCO ebook academic collection. Cengage Learning PTR. Recuperado desde https: / /books.google.com.co /books?
+id=6SULAAAAOBAJ
+
+Virtualware Group. (2014). VirtualRehab. Disponible en: http: / /www.virtualrehab.info/es/.
+[Accesado 15-Nov-2016].
+
+World Confederation for Physical Therapy. (2014). Policy statement: Description of physical
+therapy. Disponible en: http: / /www.wcpt.org / policy / ps-descriptionPT. [Accesado
+5-Nov-2016].

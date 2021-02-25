@@ -1,0 +1,3320 @@
+Categorización de retinopatía diabética utilizando algoritmos de inteligencia
+artificial
+
+Héctor Fabio Ocampo Arbeláez
+
+Universidad del Valle Sede Tuluá
+Facultad de ingeniería
+
+Escuela de ingeniería de sistemas y computación
+
+Tuluá Valle del Cauca
+2018Categorización de retinopatía diabética utilizando algoritmos de inteligencia
+artificial
+
+Héctor Fabio Ocampo Arbeláez
+Código 1355858
+
+hector.ocampolcorreounivalle.edu.co
+
+Director
+Carlos Andrés Delgado Saavedra
+Profesor de la Escuela de Ingeniería de Sistemas y Computación
+carlos.andres.delgadolcorreounivalle.edu.co
+
+Universidad del Valle Sede Tuluá
+Facultad de ingeniería
+
+Escuela de ingeniería de sistemas y computación
+
+Tuluá Valle del Cauca
+2018Tabla de Contenido
+
+1. Preliminares. 1
+IN 1
+1.1.1. Descripción del Problema. ................. 1
+
+1.1.2. Formulación del Problema. ................ . .. . . .. 2
+
+1.2. Justificación... 2
+1.3. Objetivos... 3
+1.3.1. Objetivo general ............. .. ee. 3
+
+1.3.2. Objetivos especÍtICOs ........ 3
+
+1.4. Resultados esperados -.... 4
+1.5. Alcances de la propuesta... 9
+
+2. Marco Teórico 9
+A 9
+2.2. Inteligencia artificial ................. e... 6
+2.2.1. Búsqueda del estado solución. ................ .... .. 1
+
+2.2.2. Algoritmos genéticos. ..... Y
+
+2.2.3. Redes neuronales artificiales . ............. . . . . . .. .. 8
+
+2.2.4. Máquinas de soporte vectorial ................. . ... .. 9
+
+2.3. Aprendizaje de los algoritmos .......... e... 10
+2.3.1. Aprendizaje SUpervisado 10
+
+2.3.2. Aprendizaje DO SUPervisado .... 10
+
+2.4. Diabetes Mellitus ........ 11
+2.4.1. La diabetes Mellitus Tipo l ................ .... .. 11
+
+2.4.2. La diabetes Mellitus Tipo 2 ................ ... . .. 11
+
+2.4.3. Diabetes Mellitus Gestacional (GDM) ................. 11
+
+2.9. Retinopatía Diabética .......... 11
+2.5.1. Retinopatía diabética no proliferativa (RDNP) ............ 12
+
+2.5.2. Retinopatía diabética proliferativa(RDP): .............. 13
+
+2.6. Exámenes para el diagnóstico de retinopatía diabética . . ........... 15
+2.6.1. Angiografía fluoresceínica (AGE) ....... 0... o... .... 15
+
+2.6.2. Fondo de 0jo ...... 15
+
+2.6.3. Tomografía de coherencia óptic(OCT) ......o.o. o... .... 15
+
+2.1. Messidor base de datos ........ 16
+
+3. Marco Referencial: 16
+3.1. Marco Referencial de Algoritmos Computacionales: ............. 16
+3.2. Marco Referencial de Medicina: ....... e... 19
+
+4. Base de Datos: 255. Implementación
+
+AL Selección
+5.2. Red Neuronal Artificial: ........... e...
+5.2.1. Función de predicción: .....
+5.2.2. Complejidad Función de Predicción: .............. ......
+93. Backpropagatioa:
+5.3.1. Complejidad algoritmos de Backpropagati0M: .............
+5.4. Algoritmos Genéticos...
+AL MAMA
+5.4.2. Población Inicial: ............ e...
+5.4.3. Selección por Tuleta: ......... e...
+5.4.4. Reproducción Directa: ......... e...
+9.4.9. Mutación Gaussiada
+9.4.6. Reemplazo:
+5.4.7. Función de evaluación: ....... e...
+5.4.8. Función de Aptitud O Fitness: ............ o.
+9.4.9. Escalado: ......
+5.4.10. Diagrama de flujo .........
+5.4.11. Complejidad Algoritmos Genéticos. ........ . . . . . . . . ..
+A
+5.5.1. Complejidad SYM ........
+6. Pruebas:
+6.1. Backpropagati0on:
+6.2. Algoritmos Genéticos...
+
+63. S WM .......
+7. Prototipo
+8. Comparación:
+
+9. Conclusiones:
+9.1. Trabajos Futuros:
+
+10.Referencias
+
+II
+
+26
+26
+27
+28
+29
+29
+SU
+31
+31
+93
+93
+34
+34
+34
+99
+99
+99
+99
+36
+31
+41
+
+42
+42
+44
+90
+
+91
+
+92
+
+99
+97
+
+STa E E
+
+NN DDNVDNR REE RrRRRRPAR IO
+> NODO Ea NO”
+
+Índice de Figuras
+
+Proceso de un algoritmo genético. ...... e... Y
+Diferentes arquitecturas de redes neuronales. ................. 9
+Hiperplanos de separación... 10
+Anatomía del 0j0....... 12
+Foto de la retina con retinopatía diabética no proliferativa. . ......... 13
+Foto de la retina con retinopatía diabética proliferativa. . ........... 14
+Diagrama de dispersión de los datos. ............... . . .. .. . . .. 26
+Arquitectura de la Red Neuronal. .......... o... o... 30
+Arquitecturad de la red Neuronal de ejemplo. ................ 32
+Diagrama de flujo del algoritmo. ........... e... 36
+Matriz de correlación 38
+Diagrama de comparación de los datos X7 y X16, Correlación Nula .... 39
+Diagrama de comparación de los datos X7 y X8, Correlación Negativa . . . 40
+Diagrama de comparación de los datos X6 y X7, Correlación Positiva . . . 40
+Comportamiento Backpropagatiod. ..... e... 43
+Comportamiento algoritmo evolutivo, Prueba número 2. .......... 45
+Comportamiento algoritmo evolutivo, con un escalado de 1,1......... 46
+Comportamiento algoritmo evolutivo, con un escalado de 0,9. .......... 46
+Comportamiento algoritmo evolutivo, con un escalado de 1,0000001. ....... 47
+Comportamiento algoritmo evolutivo, con un escalado de 0,999999. .... 48
+Comportamiento algoritmo evolutivo, con una población de 100 ....... 49
+Comportamiento de las 4 Pruebas. ......... e... 50
+Captura de la pantalla Principal de la interfaz . ..............0. 52
+Curva ROC Comparando las diferentes técnicas ............... 53
+
+IIIE
+
+A?
+
+Índice de Tablas
+
+Resultados esperados por objetivo especÍfiCO . ........... .... .. 4
+Clasificación de la retinopatía diabética . ........... . . . . . . «0. 15
+Marco Referencial Algoritmos Computacionales. ............... 18
+Marco Referencial de Medicina. ........ e... 24
+Parámetros de la Base de datos ............. o... 25
+Precisión Pruebas Backpropagati0O ........... e... 43
+Variables del algoritmo genético .......... e... 44
+Combinaciones de las pruebas de algoritmos evolutivos ............ 45
+Pruebas Finales ....... 49
+Resultados Pruebas SYM... 50
+CoOMpa€ LACIÓN 95
+
+IVAgradecimientos
+
+Al profesor Carlos andrés delgado, por aceptar la dirección de mi trabajo de grado,
+por estar dispuesto a responder cualquier inquietud que tuviera, además a los buenos consejos para tener un buen desarrollo del proyecto, por último y no menos importante a su
+dedicación y gran labor como docente.
+
+A la universidad del valle, por brindarme la oportunidad de estudiar aquí, de formarme como un profesional ingeniero de sistemas, y hacerme entender que para conseguir las
+metas hay que esforzarse.
+
+A todos los profesores que hicieron parte de mi formación ética y profesional, de ellos
+obtuve un conocimiento integral y completo, el cual fue aplicado en el desarrollo de este
+proyecto y servirá para todo mi futuro.Dedicatoria
+
+Dedico a mi madre, ella me enseñó a diferenciar lo bueno de lo malo y su labor fue
+magistral, ella siempre ha estado conmigo apoyándome en todo lo que quiero hacer, y
+siempre podré contar con ella.
+
+A mi hermana, ya que me siento orgulloso de ser un profesional y quiero ser un ejemplo a seguir para ella, para que siga estudiando con muchos ánimos y pueda lograr todas
+sus metas.
+
+A toda mi familia, especialmente a mis tíos y abuela, ya que de ellos siempre tuve un
+apoyo emocional y económico cuando lo necesité.
+
+A Lorena Sánchez Fernández, ella siempre me incentivó a hacer lo que quería, me brindó
+su ayuda para lo que necesitara y me acompañó en todo el proceso.
+
+Por último a mis compañeros y amigos, con los cuales tuve tiempo para compartir, para
+
+estudiar, reforzar todo lo aprendido en la carrera e hicieron de este proceso mucho más
+agradable.
+
+VIIntroducción
+
+La medicina es una disciplina que se basa y se apoya en el uso de tecnologías, en un
+caso más concreto software. Existe un término que define esta relación, la Informática
+Médica, la cual combina diferentes características de la medicina (historias clínicas y lenguajes médicos formales) con tecnología (sistemas de información, inteligencia artificial y
+cibernética) [1]. A partir de la informática médica se han creado herramientas inteligentes para el apoyo de las decisiones y diagnósticos de los médicos [2|. Estas herramientas
+pueden utilizar técnicas de inteligencia artificial para aprender de historias clínicas y así
+poder relacionar diferentes síntomas con el diagnóstico final.
+
+El diagnóstico oportuno de una enfermedad es importante, ya que en caso de que sea
+una enfermedad con un alto riesgo para el paciente, esta debe ser tratada a tiempo, como
+por ejemplo lo es la diabetes mellitus (de ahora en adelante diabetes), esta es una enfermedad muy prevalente en el mundo. Hoy en día en Colombia la diabetes está entre las 10
+principales causas de mortalidad, así mismo el Ministerio de Salud (MINSALUD) reporta
+que en el 2012 su prevalencia en la población entre los 18 y 69 años es de 2 millones de
+personas y con proyecciones de alza en los próximos años |3].
+
+Por otro lado la diabetes afecta diferentes sistemas del cuerpo, generando otras enfermedades como lo son: insuficiencia renal, amputaciones no traumáticas, y pérdida de la visión
+por culpa de la retinopatía diabética [4], la cual será el centro de atención en este proyecto.
+
+El software desarrollado en el proyecto pretende apoyar al médico en su diagnóstico de
+
+retonopatía diabética, así recopilar información para el futuro y trabajar en pro de los
+pacientes y/o necesitados.
+
+VII1. Preliminares.
+
+1.1. Problema
+1.1.1. Descripción del Problema.
+
+La Diabetes Mellitus es una enfermedad crónica incurable, según la Organización Mundial de la Salud (OMS) para el 2014 habían 422 millones de personas con diabetes en el
+mundo [5], convirtiéndola en una de las enfermedades más comunes y prevalentes en la
+actualidad. La diabetes puede provocar ceguera, ataques cardíacos, accidentes cerebrovasculares, insuficiencia renal, amputación de piernas, y daños neurológicos, por ende el
+paciente debe seguir un control y tratamiento específico [4].
+
+La ceguera causada por la diabetes proviene de la detención o disminución de la sanere por las arterias de la retina del ojo (isquemia retinal), el ojo trata de compensar el
+problema creando vasos sanguíneos que sangran fácilmente y crecen sin control trayendo
+como consecuencia la pérdida de visión |(4|. A esta enfermedad se le llama retinopatía
+diabética y se le atribuye un 2.6% de los casos de ceguera en el mundo [5).
+
+Por lo general, un paciente diabético asiste a un médico general para llevar un control
+y tratamiento de su enfermedad. Allí periódicamente o cuando el paciente lo requiere se le
+realiza una revisión de fondo de ojo y se determina si es remitido o no a un oftalmólogo,
+éste realizará una Angiografía Fluoresceínica [6| en el cual se toma una foto de la retina
+del ojo, para visualizar diferentes características del mismo que serán esenciales para el
+diagnóstico de retinopatía diabética. Un problema que existe es que así el médico tenga el
+conocimiento necesario, no siempre tiene la experiencia suficiente con la enfermedad, por
+lo que su dictamen médico en algunos casos no será el correcto; además existen variables
+que pueden afectar directa o indirectamente en el diagnóstico, como lo puede ser el tiempo, los implementos con lo que se trabaja, o el exceso de confianza de los médicos en su
+dictamen |[7/.
+
+Ya que la medicina trabaja en pro de la salud de las personas se debe minimizar el número
+de casos de diagnósticos falsos negativos (diagnóstico negativo / enfermedad presente), ya
+que puede terminar en una ceguera parcial o total. En caso contrario los falsos positivos
+(diagnóstico positivo/ enfermedad ausente) el paciente no se verá afectado y con exámenes
+posteriores se determinará un diagnóstico correcto.
+
+Hoy en día muchas entidades tecnológicas y de la salud han promovido el desarrollo de
+sistemas expertos como MYCIN [8], TMYCIN [9] y TROPICAID [10| que sirven para
+apoyar y facilitar al médico su labor en la toma de decisiones. Una característica de los
+sistemas expertos antes mencionados es que trabajan sobre una enfermedad o conjunto de
+enfermedades específicas y esto se debe a que no se puede crear un sistema experto que
+trabaje en cualquier diagnóstico debido a que:
+
+1. Existe una gran cantidad de síntomas y enfermedades. Por esto se debe ir desglosando el problema, trabajando de forma más específica para facilitar el análisis, laimplementación y las pruebas.
+
+2. Existen diferentes técnicas computacionales que pueden variar en su resultado bajo
+una misma entrada, por lo que se debe hacer un análisis para determinar cuál será
+la mejor técnica a aplicar en el caso específico.
+
+Dadas estas dos razones hoy en día se llevan a cabo muchas investigaciones y desarrollos
+en esta área, como lo son las simulaciones del esparcimiento de una enfermedad [11|, procesamiento de radiografías [12], análisis de datos clínicos [13| y diagnóstico de enfermedades
+tales como cáncer o diabetes.
+
+Los algoritmos de inteligencia artificial pueden ser buenos en el diagnóstico de enfermedades, ya que estos son tolerantes al ruido, y se pueden adaptar a los síntomas que son
+variables con el tiempo |14]. A partir de todo lo expresado anteriormente, se propone realizar un análisis de algoritmos de inteligencia artificial para el diagnóstico de retinopatía
+diabética y generar un aporte al estudio y diseño de sistemas expertos que servirán de
+apoyo a los médicos para confirmar su diagnóstico.
+
+1.1.2. Formulación del Problema.
+
+¿Cómo clasificar retinopatía diabética utilizando algoritmos de inteligencia artificial?
+
+1.2. Justificación
+
+La retinopatía diabética es una de las principales causas de ceguera en el mundo y
+el tratamiento más eficaz es la prevención [4], por esta razón un diagnóstico certero es
+indispensable, y así posteriormente disminuir la probabilidad de sufrir pérdida de visión
+parcial o total.
+
+La intención de utilizar algoritmos de inteligencia artificial se basa en que ésta tiene muchas áreas de aplicación, además que promete trasladarse de entornos estáticos y accesible
+a entornos dinámicos e inaccesibles los cuales se asemejan más al mundo real [14].
+
+En el caso concreto de la medicina, los sistemas que implementan inteligencia artificial
+para el apoyo en la toma de decisiones de los médicos son usados ya que el dominio de los
+diagnósticos existen numerosas variables que afectan el proceso de decisión [2], diferentes
+factores de riesgo, como el tiempo, el exceso de confianza del médico sobre el dictamen que
+da [7], los síntomas en los pacientes pueden ser variables y en algunos casos incompletos
+o difusos, es aquí donde la inteligencia artificial hace uso de sus ventajas de adaptarse a cambios, ser tolerantes al ruido de los datos y servir de apoyo a los médicos para
+mejor la precisión en su dictamen, dándole una visualización de los síntomas y brindarle
+más opciones al médico para no tener visión de túnel al momento de tomar la decisión (15).
+
+Además, el avance de la inteligencia artificial en la ciencia computacional es importante y se puede evidenciar en la gran cantidad de investigaciones y proyectos que se llevana cabo dado el amplio dominio de aplicación que tiene. En el proyecto actual se analiza
+el comportamiento de SVM y de redes neuronales artificiales entrenadas por dos técnicas
+diferentes, backpropagation y algoritmos genéticos; explorando varias configuraciones y
+opciones, para después compararlas bajo las mismas condiciones y así dejar junto a los
+estudios ya realizados las bases para los futuros proyectos que tendrán como enfoque el
+diagnóstico de enfermedades.
+
+Así, con el proyecto actual se cumplirá con un objetivo importante en las investigaciones
+y desarrollos en el área de la medicina, el cual es mejorar en pro la salud de la población,
+ya que a partir de los diferentes estudios e investigaciones se busca aportar una experiencia para que en un futuro sirva a la generación de mejores sistemas, los cuales serán de
+uso directo de los médicos pero al final los principales beneficiados serán los pacientes, ya
+que posiblemente disminuirán los casos de falsos negativos y posteriormente disminuir los
+casos de alto riesgo en la salud del paciente.
+
+1.3. Objetivos
+1.3.1. Objetivo general
+
+Realizar una categorización positiva o negativa de retinopatía diabética utilizando algoritmos de inteligencia artificial a partir de características obtenidas de imágenes de la
+retina.
+
+1.3.2. Obpetivos específicos
+
+1. Analizar diferentes fuentes de datos relacionados con retinopatía diabética para determinar las variables que se requieren para el diagnóstico.
+
+2. Diseñar e implementar dos estrategias para la categorización de la retinopatía diabética utilizando algoritmos de inteligencia artificial.
+
+3. Desarrollar una aplicación prototipo que permita generar una categorización de retinopatía diabética, teniendo en cuenta las variables asociadas a la enfermedad.
+
+4. Realizar pruebas de los algoritmos y crear un análisis comparativo de los resultados
+obtenidos en éstos.1.4.
+
+Objetivo específico
+
+Resultados esperados
+
+Resultados esperados
+
+| Evidencia del Objetivo
+
+ 
+
+Analizar diferentes fuentes de datos relacionados
+con retinopatía dabética
+para determinar las variables que se requieren para
+el diagnóstico.
+
+Documento donde se  expliquen las variables e
+información relevante para el
+diagnóstico y el desarrollo del
+proyecto.
+
+Conjunto de bibliografía importante para el desarrollo del
+proyecto.
+
+= Cap:
+
+= Cap:
+
+= Cap:
+
+= Cap:
+
+9.1
+
+ 
+
+Diseñar e implementar estrategias para la categorización de la retinopatía
+diabética utilizando algoritmos de inteligencia arti
+ficial..
+
+Documento donde se especifique el análisis y diseño de cada
+uno de los algoritmos.
+
+Código fuente de cada una de
+las técnicas de inteligencia artificial implementadas.
+
+ 
+
+Desarrollar una aplicación
+prototipo que permita generar una categorización
+de retinopatía diabética,
+teniendo en cuenta las variables asociadas a la enfermedad.
+
+Software prototipo con interfaz gráfica el cual permite inegresar los datos para generar
+el diagnóstico utilizando los
+algoritmos previamente implementados.
+
+ 
+
+ 
+
+Realizar pruebas de los algoritmos y crear un análisis
+comparativo de los resultados obtenidos en éstos.
+
+ 
+
+Documento con el análisis
+comparativo, anexando gráficas, tablas, indicadores de
+desempeño, conclusiones y
+análisis sobre los resultados
+de cada algoritmo.
+
+ 
+
+ 
+
+Tabla 1: Resultados esperados por objetivo específico1.5. Alcances de la propuesta
+
+Una vez concluido el proyecto se espera tener un prototipo de un sistema para el
+diagnóstico de retinopatía diabética, el cual tendrá como entrada características previamente obtenidas de una imagen de la retina del ojo.
+
+El prototipo del sistema no será una herramienta para el usuario final, pero contará con
+la funcionalidad básica de permitir ingresar los datos y seleccionar con cuál de los dos
+algoritmos de inteligencia artificial generar el diagnóstico. Se debe aclarar que cuando se
+habla de generar un diagnóstico, este resultado tiene como objetivo servir de ayuda al
+médico en la toma de su decisión y no reemplazarlo en ningún caso.
+
+En este proyecto se usarán dos algoritmos de inteligencia artificial principalmente por
+el tiempo correspondiente para el desarrollo (8 meses), además al ser dos permitirá tener
+dos resultados posiblemente diferentes, para ser almacenados en tablas y representados en
+gráficas para tener un punto de comparación directa del desempeño de cada uno.
+
+Existen diferentes proyectos que proponen otros algoritmos para categorizar la retinopatía diabética, lo cual permitirá tener una base para el desarrollo y resultados sobre los
+cuales comparar los obtenidos en el proyecto, poder generar conclusiones sobre éstos y
+determinar cuál podría ser el mejor algoritmo a implementar en posteriores sistemas de
+apoyo para la toma de decisiones del médico.
+
+2. Marco Teórico
+
+2.1. Glosario
+
+= AGF : Angiografía fluoresceínica.
+
+= CC): Clasificación de retinopatía diabética.
+= DM: Diabetes mellitus.
+
+= DM tipo 1: Diabetes mellitus tipo 1.
+
+= DM tipo 2: Diabetes mellitus tipo 2.
+
+= ECM: Error Cuadrático Medio.
+
+= EM : Edema Macular.
+
+= ES: Estrategias evolutivas.
+
+"= Exudados (EX): Inflamaciones que se depositan en los tejidos o cavidades del
+Organismo.
+
+= EYT : Exámenes y tratamientos.= GDM: Diebetes mellitus gestacional.
+
+= GEP : Programación de expresión genética.
+
+= Hemorragia : Salida de sangre de las arterias, venas o capilares por donde circula.
+= TA : Inteligencia Artificial.
+
+= Isquemia : Detención o disminución de la circulación de sangre a través de las
+arterias de una determinada zona.
+
+"= LCS : Learning Classifier Systems - Sistemas Clasificadores.
+
+= Mácula : Área muy pequeña en el centro de la retina.
+
+= Microaneurisma (MA): Aneurismas muy pequeños.
+
+= OCT : Tomografía de coherencia optica.
+
+= Retina : Tejido que cubre la parte posterior del ojo.
+
+= Retina periférica: Es la parte alrededor de la retina.
+
+= Retinopatía diabética : Enfermedad ocular producida por la diabetes.
+= RDNP : Retinopatía diabética no proliferativa.
+
+= RDP : Retinopatía diabética proliferativa.
+
+= Vítreo : La sustancia gelatinosa en el centro del ojo.
+
+2.2. Inteligencia artificial
+
+La inteligencia artificial se puede definir en 4 categorías diferentes [16]:
+
+1. Sistemas que piensan como humanos: “Actividades que vinculamos con procesos de
+pensamiento humano, actividades como la toma de decisiones, resolución de problemas, aprendizaje” .(Bellman, 1978).
+
+2. Sistemas que piensan racionalmente: “El estudio de las facultades mentales mediante
+el uso de modelos computacionales” .(Charniak y McDermott, 1985).
+
+3. Sistemas que actúan como humanos: “El arte de desarrollar máquinas con capacidades para realizar funciones que cuando son realizadas por personas requieren de
+inteligencia” .(Kurzweil, 1990).
+
+4. Sistemas que actúan racionalmente: “La inteligencia computacional es el estudio del
+diseño de agentes inteligentes” .(Poole, 1998).
+
+La inteligencia artificial es un área multidisciplinaria que estudia la creación y diseño
+de sistemas capaces de resolver problemas por sí misma utilizando modelos principalmente
+inspirados en la biología, algunas ramas de la inteligencia artificial son:
+
+62.2.1. Búsqueda del estado solución.
+
+Esta técnica busca la solución de un problema a partir de los posibles estados que
+puede tener, a diferencia de las soluciones ingenuas que consiste en recorrer todos estados
+posibles. La inteligencia artificial usa principalmente árboles de búsqueda, que toma como
+raíz un estado inicial y a partir de diferentes técnicas, éste se va expandiendo y generado
+estados posibles, donde la decisión es tomada a partir de una heurística diseñada para el
+problema en específico [16].
+
+Las heurísticas son funciones que evalúan un estado y le asignan un valor a ésta, las
+heurísticas son importantes ya que de ésta depende que el algoritmo de inteligencia artificial cumpla su objetivo, por lo tanto un buen diseño de una función heurística es
+indispensable, sin dejar de lado la complejidad temporal y espacial, dado que en algunos
+casos la respuesta debe ser los más rápido posible.
+
+2.2.2. Algoritmos genéticos.
+
+Son algoritmos de búsqueda de óptimo basados en la teoría de la evolución de Darwin.
+Consiste en definir un cromosoma para así crear una población que al ser sometidos a
+reproducción, acciones aleatorias como la mutación y un criterio de selección, los más
+aptos sobrevivirán y éstos serán las mejores soluciones del problema [17]. Una descripción
+eráfica del proceso se ilustra en la figura 1.
+
+Individuo genotipo  fimess
+X1 100100 |
+Xx) 010010 324 Progenitores
+X3 010110 484
+X4 000001 1
+
+Evaluación de
+
+1296 Selección de
+la descendencia
+
+ 
+
+ 
+
+ARTO CERO
+VES )
+CESTAS Cree EEC
+
+Nueva población Reproducción
+
+E
+de descendientes ERA) Mutación CEE
+
+Figura 1: Proceso de un algoritmo genético.
+1Existen diferentes técnicas aplicadas a los algoritmos evolutivos lo cual hace que se
+adapte a diferentes problemas:
+
+= Programación de expresión genética (GEP): utiliza poblaciones de programas
+informáticos los cuales son codificados en cromosomas lineales de longitud fija que
+posteriormente son representados en árboles de expresión [17/.
+
+= Estrategias evolutivas (ES): consiste en evolucionar a los individuos por medio de
+la mutación y la recombinación, utiliza la autoadaptación para ajustar los parámetros
+de control de búsqueda |17].
+
+= Sistemas Clasificadores: también llamados Learning Classifier Systems (LCS),
+consiste en generar reglas de inferencia para que a partir de una entrada dar como salida una clasificación. Esta técnica necesita de datos iniciales sobre los cuales
+trabajar y a medida que se vaya usando el algoritmo las reglas se irán ajustando
+
+17.
+
+= Simulated Annealing (SA): SA es una búsqueda de generar y probar técnicas basadas en una analogía física, más que biologica. Sin embargo, las SA puede ser vista
+como un proceso evolutivo con población de tamaño 1, representación dependiendo
+del probleba, mutación y un mecanismo específico de supervivencia. la presión selectiva cambia durante el curso del algoritmo.
+En este mecanismo el parámetro de la temperatura disminuye según un esquema predefinido dependiente del tiempo, haciendo que la probabilidad de aceptar soluciones
+inferiores sea cada vez pequeña [17].
+
+2.2.3. Redes neuronales artificiales
+
+Esta técnica está motivada en modelar la forma del procesamiento de la información en
+sistemas nerviosos biológicos, principalmente por la forma del funcionamiento del cerebro
+humano. Dado esto una red neuronal artificial es un procesador de información construido
+por unidades sencillas de procesamiento llamadas neuronas, algunas características son:
+adquirir conocimiento a partir de la experiencia, adaptabilidad, tolerancia a fallas y comportamiento no lineal [18].
+
+ 
+
+Imagen tomada de: http: //ww.cs.us.es/-fsancho/?e=65 ultima visita: 09-05-2017A mostly complete chart of
+
+(O) Backted Input Cell N e ul Pa l N etv O F ks Deep Feed Forward (DFF)
+
+O Input Cell 22016 Fjodor van Veen - asimovirstitute.org
+Noisy 7
+(E) Noisy Input Ce Perceptron (P) Feed Forward (FF) Radial Basis Network (RBF)
+
+O) tiiácen cen |
+(O) rrobablistic Hidden Cell
+
+A spixing Hidden Coll
+
+O) outpurces
+
+ 
+
+Recurrent Neural Network (ANA) Long / Short Term Memory (LSTM)  Gated Recurrent Unit (GRAU)
+
+   
+ 
+ 
+
+  
+
+   
+  
+
+   
+ 
+
+ 
+  
+
+   
+
+STR TSE SN ATRAS E
+ÑO INS NS
+
+          
+
+       
+
+O Match Input Output Cell AS 5d Far 5 ve AA
+
+O Recurrent Cell
+
+Mernary €
+(O) memory cet. Auto Encoder(AE) —— Variational AE (VAE) Denoising AE (DAE) Sparse AE (5AE)
+
+A Different Memory Cell
+Kernel EN A
+| A
+
+0 Ni
+
+AAA
+
+o Convolution or Pocl
+
+  
+
+Figura 2: Diferentes arquitecturas de redes neuronales.
+2
+
+La figura 2 muestra diferentes arquitecturas de redes neuronales, donde cada una de
+ellas puede tener un mejor comportamiento sobre un problema en específico, y a medida
+que avanza los estudios de la inteligencia artificial nuevas arquitecturas de redes neuronales aparecen para ampliar y mejorar esta área.
+
+La construcción de una red neuronal consiste en generar un modelo o seleccionar y adaptar
+uno ya existente, identificar las entradas, salidas y calcular los pesos de la sinapsis. Este
+último es importante ya que de estos pesos depende la decisión final que tendrá la red
+neuronal. Para calcular estos pesos existen varias técnicas que consisten en prueba y error
+hasta llegar a nivel de satisfactibilidad, a este proceso se le llama aprendizaje de la red
+neuronal.
+
+2.2.4. Máquinas de soporte vectorial
+
+Son un conjunto de algoritmos centrados principalmente en la clasificación y regresiones
+lineales, se encuentra entre los algoritmos de aprendizaje supervisado, para la clasificación
+crea un conjunto de hiperplanos en espacios dimensionales altos [19].
+
+ 
+
+“Imagen tomada de: http: //www.example.com/the_image.png ultima visita: 09-05-2017(a) (b)
+
+Figura 3: Hiperplanos de separación.
+3
+
+La figura 4 muestra dos gráficas donde (a) solo contiene un hiperplano de separación,
+(b) muestra más hiperplanos de separación de los datos. Y aunque se puedan crear diferentes hiperplanos de separación se debe de encontrar un hiperplano óptimo el cual esté
+equidistante de las dos categoría de datos.
+
+2.3. Aprendizaje de los algoritmos
+
+Los algoritmos de inteligencia artificial en sus procesos de decisión deben ser entrenados, para cada algoritmo puede variar la implementación pero en general existen dos tipos
+de aprendizaje:
+
+2.3.1. Aprendizaje supervisado
+
+Consiste en generar valores capaces de determinar correctamente la respuesta, esto lo
+debe de hacer a partir de una serie de ejemplos mostrados, los cuales son los datos de
+entrenamiento, para ello debe de generalizar de los estados presentados a las situaciones
+no vistas previamente [18].
+
+2.3.2. Aprendizaje no supervisado
+
+Consiste en generar valores a un modelo, donde estos valores serán principalmente generados por el experto a partir de observaciones, y es aquí donde se distingue del aprendizaje
+supervisado donde no hay un conjunto de conocimiento inicial [18].
+
+ 
+
+“imagen tomada de: urlhttp://www.ia.uned.es/ ejcarmona/publicaciones /[2013
+Carmona] %208VM.pdf última visita 09-05-2017.
+
+102.4. Diabetes Mellitus
+
+La diabetes Mellitus (DM) comprende un grupo de trastornos metabólicos frecuentes que comparten el fenotipo de altos niveles de glucosa en sangre (Hiperglucemia). De
+acuerdo con la causa de la DM,los factores que contribuyen a la hiperglucemia pueden ser
+deficiencia de la secreción de insulina, disminución de la utilización de glucosa o aumento
+de la producción de ésta. En Estados Unidos, la DM es la primera causa de enfermedad
+renal en etapa terminal, de amputaciones no traumáticas de extremidades inferiores (pie
+diabético) y pérdida potencial de la visión a causa de la retinopatía diabética [4].
+
+Las dos categorías amplias de la DM se designan tipo 1 y tipo 2, éstos dos tipos de
+diabetes son antecedidos por una fase de metabolismo anormal de glucosa.
+
+2.4.1. La diabetes Mellitus Tipo 1
+
+Anteriormente llamada DM insulinodependiente, en esta forma de diabetes las células
+Beta son destruidas lo que habitualmente provoca deficiencia completa o casi total de
+insulina [4].
+
+2.4.2. La diabetes Mellitus Tipo 2
+
+Llamada anteriormente DM no insulinodependiente, presenta diversos trastornos que
+se caracterizan por grados variables de resistencia a la insulina, menor secreción de dicha
+hormona y una mayor producción de glucosa [4].
+
+2.4.3. Diabetes Mellitus Gestacional (GDM)
+
+La intolerancia a la glucosa que se desarrolla durante el embarazo se clasifica como diabetes gestacional. Aunque esta forma de diabetes en general desaparece después del parto,
+una mujer que haya tenido diabetes gestacional tiene mayor probabilidad de presentar
+diabetes tipo 2 más adelante [4].
+
+2.5. Retinopatía Diabética
+
+Es la enfermedad ocular diabética más común, ocurre cuando los niveles de azúcar en
+la sangre son muy altos durante largos períodos de tiempo, los capilares (pequeños vasos
+sanguíneos) que suministran sangre a la retina pueden deteriorarse. Con el tiempo, estos
+vasos sanguíneos comienzan a filtrar líquidos y grasas, produciendo un edema (hinchazón).
+Eventualmente, una condición llamada isquemia puede ocurrir, durante la cual los vasos
+sanguíneos pueden taparse. En otros casos, nuevos vasos sanguíneos anormales crecen en
+la superficie de la retina [20].
+
+11= La retina: Es una capa fina de tejido sensible a la luz que cubre la parte posterior
+del ojo. Los rayos de luz se enfocan en la retina, donde son transmitidos al cerebro
+e interpretados como imágenes.
+
+= La retina periférica: Es la parte alrededor de la retina, es responsable por la visión
+lateral o periférica.
+
+= La mácula: Es un área muy pequeña en el centro de la retina. La mácula es el área
+responsable por la visión detallada, permitiéndonos leer, coser o reconocer una cara.
+
+    
+    
+
+Nervio
+
+óptico HK= [Cristalino)
+
+Vasos =
+
+sanguíneos retinianos Esclerótica
+
+Figura 4: Anatomía del ojo.
+4
+
+Existen dos tipos de retinopatía diabética:
+
+2.5.1. Retinopatía diabética no proliferativa (RDNP)
+
+La retinopatía diabética no proliferativa (RDNP) es la etapa más temprana de la retinopatía diabética. Cuando existe esta condición, los vasos sanguíneos deteriorados permiten
+un escape de fluidos de sangre dentro del ojo. Ocasionalmente, depósitos de colesterol u
+otras grasas de la sangre pueden entrar en la retina [20].
+
+La RDNP puede causar cambios en los ojos, incluyendo:
+
+= Microaneurismas: Unas pequeñas protuberancias en los vasos sanguíneos de la
+retina que con frecuencia dejan escapar líquidos [20].
+
+= Hemorragias de la retina: Unas pequeñas manchas de sangre que entran a la
+retina [20].
+
+= Exudados duros: Es la inflamación o engrosamiento de la mácula a causa de escapes de líquido de los vasos sanguíneos de la retina. La mácula no funciona correctamente cuando está inflamada. El edema macular es la causa más común de pérdida
+de la visión durante la diabetes [20].
+
+ 
+
+“Imagen tomada de: https: //www.aao.org/salud-ocular/enfermedades/retinopatia-diabetica
+ultima visita: 09-05-2017
+
+12= Exudados macular: Es la inflamación o engrosamiento de la mácula a causa de
+escapes de líquido de los vasos sanguíneos de la retina. La mácula no funciona correctamente cuando está inflamada. El edema macular es la causa más común de
+pérdida de la visión durante la diabetes [20].
+
+= Isquemia macular: Los pequeños vasos sanguíneos (capilares) se cierran o se tapan.
+Su visión se torna borrosa ya que la mácula no recibe suficiente sangre para funcionar
+correctamente [20].
+
+ 
+
+Hard
+exudates
+
+Dot and blot
+
+hemorrhages
+
+Microaneurysms
+
+ 
+
+Source: K.J. Knoop, L.B. Stack, A.B. Storrow, R.J. Thurman:
+The Atlas of Emergency Medicine, 4th Edition,
+www.accessemergencymedicine
+
+Copyright €) McGraw-Hill Education. All rights reserved.
+
+Figura 5: Foto de la retina con retinopatía diabética no proliferativa.
+5
+
+2.5.2. Retinopatía diabética proliferativa(RDP):
+
+La retinopatía diabética proliferativa (RDP) evoluciona a partir de la RDNP y sucede
+principalmente cuando más grave es la RDNP. La retina en un intento de suministrar sangre a la zona donde los vasos originales se han tapado, la retina responde creando nuevos
+vasos sanguíneos. Este proceso se llama neovascularización. Sin embargo, los nuevos vasos
+sanguíneos también son anormales y no proporcionan a la retina con el flujo sanguíneo
+adecuado. A menudo, los nuevos vasos van acompañados por tejidos cicatrizados que pueden hacer que la retina se arrugue o se desprenda [20].
+
+La RDP puede causar una pérdida de la visión más severa que la RDNP, ya que puede
+afectar tanto la visión central como la periférica. La RDP afecta la visión de las siguientes
+maneras:
+
+ 
+
+"Imagen tomada de: FUNDUSCOPIC FINDINGS, The Atlas of Emergency Medicine, 4e. ultima visita:
+09-05-2017
+
+13Neovascularization
+
+N
+
+= Hemorragia vítrea: Los nuevos y delicados vasos sanguíneos sangran dentro del
+vítreo, previniendo que los rayos de luz lleguen a la retina. Si la hemorragia es
+pequeña, es posible que la persona afectada vea algunas nuevas manchas oscuras y
+flotantes. Una hemorragia muy grande puede bloquear la visión, permitiéndole sólo
+ver la diferencia entre claro y oscuro. Una hemorragia vítrea por sí sola no causa una
+pérdida de visión permanente. Toda vez que la sangre desaparece, la visión puede
+volver a su estado anterior, a menos que la mácula se haya dañado [20].
+
+Figura 6: Foto de la retina con retinopatía diabética proliferativa.
+6
+
+= Desprendimiento de la retina por tracción: Cuando el tejido de una cicatriz
+producida por una neovascularización se encoge, la retina se arruga y puede desprenderse de su posición normal. Estas arrugas maculares pueden distorsionar la visión.
+Pérdida de la visión más graves pueden ocurrir si la mácula o áreas grandes de la
+retina se desprende [20].
+
+= Glaucoma neovascular: Si una serie de vasos de la retina se cierran, una neovascularización en el iris (la parte coloreada del ojo) puede ocurrir. Cuando esta condición
+existe, los nuevos vasos sanguíneos pueden bloquear el flujo normal de líquido en el
+ojo. La presión en el ojo aumenta, lo que presenta una condición particularmente
+grave que causa daños al nervio óptico [20].
+
+ 
+
+STmagen tomada de: FUNDUSCOPIC FINDINGS, The Atlas of Emergency Medicine, 4e. ultima visita:
+09-05-2017
+
+14Nivel de severidad Características
+No aparente Retinopatía No se observan abnormalidades
+Leve NPDR Se observan el inicio de aparición Microaneurismas
+Moderada NPDR Solo se observan Microaneurismas
+Severa NPDR Se observan Microaneurismas, además se encuentra la presencia
+de exudados y hemorragias internas
+PDR Presencia de Neovascularización y hemorragia vítrea
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 2: Clasificación de la retinopatía diabética
+
+2.6. Exámenes para el diagnóstico de retinopatía diabética
+
+Existen diferentes tipos de exámenes que apoyan el diagnóstico y manejo de las complicaciones presentadas en la retina de los pacientes diabéticos [6]:
+
+2.6.1. Angiografía fluoresceínica (AGF')
+
+La AGF se basa en el principio de la transmisión de fluorescencia a través de los tejidos
+de la retina y coroides, captados a través de fotografías con filtros especiales. El colorante
+de fluoresceína sódica se inyecta en la vena y se registra el comportamiento circulatorio del
+mismo en la retina. Se toman fotos basales a color con filtros especiales, y luego se toman
+una serie de fotografías conforme el colorante circula por las venas y arterias de la retina.
+Las fases tempranas, intermedias y tardías se identifican pasados cerca de diez minutos,
+tiempo promedio que tarda una angiografía. De acuerdo al comportamiento de los tiempos
+de llenado y de los patrones observados, el retinólogo obtiene información valiosa acerca
+del comportamiento circulatorio y de los daños que un paciente pueda tener en la retina
+
+16].
+
+2.6.2. Fondo de ojo
+
+Examen realizado con un oftalmoscopio, es un tipo de microscopio que se utiliza para
+examinar la parte frontal del ojo, incluyendo párpados, conjuntiva, esclera, cornea, iris,
+cámara anterior, cristalino, y también partes de la retina y el nervio óptico [6].
+
+2.6.3. Tomografía de coherencia óptica(OCT)
+
+La tomografía de coherencia óptica (OCT por sus siglas en inglés), es una exploración
+no invasiva con láser que proporciona imágenes de alta resolución de la retina, ayudando
+a su oftalmólogo a evaluar su espesor. Una tomografía de coherencia óptica puede proporcionar información sobre la presencia y severidad de un edema macular (hinchazón)
+
+(6).
+
+152.7. Messidor base de datos
+
+La base de datos Messidor ha sido establecida para facilitar estudios en los diagnósticos
+asistidos por computador de retinopatía diabética. Los datos en la base de datos son de uso
+libre para propósitos educativos. Esta base de datos se compone por más de 1000 imágenes
+de la retina obtenidas de 3 departamentos oftalmológicos diferentes. La explicación de la
+base de datos propone modelos básicos para el procesamiento de las imágenes, resultados
+de análisis de las imágenes, y reglas básicas para diagnosticar retinopatía diabética y
+
+edemas maculares (21].
+
+3. Marco Referencial:
+
+3.1. Marco Referencial de Algoritmos Computacionales:
+
+ 
+
+Nombre del artículo
+
+Algoritmos Utilizados |
+
+Resultados
+
+ 
+
+Detección y clasificación de
+Retinopatía Diabética no
+Proliferativa usando una
+Red Neuronal de Retropropagación [22].
+
+= Redes neuronales.
+
+Tuvo una precisión del 95% en su
+diagnóstico.
+
+ 
+
+An ensemble-based system
+for automatic screening of
+diabetic retinopathy [23].
+
+= Redes neuronales.
+
+= SVM.
+
+= Random
+Forest.
+
+= Árboles de
+
+decisión.
+
+Usó diferentes algorismo de aprendizaje, pero el que mejor resultado
+
+dio,fue SVM con una precisión mayor al 95% (Citado por 35).
+
+ 
+
+Machine Learning on the
+Diabetic Retinopathy Debrecen Data Set[24|
+
+ 
+
+ 
+
+= Redes neuronales.
+
+= SVM.
+
+= Random
+Forest.
+
+= K-NN.
+
+ 
+
+SVM tuvo la mejor precisión con un
+
+76%
+
+ 
+
+16Nombre del artículo
+
+Algoritmos Utilizados
+
+Resultados
+
+ 
+
+An Improved Medical Decision Support System to
+
+Tiene una precisión del 97%, a diferencias del anterior. Este usa co
+ 
+
+Identify the Diabetic Re- SVM. mo entreda directamente las imágetinopathy Using Fundus nes de la retina. (Citado por 6)
+Images][25..
+An Expert Support System SVM tuvo la mejor precisión con un
+for Breast Cancer Diag- 98% (Citado por 16).
+nosis using Color Wavelet SVM.
+Features[26). Redes baye
+slanas.
+
+Redes Neu
+ronales.
+
+ 
+
+Tuberculosis Disease Diagnosis Using Artificial Neural Network Trained with
+Genetic Algorithm[27].
+
+Redes neuronales
+entrena
+das por
+algoritmos
+genéticos.
+
+Tuvo una precisión del 94%, mejorando en un 2% otros estudios ante
+riores con redes neuronales. (Citado
+por 44)
+
+ 
+
+Un sistema experto difuso
+
+en la Web para diagnóstico
+de diabetes[28].
+
+Lógica difusa.
+
+Fue probado por varios médicos, pacientes con y sin diabetes, mostrando que ayuda muchos a los médicos
+a dar un dianóstico más certero, teniendo en cuenta más variables y ser
+más óptimos con el tiempo. (Citado
+por 1)
+
+ 
+
+ 
+
+Artificial neural networks
+applied to cancer detection in a breast screening
+programmel29].
+
+ 
+
+Redes Neuronales.
+
+ 
+
+Usó 9 modelos de redes neuronales,
+siendo el primero con 32 neuronas y
+aumentando hasta el modelos 9 con
+484. después del entranimiento y las
+pruebas, se encontró que los modelos 5, 6 y 7 tenían los mejores resultados, y siendo el modelo 5 con
+144 neuronas la que mejor precisión
+tuvo, con un 75%. (citado por 27)
+
+ 
+
+17Nombre del artículo
+
+Algoritmos Utilizados
+
+Resultados
+
+ 
+
+A Clinical Decision Support System with an
+Integrated EMR for
+
+Diagnosis of  Peripheral
+Neuropathy[30].
+
+= Lógica difu
+Sa.
+
+El sistema puede diagnosticas 4 diferentes neuropatías y fue testeado
+con ayuda de expertos, presentcan
+do una precisión del 93%. (Citado
+por 4)
+
+ 
+
+A Study on Hepatitis
+Disease Diagnosis Using
+Probabilistic Neural
+Network[31].
+
+Redes neuronales
+
+Probabilisticas(PNN).
+
+PNN tiene una precisión de 91,2%,
+una precisión mayor que muchas
+otros modelos de redes neuronales
+para esta enfermedad (Citado por
+
+25).
+
+ 
+
+A Study on Hepatitis
+Disease Diagnosis Using
+Multilayer Neural Network
+with Levenberg Marquardt
+
+Training Algorithm][32].
+
+Redes neuronales
+Entrenadas
+por Levenberg  Mar
+quardt(MLNN).
+
+MLENN tiene una precisión de
+91,87%, siendo así una red neuronal
+con mayor precisión, esto puede ser
+a que LM le proporciona una ma
+yor velocidad de convergencia (Citado por 45).
+
+ 
+
+Performance analysis of
+descriptive statistical features in retinal vessel segmentation via fuzzy logic,
+ANN, SVM, and classifier
+fusion|[33].
+
+Lógica difusa.
+
+ANN.
+
+SVM.
+
+Clasificador
+de fusión.
+
+Se usó el sistema en dos bases de
+datos diferentes, en los dos casos las
+redes neuronales tuvo la mejor precisión con un 94%, seguida por la
+lógica difusa con un 93% de precisión (Citado por 4).
+
+ 
+
+ 
+
+Vessel segmentation and
+microaneurysm detection
+using discriminative dictionary learning and sparse
+representation[34).
+
+ 
+
+Discriminative
+dictionary
+learning.
+
+ 
+
+Detecta los microaneurismas y vasos de la retina del ojo, es usado en
+dos bases de datos diferentes, y tiene
+
+una precisión del 94% (Citado por
+5).
+
+ 
+
+Tabla 3: Marco Referencial Algoritmos Computacionales.
+
+1861
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+3.2. Marco Referencial de Medicina:
+Características
+
+Nombre DMTRDNPTRDPIMATEXTEVT EM Observaciones Aporte
+
+Comparison of Propone una clasificación | Relación de los
+
+Standardized clínica de la retinopatía | microaneurismas,
+
+Clinical Clas- diabética, —mostrando la exudados y  he
+sification with equivalencia con la tabla de | morragias para la
+
+Fundus  Photo- clasificación ETDRS. clasificación clíni
+graph  Grading ca de retinoatía
+
+for the  assess- diabética, es
+
+ment of Diabetic una clasificación
+
+Retinopathy and simple.
+
+Diabetic Macular
+
+Edema  Severity
+
+35]
+
+Diabetic  retino- x x x x x Habla principalmente de | Importancia del
+
+pathy - ocular edema macular, y la com- | diametro de los
+
+complications of plicación de la retinopatía | exudados para
+
+diabetes mellitus diabética. el diagnóstico de
+
+[36] edema macular,
+siendo ésta una
+complicación de
+la retinopatía
+diabética.07
+
+ 
+
+Características
+
+ 
+
+Aporte
+
+ 
+
+ 
+
+Nombre DMTRDNPITRDPITMATEXTEVT EM Observaciones
+ryan' retina volu- Xx XxX XxX XxX XxX x | Libro muy imporante y | Relación de los
+me 1 [37] completo sobre todo lo re- | microaneurismas,
+lacionado con el ojo, es | exudados y  hemuy técnico y específico en | morragias para la
+oftalmología. clasificar el nivel
+de retinoatía
+diabética.
+Preferred Practi- Xx Xx XxX XxX x | Habla de historia de re- | Relación de los
+ce Pattern: Dia- tinopatía diabética, da la | microaneurismas,
+betic retinopathy clasificación de la retino- | exudados y  he[38] patía y explica un proceso | morragias para
+que se dede tener un con | la clasificación
+un paciente con retinopatía | de retinopatía
+diabética y qué exámenes | diabética.  Menusar. ciona otras
+variables como
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+tipo de diabetes,
+tiempo de  prediabetes, edad
+para el diagnóstico de retinopatía
+diabética.To
+
+ 
+
+Características
+
+ 
+
+Aporte
+
+ 
+
+ 
+
+ 
+
+Nombre DMTRDNPITRDPITMATEXTEVT EM Observaciones
+Diabetic  retino- x x xX x x Clasifica la  retinopatía Relación de los
+pathy [39] diabética, explicando ca- | microaneurisda estado, y da alguna mas, exudados
+información más sobre la | y hemorragias
+retinopatia diabética y la para la clasificarelación que esta puede | ción de retinoatía
+dar para dar un porcentaje | diabética e imágede muerte del paciente nes explicativas.
+Retinopatía Xx Xx x | Expone y explica: early | Relación de
+diabética simplifi- treatment diabetic retino- | microaneuriscada |40] pathy study(ETDRS). Ya | mas,  exudados,
+que es una clasificación in- | edemas, para
+ternacional. la clasificación
+de retinopatía
+diabética en
+la clasificación
+internacional.
+Harrison's Princi- | x x x x Libro importante para de- | Explicación de
+
+ples of Internal
+Medicine [4]
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+finición de diabetes y sus
+cuidados, explica que la retinopatía diabética es una
+por culpa de la diabetes
+mellitus.
+
+ 
+
+diabetes mellitus,
+tipos y efectos de
+ésta.CG
+
+ 
+
+Características
+
+ 
+
+ 
+
+ 
+
+Nombre DMTRDNPITRDPITMATEXTEVT EM Observaciones Aporte
+Teleoftalmología Xx Xx Xx Explica la Teleoftalmología | Examen a  dispara el cribado de y como se puede diagnísti- | tancia para
+la retinopatía [41] cas retinopatía diabética a | diagnóstico de repartir de imágenes de la re-  tinopatía diabétitina tomados por un reti- | ca, consiste en
+nografo. tomar fotos de la
+retina y enviarlas
+por aleún medio
+electrónico para
+su revisión, da
+buenos resultados
+y es útil para
+que las imágenes
+tomadas sean
+procesadas por
+sistemas.
+United Kingdom Xx Xx x x Estudio de datos de pa- | Menciona otras
+Prospective Dia- cientes, clasificando estos | variables como
+
+betes Study [42].
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+datos por diferentes variables y ver cómo se compotta la enfermedad en la población.
+
+ 
+
+tipo de diabetes,
+tiempo de diabetes, edad, para
+evaluar un  riesgo de presencia
+de retinopatía
+diabética.ed
+
+ 
+
+Características
+
+ 
+
+Aporte
+
+ 
+
+ 
+
+ 
+
+Nombre DMTRDNPITRDPITMATEXTEVT EM Observaciones
+Guía de Retino- | x Xx XxX XxX Xx XxX x | Guía de retinopatía | Guía donde expatía|6| diabética, donde explica | plica el proceso
+todo muy detalladamente, | que debe tener
+pero no hace una explo- | el médico para el
+ración profunda sobre los | diagnóstico, dontemas, pero sirve mucho | de también explipara dar una definición | ca que el tiempo
+inicial de una cita no es
+suficiente para un
+bien proceso.
+GUIA PRACTE | x Xx x Xx Xx Xx x | Dirigida a oftalmólogos y | Relacion de 1miCA CLINICA DE profesionales de la salud, | croaneurismas
+RETINOPATIA explica mucho sobre la re- | para la clasificaDIABETICA tinopatía diabética. ción de  retinoPARA LATI- patía diabética,
+NOAMERICA además agrega
+[43] un porcentaje de
+progresión de la
+enfermedad.
+Teleoftalmología Xx XxX XxX Análisis de este examen y | Explicación y propara el cribado modalidad para diagnósti- | ceso del examen
+
+de Retinopatía
+Diabética en un
+área de salud
+integrada: modelo
+de gestión de la
+
+demanda|44]
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+co de la enfermedad.
+
+ 
+
+para el diagnóstico de retinopatía
+diabéticaVE
+
+ 
+
+Características
+
+ 
+
+Aporte
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Nombre DMTRDNPITRDPITMATEXTEVT EM Observaciones
+
+Coverage and x x x Análisis de un proceso pa
+results of a scree- ra el diagnóstico de retino
+ning program patía diabética.
+
+for diabetic  re
+tinopathy using
+
+mydriatic re
+tinography in
+
+primary health
+
+care [45|
+
+Chapter 3 x x xX x Capítulo de un libro, don- | Explicación de
+
+Funduscopic de se explica la retino- | la retinopatía
+
+Findings Age- patía diabética, tiene ejem- | diabética, mi
+Related Macular plos gráficos para ver los | croaneurismas,
+
+Degeneration [46] microaneurismas y exuda- | exudados y
+dos duros. hemorragias.
+
+Atlas de la Diabe- | x x x Artículo de la federación | Sustento teórico
+
+tes de la FID [47] internacional de la diabe- | de la diabetes
+tes, explica mucho sobre | mellitus, y prevatoda la diabetes lencia de ésta en
+
+todo el mundo.
+
+PREVALENCIA x Análisis de la prevalen- | El tiempo de la
+
+DE RETI- cia de retinopatía diabéti- | diabetes mellitus
+
+NOPATÍA ca en una población, mues- | en el paciente se
+
+DIABÉTI- tra que el tiempo de la dia- | puede relacionar
+
+CA EN UNA betes es importante para la | con la presencia
+
+POBLACIÓN retinopatía diabética. de retinopatía
+
+DIABÉTICA [48] diabética.
+
+ 
+
+Tabla 4: Marco Referencial de Medicina4. Base de Datos:
+
+El Dataset usado para el proyecto, son los datos obtenidos del procesamiento de las
+imágenes de la retina, de la base de datos messidor [21|. éstas imágenes fueron procesadas a
+partir de los modelos presentados en el artículo “An ensemble-based system for automatic
+
+screening of diabetic retinopathy.” [23] obteniendo así 19 parámetros explicados en la tabla
+9
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Característica Descripción
+
+Xo Un resultado que determina la calidad de la imagen (0 = mala;
+1= Buena).
+
+X1 Resultado de un pre-procesamiento, (1 = severa RD o 0 = no
+Severa RD).
+
+Xa::: X7 Número entero que determina la cantidad de microaneurismas
+detectados, con un nivel de confianza del 50% al 100%, respectivamente.
+
+Xg-::X16 Número entero con la cantidad de píxeles que representan un
+exudado, con un nivel de confianza del 20% al 100%, respectivamente.
+
+X17 Valor relativo que determina la distancia del centro de la mácula a el centro del disco óptico.
+
+X18 Resultado de Clasificación AM/FM.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 5: Parámetros de la Base de datos
+
+Para tener una visión de los datos, la gráfica Y muestra un diagrama de dispersión
+de todos los parámetros, donde se puede observar cuáles son los datos que tiene valores
+máximos y mínimos. Como por ejemplo X8 el cual representa el número de píxeles de
+exudados con un nivel de confianza del 20%, es el parámetro que tiene el valor más alto a
+comparación de todos los demás. Otra observación que se puede hacer es que el conjunto
+de parámetros X - - - X7 el cual representa a los microaneurismas, va disminuyendo de una
+forma lineal a medida que aumente el porcentaje de confianza, y el conjunto de parámetros
+Xg-:-- X16 que representan a los exudados, va disminuyendo de forma exponencial a medida
+que aumente el procentaje de confianza.
+
+20400 a
+
+350
+
+300
+
+a o. . +.
+
+250
+
+200
+150 ¿2
+%
+e e o
+as a % .
+100 5
+a
+o
+Ss
+50 = e.
+o a
+$ j 3
+Lo ida A
+
+XO Xx1 Xx2 x3 Xx4 X5 X6 XT X8 x9 x10 Xx11 x12 x13 x14 x15 Xx16 x17 x18
+
+o. de *
+
+Figura 7: Diagrama de dispersión de los datos.
+
+A partir de esta información se puede normalizar los datos, para que todos lo valores
+estén en el rango [0,1]:
+
+= El número de microaneurismas X) - -- X7, es convertido en binarios de 7 dígitos, para
+que sean 1s y Os. dado que inicialmente hay 6 parámetros de entrada de microaneurismas, se tendría que se convierten en 42 parámetros de entrada, que sumados con
+los 13 parámetros restantes daría 55 parámetros de entrada para la red.
+
+= El porcentaje de exudados Xg-+- XA 16, es normalizado dividiendo cada uno en el
+número de píxeles de la imagen original, para que el resultado sea 1s y Os.
+
+Después de este paso, se obtienen 55 parámetros, y así servirán de entrada de la función
+de predicción de redes neuronales.
+
+5. Implementación
+
+5.1. Selección
+
+En la computación se tiene una gran cantidad de algoritmos de decisión que se basan en diferentes técnicas de computación, en la Tabla: Marco Referencial de Artículos
+
+26de Computación. se puede ver la presencia de algunos algoritmos que se basan principalmente en dos técnicas de computación Redes Neuronales y SVM. Para poder decidir los
+algoritmos que se van implementar primero toca decidir la técnica computacional en la
+que cual se va a basar los algoritmos.
+
+La técnica a usar entre las dos mencionadas anteriormente, será seleccionada a partir de
+lo siguiente:
+
+= Número de citaciones de los artículos en la Tabla 3.1 .
+
+= Número de implementaciones en la Tabla 3.1.
+= Mejores Resultados obtenidos en la Tabla 3.1.
+
+Resultados obtenidos:
+
+= Redes neuronales tiene el mayor número de implementaciones en la tabla de antecedentes, con 8 implementaciones a comparación de SVM con 5 veces.
+
+= Redes neuronales tiene el artículo con mayor número de citaciones, «Redes neuronales Entrenadaspor Levenberg Marquardt(MLNN) [32]» con 45 citaciones, el
+segundo artículo en número de citaciones también implementa redes neuronales,
+«Tuberculosis Disease Diagnosis Using Artificial Neural Network Trained with Genetic Algorithm[27|» con 44 citaciones, y el tercer artículo en número de citaciones
+implementa diferentes algoritmos entre ellos redes neuronales y SVM, «An ensemblebased system for automatic screening of diabetic retinopathy |23]», con 35 citaciones.
+
+= Redes neuronales junto con SVM tienen procentaje de precisión muy alto, teniendo a
+SVM con su mayor precisión en un 98% y a redes neuronales con su mejor precisión
+
+en un 95%.
+
+Éstos resultados fueron tomados de artículos publicados en fuentes confiables, siendo
+así un buen indicador de fiabilidad. y un punto de arranque para el proyecto actual.
+
+5.2. Red Neuronal Artificial:
+
+La implementación de la red neuronal en el actual proyecto se ve dividida en dos:
+Función de predicción: En esta función se debe tener en cuenta la arquitectura de la
+red, para saber como interpretar los pesos sinápticos y que al momento de tener un patrón
+de entrada, los cálculos de la salida se realicen de la manera correcta, la cual sería la
+respuesta de la red con respecto al patrón de entrada.
+
+Función de entrenamiento: son los diferentes algoritmos de entrenamientos de la red,
+que son los encargados de recalcular los pesos de las conexiones sinápticas, para que los
+resultados de precisión sean cada vez mejores.
+
+275.2.1. Función de predicción:
+
+Una red neuronal puede variar mucho, ya sea en su número de neuronas, en el número
+de salidas y en su arquitectura, respondiendo a esto en el actual proyecto de usará una
+sola salida con una arquitectura de perceptrón con una capa oculta y dejando variable el
+número de neuronas, él cual será un parámetro importante en las pruebas que se deben
+realizar.
+
+El calculo de la salida de una red neuronal con arquitectura perceptrón, se puede
+simplificar en multiplicación de matrices, ya que los pesos sinápticos de la red neuronal
+estás almacenados computacionalmente en matrices, en tamaños que responden al tamaño
+de la red.
+
+Para empezar con la explicación de la implementación de la red neuronal, se deben
+estándarizar las variables a usar:
+
+= Y = número de entradas de la red neuronal = 55
+= 1M = número de neuronas = Variable
+= 5 = número de salidas = 1
+
+La función de predicción en casos generales tendrá como entrada la siguientes matrices:
+
+Ex
+Eo
+PatronEntrada(wx1) = | - (1)
+EN
+Wi Wo Wa Wai Wis +: Win
+Wa Wa Wa Wa Was ::: Waw
+PesosCapaOculta(mxn) = | | | (2)
+Win Wai: Wus Wus Wwus ::: Win
+Puy Poy Pg Pia Pis ++ Pim
+Pa Po Pos Pa Po: Pom
+PesosCapaSalida(sxm, = | | | (3)
+Ps Ps2 Fs3 Psa Pss :: Pswm
+
+A partir de estas entradas, primero se debe calcular la salida neta de la capa oculta,
+esto se realiza por medio de la multiplicación de (2) con (1) y después sumar el bias a los
+pesos resultantes, teniendo así:
+
+SalidaN etaC'apaOculta(mxi, = PesosCapaO0culta(mxny * PatronEntradanx1) (4)
+
+29Ya habiendo tenido la salida neta de la capa oculta, se haya la salida total de la red,
+multiplicando 3 con 4, teniendo así:
+
+Salida(sx1) = PesosCapaSalida(sxm) * SalidaN etaCapaOculta xi) (5)
+
+Obteniendo un vector con cada una de las salidas de la red. En el actual proyecto se
+está usando una sola salida, ya que ésta permite dar una clasificación positiva “existencia
+de la enfermedad = 1” o una clasificación negativa “no hay existencia de la enfermedad =
+0”. Por lo tanto la salida total de la red neuronal será un vector de tamaño (1 x 1), lo que
+
+es lo mismo que un escalar. Una representación de la red neuronal resultante es la que se
+ve en la gráfica 8.
+
+5.2.2. Complejidad Función de Predicción:
+
+Complejidad temporal: Como ya se mencionó, la implementación de la red neuronal
+principalmente consiste en multiplicación de matrices, y la complejidad temporal de la
+multiplicación de matrices depende del tamano de ellas. en el calculo de la salida se
+realizan dos multiplicaciones, teniendo como complejidad temporal:
+
+SalidaN etaC'apaOcultaimx1i, = PesosCapaOculta(mxny*PatronEntrada(yx1) => O(NM)
+
+Salida xi, = PesosCapasalidarxm) * SalidaN etaCapaOculta(mx1) > O(M)
+
+Sumando estas dos complejidades:
+
+O(NM)=+0(M) > O(NM + M) > O(N M)
+
+Teniendo así, que la complejidad del calculo de una salida de la red neuronal es:
+
+O(NM) (6)
+
+Complejidad Espacial: La complejidad espacial del algoritmo consiste el almacenar
+las matrices, por lo que la complejidad espacial se resume en el tamaño de las matrices:
+
+ON +NM+M)= O(NM)
+
+5.3. Backpropagation:
+
+Backpropagation o Propagación hacia atrás, es un algoritmo de entrenamiento de Redes
+Neuronales, este algoritmo utiliza los patrones de salida de la red y la salida obtenida para
+calcular el error de la salida [18].
+
+Este error se propaga desde la capa de salida, hasta la capa de entrada, hacia atrás.
+afectando los pesos de cada neurona dado un factor de entrenamiento y su contribución con
+la salida, así las neuronas que son más determinantes tendrán más cambios a comparación
+con las neuronas que no son tan significativas.
+
+Para el actual proyecto se implemento el algoritmo backpropagation en una red neuronal
+de una capa oculta, y se verá de la siguiente forma:
+
+29Figura 8: Arquitectura de la Red Neuronal.
+
+5.3.1. Complejidad algoritmos de Backpropagation:
+
+Complejidad temporal: El algoritmos de backpropagation ya que es un algoritmos
+de entrenamiento de la red neuronal está constantemente recalculando los pesos de las
+capas, lo que determina una constante iteración en los patrones de entrenamiento, estar
+usando continuamente la función de predicción y comparar las salidas obtenidas con las
+deseadas.
+
+= Inicialmente en el algoritmo se obtiene un resultado de un patrón concreto del conjunto de entrenamiento, lo cual tiene un complejidad O(N M), como se dice en la
+sección anterior.
+
+= Después, se halla el error de la salida, con respecto a la salida deseada en los patrones
+de entrenamiendo, lo cual tiene una complejidad constante O(1).
+
+= Ahora se empieza la propagación hacia atrás, primero se recalculan los pesos de la
+capa de salida, recorriendo el vector de los pesos de la capa de salida y como éste
+tiene un tamaño de (M x 1), implica que tiene una complejidad de O(M).
+
+= Continuando con la propagación hacia atrás ahora se recalculas los pesos de la capa
+
+oculta, recorriendo la matriz de pesos de la capa oculta y como ésta tiene un tamaño
+de (M x N), implica que tiene una complejidad de O(MN)
+
+Hasta el momento tenemos diferentes pasos que van en secuencia, por lo que significan
+que se suman, dejando así:
+
+SUEn cada iteración del algoritmos se está constantemente ejecutando todos los pasos
+anteriores por cada patrón de entrenamiento, lo que significa una multiplicación en la
+complejidad.
+
+T” = cantidad de patrones de entrenamiento.
+
+O(TNM)
+
+Para finalizar toda la iteración del algoritmo de backpropagation, se tiene en cuenta
+algo que se llama “punto de aburrimiento”, la cual consiste en colocar un límite concreto
+de iteraciones o un límite de tiempo de ejecución, teniendo así la complejidad final del
+algoritmo de entrenamiento:
+
+TI = Punto de aburrimiento / cantidad de iteraciones.
+
+O(ITNM) (7)
+
+Complejidad Espacial: La complejidad espacial del algoritmo consiste el almacenar
+las matrices, lo cual sería equivalente a la complejidad espacial de la función de predicción:
+
+ON +NM+M)= O(NM)
+
+5.4. Algoritmos Genéticos:
+
+Los algoritmos genéticos son una técnica computacional bioinspirada de la evolución
+de Darwin. Ésta es una técnica exploratoria muy útil en problemas de optimización [17],
+como lo es el problema de optimizar los pesos de la red neuronal.
+La implementación del algoritmo genético puede variar dado diferentes factores, como lo
+son población inicial, forma de reproducción, porcentaje de mutación, fórmula de mutación, selección, entre otras. todas estas variables pueden generar una gran catidad de
+posibilidades
+
+5.4.1. Cromosoma:
+
+Para la implementación del algoritmo evolutivo es importante determinar el genotipo
+y fenotipo del cromosoma, y cómo se representará computacionalmente para su ejecución.
+
+El Fenotipo: será la reprecenación de las matrices de pesos y bias usados en la Red
+neuronal de la Figura 3
+
+31Wi Wi Wiz Wia Wi5 ... Wiw
+Wa Woo Was Was Wo «58 Won
+
+PesosCapaOculta(m+N), =
+
+Wir War Wars Wara Wars ... Win
+
+PesosCapasalida(1,m) = Pr Pi Pi3 Pia Pis ... Pim |
+BiasCapaOculta = Bl
+BiasCapasSalida = B2
+
+El Genotipo: consistirá en un arreglo de tamaño:
+tamano = Mx N + M +2 (8)
+con la siguiente indexación:
+= Las primetas M x N posiciones representarán la matriz de pesos de la capa oculta.
+= Las siguientes M posiciones serán los pesos de la capa de salida.
+= La penúltima posición será el bias de la capa oculta.
+
+= La última posición será el bias de la capa de salida.
+
+Cromosoma = [Wi o Win .. Wun Pio .. Pim Bl B2]
+Ejemplo:
+
+ 
+
+Entradas Capa
+oculta
+
+Figura 9: Arquitecturad de la red Neuronal de ejemplo.
+
+Esta Red Neuronal de la figura 4 tiene dos entradas N = 2, dos Neuronas en la capa
+oculta M = 2 y una salida. que servirá de ejemplo para explicar el algoritmo genético.
+
+32El Fenotipo:
+
+Wi 1
+Wa Wo
+
+PesosCapaOculta(ox) = |
+PesosCapasalida(1;2) = Pr Pio]
+BiasCapaOculta = Bl
+BiasCapasalida = B2
+
+El Genotipo: El tamaño del cromosoma será por lo tanto
+Pamano = MxN+M+2=2x2+2+2=8
+
+Cromosoma = [Wi Wi Wa Wo Pi Pi Bl B2|
+
+5.4.2. Población Inicial:
+
+La población inicial en el algoritmo genético será totalmente aleatorio, aunque cumpliendo unas pequeñas reglas. En las pruebas hechas por la implementación de propagación
+hacia atrás se encontró que los pesos de la capa oculta varían en un rango de |—1, 1], y los
+pesos de la capa de salida varían en un rango de [—7, 7], dado ésto la generación aleatoria
+cumplirá estos rangos en los pesos correspondientes. pero igualmente estos rangos no son
+camisa de fuerza para el algoritmos, ya que por medio de la reproducción y mutación se
+podrán salir de éstos si es necesario.
+
+Siguiendo con el ejemplo, dos individuos de la población inicial, quedarían así:
+
+Cromosomal = |-0,98 0,97 —0,37 0,11 —3,9 4,7 0,9 0,66|
+
+Cromosoma2 = [0,42 0,83 —0,19 0,03 —6,6 —5,7 0,4 0,1]
+
+5.4.3. Selección por ruleta:
+
+Consiste en asignarle a cada individuo un porcentaje de selección dependiendo de
+su fitness, tiendo que para mejor fitness mayor será el porcentaje de selección y para
+menor fitness menor porcentaje de selección. organizando estos porcentajes en un arreglo,
+acumulando los porcentajes posición por posición, en donde la posición final el porcentaje
+debe ser 100%, para que cuando la ruleta se ejecute (número random) recorrer el arreglo
+y encontrar el individuo seleccionado.
+
+Ruleta = [0,01 0,03 0,19 0,26 0,30 .... 0,94 1]
+
+La posición de cada valor, representa a un individuo de la población, por lo tanto en
+donde caiga la ruleta, será el individuo seleccionado.
+
+935.4.4. Reproducción Directa:
+
+consiste en darle un 50% de probabilidad de intercambiar de gen al momento de la
+reproducción.
+La reproducción de los cromosomas anteriores serían:
+
+Cromosomal = [MBSN [AA EUA M0 50 MA 00 M0
+
+Cromosoma2 =[-0.42 0.83  -0.19 0.03  -6.6  -5.7 04  0.1|
+
+Hijol = (MMM o.s3  MOMNAN MMS 5.6 MEAN MON 01]
+Hijo2=|[-0.42 MN -0.19 0.03 PHN -5.7 04 Ma
+
+5.4.5. Mutación Gaussiana:
+
+Consiste en sumar un número que corresponde a un número aleatorio de una distribución normal con media en cero y desviación estandar 1.
+
+Las probabilidades de mutación usadas en el proyecto son 8% y 20%, utilizando valores
+altos de mutación para tener una variablidad alta.
+
+Hijo2=|[-0.42 0.97 -0.19 0.03 -39  -5.7 0.4 0.66]
+
+Hijo2=|[-0.42  MB6H -0.19 0.03  -39  -5.7 0.4 M5
+
+5.4.6. Reemplazo:
+
+El reemplazo se realiza conservando un porcentaje de la población con mejor fitness, el
+procentaje de la población que es reemplazada se puede determinar al inicio de la ejecución.
+Ejemplo:
+
+= Para un población de 50 si se coloca un reemplazo de 88 %, la población reemplazada
+será 44 individuos.
+
+= para una población de 50 si se coloca un reemplazo de 50% la población reemplazada
+será 25 individuos.
+
+= Para un población de 100 si se coloca un reemplazo de 94%, la población reemplazada
+será 94 individuos.
+
+= para una población de 100 si se coloca un reemplazo de 50% la población reemplazada será 50 individuos.
+
+345.4.7. Función de evaluación:
+
+Para la evaluación del cromosoma se va a utilizar el error cuadrático medio (ECM),
+donde un ECM alto significa que el cromosoma está dando respuestas muy alejadas a las
+esperadas y a menor ECM significa que el cromosoma está dando respuestas más certeras.
+La evaluación del cromosoma consiste en generar el fenotipo del cromosoma y éste cargarlo
+en la red neuronal, para que todos los datos del dataset sean evaluados y generar el error
+cuadrático medio. ,
+
+ECM = Y (TY)? (9)
+
+n *
+¿=1
+
+5.4.8. Función de Aptitud o Fitness:
+
+La función de aptitud debe ser una función que caracteriza a un cromosoma, entre
+mejor puntución mejor será el cromosoma y a menor puntuación peor será el cromosoma,
+lo contrario del ECM; por lo tanto la función de aptitud será:
+
+1
+
+(10)
+
+5.4.9. Escalado:
+
+Con intención de aumentar la variabilidad, y no guardar los mismos individuos generación tras generación. se considera implementar un escalado a todo el cromosoma a los
+individuos que no son reemplazados, para que en la próxima generación tengan un valor
+diferente pero no muy lejano.
+
+Por ejemplo: si se usa un escalado del 1.1 tendríamos.
+
+Cromosomal = |-0,98 0,97 —0,37 0,11 —3,9 4,7 0,9 0,66]
+
+Después del escalado:
+Cromosomal = [—1,078 1,067 —0,407 0,121 -—4,29 5,17 0,99 0,726|
+
+Si se usa un escalado de 1, quiere decir que se deja igual generación tras generación.
+
+5.4.10. Diagrama de flujo
+
+El Diagrama de flujo del algoritmo sería el siguiente:
+
+30Inicio
+
+Generar población
+
+inicial
+
+   
+ 
+
+   
+  
+  
+ 
+
+ 
+
+Evaluación de la
+población
+
+  
+  
+
+Selección de la
+población a reproducir
+
+  
+  
+   
+
+Cruce, generar nuevos
+
+individuos
+
+Variar a los individuos
+
+viejos
+
+   
+
+¿Se alcanzó una
+precisión aceptable
+o se llegó al tiempo
+de aburrimiento?
+
+ 
+       
+
+Figura 10: Diagrama de flujo del algoritmo.
+
+5.4.11. Complejidad Algoritmos Genéticos.
+
+Complejidad Temporal: La complejidad temporal de los algoritmos genéticos, depende principalmente de dos variables:
+
+= P = Población.
+= G = Tamaño del cromosoma.
+= /' = cantidad de patrones de entrenamiento.
+
+Como se puede ver en el diagrama de flujo del algoritmo genético, éste consiste en una
+serie de pasos y cada uno se le encontrará la complejidad temporal.
+
+= Evaluar la población consiste en recorrer cada individuo de la población y a éste
+probarlo con cada uno de los patrones de entrenamiento utilizando la función de
+predicción de la red neuronal. teniendo así O(PTNM).
+
+= La Selección de la población a reproducir, consiste realizar una ruleta y seleccionar
+la mitad de la población, lo cual tiene una complejidad de O(P).
+
+= El cruce de los individuos consiste en generar nuevos individuos, lo cual implica
+recorrer cada cromosoma de toda la población y generar nuevos, dejando una com
+plejidad temporal de O(PG).
+
+36= El reemplazo de los individuos en la población consiste en cambiar algunos individuos, que en el peor caso sería reemplazarlos todos, por lo tanto la complejidad
+temporal será O(P).
+
+A partir de estos pasos secuenciales se tiene que:
+
+PTNM) + 0(P) + O(PG) + 0(P)
+PTNM+P+PG+P)
+PTNM+2P+PG)
+
+ 
+
+Igualmente que en el entrenamiento de backpropagation, en algoritmos genéticos se
+usa el “punto de aburrimiento”, lo cual implica la ejecución del algoritmo hasta que éste
+punto se cumpla, dejando una complejidad final así: / = Punto de aburrimiento / cantidad
+de iteraciones.
+
+O(IPTNM) (11)
+
+Complejidad Espacial: La complejidad espacial del algoritmo consiste el almacenar
+los individuos de toda la población, y cada individuos está construido por su cromosoma,
+por lo tanto se tendría que:
+
+O(PG)
+
+Sabiendo que el tamaño de la población (G) es igual a MN + M +2 por la ecuación 8, se
+concluye que.
+
+O(P(MN + M +2))
+O(PMN)
+
+5.5. SVM
+
+La Técnica de computación, Máquina de soporte vectorial(SV M), es una técnica encargada de encontrar hiperplanos que separen los datos y así categorizarlos. Para lograr ésto,
+SVM utiliza lo que se llama vectores de soporte, los cuales se encargan de darle posición
+al hiperplano. Como se aprecia en la imagen 3, pueden haber muchos hiperplanos que
+den solución al problema, pero los vectores de soporte son los encargados de encontrar el
+hiperplanlo óptimo, el cual esté a una distancia equidistante de las dos categorias.
+
+En el ejemplo se está usando solo dos dimensiones, pero para el proyecto actual se necesita un total de 19 dimensiones, ya que es la cantidad de características de la base de
+datos. Y SVM Funciona también para varias dimensiones, encontrando más cantidad de
+vectores de soporte para adaptarse al número de dimensiones necesarias.
+
+En algunos problemas de categorización los datos no se comportan de forma lineal por
+lo que toca usar funciones no lineales para lo que SVM puede modificar el kernel para
+
+37encontrar hiperplanos que no lineales y poder clasificar mejor los datos. Para esto SVM
+utiliza principalmente 4 kernels diferentes:
+
+Lineal : (x,x”)
+Polinomial : (y (a,x”) + ry*
+Exponencial : (=y ja — e?)
+Sigmoide : tanh((x, x*) +r)
+
+Para decidir qué kernel que se debe usar en la implementación de SVM, se va a analizar
+el comportamiento de los datos a partir de una matriz de correlación 11 y visualizar el
+diagrama de dispersión de aleunas variables que pueden ser relevantes.
+
+XO
+
+0.30
+
+- 0.15
+
+- 0.00
+| E as
+| — 0
+
+    
+
+X18 X17 X16 X15 X14 X13 X12 X11 X10 X9 X8 X7 X6 X5 X4 X3 X2 XIl1
+I
+
+1 ' ' ' | 1 ' 1
+XO X1 X2 X3 X4 X5 X6 X7 X8 X9 X10 X11 X12 X13 X14 X15 X16 X17 X18
+
+Figura 11: Matriz de correlación
+
+En la matriz de correlación los colores rojos muestras una correlación positiva y los
+colores azules correlación negativa. Donde se puede evidenciar que los datos de X2 a X7
+que corresponden a los microaneurismas están muy relacionados entre ellos, como también
+
+38los datos de X8 a X16 que corresponde a los exudados están muy relacionados entre ellos.
+Se harán tres comparaciones de datos, una con alta correlación positiva, una con correlación nula y por último una correlación negativa. En las imágenes de comparación de
+datos se podrá encontrar dos tipos de gráficas, en la diagonal principal un diagrama de
+distribución de los datos, y en las otras un diagrama de dispersión la cual permite ver la
+correlación entre ellos.
+
+0.60
+0.55
+
+0.50
+
+Xx16
+
+0.45
+
+0.40
+
+0.5
+Xx16
+
+ 
+
+Figura 12: Diagrama de comparación de los datos X7 y X16, Correlación Nula
+
+En la gráfica 12, se puede ver que los datos no tiene algún comportamiento en concreto,
+por esto la matriz de correlación muestra que es nula, además en la diagonal principal
+muestra que X7 se distribuye de forma lineal y X16 de formal normal. Lo cual no deja
+indicios de qué función de kernel se puede usar para la clasificación.
+
+39400
+
+300
+2 200
+
+100
+
+200
+X8
+
+ 
+
+Figura 13: Diagrama de comparación de los datos X7 y X8, Correlación Negativa
+
+Continuando con el análisis de la comparación, en la gráfica 13 se puede ver que las dos
+variables tiene un comportamiento exponencial descendiente. por lo que deja un indicio
+de que un kernel exponencial puede servir para la clasificación.
+
+ 
+
+Figura 14: Diagrama de comparación de los datos X6 y X7, Correlación Positiva
+
+40Terminando con las imágenes de comparación, se tiene la gráfica 13, la cual muestra
+evidentemente un alto comportamiento lineal entre las dos variables, validando que la
+correlación entre estas dos variables sea positivo, y dejando un indicio de que un kernel
+lineal puede ser la solución al problema de qué kernel usar.
+
+Al haber terminado este análisis, se concluye un kernel Lineal y un Kernel Exponencial tienen el potencial de ser buenos clasificadores para el problema actual.
+
+Por otra parte, los datos de entrenamiento en este algoritmo, se pueden usar sin necesidad de utilizar otro procesamiento más a como se tienen las características en la base de
+datos original, por lo que se utilizarán 19 características a diferencias del caso de las redes
+neuronales el cual usa 55, los cuales son obtenidos después del procesamiento especial para
+éstas. Aunque perfectamente SVM se puede usar con las 55 características la decisión de
+usar solo las 19, se toma ya que beneficia la complejidad del algoritmos y el tiempo de
+entrenamiento para las pruebas será más corto.
+
+Ya habiendo definido el kernel y con los datos de entrenamiento y pruebas listos, se
+procede a la implementación de SVM, para esto se usó una librería de apoyo llamada
+scikit-learn”, la cual permite entre muchas cosas, entrenar y generar modelos de SVM con
+diferentes kernels. El uso de ésta se debe a que tiene una implementación muy limpia y
+óptima del algoritmo, además permite una amplia gama de configuraciones al momento
+del entrenamiento para tener un buen entendimiento del problema y el funcionamiento del
+algoritmo.
+
+5.5.1. Complejidad SVM
+
+Complejidad Temporal: La complejidad temporal del algoritmo puede variar un
+poco, dependiendo del kernel que se esté usando. Para entender la complejidad primero se
+debe definir dos variables:
+
+= (/ = cantidad de Características de la Base de Datos.
+= /' = cantidad de patrones de entrenamiento.
+
+La complejidad temporal dependiendo del kernel puede variar entre O(T?) y O(T*).
+
+Por otra parte la complejidad temporal del entrenamiento es: O(WV).
+
+Para terminar, ya que por cada característica se debe recorrer los patrones de entrenamiento se debe multiplicar las complejidades parciales y dejando el peor caso, se obtiene
+la siguiente complejidad:
+
+O(TN). (12)
+
+"Se puede encontrar en el siguiente link: http: / /scikit-learn.org
+
+ 
+
+416. Pruebas:
+
+Al ejecutar las pruebas, los modelos y sus características son guardadas en archivos
+de texto. todos estos archivos de las pruebas se pueden encontrar en el repositorio del
+proyecto. URL: https: //github.com/hector2603/trabajoDeGrado/.
+
+Para estandarizar las pruebas, cada una fue corrida durante 5 horas en una máquina
+virtual con la siguientes características:
+
+= 1] CPU, 2.5 GHz, Intel Xeon Family.
+= 1 GB memory.
+
+= Sistema Operativo Linux Amazon
+
+6.1. Backpropagation:
+
+Para ejecutar las pruebas de backpropagation primero se debe determinar el número
+de neuronas de la capa oculta, lo cual puede ser un trabajo de prueba y error. Para tener
+un inicio o un rango más acotado de pruebas, primero se debe usar un número de neuronas igual al número de datos de la base de datos, el cual sería 19 neuronas. A partir de
+este número se puede variar +10 para obtener un rango de [9,29], dejando así 20 posibles
+soluciones, que a su vez este conjunto de pruebas se ejecutará 3 veces, dejando en total 60
+entrenamientos de prueba a realizar para obtener su precisión y poder decidir cuál es el
+número de neuronas indicado.
+
+En todas las Pruebas de backpropagation se usó el 80% de los datos para el entrenamiento y el 20% de los datos para las pruebas de precisión.
+
+A partir de la tabla 6 se puede evidenciar que todas las precisiones superan el 70%, y
+la mayor precisión se encontró con 19 neuronas en la capa oculta, a medida que se modificaba la cantidad de neuronas y se alejaba de 19 neuronas, la precisión fue disminuyendo
+sustancialmente.
+
+Para visualizar el comportamiento del error cuadrático medio (ECM), se van a usar
+tres pruebas en concreto:
+
+= Prueba con Menor número de neuronas.
+= Prueba con Mayor número de neuronas.
+
+= Prueba con la mejor precisión.
+
+42Neuronas Prueba 1 Prueba 2 Prueba 3 Promedio Precisión
+9 79,2% 72,3% 80,2% 77,23%
+10 76,37% 69,20% 82,96% 76,18%
+11 79,99% 72,18% 86,59% 79,59%
+12 82,71% 72,13% 87,05% 80,63%
+13 84,42% 73,98% 85,31% 81,24%
+14 83,23% 78,18% 85,03% 82,15%
+15 84,57% 77,06% 85,22% 82,29%
+16 85,17% 76,62% 83,71% 81,83%
+17 82,58 % 73,13% 80,90% 78,87%
+18 84,32% 78,25% 84,31% 82,30%
+19 82,18% 83,98 % 91,6% 85,92%
+20 75,28 % 72,37% 79,21% 75,62%
+21 74,32% 75,90% 79,46 % 76,56%
+22 72,46% 71,93% 75,56 % 73,32%
+23 73,67% 73,40% 73,25% 73,44%
+24 70,44% 70,50% 73,05% 11,33%
+25 74,16% 67,15% 69,81% 70,37%
+26 73,62% 70,52% 66,79% 70,31%
+27 69,65% 75,78% 68,31% 71,24%
+28 71,74% 79,64% 70,64% 74,01%
+29 72,58 % 77,22% 67,73% 72,51%
+
+Tabla 6: Precisión Pruebas Backpropagation
+200 +4 |
+A
+160 q dono poc q
+3 140 qua; E
+Dl
+120 $--; $e A
+Al rcoodonmnnnnns
+100 TZ fa
+
+ 
+
+20
+
+40
+
+ 
+
+60
+
+lteración
+
+ 
+
+100
+
+Figura 15: Comportamiento Backpropagation.
+
+43A partir de la gráfica 15, se puede determinar cosas importantes. En el eje X de la
+gráfica se cuentan las iteraciones del algoritmo backpropagation; y como se explicó en la
+ecuación Y el número de neuronas afecta la complejidad temporal del algoritmo y ésto
+se puede evidenciar en que la prueba con 29 neuronas llego a una iteración más baja a
+comparación de las otras dos. Por otra parte, la prueba con 9 neuronas llegó a la iteración
+más alta, pero se puede ver que su error en gran parte de las iteraciones ya no tenía una
+mejora evidente, dejando así a la prueba con 19 neuronas en un punto intermedio de iteraciones, donde no se afecta demasiado la complejidad temporal, pero tampoco se queda
+en iteraciones de ocio. Además al observar la convergencia del ECM en la prueba con 19
+neuronas es mucho mejor que las otras dos, ya que obtiene valores muchos más bajos del
+ECM.
+
+Dado lo expuesto anteriormente se puede decir que la red neuronal artificial con 19 neuronas en la capa oculta es la que obtuvo mejores resultados en las pruebas realizadas, y
+ésta será la prueba que se usará para las comparaciones realizadas después.
+
+6.2. Algoritmos Genéticos:
+
+Para las pruebas de los algoritmos genéticos se deben tener en cuenta diferentes variables que pueden generar una cantidad muy grande de combinaciones, por lo tanto éstas se
+deben limitar para generar un conjunto de combinaciones más discreto.
+
+ 
+
+Variables Dato 1 Dato 2
+
+ 
+
+ 
+
+ 
+
+ 
+
+Población 50 100
+Reemplazo Inserción Élite
+
+Mutación 8% 20%
+
+Escalado SÍ No
+
+ 
+
+Tabla 7: Variables del algoritmo genético
+
+Reemplazo Élite: Corresponde en reemplazar un gran porcentaje de la población.
+88% en el caso de una población de 50 y 94% en caso de una población de 100.
+
+Reemplazo Inserción: Corresponde en reemplazar la mitad de la población, en cualquier caso del tamaño de la población, se reemplazará la mitad.
+
+Dada estas 4 variables, darían 16 combinaciones del algoritmo genético. que se representan en la siguiente tabla 8.
+
+Para comenzar el análisis de las pruebas se va ir acotando el grupo de pruebas, hasta
+llegar a un grupo más pequeño sobre el cual se pueda sacar una conclusión del algoritmo.
+Para tener un punto de comparación se va a usar la gráfica de comportamiento 16 que corresponde a la prueba número 2 en tabla 8, ya que según la teoría de algoritmos evolutivos
+estos parámetros son los más estándar, además todas las pruebas se ejecutan 5 horas para
+tener un tiempo estándar y se pueda hacer la comparación.
+
+44Número de prueba Población Mutación Reemplazo Escalado
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+1 50 8% Inserción Sí
+2 50 8% Inserción No
+3 50 8% Élite Sí
+4 50 8% Élite No
+5 50 20% Inserción Sí
+6 50 20% Inserción No
+7 50 20% Élite Sí
+8 50 20% Élite No
+9 100 8% Inserción Sí
+10 100 8% Inserción No
+11 100 8% Élite Sí
+12 100 8% Élite No
+13 100 20% Inserción Sí
+14 100 20% Inserción No
+15 100 20% Élite Sí
+16 100 20% Élite No
+
+ 
+
+Tabla 8: Combinaciones de las pruebas de algoritmos evolutivos
+
+Mínimo Error: 94.5
+220 Precisión: 76.7%
+Cantidad de individuos encontrados: 300
+
+200
+180
+
+2
+
+$ 160
+140
+120
+
+100
+
+ 
+
+0 1000 2000 3000 4000 5000 6000 7000
+Generación
+
+Figura 16: Comportamiento algoritmo evolutivo, Prueba número 2.
+
+Escalado: Para las pruebas se comenzó con un escalado de 1,1 y 0.9, lo que significa se está variando en un 10% de su valor inicial, lo que hacía que se obtuviera un
+comportamiento de la convergencia de la siguiente forma.
+
+45Mínimo Error: 158.9
+
+ 
+
+an Precisión: 72.37%
+Cantidad de indiviudos Encontrados: 100
+220
+210
+5 200
+Y
+190
+180
+170
+160
+0 1000 2000 3000 4000 5000 6000
+Generación
+
+Figura 17: Comportamiento algoritmo evolutivo, con un escalado de 1,1.
+
+En la gráfica 17, se puede ver el comportamiento del error a través de las generaciones,
+la prueba corresponde a la número 1 en la tabla 8, con un escalado de 1,1. en la gráfica
+se nota que el error aumenta y generaciones después se estanca, consiguiendo en toda la
+ejecución 100 individuos mejores a comparación de la población inicial, en lo que se puede
+decir que en promedio cada 60 generaciones encontró un individuo que mejora al anterior,
+teniendo como resultado que este escalado no da una buena convergencia.
+
+ 
+
+220
+Mínimo Error: 134.8
+Precisión: 60.5%
+Cantidad de individuos encontrados: 250
+200
+= 180
+Y
+160
+140
+0 1000 2000 3000 4000 5000 6000 7000
+Generación
+
+Figura 18: Comportamiento algoritmo evolutivo, con un escalado de 0,9.
+
+46En la gráfica 18, se puede ver el comportamiento del error a través de las generaciones
+de la prueba número 7 en la tabla 8, con un escalado de 0,9. a diferencia del escalado
+1,1. está tiene una convergencia inicial muy rápida donde todavía el umbral de mejora es
+muy grande, pero después cae en una oscilación de la no sale, ya que el comportamiento
+comienza a variar tanto, el número de individuos que mejoran al inicial, aumento a 250, lo
+que puede decir que en promedio cada 30 generaciones encontró un individuo que mejora
+al anterior.
+
+Continuando con las pruebas del escalado y en busca de buenos resultados, se considera
+disminuir considerablemente el valor de escalado, por cantidades de 1,0000001 y 0,999999.
+
+significando que está cambiando un 0.0001 % con respecto a su valor inicial y obteniendo
+los siguientes comportamientos:
+
+220 Mínimo error: 104.04
+Precisión: 74.1%
+Cantidad de individuos encontrados: 400
+
+200
+
+180
+
+ECM
+
+160
+
+140
+
+120
+
+100
+
+ 
+
+0 1000 2000 3000 4000 5000 6000 7001
+Generación
+
+Figura 19: Comportamiento algoritmo evolutivo, con un escalado de 1,0000001.
+
+En la gráfica 19, se puede ver el comportamiento del error a través de las generaciones de
+la prueba número 3 en la tabla 8, con un escalado de 1,0000001, ésta tiene una convergencia
+sin picos y acercándose a una asíntota; qué es un resultado esperado, y a comparación de
+las gráficas 18 y 17, la precisión aumentó por lo que se puede decir que éste escalado
+mejora el comportamiento a comparación de los otros dos.
+
+47220
+
+Mínimo error: 96.38
+Precisión: 77.4%
+Cantidad de Individuos encontrados: 5500
+
+200
+180
+O 160
+140
+120
+
+100
+
+ 
+
+0 1000 2000 3000 4000 5000
+Generación
+
+Figura 20: Comportamiento algoritmo evolutivo, con un escalado de 0,999999.
+
+En la gráfica 20, se puede ver el comportamiento del error a través de las generaciones
+de la prueba número 1 en la tabla 8, con un escalado de 0,999999 tiene una convergencia
+esperada, ésta obtuvo la mejor precisión a comparación de las demás pruebas con escalado
+y un resultado a destacar. la cantidad de individuos que mejoran al anterior es de 5500
+y en la ejecución de la prueba se llegó a 5800 generaciones, por que en promedio hubo
+un individuo por generación, lo que quiere decir que cada generación se fue mejorando el
+resultad.
+
+Para concluir, con el escalado de 0.999999 se puede decir qué llegó al resultado de
+precisión en saltos más pequeños ya que se encontraron 5500 individuos, y así obtuvo un
+resultado parecido al de gráfica de comparación 16 la cual tuvo solo 300 individuos. por lo
+que se puede decir que un escalado de un porcentaje muy alto no es viable y un escalado
+muy pequeño es bueno, pero se tiene el mismo resultado a como si no se tuviera, dejando
+así el escalado por fuera del conjunto de prueba y acotando el conjunto a 8 pruebas.
+
+Población: Continuando con el análisis de las pruebas, la población inicial es un
+parámetros muy importante en los algoritmos genéticos, ya que una población muy baja
+no permite que haya variabilidad ni competencia, y una población muy alta implica que el
+tiempo de ejecución se crecerá, ya que la complejidad temporal depende de la población,
+como se pudo evidenciar en la ecuación 11. En las pruebas se tiene que la población es de
+
+50 y 100 individuos.
+
+48220
+Mínimo error: 104.17
+
+Precisión: 74.02%
+200 Cantidad de individuos encontrados: 300
+
+ 
+
+180
+Ó
+4 2160
+140
+120
+100
+0 500 1000 1500 2000 2500 3000
+Generación
+
+Figura 21: Comportamiento algoritmo evolutivo, con una población de 100
+
+En la gráfica de comportamiento 16 se está usando una población de 50 individuos,
+ésta llega a la generación 7000 y alcanza un mínimo error de 94.5. Por otra parte tenemos
+la gráfica de comportamiento 21 la cual está usando una población de 100 individuos y
+ésta llega a la generación 2900, casi a la mitad de generaciones a comparación de la de
+50 individuos; por otra parte los resultados de precisión son muy cercanos pero aún así
+la prueba con 100 individuos le faltó más tiempo de convergencia para alcanzar el mismo
+resultado de la prueba de 50 individuos.
+
+Por lo tanto la población de 100 individuos se puede dejar fuera del conjunto de pruebas, ya que ésta aumenta la complejidad temporal del algoritmo, y demora un poco la
+convergencia de la prueba, quedando así un conjunto de 4 pruebas, a comparación de las
+16 iniciales.
+
+Pruebas Finales: El conjunto de pruebas finales de los algoritmos genéticos es el
+siguiente:
+
+ 
+
+Número de prueba Población Mutación Reemplazo Escalado
+
+ 
+
+ 
+
+ 
+
+ 
+
+2 50 8% Inserción No
+4 50 8% Élite No
+6 50 20% Inserción No
+8 50 20% Élite No
+
+ 
+
+Tabla 9: Pruebas Finales
+
+El comportamiento de de estas 4 pruebas se puede ver en la siguiente gráfica:
+
+49220
+
+ 
+
+«=== Prueba 8
+200 - - Prueba 4
+¡Prueba 6
+180 ==" Prueba 2
+=
+Y 160
+140
+120
+100
+0 1000 2000 3000 4000 5000 6000 7000
+Generación
+
+Figura 22: Comportamiento de las 4 Pruebas.
+
+Al comparar el comportamiento del error cuadrático medio de estas 4 pruebas, se
+puede evidencias que el más bajo se encuentra en la Prueba 2, dejando esta combinación
+de variables como las más óptimas en el problema concreto que se está trabajando en el
+proyecto y ésta será la prueba usada para las comparaciones más adelante.
+
+6.3. SVM
+
+SVM a comparación de las técnicas anteriores, no necesita muchos entrenamientos para
+generar una solución, ya que es determinista y todas las veces que se ejecute la prueba se
+va a obtener el mismo resultado, siempre y cuando se esté usando el mismo conjunto de
+datos de entrenamiento.
+
+Por lo tanto, las pruebas de SVM serán 2, una por cada kernel que se implementó y al
+ejecutarse se obtuvo los siguientes resultados.
+
+ 
+
+Kernel Precisión Sensibilidad  Especificidad
+
+Lineal 72.7% 61.5% 87.7%
+Exponencial 53.3% 51.6% 20.9%
+
+ 
+
+ 
+
+ 
+
+Tabla 10: Resultados Pruebas SVM
+
+Al ver los resultados obtenidos, el kernel lineal tuvo mejores resultados comparados
+con el kernel exponencial. además esto verifica que muchas de las características en la base
+de datos se comportan de forma lineal y no de forma exponencial.
+
+310Y. Prototipo
+
+La Implementación de los algoritmos, como la implementación del prototipo se hizo
+bajo la metodología 'T'DD, esta consiste en generar las pruebas antes de comenzar la
+codificación, lo cual ayuda a entender qué es lo que se va a implementar y cuál es el
+resultado esperado, y si después de la implementación el resultado es satisfactorio, se
+continúa con la siguiente prueba y comenzar el ciclo de nuevo.
+
+La implementación del proyecto actual se dividió principalmente en 4 partes:
+
+1. Backpropagation
+2. Algoritmos Genéticos
+3. SVM
+
+4. Interfaz Gráfica
+
+Los tres primeros pasos al ser los algoritmos de decisión, se puede dividir en un mismo
+conjunto de pruebas, sabiendo que para cada algoritmo se espera resultados y especificaciones diferentes.
+
+= Entrenamiento.
+
+= Pruebas.
+= Guardar Modelo.
+
+= Generar Gráficas.
+
+El último paso que corresponde a la interfaz gráfica, se dividió en pruebas más pequeñas, las cuales correspondían a funcionalidades de la interfaz gráfica y que hasta no
+terminarla, no se continuaba con la otra, permitiendo al final tener certeza de que todo lo
+que se implementó funciona.
+
+En la gráfica 23, se muestra la ventana principal de la interfaz, aquí se puede encontrar diferentes funciones, probar cada uno de los modelos que obtuvieron el resultados en
+las pruebas, además comprobar los resultados de cada uno en la matriz de confusión y al
+final hacer una categorización concreta que se quiera.
+
+OlProbar Modelos
+
+am)
+Condición verdadera
+
+Matriz de confusión Positivo Negativo
+Positivo
+
+Negativo
+
+P
+r
+
+e
+d
+i
+
+Cc
+E
+i
+
+ó
+n
+
+Espedificidad:
+
+ 
+
+Precisión Curva ROC: Ver Curva ROC Comparativa
+
+ 
+
+ 
+
+Hacer una categorización concreta: Generar Datos
+
+ 
+
+XO X1 X2 X3 X4 X5 X6  X7 X8  X9  X10 X11 X12 X13 X14 X15 X16 X17 X18
+
+0 0 0 0 0 0 0 0 0 0 0 0 D D
+
+ 
+
+ 
+
+Consultar ANN con Backpropagation | — | Consultar ANN con algoritmo genético | |
+
+ 
+
+ 
+
+Resultado: Vacio
+
+ 
+
+Figura 23: Captura de la pantalla Principal de la interfaz
+
+Para concluir se puede decir que TDD permitió un buen desarrollo del proyecto, alcanzando los objetivos en el tiempo esperado y con pocos imprevisto sobre la marcha, ya
+que al tener las pruebas claras desde un inicio; ayudó a entender el problema y lo que se
+debía hacer.
+
+8. Comparación:
+
+En el capítulo anterior se dejó 3 modelos diferentes, que deben ser comparados para
+poder llegar a una conclusión de cuál de los 3 es la mejor solución obtenida en el proyecto
+actual. La comparación se hará a partir de la curva ROC, esta gráfica nos permite ver el
+ratio de verdaderos positivos contra el ratio de falsos positivos.
+
+En la descripción del problema se planteó que una buena precisión en el diagnóstico de los
+médicos es indispensable, dicho de otra forma es que el ratio de verdaderos positivos debe
+ser alto, lo que significa que el médico está diagnosticando con total precisión los casos
+positivos cuando la enfermedad sí se encuentra, siendo éstos los casos que son importantes
+y delicados para el paciente.
+
+Por lo que la curva ROC permite ver de manera más clara, cuál de los tres modelos
+responde mejor a aumentar el ratio de verdaderos positivos y a su vez disminuye el ratio
+
+92de falsos positivos, el cual corresponde a las malas predicciones. A partir de los verdaderos
+positivos y los falsos positivos se tiene una forma diferente de calcular la precisión del
+modelo, la cual corresponde al área bajo la curva.
+
+En la gráfica 24, se puede encontrar las curvas que corresponden a cada uno de los 3
+
+modelos, además se indica el área bajo la curva de cada una y deja al modelo de backpropagation como la mejor respecto a las otras dos con una precisión del 94%.
+
+Comparación
+
+Ratio Verdaderos Positivos
+
+— Algoritmos Genéticos (área = 0.86)
+= = Backpropagation (área = 0.94)
++. SVM (área = 0.80)
+
+ 
+
+0.0 0.2 0.4 0.6 0.8 1.0
+Ratio Falsos Positivos
+
+Figura 24: Curva ROC Comparando las diferentes técnicas
+
+93Característica | Backpropagation | Algoritmos genéticos SVM
+Dependencia Backpropagation Los modelos encon .SVM a diferencia
+depende mucho | trados con algoritmos | de las otras dos
+del primer modelo | genéticos dependen | técnicas no depengenerado  aleato- | parcialmente de las den de un estado
+riamente, ya que | primeras generaciones, | inicial de ejecución,
+utiliza derivadas | ya que por medio de la | sino que depende de
+para ir llegando a | mutación y reproduc- los datos de entreóptimos, por lo que | ción la variabilidad va | namiento, ya que a
+si el primer modelo | aumentando, dándole | partir de estos es
+está ubicado cerca | la facilidad de que si | que se encuentran
+de un óptimo local, | se está en un óptimo | los vectores de sopuede llegar a |local, se pueda salir y | porte. Entonces, coquedar en éste y no | seguir buscando en el | mo en todas las ejesalir. dominio de las posibles | cuciones del prograsoluciones. ma, lo datos de entrenamiento  siempre serán los mismos, se espera que
+la precisión del algoritmos sea el mis
+mo.
+
+Tiempo Backpropagation Los algoritmos genéticos | SVM a comparapuede tener una | tienen una convergencia | ción de los otros
+
+ 
+
+convergencia más
+rápida a  comparación de los
+algoritmos  genéticos, el problema
+es que si en algún
+momento cae en un
+óptimo local, por
+más tiempo que
+dure la ejecución
+nunca llegará a una
+solución.
+
+ 
+
+muy lenta y como se
+puede ver en la ecuación 11, que corresponde a la complejidad temporal, ésta depende de
+diferentes variables que
+pueden aumentar ampliamente la complejidad, además como en algunos casos el punto final o punto de aburrimiento no se tiene claro quiere decir que el
+algoritmos se puede dejar ejecutando por mucho tiempo y puede que
+no encuentre alguna solución aceptable
+
+ 
+
+dos algoritmos tiene un tiempo de ejecución más bajo, ya
+que éste depende de
+menos variables para el entrenamiento,
+como se puede ver
+en la ecuación 12 de
+complejidad temporal .
+
+ 
+
+94Característica | Backpropagation | Algoritmos genéticos SVM
+
+Resultados En la diferentes | Como ya se explicó en la | Dado a qué SVM
+pruebas de back- | implementación del al- | es determinista,
+propagation, el | goritmo genético, la pri- | las pruebas en esta
+primer modelo se | mer generación cumple | técnica son más ligeneró con números | una regla para generar- | mitadas, y por más
+aleatorios de O a |la, que se determinó a | que se ejecute el all y en todos los | partir de backpropaga- | goritmos diferentes
+modelos obtenidos | tion, pero en los resul- | veces con el mismo
+al final se pudo | tados obtenidos en to- | conjunto de datos
+caracterizar que los | das las pruebas se pu- | de entrenamiento,
+pesos de la primer | do ver que los modelos | siempre se va a
+capa varían entre | ya no cumplían esta re- | obtener el mismo
+l-1,1] y los de la | gla, lo cual verifica que | resultado.
+capa de salida entre | los algoritmos genéticos
+|-7,7/. tienen una gran variabi
+lidad.
+
+Precisión Backpropagation La mejor precisión al- | SVM con un kernel
+alcanzó la mejor | canzada en el entrena- | lineal, alcanzó una
+precisión con un | miento por algoritmos | precisión del 80%
+94%. genéticos fue de 86 %.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+9.
+
+Tabla 11: Comparación.
+
+Conclusiones:
+
+1. El conocimiento adquirido sobre retinopatía diabética, advierte la importancia que
+
+se debe tener sobre ella, ya que un caso de descuido o un mal cuidado, puede generar
+grandes problemas en la persona y en algunos casos ser irreversible como lo puede
+ser la perdida total o parcial de la visión.
+
+. El diseño y la implementación de los algoritmos, corresponde a una serie de pasos que
+
+comienzan por entender el problema de la clasificación de la retinopatía diabética,
+después generar posibles soluciones a partir de los estudios realizados y por último
+llevarlas a una implementación de software; toda esta serie de pasos además de
+responder a un objetivo del actual proyecto, también da respuesta a un objetivo
+importante de la ingeniería de sistemas, el cual consiste en darle respuesta a un
+problema de la vida real con software y que en próximos proyectos el conocimiento
+adquirido pueda ser extrapolado y adaptado para poder conseguir iguales o mejores
+resultados que los actuales.
+
+. La implementación de los algoritmos se realizó en el lenguaje de programación Pyt
+hon 3.7, y se complementó con el uso de diferentes librerías las cuales vienen optimizadas para el lenguaje de programación y cuentan con una amplia documentación, lo
+
+99)cual favorece a ahorrar tiempo en implementaciones y entendimiento de las funciones
+usadas. A partir de lo anterior se puede decir que se obtuvo buenos resultados en el
+ámbito de la codificación y concluir que Python es un buen lenguaje de programación
+para el tipo de problemas como el del proyecto actual.
+
+El entrenamiento de SVM es 60 veces más rápido que el entrenamiento de redes
+neuronales utilizando BackPropagation y Algoritmos Evolutivos, ya que mientras
+uno demora 5 minutos el otro demora 5 horas. Esto se evidenció durante las pruebas
+realizadas, y se debe a que la estrategia BackPropagation requiere una gran cantidad
+de cálculos, mientras que la estrategia evolutiva tiene una velocidad de convergencia
+lenta.
+
+Al realizar las pruebas, se observaron algunos patrones importantes; los modelos
+resultantes de BackPropagation siempre convergen a que los pesos de la capa oculta
+están en un rango de números de [-1,1] y los pesos de la capa de salida están entre [7,7), que comparados con los modelos resultantes de algoritmos evolutivos, en estos se
+pueden encontrar pesos muy diferentes, desde muy pequeños a muy grandes, dándole
+así una habilidad de no quedar atascado en óptimos locales y no siempre converger
+a un mismo conjunto de soluciones.
+
+BackPropagation alcanzó la mejor precisión con un 94%, no obstante, esta técnica
+depende mucho del modelo inicial, lo que implica una posible desventaja, ya que al
+estar ligado al modelo inicial no explora sobre todo el dominio de solución y termina quedando generalmente sobre óptimos locales, pero aún así se puede decir que
+BackPropagation da respuestas con buena precisión y modelos útiles para sistemas
+de recomendación.
+
+Los algoritmos genéticos obtuvieron una menor precisión con un 86%, pero dada
+la cualidad de tener una gran variabilidad se puede explorar más los espacios de
+búsqueda y no caer en óptimos locales, además al tener un alto componente estocástico se puede decir que los algoritmos genéticos están más cerca de llegar a una
+precisión del 100%, ya que no se puede determinar que se va a encontrar a través
+de las generaciones.
+
+SVM obtuvo la precisión más baja con un 80%, pero éste tiene un gran ventaja a
+comparación de las otras dos, la cual es que SVM es determinista, lo que implica que
+no se necesita de muchas pruebas para generar un modelo y éste poder ser usado en
+sistemas de recomendación.
+
+Al momento de decidir qué técnica usar en un sistema de recomendación, se pueden
+generar 3 ambientes: El primero sería en el que se necesita la mejor precisión en
+un tiempo moderado, aquí la decisión sería implementar Backpropagation ya que
+corresponde a la mejor precisión. En segundo lugar se encuentra un ambiente donde
+se necesita una implementación rápida, ya que no se tiene tiempo para muchas
+pruebas y se puede sacrificar un poco la precisión del sistema, aquí la decisión sería
+SVM. en último lugar sería un ambiente de investigación el cual cuente con mucho
+
+31610.
+
+9.1.
+
+10.
+1)
+
+2)
+
+El
+
+tiempo para pruebas, aquí la decisión podría ser Algoritmos genéticos, sobre el cual
+se puede generar gran cantidad de pruebas, con diferentes opciones de configuración
+del modelo.
+
+Como dice el artículo [7], los diagnósticos médicos se pueden ver afectados por variables como el exceso de confianza, presentando que la precisión de diagnóstico es
+del 55.3%, que comparada con la precisión obtenida en el actual proyecto es menor; además como dice el artículo [15], la precisión de los profesionales puede verse
+mejorada al utilizar un sistema de recomendación. A partir de lo expuesto se puede
+concluir que la dada precisión obtenida en el actual proyecto, el algoritmo de redes
+neuronales entrenadas por backpropagation puede ser usado por sistemas de recomendación, para que éste sirva de ayuda al profesional a mejorar su precisión o a
+comparar su propio dictamen con el del sistema y tener otro punto de vista.
+
+Trabajos Futuros:
+
+. El proyecto actual trabaja sobre una base de datos obtenida del procesamiento de
+
+imágenes a partir de diferentes proyectos de apoyo, por lo que un trabajo futuro será
+implementar un procesamiento de imágenes propio, lo cual servirá para generar más
+datos de entrenamiento y posteriormente automatizar más el proceso del médico ya
+que la entrada del sistema será directamente las imágenes.
+
+. Como se especificó en el alcance, en el proyecto actual solo es un prototipo de sistema
+
+que recibe los valores de las características para generar una categorización positiva
+o negativa, por lo que un trabajo futuro será generar un sistema completo para el
+uso de un usuario final.
+
+. Por la parte de la investigación, un trabajo futuro será implementar diferentes al
+goritmos de decisión que sean probados bajo unas condiciones parecidas a las del
+proyecto actual y así continuar comparando los algoritmos y determinar cuál es el
+mejor de todos, en el caso concreto de la retinopatía diabética.
+
+Referencias
+
+E. Coiera, Guide to medical informatics, the internet and telemedicine. Chapman 4
+Hall, Ltd., 1997.
+
+S. S. Sikchi, S. Sikchi, and M. Ali, “Artificial intelligence in medical diagnosis,” International Journal of Applied Engineering Research, vol. 7, no. 11, p. 2012, 2012.
+
+M. Colombia, “Colombia enfrenta epidemia de enfermedades  cardiovasculares y diabetes.” https: //ww.minsalud.gov.co/Paginas/
+Colombia-enfrenta-epidemia-de-enfermedades-cardiovasculares-y-diabetes.
+aspx, 2017. última visita 9 mayo del 2017.
+
+IV4,
+
+5]
+
+16
+17
+
+18]
+
+A. 5. Fauci et al., Harrison's principles of internal medicine, vol. 2. Mcgraw-hill New
+York, 1998.
+
+O. mundial de la salud, “Diabetes, datos y cifras mundiales.” http: //www.who.int/
+mediacentre/factsheets/fs312/es/, 2017. última visita 9 mayo del 2017.
+
+)
+
+Tecnoquimicas, “Guia retinopatía diabética latinoamérica,” tecnoquimicasfarma,
+
+2012.
+
+A. N. Meyer, V. L. Payne, D. W. Meeks, R. Rao, and H. Singh, “Physicians' diagnostic accuracy, confidence, and resource requests: A vignette study,” JAMA Internal
+Medicine, vol. 173, no. 21, pp. 1952-1961, 2013.
+
+E. H. Shortliffe, R. Davis, S. G. Axline, B. G. Buchanan, C. C. Green, and $. N.
+
+Cohen, “Computer-based consultations in clinical therapeutics: explanation and rule
+
+acquisition capabilities of the mycin system,” Computers and biomedical research,
+vol. 8, no. 4, pp. 303-320, 1975.
+
+G. S. Novak, “tmycin expert system tool.” http: //www.cs.utexas.edu/users/
+novak/tmycin.html, 2017. última visita 9 mayo del 2017.
+
+B. Auvert, P. Aegerter, V. Gilbos, E. Benillouche, P. Boutin, G. Desve, M. Landre, and
+D. Bos, “Tropicaid: a portable expert system for medical decision-aid in developing
+countries,” Medinfo, vol. 86, pp. 222-224, 1986.
+
+F. C. Hoppensteadt and C. Peskin, Modeling and simulation im medicine and the life
+sciences, vol. 10. Springer Science 4z Business Media, 2012.
+
+M. Stahl, T. Aach, and S. Dippel, “Digital radiography enhancement by nonlinear
+multiscale processing,” Medical physics, vol. 27, no. 1, pp. 56-65, 2000.
+
+G. Rakocevic, T. Djukic, N. Filipovic, and V. Milutinovié, Computational medicine
+in data mining and modeling. Springer, 2013.
+
+S. Russell, P. Norvig, and A. Intelligence, “A modern approach,” Artificial Intelligence. Prentice-Hall, Egnlewood Cliffs, vol. 25, p. 518, 1995.
+
+L. Alonso-Carrión, F. J. Sánchez-Lora, C. Hinojosa-López, J. J. Porras-Vivas,
+A. Cuenca-Guerrero, and M. Abarca-Costalago, “Precisión del diagnóstico en medicina interna e influencia de un sistema informático en el razonamiento clínico,”
+
+Educacion Medica, vol. 16, no. 3, pp. 184-187, 2015.
+S. Russell and P. Norvig, “Inteligencia artificialun enfoque moderno,” 2004.
+
+A. E. Eiben, J. E. Smith, et al., Introduction to evolutionary computing, vol. 53.
+Springer, 2003.
+
+F. Izaurieta and C. Saavedra, “Redes neuronales artificiales,” Departamento de Física,
+Universidad de Concepción Chale, 2000.
+
+3819)
+
+(20)
+
+(231
+
+24,
+
+(25)
+
+(28|
+
+(29)
+
+T. Zhang, “An introduction to support vector machines and other kernel-based learning methods,” A/ Magazine, vol. 22, no. 2, p. 103, 2001.
+
+“¿qué es la  retinopatía diabética?.” https://www.aao.org/salud-ocular/
+enfermedades/retinopatia-diabetica,author=American Academy of Ophthalmology, 2017.
+
+E. Decenciere, X. Zhang, G. Cazuguel, B. Lay, B. Cochener, C. Trone, P. Gain,
+
+R. Ordonez, P. Massin, A. Erginay, et al., “Feedback on a publicly distributed image
+database: the messidor database,” Image Analysis ES Stereology, vol. 33, no. 3, pp. 231234, 2014.
+
+A. J. Rosales-silva and F. J. Gallegos-funes, “Detection and classification of NonProliferative Diabetic Retinopathy using a Back-Propagation neural network Detección y clasificación de Retinopatía Diabética no Proliferativa usando una Red Neuronal de Retropropagación,” pp. 70-85, 2015.
+
+B. Antal and A. Hajdu, “An ensemble-based system for automatic screening of diabetic retinopathy,” Knowledge-Based Systems, vol. 60, pp. 20-27, 2014.
+
+T. Taveira-Gomes, “machine learning on the diabetic retinopathy debrecen data. set
+data set.” https: / /rpubs.com /tiagotaveira/debrecen.
+
+S. J. J. Kumar and M. Madheswaran, “An improved medical decision support system
+to identify the diabetic retinopathy using fundus images,” Journal of Medical Systems,
+vol. 36, no. 6, pp. 3973-3581, 2012.
+
+S. Issac Niwas, P. Palanisamy, R. Chibbar, and W. J. Zhang, “An expert support
+system for breast cancer diagnosis using color wavelet features,” Journal of Medical
+Systems, vol. 36, no. 5, pp. 3091-3102, 2012.
+
+E. Elveren and N. Yumusak, “Tuberculosis disease diagnosis using artificial neural
+network trained with genetic algorithm,” Journal of Medical Systems, vol. 35, no. 3,
+
+pp. 329-332, 2011.
+
+V. Cruz-Gutiérrez and A. Sánchez-López, “Un sistema experto difuso en la Web para
+diagnóstico de diabetes,” vol. 107, pp. 145-155, 2015.
+
+L. Álvarez Menéndez, F. J. de Cos Juez, F. Sánchez Lasheras, and J. A. Álvarez
+Riesgo, “Artificial neural networks applied to cancer detection in a breast screening
+
+programme,” Mathematical and Computer Modelling, vol. 52, no. 7-8, pp. 983-991,
+2010.
+
+R. Kunhimangalam, S. Ovallath, and P. K. Joseph, “A clinical decision support sys
+tem with an integrated EMR for diagnosis of peripheral neuropathy,” Journal of
+Medical Systems, vol. 38, no. 4, 2014.
+
+99(31
+
+(39)
+
+40)
+
+41
+
+42,
+
+ES]
+
+M. S. Bascil and H. Oztekin, “A study on hepatitis disease diagnosis using probabilistic neural network,” Journal of Medical Systems, vol. 36, no. 3, pp. 1603-1606,
+2012.
+
+M. $. Bascil and F. Temurtas, “A study on hepatitis disease diagnosis using multilayer
+neural network with Levenberg Marquardt training algorithm,” Journal of Medical
+
+Systems, vol. 35, no. 3, pp. 433-436, 2011.
+
+B. D. Barkana, I. Saricicek, and B. Yildirim, “Performance analysis of descriptive
+statistical features in retinal vessel segmentation via fuzzy logic, ANN, SVM, and
+
+classifier fusion,” Knowledge-Based Systems, vol. 118, pp. 165-176, 2017.
+
+M. Javidi, H.-R. Pourreza, and A. Harati, “Vessel segmentation and microaneurysm
+detection using discriminative dictionary learning and sparse representation,” Com
+puter Methods and Programs im Biomedicine, vol. 139, pp. 93-108, 2017.
+
+W. A. Warner, R. Sanchez, A. Dawoodian, E. Li, and J. Momand, “Comparison of
+
+Standardized Clinical Classification with Fundus Photograph Grading for the assessment of Diabetic Retinopathy and Diabetic Macular Edema Severity,” vol. 80, no. 4,
+pp. 631-637, 2013.
+
+M. M. Nentwich, “Diabetic retinopathy - ocular complications of diabetes mellitus,”
+World Journal of Diabetes, vol. 6, no. 3, p. 489, 2015.
+
+S. Patel, R. M. Klein, A. Patel, R. B. Klein, M. Aung, and W. Hoe, “Diabetic retinopathy screening and treatment in Myanmar: a pilot study,” BMJ Open Ophthalmology, vol. 1, no. 1, p. e000084, 2017.
+
+N. P. Emptage, S. Kealey, F. C. Lum, and S. Garratt, “Preferred Practice Pattern: Diabetic retinopathy,” American journal of ophthalmology, vol. Updated Ja,
+pp. http: //www.aao.org/preferred—practice-pattern/diab, 2014.
+
+D. Aliseda Perez de Madrid and Il. Berastegui, “Diabetic retinopathy,” An Sist Sanit
+Navar, vol. 31 Suppl 3, no. 3, pp. 23-34, 2008.
+
+Virgilio Lima Gomez, “Retinopatia diabetica simplificada,” Rev Hosp Jua Mex,
+vol. 73, no. 4, pp. 170-174, 2006.
+
+A. Pareja-rios, S. Bonaque-gonzalez, M. Serrano-garcia, and F. Cabrera-lopez, “Teleoftalmologia para el cribado de la retinopatia,” vol. 92, no. 2, pp. 63—70, 2017.
+
+O. E. Schmitz and C. E. Mogensen, “United Kingdom Prospective Diabetes Study.,”
+Ugeskrift for laeger, vol. 158, no. 15, pp. 2137-2139, 1996.
+
+F. Barria von Bischhoffshausen and F. Martinez Castro, “DIRIGIDA A OFTALMOLOGOS Y PROFESIONALES DE LA SALUD Organiza: PROGRAMA VISION
+2020 IAPB para America Latina ler Taller Quito GUIA PRACTICA CLINICA DE
+RETINOPATIA DIABETICA PARA LATINOAMERICA,” Lsn, vol. 2, no. 1, pp. 146, 2011.
+
+60[44] M. R. A. Castillo, “Teleoftalmologia para el cribado de Retinopatia Diabetica en un
+area de salud integrada: modelo de gestion de la demanda,” 2015.
+
+145] C. Vargas-Sanchez, J. J. Maldonado-Valenzuela, F. T. Perez-Durillo, J. Gonzalez
+Calvo, and A. Perez-Milena, “Coverage and results of a screening program for diabetic
+
+retinopathy using mydriatic retinography in primary health care,” Salud publica de
+Mexico, vol. 53, no. 3, pp. 212-219, 2011.
+
+[46] D. Effron, B. C. Forcier, and R. E. Wyszynski, “Chapter 3. Funduscopic Findings
+Age-Related Macular Degeneration,” pp. 1-23, 2014.
+
+[47] S. Edicion, Atlas de la Diabetes de la FID. 2015.
+
+148] G. Mb and E. Jm, “PREVALENCIA DE RETINOPATIA DIABETICA EN UNA
+POBLACION DIABETICA PREVALENCE OF DIABETIC RETINOPATHY . A
+POPULATION BASED STUDY IN” no. 1, pp. 7-12, 2017.
+
+61

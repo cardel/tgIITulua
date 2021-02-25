@@ -1,0 +1,2679 @@
+Desarrollo e Implementación de un Sistema de Apoyo a la Gestión de Procesos de
+Conectic S.A.S
+
+Cristhian Camilo Barbetti
+2013156023
+
+cristhian.barbettiOcorreounivalle.edu.co
+
+Universidad del Valle Sede Tuluá
+
+Programa Académico Ingeniería de Sistemas
+
+Abril de 2015Desarrollo e Implementación de un Sistema de Apoyo a la Gestión de Procesos de
+Conectic S.A.S
+
+Cristhian Camilo Barbetti Lopez
+
+201356023
+cristhian.barbettiOGcorreounivalle.edu.co
+
+Proyecto de Ingeniería
+
+Trabajo de Grado para optar por el título de
+Ingeniero de Sistemas
+
+Director
+
+Julián Andrés Rodas Laverde, Esp.
+
+Universidad del Valle Sede Tuluá
+
+Programa Académico Ingeniería de Sistemas
+
+Abril de 2015Nota de aceptación
+
+Presidente del Jurado
+
+Jurado
+
+Jurado
+
+Tuluá, Abril de 2015Dedicatoria
+
+A Dios, por permitirme vivir y fortalecerme cada día, a mi familia, amigos y profesores
+que me ayudaron con total desinterés, y gracias a su respaldo he cumplido un logro más
+
+en mi vida.
+
+IIAgradecimientos
+
+A Dios por fortalecerme y ayudarme todos los días, por darme buena salud, sabiduría
+
+e inteligencia para poder afrontar cada nuevo desafío en la vida.
+
+A mi familia, padres y hermanos, por su apoyo incondicional.
+
+A mi director de trabajo de grado, el Ingeniero Julián Rodas Laverde, por confiar en
+mi y tener gran disposición para ayudarme durante todo el proceso de desarrollo del
+proyecto.
+
+A mis amigos y profesores que me motivaron, que compartieron conmigo sus expe
+riencias y conocimientos los cuales fueron fundamentales para mi desarrollo personal y
+
+profesional durante la carrera.
+
+TIÍndice general
+
+1. Introducción 1
+1.1. Descripción General .......... o... o... e... . e... . . . o. 1
+1.2. Planteamiento del Problema ........... o... o... o... .... 2
+1.3. Objetivos .......... +
+
+1.3.1. Objetivo General ........... o... o... .......... 4
+1.3.2. Objetivos ESpecÍfiCOS . ......... o... . .. ... . ...... 4
+1.4. Estructura del Documento ......................... +. 4
+
+2. Marco de Referencia 6
+
+2.1. Marco Contextual ........................ e... 6
+2.1.1. Admnistración de la Información en ConecticS.AS ......... 6
+2.1.2. El sector TIC en Colombia ........... o... o... ..... 7
+2.1.3. Proveedores de Servicios de Internet. ................. 7
+
+2.2. MArcO TeóÓriCO ........ 8
+2.2.1. Metodologías de desarrollo de SOfWare ........ o... o... 8
+2.2.2. Metodologías ágiles de desarrollo de software ............ 8
+2.2.3. Gestión ágil de proyectos ........ oo... o... . . . . . . 0 8
+2.2.4. Desarrollo iterativo e incremental ................... 9
+22d DOLL 2: +... ..<.006:%2+...02.2:80:%0:%0:33%053884430w%2+ 9
+2.2.6. Plataforma de desarroll0. ............ o... o... .... 12
+
+2.3. Marco Conceptual. .......... o... o... ..... e... e... .. 15
+2.3.1. Enfoque basado en Procesos ....... o... o... . . . . . . 0 15
+2.3.2. Gestión de Procesos de Negocio ..... o... o... .. . .. . 0 15
+2.3.3. La gestión de la relaciones con el cliente (o CRM, de la sigla del
+
+término inglés de Customer Relationship Management) ...... 16
+2.3.4. Medición del Desempeño Mediante Indicadores ........... 16
+
+24, Antecedentes ........ 16
+24.1. SequrelSP ........ ooo. ooo... 17
+242. Backup ........... 17
+
+IV2.4.3. Facturación ...
+
+2.4.4. Notificaciones .
+
+2.4.5. KaanitS.R.L. y su Sistema de Administración Integral para ISP
+
+3. Desarrollo del Proyecto
+
+3.0.6. ¿Entrevistas con el Cliente ........................
+
+3.0.7. Requerimientos Funcionales ........... o... .......
+
+3.1. Análisis y diseño preliminar ......... o... o... o... .....
+
+3.1.1. Historias de Usuario .-...........
+
+3.2. Diseño .........
+
+3.2.1. Modelo de la base de datos .......................
+
+3.2.2. Diagrama declases ........ o... ooo... . . . . . . . . . 0
+
+3.3. Implementación ...
+3.4. Codificación .....
+
+3.5. Instalación .......
+
+3.6. Descripción general del aplicativo Web. ........... o... oo...
+
+4. Pruebas y Discusión de los Resultados
+4.0.1. Pruebas de Unidad ........... o... o... ....... +.
+
+4.0.2. Pruebas de Integración. ......... o... o... .. . . . . . 0
+
+5. Conclusiones y trabajos futuros
+
+5.0.3. Conclusiones .
+
+5.0.4. Futuros trabajos
+
+Bibliografía
+
+19
+19
+19
+31
+32
+33
+33
+34
+34
+35
+37
+37Índice de figuras
+
+1.1.
+
+2.1.
+
+S.L,
+3.2.
+3.3.
+3.4.
+3.5.
+3.6.
+3.7.
+3.8.
+3.9,
+
+Bosquejo del Organigrama de Procesos de Conectic SAS ..........
+
+Método ágil: SCRUM ........o.o ooo ooo oo...
+
+Diagrama de Clases: Usuario del sistema. ........
+Inicio del websiteOS de UNE usado por Conectic. .....
+
+Conjunto de herramientas del website OS de UNE usado
+
+por Conectic. ...
+
+Página de autenticación o logueo para los usuarios del sistema. ......
+
+Página de administración para usuarios del sistema luego de ingresar. . .
+
+Enlace de logueo desde la página web de Conectic. . .
+Página de ingreso o logueo para usuarios cliente... . .
+Página de ingreso o logueo para usuarios cliente... . .
+
+Creación de un nuevo cliente por un usuario del sistema
+
+3.10. Creación de un nuevo contrato por un usuario del sistema. .........
+
+3.11. Registro de un usuario del sistema por un usuario del administrador. . . .
+
+3.12. Enviar un mensaje a un usuario cliente o del sistema. .
+
+vIIndice de cuadros
+
+3.1.
+3.2.
+3.3.
+3.4.
+3.5.
+3.6.
+3.7.
+3.8.
+3.9,
+
+4.1.
+4.2.
+
+Acrónimos de Requerimientos Funcionales y No Funcionales ....... 20
+Jerarquía general de la empresa ConectiC. ...... o... oo... .... 26
+Escala de calificación en el método de Escalas Gráficas. ........... 28
+Plantilla de evaluación con el método de Escalas Gráficas. ......... 29
+Descripción de actividades para soporte técNiCO. ......... oo... 31
+Historia de usuario: acceder al sistema como usuario del sistema. ..... 32
+Historia de usuario: crear y administrar cuentas de usuari0. ........ 33
+Historia de usuario: acceso de usuario cliente. ................ 33
+Modelo entidad relación de la base de datos. ................. 34
+Algunas pruebas de Unidad. ......... o... oo... . e... . . . 0 44
+Algunas pruebas de integración del sisteMa. ........ o... ooo... 45
+
+VIIResumen
+
+En la actualidad, las empresas que buscan ser competitivas y mantenerse en mercados
+cada vez más globalizados, deben gestionar sus actividades, tareas y recursos para dirigirlos hacia la consecución de buenos resultados económicos; esto a su vez conlleva a la
+necesidad de adoptar medidas que faciliten a las organizaciones mejorar continuamente
+sus procesos. La gestión por Procesos de Negocio (BP, siglas inglesas de Business Process)
+ha despertado gran interés dentro de las organizaciones debido que se ha entendido como
+elemento indispensable para mejorar el desempeño y la competitividad!. Sin embargo,
+es indispensable que quienes intentan implementar la administración por BP consideren incluir las herramientas tecnológicas y sistemas de información, que ayude en el
+rediseño de las actividades empresariales cuando estas fallan y lograr mejoras drásticas
+
+en el desempeño y la calidad de los servicios y/o productos que van dirigidos a los clientes.
+
+El presente proyecto consistió en el desarrollo e implementación de un sistema de información en un ambiente e infraestructura real proporcionada por Conectic S.A.S, empresa del
+sector de las telecomunicaciones dedicada a la provisión de redes y servicios de internet a
+personas y empresas de la ciudad de Buga y sus alrededores. El objetivo de este sistema
+es facilitar la gestión de los procesos de afiliación y administración de clientes?, creación y
+administración de contratos de servicios, la gestión de planes de servicios que actualmente
+se ofrecen, así como el apoyo a la gestión de la relación con los clientes (CRM siglas
+en inglés de customer relationship management), que son de gran importancia para la
+consolidación de cualquier organización; además se dió apoyo al proceso de evaluación de
+los empleados para permitir calificar determinados indicadores de desempeño asignados
+
+por los Administradores o encargados de dicha evaluación.
+
+Antes del proyecto, la gestión de estos procesos no contaba con el apoyo de un siste
+ma de información adecuado y propio que permitiera su desarrollo de manera articulada
+
+ 
+
+http: / /www.infoautonomos.com /informacion-al-dia /expansion-y-crecimiento / gestion-por-procesos
+de-negocio/
+“Clientes, hace referencia a las personas o empresas que contratan el servicio de internet con Conectic
+
+S.A.S
+
+VIIIy eficiente, y que a partir de éste se pudiera obtener información relevante para medir el
+desempeño operacional de la empresa. Con el desarrollo e implementación de este sistema
+de información se ayudó al fortalecimiento de las labores administrativas de Conectic
+S.A.S, que ahora tiene el apoyo de un software para guardar y administrar la información
+de sus procesos. Además, el presente trabajo servirá de base para la implementación de
+otros procesos empresariales, en el mediano y largo plazo, que también son importantes
+
+para la organización.
+
+Palabras claves: gestión, gestión por procesos, indicadores de desempeño, desempeño
+
+operacional, telecomunicaciones, sistema de información.
+
+IXAbstract
+
+Currently, companies seeking to be competitive and stay in increasingly globalized
+markets, must manage their activities, tasks and resources to guide them towards achieving good economic results; this in turn leads to the need to adopt measures facilitating
+organizations to continuously improve their processes. Management by Business Process
+(BP, Business Process acronym) has aroused great interest within organizations because it
+has been understood as an essential element to improve performance and competitiveness.
+However, it is essential that those who try to implement administration by BP consider
+including the technological tools and information systems, to help in the redesign of
+business activities when they fail and achieve dramatic improvements in performance
+
+and quality of services and / or products that are intended for customers.
+
+This project involved the development and implementation of an information system in
+an environment and infrastructure provided by Conectic actual SAS, a company in the
+telecommunications industry dedicated to the provision of internet networks and services
+to individuals and businesses of the city of Buga and its surroundings. The objective of
+this system is to facilitate the management of processes of membership and customer management, creating and managing service contracts, management plans currently offered
+services and support for managing the relationship with the (CRM stands for customer
+relationship management), which are of great importance for the consolidation of any organization; also support the process of evaluation of employees was given to allow certain
+
+qualifying performance indicators assigned by the directors or managers of the evaluation.
+
+Before the project, the management of these processes did not have the support of a
+system of adequate and proper information to enable the development of coordinated
+and efficient manner and that from it could obtain relevant information to measure the
+operational performance company. With the development and implementation of this
+information system it will be helped to strengthen the administrative work Conectic SAS,
+which now has the support of a software to store and manage their processes. In addition,
+this paper will form the basis for the implementation of other business processes in the
+
+medium and long term, which are also important for the organization.Keywords: management, process management, performance indicators, operational per
+formance, telecommunications, information system.
+
+XICapítulo 1
+
+Introducción
+
+1.1. Descripción General
+
+El presente proyecto estuvo orientado al desarrollo e implementación de un sistema de
+información en un ambiente e infraestructura real, proporcionada por la empresa Conectic
+S.A.S, que facilitara la gestión de los procesos de afiliación y administración de clientes,
+creación y administración de contratos de servicios, la gestión de planes de servicios
+que actualmente se ofrecen, así como la comunicación con sus clientes, que son de gran
+importancia para la consolidación de cualquier organización. En el pasado reciente, la
+gestión de estos procesos, no contaba con el apoyo de un sistema de información adecuado
+que permitiera su desarrollo de manera articulada y eficiente, y que a partir de éste, fuera
+
+posible medir factores que determinaran el desempeño operacional de la empresa.
+
+En Conectic S.A.S han sido conscientes que los constantes cambios que se presentan
+en los mercados, locales y nacionales, demandan de las organizaciones, el rediseño de sus
+procesos de negocio de tal forma que sus actividades productivas puedan continuar en
+el tiempo, y así ser más competitivas y consolidarse en el mercado. Y que para esto, es
+indispensable que toda empresa tenga garantía de acceso a la información de todos sus
+procesos de negocio, y posea herramientas tecnológicas eficientes que permitan hacer esta
+labor más sencilla [1]; esto significó para Conectic S.A.S la decisión de incluir los recursos
+
+tecnológicos en su gestión.
+
+Conectic S.A.S es una empresa Proveedora de Servicios de Internet (o ISP, por la sigla
+en inglés de Internet Service Provider) que durante varios años se ha dedicado principalmente a ofrecer éste servicio a personas y empresas en la ciudad de Buga, Valle del
+Cauca, Colombia, aprovechando principalmente algunos sectores que por sus condiciones
+geográficas no pueden acceder a los ISP tradicionales, principalmente por los elevados
+
+costos de las soluciones de conexión a internet.En los últimos 2 años la empresa ha experimentado un crecimiento significativo en
+el número de clientes, lo que conllevó a la necesidad de tomar decisiones prontas que
+permita mejorar continuamente sus procesos. Conectic S.A.S, identificó la necesidad de
+mejorar primordialmente los procesos de afiliación y administración de clientes, creación
+y administración de contratos de servicios, y la gestión de sus planes de servicios, los
+cuales son la base de sus procesos de negocio y que le permitiera realizar mediciones de
+su desempeño operacional; así mismo, se identificó la necesidad de que estos procesos se
+articularan entre sí, y se establezca un canal de comunicación efectivo entre la empresa y
+
+los clientes.
+
+1.2. Planteamiento del Problema
+
+El aumento de la demanda de servicios en el mercado local de Conectic S.A.S, ha
+evidenciado varios problemas que obstaculizan el mejoramiento continuo de la empresa,
+al no poseer un sistema fiable y lo suficientemente articulado en el cual pueda confiar
+procesos tales como: afiliación y administración de clientes, creación y administración
+de contratos de servicios, y la gestión de planes de servicios que actualmente ofrezca la
+empresa; asimismo no se cuenta con un canal de comunicación efectivo entre la organización y los clientes, lo que impide una retroalimentación adecuada que permita mejorar la
+
+relación entre estos[2].
+
+Tampoco se cuenta con una herramienta sistematizada que permita la medición del
+desempeño operacional empresarial mediante indicadores, que sirva de base para hacer
+seguimiento con propósito de mejora. Estas necesidades dificultan la armonización que
+se espera ver en el organigrama de procesos de Conectic (Figura 1.1). En la actualidad
+Conectic S.A.S respalda la gestión de sus redes y usuarios en el software SequrelSP?, sin
+embargo, este producto imposibilita el manejo de formatos que usa la empresa para sus
+procesos de negocio, asimismo impide la obtención de la información albergada allí de
+modo que pueda ser manipulada o gestionada desde un sistema de información propio.
+Además el sistema de respaldo manejado por SequrelSP ya ha demostrado no ser confiable, pues en varias ocasiones tras sufrir daños en el servidor de internet, la información
+albergada allí se ha perdido, siendo imposible rescatarla aún cuando se ha descargado un
+Backup. En el presente, la empresa usa sus formatos en medio físico para todo el proceso
+involucrado con la afiliación de los clientes y los contratos respectivos, que requiere acceso
+a información relacionada con clientes, contratos y planes de servicios; luego de este
+
+proceso manual se debe digitar la información en SequrelSP.
+
+ 
+
+Página oficial de SequrelSP, http: / /sequreisp.comMejora continua de procesos de Conecte
+
+Gestión de la
+calidad
+
+Usuano
+
+Necesidad del semicio Bienes y suministro Presupuesto
+y requistos
+especificos
+i Usuano '
+Soporte Técnico .
+Obtención del servicio
+
+   
+ 
+
+ 
+
+  
+ 
+ 
+ 
+
+ 
+
+Usuano
+
+Percepción de
+satisfacción
+
+         
+  
+
+ENTRADAS FLUJO DE LA INFORMACIÓN — PROCESOS EXTERNOS
+=> —
+
+Figura 1.1: Bosquejo del Organigrama de Procesos de Conectic S.A.S
+
+En este proceso en el cual gran parte es realizado de forma manual, el uso del papel
+es excesivo, por ejemplo, cuando se necesita afiliar a un cliente al servicio de internet
+se hace la visita respectiva al domicilio de la persona, se llena un formato de solicitud
+de servicio en papel, luego se lleva la solicitud hasta la oficina para que desde allí se
+imprima el formato de afiliación y contrato de servicio, junto al formato de instalación, y
+es el instalador el que antes de su labor hace diligenciar el formato de afiliación, firmar el
+contrato de servicio y al finalizar su trabajo hace firmar la constancia de que el servicio
+fue instalado. Al terminar esta labor, en la oficina de Conectic S.A.S se empieza a digitar
+la información respectiva de los clientes, de los contratos, y el plan de servicio vendido
+para luego ser ingresados a la aplicación SequrelSP para administrar desde allí la información. Sin embargo, con el aumento actual de clientes se ha encontrado la necesidad
+de sistematizar estos procesos, de tal forma que se reduzcan tiempos de operación, y
+gastos administrativos relacionados con el uso de papel y transporte de los asesores e
+
+instaladores.
+
+Confiar la administración de la información de los clientes a SequrelSP no es seguro
+para la Dirección de la organización que debe tener garantía de acceso a los datos allí
+almacenados por la empresa sin importar los fallos que pueda sufrir la red y sus servidores, por otro lado, SequrelSP no permite consultar la información de gestión de clientes
+para la generación automática de formatos y órdenes de servicio que constantemente se
+diligencian; los Directores encargados de la organización de Conectic S.A.S buscan tener
+un software que a futuro integre toda la gestión de sus procesos, que incluya también
+información institucional, formatos y medios de comunicación, que sea independiente del
+
+software con el que administra su red y sirva de apoyo o respaldo a su gestión empresarial.
+
+3Por lo expresado anteriormente, y teniendo en cuenta el impacto que tiene actualmente
+la gestión tecnológica dentro de las organizaciones, y como éstas vienen optando por
+herramientas sistematizadas de manejo de información, principalmente web, es como
+Conectic S.A.S tiene especial interés en poseer un sistema de información orientado a la
+web que permita apoyar el proceso de afiliación de clientes, que incluya su administración,
+la creación de contratos de servicio que permita asimismo su gestión, la creación de planes
+de servicios que implique su organización; estos procesos deben ir acompañados de un
+canal de comunicación efectivo con los clientes, y una herramienta sistematizada que a
+partir de los datos ingresados en dicho sistema permita medir el desempeño operacional
+
+de la empresa mediante indicadores de eficacia, eficiencia y productividad.
+
+1.3. Objetivos
+
+1.3.1. Objetivo General
+
+Desarrollar un sistema de información que permita apoyar la gestión de procesos de
+
+afiliación de clientes, contratos, planes de servicios y análisis del desempeño operacional
+de Conectic S.A.S.
+
+1.3.2. Objetivos Específicos
+
+e Desarrollar un módulo que permita guardar la información de los clientes, generar y
+
+editar contratos y planes de servicios.
+
+e Desarrollar un módulo que permita a la empresa estar en contacto con sus clientes,
+
+a través de la web y a través de mensajes de texto.
+
+e Desarrollar un módulo que permita a la empresa observar y medir su desempeño
+operacional basado en indicadores de eficacia, eficiencia y productividad, y con base en
+
+esto hacer proyecciones de su desarrollo operacional.
+
+1.4. Estructura del Documento
+
+El presente proyecto de trabajo de grado está organizado de la siguiente manera: en el
+capítulo 1 está la introducción del proyecto el cual consta de la descripción general del
+problema, el planteamiento del problema, así como los objetivos general y específicos
+y la estructura del documento, en este capítulo se detalla brevemente el contenido del
+
+presente trabajo así como sus objetivos. En el capítulo 2 está el marco referencial que sesubdivide en los siguientes marcos: marco contextual, marco teórico, marco conceptual y
+antecedentes del proyecto, que es la base fundamental en la que se basa el proyecto. En
+el capítulo 3 está desarrollo del proyecto, el cual se divide en: requerimientos, análisis
+y diseño preliminar, diseño, implementación, codificación, instalación y finalmente la
+descripción general del aplicativo web. En el capítulo 4 se describen las pruebas que
+se realizaron que son: pruebas de unidad, pruebas de integración. En el capítulo 5 está
+compuesto por las conclusiones y trabajos futuros, aquí se intenta expresar la experiencia
+
+adquirida durante el proyecto y nuestra opinión de futuros trabajos que consideramos
+
+pertinentes.Capítulo 2
+
+Marco de Referencia
+
+2.1. Marco Contextual
+
+Conectic S.A.S es una empresa del sector terciario o de servicios, cuya actividad se
+concentra en el área de las telecomunicaciones; actualmente está ubicada en la ciudad de
+Guadalajara de Buga, Valle del Cauca, Colombia, y dirige sus servicio a esta comunidad
+en la zona urbana y rural, siendo el sector rural de la ciudad la principal área de operación,
+
+debido a la insuficiente cobertura que existe de conexión a internet.
+
+Guadalajara de Buga es una ciudad que se encuentra situada en la zona centro del
+departamento del Valle del Cauca, en donde se hace más estrecho el valle geográfico?. La
+localización geográfica, las condiciones climáticas, las infraestructuras de conectividad,
+la articulación de diferentes modos de transporte, la oferta de servicios empresariales y
+financieros en la región y la accesibilidad a mercados convierten a Buga en una excelente
+
+2
+
+alternativa para el asentamiento de empresas”, como es el caso de Conectic S.A.S.
+
+2.1.1. Admnistración de la Información en Conectic S.A.S
+
+Conectic usa un software de gestión de ISP llamado SequreIspP, ofrecido por la empresa
+SEQUREISP*, que le permite administrar el acceso a internet. SequrelSP permite controlar
+quiénes pueden navegar y cómo; mediante este software se puede asignar ancho de
+banda y prioridades por tipo de tráfico, hacer control de acceso, redireccionar puertos,
+administración de diversos proveedores y hacer balanceo entre ellos funcionando como
+backup si alguno de ellos sufre caída. SequrelSP es un producto de software de pago
+que ofrece soluciones de gestión para los ISP y permite manejar la información de sus
+
+clientes, se ofrece licencias con los módulos que el Proveedor de Internet prefiera según su
+
+ 
+
+! http:/ /guadalajaradebuga-valle.gov.co
+“Tomado de Guía de inversiones, Cámara de Comercio de Buga http: / /ccbuga.org.co
+Página oficial de SequrelSP, http: / /www.wispro.co/necesidad, a un costo determinado. Actualmente Conectic S.A.S usa la licencia estándar
+que incluye los módulos básicos, con este producto puede administrar los datos de los
+clientes, contratos de servicio y planes. Sin embargo, la empresa ha afrontado dificultades
+al hacer depender su información de dicho software, el cual no garantiza su acceso cuando
+hay problemas de conexión con el servidor de internet, debido a que en él se encuentra
+instalado el software; por otra parte, éste producto resulta poco personalizable y adaptable
+a las necesidades de Conectic, que necesita manejar de una forma específica la información
+institucional, crear y generar formatos que son propios de la compañía y establecer un
+
+canal de comunicación por el cual interactuar con sus clientes.
+
+2.1.2. El sector TIC en Colombia
+
+En los últimos años, Colombia ha sido testiga de los esfuerzos que el gobierno nacional
+ha hecho a través del ministerio de las Tecnologías de la Información y las Comunicaciones
+
+(TIC) para ampliar la cobertura en materia de conexión a internet en Colombia.
+
+El sector de TIC en Colombia está conformado actualmente por cuatro grandes subsegmentos y el primero de ellos corresponde a las telecomunicaciones que abarcan tanto
+los servicios como los equipos asociados. El segundo subsegmento es el de IT (tecnologías
+de la información) que a su vez está conformado por los servicios de software, hardware e
+información electrónica. Los subsegmentos tercero y cuarto están conformados, respectivamente, por los servicios de publicidad, consumo de electrónicos y audiovisuales][3].
+Conectic S.A.S hace parte del primer subsegmento, como empresa ISP; sin embargo, ella
+vislumbra en sus objetivos empresariales incursionar en el mediano y largo plazo en los
+
+demás subsegmentos del sector T'IC en Colombia.
+
+2.1.3. Proveedores de Servicios de Internet
+
+Los Proveedores de Servicios de Internet (ISPs) se pueden considerar como un conjunto o banco de redes empresariales, que atienden al tráfico de cientos y hasta miles de
+clientes diferentes que se conectan a sus redes. Los ISPs pueden contar sólo con una red,
+en Ocasiones extendida a través de múltiples regiones geográficas, que a veces cuentan
+
+con centros de datos, donde alojan servicios propios y de sus clientes”.
+
+También se considera ISPs a las organizaciones que aún no teniendo red propia, se
+conectan a otros ISPs, para ofrecer soluciones de conexión, servicios de centros de datos en
+
+sus servidores|4]. Conectic S.A.S, al igual que muchas empresas ISP del país, se conecta a
+
+ 
+
+*http: / /www.enter.co / cultura-digital / colombia-digital/las-cifras-del-mintic-tras-tres-anos-de-gestion
+"http: / /www.mintic.gov.co/portal /604/w3-article-5879.htmlredes de internet más grandes, así mismo comparte recursos de conexión con otros ISP semejantes a él y más pequeños cuando la situación o la urgencia lo amerita, requiriendo de
+esta forma guardar y administrar la información de estas compañías, y tenerla disponible
+
+en cualquier momento.
+
+2.2. Marco Teórico
+
+2.2.1. Metodologías de desarrollo de sofware
+
+Es un enfoque estructurado en cual se incluyen notaciones, modelos, reglas, así como
+guías de procesos y sugerencias de desarrollo. Las metodologías de desarrollo tienen su
+base en tres pilares fundamentales básicos que son: qué hay que hacer y ens qué orden,
+en el cómo deben realizarse las tareas, y con qué se pueden llevar a cabo. Es decir, se
+debe definir las etapas, las tareas y actividades que se deben realizar, las técnicas que se
+llevarán para realizar dichas etapas y las herramientas de software que se usarán en cada
+
+caso[5].
+
+2.2.2. Metodologías ágiles de desarrollo de software
+
+Las metodologías de desarrollo ágil es el resultado del gran impulso de diversos
+creadores e impulsadores de metodologías de sofware, cuyo objetivo fue delinear los
+principios y valores que se deberían permitir a los equipos para desarrollar sofware
+rápidamente, y pudieran responder a los diferentes cambios que surgen a lo largo de un
+proyecto. Éstas nuevas metodologías nacen como alternativa a los procesos de desarrollo
+tradicionales, los cuales son rígidos y dirigidos a la documentación en cada una de las
+
+actividades desarrolladas]l6].
+
+2.2.3. Gestión ágil de proyectos
+
+En la actualidad muchos de los procesos de negocio necesitan modelos de desarrollo
+diferentes a los que tradicionalmente se han usado, que se adapten rápidamente a los
+constantes cambios de los mercados, y en un ambiente tan cambiante como es el sector
+de las telecomunicaciones y la tecnología es indispensable contar con modelos de gestión
+de proyectos ágiles que se adapten a las nuevas necesidades y circunstancias que van
+surgiendo. Los nuevos proyectos de desarrollo deben realizarse al mismo tiempo que las
+necesidades cambian y surgen nuevos requerimientos, y como estas nuevas circunstancias
+no se pueden cambiar, es la forma de la gestión de proyectos la que se debe adaptar
+continuamente[7].
+
+La gestión ágil de proyectos ha surgido como resultado de la experiencia de muchas
+
+empresas que han acogido las mejores prácticas que mejor se han adaptado a sus necesi-dades y mejor respuesta han dado a las demandas de valor innovador de sus productos,
+reducción del tiempo de desarrollo, agilidad y flexibilidad, y fiabilidad. En la gestión ágil
+de proyecto el objetivo principal es dar valor innovador, los requisitos son abiertos, y se
+debe buscar información de manera continua durante el desarrollo del proyecto y del
+entorno cambiante; la agilidad para adaptarse a los nuevos requerimientos que surgen del
+entorno es la principal fortaleza y diferencia con los modelos tradicionales de desarrollo,
+
+que se preocupan más por la predicción que por la adaptación][8].
+
+2.2.4. Desarrollo iterativo e incremental
+
+El desarrollo iterativo e incremental surge como una alternativa para reducir la repetición de trabajo en un proceso de desarrollo. El modelo incremental reune varios elementos
+del Modelo Lineal Secuencial (MLS), que se aplican repetidamente, con la filofía interactiva de construcción de prototipos. De forma general, podemos decir que para llevar a cabo
+el modelo incremental debemos pasar por 4 partes: análisis, diseño, código y prueba. En
+cuanto al desarrollo de software, se usa el principio de trabajo en cadena o "pipeline”, de
+tal forma que se mantenga al cliente cercano al proceso de desarrollo, en contacto con los
+
+avances que se obtienen en cada incrementoS.
+
+En el modelo incremental es el cliente quien elige que se deja o desecha al final de
+cada iteración, lo que se deja despues de cada iteración es el avance o incremento del
+proyecto. De esta forma se continúa iterando hasta obtener un producto cada vez más
+
+cercano al producto esperado.
+
+2.2.5. Scrum
+
+Para algunos autores, Scrum no es una metodología sino un marco de referencia de las
+metodologías ágiles para la gestión y desarrollo de software basada en un proceso iterativo e incremental, y se utiliza comúnmente en entornos basados en el desarrollo ágil de
+proyectos[9]. Este marco está compuesto por un conjunto de técnicas o procedimientos que
+busca responder a los diferentes factores de cambio. La decisión de usarla fue tomada al
+prever que las necesidades del cliente podían cambiar durante el proyecto, y la percepción
+sobre lo que querían, esto debido al desconocimiento de factores importantes que se logró
+establecer una vez se inició la etapa de análisis. Con esta metodología fue fácil acercarnos
+a las diferentes circunstancias del cliente, para entender que el problema inicial necesitaba
+de un análisis más concienzudo para ser asimilado completamente, y concentrarnos en
+aumentar la capacidad del equipo de desarrollo para entregar rápidamente y responder a
+
+requisitos que surgían en el camino (Figura 2.1).
+
+ 
+
+* http: / /www.proyectosagiles.org/desarrollo-iterativo-incrementalMS OU
+
+ 
+
+O
+ONE
+a. Backlog items
+A o
+e my
+——_)
+
+y)
+a Potentially shippable
+—
+
+product increment
+
+Figura 2.1: Método ágil: SCRUM
+
+Scrum es una metodología de desarrollo ágil que se caracteriza por adoptar una
+estrategía de desarrollo incremental, se desgasta menos en la planificación y ejecución
+completa del producto. Scrum se caracteriza por basar la calidad del producto o resultado
+más en el conocimiento y experiencias de las personas en equipos organizados y dinámicos,
+que en la calidad de los procesos empleados. Con esta metodología no se tiene que seguir
+de manera estricta las diferentes fases del desarrollo, sino que se realizan según los
+requerimientos van cambiando. El modelo Scrum es comunmente recomendado para
+proyectos con requisitos cambiantes e inestables y para los proyectos que requieren rapidez
+y flexibilidad[10]. Y como Conectic S.A.S es una empresa real y cambiante, en un sector
+dinámico de la economía como lo es el sector de la tecnología y las telecomunicaciones, en
+donde los requisitos para llevar un producto y/o servicio al cliente pueden cambiar en
+
+cualquier momento, se decidió optar por Scrum.
+
+Características
+
+Scrum es una metodología de referencia que define un conjunto amplio de prácticas y
+roles, y que puede tomarse como punto de partida para definir el proceso de desarrollo
+que se ejecutará durante el proyecto”. Los roles principales en Serum son el ScrumMaster,
+que mantiene los procesos y trabaja de forma similar al director de proyecto, el Produc
+tOwner, que representa a los stakeholders (interesados externos o internos), y el Team que
+
+ 
+
+"https: / /www.scrumalliance.org/why-scrum
+
+10incluye a los desarrolladores[11]. Scrum permite la creación de equipos autoorganizados
+impulsando la co-localización de todos los miembros del equipo, y la comunicación verbal
+entre todos los miembros y disciplinas involucradas en el proyecto*. Durante cada sprint
+o iteración, un periodo definido entre 15 y 30 dias, magnitud que es definida por el equipo,
+se crea un incremento de software potencialmente entregable (utilizable). El conjunto
+de características que forma parte de cada sprint viene del Producto Backlog, que es un
+conjunto de requisitos de alto nivel priorizados que definen el trabajo a realizar. Los elementos del Product Backlog que forman parte del sprint se determinan durante la reunión
+de Sprint Planning. Durante esta reunión, el Product Owner identifica los elementos del
+Producto Backlog que quiere ver completados y los hace del conocimiento del equipo.
+Entonces el equipo determina la cantidad de ese trabajo que puede comprometerse a
+completar durante el siguiente sprint. Durante el sprint, nadie puede cambiar el Sprint
+
+Backlog, lo que significa que los requisitos están congelados durante el sprint.
+
+Requerimientos en Scrum
+
+En SCRUM el análisis de requisitos son expresados como un conjunto de elementos
+del Product Backlog, el cual se compone de requisitos funcionales y no funcionales
+determinado teniendo en cuenta el valor para el cliente[12]. Estos se van estableciendo en
+Sprints dependiendo de cómo se van recopilando a medida de las reuniones y que tan
+
+cambiantes son en el transcurso de un proyecto.
+
+Ventajas
+
+La decisión de trabajar con la metodología SCRUM es debida a que ella es una metodología ágil compuesta de características que facilitan el desarrollo del proyecto en periodos
+de tiempo cortos. Hay que tener en cuenta que una de sus principales característica son
+las reuniones constantes con el cliente, y esto proporciona más claridad en el proceso
+previo al desarrollo y durante el mismo, y esta característica permitió mayor precisión en
+
+el momento de traducir lo que el usuario final realmente deseaba obtener.
+
+Entrevistas y reuniones
+
+Las reuniones y entrevistas con el cliente constituyen una técnica de búsqueda y recolección de información muy común, jovial y efectiva a la hora de entender el problema
+
+que se va solucionar.
+
+ 
+
+http: / /spanishpmo.com /index.php /introduccion-a-la-metodologia-scrum/
+
+11En el presente trabajo, se realizaron reuniones y entrevistas para la recolección de información con respecto a los procesos de negocio que se llevan a cabo en la empresa con
+el objetivo de lograr cohesión entre los requisitos del sistema y el funcionamiento de la
+
+organización.
+
+2.2.6. Plataforma de desarrollo
+
+PHP (acrónimo recursivo de PHP: Hypertext Preprocessor)
+
+PHP es un lenguaje de código abierto muy popular y especialmente adecuado para
+el desarrollo web y que puede ser incrustado en HTML?. Las páginas escritas en PHP
+contienen HTML con código incrustado; algo que distingue a PHP de lenguajes de programación del lado del cliente como Javascript es que el código es ejecutado en el servidor,
+generando código HTML y enviándolo al cliente. Este lenguaje posee etiquetas especiales
+que permiten salir fácilmente del modo PHP. Con PHP se puede construir sitios web
+dinámicos e interactivos en corto tiempo, inclusive si aún no se conoce el lenguaje, esto
+
+debido a lo fácil que es aprenderlo[13].
+
+APACHE HTTP SERVER
+
+Apache es software libre y el servidor web más popular, que nace de un proyecto
+de la Fundación de Software Apache, con el objetivo de suministrar un servidor seguro,
+eficiente, y extensible que proporcione servicios HTTP en sincronía con los estándares
+HTTP actuales. Apache es un servidor web flexible, rápido y eficiente, continuamente
+actualizado y adaptado a los nuevos protocolos HTTP. Entre las características principales
+
+se encuentran: Multiplataforma.
+
+Modular: Puede ser adaptado a diferentes entornos y necesidades, con los diferentes
+módulos de apoyo que proporciona, y con la API de programación de módulos, para el
+desarrollo de módulos específicos.
+
+Extensible: gracias a ser modular se han desarrollado diversas extensiones entre las que
+
+destaca PHP, un lenguaje de programación del lado del servidor.
+
+MySQL
+
+MySQL es un sistema gestor de bases de datos relacional, multihilo y multiusuario. Es
+idóneo para la creación de bases de datos con acceso desde páginas web dinámicas, así
+como para la creación de cualquier otra solución que implique el almacenamiento de datos,
+
+posibilitando realizar múltiples y rápidas consultas[14]. Está desarrollado en € y C++,
+
+ 
+
+"http: / /php.net/
+
+12facilitando su integración en otras aplicaciones desarrolladas también en esos lenguajes.
+
+MySQL AB desarrolla MySQL como software libre en un esquema de licenciamiento dual.
+
+Es un sistema cliente /servidor, por lo que permite trabajar como servidor multiusuario y de subprocesamiento múltiple, o sea, cada vez que se crea una conexión con el
+servidor, el programa servidor establece un proceso para manejar la solicitud del cliente,
+controlando así el acceso simultáneo de un gran número de usuarios a los datos y asegurando el acceso a usuarios autorizados solamente. Es uno de los sistemas gestores de
+bases de datos más utilizado en la actualidad, utilizado por grandes corporaciones como
+
+Wikipedia, Google, Facebook, Twitter, entre otras.
+
+HTML siglas de HyperText Markup Language (lenguaje de marcas de hiper
+texto)
+
+Es un lenguaje de marcado para la elaboración de páginas web, es un estándar que sirve
+de referencia para la elaboración de páginas web, define una estructura básica y un código
+para la definición de contenido de una página web, como texto, imágenes, hipervínculos,
+etc. Es un estándar a cargo de la W3C, organización dedicada a la estandarización de
+casi todas las tecnologías ligadas a la web, sobre todo en lo referente a su escritura e
+
+interpretación.
+
+CSS siglas de Cascading Style Sheets (Hojas de estilo en cascada)
+
+Es un mecanismo simple que describe cómo se va a mostrar un documento en la
+pantalla, o cómo se va a imprimir, o incluso cómo va a ser pronunciada la información
+presente en ese documento a través de un dispositivo de lectura. Esta forma de descripción de estilos ofrece a los desarrolladores el control total sobre estilo y formato de sus
+
+documentos.
+
+CSS se utiliza para dar estilo a documentos HTML y XML, separando el contenido de la
+presentación. Los Estilos definen la forma de mostrar los elementos HTML y XML. CSS
+permite a los desarrolladores Web controlar el estilo y el formato de múltiples páginas
+Web al mismo tiempo. Cualquier cambio en el estilo marcado para un elemento en la CSS
+
+afectará a todas las páginas vinculadas a esa CSS en las que aparezca ese elemento.
+
+JavaScript (a veces abreviado JS)
+
+Es un lenguaje de programación interpretado desarrollado por Netscape que se utiliza
+en millones de páginas web y aplicaciones de servidor en todo el mundo. Es un lenguaje
+
+ligero e interpretado, orientado a objetos con funciones de primera clase, más conocido
+
+13como el lenguaje de script para páginas web, pero también usado en muchos entornos sin
+navegador, tales como node.js o Apache CouchDB. Es un lenguaje script multi-paradigma,
+basado en prototipos, dinámico, soporta estilos de programación funcional, orientada a
+
+objetos e imperativa[15].
+
+JavaScript puede funcionar como lenguaje procedimental y como lenguaje orientado
+a Objetos. Los objetos se crean programáticamente añadiendo métodos y propiedades a lo
+que de otra forma serían objetos vacíos en tiempo de ejecución, en contraposición a las
+definiciones sintácticas de clases comunes en los lenguajes compilados como C++ y Java.
+Una vez se ha construido un objeto, puede usarse como modelo (o prototipo) para crear
+
+objetos similares.
+
+BOOTSTRAP
+
+Es el framework de Twitter que permite crear interfaces web con CSS y Javascript
+que ayudan a adaptar la interfaz dependiendo del tamaño del dispositivo en el que se
+visualice. A la hora de crear interfaces Bootstrap permite crear diseños simples, limpios e
+
+intuitivos, esto les da agilidad a la hora de cargar y al adaptarse a otros dispositivos”.
+
+El Framework trae varios elementos con estilos predefinidos fáciles de configurar: Botones,
+menús desplegables, formularios incluyendo todos sus elementos e integración ¡Query
+
+para ofrecer ventanas y tooltips dinámicos.
+
+Actualmente el diseño de la página web de Conectic está basada en este Framework,
+
+en la versión actual Bootstrap 3.2.0.
+
+jQuery
+
+¡Query es una biblioteca de JavaScript, creada inicialmente por John Resig, que permite
+simplificar la manera de interactuar con los documentos HTML, manipular el árbol DOM,
+manejar eventos, desarrollar animaciones y agregar interacción con la técnica AJAX a
+páginas web. Fue presentada el 14 de enero de 2006 en el BarCamp NYC. ¡Query es la
+
+biblioteca de JavaScript más utilizada.
+
+¡Query es software libre y de código abierto, posee un doble licenciamiento bajo la Licencia
+MIT y la Licencia Pública General de GNU v2, permitiendo su uso en proyectos libres
+y privados.2 ¡Query, al igual que otras bibliotecas, ofrece una serie de funcionalidades
+
+basadas en JavaScript que de otra manera requerirían de mucho más código, es decir, con
+
+ 
+
+http: / /getbootstrap.com
+
+14las funciones propias de esta biblioteca se logran grandes resultados en menos tiempo y
+espacio. ¡Query es uno de los complementos más esenciales para el desarrollo web, usado
+en millones de sitios en toda la web, ya que nos facilita mucho el desarrollo de aplicaciones
+
+enriquecidas del lado del cliente, en Javascript, compatibles con todos los navegadores”?.
+
+SMS ("Short Message Service")
+
+Es un servicio de mensajes de texto para teléfonos móviles, y en la actualidad se
+ha convertido en un servicio muy demandado por diversas organizaciones. Hoy varias
+empresas del sector de las telecomunicaciones y operadores del telefonía celular ofrecen
+este servicio desde su plataforma; además, algunas empresas ofrecen un API (del inglés:
+Application Programming Interface)!”, que puede ser utilizado o incluído perfectamente
+
+en otro software.
+
+2.3. Marco Conceptual
+
+2.3.1. Enfoque basado en Procesos
+
+En las organizaciones, todas sus actividades y labores desde la planificación de invertir hasta la solicitud o reclamación de un cliente, deben y pueden considerarse como
+procesos. Si se desea operar de manera eficaz, la organización debe identificar y administrar numerosos procesos que están relacionados y que interactúan. La identificación y la
+administración sistemática de todos los procesos que se llevan a cabo en la organización y
+especialmente la interacción entre ellos, es lo que conocemos como el enfoque basado en
+procesos. A este tipo de enfoque apuntan las empresas que buscan ser más competitivas,
+y para este fin deben acudir a la tecnología y sistemas de información para hacer de este
+
+trabajo una labor más sencilla y eficaz.
+
+2.3.2. Gestión de Procesos de Negocio
+
+La gestión de procesos de negocio, también llamada administración por procesos de
+negocio (Business Process Management o BPM en inglés), es un conjunto de metodologías
+cuyo objetivo está orientado a optimizar de forma sistemática los resultados de una empresa, y garantizar que todos sus procesos sean llevados a cabo de forma efectiva y eficiente.
+En la gestión por procesos de negocio se busca aprovechar al máximo las ventajas de la
+
+tecnología y equipos tanto tecnológicos como humanos con que cuenta la empresa[16].
+
+ 
+
+"http: / /www.desarrolloweb.com /manuales /manual-¡query.html
+2http: / www.webopedia.com/TERM/A / API.html
+
+152.3.3. La gestión de la relaciones con el cliente (o CRM, de la sigla del término
+
+inglés de Customer Relationship Management)
+
+La gestión de las relaciones con el cliente es la estrategia que usan las empresas para
+interactuar con sus clientes, partiendo del principio de la teoría de la administración
+que Peter Drucker expone de la siguiente manera: “el verdadero negocio de cualquier
+compañía es crear y mantener a sus clientes”, pero lo que le ha otorgado gran importancia
+a este concepto es la capacidad que nos ofrecen las tecnologías de la información actuales
+que nos permite relacionarnos individualmente con cada cliente[17].
+
+En el pasado las organizaciones realizaban campañas publicitarias que exhibian mucha
+información, con el fin de alcanzar el interés de muchas personas de un determinado
+mercado, sin embargo, siempre había personas a las que dicha información no les llegaba
+o satisfacía por diferentes motivos, por ejemplo, no se sentían identificados por los colores
+o palabras que se usaban en dicho despliegue publicitario. Hoy día muchas empresas
+prefieren fidelizar a los clientes teniendo a su alcance medios más directos, como son una
+llamada, un mensaje electrónico o de texto, y que sus clientes puedan responderles de la
+
+misma manera.
+
+La administración de las relaciones con el cliente es un enfoque empresarial que permite conocer la conducta de los clientes e influir en ésta a través de una comunicación
+congruente, para aumentar lealtad y rentabilidad para la empresa. El CRM es un proceso
+iterativo, que permite captar la información sobre los clientes para luego transformar
+dicha información en provechosas relaciones que beneficien o se traduzcan en beneficios
+
+para la empresa[18].
+
+2.3.4. Medición del Desempeño Mediante Indicadores
+
+Es una herramienta muy importante que usan las empresas para medir su desempeño
+operacional mediante indicadores, esto permite interpretar rápidamente lo que sucede
+en la empresa; sin embargo, para muchas organizaciones se vuelve engorroso definir
+apropiadamente los indicadores, y muchas veces se excede en su cantidad, lo cual hace
+
+perder el enfoque del proceso[19].
+
+2.4. Antecedentes
+
+En la actualidad son muchas las herramientas que se han diseñado y desarrollado para
+dar apoyo a la gestión de procesos de negocio, esto debido a la ventaja competitiva que
+adquieren las empresas en un mercado cuando las implementan. De esta forma se hace
+
+indispensable para cualquier organización elegir una herramienta que de apoyo a sus
+
+16procesos de negocio y le permita realizarlos de manera efectiva y eficiente.
+
+Actualmente en la empresa Conectic S.A.S se cuenta con un software de pago llamado SEQURE ISP creado especialmente para brindar soluciones y productos para los ISP.
+Esta aplicación tiene varios módulos para administrar los datos de los clientes, contratos
+de servicio, planes y facturación. Pero para adquirir cada módulo se debe pagar un dinero
+adicional a la licencia general del sistema. Una de las principales dificultades que ha
+tenido la empresa con este software es que no suple las necesidades de la organización, la
+dirección de la empresa desea tener una aplicación que sea personalizable a las necesidades de la organización, y que permita manejar de manera más específica la información
+institucional, además la aplicación no permite crear ni generar formatos que son usados en
+Conectic, y no posee un canal de comunicación en el cual puedan interactuar los clientes
+
+con la empresa.
+
+2.4.1. SequrelSP
+
+SequrelSP es un producto de software de pago creado especialmente para brindar
+soluciones y productos a los ISP. Actualmente se ofrece el software SequrelSP que integra
+varias funcionalidades como son: Auditoria, backup, balanceo, Facturación, mesa de
+
+ayuda, notificaciones y proxy”, entre éstas destacamos:
+
+2.4.2. Backup
+
+SequrelSP permite guardar una copia de resguardo de la aplicación en cualquier
+momento. Este consiste en un archivo muy pequeño que se puede almacenar en cualquier
+pen drive (o enviar por email) y que es lo único que se necesita para recuperar un servidor
+
+a su antigua exacta configuración ante un desastre total.
+
+2.4.3. Facturación
+
+Este módulo permite generar automáticamente la deuda de los clientes mes a mes en
+forma de pagos por vencer. Configura los vencimientos de los mismos y marca el estado
+
+pagado a los clientes que efectúan su pago.
+
+2.4.4. Notificaciones
+
+Este módulo permite marcar los clientes morosos en un estado avisado, luego estos
+clientes verán afectada su navegación periodicamente y serán redireccionados a un portal
+
+en el cual se le puede escribir un mensaje informando el estado de mora.
+
+ 
+
+13 Tomado de la página oficial de SEQUREISP http: / /sequreisp.com
+
+172.4.5. Kaanit S.R.L. y su Sistema de Administración Integral para ISP
+
+Kaanit S.R.L es una empresa argentina, que movida por la necesidad de contar con un
+sistema de administración de usuarios acordes al desarrollo del proyecto, y entendiendo
+que en este país no existen sistemas de información que cumplan con los requerimientos
+de los ISP para el manejo de la información de los clientes, emprendió la tarea de programación de un sistema de manejo de usuarios, y optimización de ancho de banda de
+altas prestaciones. El sistema fue finalizado y puesto en funcionamiento a principios del
+año 2006; sin embargo este sistema fue creado con características tecnológicas presentes
+sólo en equipos de alta gama utilizados en redes coorporativas y despliegues comerciales
+a gran escala **. El sistema de administración reúne los recursos actuales de la empresa
+integrándolos en un sistema altamente eficiente y fácil de administrar. Los segmentos y
+
+equipos del Sistema Integral de gestión son 5:
+
+1. Control de usuarios (MagnetTM).
+
+2. Ecualización, control general del tráfico y aceleración web por caché (MagnetEO).
+
+3. Sistema de facturación y gestión de cuentas integrado con el control de usuarios (MagnetAl).
+
+4. Sistema de control de puntos de venta y técnicos (MagnetGS).
+
+5. Sitio web integrado con sistema de facturación.
+
+ 
+
+14 Tomado de la página oficial de kaanit S.R.L http: / /www.kaanit.com.ar /KaJ/
+
+18Capítulo 3
+
+Desarrollo del Proyecto
+
+El presente proyecto se desarrolló bajo la metodología de desarrollo de software
+SCRUM. Antes del inicio del proyecto, se propuso la utilización de una metodología ágil,
+flexible y práctica, que permitiera la creación de equipos de trabajo auto-organizados y
+una fluida comunicación verbal entre los miembros involucrados en el proyecto; esto con
+el objetivo de mejorar constantemente los resultados y refinar los detalles en cada una de
+
+las etapas de análisis, diseño, implementación y pruebas.
+
+Fue una acertada decisión la elección de la metodología SCRUM para el proyecto Desarrollo e Implementación de un Sistema de Apoyo a la Gestión de Procesos de Conectic S.A.S,
+porque esta metodología es apropiada para desarrollos en donde los constantes cambios
+del entorno o la empresa pueden hacer cambiar constantemente los requerimientos inicia
+les y el crecimiento de los mismos.
+
+Con la metodología SCRUM se facilitó la realización de un análisis reiterativo mediante
+los SPRINT, y esto ayudó a determinar el alcance del problema e identificar los requisitos
+
+más relevantes para la empresa.
+
+3.0.6. Entrevistas con el Cliente
+
+Cabe destacar que el personal de CONECTIC estuvo presto a proporcionar un espacio
+para las reuniones y entrevistas, en ellas mencionamos a Sergio Ramirez Ramirez, administrador de la empresa, a Mario Germán Guato, empleado de la empresa y al ingeniero
+
+de redes y coordinador de sistemas Leonardo Henao.
+
+3.0.7. Requerimientos Funcionales
+
+Al inicio de la etapa de análisis de requerimientos nos propusimos seguir el marco de
+
+referencia de Scrum para dicha labor, hablamos con el cliente para determinar las historias
+
+19de usuario que conformarían nuestro Product Backlog; sin embargo, frente a las dudas
+que mostraban los encargados de Conectic en suministrarnos la información de los requerimientos y a peticiones ambiguas que nos confundían, y a nuestro desconimiento inicial
+en algunos apartados de Scrum, decidimos ajustar nuestra metodología ágil definiendo
+los requerimientos funcionales de modo general, tal como se hace en otras metodologías o
+las hemos realizado en otros proyectos, esto con el fin de mostrar al cliente una primera
+percepción de lo que pensabamos eran los requerimientos globales que debía tener el
+sistema de información, frente a lo cual el Cliente estuvo de acuerdo, y de esta forma
+procedimiento a iniciar estas actividades en las cuales habíamos sentido un estancamiento
+
+en el avance del proceso.
+Propósito:
+
+El objeto del siguiente texto es definir de manera clara y precisa todas las funcionalidades y restricciones que el sistema que se construyó debía tener. Este documento fue el
+medio de comunicación entre los implicados del proyecto, en él se actualizaron los nuevos
+requerimientos que surgieron. Estas especificaciones estuvieron sujetas a revisiones por el
+
+director de trabajo de grado, hasta la construcción del nuevo sistema.
+
+Los siguientes requerimientos funcionales evidencian el análisis que se debió realizar para
+el cumplimiento del primer objetivo. En el cuadro 3.1, se muestra los acrónimos usados
+
+para documentar los requerimientos funcionales y no funcionales.
+
+Requisitos funcionales
+
+Generales
+
+RFO0O01. El sistema permitirá la creación, edición y consulta de usuarios del sistema: El
+administrador tendrá a su disposición una interfaz gráfica que le permita crear, editar y
+
+consultar cuentas de usuario.
+
+RF002. El sistema permitirá la consulta y edición de cuentas de usuario: El administrador tendrá a su disposición una interfaz gráfica que le permita consultar los usuarios
+
+del sistema que existe, para asignarles permisos, activarlas y desactivarlas.
+
+Afiliación de usuarios
+
+RF0O01. El usuario podrá crear un nuevo cliente: Este requisito hace referencia a que el
+
+usuario del Sistema creado por el administrador, ya sea técnico, asesor o administrador
+
+20Sistema de Apoyo a la Gestión de Procesos
+
+Especificación de Requerimientos de Software
+
+El estándar seguido para la especificación del
+identificador
+
+de cada requisito funcional será de la siguiente
+manera:
+
+e R: Requerimiento
+
+e F: Funcional
+
+e XXX: Secuencia que determina la secuencia
+del requerimiento.
+
+El estándar seguido para la especificación del
+identificador
+
+de cada requisito no funcional será de la siguiente
+manera:
+
+e R: Requerimiento
+
+e NF: No Funcional
+
+e XXX: Secuencia que determina la secuencia
+del requerimiento.
+
+ 
+
+Cuadro 3.1: Acrónimos de Requerimientos Funcionales y No Funcionales
+
+podrá crear un nuevo cliente. Mediante una interfaz gráfica en donde podrá elegir la
+creación de un “Nuevo Cliente”, en donde se le pedirá al usuario que ingrese los datos de
+contacto del afiliado como son: nombres, apellidos, número de identificación, dirección
+
+de residencia, teléfono y correo electrónico.
+
+RFO002. El usuario podrá consultar a los clientes: Este requisito hace referencia a que
+el usuario del Sistema creado por el administrador, ya sea técnico, asesor o administrador
+podrá consultar a todos los clientes. Mediante una interfaz gráfica en donde se podrá
+elegir la opción “Mostrar Todos”, en donde se mostrarán todos los clientes creados en el
+
+sistema.
+
+RFO003. El usuario podrá hacer filtros de búsqueda: El usuario del sistema podrá hacer búsqueda de clientes ingresando parámetros. La interfaz gráfica tendrá un campo de
+texto disponible para que el usuario busque a un cliente introduciendo parámetros como
+
+nombre, apellido o número de cédula.
+
+RFO004. El usuario podrá editar o actualizar la información de un cliente: Este requisi
+to hace referencia a que el usuario del Sistema creado por el administrador, ya sea técnico,
+
+21asesor o administrador podrá editar o actualizar la información de un cliente. Mediante
+una interfaz gráfica, el usuario que está consultando la información del cliente podrá
+seleccionar la opción de “Editar”; allí el usuario encargado podrá modificar o agregar la
+
+información correspondiente.
+
+RFOO5. El sistema podrá guardar automáticamente las fechas de actualización de datos: Cuando un usuario del sistema realice cambios en la información registrada de un
+
+cliente, se guardará también la fecha de actualización y el usuario que hizo la actualización.
+
+Planes de Servicio
+
+RF001. El usuario podrá crear un nuevo plan de servicio: Este requisito hace referencia
+a que el usuario del sistema podrá crear un nuevo plan de servicio. Mediante una interfaz
+gráfica se le proporcionará al usuario la opción de crear nuevo plan, en donde le permita
+suministrar la información del nuevo plan como es: nombre, velocidad mínima de bajada,
+
+velocidad mínima de subida, grupo de proveedores, cantidad de contratos, etc.
+
+RFO002. El usuario podrá actualizar la información de un plan de servicio: Este requisito hace referencia a que el usuario del sistema podrá editar o modificar la información
+
+de un plan.
+
+RF0O03. El usuario podrá consultar un plan: Este requisito hace referencia a que el usuario
+del Sistema creado por el administrador, ya sea técnico, asesor o administrador podrá
+consultar a todos los planes. Mediante una interfaz gráfica en donde se podrá elegir la
+
+opción “Mostrar Todos”, en donde se mostrarán todos los planes creados en el sistema.
+
+RFO004. El usuario podrá hacer filtros de búsqueda: El usuario del sistema podrá hacer búsqueda de planes ingresando parámetros. La interfaz gráfica tendrá un campo de
+texto disponible para que el usuario busque a un cliente introduciendo parámetros como
+
+nombre del plan, o número de identificación del plan.
+
+Contratos de Servicio
+
+RF001. El usuario podrá crear un nuevo contrato de servicio: El usuario del sistema podrá crear un nuevo contrato de servicio. Mediante una interfaz gráfica se le proporcionará
+al usuario la opción de crear nuevo contrato, en donde le permita elegir un cliente, ele
+gir un plan de servicio, el estado del contrato, y una dirección IP que identifique el contrato.
+
+RFO002. El usuario podrá editar la información de un contrato de servicio: Este requi
+22sito hace referencia a que el usuario del sistema podrá editar o modificar la información
+
+del plan de servicio, la dirección IP que identifica el contrato y su estado.
+
+RFO003. El usuario podrá deshabilitar un contrato de servicio: Este requisito hace refe
+rencia a que el usuario administrador cambiar el estado de un contrato de servicio.
+
+RF004. El guardará las actualizaciones de los contratos de servicio: Cuando el usuario del
+sistema actualice la información de un contrato el sistema guardará automáticamente la
+
+fecha de actualización, y el usuario que la realizó.
+
+Proveedores
+
+RF0O01. El usuario podrá crear un nuevo servidor, el cual hace referencia al equipo de
+hardware del que depende una red: Este requisito hace referencia a que el usuario del
+sistema podrá crear un nuevo servidor. Mediante una interfaz gráfica se le proporcionará
+al usuario la opción de crear nuevo”, en donde le permita suministrar la información
+
+respectiva.
+
+RF002. El usuario podrá editar un servidor: Este requisito hace referencia a que el usuario
+del Sistema creado por el administrador, ya sea técnico, asesor o administrador podrá
+editar un servidor. Mediante una interfaz gráfica en donde se podrá elegir la opción
+
+“editar”, en donde el usuario podrá actualizar la información del mismo.
+
+RF003. El usuario podrá crear una interfaz: Este requisito hace referencia a que el usuario
+del sistema podrá crear una nueva interfaz. Mediante una interfaz gráfica se le proporcionará al usuario la opción de crear nueva interfaz, en donde le permita suministrar la
+
+información del mismo.
+
+RFO004. El usuario podrá consultar una interfaz: Este requisito hace referencia a que
+el usuario del Sistema creado por el administrador, ya sea técnico, asesor o administrador
+podrá consultar a todas las interfaces. Mediante una interfaz gráfica se podrá elegir la
+
+opción “Mostrar Todos”, en donde se mostrarán todas las interfaces creadas en el sistema.
+
+RF0O5. El usuario podrá editar una interfaz: Este requisito hace referencia a que el usuario
+del Sistema creado por el administrador, ya sea técnico, asesor o administrador podrá
+editar una interfaz. Mediante una interfaz gráfica se podrá elegir la opción “editar”, allí el
+
+usuario podrá actualizar la información de una interfaz.
+
+RFO06. El usuario podrá crear un grupo de proveedor: Este requisito hace referencia
+
+23a que el usuario del sistema podrá crear un grupo de proveedor. Mediante una interfaz
+gráfica se le proporcionará al usuario la opción de crear nuevo grupo de proveedor, en
+
+donde le permita suministrar la información del nuevo grupo de proveedor.
+
+RF007. El usuario podrá editar una grupo de proveedor: Este requisito hace referencia a que el usuario del Sistema creado por el administrador, ya sea técnico, asesor o
+administrador podrá editar un grupo de proveedor. Mediante una interfaz gráfica se
+podrá elegir la opción “editar”, allí el usuario podrá actualizar la información de un grupo
+
+de proveedor.
+
+RF008. El usuario podrá crear un proveedor: Este requisito hace referencia a que el usuario
+del sistema podrá crear un nuevo proveedor de servicio. Mediante una interfaz gráfica
+se le proporcionará al usuario la opción de crear nuevo proveedor, en donde le permita
+suministrar la información del nuevo proveedor como es: servidor, grupo proveedor,
+
+interfaz, nombre del proveedor, ip, etc.
+
+RFO009. El usuario podrá actualizar la información de un proveedor: Este requisito hace
+referencia a que el usuario del sistema podrá editar o modificar la información de un
+
+proveedor.
+
+RFO10. El usuario podrá consultar un proveedor: Este requisito hace referencia a que
+el usuario del Sistema creado por el administrador, ya sea técnico, asesor o administrador
+podrá consultar a todos los proveedores. Mediante una interfaz gráfica se podrá elegir la
+opción “Mostrar Todos”, después de la cual se mostrarán todos los proveedores creados
+
+en el sistema.
+
+RFO011. El usuario podrá hacer filtros de búsqueda: El usuario del sistema podrá hacer búsqueda de proveedores ingresando parámetros. La interfaz gráfica tendrá un campo
+de texto disponible para que el usuario busque a un proveedor introduciendo parámetros
+
+como nombre del proveedor, o número de identificación del proveedor.
+
+Comunicación con el cliente (CRM)
+
+Los siguientes requerimientos se detallan para dar evidencia del análisis realizado
+
+para dar cumplimiento al segundo objetivo.
+
+RFO001. El sistema debe permitir la creación de cuentas de usuarios para clientes: El
+cliente podrá crear su cuenta a través de la página web de la empresa, el nombre de
+
+usuario será la cedula registrada en clientes, y la contraseña la que asigne el cliente.
+
+24RFO002. El sistema debe permitir la consulta de las cuentas de usuarios del sistema y
+de usuarios cliente: El usuario administrador podrá ver las cuentas de usuarios del siste
+ma que el ha creado y las cuentas de usuario creadas después del registro de un cliente.
+
+RFO0O0O3. El sistema debe permitir el envío de mensajes a usuarios del sistema y usuarios cliente: El usuario administrador podrá ver las cuentas de usuarios del sistema que el
+ha creado y las cuentas de usuario creadas después del registro de un cliente, y enviar un
+
+mensaje al usuario que elija.
+
+RF004. El sistema debe permitir ver las solicitudes que envían los usuarios cliente: El
+
+usuario administrador podrá ver las solicitudes enviadas por un cliente.
+
+RFOO5. El sistema debe permitir responder solicitudes que envían los usuarios clien
+te: El usuario administrador podrá responder las solicitudes enviadas por un cliente.
+
+RFO006. El sistema debe permitir asignar una solicitud a un usuario del sistema: El usuario
+administrador, podrá revisar las solicitudes de un cliente y la puede asignar a un usuario
+
+del sistema.
+
+RF007. El sistema debe permitir a los usuarios del sistema consultar los mensajes: El
+usuario del sistema, que no es administrador, podrá revisar las solicitudes asignadas por
+
+el administrador, y los mensajes enviados por el administrador.
+
+RFO0O0O8. El sistema debe permitir a los usuarios del sistema responder las solicitudes
+asignadas a los usuarios cliente: El usuario del sistema, que no es administrador, ver las
+
+solicitudes asignadas y dar una repuesta al respectivo usuario cliente.
+
+RFO09. El sistema debe permitir a los usuarios cliente ver los mensajes enviados de
+Conectic: El usuario cliente podrá ver los mensajes que son enviados desde la administración de conectic, como son mensajes informativos como respuestas a las solicitudes
+
+realizadas.
+
+RFO10. El sistema debe permitir a los usuarios cliente realizar una solicitud a la empresa Conectic: El usuario cliente puede enviar una solicitud a la administración de
+Conectic, como son: solicitud de información, soporte técnico de internet, soporte técnico
+
+de mantenimiento, quejas y reclamos.
+
+25RF011. El sistema debe permitir a los usuarios cliente ver las solicitudes enviadas a la
+empresa conectic: El usuario cliente podrá ver las solicitudes enviadas a la administración
+
+de Conectic.
+
+RFO012. El sistema debe permitir a los usuarios cliente ver la información relacionada
+con su cuenta: El usuario cliente podrá ver la información almacenada de él en la base
+de datos de clientes de Conectic, como es nombres, documento de identidad y correo
+
+electrónico.
+
+Evaluación del desempeño operacional
+
+El texto aquí presentado permite evidenciar la consulta y el análisis previo realizado para cumplir el tercer objetivo de este proyecto, el cual se refiere a determinar el desempeño
+
+operacional mediante indicadores de desempeño como eficacia, eficiencia y productividad.
+
+La implementación de un módulo web que permita a los directivos de Conectic medir
+el desempeño operacional de la empresa mediante evaluaciones de desempeño idóneas
+
+para dicha tarea.
+¿Por qué la empresa debe estar interesada en medir su desempeño operacional?
+
+En la actualidad las empresas deben procurar ser más competitivas, y por lo tanto, deben
+analizar constantemente su recurso humano, y tomar acciones para que éste sea eficaz,
+eficiente y efectivo, de tal forma que contribuya a alcanzar los objetivos de la empresa y
+
+también del empleado.
+
+A partir de la evaluación que realiza el directivo encargado a sus empleados se debe
+tomar información importante que ayude a Conectic a determinar si el personal que
+realiza las labores operativas es idóneo para tal fin, y si está contribuyendo a alcanzar los
+objetivos generales y específicos de la empresa. Con esta información los directivos de la
+empresa pueden tomar decisiones para mejorar el desempeño operacional de Conectic.
+Para realizar estas evaluaciones es indispensable tener claridad de la jerarquía que existe
+en una organización para determinar el rango y funciones que cada empleado y quien
+
+puede evaluar; en la tabla 3.2 se muestra la jerarquía simple que existe en Conectic.
+
+Método de evaluación del desempeño: escalas gráficas
+
+El método de escalas gráficas es considerado la forma de evaluación más utilizada
+
+y difundida, también es considerada el método de evaluación más simple. Durante su
+
+26Director ejecutivo
+
+Administradores
+
+Operarios
+
+Asesores
+
+ 
+
+Cuadro 3.2: Jerarquía general de la empresa Conectic.
+
+aplicación se demanda mucho cuidado, debido a problemas de subjetividad y prejuicios
+
+del evaluador, que puede distorsionar o interferir en los resultados.
+
+Este método mide el desempeño de las personas utilizando factores previamente definidos y graduados. Para esto se dispone de un cuestionario de dos entradas; las líneas
+horizontales representan los factores de evaluación del desempeño, y las columnas verti
+cales representan los grados de variación de esos factores.
+
+Los factores son seleccionados y escogidos de manera anticipada con el fin de definir las
+cualidades que se busca evaluar en el caso de un empleado o puesto de trabajo. Cada factor
+es definido con una descripción simple y objetiva. La precisión del factor dependerá de la
+descripción que se le defina, cuanto mejor sea la descripción mejor será la precisión. Cada
+factor es dimensionado de tal forma que muestre un desempeño débil e insatisfactorio
+
+hasta uno óptimo y excelente.
+
+Aplicación del método
+
+La evaluación de desempeño operacional se realizará al equipo encargado de realizar
+las tareas de soporte técnico a los clientes de Conectic, y a los instaladores del servicio de
+internet. También se realizará al equipo de asesores comerciales encargados de ofrecer el
+
+servicio, y venderlo.
+
+Factores a calificar
+
+Factores generales:
+
+1. Presentación personal
+
+272. Puntualidad
+
+Evaluación del desempeño
+
+Grupo de soporte técnico
+
+Presentación personal: se evalúa la forma como el empleado se presenta a la empresa, asimismo frente al cliente. Se califica que el personal use el respectivo uniforme o
+distintivo de Conectic. Disponibilidad: se evalúa la disponibilidad del empleado en horas
+que debe prestar servicio a la empresa, es decir, cuantas horas del horario normal de tra
+bajo de Conectic, que son 8 horas, el empleado de soporte técnico puede estar disponible.
+
+Cumplimiento del trabajo: se evalúa en que grado de cumplimiento de un técnico, y
+
+que haya terminado la tarea que le fue asignada.
+
+Calidad del trabajo: se evalúa la calidad de la asistencia o solución que el técnico haya realizado; además, la exactitud, dominio e interés que el empleado muestra frente al
+
+compromiso, que el trabajo realizado por el técnico satisfizo la necesidad del cliente.
+
+Grupo de asesores comerciales:
+
+Presentación personal: se evalúa la forma en como el empleado se presenta a la empresa, asimismo frente al cliente. Se califica que el personal use el respectivo uniforme o
+
+distintivo de Conectic.
+
+Disponibilidad: se evalúa la disponibilidad del empleado en horas de la empresa, es
+decir, cuantas horas del horario normal de trabajo de Conectic, que son 8 horas, el emplea
+do encargado de ofrecer y vender puede estar disponible.
+
+Logro de objetivos: Grado de cumplimiento que un técnico logra de los objetivos, es
+
+decir, cuantas ventas se realizaron de las esperadas o propuestas.
+
+Definición de la escala de calificación
+
+En la tabla 3.3 se muestra la forma de establecer la escala de calificación de una
+
+evaluación de desempeño.
+
+280-20 puntos No Cumple: El empleado no cumple con las cualidades
+que necesita la empresa, no cumple con el minimo
+desempeño que necesita la empreza
+
+20-40 puntos Necesita Mejorar: El empleado necesita entrenamiento:
+el empleado cumple con el desempeño básico, pero
+necesita mejorar,
+
+40 -60 puntos Satistactorio: el empleado cumple con el desempeño
+necesario para el desarrollo de sus funciones
+
+50-320 puntos Muy Satisfactorio: el empleado muestra un destacado
+desempeño enel dezarrollo de sus funciones
+
+B0- 100 puntos | Excelente: elempleado desarrolla excelentemente todas |
+su funciones, y hace un gran aporte a la empresa.
+
+ 
+
+ 
+
+Cuadro 3.3: Escala de calificación en el método de Escalas Gráficas.
+
+Grupo evaluador
+
+El administrador de la empresa será el encargado de crear y realizar las evaluaciones
+de desempeño de los empleados, pero también el cliente puede calificar el desempeño
+O actuación de un técnico que le prestó un servicio. El administrador para evaluar al
+empleado debe diligenciar la plantilla de evaluación creada previamente; en el cuadro 3.4
+
+se muestra un esquema inicial de plantilla de evaluación.
+
+Comunicación de la evaluación
+
+Los resultados de la evaluación deben ser comunicados al empleado evaluado, para
+esto la empresa dispondrá de mecanismos propios como son, por ejemplo, una entrevista
+
+o reunión con el empleado.
+
+Difusión del proceso de evaluación
+
+El proceso de evaluación debe ir acompañado de un proceso de culturización de
+todos los empleados de la empresa que participan en dicha evaluación. La calificación del
+desempeño debe percibirse como algo positivo, que ayudará a mejorar las operaciones de
+
+la empresa y el crecimiento personal de los trabajadores.
+El empleado debe saber qué espera la empresa de él, y su buen desempeño que be
+neficios traerá a él. La evaluación del desempeño laboral debe ir acompañada de los
+
+siguientes factores:
+
+29Plantilla de evaluación
+
+Evaluador: Cargo:
+Empleado: Cargo:
+Fecha:
+
+o
+ba 1H j
+
+o-20|20- [90 - | 60 - [80 ao lso [ao |100
+
+Presentación personal: presentacion
+del empleado a la empresa, asimemo
+frente al chente. Se calfica que el
+personal use el res pecto uniforme o
+ds tinto de Comectia.
+Disponibilidad: Grado de
+disponibilidad del empleado en horas
+de la empresa, es decir, cuantas
+horas del horaño normal de trabajo
+de Conecte, que son Y horas, el
+empleado de soporte tecnico puede
+estar disponible.
+
+Cumplimiento del trabajo: Grado de
+cumplimiento del tecnico, se valla
+que el empleado haya terminado la
+tarea que le fue asignada.
+
+Calidad del trabajo: Grado de calidad
+de la asistencia o solución que el
+tecnico haya reslrsdo; se evalua la
+exaciñud, dominio e interes que el
+empleado muestra trente al
+compromiso, que el trabajo realizado
+porel tecnico satisfizo la neces sd
+del chenta.
+
+Cuadro 3.4: Plantilla de evaluación con el método de Escalas Gráficas.
+
+ 
+
+Adecuada información del cargo de trabajo
+Capacitación
+Incentivos salariales
+
+Retroalimentación con el propio empleado de sus resultados en la evaluación
+
+Descripción de actividades
+
+Area de soporte técnico:
+
+30En la tabla 3.5 se muestra la descripción de las actividades que normalmente se realiza en
+
+el área de soporte técnico de Conectic.
+
+Descripción Responsable fecha Tarea realizada
+Recepcionar y clasificar las solicitudes | secretario Fecha de Tareas realizadas
+de soporte recepción
+
+Asignar la tarea al técnico encargado | Area de soporte Fecha de Tareas realizadas
+recepción
+
+Diagnosticar el problema Técnico encargado |Fechade Tareas realizadas
+
+recepción
+
+Realizar el soporte técnico respectivo | Técnico encargado |Fechade Tareas realizadas
+recepción
+
+Informar al secretario deltrabajo Técnico encargado |Fechade Tareas realizadas
+completado recepción
+
+ 
+
+Informar al cliente del arreglo Secretario Fecha de Tareas realizadas
+recepción
+
+Cuadro 3.5: Descripción de actividades para soporte técnico.
+
+Requerimientos
+
+RFO0O01. El usuario podrá crear evaluaciones que le permitan medir el desempeño
+operacional de los empleados: el usuario administrador podrá crear una evaluación de
+desempeño basada en el método de escalas gráficas con utilización de puntos que le permitirá definir factores de evaluación y darle nombre a los grados de calificación. El usuario
+administrador debe definir el número de factores de desempeño para cada evaluación. La
+
+calificación será automática.
+
+RFO002. El usuario podrá seleccionar una evaluación ya creada y editarla: el usuario
+administrador podrá crear, editar factores de evaluación dentro de cada evaluación de
+
+desempeño ya creada.
+
+RF003. El usuario podrá realizar la evaluación a cada empleado: el usuario administrador podrá realizar la evaluación a cada empleado y visualizar sus resultados en escalas
+gráficas, que mostrará cada factor de desempeño con sus respectivos grados de evaluación
+
+y desempeño, y cada grado de evaluación tendrá asociada una puntuación.
+
+RFO004. El usuario podrá ver la calificación de la evaluación de desempeño: para ver
+los resultados de la calificación, la interfaz dispuesta para la evaluación ofrecerá una
+opción para visualizar los resultados de la calificación de cada evaluado. La interfaz mos
+trará un gráfico o tabla en donde estará el acumulado de puntos obtenidos en la evaluación.
+
+31RFO05. El usuario podrá ver reflejado mediante gráficos el desempeño operacional total
+de la empresa basada en las evaluaciones de desempeño: El usuario administrador podrá
+ver reflejado en gráficos estadísticos como se se está desempeñando la empresa operacionalmente basado en los resultados de las evaluaciones de desempeño realizadas a los
+
+empleados.
+
+3.1. Análisis y diseño preliminar
+
+Product Backlog
+
+Podemos definirlo como una lista de los trabajos que se deben realizar para crear,
+mantener y sostener un producto; este está formado por el conjunto de sprints que se
+han generado durante el desarrollo del proyecto. Los Sprints se definen como tiempos
+constantes y que son determinados o establecidos por el equipo de trabajo, en estos se
+definen las tareas, fechas de inicio y final con el objetivo de avanzar significativamente
+para luego presentar al cliente entregables de las reuniones y tareas ya realizadas. En
+la figura se muestra el Product Backlog del proyecto de desarrollo de software para la
+
+empresa Conectic.
+
+3.1.1. Historias de Usuario
+
+En SCRUM, las historias de usuario son descripciones detalladas de las funcionalidades que se implementarán en el desarrollo del proyecto, éstas se enfocan en lo que el
+
+usuario debe hacer al momento de interactuar directamente con el sistema software.
+
+A continuación se detallán algunas historias de usuario, para ver todas las historias
+de usuario, ir a Anexos Historias de Usuario.
+
+Para ver las demás historias de usuario, ir al ANEXO A - historias de usuario
+
+3.2. Diseño
+
+3.2.1. Modelo de la base de datos
+
+En el siguiente modelo entidad-relación de la base de datos de Conectic, podremos
+observar las entidades que participan en el sistema, así mismo cada entidad está definida
+con sus atributos. Cada entidad tiene un atributo único o llave primaria llamado id".
+La entidad o tabla usuario, representa al usuario del sistema, que tiene el atributo tipo
+
+de usuario que puede ser: administrador, tecnico o asesor. El usuario cliente, puede ser
+
+32ACCEDER AL SISTEMA COMO USUARIO DEL SISTEMA
+
+Descripción: se debe garantizar accesibilidad al sistema, de manera que al
+ingresar se pueda acceder fácilmente a las distintas opciones que la
+aplicación tendrá disponibles.
+
+Estimación: Dos lteraciones
+
+Prioridad: Alta Dependiente de: Asignación
+previa del Usuano Administrador
+en el sistema.
+
+El Administrador del sistema digita su usuario y contraseña para
+acceder al sistema.
+
+En el caso de una correcta identificación se notificará al usuario la
+bienvenida al Sistema y se proporcionará acceso a las distintas
+opciones asociadas al Administrador.
+
+En caso de que el identificador de usuario no exista o la contraseña no
+se corresponda con la del identificador, se mostrará mensaje de error
+en los datos proporcionados.
+
+El usuario Administrador del sistema es re-direccionado a la página de
+inicio del sistema para permitirle ejecutar actividades pertinentes a la
+administración de los procesos sistematizados. debe re-direccionar a la
+interfaz de inicio para poder autenticarse primero
+
+Si el usuario ingresó los datos de forma errónea el sistema debe
+alertarlo y mostrarle donde está su error.
+
+ 
+
+Cuadro 3.6: Historia de usuario: acceder al sistema como usuario del sistema.
+
+Descripción: Le permitirá al administrador manejar integralmente los
+usuarios del sistema.
+
+Estimación: Dos lteraciones
+
+Prioridad: Alta Dependiente de: Usuano con
+
+permisos para administrar cuando lo
+creó el administrador.
+
+El administrador, una vez haya ingresado al sistema, podrá crear,
+modificar usuarios los cuales tendrán permisos distintos, según lo
+defina el administrador.
+
+El administrador podrá listar los usuarios que ha creado.
+
+Los usuarios del sistema creados por el administrador no podrán
+realizar las funciones de configuración de usuarios, comunicación con
+el cliente, ni evaluaciones de desempeño.
+
+ 
+
+Cuadro 3.7: Historia de usuario: crear y administrar cuentas de usuario.
+
+creado por un usuario administrador. En la figura 3.9 podemos observar el modelo general
+
+de la base de datos de la aplicación.
+
+33ACCESO DE USUARIO CLIENTE
+
+Descripción: El sistema le permitira al cliente crear una cuenta de usuario
+para acceder a una sesión donde se podrá comunicar con la administración
+de Conectic.
+
+Estimación: Cuatro lteraciones
+
+Prioridad: Alta Dependiente de: la acción del cliente
+para acceder al sistema.
+Los clientes activos de Conectic podrán acceder a la sesión de clientes
+
+después de suministrar el usuario y contraseña en la página de inicio
+de clientes.
+
+El sistema debe permitirle a un cliente activo de Conectic registrarse y
+obtener un usuario y contraseña para acceder a la sesión de clientes.
+Silos datos de ingreso del cliente son incorrectos, debe mostrarse un
+mensaje indicando su error.
+
+Cuando un cliente se registra, el sistema sólo debe aceptar registros
+de clientes activos o que existan previamente en la base de datos de
+cliente de Conectic.
+
+ 
+
+Cuadro 3.8: Historia de usuario: acceso de usuario cliente.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+interfaz
+Id: mediumint(9)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+   
+     
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+total_grado_calificacion: in
+resultado: double
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+a : varchar(15).
+Ed e id_clie varchal
+o: im E
+numero_grados calificacion || '9_PlA! chal servidor
+: int(2). Ip: varchar(20). a
+factor_desempeño puerto: varchar(20) ea racha ISI
+atado: Varna descripcion: varchar(100).
+
+id: mediumint(9)
+nombre: varchar(50)
+id_evaluacion: int(2)
+descripcion: text
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Id: mediumint(9)
+id_usuario: mediumint(9)
+fecha: varchar(0)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cuadro 3.9: Modelo entidad relación de la base de datos.
+
+3.2.2. Diagrama de clases
+
+En el desarrollo de software, son indispensables los diagramas de clases los cuales se
+emplean para visualizar las relaciones entre las clases que involucran el sistema. El presente proyecto se desarrolló orientado a la programación web, debido a las característica de
+programación orientada a objetos que posee el lenguaje de programación PHP y funcional
+que posee javascript, se generaron una gran cantidad de clases, funciones y ficheros, entre
+
+clases de de php y funciones o métodos de javascript.
+
+A continuación se mostraran algunos diagramas de clases del proyecto:
+
+En la figura 3.1 se describen los métodos y atributos de la clase Usuario y sus relaciones
+
+34con otras clases del sistema.
+
+documento
+email
+estado
+
+crearCliente():
+consultarCliente()
+editarCiiente():
+mostrarTodos();
+
+nombre
+email
+permisos
+
+estado
+
+iniciarSesion();
+obtenerPermisos();
+cerrarSesion();
+consultarDatos();
+
+crearClhiente();
+
+dCliente
+¡dPlan
+ip
+puerto
+estado
+
+consultarCiiente();
+consultarPlan();
+ingresarDatos();
+
+crearContrato();
+crearPlan();
+crearProveedor();
+editarCiiente();
+editarContratod);
+editarPlan(); p
+editarProveedor(); P 1d
+p id usuario
+nombre
+asunto
+mensaje
+
+envariMensaje():
+recibirSolicitud();
+asignarsolicitud);
+verMensajes();
+
+crearProveedor();
+consultarProveedor();
+editarProveedor();
+mostrarTodos();
+
+conectarse[);
+consultar();
+desconectarse();
+
+ 
+
+Figura 3.1: Diagrama de Clases: Usuario del sistema.
+
+Para ver los demás diagramas de clases ir al ANEXO B - diagramas de clase
+
+3.3. Implementación
+
+En esta etapa del proceso de desarrollo, después de algunos cambios en los requerimientos de la empresa, que ocasionó diversas modificaciones en el diseño y que retrasaron
+en pequeña medida el flujo de desarrollo, la especificación de diseño finalmente permitió
+
+estructurar de manera sencilla la codificación.
+
+En el inicio de la etapa de implementación se presentaron algunos problemas relacionados
+con la disponibilidad del servidor en donde está alojada la página de la empresa, y el
+acceso al código de la misma para realizar el proceso de acople entre la página de la
+empresa y el sistema de información. Adicionalmente después de solucionar el problema de disponibilidad del servidor web, se presentó la necesidad de aprender a usar el
+websiteOS proporcionado por la empresa UNE a Conectic, que es la aplicación de gestión
+
+de sitio web basado en navegador, que le permite administrar muchos aspectos de su
+
+39página web, entre los que encuentra la administración de bases de datos, administrador de
+archivos en el servidor, administrador FTP, phpMyAdmin y la administración de cuentas
+de correo electrónico. Aprender a usar este websiteOS fue esencial para llevar a cabo la
+implementación del sistema de información. En la figura 3.2 se muestra la página de inicio
+
+del websiteOS provisto a Conectic.
+
+ 
+
+E. vitrina Online UNE Login - Gc0gle Chrome AE
+ vtrna Onine UNE Los x
+tf C2- ?login.ceune.com 17| 2
+foca.
+id
+Lontrasena / Pass morí
+llama / Language: Español *| inicio Logia
+
+Figura 3.2: Inicio del website OS de UNE usado por Conectic.
+
+El websiteOS que ofrece un panel de control para los archivos que se suben al servidor
+web (figura 3.3), posee herramientas bastante útiles que facilitan el proceso de gestionar
+
+los archivos de la aplicación web.
+
+3.4. Codificación
+
+Durante el proceso de codificación se trabajo presentando prototipo de forma iterativa,
+proceso que permitió un constante ajuste de cada componente codificado. El lenguaje de
+programación utilizado fue PHP5, integrado con Javascript y JQuery, las hojas de estilo en
+
+cascada CSS y el uso de Ajax.
+
+Una vez ejecutado el software se realizaron las respectivas pruebas unitarias con el
+fin de verificar la existencia de posibles errores y se volvió a codificar las clases que lo
+
+requerían.
+
+Para el diseño de la interfaz web se utilizó el framework Twitter Bootstrap 3.2 el cual
+
+36ES Fanal de control - Googla Chrome
+FO ra do contral
+
++ e E login.ceune.comishellesMirshell phpimena=Manage
+
+ 
+
+Figura 3.3: Conjunto de herramientas del websiteOS de UNE usado por Conectic.
+
+ofrece variados componentes y herramientas gráficas, ya prediseñadas, que agiliza la
+maquetación de la interfaz web. Twitter Bootstrap es una colección de herramientas HTML
+y plantillas CSS, que se utilizan para desarrollo y diseño de una página o aplicativo web.
+
+Este Framework ha sido bien recibido en el mundo de los diseñadores y desarrolladores
+
+web.
+
+3.5. Instalación
+
+El sistema de información fue instalado en el servidor de la empresa de Conectic, el
+cual es proporcionado por la empresa UNE, las características del servidor del cual se
+
+sirve la empresa, y el websiteOS que administra sus archivos es la siguiente:
+
+Manual de instalación
+
+Para ver el manual de instalación ir al ANEXO C - Manual de instalación
+
+Servidor de bases de datos
+
+Tipo de servidor: MySQL
+Versión del servidor: 5.5.38 —- MySQL C ommunity server (GPL)
+
+Versión del protocolo: 10
+
+37Servidor Web
+
+Apache
+Versión del cliente de bases de datos libmysql -5.1.70
+Extensión php: mysqli
+
+3.6. Descripción general del aplicativo web
+
+Ingreso al aplicativo de usuarios del sistema
+
+El desarrollo del presente proyecto se realizó tomando como base el modelo administrativo de Conectic. Esta parte del documento describe de manera breve y concisa los
+
+componentes más relevantes del sistema desarrollado para Conectic S.A.S.
+
+Se describirá de manera general, la utilización de la aplicación web. Para ingresar se
+escribe en el navegador la siguiente url: www.conectic.com.co /proyectoconectic, allí se
+mostrará la página de acceso o login para usuarios del sistema, tal como se muestra en la
+figura 3.4. En esta interfaz se podrán loguear los usuarios del sistema como administrador
+
+y demás usuarios del sistema creados por el administrador.
+
+El usuario administrador es: andres
+
+La contraseña de administrador es: cristhian
+
+e Proyecto Conectic - Google Chrome
+
+ 
+
+S S www.conectic.com.co/proyectoconectic
+Conectic - Soluciones Integrales
+
+ACCESO
+
+Correo Electrónico
+
+Contraseña
+
+ 
+
+Figura 3.4: Página de autenticación o logueo para los usuarios del sistema.
+
+Despues de ingresar los datos de usuario, se mostrará la pagina de administración del
+
+usuario del sistema (3.5).
+
+38ec Proyecto Conectic - Google Chrome Vr
+
+Proyecto Conectic x
+
+€ C' [1 www.conectic.com.co/proyectoconectic/inicio.pht =
+> WN! Usuario: administrador
+comectic andres - 1Cerrar Sesión
+Clientes
+h lien
+
+Nombre y apellido No. Cliente Correo Teléfono/Celular
+
+Panel de Clientes
+
+Mostrar Todos Filtro uno Filtro dos
+
+ 
+
+Figura 3.5: Página de administración para usuarios del sistema luego de ingresar.
+
+Ingreso al aplicativo de usuarios clientes
+
+Para el ingreso de usuarios clientes se escribe en el navegador la siguiente url: www.conectic.com.co
+
+que es la pagina de la empresa, en la figura 3.6.
+
+Luego de ingresar, en la parte superior seleccionamos la opción usuarios, este enlace
+
+c Conectic - Soluciones Integrales de conectividad - Google Chrome y UY
+3Y Conectic - Soluciones | x
+€ a www.conectic.com.co SS
+a N $ CORPORATIVO y la SERVICIOS th PRODUCTOS >CONTACTO f y 3 ad
+conectic E
+
+ANTAS AS
+Integrales
+
+¡MESAS ESCENA
+conectado
+
+ 
+
+Figura 3.6: Enlace de logueo desde la página web de Conectic.
+
+redirecciona a la interfaz de ingreso de los usuarios cliente, en la figura 3.7, introduciendo
+
+su número de cédula y contraseña asignada.
+
+El usuario: 1115075770
+La contraseña: cristhian
+
+Cuando el cliente ha suministrado los datos de ingreso correctos, se mostrará la página
+de inicio del cliente, como se muestra en la figura 3.8. Esta interfaz estará identificada por
+
+su nombre de usuario y cliente; el cliente tendrá la opción de verificar su información de
+
+39Ou Proyecto Conectic - Google Chrome UU e
+
+y
+
+[) Proyecto Conectic x
+
+€ C  [ www.conectic.com.co/proyectoconectic/login.php
+
+Bienvenido a Conectic - Soluciones Integrales
+
+USUARIOS DE CONECTIC
+
+Número de Identificación
+
+Contraseña
+
+Es Ez Crear una cuenta
+ARAS
+
+ 
+
+ 
+
+Figura 3.7: Página de ingreso o logueo para usuarios cliente.
+
+usuario, ver mensajes nuevos de Conectic, mensajes leídos y no leídos, además tendrá la
+
+opción de enviar una solicitud a la administración de la empresa, asimismo revisar las
+
+solicitudes realizadas.
+
+Ou Proyecto Conectic - Google Chrome UY
+
+>) Proyecto Conectic x
+
+€ C' [y www.conectic.com.co/proyectoconectic/sesion_cliente.php TR =
+Dl Sesión de Usuarios de Conectic
+comectic cristhian - 1115075770 Cerrar Sesión
+
+Últimas Publicaciones de Conectic
+
+Notificaciones de Conectic
+
+AS [42] Mensajes Leidos Mensajes no Leidos O Realizar solicitud Solicitudes realizadas
+
+Figura 3.8: Página de ingreso o logueo para usuarios cliente.
+
+Creación de Clientes
+
+Para crear un cliente, el usuario del sistema debe seleccionar la opción Clientes”, luego
+hacer clic en el boton "Nuevo Cliente”, allí se desplegará una ventana emergente que le
+
+indicará llenar los campos, algunos obligatorios marcados con un asterisco de color rojo,
+
+como se muestra en la figura 3.9.
+
+Creación de un Contrato
+
+Para crear un nuevo contrato, el usuario del sistema debe seleccionar la opción Con
+tratos”, luego hacer clic en el boton "Nuevo Contrato", allí se desplegará una ventana
+
+40Proyecto Conectic - Google Chrome
+[y Proyecto Conectic x
+
+€ > C [ www.conectic.com.co/proyectoconectic/inicio.php?id=clientes =
+
+ 
+
+Nuevo Cliente
+
+Nombres * Apellidos *
+
+Número de identificación *
+
+Telefono Fijo
+
+Dirección *
+
+E-mail
+
+ 
+
+Figura 3.9: Creación de un nuevo cliente por un usuario del sistema.
+
+emergente en el cual podrá buscar un cliente de la base de datos y realizar el contrato
+al respectivo cliente, como en la figura 3.10, allí se muestra una opción de búsqueda de
+
+cliente que filtra por caracter introducido en el campo de texto "Nombre".
+
+ 
+
+Proyecto Conectic - Google Chrome
+[y Proyecto Conectic x
+
+€ > C( [ www.conectic.com.co/proyectoconectic/inicio.php?id=contratos X=
+
+ 
+
+Nuevo Contrato
+
+Cliente *
+
+ 
+
+barbetti cristhlan d
+
+1115075770 barbetti cristhian c
+
+ 
+
+ 
+
+ 
+
+1115334323 barbetti cristhian cam
+
+Ip asignada *
+
+ 
+
+Figura 3.10: Creación de un nuevo contrato por un usuario del sistema.
+
+Registrar un usuario del sistema
+
+Para registrar un usuario del sistema, el usuario administrador debe seleccionar la
+opción Configuración->usuarios del sistema”. Luego debe dar clic en el botón "Nuevo
+Usuario", después de esto se desplegará una ventana emergente con los campos que el administrador debe intruducir para el registro respectivo; todos los campos son obligatorios
+(figura 3.11).
+
+41Proyecto Conectic - Google Chrome
+[ Proyecto Conectic x
+
+ce Ce [) www.conectic.com.co/proyectoconectic/inicio.php?id=usuarios =
+
+ 
+
+Registrar Usuario
+
+Nombre de Usuario: * Email: *
+
+permisos: * contraseña: *
+
+Estado: +
+
+ 
+
+Figura 3.11: Registro de un usuario del sistema por un usuario del administrador.
+
+Enviar mensajes a un cliente y/o usuario del sistema
+
+Para enviar mensajes a un cliente y/o un usuario del sistema, el administrador del
+sistema debe dar clic en el menú Comunicación”, luego seleccionar el tipo de usuario:
+úsuarios del sistema.? úisuarios cliente”, luego dar clic en la opción mostrar todos. Allí
+se listarán en una tabla los usuarios, y en la columna derecha aparece la opción .Fviar
+Mensaje". Una vez seleccionada, se mostrará una ventana emergente con dos campos:
+asunto y mensaje, los cuales el administrador debe llenar, y dar clic en .""viar Mensaje”.
+
+como se muestra en la figura 3.12.
+
+ 
+
+U Proyecto Conectic - Google Chrome UvVY
+
+(Q) Proyecto Conectic x
+
+€ > C( |[ www.conectic.com.co/proyectoconectic/inicio.php?id=comunicacion+t X=
+
+ 
+
+Mensajes
+
+Asunto:
+
+Mensaje
+
+ 
+
+Figura 3.12: Enviar un mensaje a un usuario cliente o del sistema.
+
+42Capítulo 4
+
+Pruebas y Discusión de los
+
+Resultados
+
+Con el objetivo de desarrollar un software de calidad se realizaron las actividades
+integrales de análisis, diseño, codificación, así como las pruebas, indispensables en todos
+los ámbitos del desarrollo de software. Garantizar la calidad de un producto de software
+se fundamenta en pruebas (unidad, validación y verificación) que se realizaron según lo
+
+establecido en los requerimientos de software.
+Estos procedimientos de pruebas que se realizaron al proyecto estuvieron dirigidos a:
+
+1. Verificar la interacción de componentes.
+
+2. Verificar la integración adecuada de los componentes.
+
+3. Verificar que los requisitos estén implementados correctamente.
+
+4. Identificar y asegurar que los defectos encontrados sean corregidos antes de entregar el
+
+software al cliente.
+
+4.0.1. Pruebas de Unidad
+
+Las pruebas de unidad tienen el objetivo de verificar la funcionalidad y estructura de
+cada componente individualmente una vez que ha sido codificado. Con las pruebas de
+unidad se evalúan los subprogramas, subrutinas, procedimientos individuales o las clases
+de la aplicación. Es una buena estrategia probar los bloques más pequeños desarrollados
+en el programa comparado con probar todo el software. De acuerdo a lo anterior se
+
+realizaron las pruebas unitarias por las siguientes razones:
+
+Con las pruebas de unidad se centra la atención inicialmente en unidades más pequeñas
+
+del programa y no en la totalidad del software.
+
+43Con las pruebas de unidad se facilita la tarea de eliminar errores, debido a que al encon
+trarse un error, se identificará específicamente en que módulo se encuentra.
+
+Las pruebas de unidad introducen paralelismo en el proceso de pruebas teniendo la
+
+oportunidad de probar varios módulos simultáneamente.
+
+Cuando se realizan las pruebas de unidad, la comprobación selectiva de los caminos
+de ejecución es una tarea vital. En las pruebas de unidad se hace un uso intensivo de las
+pruebas caja blanca ejercitando caminos específicos de la estructura de control de modulo
+
+para asegurar un alcance completo y gran detección errores.
+
+A continuación (tabla 4.1) se describen algunas pruebas de unidad.
+
+iniciarSesion() | Prueba  de|El método realiza una
+
+Frontera consulta en la base de
+datos, compara los datos
+
+obtenidos con los
+ingresados por el usuario,
+
+una vez verificados permite
+el inicio de sesión.
+
+crear_login crearUsuario() | Prueba  de| El método permite crear un
+Frontera usuario de cliente que ya
+existe en la tabla clientes, y
+que no tiene cuenta de
+usuario, si es correcto, se
+crea la cuenta de usuario.
+Consultas editarUsuaro | Prueba  de|El método permite ver la
+Frontera información de un usuario
+del sistema y actualizarla en
+la base de datos
+Consultas mostrarlodos | Prueba  de|El método permite listar
+Frontera todos los usuarios que
+actualmente existen en la
+base de datos.
+
+Cuadro 4.1: Algunas pruebas de unidad.
+
+ 
+
+4.0.2. Pruebas de Integración
+
+Con las pruebas de integración se logró verificar el correcto acople entre los diferentes
+componentes del sistema una vez se probaron de manera unitaria con el fin de comprobar
+que interactúan correctamente. Las siguientes pruebas que se realizaron a la aplicación
+se plantearon desde el enfoque de pruebas de caja negra, gracias a ellas se validó el
+cumplimiento de las funcionalidades establecidas durante la etapa de requerimientos de
+
+la aplicación, así como los flujos de trabajo establecidos en las historias de usuario.
+
+A continuación, en la tabla 4.2 se describen algunas pruebas de integración según lo
+
+44planteado en la respectiva historia de usuario.
+
+Titulo
+
+Historia de Usuario
+Objetivo
+
+Tipo de Prueba
+
+Hardware Requerido
+Software requerido
+
+Personal Requerido
+Datos de Prueba
+
+Procedimiento de Prueba
+
+Resultado Esperado
+
+Creación de usuarios del sistema
+
+Crear y administrar cuentas de usuario
+
+Le permitirá al administrador la creación de un nuevo
+usuario.
+
+Prueba causa-efecto, la prueba se realizará en la
+aplicación montada en el servidor web
+
+Un computador conectado a la red de internet
+Navegador de google Chrome para acceder a la
+aplicación web
+
+1 persona
+
+Los datos ingresados por el usuario administrador a
+través de la vista XHTML
+
+Se despliega la aplicación Web, a la dirección
+www.conectic.com/proyectoconectic se accede
+mediante datos de login existentes, se busca la opción
+configuración->usuarios del sistema, se da clic en el
+botón Nuevo Usuario, se escriben los datos solicitados
+en el formulario, se da clic en el botón crear usuario.
+Los datos ingresados por el usuario son almacenados
+en latabla usuarios de la base de datos. La aplicación
+
+notifica que se ha creado un nuevo usuario de manera
+exitosa.
+
+Resultado Obtenido Prueba Exitosa Sl(X) No()
+
+La aplicación crea de manera correcta el nuevo usuario.
+Realizado por / Fecha Cristhian Camilo Barbetti
+
+ 
+
+Cuadro 4.2: Algunas pruebas de integración del sistema.
+
+45Capítulo 5
+
+Conclusiones y trabajos futuros
+
+5.0.3. Conclusiones
+
+Después de realizar el presente proyecto y de la experiencia que del trabajo se obtuvo,
+
+quedan las siguientes conclusiones:
+
+1. Cuando se realiza un proyecto cuyo producto se implantará en un ambiente e infraestructura real, es importante una retroalimentación constante entre el equipo de desarrollo
+y las áreas que están vinculadas en la empresa, así como todas las personas que conocen y
+desarrollan a diario los procesos de la empresa. Pues sólo de esta forma se puede obtener
+
+resultados muy cercanos a los objetivos planteados al incio del proyecto.
+
+2. Es importante tener conocimiento al principio del proyecto de aquellos factores técnicos
+que afectan de alguna forma el trabajo durante la realización del proyecto, es fundamental conocer por ejemplo las herramientas tecnológicas que vienen usando dentro de la
+organización y analizar la importancia de dichas herramientas para el funcionamiento
+normal de los procesos que en la actualidad se realicen, para poder prevenir los posibles
+
+conflictos de incompatibilidad al final del trabajo.
+
+3. Para construir un sistema de información que sirva de apoyo a la gestión de procesos de una empresa, es indispensable realizar una investigación previa de conceptos
+de la administración y la gestión tecnológica dentro de las organizaciones, las cuales
+servirán de guía durante el desarrollo del proyecto, ayudando al equipo de desarrollo
+entender y asimilar rápidamente los objetivos que busca alcanzar la empresa mediante la
+implementación del nuevo sistema. Es importante familiarzarse con dichos conceptos, y
+que además sean inherentes a la gestión administrativa de la organización, porque esto
+facilitará una comunicación fluida entre los administradores de la empresa y el equipo de
+
+desarrollo.
+
+465.0.4. Futuros trabajos
+
+Del presente proyecto de desarrollo de software para la empresa Conectic, se lograron
+
+identificar las siguientes líneas de trabajos futuros:
+
+1. Generación de reportes que permitan ordenar la información que se tiene almace
+nada para poder visualizarla a través otros medios.
+
+2. La sistematización de los formatos que se usan para soporte técnico, ventas y aná
+lisis financiero, y la implementación de un módulo que permita gestionar dichos formatos.
+3. La implementación de un módulo de facturación, que permita expedir facturas o
+
+recibos de pago, para que de esta forma se pueda aprovechar al máximo la información
+
+de los procesos de negocio que se tiene almacenada.
+
+47Bibliografía
+
+[1] J. A. O'Brien and G. M. Marakas, Sistemas de Información Gerencia. McGraw-Hill
+
+Interaméricana, 7 ed., 2006. 1
+
+[2] C.S.A.S, Entrevista personal con Sergio Ramirez, Administrador de Conectic. Diciembre
+de 2013. 2
+
+[3] €. Tomado de Comisión y Regulación de Comunicaciones, Análisis
+del sector TIC en Colombia: evolución y desafío. Archivo pdf Fuente:
+
+http: / /www.crcom.gov.co/?idcategoria=56571, 2011. 7
+
+[4] M. Ministerio de Tecnologías de la Información y las Comunicaciones, Proveedores de
+Internet. Fuente: http: / /www.mintic.gov.co /portal /604 /w3-article-5879.html, 2011.
+7
+
+[5] J. B. de Areba, Metodología del análisis estructurado de sistemas. Universidad Pontificia
+Comillas, 2001. 8
+
+[6] T. Dimes, Conceptos Básicos De Scrum: Desarrollo de software Agile y manejo de proyectos
+Agile. Babelcube, Inc, http: / /www.babel.com, 2015. 8
+
+[7] C. R. Juan Palacio, Scrum Manager Gestión de Proyectos. Dirección de publicación:
+
+http: / /www.scrummanager.net, Enero de 2011. 8
+
+[8] J. Palacio, Flexibilidad con Scrum, Principios de diseño e implantación de campo de scrum.
+
+Versión disponible en: http: / /www.lulu.com, Octubre de 2008. 9
+[9] M. Angoar, Ingeniería del software: un enfoque práctico. Abril 1997. 9
+
+[10] J. Palacio, Gestión de proyectos Scrum Manager. Versión 2.5 en: http: / /www.lulu.com,
+Abril 2014. 10
+
+[11] R. Presman, Ingentería de software: un enfoque práctico. McGraw-Hill 1992, Abril 2014.
+11
+
+[12] P. Lledó, GESTIÓN LEAN Y ÁGIL DE PROYECTOS, Lean Project Management. Trafford
+publishing, Junio 2014. 11
+
+48[13] O. Heurtel, PHP 5.5: Desarrollar un sitio Web dinámico e interactivo. Ediciones ENI,
+Febrero 2014. 12
+
+[14] H. Spona, Programación de bases de datos con MYSQL y PHP. Marcombo, S.A, Febrero
+2010. 12
+
+[15] J. D. Gauchat, El gran libro de HTML5, CSS3 Y Javascript. MARCOMBO 2012, Primera
+edición 2012. 14
+
+[16] J. M. G. Javier B. and J. M. M., Hacia una gestión del proceso de software dirigida por
+Procesos de Negocio. 2007. 15
+
+[17] I. Valcárcel, CRM: Gestión de la relación con los clientes. 2001. 16
+
+[18] R.S, CRM: Cómo mejorar las relaciones con los clientes. Primera Edición 2002. 16
+
+[19] A. H. MICHAEL, Administración. PEARSON EDUCACIÓN, 2006, México, 2006. 16
+
+49

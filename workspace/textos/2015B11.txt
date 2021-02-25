@@ -1,0 +1,1792 @@
+Sistema de integración de información generada en los
+libros de campo y el sistema integrado electrónico con
+BMS5 para el programa de fríjol dentro del Centro
+Internacional de Agricultura Tropical (CIAT)
+
+(Pasantía)
+
+Andrea Mora Ospina
+andrea.moraQcorreounivalle.edu.co
+
+Universidad del Valle
+Facultad de Ingeniería
+
+Escuela de Ingeniería de Sistemas y Computación
+Ingeniería de Sistemas
+
+Tuluá, 2016Sistema de integración de información generada en los
+libros de campo y el sistema integrado electrónico con
+BMS5 para el programa de fríjol dentro del Centro
+Internacional de Agricultura Tropical (CIAT)
+
+Pasantía)
+
+Andrea Mora Ospina
+Código 1153686
+andrea.moraQcorreounivalle.edu.co
+
+Trabajo de grado para optar al título de
+Ingeniero de Sistemas
+
+Director
+Jhoan Manuel Muñoz Serrano, Ing
+jhoan.munozOcorreounivalle.edu.co
+
+Co-Director
+Carolina Garcia Ayala, Ing
+c.garcia-ciatOcgiar.org
+
+Universidad del Valle
+Facultad de Ingeniería
+
+Escuela de Ingeniería de Sistemas y Computación
+Ingeniería de Sistemas
+
+Tuluá, 2016Nota de aceptación
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Firma del Jurado 1
+
+ 
+
+Firma del Jurado 2
+
+Tuluá, Octubre 2016Dedicatoria
+
+Este trabajo esta dedicado a mi padre Reynaldo Mora(QEPD) porque cuando estuvo en
+vida siempre me dio su apoyo incondicional y queria lo mejor para mi, y se que se siente muy
+orgulloso de este logro tan importante.
+
+A mis sobrinos para que vean en mi un ejemplo a seguir.
+
+Por último, a mi familia porque fueron el pilar de apoyo y compañia durante todo este
+periodo de estudio.Agradecimientos
+Agradezco primeramente a Dios por brindarme la oportunidad de entrar a la universidad, y
+por fortalecer mi corazón e iluminar mi mente cada día.
+
+A mi madre y demás familiares que me brindaron su apoyo incondicional para la culminación
+de una de las etapas mas importantes en mi vida.
+
+A la familia Llano Gallego por que hicieron que mi estadia en Tuluá fuera inolvidable y que
+me sintiera como un miembro mas de su familia y brindarme su apoyo en todo momento.
+
+A la comunidad CIAT por permitir hacer realidad este proyecto y brindarme sus conocimientos.
+
+A mi director, por ofrecerme sus conocimientos y colaborarme en todo el desarrollo de este
+trabajo de grado.
+
+A la comunidad Universitaria del Valle sede Tuluá, por ofrecerme sus conocimientos y
+contribuir a mi formación profesional y personal.Índice general
+
+Resumen
+Abstract
+
+1. Introducción
+1.1. Descripción general .........
+
+1.2. Planteamiento y Formulación del Problema ................. . . . ...
+1.3. Justificación del Problema ............... e...
+LA. Objetivos...
+1.4.1. Objetivo General ...........
+1.4.2. Objetivos EspecÍfiCOS . ..........
+
+LD Alreance
+1.6. Estructura del Documento
+
+2. Marco Referencial
+Dl Glosario...
+2.2. Marco Conceptual...
+DI Marca Teórico ....
+De Antecedentes ....
+
+3. Desarrollo del Proyecto
+3.1. Fase de Investigación...
+3.2. Fase de Desarrollo del Proyecto . ......... o... .. . . . . +...
+3.2.1. Ejecución del PrOoyectO . ............... e...
+3.3. Descripción de la aplicación .........
+
+4. Conclusiones y Trabajos Futuros
+Al Conclusiones
+4.2. Trabajos Futuros...
+
+Referencias Bibliográficas
+
+Anexo A
+
+III
+
+IV
+
+10
+10
+13
+14
+21
+
+25
+20
+26
+
+27
+
+29Índice de figuras
+
+2.1.
+2.2.
+2.9.
+
+3.1.
+3.2.
+3.9.
+3.4.
+3.0.
+3.6.
+NA
+3.8.
+3.9.
+3.10.
+3.11.
+3.12.
+3.13.
+3.14.
+3.15.
+
+Arquitectura de Hibernate... 7
+Componentes de una base de datos. ....... e... 8
+Ciclo de BMS [17]. ........ o... 9
+Mapping of elements of the Logical Data Model to the CHADO ND schema [19]. 11
+The Ontology Data Model [19]. ............ o... . e... e... 12
+Propuesta basada en el uso de las APD'S. ....................... .. 15
+Propuesta... 16
+Diagrama de Navegación del Sistema BMSFrijol ................... 16
+Modelo Relacional del Sistema BMSFrijol .................... . . .. 17
+Diagrama de Arquitectura del Sistema BMSFrijol. .................. 18
+Screenshot - Pruebas Unitarias con JUNIT .............. . . . . . .. 20
+Screenshot - Logan... 21
+Screenshot - Inicio... 22
+Screenshot - Trials Upload to Oracle and BMS ................... 22
+Screenshot - Field book couldn't upload ................. . .. . .. 23
+Screenshot - Add Oracle's Trials to BMS ........... . . ... o. 23
+Screenshot - Upload Measurement... 24
+Screenshot - Users Management... 24
+
+IIResumen
+
+El programa de frijol del CIAT (Centro Internacional de Agricultura Tropical) tiene como
+objetivo desarrollar variedades de fríjol mejoradas a nivel nutricional y productivo, para ello se
+realiza una serie de siembras y cruzas entre variedades, con el fin de evaluar el rendimiento y la
+susceptibilidad a diferentes enfermedades en distintas zonas. Actualmente la información que
+este proceso genera no está siendo almacenada porque no se cuenta con un sistema que apoye
+esta tarea.
+
+A partir de esto nace la oportunidad de realizar este trabajo de grado, con el propósito de
+desarrollar una herramienta que ayude a la sistematización del proceso de carga de los libros de
+campo y los datos arrojados por un sistema integrado. La herramienta de software es el resultado
+de 3 procesos fundamentales para su construcción: el primero está enfocado a la investigación con
+el fin de dar la mejor solución al problema planteado, el segundo al desarrollo de la herramienta
+de software aplicando los conocimientos obtenidos durante la carrera y el último la validación
+de la herramienta.
+
+El primer enfoque fue comprender la forma en que se estructuraban los libros de campo, y
+buscar la manera de que estos se pudieran almacenar de forma centralizada.
+
+En el segundo objetivo se definieron los requerimientos, se diseñó el sistema y posteriormente
+se procedió a hacer la implementación bajo la metodología desarrollada por el CIAT.
+
+Por último en el tercer enfoque se realizaron diferentes tipos de pruebas para comprobar
+que la herramienta funciona correctamente y cumple los requerimientos planteados por el usuario.
+
+Como resultado se logró construir una herramienta WEB que puede leer, procesar y organizar
+
+información de manera más rápida y sistematizada. Además una herramienta que debido a su
+diseño, permite que a futuro se puedan adicionar nuevas funcionalidades.
+
+TTAbstract
+
+The bean program in CIAT (International Center for Tropical Agriculture) has as objective
+to develop new improved bean varieties with higher nutritional and yield levels, greater tolerance
+to diseases and to factors such as drought and high temperatures; for which the scientists
+make an improvement process where crosses between different varieties are made and evaluation of these is done in different locations with different climatic, soil and environment conditions.
+
+Currently the information generated by this process is not being stored in a database because
+it does not have a system to support this task.
+
+From this comes the opportunity to do this work degree and so to develop a tool that help in
+the process of systematizing of loading the field books and the data produced by an integrated
+system.
+
+The software tool is the result of three fundamental processes for its construction: the first
+is focused on research in order to give the best solution to the problem, the second process
+is focused to the development of the software tool, applying the knowledge gained during the
+career and the last process in the validation of the tool.
+
+The first approach was to understand how the field-books were structured, and look for ways
+of how could be stored them centrally. In the second objective the requirements were defined,
+
+the system was designed and the implementation the tool was done under the methodology
+developed by CIAT.
+
+Finally in the third approach different types of tests were performed to verify that the tool
+works correctly and meets the requirements done by the users.
+
+As a result it was possible to build a web tool that can read, process and organize information
+faster and systematic way. Also this tool due to its design allows add new features in the future.
+
+IVCapitulo 1
+
+Introducción
+
+1.1. Descripción general
+
+El CIAT (Centro Internacional de Agricultura Tropical) es un centro de investigación agrícola
+que forma parte del consorcio CGIAR, cuya misión es reducir el hambre, la pobreza y mejorar la
+nutrición humana, con ayuda entre otras, del mejoramiento y adaptación de materiales siempre
+respetando y direccionado con una agricultura eco-eficiente.
+
+El CIAT tiene una responsabilidad mundial del mejoramiento de cultivos alimenticios de
+primera necesidad: la yuca, arroz y el fríjol, al igual que los forrajes tropicales para la ganadería [1].
+
+El Grupo de Datos, Información y Conocimiento del CIAT, tiene entre sus funciones facilitar
+los procesos internos del área de investigación, la preservación de la información, la divulgación
+de esta con la comunidad, entre otras. Teniendo en cuenta lo anterior, este grupo acompaña a
+las diferentes áreas de investigación en la búsqueda de alternativas a desafíos en sus procesos
+internos, las cuales pueden implicar el uso de diferentes tecnologías. Uno de los proyectos para
+los próximos años es la implementación y utilización de una herramienta de mejoramiento
+genético BMS (Breeding Management System), desarrollada por el consorcio y que busca la
+estandarización, organización y centralización de los resultados de investigación facilitando las
+tareas diarias de los mejoradores.
+
+En este orden de ideas, en la rama de investigación que trabaja en el fríjol, necesitan utilizar
+esta herramienta (BMS) para llevar a cabo su proceso de manera más eficiente, además mantener
+actualizada su información y facilitar la consulta de datos del área en general.
+
+Para ello han definido que deben identificar y desarrollar mecanismos que faciliten la entrada
+de la información histórica generada por el Centro, a la Base de Datos de BMS (eso incluye
+aproximadamente 2000 ensayos experimentales realizados desde los años 80) y por otra parte
+generar un aplicativo que permita entrada de datos directamente del sistema integrado electrónico
+(pesas, determinación de humedad, entre otros) a la Base de Datos de BMS.
+
+1.2. Planteamiento y Formulación del Problema
+
+El programa de frijol del CIAT, tiene un área de mejoramiento genético, cuyo principal
+propósito es producir variedades mejoradas de frijol que sean resistentes a múltiples enfermedades, tolerantes a condiciones climáticas extremas (sequía, altas temperaturas) y tengan altosrendimientos.
+
+Las líneas mejoradas se evalúan en distintas localidades tanto nacionales como internacionales,
+donde cada lugar tiene diferentes condiciones ambientales y agronómicas. Además, se verifica
+que las líneas cumplan con estándares de calidad y con los propósitos de la investigación, para
+que las variedades obtenidas sean liberadas en los países donantes. Estas investigaciones están
+enfocadas principalmente para Centro-América y África.
+
+Toda la información que se genera del proceso de mejoramiento, desde el cruzamiento, los
+avances de líneas hasta la codificación de las mismas, está almacenada en hojas de cálculo y
+se le conoce como libros de campo. Se tienen varios tipos de libro: cruzamiento, avance de
+generaciones, ensayos de rendimiento y evaluación de enfermedades, en donde el volumen de información generado es alto, debido a que se manejan distintas localidades y varias siembras en el año.
+
+Hasta el año 2012 estos libros tenían múltiples formatos, cada investigador utilizaba su propia
+nomenclatura, creaba sus propias abreviaturas para los nombres de las variables que se evalúan,
+manejaba sus propias escalas, sus propios métodos y en muchos casos no había metadato alguno
+por lo cual entender esos libros es muy complejo. Debido a esto se vio la necesidad de crear una
+ontología para estandarizar todos los aspectos mencionados anteriormente con el fin de crear
+una estructura de base de datos unificada que almacene toda la información tanto del CIAT
+como de sus socios en África y América.
+
+A partir del 2012, se adoptó esta ontología en CIAT y ha sido bien acogida entre sus socios
+del extranjero quienes ya la usan.
+
+La información antes mencionada, debe ser actualizada y centralizada, con el fin de que los
+mejoradores puedan consultar los avances de las líneas a través del tiempo, y observar como se
+ha comportado en otras localidades y en diferentes condiciones climáticas.
+
+Existe un sistema integrado electrónico (contador de semillas, determinador de humedad,
+balanza de pesaje, cámara fotográfica) que ayuda en el almacenamiento de diferentes datosparámetros necesarios en el cálculo de rendimientos para los ensayos. Es necesario que esta
+información arrojada por el sistema se pueda transferir en tiempo real a BMS, con el fin de
+mantener los libros actualizados.
+
+Teniendo en cuenta el contexto descrito anteriormente, es necesario crear una aplicación
+que permita depurar, organizar y migrar la información generada a las Bases de Datos de BMS,
+siguiendo la ontología.
+
+¿A través de qué mecanismos se puede lograr integrar la información generada de los libros
+de campo, en equipos de medición y/o el sistema integrado electrónico con BMS?
+
+1.3. Justificación del Problema
+
+Conociendo las necesidades del programa de fríjol, el Grupo de Datos, Información y Conocimiento, pretende apoyar el proceso investigativo del área de mejoramiento en las actividades
+investigativas y colaborativas que involucran otros centros alrededor del mundo, utilizando como
+medio la herramienta BMS.Con el fin de proveer una solución computacional efectiva, se hace necesario el desarrollo
+de una herramienta computacional que ayude a gestionar toda la información generada como
+resultado de las actividades de investigación en el CIAT, incluyendo el almacenamiento de la
+información en el BMS hasta las consultas que hace el personal, no sólo de CIAT, sino de otros
+centros de investigación.
+
+Con el desarrollo del sistema de gestión se pretende mejorar el proceso de almacenamiento
+de los datos obtenidos de las actividades de investigación, puesto que actualmente, el personal
+de mejoramiento almacena estos datos en hojas de cálculo en sus equipos de cómputo personales,
+generando información de manera dispersa, haciendo más difícil la consulta de información y
+generando reproceso en las actividades. Por ejemplo, el proceso de análisis y recolección de datos
+de un mismo tema podría realizarse de forma redundante sin que sus investigadores puedan
+darse cuenta.
+
+Finalmente, la ejecución de este proyecto pretende afianzar los conocimientos obtenidos a
+lo largo de la carrera como son: las etapas del desarrollo de software, diseño y construcción
+de aplicaciones, así como a enfrentar nuevos retos y el aprendizaje de nuevas herramientas.
+Dado que, este proyecto se llevará a cabo con un grupo de desarrollo, esto permitirá tener una
+retroalimentación de los conocimientos ya obtenidos, y lograr nuevas experiencias a través de
+otras investigaciones realizadas por diferentes centros.
+
+1.4. Objetivos
+
+1.4.1. Objetivo General
+
+Desarrollar una aplicación que permita la integración de la información recolectada en los
+libros de campo a través del proceso de mejoramiento de fríjol y el sistema integrado electrónico
+
+con BMS.
+
+1.4.2. Objetivos Específicos
+
+= Analizar el modelo de bases de datos en el que se basa BMS.
+
+= Generar un modelo de base de datos que permita almacenar la información de los libros de
+campo.
+
+= Desarrollar un módulo que permita comunicar la base de datos con la aplicación BMS.
+
+= Desarrollar un módulo que permita enlazar la informacion que genera el sistema integrado
+electrónico con BMS.
+
+1.5. Alcance
+
+Este proyecto se ha estructurado tomando como punto de partida la necesidad de los mejoradores de usar las herramientas que vienen integradas con BMS para todo su proceso, además
+permitirá tener centralizada y actualizada toda la información de los datos que se producen con
+el proceso de mejoramiento.
+
+Analizar el modelo de la base de datos de BMS, permitirá conocer la forma cómo se organiza
+la información de los ensayos en dicha aplicación con el fin de conservar la misma estructura de
+
+3los libros de campo que han sido recolectados a través del tiempo.
+
+Generar un modelo de base de datos proporciona la estructura necesaria para centralizar y
+almacenar la información generada a partir de los libros de campo.
+
+El módulo de comunicación entre bases de datos, será desarrollado con el fin de agilizar el
+paso de los datos a BMS, para que posteriormente ésta pueda ser utilizada en los procesos diarios.
+
+El módulo de enlazamiento va a permitir que los cálculos de los rendimientos sean actualizados directamente en la base de datos de BMS y en los libros de campos correspondientes.
+
+Para la implementación de dichos módulos, se realizarán las fases de desarrollo: análisis, diseño,
+implementación y pruebas, todo esto siguiendo la metodología de desarrollo definida por el CIAT.
+
+Dentro de la fase de pruebas se tiene contemplado realizar el desarrollo de pruebas unitarias
+las cuales por sus características permiten dar cumplimiento a los estándares adoptados por el
+CIAT dentro de su metodología de desarrollo, éstas son ejecutadas por el desarrollador quien
+debe ir probando que lo desarrollado cumpla con los requerimientos estipulados. Adicionalmente
+se consideró la realización de los siguientes tipos de pruebas, que ayudan a mejorar la calidad
+del producto de software desarrollado, éstas son ejecutadas por personas especializadas para
+ésto, sin embargo estas pruebas no estarán incluidas en el alcance de este proyecto:
+
+Pruebas del sistema: Estas se encuentran enfocadas tanto en los requisitos funcionales como
+los no funcionales tomando como punto de partida el producto integrado y probado en un
+ambiente muy similar al de producción, permitiendo así verificar como fluyen los procesos
+desarrollados desde su inicio hasta el final.
+
+Pruebas de aceptación: Son pruebas funcionales sobre el sistema completo, estas se aplicaron
+desde el punto de vista del cliente, el cual brindo su colaboración para realizarlas ya que el
+principal objetivo de estas es comprobar que se satisfacen los requisitos establecidos.
+
+Una vez concluida esta fase de pruebas se realizara la entrega de los módulos desarrollados
+los cuales permitirán automatizar la actualización de la información almacenada en las bases de
+datos, además será de gran ayuda en el proceso a la hora de realizar los cálculos de rendimientos
+y otras variables necesarias en los ensayos debido a que se encuentran automatizados permitiendo apoyar así la toma de decisiones a través de análisis estadísticos y consultas especializadas.
+
+Por último, esta aplicación no solo se desarrolla pensando en la utilidad para el programa de
+fríjol en CIAT, sino también con el ánimo de capturar el interés de otros programas que están
+en el consorcio y así puedan obtener los mismos beneficios.
+
+1.6. Estructura del Documento
+
+Este documento está compuesto por cuatro capítulos, en el primer capítulo se define el
+planteamiento del problema, objetivos, justificación y alcance del proyecto. En el segundo
+capítulo, se define el marco teórico y los antecedentes. En el tercer capítulo, encontramos
+el desarrollo del proyecto, en este se especifican todas las etapas del desarrollo de software
+teniendo en cuenta la metodología definida. Finalmente, en el capítulo cuatro se encuentran las
+conclusiones y los trabajos futuros.Capitulo 2
+
+Marco Referencial
+
+2.1.
+
+Glosario
+
+Codificación: Identificación única que se da a los materiales desarrollados por el mejorador.
+
+Cruzamiento: Es el proceso mediante el cual se hibridan los diferentes materiales de
+fríjol con el fin de obtener características específicas deseadas.
+
+Hibridación: Proceso de generación de una molécula, célula u organismo combinado con
+material genético procedente de organismos diferentes.[2] En otras palabras es traspasar
+las características de un germoplasma o otro con el fin de mejorar de producir una nueva
+variedad
+
+Ensayos: Pruebas de campo o invernadero que permiten medir el progreso de los materiales
+mejorados.
+
+Fenotipaje: En el proceso de caracterización externa que se le hace a una planta de frijol
+(por ejemplo: el color de flor)
+
+Genotipaje: Es el conjunto de procesos encaminados a conseguir determinar la información
+genética de un organismo, de forma que pueda ser identificado y diferenciado.[3]
+
+Germoplasma: Es el elemento de los recursos genéticos que maneja la variabilidad
+genética entre y dentro de la especie, con fines de utilización para la investigación en
+general, especialmente para el mejoramiento genético. [4]
+
+Libro de campo: Es una tabla en la que se almacenan las diferentes características de
+las plantas que se van a evaluar en determinado periodo.
+
+Mejorador: Persona que hace cruzamientos entre plantas de fríjol y evaluaciones de estas,
+con el fin de obtener plantas con un objetivo específico.
+
+Metadata: Es un conjunto de datos que explican el significado de las variables de los
+libros de campo.
+
+Módulo: En programación, un módulo es un software que agrupa un conjunto de subproegramas y estructuras de datos. [5|
+
+Ontología: Estandarización de la nomenclatura utilizada en la codificación de las variables
+propuestas para las evaluaciones de los materiales mejorados2.2.
+
+Pedigrí: Es un documento que analiza las relaciones genealógicas de una planta en el
+contexto de determinar cómo una cierta característica o fenotipo se hereda y manifiesta.[6|
+
+Para el programa de fríjol se utiliza para determinar el árbol genealógico o las cruzas que
+se hayan realizado a las semillas de fríjol.
+
+Trait: Se considera como atributo o rasgo medible que los investigadores utilizan para
+evaluar los ensayos.
+
+Viveros: Son grupos de materiales seleccionados por sus diferentes respuestas bióticas y
+abióticas con el fin de sembrarlos y evaluarlos en diferentes localidades y/o países.
+
+GMOD: Es un conjunto de herramientas de software de código abierto para visualizar,
+anotar, administrar y almacenar datos biológicos. [7]
+
+CHADO: Es un esquema de base de datos que tiene como objetivo respresentar todos los
+datos de la biología de una forma generica. [8]
+
+CGIARAuthenticate: Es una libreria desarrollada por el programa de tecnología e
+informática del CIAT, que sirve para que los trabajadores puedan acceder a las aplicaciones
+que se desarrollan, mediante su correo corporativo.
+
+POLI: Es una librería desarrollada por Apache Software Foundation que proporciona una
+
+serie de clases para JAVA que permiten leer y escribir archivos en formatos de Microsoft
+Office, como Word, PowerPoint y Excel.[9]
+
+Singleton: Es un patrón de diseño, que garantiza que una clase sólo tenga una instancia,
+además proporciona un punto de acceso global a ésta. [10]
+
+Marco Conceptual
+
+Las teconologias utilizadas para el desarrollo de esta aplicacion WEB fueron las siguientes:
+
+MyEclipse Java Enterprise: Es una plataforma de desarrollo integrado utilizado para
+desarrollar y ejecutar aplicaciones en lenguaje java, este brinda facilidades de uso además integra
+entre sus componentes el Apache Tomcat que se utiliza para el despliegue de aplicaciones y
+permite ver las funcionalidades que se van desarrollando en tiempo real.[11]
+
+Hibernate: Es una herramienta para entornos Java que facilita mapear una representación
+de datos desde un modelo de objeto a un modelo de datos relacionales con un esquema basado
+
+en SQL.
+
+Hibernate no sólamente se ocupa del mapeo desde las clases Java a las tablas de las bases
+de datos (y desde los tipos de datos de Java a los tipos de datos de SQL), sino que también facilita la consulta y recuperación de datos. Esto puede reducir de manera importante el
+tiempo de desarrollo que se tomaría con el manejo de datos de forma manual en SQL y JDBC.[12]
+
+Cabe alclarar que si se quieren realizar consultas más específicas, se deben generar por medio
+del lenguaje HQL que es propio de este framework.
+
+La figura 2.1 brinda una perspectiva a alto nivel de la arquitectura de Hibernate:Application
+
+Persistent Objects |
+
+Hibernate
+
+hibernate.
+properties
+
+XML Mapping
+
+Database
+
+Figura 2.1: Arquitectura de Hibernate.
+Tomado de [12].
+
+JSF(JavaServer Faces): Es un framework para aplicaciones java que facilita el proceso de
+las peticiones HT'"T'P, este incluye componentes que permiten la representación de interfaces de
+usuario y a su vez administrar estos componentes, validando su estado, entradas y manejando
+sus eventos.[13]
+
+ICEFaces: Es un framework para desarrollo de software de código abierto que se extiende
+JavaServer Faces (JSF) mediante el empleo de Ajax. Se utiliza para construir aplicaciones WEB
+robustas en lenguaje java.[14]
+
+Además, permite que la interacción entre la vista y el controlador sea mucho más fácil.
+
+BOOTSTRAP: Es un framework de codigo abierto mas utilizado para el diseño de sitios y
+aplicaciones WEB, que provee una serie de plantillas y estilos, los cuales se pueden utilizar en
+diferentes componentes HTML, permitiendo que estos se adapten fácilmente a cualquier tipo de
+pantalla, logrando uniformidad en las interfaces de usuario.[15]
+
+BASE DE DATOS: Fondo común de información almacenada en un servidor o una
+computadora para que cualquier persona o programa autorizado pueda acceder a ella, independientemente de su procedencia y del uso que haga.[16]
+
+En otras palabras una base de datos es una colección de datos organizados que se pueden
+gestionar con el fin de compartir la información con otras personas o simplemente guardar
+registros importantes que se puedan consultar para posibles investigaciones.
+
+Para acceder a estos registros se deben tener en cuenta dos conceptos importantes el sistema
+gestor de base de datos y los métodos de acceso:
+
+= Sistema gestor de base de datos: Es un software con procedimientos que permite
+gestionar los datos almacenados en las bases de datos, es decir poder almacenar, modificar
+o eliminar los datos. Entre estos sistemas encontramos Oracle y MySQL.
+
+= Métodos de Acceso: Son un tipo de instrucciones escritas en un lenguaje que permiten
+que un usuario pueda acceder a los datos a través del sistema gestor de base de datos.2.3.
+
+    
+
+Métodos de
+
+Acceso
+
+  
+
+Figura 2.2: Componentes de una base de datos.
+
+ 
+
+Marco Teórico
+
+BREEDING MANAGEMENT SYSTEM (BMS): Es un software que contiene una
+
+serie de módulos interconectados, diseñado específicamente para ayudar a los mejoradores
+a gestionar sus actividades del día a día a través de todas las fases de sus programas de
+mejoramiento. Desde el fenotipaje sencillo hasta genotipaje complejo, este software ofrece todas
+las herramientas que se necesitan para llevar a cabo el mejoramiento moderno en un paquete
+muy accesible y fácil de entender[17|. Esta herramienta fue desarrollada por Integrated Breeding
+Platform (por sus siglas en inglés “IBP”) pretende ayudar a los investigadores del mundo en su
+proceso de mejoramiento a través de los siguientes módulos:
+
+= Módulo de Mejoramiento. Herramienta que permite manejar todas las tareas diarias
+del mejorador en el ciclo de mejoramiento. Estas son manejo de listas de germoplasma,
+generación de cruzamientos, manejo de viveros, manejo de ensayos, mapas de campo, entre
+otras actividades.
+
+Módulo de manejo de información. En este módulo se maneja la información del
+pedigrí, caracterización fenotípica y evaluación de germoplasma. Además se puede importar
+germoplasma, manejar información de datos genotípicos, buscar estudios, manejo de la
+ontología.
+
+Módulo de análisis estadístico. Los mejoradores manejan gran cantidad de datos que
+se deben analizar para tomar decisiones rápidas. Este módulo (Breeding View) es una
+interfaz de usuario gráfica para el análisis estadístico que describe el fenotipaje y genotipaje
+de los diferentes ensayos. Se pueden hacer resúmenes estadísticos, ajustes de medias de
+todos los traits (rasgos medibles usados en mejoramiento como Rendimiento, Enfermedades,
+entre otros) y comparaciones de genotipos en múltiples ambientes a través de modelos
+mixtos
+
+Módulo de mejoramiento asistido por marcadores. Este módulo permite manejar
+la información molecular a través del GDMS (Genotypic Data Management System) e
+integrarla a los datos fenotípicos. Además tiene herramientas de diseño de mejoramiento
+molecular.Programme management
+Customise preferences and
+
+monitor programme activities Breeding activities
+from the Workbench, a Prepare trials and nurseries,
+dashboard application with a manage seed inventories and
+
+integrated tools to manage and
+query crop information across
+the system
+
+keep continuous genealogy
+records season after season
+
+Marker-assisted breeding
+Select germplasm and design
+
+crosses by complementing Statistical analysis
+
+phenotypic selection with marker | Analyse field and lab data with
+
+technology, for integrated breeding YA powerful statistics and mixed
+
+decisions I |] model comparisons of locations
+B L and genotypes
+
+Figura 2.3: Ciclo de BMS [17].
+
+2.4. Antecedentes
+
+Actualmente no se cuenta con una aplicación que permita pasar toda la información generada
+a BMS porque en la nueva versión el diseño de la base de datos ha cambiado notablemente por
+lo que toda esta información no ha podido ser compartida.
+
+Antiguamente, para compartir la información, se utilizaba una herramienta llamada ICISInternational Crop Information System (mediados de los 90), la cual manejaba una base de datos
+en ACCESS. Esta versión sólo permitía a los investigadores llevar el proceso de mejoramiento, y
+almacenarlo en una base de datos local, luego de este proceso se necesitaba una persona que
+se encargará de revisar los datos y posteriormente cargarlos a la base de datos central a la
+que se podía acceder en cualquier parte del mundo. En esa época se logró migrar información
+represada de muchos años de cruzamientos y líneas avanzadas (aproximadamente 50000 datos de
+cruzamientos y 20000 de líneas); y aproximadamente 1400 estudios. Dicha migración se realizó
+utilizando scripts de PLSQL, los cuales dejaron de usarse porque no se ajustan a los modelos
+actuales de las versiones de BMS.Capitulo 3
+
+Desarrollo del Proyecto
+
+Para dar cumplimiento a los objetivos planteados en el proyecto se tomó la decisión de
+dividir el desarrollo en 2 fases: La primera estuvo basada en la investigación y apropiación de
+conocimientos, conceptos sobre BMS que permitieran comprender la aplicación que era necesario
+para la problemática. La segunda fase consistió en el desarrollo de los módulos definidos en los
+objetivos teniendo en cuenta la metodología propuesta.
+
+3.1. Fase de Investigación
+
+Teniendo en cuenta que los conocimientos que se tenían sobre el aplicativo BMS eran pocos
+se decidió realizar esta etapa con el fin de conocer los procesos que se llevan a cabo en BMS
+para el almacenamiento, estandarización y preservación de los libros de campo.
+
+A medida que se fue avanzando en esta fase, se encontraron algunos inconvenientes, principalmente la poca documentación que existe sobre el aplicativo BMS, ya que la única fuente de
+información que se tenía era la página web.
+
+Al acceder a la página web, se encuentran las definiciones de cada módulo y la argumentación
+del porqué utilizar BMS como uno de los programas para la gestión de cultivos, esta información
+fue descrita anteriormente en el marco teórico. Por otro lado también se identificaron los manuales de usuario, siendo estos de gran ayuda al facilitar el conocimiento de las funcionalidades
+de la aplicación y permitir un buen manejo de la misma. Para apoyar lo anterior se procedió a
+realizar la instalación del aplicativo BMS, con el fin de interactuar y aplicar los conocimientos
+obtenidos.
+
+Cabe resaltar que en el CIAT este aplicativo se encuentra instalado en un ambiente de
+producción y no era conveniente alterar la información allí almacenada, por ende, se realizó la
+solicitud de la instalación del aplicativo en un ambiente de pruebas pero por motivos de presupuesto y de tiempo esta labor no fue posible dejando como última opción que dicha instalación
+se realizará de manera local en la máquina que fue asignada para el desarrollo.
+
+Aunque realizar este proceso de investigación permitió un mejor conocimiento de la aplicación
+no fue suficiente para empezar con el desarrollo de los módulos, porque antes era necesario
+estudiar el modelo general de la base de datos y conocer la forma en que la información era
+almacenada en cada una de las tablas, debido a esto se vio la necesidad de realizar una serie de
+reuniones con personal que contaba con experiencia en el manejo de información sobre el modelo
+relacional del aplicativo BMS, dando como resultado la obtención de documentación clasificada
+
+10de manejo interno la cual fue proporcionada por IBP( Integrated Breeding Platform ), quienes
+son los encargados de administrar el aplicativo BMS.
+
+Dicha documentación fue de suma importancia porque su análisis permitió hacer énfasis y
+conocer de manera detallada cada una de las tablas que intervienen en el proceso de almacenado
+de los diferentes estudios, logrando así, obtener mayor claridad en la estructura del modelo de
+datos que era necesario usar dentro de los módulos a desarrollar.
+
+Es así como se identifica que el modelo de datos BMS está basado en estructuras definidas por
+CHADO el cual hace parte de la colección de aplicaciones de código abierto definidas por GMOD
+que permite la estructuración de modelos ontológicos, y facilita la visualización, anotación,
+gestión y almacenamiento de datos [18].
+
+CHADO, es capaz de representar muchas de las clases generales de los datos encontrados con
+frecuencia en la biología moderna, tales como fenotipos, genotipos, ontologías y publicaciones.
+Ha sido diseñado para manejar representaciones complejas de conocimiento biológico y debe ser
+considerado como uno de los esquemas relacionales más sofisticados disponibles en la actualidad
+
+en la biología molecular [17]. A continuación se presenta una abstración del modelo que maneja
+CHADO y que se utiliza en BMS.
+
+STUDY AND DATASET
+
+TRIAL ENVIRONMENT
+* nd_geolocation
+
+* nd_geolocationprop
+ANY
+
+  
+
+   
+ 
+     
+ 
+ 
+   
+
+INFORMATION
+ola:
+TAM
+0 Adol go]o
+
+ 
+ 
+  
+ 
+    
+  
+
+TIRMITTTNN A nd_experiment.
+
+nd_geolocation_id
+IPD EN
+
+MT TA nd_experiment_stock
+MS go]
+
+o] LoJKoJE)/
+cv
+cvterm TAI NS
+AM e stock
+cvtermprop A Lo
+A ACI
+variable _overrides
+
+   
+ 
+  
+ 
+   
+   
+ 
+   
+
+IMSS
+
+DATA ON
+IAS
+*  linksto valid values
+
+cvterm_id annotates data
+
+NES o
+ASA ME
+
+ 
+
+Figura 3.1: Mapping of elements of the Logical Data Model to the CHADO ND schema [19].
+
+11Este modelo nos da una idea de cómo organizar la información a la hora de almacenar un
+libro de campo en la base de datos de BMS, como se puede apreciar en la Figura 3.1, las tablas
+de este modelo están agrupadas en seis categorías que se describen a continuación:
+
+= STUDY AND DASASET INFORMATION: Aquí se almacena toda la información referente
+al proyecto, por ejemplo: el nombre, el creador del estudio, la fecha de siembra de los
+materiales, los traits que van a ser evaluados en este libro de campo, entre otras información
+relevante al proyecto.
+
+= TRIAL ENVIROMENT: Se guarda la información referente a la localidad donde fue
+sembrado el estudio y las propiedades del suelo si son necesarias.
+
+= GERPLASM ENTRY: Su tarea es almacenar el germoplasma o materiales que van a ser
+evaluados en el libro de campo o estudio.
+
+= OBSERVATION: éste tiene como tarea almacenar las medidas de los traits que se evalúan
+para cada uno de los materiales.
+
+= TRIAL DESIGN: Este define el diseño del estudio, como se van a ubicar los materiales en
+el campo, es decir, cada conjunto de datos o material de un estudio tiene al menos una
+unidad de observación (osea un registro nd_ experiement con su respectiva propiedad).
+
+= ONTOLOGY: En esta categoría están todas las variables que pueden ser usadas en todo
+el esquema de base de datos, es decir se almacenan las escalas, medidas, propiedades y
+sinónimos, y otros términos importantes para BMS, la figura 3.2 muestra un ejemplo:
+
+Property Soil to tip al maturity
+
+(16010)
+
+      
+   
+  
+ 
+
+Plant height
+(15020)
+
+ 
+
+evtorm_relatonship 1210
+
+     
+ 
+
+cettem_reltionship 1200 cvierm_relationship 1220
+
+! . cuterm relildonsHhp 1105
+cuierm_relationship 1225 w _elail p
+
+[Variable |
+Plant_height '
+118020)
+Agronomic
+
+(1340) cwuermprop 1800 Numeric variable
+
+Terxt
+
+Data Type
+
+  
+
+     
+
+(1110)
+Morphological
+(1350)
+
+ 
+
+A
+Vanable | ype
+
+ANALYSIS
+TRAIT
+
+Figura 3.2: The Ontology Data Model [19].
+
+12También es importante aclarar que las tablas marcadas con color verde son las encargadas
+de hacer la relación entre la información que se almacena en cada categoría.
+
+Al mismo tiempo, durante esta fase de investigación se estudió la posibilidad de utilizar una
+serie de APTP's REST ofrecidas por BMS, estas facilitaban enormemente la consulta, actualización
+e inserción de la información asociada a los estudios a través de formatos Json, permitiendo
+una mayor facilidad a la hora de generar e interpretar los procesos de almacenado tanto para la
+máquina como para el usuario.
+
+Así pues, se procedió a analizar, comprender e interactuar el funcionamiento de las APT's, lo
+cual fue una tarea compleja porque no se tenía suficiente documentación que ayudará a este
+proceso.
+
+Cabe resaltar que la fase de investigación fue de gran ayuda para profundizar y conocer en
+un grado mayor la herramienta BMS, en la cual se basó el desarrollo del proyecto, dando la
+posibilidad de tener diversas opciones a la hora de plantear el diseño para la construcción de los
+módulos propuestos.
+
+3.2. Fase de Desarrollo del Proyecto
+
+En esta fase el objetivo fue desarrollar el proyecto siguiendo la metodología de trabajo
+adoptada por el CIAT, la cual consta de 4 fases:
+
+Fase 1: Inicio y Planificación. Durante esta fase se reúnen todos los implicados en el proyecto
+y se realiza la planificación del mismo, determinando así los objetivos y entregables además
+de gestionar todos los recursos necesarios para ejecutar el proyecto, dando así, como
+resultado un documento con el plan del proyecto.
+
+Fase 2: Elaboración y Construcción. En esta fase es donde se centran la mayor parte de
+los esfuerzos debido a que en esta se involucra todo el proceso de desarrollo de software,
+pasando así por cada una de las diferentes etapas del ciclo de vida de un producto de
+software, como son el análisis, diseño, ejecución, pruebas, contando en cada una de ellas
+con la documentación y estándares definidos por el CIAT.
+
+Fase 3: Implantación. Esta fase comprende lo que es la instalación del aplicativo que se obtuvo
+como resultado de la ejecución de la fase anterior, basándose en 2 actividades:
+
+Actividad 1: Comprende el montaje del aplicativo en un entorno de pruebas con la
+finalidad de que los usuarios finales puedan conocer, interactuar y ser capacitados,
+además de que dicho entorno brinda la posibilidad de encontrar dificultades y errores.
+
+Actividad 2: Después de que se corrigen los errores encontrados en el ambiente de pruebas
+y de que los usuarios tengan la posibilidad de acercarse al aplicativo e interactuar con
+él, se procede a empaquetar la aplicación en un archivo WAR luego se coordina con
+el personal de Tecnología e información para el proceso instalación en un ambiente de
+producción, basado en las normativas definidas por el CIAT a la hora de realizar dicho
+procedimiento, entre las cuales encontramos la definición de políticas de seguridad y
+de Back Ups. Finalmente, se coordina la ejecución de otro conjunto de pruebas para
+verificar que todo funcione de manera correcta en el ambiente final.
+
+13Fase 4: Cierre. En esta fase se realiza el cierre del proyecto, se evalúa su ejecución y se
+determina las lecciones aprendidas para los siguientes proyectos.
+
+3.2.1. Ejecución del Proyecto
+3.2.1.1. Análisis
+
+Durante la etapa de análisis dentro del proceso de desarrollo de software se buscan identificar
+las necesidades del usuario, siguiendo esta línea de ideas se puede indicar que es una de las etapas
+más importantes ya que permite identificar y dimensionar el alcance del proyecto. Teniendo
+en cuenta lo anterior, esta etapa se realizó basándose en las políticas definidas por el CIAT
+para el desarrollo de sus proyectos, dando inicio con la especificación de los requerimientos
+a partir de una serie de reuniones con los usuarios finales, donde se captura la información
+suministrada por ellos y se transforma en un documento formal en el cual se detallan tanto los
+requerimientos funcionales, donde se describen las interacciones entre el sistema y su ambiente
+independientemente de su implementación, como los requerimientos no funcionales, donde se
+especifican criterios de funcionamiento en lugar de sus comportamientos específicos. (Ver anexo
+1: Documento de requerimientos).
+
+Dicho documento cuenta con la siguiente estructura que permite la administración, clasificación y priorización de los mismos: Número del requerimiento, columna con la cual se identifica el
+requerimiento, descripción del requerimiento, columna donde se redacta el requerimiento como tal.
+
+3.2.1.2. Diseño
+
+La etapa de diseño permite realizar la modelación de los elementos necesarios para construir
+los módulos a desarrollar en el proyecto, esta etapa se hace con el fin de tener una abstracción
+general donde se describen los componentes o módulos que formarán el software a ser producido.
+
+Durante esta etapa se identificó la necesidad de almacenar la información de los estudios de
+los investigadores del programa de frijol que posee el CIAT en dos sistemas de gestión de bases
+de datos relacionales diferentes, siendo una de ellas MySQL [20], la cual es considerada como
+una de las base datos open source más popular del mundo, dicha base de datos es necesaria
+debido a que el aplicativo BMS se basa en este gestor para guardar la información la cual será
+de gran ayuda para los investigadores en su día a día ya que les permitirá realizar diferentes
+análisis.
+
+El otro sistema gestor de base de datos necesario es Oracle debido a que el CIAT como
+política tiene definido almacenar la información de los diversos estudios e investigaciones que se
+llevan a cabo por los diferentes programas, con la finalidad de lograr un mejor registro y control
+de dicha información obteniendo de esta manera una memoria institucional.
+
+Resultados Fase de Diseño para el Módulo de Carga de Libros de Campo
+
+Basándose en la necesidad identificada para el almacenamiento de la información y una vez
+culminada la etapa de análisis, se plantearon dos propuestas para dar solución a la problemática.
+
+La primera propuesta se basó en el uso de las APIs REST que fueron identificadas en
+el proceso de investigación las cuales facilitaban en gran medida la consulta, actualización e
+
+14inserción de la información asociada a los estudios en el aplicativo BMS.
+
+Libros de c:
+
+co
+3
+3
+DO
+o
+
+¡SO MMS
+Módulo de carga BD MySQL(BMS)
+
+APIs de BMS
+
+———=> (App '—ED—
+
+ep:
+
+ets
+
+BD ORACLE
+
+Figura 3.3: Propuesta basada en el uso de las APP's.
+
+Dentro de esta propuesta, los módulos desarrollados para la importación de los libros de
+campo con los estudios de frijol se conectaría a un gestor de bases de datos Oracle y al mismo
+tiempo las APP's servirían como puente de comunicación entre dichos módulos desarrollados y
+la base de datos MySQL a través de servicios web, todo bajo una arquitectura REST ya que
+permitía ciertos beneficios entre los cuales se destacan un bajo consumo de recursos y su fácil
+integración con otras aplicaciones.
+
+Pero durante la investigación e interacción con dichas APT's se identificó un error en la
+función REST encargada de la inserción y actualización de un ensayo. Cabe aclarar que las
+APTI's no fueron desarrolladas por IBP que es la empresa encargada del soporte, por lo cual
+se hizo necesario contactar uno de los desarrolladores para tratar de corregir el inconveniente
+identificado, y solicitar más documentación, pero no se obtuvo una respuesta positiva debido a
+que éste no contaba con tiempo disponible para estas fechas. De igual forma, se notó que para
+consumir estas API's era necesario indicar muchos parámetros que no eran fáciles de obtener al
+momento de utilizar estos servicios.
+
+Debido a que no se contaba con el tiempo para solucionar los problemas anteriormente
+descritos ni la disponibilidad necesaria por parte de los terceros involucrados, finalmente se optó
+por descartar esta propuesta.
+
+La segunda propuesta se basó en desarrollar el módulo para la importación de los libros de
+campo a través de dos componentes principales, el primero se centró en la gestión de la carga de
+la información que contenían los libros de campos en una base de datos Oracle, para después
+proceder a realizar una transformación de la información almacenada con la finalidad de guardar
+dichos datos en el modelo determinado por BMS para la preservación de los estudios dentro
+del gestor de base de datos MySQL. Es bueno mencionar que esta propuesta se planteó sin
+intervención de las APP 's.
+
+Estas propuestas fueron analizadas y discutidas con personas que cuentan con experiencia en
+el desarrollo de aplicaciones determinando que se debía implementar la segunda para el desarrollo
+del proyecto debido a que aunque la primera propuesta era más eficiente se encontraron algunos
+inconvenientes que ocasionaban la extensión del cronograma establecido y otros problemas ya
+
+15Libros de campo
+» BD MySOL(BMS)
+2 E O,
+E DO | i
+Proceso Proceso
+de
+
+transformación
+
+ 
+
+Figura 3.4: Propuesta
+
+mencionados.
+
+Diseño de Diagramas UML
+
+Con la finalidad de complementar el modelado se hizo necesario la realización de algunos diagramas UML con la finalidad de especificar, detallar y documentar los componentes de los módulos
+propuestos los cuales serán descritos a continuación:
+
+Diagrama de navegación
+Consiste en describir dinámicamente el orden y tipo de pantallas que se va produciendo
+
+durante la ejecución de la aplicación [21]. Este se efectuó con el propósito de mostrar de manera
+gráfica la forma en como el usuario puede interactuar con todas las pantallas del aplicativo.
+
+Index. xhtml
+Home. xhtml
+
+ 
+ 
+
+ 
+    
+
+ 
+
+ 
+
+  
+
+CargaLibrosCampo.xhtml CargaMedidas.xhtm
+
+Figura 3.5: Diagrama de Navegación del Sistema BMSPFrijol
+
+16Diagrama Entidad-Relación
+
+Describe los principales componentes de la base de datos: entidades, atributos y relaciones
+[22]. Se realizó con la finalidad de conocer cómo se va almacenar la información y cual va hacer
+la interacción de las diferentes entidades, es decir representa la base de datos conceptual como
+es vista por el usuario final.
+
+ 
+
+_ FRIJOLO1BMS _MEASUR | FRIJOLO1BMS USUARIO
+y p JJ) USU) A
+
+    
+
+ 
+
+ 
+
+— FRIJOLOLBMS TRAIT DESCRIPTION |
+
+ION
+MPT ION E
+y PA
+
+NC
+
+ 
+
+ 
+
+Figura 3.6: Modelo Relacional del Sistema BMSFrijol
+
+Diagrama de la Arquitectura
+
+El propósito de este diagrama es mostrar una visión simplificada de la relaciones de control
+entre los módulos y los patrones de diseño utilizados para el desarrollo de los mismos.
+
+Esta aplicación está implementada usando el patrón de arquitectura MVC (modelo-vistacontrolador), ya que esté es un patrón que brinda facilidad de mantenamiento y reutilizacion
+de código. Pero se hizo una subdivisión de la capa modelo en 3 subcapas: Lógica, Persistencia,
+Datos, esto con el fin de tener una mejor accesibilidad a las bases de datos.
+
+La capa de presentación o vista, es la encargada de recoger la información tras la interacción
+del usuario y enviarla a la siguiente capa, a su vez también es la encargada de recibir la información de respuesta y presentársela al usuario.
+
+La capa de controlador se encarga de recibir la información tras la interacción del usuario,
+para posteriormente interactuar con el modelo a través del core y devolver una respuesta a la
+
+capa de presentación.
+
+Por último está el modelo que es el encargado de almacenar y consultar los datos en la base
+de datos, esto se hace a través de hibernate.
+
+17D
+=
+L
+E
+G
+A
+E
+
+ 
+
+Figura 3.7: Diagrama de Arquitectura del Sistema BMSPFrijol
+
+3.2.1.3. Implementación
+
+Como primera instancia se definió un documento estándar en Excel, cuyo propósito fuera
+estandarizar y facilitar la carga de los libros de campo, dado que estos no contaban con un
+formato estándar lo que impedía su procesamiento y carga. Este documento fue socializado
+con todas las personas encargadas de la carga de archivos para el programa de frijol los cuales
+estuvieron de acuerdo en acogerse al mismo, a este documento se le nombró template. Una vez
+definido esto, se empezó con la etapa de codificación, donde primero se realizó un sistema de
+logueo con la ayuda de la librería llamada CGIARAuthenticate. Esta permite que los usuarios
+puedan iniciar sesión dentro del aplicativo a través del directorio activo, es decir que puedan
+entrar con el mismo usuario y contraseña especificados en su correo Outlook.
+
+Posteriormente se continuó con la codificación del módulo de carga, en el cual se empezó por
+realizar el mapeo de las dos bases de datos con la ayuda de hibernate para luego continuar con
+el proceso de lectura y carga del template, la lectura se hizo con la ayuda de la librería POI
+[9], esta librería facilita la interpretación de diferentes tipos de documento entre los cuales se
+encuentra el formato Excel, que es el tipo de archivo definido para la elaboración de los libros de
+campo. Al mismo tiempo que se realiza la lectura del archivo, se verifica que éste no contenga
+errores de digitacion o de inconsistencia en los datos.
+
+Una vez verificada tanto la información como el formato del archivo se procesa y almacena
+la información en la base de datos de Oracle con la ayuda de la herramienta hibernate ya que
+este permitió que la conexión entre el sistema y la base de datos fuera más fácil y rápida.
+
+Cuando los procesos descritos anteriormente estaban listos, se procedió a codificar la conversión y almacenamiento de la información dentro de la base de datos MySQL, el proceso de
+conversión de los datos consistió en ajustar la información correspondiente al modelo mencionado
+anteriormente del aplicativo BMS, para así poder crear el estudio correspondiente al libro de
+campo.
+
+18Durante todo el proceso de almacenamiento en las bases de datos fue indispensable asegurar
+la persistencia de los datos, esto se logró aplicando el patrón de diseño singleton el cual garantiza
+que una clase solo se pueda instanciar una vez mientras que la aplicación se encuentra en
+ejecución, teniendo así un punto de acceso global.
+
+De esta manera, al terminar la codificación del módulo de carga de libros de campo, se
+continuó con el desarrollo del módulo de carga de descriptores, en el cual administra la información obtenida a través de un sistema integrado, que se usa para capturar 3 tipos de variables
+presentes en los materiales de frijol como son: la humedad en las semillas y la cantidad de
+semillas utilizadas. Para la toma de estas medidas se establece como referencia el peso de 100
+semillas.
+
+Dichas variables son utilizadas para realizar el cálculo de los rendimientos de cada uno de
+los materiales del frijol. Inicialmente se planteó pasar estas variables directamente al aplicativo
+BMS donde se realizarían los cálculos correspondientes y se almacenarían en su respectivo libro
+de campo, pero esto no se pudo lograr debido a que las personas encargadas del mejoramiento
+del frijol crearon un código único dentro del libro de campo con el fin de identificar cada una de
+las plantas según su año, programa, ciclo y surco donde fue sembrada.
+
+Teniendo en cuenta lo anterior, el aplicativo BMS no realiza la distinción de un material
+según el lugar donde este se encuentra sembrado, sin embargo para BMS existe un identificador
+único para cada material, este identificador se designa con el nombre de GID. Por este motivo
+no se pudo crear una relación directa entre la información capturada por el sistema integrado y
+el aplicativo BMS ocasionando que se hiciera necesaria la intervención humana, con el fin de
+crear un GID para cada código único.
+
+Actualmente el sistema integrado guarda la información de las variables en un documento
+Excel el cual por medio de una macro se encarga de buscar dentro de los libros de campo a
+través del código único para posteriormente actualizar la información de las variables asociadas
+a este material.
+
+A partir de este proceso se planteó como solución que una vez obtenido el libro de campo se
+capture la información correspondiente al código del ensayo, el identificador del material y el
+surco, los cuales sumados a las variables procedentes del sistema integrado permitirán realizar
+la búsqueda dentro del aplicativo BMS del libro de campo y así hacer la actualización de su
+información.
+
+Cabe señalar que para este módulo se utilizó la función de lectura desarrollada para el módulo
+de carga de archivos esto permitió agilizar el proceso de implementación.
+
+3.2.1.4. Pruebas
+
+Esta es una de las fases más importantes para el desarrollo de un producto ya que en esta se
+determina si los requerimientos propuestos por el cliente fueron cumplidos a cabalidad. Para
+cumplir con esta etapa, se decidió utilizar pruebas unitarias.
+
+Estas pruebas fueron realizadas a medida que se realizaba el proceso de implentación con el
+fin de asegurar que cada uno de una de las funcionalidades se ejecutara correctamente, fueron
+
+19ejecutadas con la ayuda de la herramienta JUnit [23].
+
+En la Figura 3.8 se puede observar algunas de las pruebas.
+
+ 
+
+ 
+
+         
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+G-Ba G> 4-47 443470 PD HQ $->0>Q> $46> Sy/-8 P4EM PrHreer>or EE [«i» Plug-in Deve... |.”
+E 3 Y  O|(/8) LoginBean;java [5] CargaOracleDelegatejava — | [J] BMSFRIOLImpl.java [S) *CargaOracleDelegateTestjava 2 > 20
+9 > BMSFRIJOL beta 20 [sun+ssh://amoraD) 1 package org.ciat.cgiar.BMSFRIJOL.view.delegate; -m
+4 E > BMSFRIJOL_V3 93 [svn+ssh://ktanakaQD 2 Y
+a A > 5109 Gs 34 import static org.junit.Assert.*;[] z
+E 25 public class Carga0racleDelegateTest (
+ER > (default package) 93 de 1
+26 a
+Ey > org.cgiar.ciat.BMSFRIJOL,resour 278 fTest
+4 org.ciat.cgiar.BMS.filters 9 28 public void testValidaString() (
+E8 org.ciat.cgiar.BMS,hibernate.daos ll HSSFhlorkbook libro = new HSSFiWorkbook();
+.ciat.cgiar.8MS.hibernate.poj a : s
+dora o E E 1 31 // Se crea una hoja dentro del libro
+¿Hi org.ciat.cgiar. sereno 32 HSSFSheet hoja = libro.createSheet();
+E > org.ciat.cgiar.BMSFRIJOL,.core 3: 33
+E% > org.ciat.cgiar.BMSFRIJOL.hibern. 34 // Se crea una fila dentro de la hoja
+48 > org.ciat.cgiar. BMSFRIOL,hibern 23 HSSFRow fila = hoja.createRow(09);
+E3 > org.ciat.cgiar.BMSFRIOL.hiberná | 77 ;
+pias 37 // Se crea una celda dentro de la fila
+de org.ciat.cgiar.BMSFRIJOL .paramet: 38 HSSFCell celda = fila.createCell(1);
+4% org.ciat.cgiar. BMSFRUOL plain.obj 39 celda.setCellValue("hola”);
+4 org.ciat.cgiar.BMSFRIJOL .utils 68 40
+a 3 > org.ciat.cgiar.BMSFRIOL iew.b 41 assertTrue(Carga0racleDelegate.getInstance().validaString(celda));
+[13 BusquedaBean.java 61 33 J
+LJ] > CargaArchivoBean,java 70 448 fTest
+LR > CargaLibroBean.java 45 public void testValidaNumerico() (
+[13 > CargarMySQLBean,java 95 46 HSSFWorkbook libro = new HSSFWorkbook();
+11 LoginBean.java 48 47
+i ; 48 // $e crea una hoja dentro del libro
+4 agan az e . 49 HSSFSheet hoja = libro.createSheet();
+a [HH > org.ciat.cgiar.BMSFRIJOL.view.d: 50
+dz BusquedaDelegate java 61 51 // Se crea una fila dentro de la hoja
+4 > CargaEnsayoDelegate.java 5 52 HSSFRow fila = hoja.createRow(0);
+[4/0 > CargaLibroDelegate.java| 2 y
+1) Cogaorcnaemejnaís ||| (EPIA AO As 3
+- E e ,
+[% CargaOracleDelegateTestjava 56 celda.setCellValue(2500);
+LI > CargaToMySQLDelegate.jav 57
+E LoginDelegate.java 6 58 assertTrue(Carga0racleDelegate.getInstance().validaNumerico(celda));
+[5 UsuariosDelegate.java 57 39 J
+> org.ciat.cgiar.org.service.databa 57
+g.ciat.cgiar.org.service.databad|— 5%
+ml, JRE System Library [Sun JDK1.6.0_13] 623 fTest
+El Java EE 6 Libraries 63 public void testFindAllTrait() 4
+E), Hibernate 3.3 Annotations 8l Entity Mi 64 try [
+El Hibernate 3.3 Core Libraries 65 assertNotNull (Carga0racleDelegate.getInstance().findAllTrait());
+El, Hibernate 3.3 Advanced Support Libr a , j Catch (Exception e) ( : sy
+Bl ciat-libraries , = = = =
+E) common-libraries (9) Error Log [4 Tasks [fj.: Problems dÚ JUnit pS E Console | ge B| a ER E->»0
+E Referenced Libraries Finished after 1.49 seconds
+E Web App Libraries
+y Runs: 13/13, El Errors: 0 Bl Failures: 0
+Ey > WebRoot 85
+ota > BMSFRIJOL_V3-copiaAndrea 79 [sun+ss - - - - A ==
+Ej] org.ciat.cgiar.BMSFRIJOL view.delegate.CargaOracleDelegateTest [Runner: JUnit 4] (1.420 s) a = Failure Trace > E
+dEl testValidaNumerico (0.193 s) [=]
+dEl testFindAllTrait (1.224 s) Mi
+del testValidaStrina (0.003 <) E
+
+ 
+
+0% org.ciat.cgiar.BMSFRUOL.view.delegate.CargalibroDelegate.java - BMSFRIJOL_V3/src
+
+Figura 3.8: Screenshot - Pruebas Unitarias con JUNIT
+
+3.2.1.5. Implantación
+
+La implantación o despliegue del sistema se realiza siguiendo los parámetros establecidos
+en las guías para el despliegue de aplicaciones del CIAT. A continuación, se describen las
+caracteristicas de las máquinas:
+
+Maquina de Pruebas
+
+= Servidor: PowerEdge 2900
+
+= SO: Red Hat Enterprise Linux Server release 6.8
+= Tomcat: 6.0.24
+
+= Java: 1.6.0 115
+
+= Procesador: Intel Xeon E5440 AQ 2.83GHz
+
+.
+
+= RAM: 32Gb
+
+= Disco: 146Gb (RAID1)
+
+Máquina de producción:
+
+20= Servidor: PowerEdge M610
+
+= SO: Red Hat Enterprise Linux Server release 6.8
+= Tomcat: 6.0.24
+
+= Java: 1.6.0 115
+
+= Procesador: Intel Xeon E5620 Q 2.40G Hz
+
+= RAM: 32Gb
+
+= Disco: 146Gb (RAID1)
+
+3.3. Descripción de la aplicación
+
+Al terminar la etapa de desarrollo se obtiene una aplicación web que se alimentará de los
+datos que sean cargados por parte de los investigadores y asistentes del programa de frijol, ésta
+permite al usuario cargar muchos libros de campo al mismo tiempo.
+
+El primer acercamiento que tiene el usuario es con la interfaz de Login que se puede observar
+en la figura 3.9 muestra, la cual está constituida por el logo del CIAT, el nombre de la aplicación
+y los campos para iniciar sesión.
+
+y
+<> | Bean BMS
+
+Password
+
+ 
+
+Figura 3.9: Screenshot - Login
+
+Una vez autenticado, el usuario podrá visualizar la página de Inicio, ésta contiene la barra
+de navegación con los menús de cada módulo. Ésta facilita el acceso a todos los modulos de la
+aplicación y contiene la opción de cerrar sesión. Dentro del Inicio, también se encuentran las
+actividades que se pueden realizar en cada módulo y una pequeña descripción de las mismas.
+Esta interfaz se puede visualizar en la figura 3.10.
+
+214 ( | AT ».- to cultivate change BMS FRIJOL
+
+AU
+International Center for Tropical Agriculture / Since 1967
+
+En
+
+A O tete y IS ARNM A ¡Moto Rot
+
+WELCOME
+
+This tool gives you the possibility to save your trials in a database
+
+ 
+
+ 
+
+Trials Upload to Oracle and BMS Add Oracle Trials to BMS
+
+29 O
+
+Upload trials to Oracle and BMS Mysql databases Add trials found only in Oracle to the BMS
+
+ 
+
+ 
+
+ 
+
+ 
+
+Upload measurements Users
+
+O 2
+
+Upload measurements generated by the integrated electronic System user management
+system to BMS
+
+ 
+
+ 
+
+Figura 3.10: Screenshot - Inicio
+
+En la figura 3.11 se muestra la interfaz de la pagina Trials Upload to Oracle and BMS en la
+cual los usuarios encontraran las siguientes opciones:
+
+= Botón choose File: Éste le permite a el usuario seleccionar el libro que desea cargar.
+= Botón upload: Éste boton se encarga de cargar el libro de campo escogido por el usuario.
+
+= Chechk List: Éste brinda al usuario la posibilidad de escoger si desea subirlo a Oracle y a
+BMS al mismo tiempo o almacenarlo en Oracle solamente.
+
+= Botón Download: Éste permite descargar la plantilla que se debe usar para la carga de los
+libros, esto con el fin de mantener un estándar.
+
+7 ( AT »- to cultivate change BMS FRIJOL
+
+QUA
+International Center for Tropical Agriculture / Since 1967
+A
+
+MA Trials Upload »  4LUsers MIN A RT
+
+ 
+
+Upload the fieldbook
+
+ 
+
+| Choose File | No file chosen
+
+ 
+
+Upload £
+
+¡Upload to Oracle
+
+ 
+
+Download E Clean field
+
+Figura 3.11: Screenshot - Trials Upload to Oracle and BMS
+
+22Por otra parte, dentro de esta misma sección cuando un libro de campo no se cargue
+satisfactoriamente el sistema le muestra al usuario de una manera detallada los errores que
+encuentra en el momento de leer el archivo, y le brinda la posibilidad de limpiar los campos y
+subirlo nuevamente si así lo desea esto se ve representado en la figura 3.12.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+he A ( | A | Science to cultivate change BMS FRIJOL
+AU
+International Center for Tropical Agriculture / Since 1967
+e L
+RM  4pTrals Upload - —LUsers o A TRA
+Trials Upload to Oracle and BMS
+[Choose File | No file chosen
+Upload £
+Upload to Oracle
+No cargo el ensayo
+Download Y Clean field
+Errores Encontrados =
+Codigo | Valor | Causa
+MCPRUEB-096 | | JHÉS TRIAL CODE IS ALREADY REGISTERED
+
+ 
+
+Exportar Archivo
+
+ 
+
+Figura 3.12: Screenshot - Field book couldn't upload
+
+La segunda sección Add Oracle's Trials to BM$S permite al usuario visualizar los archivos
+
+que fueron cargados en sus momento solo a Oracle y le brinda la posibilidad de registrarlos en
+BMS si así lo desea.
+
+LA Mw Cl A | Science to cultivate change BMS FRIJOL
+AN AA
+International Center for Tropical Agriculture / Since 1967 .
+AN
+RA 4 HTrials Upload»  LuUsers MI A RT
+
+Trials Upload
+
+ 
+
+Non-aggregated trials
+
+Non-aggregated trials list to the BMS database. You can add trials to BMS by selecting the trial assay with the add button
+
+Trial code Trial description _ Trial type .
+
+Í
+MCPRUEBA-095 Rendimiento | ensayo lineas avanzadas 2008
+
+00
+
+MCPRUEBA-096 Rendimiento ensayo lineas avanzadas 2008
+
+ 
+
+Copyright 2016 - All rights reserved - CIAT - International Center for Tropical Agriculture
+
+Figura 3.13: Screenshot - Add Oracle's Trials to BMS
+La figura 3.14 muestra la tercera sección del Inicio, Upload Measurement permite a los
+
+23usuarios adicionar las medidas que se obtienen del sistema integrado electrónico a los libros de
+campo o ensayos que se encuentran almacenados en BMS. Es una vista muy parecida a la que
+se tiene para cargar los libros de campo pero su proceso interno es diferente.
+
+nd ( AT»... to cultivate change BMS FRIJOL
+
+AU
+International Center for Tropical Agriculture / Since 1967
+
+e e IS AUR MA A Log out
+
+ 
+
+Upload Measurements
+
+ 
+
+| Choose File | No file chosen
+
+ 
+
+Upload £
+
+ 
+
+ 
+
+ 
+
+Clean field
+
+Copyright 2016 - All rights reserved - CIAT - International Center for Tropical Agriculture
+
+Figura 3.14: Screenshot - Upload Measurement
+
+Por ultimo en la figura 3.15, se muestra la sección Users que aunque no estaba en el alcance
+era importante para los usuarios finales, ésta permite hacer las funciones básicas de agregar,
+consultar y eliminar un usuario, con el fin de dar acceso a las diferentes personas del programa
+de frijol para que todos puedan contribuir al enriquecimiento de esta base de datos y a su vez
+sus libros sean almacenados de forma segura.
+
+MN yA
+International Center for Tropical Agriculture / Since 1967
+
+A ( | AT». to cultivate change BMS FRIJOL
+
+MA  4PTrals Upload - — 4L Users
+
+ 
+
+User Management
+
+ 
+
+ 
+
+ 
+
+ 
+
+System users
+Show the system users. You can delete users from the system
+T [ | , 5
+
+Login . Name . | Last name . Status . Email .
+PACRUZ | PAOLA | CRUZ A P.A.CRUZECGIAR.ORG O
+AGUERRERO | ALBERTO FABIO | GUERRERO A F.GUERREROECGIAR.ORG Q
+LPINO | LIZBETH | DURAN | A L.PINOECGIAR.ORG e
+DLOURIDO DERLYN | LOURIDO A D.LOURIDOSCGIAR.ORG Q
+CAROLINAGARCIA | CAROLINA | GARCIA A C.GARCIA-CIAT ECGIAR.ORG Q
+KTANAKA | KENJE | TANAKA A K.TANAKABCGIAR.ORG Q
+LOGONZALEZ | LUIS | GONZALEZ A o
+CMEDINA | CARLOS | MEDINA A C.MEDINABCGIAR.ORG Q
+AMORA | ANDREA | OSPINA A A.MORAGCGIAR.ORG O
+
+Add user
+Add a user to the system. You can search users from the CIAT active directory by name add them to the application
+| [Searoh
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figura 3.15: Screenshot - Users Management
+
+24Capitulo 4
+
+Conclusiones y Trabajos Futuros
+
+4.1. Conclusiones
+
+A continuación se describen las conclusiones las cuales están basadas desde dos aspectos, el
+primero es el proceso de desarrollo que se llevó a cabo durante esta pasantía y el segundo el
+proceso de aprendizaje.
+
+El desarrollo de esta aplicación web permitirá a los investigadores de frijol, almacenar sus
+libros de campo tanto en una base de datos como en el programa BMS, el cual trae muchos
+beneficios no solo para los científicos del CIAT si no para diferentes personas que se enfocan en
+la agricultura, debido a que dicho aplicativo permite ver los avances que se generan en las líneas
+de frijol, además brinda la posibilidad de determinar cómo se han alterado las características de
+un genotipo dependiendo las condiciones climáticas y otros factores.
+
+Contar con una herramienta que permitiera la automatización del proceso de almacenado
+de los libros de campo logrará ahorrar esfuerzos y tiempo, los cuales podrán ser dedicados a
+generar un mejor análisis teniendo en cuenta que con el aplicativo la información se encontrará
+centralizada, proporcionando de esta manera un fácil acceso.
+
+La aplicación desarrollada cumple con los estándares de calidad establecidos por el CIAT los
+cuales se lograron aplicando la metodología de desarrollo adoptada por esta organización para
+sus proyectos, permitiendo así estructurar de manera adecuada el proyecto y abarcar cada una
+de las fases del desarrollo de software.
+
+El uso de las TIC juega un papel importante para el desarrollo de la sociedad y cobra
+aún más importancia cuando estas se complementan con otras áreas para crear soluciones, en
+este caso se puede observar cómo las T'IC se complementan con el área de la agricultura para
+generar herramientas de ayuda que permiten buscar la mejora en los cultivos ante las diversas
+dificultades climáticas que los agrónomos deben afrontar.
+
+Por último, se puede concluir que desarrollar este proyecto en una organización como el
+CIAT permitió tener un acercamiento a lo que es una realidad laboral y aprender el uso de
+tecnologías desconocidas que enriquecieron el proceso de formación, igualmente se alcanzaron
+nuevos conocimientos en un área tan importante como la agronomía, además de entender todo
+el proceso que se lleva a cabo en la mejora de líneas de frijol.
+
+204.2. Trabajos Futuros
+
+Una forma de expandir la aplicación desarrollada es realizar la integración con otras ontologías
+pertenecientes a otros cultivos como lo son yuca, arroz, entre otros, con la finalidad de que se
+puedan cargar los libros de campo de estos cultivos, brindando a los investigadores los mismos
+beneficios que se obtuvieron en el programa de frijol.
+
+Complementar la aplicación con funcionalidades nuevas que permitan realizar una adecuada
+gestión de búsquedas logrando así una aplicación más integra y robusta.
+
+Finalmente, también implementar un mecanismo que apoye la forma en como se están
+registrando actualmente los datos que se obtienen del sistema integrado electrónico a BMS, de
+manera que se pueda realizar el paso directo de la información sin depender de excel, agregando
+eficiencia y confiabilidad a la información.
+
+26Referencias Bibligráficas
+
+11] Página oficial de CIAT, [Online]. Generalidades. Obtenido de:
+https: / /ciat.cgiar.org/es/nosotros
+
+[2] Glosario de jardinería, flores, plantas, botánica y medio ambiente, [Online]. Obtenido de:
+http: //www.infojardin.net /glosario /heterogamo /hibridacion.htm
+
+[3] Medmol.es. (Enero del 2014). Términos de glosario: Genotipado, [Online]. Obtenido de:
+http: //medmol.es/glosario /genotipado
+
+[4] Dra. Clara Goedert. (Mayo/Junio del 2002), Germoplasma conceptos, [Online]
+http: //www.seednews.inf.br/espanhol/seed63 /artigocapa63_esp.html
+
+15] Leandro Alegsa. (Mayo del 2010). Definición de módulo (programación), [Online]. Obtenido
+de: http: //www.alegsa.com.ar/Dic/modulo.php*sthash.BbC1Tuzy.dpuf
+
+[6] Wikipedia.org. Pedigrí, [Online]. Obtenido de: https: / /es.wikipedia.org/wiki/Pedigr %4C3 %AD
+
+7] Documentación de GMOD. (2013), Generic Model Organism Database, [online]. Obtenido
+de: https: / /en.wikipedia.org/wiki/Generic_Model_Organism_ Database
+
+[8] Documentación de CHADO. (2014), Introduction to Chado. [Online]. Obtenido de:
+http: //gmod.org/wiki/Introduction_to_ Chado
+
+[9] Andrew C. Oliver, Glen Stampoultzis, Avik Sengupta. Apache POI - the Java API for
+Microsoft Document, [Online]. Obtenido de: https: / /poi.apache.org/
+
+[10] James Cooper. (2000). Java Design Patterns: A Tutorial, [Online]. Obtenido de:
+https: / /books.google.hn/books?idSrJRusT69FcCZ¿printsecfrontcoverghl=esftv=onepageéqét=false
+
+[11] Genuitec, [Online]. Obtenido de: https: / /www.genuitec.com/products/myeclipse/
+
+[112] Gavin King, Christian Bauer, Max Rydahl Andersen, Emmanuel Bernard, y Steve Ebersole.
+(Septiembre 15 del 2010), Documentación de referencia de Hibernate. [Online]. Obtenido de:
+https: / /docs.jboss.org/hibernate/orm/3.5/reference/esES/html_single/
+
+113] Página oficial de JSF, [Online]. JavaServer Faces Technology. Obtenido de:
+http: //www.oracle.com/technetwork /java/javaee /javaserverfaces-139869.html
+
+114] Página oficial de  ICEfaces. ICEfaces Overview, [Online]. Obtenido de:
+http: //www.icesoft.org/java/projects/ICEfaces/overview.jsf
+
+115] Página oficial de Bootstrap. Getting started, [Online]. Obtenido de: https://v4alpha.getbootstrap.com/gettingstarted [introduction /
+
+27116] SILVIA ACID CARRILLO, NICOLAS MARIN RUIZ. (2009). Introducción a las bases de
+
+datos: el modelo relacional [Online]. Obtenido de: https: / /books.google.com.co/books?id2HwGwc57c0Cézprintsecfrontcover4hlesftvonepageészqdffalse
+
+117] integratedbreeding.net. (2015). Introduction, [Online]. https: / /www.integratedbreeding.net/15/breedingmanagement-system
+
+[18] Documentación de GMOD. (2013), What is a GMOD?. [Onlinej. Obtenido de:
+http: //gmod.org/wiki/OverviewfIntroduction
+
+119] Documento interno IBP. Phenotyping Data Management System for IBDB V3
+
+[20] DB-Engines Ranking, (2016). [Online]. Obtenido de: http: //db-engines.com/en/ranking
+
+[21] Fernando Alonso Amo, Loic Martínez Normand, Francisco Javier Segovia Pérez. (2005), Introducción a la ingeniería del  software. [Online]. Disponible en: https: / /books.google.com.co/books?id=rXU
+W54UatYCé£printsec=frontcoverghl=es+v=onepageézq4f=false
+
+[22] Steven Morris, Carlos Coronel. (2012), Bases de Datos, Diseño, Implementacion y Administracion. [Online]. Disponible en:
+https: / /books.google.com.co/books?id=KINCOGc_RREC¿printsec=frontcoveréghl=esftv=onepageézqét=
+
+[23] Página oficial de  JUnit, [Onlinej. Project Documentation. Obtenido de:
+http: //junit.org/junit4 /index.html
+
+28Anexo A
+
+Requerimientos Funcionales
+
+Numero Descripción
+
+RF1 El sistema deberá garantizar que solo accedan los usuarios registrados y activos.
+
+RF2 El sistema debe mostrar un mensaje en caso de que las credenciales de acceso no sean
+alidas.
+
+RF3 El sisterna debe permitir al usuario finalizar su sesión en la aplicación o debe cerrarla
+automáticamente después de un periodo de inactividad.
+
+RF4 El sistema debe permitir al usuario descargar un formato Excel que sirve de base para crea
+los libros de campo.
+
+RFS El sistema debe permitir al usuario cargar los libros de campos a la base de datos de Oracle.
+
+RF6 El sistema debe permitir cargar y procesar los ensayos a la base de datos MySQL de BMS en
+caso de no presentarse ningún error en la carga de ensayos a Oracle.
+
+RF? El sisterna debe validar que estén llenos todos los campos obligatorios en el template.
+
+RFE El sistema debe validar que el código de ensayo no exista en ninguna de las bases de datos.
+RF9 El sistema debe validar que cada Trait exista en la base de datos.
+
+RF10 El sistema debe validar que las medidas de los Traits leídas del témplate correspondan a lo
+rangos validos definidos.
+
+RF11 El sistema debe mantener el mismo orden con el que fue cargado el libro de campos en el
+ensayo correspondiente en BIS
+
+RF12 El sisterna debe permitir al usuario guardar una o más variables medidas por el sistema
+integrado electrónico para su correspondiente material y libro de campo en la base de dato
+MySQL de BMIS.
+
+El sistema deberá informar al usuario si ocurre un error en el archivo de carga, o si los dato
+que se ingresaron no corresponden.
+
+Requerimientos No Funcionales
+
+Descripción
+
+Para el desarrollo del sistema será utilizado como estándar la tecnología J2EE para el
+desarrollo de aplicaciones Web en java con metodología Faces
+
+RNF2 El sistema debe funcionar sobre un ambiente web, donde las interfaces tienen que esta
+implementadas para Internet Explorer v6.0 o mayor o para Firefox 2.0 o mayor.
+
+RMNFS3 El sistema debe utilizar la base de datos de Oracle propia de la aplicación para la gestión de la
+información y usuarios, y la base de datos MySQL de BIS.
+
+RNF4 El sisterna debe contar con manuales de usuario estructurados adecuadamente
+
+RMFS El sistema debe cargar en el menú principal y mostrar en todo momento el nombre de usuario
+que inicio una sesión.
+
+ 
+
+29

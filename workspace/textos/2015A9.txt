@@ -1,0 +1,2683 @@
+Gestión de licenciamiento para CT yS5
+
+Julian David Díaz Romero
+Cód. 1056272
+
+Universidad del Valle sede Tuluá
+
+Escuela de Ingeniería de Sistemas y Computación
+
+Programa de Ingeniería de Sistemas
+Agosto de 2016Gestión de licenciamiento para CT yS5
+
+Julian David Díaz Romero
+Cód. 1056272.
+
+Trabajo de grado en modalidad pasantía para optar el título de Ingeniero de
+Sistemas
+
+Director
+Joshua David Triana Madrid, Ing
+
+Codirector
+Herrera Carbonell Jerónimo, Ing.
+
+Universidad del Valle sede Tuluá
+
+Escuela de Ingeniería de Sistemas y Computación
+
+Programa de Ingeniería de Sistemas
+Agosto de 2016Nota de aceptación
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Presidente del Jurado
+
+ 
+
+Jurado 1
+
+ 
+
+Jurado 2
+
+Tuluá, Agosto de 2016
+
+111Resumen
+
+Para las organizaciones empresariales el uso de software es fundamental. Las necesidades en
+términos de la gestión de la información son cada vez mayores. Un claro ejemplo es la generación
+de información administrativa, financiera y comercial que los altos directivos requieren.
+
+El manejo de información genera una enorme tensión en los departamentos que gestionan
+este tipo de activos. De acuerdo a la necesidad de cada actividad empresarial, los departamentos
+deciden por su propia cuenta usar software diferente al pactado en los contratos con los titulares
+de los derechos. En consecuencia, esto deriva que el software instalado no corresponde con el
+software adquirido por la organizacion.
+
+Los entes de control periódicamente solicitan reportes para controlar la utilización de software
+no licenciado. Las organizaciones deben proveer un reporte actualizado que garantice el uso
+de software de acuerdo a las licencias adquiridas. Si al momento de entregar los reportes a los
+entes de control se presenten inconsistencias, puede acarrear riesgos legales para la empresa y
+sus directivos. Cuando se decide usar software sin licencia, las organizaciones están expuestas a
+multas millonarias, riesgos jurídicos, reputacionales y de seguridad. Para evitar sanciones, las
+organizaciones destinan grandes esfuerzos al control de esta situación.
+
+La empresa multinacional Carvajal S.A. es consciente de esta situación y como solución se
+ha implementado un sistema de información cuya administración busca permitir que por cada
+software que se encuentre instalado en el sistema, se consigne su respectiva orden de compra que
+
+respalda su adquisición.
+
+Palabras clave: Licencia, Software, Riesgo legales, Organizaciones empresariales.
+
+lvAbstract
+
+Tools such as software are important for business organizations or companies. Those tools are
+fundamental to develop business activities. Nowadays companies require to manage information
+assets constantly, that activity has increased the importance of software to handle such information. A frequent example are those high level requests that involve administrative, financial and
+commercial information.
+
+Manage information gives an enormous strain to those departments that handle that kind of
+assets. According to the activities that every company requires, each department may decide
+to install and use software that is not covered for a contractual covenant. In consequence, the
+software does not correspond to the software that the company has acquired.
+
+Control entities periodically makes report requests to prevent companies to use unlicensed
+software. The organizations must provide an updated report to assure that they are using
+software according to their licences. If there are inconsistencies, companies may have legal risks
+not only for the organization but for their main managers. When a company decides to use
+unlicensed software, they are exposed to fines, legal risks, reputational and security issues. “To
+avoid those kind of situations, the organizations are allocating huge amount of effort to keep the
+control of unlicensed software.
+
+Carvajal S.A is aware of this situation and as a solution it has implemented an information
+system whose administration will look after every software acquisition. In other words, for every
+
+software it will have the respective purchase order.
+
+Keywords: Licence, Software, Legal risks, Business organizations.Índice general
+
+1 Introducción
+
+1.1 Descripción general ............
+1.2 Contexto de la Organización ........
+121 Misión
+IDA
+1.23 Valores Corporativos...
+1.2.4 Valores Carvajal Tecnología y ServiciOS ............ . . . . . . . ..
+1.2.5 Descripción y estado actual de Carvajal S.A. ................
+1.2.6 Justificación...
+13 Objetivos ....
+1.3.1. Objetivo general .........
+1.3.2 ODjetivos especÍtICOs .......
+1.4 Resultados esperados .......
+1.5 Alcance de la pasantía ........
+1.6 Alcance de desarrollo . ............... e...
+
+Marco Referencial
+
+Dl Marco teórico...
+PL NEO
+21D Antecedentes...
+A
+
+Aspectos del desarrollo de software
+
+3.1 Metodología ........
+3.1.1 Historias de USUALIO
+3.1.2 RolesXP ........
+
+3.2 Desarrollo del proyecto. ........
+
+3.3 FASE 1. Exploración ..........
+3.3.1 Diagrama de paquetes .......
+3.3.2 Arquitectura en Capas...
+3.3.3 Características de los ÁCtOres . ............. . . . .. o... .o.
+3.3.4 Historias de Usuario...
+3.3.0 Diagrama de despliegue ............. . . +...
+3.3.6 Diagrama de Casos de Uso...
+3.3.7 Diagrama de la base de datos de Inventari0 ................
+3.3.8 Fuentes para la gestión de licenciamiento de software ...........
+
+3.4 FASE 2. Planificación
+
+35 FASE 3. Iteraciones ......
+
+13
+13
+14
+14
+14
+14
+14
+15
+15
+16
+16
+16
+16
+16
+17
+
+18
+18
+18
+18
+213.5.1 Módulo de Control de acceso a la aplicación . .................. 39
+
+3.5.2 Módulo Gestión de licenciamientos y contrato con los proveedores .... 34
+IS 36
+
+3.6 FASE 4. Producción ..... 31
+
+4 Pruebas 38
+Al Eases .... 38
+A 38
+A IA 38
+
+AL Fase... 39
+
+4.2 Caso de prueba CP_13 ........ 39
+
+5 Conclusiones y Resultados 48
+Dl Resultados... 48
+De Goamrlusiones ..... 48
+5.3 Experiencia durante el desarrollo de la pasantía . ........... ... . . ... 49
+DA Trabajos futuros... 49
+Referencias 51
+A Historias de usuario 53
+
+B Actividades para prácticas empresariales — Estudiantes Ingeniería de Sistemas 56
+B.1 Subproceso Servicio: Herramienta de flujos de trabajo para CTyS ......... 56
+B.2 Subproceso Servicio: Gestión de licenciamiento para CTYB............. 97
+
+11Indice de cuadros
+
+Tabla 1.1 Resultado esperado...
+
+Tabla 3.1 Requerimientos funcionales. ......... e...
+
+Tabla 3.2 Características de los Actores...
+Tabla 3.3 Modelo de historia de uUsUAarTOo.
+
+Tabla 4.1 Modelo de historia de USUAILIO.
+Tabla 4.2 Casos de Prueba, Registro de orden de compra, módulo de Gestión de
+órdenes de compra de licencias. ........
+Tabla 4.3 Casos de Prueba, Campos inválidos o nulos , módulo de Gestión de órdenes
+de compra de licencias. ......
+Tabla 4.4 Casos de Prueba, consultar las orden de compra de licencia, módulo de
+Gestión de órdenes de compra de licencias... ............ ... .. . . ..
+Tabla 4.5 Casos de Prueba, consultar las orden de compra de licencia, módulo de
+Gestión de órdenes de compra de licencias. . ............. .... . .. ..
+Tabla 4.6 Casos de Prueba, Editar Órdenes de compra de licenciamientos., módulo de
+Gestión de órdenes de compra de licencias. . ............. ... . . .. ..
+Tabla 4.7 Casos de Prueba, Campos inválidos o nulos , módulo de Gestión de órdenes
+de compra de licencias...
+Tabla 4.8 Casos de Prueba, Acceso lista de empresa , módulo de Seguridad. .......
+
+Tabla 4.9 Casos de Prueba, No tiene acceso, módulo de Seguridad. ..........
+Tabla 4.10 Casos de Prueba, módulo de “Cotizador”.....................
+
+Tabla A.1 Historias de usuario Registro, módulo de Gestión de órdenes de compra de
+Llrencias.
+Tabla A.2 Historias de usuario, Consulta, módulo de Gestión de órdenes de compra de
+lrencias.
+Tabla A.3 Historias de usuario, Actualizar, módulo de Gestión de órdenes de compra
+de licencias...
+
+Tabla A.4 Historias de usuario, Consulta, módulo de Seguridad. ............
+Tabla A.5 Historias de usuario, Módulo de Cotizar. ........... . . .. . . . ..
+
+111
+
+41Índice de figuras
+
+Figura 2.1
+
+Figura 3.1
+Figura 3.2
+Figura 3.3
+Figura 3.4
+Figura 3.5
+Figura 3.6
+Figura 3.7
+Figura 3.8
+Figura 3.9
+
+Tabla de datos en Excel ............... . e... 20
+Ciclos de la metodologia XP. ............ . . . e... 25
+Diagrama de Paquetes Fuente . ........... . .... e... 26
+Arquitectura en Capas Fuente ....... e... 27
+Despliegue del módulo de gestión de licencias . .................. 29
+Diagrama de Casos de Uso... 30
+Modelo de base de datos ............. e... 31
+Lista de empresa y país... 34
+Registrar DuUeva Compra 36
+Buscar Orden de compra... 36
+
+xlLista de anexos
+
+Anexo A: Historias de usuario.
+Anexo B: Actividades para prácticas empresariales — Estudiantes Ingeniería de Sistemas.
+
+x1lCapitulo 1
+
+Introducción
+
+1.1 Descripción general
+
+Este trabajo de grado en modalidad pasantía se realiza bajo el convenio de Carvajal S.A. y la
+Universidad del Valle sede Tuluá, para optar por el título de Ingeniero de sistemas. El trabajo de
+grado describe la implementación de un sistema de información encaminado al manejo de las
+licencias de software adquiridas por Carvajal S.A.
+
+Para la multinacional Carvajal S.A., que se compone de siete empresas: Carvajal educación, Carvajal espacios, Carvajal empaques, Carvajal pulpa y papel, Carvajal tecnología y servicios, Carvajal soluciones de comunicación y Carvajal información,
+el uso de software es fundamental pues las necesidades de información y la optimización de los
+procesos son cada vez mas complejos, lo que exige un mayor esfuerzo y rendimiento en términos
+funcionales de los sistemas informáticos y de la empresa Carvajal Tecnología y Servicios S.A.S.
+que los gestiona.
+
+La empresa Carvajal Tecnología y Servicios S.A.S. se encarga de ofrecer e integrar soluciones
+de tercerización de procesos de negocio, tercerización de tecnologías de información y aplicaciones
+en latinoamérica para los sectores consumo e industria, financiero y seguros, educación, gobierno,
+recursos naturales, telecomunicaciones y salud[1]. En la actualidad dispone de más de 10.000
+empleados, todos estos distribuidos en vértebras y cada una de estas basada en procesos. Carvajal
+TyS contiene el área de gestión tecnológica que se ocupa de la optimización de los procesos en
+las diferentes áreas.
+
+El área de gestión tecnológica determina el software que los usuarios requieren para diferentes
+tipos de tareas, por ende cada software es necesario para los procesos de Carvajal Tecnología y
+Servicios y en consecuencia cada uno debe tener su respectiva licencia.
+
+Esta necesidad genera una enorme tensión que provoca uso de software diferente al pactado en
+los contratos con los titulares de los derechos [1], por lo tanto requieren gestionar de forma precisa
+los activos de software para evitar infringir leyes de derechos de autor. Generalmente el software
+instalado no corresponde con el software comprado y al momento de entregar los reportes a los
+entes de control se presenten inconsistencias generando riesgos legales para la empresa y sus directivos. Así mismo, debido a que las herramientas y sus licencias hacen parte esencial del proceso
+al interior de Carvajal S.A., se debe considerar una herramienta que permita conocer el esta
+13do de cada licencia y su actualización para evitar sanciones legales o interrupciones en los procesos.
+
+Carvajal S.A. apoyado de Carvajal Tecnología y Servicios decide optar por inventariar los
+activos de software instalados en los sistemas informáticos corporativos. Para ello requiere de
+una herramienta que permitir que por cada software que se encuentre instalado en el sistema se
+consigne su respectiva orden de compra que respalda su adquisición.
+
+A continuación se describe la información relevante de la empresa Carvajal Tecnología y
+Servicios, los objetívos de este trabajo de grado y la justificación.
+
+1.2 Contexto de la Organización
+
+1.2.1 Misión
+
+"Comprendemos la cadena de valor de nuestros clientes en Latinoamérica y transformamos su
+desempeño, a través de soluciones integrales de tercerización de procesos de negocio y tecnologías
+de información" [2].
+
+1.2.2 Visión
+
+"Ser para el 2015 uno de los líderes en Outsourcing de procesos e integración de soluciones en
+América Latina transformando el desempeño de nuestros clie" [2].
+
+1.2.3 Valores Corporativos
+
+e "Orientación al cliente"
+e "Innovación"
+
+e "Integridad"
+
+e "Respeto"
+
+e "Compromiso social"
+
+1.2.4 Valores Carvajal Tecnología y Servicios
+
+e "Cumplimiento de compromisos'
+
+e "Pasión por el cambio"
+
+e "Cultura de métricas y mejoramiento continuo"
+e "Alto desempeño"
+
+e "Trabajo en equipo"
+
+141.2.5 Descripción y estado actual de Carvajal S.A.
+
+Carvajal Tecnología y Servicios S.A.S. es una compañía multinacional que ofrece e integra
+soluciones de tercerización de procesos de negocio, tercerización de tecnologías de información
+y aplicaciones en latinoamérica para los sectores consumo e industria, financiero y seguros,
+educación, gobierno, recursos naturales, telecomunicaciones y salud.
+
+Actualmente Carvajal TyS cuenta con más de 10.000 colaboradores en seis países de América
+Latina y más de 20.000 clientes en los diferentes sectores. Sus ingresos en 2014 fueron de 337
+millones de dólares [3].
+
+En la actualidad las leyes de derechos de autor son estrictas en cuanto a licenciamientos de
+software, la cantidad de estos y la amplitud de los rango de costos, por lo que se busca la gestión
+de los mismos en tiempo real para evitar multas y otras consecuencias|4).
+
+Carvajal S.A. ha identificado la necesidad de inventariar y mantener un registro de los bienes
+físicos y virtuales que cada colaborador requiere. Para lograr dicho objetivo, la organización
+cuenta con un software llamado System Center que fue adquirido como un esfuerzo para mitigar le
+desorganización del inventario. System Center se especializa en mantener un registro del software
+instalado en una estación de trabajo. Las caracteristicas tecnicas y de instalacion de system
+center no permite restringir el acceso por niveles de seguridad, por lo cual la herramienta es de
+libre acceso a cualquier usuario que posea la url dentro de la compañia.
+
+1.2.6 Justificación
+
+Colombia ha adoptado un rol protagónico en la defensa de los derechos de autor y la propiedad
+intelectual, desarrollando un conjunto de normas que regulan, protegen y penalizan a aquellas
+personas que violen estos derechos.
+
+La Ley 44 de 1993 especifica penas entre dos y cinco años de cárcel, así como el pago de
+indemnizaciones por daños y perjuicios a quienes comentan el delito de piratería de software.
+
+Se considera delito el uso o reproducción de un programa de computador de manera diferente
+a como está estipulado en la licencia. Los programas que no tengan licencia son ilegales y es
+necesaria una licencia por cada copia instalada en los computadores|4].
+
+Para la Universidad del Valle sede Tuluá el desarrollo de trabajos de grado en modalidad de
+práctica empresarial, permite ofrecer a sus estudiantes la posibilidad de aplicar los conocimientos
+adquiridos y conocer de primera mano el contexto empresarial y del desarrollo de software. Desde
+la perspectiva del estudiante, le permite afianzar los conocimientos adquiridos en el transcurso
+de la carrera y aplicarlos a cada uno de los procesos de desarrollo de software. Permite también,
+confrontar los conocimientos adquiridos y poder trasladarlos a cada una de sus áreas funcionales
+y lograr a partir de las actividades desarrolladas el título universitario [5].
+
+151.3 Objetivos
+
+1.3.1 Objetivo general
+
+Implementar un módulo que permita gestionar las licencias del software adquirido por por
+Carvajal S.A. para las diferentes área.
+
+1.3.2 Objetivos específicos
+
+1. Implementar un módulo para el control de acceso a la aplicación dependiendo del área
+empresarial.
+
+2. Implementar un módulo control de costos de licenciamiento.
+
+3. implementar un módulo que gestione los contratos de los diferentes proveedores.
+
+1.4 Resultados esperados
+
+A continuación se muestran los resultados esperados rigiéndose con los criterios solicitados por
+Carvajal S.A.
+
+ 
+
+ha
+
+Universidad
+
+del Valle Tabla resultados esperados
+
+ 
+
+ 
+
+Objetivos específicos Resultado esperado sección
+
+ 
+
+Elaborar el modelo y diseño de | Informe detallado con modelos y diagramas | 3.3
+la aplicación cumpliendo con | requeridos.
+los requerimientos del usuario.
+
+ 
+
+Implementar un módulo para | La implementación del módulo, el código | 3.5.1
+el control de acceso a la apli- | fuente del módulo que regule el acceso a
+cación dependiendo del área | la Herramienta, los pantallazos y vídeos
+empresarial. correspondiente.
+
+ 
+
+Implementar un módulo con- La implementación del módulo, el código | 3.5.2
+trol de costos de licenciamien- | fuente del módulo de control de costos, los
+to. pantallazos y vídeos correspondiente.
+
+ 
+
+Implementar un módulo que La implementación del módulo, código | 3.5.2
+gestione los contratos de los | fuente del módulo de control de contratadiferentes proveedores. ciones con los proveedores, los pantallazos
+y vídeos correspondiente.
+
+ 
+
+Diseño y ejecución de casos de | Documento con evidencia de ejecución de | 4
+pruebas y pruebas unitarias. Casos de pruebas.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cuadro 1.1: Resultado esperado.
+
+1.5 Alcance de la pasantía
+
+La técnica de investigación se realiza de acuerdo con la metodología y los lineamientos de Carvajal
+S.A. para obtener la información que se necesita de la empresa. Las fuentes primarias son la
+
+16información suministrada por la empresa y resultados de cada semana y técnicas de recolección
+de datos. Las fuentes secundarias son la bibliografía del área de sistemas, administrativa, legal,
+registros, archivo o documentos proporcionados por Carvajal S.A., técnicas de análisis de documentos revistas, informes institucionales, material digital e internet.
+
+Todas las semanas la información se recopila en las plantillas que son de uso exclusivo de la
+empresa Carvajal 'TyS. Según el cronograma se establece citas con el Co-director para que la
+información suministrada sea apropiada para la presentación que se realiza posteriormente cada
+vez que se termina la asesoría en cada una de las áreas.
+
+Junto con el desarrollo de esta propuesta también conocerá y ayudará con el desarrollo de
+otros proyectos para afianzar y ampliar los conocimientos adquiridos en la universidad pero
+principalmente se velará por el desarrollo de las funciones descritas en este documento.
+
+1.6 Alcance de desarrollo
+
+El estudiante desarrollará las actividades que se pacten inicialmente y que harán parte de los
+
+proyectos ofrecidos por Carvajal S.A. En el marco de esas actividades estarán el desarrollo de un
+
+un módulo para la gestión de las licencias de software propietario que Carvajal S.A. ha adquirido.
+Los módulos se regirán por los siguientes estándares:
+
+e Los módulos de gestión de ordenes de compras de licencias se desarrollaran para la plataforma
+Windows.
+
+e Los módulos en su totalidad se codificaran usando el lenguaje de programación .NET.
+Cualquier licencia inherente a este proceso deberá ser suministrada por Carvajal S.A.
+
+e Los módulos se desarrollaran siguiendo los lineamientos que Carvajal S.A. establezca y
+adaptándose a las condiciones del sistema donde será integrado.
+
+En el documento anexo C, entregado por Carvajal S.A. se suministra las actividades para
+prácticas empresariales, en el cual se encuentran los objetivos planteados anteriormente.
+
+17Capitulo 2
+
+Marco Referencial
+
+Es este capítulo se definen los conceptos relacionados con el trabajo de grado. En el Marco teórico
+se describen los apartados técnicos y la definición de las tecnología usadas. En los Antecedentes
+se detallan las actividades inherentes a la gestión de Licencias de Software y las características
+del Software para Gestionar Licencias.
+
+2.1 Marco teórico
+
+2.1.1 .NET
+
+.NET es un framework de Microsoft que hace énfasis en la transparencia de redes, independencia
+de plataforma y el rápido desarrollo de aplicaciones. Basado en el framework, Microsoft intenta
+desarrollar una estrategia horizontal que integre todos sus productos, desde el sistema operativo
+hasta las herramientas de mercado.
+
+El framework .NET puede considerarse una respuesta de Microsoft al creciente mercado de
+los negocios en entornos web, como competencia a la plataforma Java de Oracle Corporation y a
+los diversos frameworks de desarrollo web basados en PHP. La propuesta de Microsoft ofrece una
+manera rápida y económica, a la vez segura y robusta, de desarrollar aplicaciones o como la misma
+plataforma las denomina "soluciones"permitiendo una integración rápida y ágil entre empresas y
+un acceso más simple y universal a todo tipo de información desde cualquier tipo de dispositivo [5].
+
+2.1.2 Antecedentes
+
+Gestión de Activos de Software
+
+La gestión de activos se refiere al conjunto de actividades y prácticas, ejecutadas de manera
+sistemática y coordinada, por medio de las cuales una organización puede gestionar todos sus
+activos de software. Teniendo en cuenta los riesgos y gastos asociados al ciclo de vida del activo.
+Las licencias de software también son considerados activos que se deben tener administrados y
+controlados, ya que por medio de una buena gestión las empresas pueden saber el estado actual
+de las mismas y lograr algunos beneficios como los nombrados a continuación [8]:
+
+e Identificar qué software se tiene.
+
+18e Identificar y eliminar las instalaciones ilegales, evitando riesgos legales y de seguridad.
+e Evitar la redundancia.
+
+e Permitir reducir los gastos de software.
+
+e Identificar si el software instalado se está usando (uso efectivo).
+
+e Identificar el estado de licencias compradas vs instaladas.
+
+Software para Gestión de Licencias de Software
+
+Algunos de los elementos comunes en los sistemas de gestión de licencias son los siguientes:
+
+e Sistemas modulares independientes que intercambian información entre sí. Por medio de esta
+característica se logra que sean adaptables y compatibles a diversos tipos de necesidades.
+
+e Utilizan bases de datos centralizadas donde se almacena toda la información de la organización. En varios de los casos investigados se especifica el uso de base de datos relacionales.
+
+e Cuentan con consola o aplicación web para explorar la información existente en la base de
+datos. Algunos fabricantes realizan sus desarrollos en JavaScript, NET, CX
+
+e Uso de agentes para complementar las funciones del sistema, de tal forma que se deben
+instalar agentes en los equipos de la organización.
+
+e Estos agentes cuentan con la capacidad de extraer información tal como:
+
+— Fabricante, modelo y serial del equipo.
+— Datos de la memoria RAM .
+— Listado de software instalado.
+
+— Información relacionada con el sistema operativo.
+e En su mayoría no requieren contratación o compra de hardware adicional.
+e Permiten conexiones a distintas bases de datos y extracción de información de ellas.
+e Permiten a las organizaciones conectar su nuevo sistema a sus bases de datos propias.
+
+e Configuración de alarmas y recordatorios para conocer el estado actual de las licencias y
+cambios en los equipos donde se encuentran.
+
+e Personalización de reportes. Algunas de estas herramientas brindan la opción de personalizar
+los reportes de acuerdo a las necesidades de la empresa, es decir, al tipo de información
+que deseen visualizar.
+
+19Gestión usando archivos
+
+Actualmente, el manejo de la información de compras se gestiona a través de archivos de Excel
+que se almacenan en la base de datos.
+
+ 
+
+O 1 6 MR O EI El Aa lee ad Fechal
+
+96663781 1500 4705 Project Professional 2010 3 Colombia CTS 18/04/2012 10:34
+96663826 1500 4702 Project Professional 2010 3 Colombia CTS 12/05/2013 10:34
+96721457 1500 4702 Project Professional 2010 1 Colombia CTS 09/01/2011 11:10
+96787937 1500 4724 Project Professional 2010 1 Colombia CTS 11/10/2010 9:23
+96873703 1500 4700 Project Professional 2013 7 Colombia CTS 14/06/2010 9:23
+96844107 1950 4948 Project Standard 2010 4 Colombia CTS 11/06/2010 9:23
+96879539 1950 4941 Project Standard 2013 5 Colombia CTS 17/07/2011 10:34
+96851223 1950 4948 Project Standard 2010 2 Colombia CTS 18/03/2011 10:34
+96856451 1950 4941 Project Standard 2010 4 Colombia CTS 19/11/2011 10:34
+96888326 1950 4941 Project Standard 2013 2 Colombia CTS 07/02/2012 10:34
+96760008 1950 4946 Project Professional 2010 1 Colombia CTS 01/05/2012 7:32
+96705400 1950 4949 Project Professional 2010 1 Colombia CTS 22/03/2012 10:34
+96792545 1950 4959 Project Standard 2010 4 Colombia CTS 15/09/2014 10:34
+96792545 1950 4945 Project Standard 2010 1 Colombia CTS 02/07/2012 10:34
+96883271 1980 4913 Project Professional 2013 1 Colombia CTS 18/08/2012 8:14
+96887847 1980 4980 Project Standard 2013 3 Colombia CTS 07/01/2012 10:34
+96890947 1985 4914 Project Standard 2013 1 Colombia CTS 08/01/2012 10:34
+96661886 3605 3516 Project Standard 2010 1 Colombia CTS 09/01/2012 10:34
+96668144 3605 3516 Project Standard 2010 1 Colombia CTS 03/04/2014 10:34
+96715097 3605 3516 Project Professional 2010 2 Colombia CTS 22/05/2014 10:34
+
+Figura 2.1: Tabla en excel de datos. Fuente Carvajal Téz5
+
+ServiceDesk Plus
+
+Permite la eliminación de tareas manuales que requieren esfuerzo para mantener y validar el
+cumplimiento del licenciamiento del software utilizado en la organización [6]. La detección de
+dispositivos ofrece automáticamente una lista completa de todos los dispositivos conectados a la
+red. Permite a los administradores identificar los dispositivos que tengan instalados activos de
+software administrados. El inventario de software proporciona una visualización completa y en
+tiempo real de las aplicaciones instaladas, lo que ayuda a garantizar que las organizaciones sepan
+qué aplicaciones están instaladas y en qué sistemas. El cumplimiento de licencia de software
+permite la asignación y la conciliación de las licencias de software con el software detectado
+automáticamente, lo que ayuda a garantizar que las organizaciones cumplan con los términos de
+los acuerdos de licencias y puedan llevar un control de las instalaciones de software no autorizado
+fácilmente.
+
+METRIX
+
+Aranda software METRIX permite identificar las aplicaciones usadas con frecuencia en la empresa
+y de esta manera decidir entre actualizar o comprar nuevos programas, teniendo en cuenta los
+indicadores de uso y las necesidades de cada área de trabajo en las organizaciones [7].
+
+Beneficios:
+
+e Permite conocer el valor y vencimiento de las licencias adquiridas.
+
+20e Facilita la administración de licenciamiento.
+
+e "Toma decisiones de compra de licencias, basado en los registros de uso de software de la
+organización.
+Riesgos legales del uso de software sin licencia
+
+Los riesgos legales[10] y contractuales que se generan del uso indebido y sin licencia de software
+son:
+
+e Perder un concurso público por utilizar software sin licencia.
+
+e Impacto en una fusión o adquisición de otra empresa.
+
+e Acceso de la empresa al crédito y a otros recursos financieros.
+e Perder la empresa una subvención o una ayuda pública.
+
+e Afectar la seguridad de los sistemas informáticos corporativos.
+
+e La actividad normal de la empresa puede verse afectada.
+e Perder la certificación ISO 9001.
+
+e Se incrementa el riesgo de recibir reclamaciones de clientes.
+
+La Ley 44 de 1993 específica penas entre dos y cinco años de cárcel, así como el pago de
+indemnizaciones por daños y perjuicios a quienes comentan el delito de piratería de software.
+Se considera delito el uso o reproducción de un programa de computador de manera diferente
+a como está estipulado en la licencia. Los programas que no tengan licencia son ilegales y es
+necesaria una licencia por cada copia instalada en los computadores|10] .
+
+2.1.3 Glosario
+
+Framework:
+
+Un Framework es un entorno o ambiente de trabajo para desarrollo. Dependiendo del lenguaje
+normalmente integra componentes que facilitan el desarrollo de aplicaciones como el soporte de
+programa, bibliotecas, plantillas y más [10].
+
+Directorio Activo:
+
+Base de datos que contiene información relacionada con usuarios, computadores, servidores,
+grupos de trabajo y demás recursos que interactúan y se encuentran dentro de la red CARVAJAL
+S.A. Es actualizada manualmente de forma constante[15).
+
+Licencia:
+
+Contrato entre el desarrollador de un software sometido a propiedad intelectual y a derechos de
+autor y el usuario, en el cual se definen con precisión los derechos y deberes de ambas partes.
+Es el desarrollador, o aquél a quien éste haya cedido los derechos de explotación, quien elige la
+licencia según la cual distribuye el software [11].
+
+21Derecho de autor:
+
+Forma de protección proporcionada por las leyes vigentes en la mayoría de los países para
+los autores de obras originales incluyendo obras literarias, dramáticas, musicales, artísticas e
+intelectuales, tanto publicadas como pendientes de publicar [12].
+
+Centro de Costos (CC):
+
+Clasificación dentro de Carvajal Tecnología y Servicios que permite identificar hacia dónde se
+dirigen los diversos costos que existen como de personal, equipos, proyectos, etc [15].
+
+UEN:
+
+Se refiere a la clasificación que Carvajal Tecnología y Servicios se utiliza para definir las unidades
+estratégicas de negocio [15).
+
+Colaborador:
+
+Empleado de Carvajal Tecnología y Servicios CSS: Hojas de estilo en cascada, usadas para el
+manejo de aspecto en la aplicación web [15].
+
+Directorio Activo (DA):
+
+Base de datos que permite almacenar información de los recursos de una red con el fin de facilitar
+su localización y administración [15).
+
+22Capitulo 3
+
+Aspectos del desarrollo de software
+
+En el presente capítulo se describe el proceso de desarrollo de la aplicación para licenciamientos.
+En la primera sección, presenta la metodología escogida para el desarrollo y se describe la misma.
+La segunda sección describe las fases que fueron llevadas a cabo durante el desarrollo de los
+módulos solicitados por la Carvajal S.A. En la tercera sección se muestra el diseño realizado
+en la fase de exploración . En la cuarta sección se muestra la implementación, dentro de la
+implementación se explica el desarrollo de los módulos, como se usan, definen los requerimientos,
+los módulos del sistema y las historias de usuario y pruebas.
+
+3.1 Metodología
+
+La metodología es un conjunto de procedimientos, técnicas, herramientas y un soporte documental
+que ayuda a los desarrolladores a realizar un nuevo software. Puede seguir uno o varios modelos
+de ciclo de vida para indicar qué se debe obtener a lo largo del desarrollo del proyecto pero no
+cómo hacerlo.
+
+Cada uno de los modelos de ciclo de vida describe las diferentes actividades, acciones y
+tareas organizadas cronológicamente, y en general en cada ciclo se desarrollan cinco actividades
+principales: comunicación, planeación, modelamiento, construcción y entrega [13].
+
+Para cumplir con el objetivo de este proyecto se basará en la metodología XP [15] y se seguirán
+los lineamientos de esta metodología, empezando por recolectar la información pertinente del
+proyecto de parte de los usuarios.
+
+Se tendrán en total de tres módulos los cuales se entregarán por ciclos, por cada uno de ellos
+se hará una fase de análisis y diseño.
+
+Los módulos se realizarán en un modelo iterativo, al terminar cada uno de estos se inicia de
+nuevo el análisis del siguiente y se continuará con el otro. Al finalizar todos los ciclos se hará
+una fase de retroalimentación la cual se implementará para garantizar la calidad del aplicativo
+haciendo las pruebas y correcciones necesarias y su respectivo manual de uso.
+
+3.1.1 Historias de usuario
+
+Las historias de usuario son la técnica utilizada en XP para especificar los requisitos del software.
+El tratamiento de las historias de usuario es muy dinámico y flexible, en cualquier momento
+
+23historias de usuario pueden romperse, reemplazarse por otras más específicas o generales, añadirse
+nuevas O ser modificadas [16].
+
+En un principio se manejaron historias de usuario muy específicas y detalladas que con el
+tiempo que convirtieron en generales las cuales se adjuntan en el anexo A.
+
+3.1.2 Roles XP
+
+Para realizar el presente proyecto se cuenta con un grupo de trabajo que tiene las competencias
+necesarias para llevar a cabo los diferentes roles que se necesitan. A continuación se describen
+
+116):
+
+Programador: Julian David Diaz
+
+El programador hace las pruebas unitarias y produce el código del sistema.
+
+Cliente: Jerónimo Herrera Carbonell
+
+El cliente escribe las historias de usuario y las pruebas funcionales para validar su implementación.
+Además, asigna la prioridad a las historias de usuario y decide cuáles se implementan en cada
+iteración centrándose en aportar mayor valor al negocio, ya que es el responsable dentro del
+proceso de planeación tecnológico y de desarrollar y administrar el plan estratégico de tecnologías
+de información en el interior de la compañía.
+
+Encargado de pruebas (Tester): Julian David Diaz
+
+El encargado de pruebas ayuda al cliente a escribir las pruebas funcionales. Ejecuta las pruebas
+regularmente, difunde los resultados en el equipo y es responsable de las herramientas de soporte
+para pruebas.
+
+Encargado de seguimiento: Carolina Crespo Chavarro
+
+Como su nombre lo indica la encargado del proyecto, proporciona realimentación al equipo en el
+proceso XP, estima y vigila los tiempos en cada iteración de las etapas. Dentro de la compañía es
+la analista área gestión tecnológica.
+
+3.2 Desarrollo del proyecto
+
+El ciclo de vida ideal de XP consiste de seis fases [15]: Exploración, Planificación de la Entrega
+(Release), Iteraciones, Producción, Mantenimiento y Muerte del Proyecto. Dichas fases fueron
+llevadas a cabo durante el desarrollo de los módulos solicitados por la empresa. Cabe resaltar
+que en todas las iteraciones de este ciclo el cliente manejo el ámbito de entrega del producto,
+para asegurarse que el sistema tenga el mayor valor de negocio posible con cada iteración. Todo
+esto es logrado con las reuniones en las iteraciones, en donde se muestra el avance del desarrollo.
+
+24Planificación — a Múltiples
+Qs lteraciones
+
+Exploración Refinamiento del plan Producción
+——— Mantenimiento
+
+Figura 3.1: Ciclos XP Fuente [16]
+
+3.3 FASE 1. Exploración
+
+En esta fase, el cliente plantea a grandes rasgos las historias de usuario que son de interés
+para la primera entrega del producto. Al mismo tiempo el equipo de desarrollo se familiariza
+con las herramientas, tecnologías y prácticas que se utilizarán en el proyecto pues se prueba
+la tecnología. La fase de exploración se llevo a cabo durante el primer mes de la pasantía,
+en la cual se participó en los procesos de aprobaciones de instalación de software, control de
+inventarios de software instalado, control de inventarios de software comprado, conocimiento y
+depuración de las bases de datos existentes en la organización, con lo cual se logró obtener conocimiento sobre cada uno de los procesos que intervienen en la gestión del licenciamiento de software.
+
+Levantamiento de requerimientos
+
+Como parte del proceso de la exploración se construye una especificación de los requerimientos,
+en la tabla 3.1 se listan los requerimientos funcionales del sistema SILIC.
+
+3.3.1 Diagrama de paquetes
+
+A continuación, en la figura 3.2 se muestra el diagrama de paquetes. Este modelo fue previamente
+diseñado por el área de análisis tecnológico de Carvajal Tecnología y servicios y fue usado en este
+proyecto para continuar con la estructura que previamente el área de desarrollo había definido.
+El diagrama se compone de cuatro (4) paquetes principales y dos (2) paquetes dependientes. Por
+política de Carvajal S.A. este diagrama no muestra en detalle la estructura completa del sistema
+pero permite evidenciar a alto nivel las relaciones entre los componentes.
+
+El paquete “Pages” contiene las páginas web del sistema o el componente visual de la aplicación. El paquete “Lógica” contiene la funcionalidad sensible y esencial de la aplicación también
+denominada “lógica del negocio”. En el paquete “Entity” se encuentran las entidades que se
+encargan de mapear las tuplas consultadas desde la base de datos a objetos en el lenguaje usado.
+Por último el paquete “Admin” contiene los DAOs (Data Access Objects) y las interfaces que
+facilitan la comunicación con la base de datos.
+
+20del Valle Especificación de Requerimientos Revisión: 001
+01-08-2015 | Gestión de licenciamiento para CTyS
+Requerimientos funcionales, Sistema SILIC
+
+Req. Descripción
+
+R 1.1 El sistema en el módulo de gestión de órdenes de compra debe permitir al
+usuario con permisos suficientes la posibilidad de registrar órdenes de compra
+de licencias
+
+R 1.2 El sistema en el módulo de gestión de órdenes de compra debe permitir al
+usuario con permisos suficiente la posibilidad buscar las órdenes de compra
+
+R 1.3 El sistema en el módulo de gestión de órdenes de compra debe permitir al
+usuario con permisos suficiente la posibilidad de Editar las órdenes de compra
+de licencias que seleccione
+
+R 1.4 El sistema en el módulo de gestión de órdenes de compra debe permitir al
+usuario con permisos suficiente la posibilidad de ingresar al sistema
+
+R 1.5 El sistema en el módulo de “Cotizador” debe permitir al usuario con los
+permisos suficiente seleccionar los (activos) de un nuevo empleado y generar
+un estimado del costo anual de este
+
+Cuadro 3.1: Requerimientos funcionales.
+DaosCalculadora
+DaosOC
+Logica Daos Software
+E]
+
+LogicaCalculadora |
+Pages crrrrrr
+LogicaOC |
+
+ 
+
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+  
+
+Logica Software
+
+ 
+
+——
+
+¡Calculadora
+
+ 
+
+10C
+
+Calculadora
+
+ 
+
+ 
+
+ 
+
+ISoftware
+
+ 
+
+ 
+
+ 
+
+oc
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Software
+
+ 
+
+ 
+
+Figura 3.2: Diagrama de Paquetes Fuente [14]
+
+3.3.2 Arquitectura en Capas
+
+Para el desarrollo del módulo de reportes se utilizó una arquitectura en capas, en la cual cada
+una cumple un rol y tiene sus funciones definidas.
+
+26Capa de presentación:
+
+Esta es la capa que el usuario ve, fue realizada utilizando componentes HTML, ASPX, CSS y el
+framework Bootstrap. Permite capturar la información requerida por el usuario y comunicarla a
+la capa de la lógica del negocio.
+
+Capa de lógica del negocio:
+
+Esta capa recibe los datos o solicitudes de la capa de presentación, aquí se establecieron todas las
+reglas,condiciones, cálculos y validaciones que debían cumplirse. Esta capa podría denominarse
+como el “Core” del proyecto, porque es donde se procesan los puntos fuertes de éste. Es la capa
+que se comunica tanto con la capa de presentación para recibir los datos y mostrar resultados,
+como con la capa de acceso a datos para solicitar la información pedida.
+
+Capa de acceso a datos:
+
+Contiene las clases necesarias para interactuar con la base de datos, de tal forma que por medio
+el uso del framework Spring.NET se accedió directamente a los procedimientos almacenados en
+el servidor de la base de datos SQL Server.
+
+Se comunica únicamente con la capa de lógica del negocio para enviarle los resultados obtenidos
+directamente desde la base de datos.
+
+ 
+
+ 
+
+Figura 3.3: Arquitectura en Capas Fuente [14]
+
+3.3.3 Características de los Actores
+
+Las características de los actores se enuncian en la 3.2 a continuación:
+
+had
+
+Universidad
+
+del Valle Especificación de Requerimientos Revisión: 001
+01-08-2015 | Gestión de licenciamiento para CTyS
+Características de los Actores
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Nombre Descripción
+Usuario Colaborador de Carvajal S.A. que tiene permisos de lectura y edición sobre las
+funcionalidades del software, solamente a la empresa correspondiente
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cuadro 3.2: Características de los Actores.
+
+273.3.4 Historias de Usuario
+
+El siguiente modelo es el que se uso durante el desarrollo. Las demás historias de usuario se
+encuentran en el anexo A.
+
+ 
+
+ha
+
+Universidad
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+delvale_ | Identificador de la HU HU1
+Rol Usuario
+l Necesito crear una nueva orden de compra de licencia. Puedo asignarle
+Funcionalidad
+la UEN, centro de costos y empresa a la que tengo permisos
+Resultado Orden de compra de licencia registrada.
+
+ 
+
+Número de Escenario
+
+1
+
+2
+
+ 
+
+Criterio de Aceptación
+
+Ingresar software nuevo
+
+Validar campos
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Contexto En caso que el Software no existe En caso que se ingresen campos vacÍos.
+Cuando se selecciona la opción “agre- ”
+Evento » Cuando se selecciona la opción
+gar software , ,
+Guardar”.
+Comportamiento | El sistema debe permitir agregar un l ,
+El sistema notificará que hay campos
+esperado nuevo software
+
+vacíos.
+
+ 
+
+Cuadro 3.3: Modelo de historia de usuario.
+
+3.3.5 Diagrama de despliegue
+
+A nivel físico se encuentra dos servidores de base de datos en la organización, la base de datos de
+SCCM y la del Directorio Activo de la empresa. Ambas están integradas, es decir, si se realizan
+cambios en el Directorio Activo en términos de usuarios, equipos o software se ven reflejados
+inmediatamente en SCCM. Adicionalmente se utilizaron dos servidores, el correspondiente a la
+base de datos de la aplicación y otro para contener la aplicación. Se resalta que el servidor de
+base de datos del proyecto se comunica directamente con el servidor de base de datos de SCCM,
+quien a su vez se comunica con el Directorio Activo. Ver figura 3.4 .
+
+285
+
+     
+
+Servidor de
+Servidor web Base de Datos
+e Semáidor Base Directorio
+A? de Datos SCCM Activo
+pe a Carvalal
+
+      
+
+2=
+
+Figura 3.4: Despliegue del módulo de gestión de licencias, Fuente [14]
+
+3.3.6 Diagrama de Casos de uso
+
+A continuación, en la figura 3.5 se muestra el diagrama de casos de uso realizado para la aplicación.
+
+29Crear o asignar licencias compradas
+
+   
+ 
+      
+     
+     
+ 
+  
+ 
+
+<Include>,
+
+<extend>
+
+Solicitar acceso das Llenar formulario Establecer precio de compra
+
+<Include>
+<extemd> extend>
+
+<Include> Establecer Cantidad
+
+establecer Fecha de compra
+
+extend> A <Include>
+LIZ
+<> ¿Include>
+<extend>
+
+Gestionar Ordenes de compra
+Editar Orden
+
+<Include>
+
+Crear o asignar Proveedo
+
+Figura 3.5: Diagrama de Casos de uso Fuente propia
+
+3.3.7 Diagrama de la base de datos de Inventario
+
+A continuación, en la figura 3.6 se muestra el modelo relacional de la base de datos. Este modelo
+fue previamente diseñado por el área de análisis tecnológico de Carvajal Tecnología y servicios.
+
+Este modelo no puede ser modificado pues actualmente se trabaja con él, y su modificación
+implicaría el cambio de las aplicaciones que trabajan con la base de datos.
+
+Por ello, no estaba dentro del alcance cambiar el modelo relacional. Durante la pasantía los
+módulos fueron desarrollados siguiendo este diseño.
+
+30Usuario PKiNombreEquipo) Software_Equipo
+
+PK(Usuario Serial PK, FK(NombreEquipo)
+Cedula so PK, FK(IDSoftware
+Nombre Marca
+
+Pais Modelo
+
+Sede FK(Usuario)
+Cargo
+
+Email
+FK(NITEmpresa)
+FK(CodigoUEN)
+FK(CodigoCentroCostos
+
+ 
+
+ 
+
+ 
+
+PK(IDSoftware)
+Nombre
+Version
+Edicion
+
+ 
+    
+   
+   
+
+Empresa
+
+PK(NITEmpresa
+Nombre
+
+Software_OrdenDeCompra_Proveedor
+
+  
+    
+         
+    
+
+ 
+
+PK(CodigoUEN) OrdenDeCompra PK. FK(NITProveedor
+
+PK(CodigoCentroCostos PK(NumeroOrden PK, FK(NumeroOrden
+NombreUEN Descripcion Á PK FKIValorUnitario
+NombreCentroCostos FK(NITEmpresa PK. FX(Fecha)
+
+FK(CodigoUEN)
+FK(CodigoCentroCostos
+
+Proveedor
+
+PK(NITProveedor)
+NombreProveedor
+NombreContrato
+
+  
+  
+
+PK, FK(IDSoftware)
+
+  
+
+TelefonoContacto
+CorreoContacto
+
+ 
+
+ 
+
+Figura 3.6: Modelo de base de datos Fuente [14].
+
+En la tabla Usuarios se guarda la información de los usuarios: la cédula, nombre, país y cargo.
+Este usuario posee un computador, trabaja para una empresa y esta bajo una UEN y un centro
+de costo específico.
+
+En la tabla Equipo se evidencia la información referente a cada computador, como la serie, el
+nombre, el sistema operativo , la marca y el usuario que tiene a su cargo este equipo.
+
+En la tabla Software se evidencia la información referente a cada licencia, como el nombre,
+versión y edición de esta que se encuentra ligada a un relación muchos a muchos con el equipo
+debido a que un equipo puede tener más de una licencia instalada y cada licencia puede estar en
+más de un computador.
+
+En la tabla Proveedor se evidencia la información referente a cada proveedor, como el NIT, el
+nombre del proveedor, el nombre del contrato, el teléfono y el correo que se encuentra ligada a un
+relación muchos a muchos con el software y órdenes de compra esta relación es la más compleja
+porque asocia que software se le compró a que proveedor mediante qué número de orden esta
+relación también almacena la fecha y el valor de la licencia en esa fecha.
+
+En la tabla OrdenDeCompra se evidencia la información referente a cada orden de compra o
+contrato de compra con el proveedor como el número de la orden, una descripción el NIT de la
+empresa que hizo la compra y el área que se referencia con la UEN y el centro de costo que hizo
+la orden.
+
+En la tabla Empresa se evidencia la información referente a la empresa como el NIT de la
+empresa y el nombre.
+
+En la tabla EstructuraFinanciera se evidencia la información referente a la UEN y Centro de
+costo de la empresa, cada combinación es única y cada área posee su propia UEN y Centro de
+
+31costo, por eso se usa una llave primaria doble.
+
+3.3.8 Fuentes para la gestión de licenciamiento de software
+
+Como parte del proceso de desarrollo se identifican las fuentes existentes dentro de la organización
+con las cuales la aplicación debe interactuar. Ya que las fuentes contienen la información requerida
+para gestionar las licencias de software. Las fuentes identificadas fueron:
+
+Meta 4:
+
+Base de datos de nómina, contiene la información pertinente a los usuarios activos en la organización con sus respectivos datos personales, ésta es la base de datos más actualizada respecto a
+los colaboradores actuales en la organización. Por medio de ella se administra la nómina. [15|
+
+3.4 FASE 2. Planificación
+
+En esta fase el cliente establece la prioridad de cada historia de usuario, y correspondientemente,
+el programador realiza una estimación del esfuerzo necesario de cada una de ellas. Se toman
+acuerdos sobre el contenido de la primera entrega y se determina un cronograma en conjunto con
+el cliente.
+
+En el proyecto durante la fase de planificación se realizan una serie de reuniones donde se
+estudian los diferentes módulos a desarrollar y se llega a la conclusión que el módulo de control
+de licencias es el de mayor esfuerzo y el módulo de control de acceso a la aplicación es el módulo
+de mayor prioridad, se estima el tiempo de la totalidad de los módulos a 5 meses y se estima un
+tiempo de 2 meses para realizar las integración de los módulos a la aplicación SILIC,las pruebas
+y correcciones respectivas.
+
+35 FASE 3. Iteraciones
+
+En esta fase se realizan la arquitectura de las iteraciones que se van a abordar durante el desarrollo
+del proyecto.
+
+En el proyecto durante la fase de iteraciones se realizan un reunion donde se decide el tiempo
+de la iteraciones, las cuales serán de un mes y al terminar cada una de ellas se compartirán los
+avances obtenidos con el cliente.
+
+El resultado de los avances serán una o varias historias de usuario terminadas, problemas
+
+encontrados durante el desarrollo y sugerencias para cambios en las historias de usuario. A
+continuación se muestra el resultado final de las iteraciones.
+
+323.5.1 Módulo de Control de acceso a la aplicación
+Ingreso a la aplicación
+
+La aplicación se encuentra en un servidor de Carvajal "Tecnología y servicios, tiene un link en la
+página de colaboradores a la cual solo se puede acceder desde la VPN de la compañía, al ingresar
+en este enlace, redirecciona al usuario a la página inicial donde podrá seleccionar lo que desee,
+siempre y cuando tenga los permisos necesarios.
+
+Para el ingreso a la VPN de la empresa, el empleado debe loguearse con su usuario dominio y
+su respectiva contraseña, así se controla la seguridad para esta aplicación en Carvajal tecnología
+y servicios.
+
+Para el desarrollo del módulo se dividió en dos partes, por un lado se trabajó la seguridad
+y manejo de usuario dominio y por otra los permisos a cada uno de estos usuarios, debido al
+manejo interno de la empresa solo se gestionaron los permisos que se concedían a cada uno de los
+usuarios. En este documento solo abordaremos el desarrollo de los permisos.
+
+Solicitud y asignación de permisos
+
+El proceso de solicitud y asignación de permisos requiere un correo previo del jefe donde indica
+empresa, país, UEN y Centro de costo a la que se le va a otorgar acceso. El usuario al iniciar por
+primera vez la aplicación y si no se han concedido los permisos, en la página inicial se muestra
+un aviso el cual informa que no posee los permisos necesarios para acceder al servicio y debe
+solicitarlos. En esta página de solicitud de permisos el usuario debe incluir el motivo por el cual
+necesita acceso a la aplicación. En ese momento le manda una solicitud de permisos al encargado
+de la aplicación el cual debe constatar que los permisos solicitados han sido aprobados por el
+correo del jefe y proceder a otorgarlos.
+
+Desarrollo
+
+Se creó una tabla con botones seleccionables, la cual el encargado debe llenar seleccionando los permisos que va a asignar es decir, las herramientas que puede usar, las empresas, UEN's, Centro de
+costos, y países que puede asignar y consultar, esta información se guarda en una tabla y en el momento que este usuario ingrese de nuevo el sistema verifica los permisos que posee y se le dá acceso.
+
+Durante el desarrollo del módulo de control de acceso se plantearon diversas soluciones
+para abordar este problema, una de ellas era la implementación de un login, ésta propuesta fue
+rechazada por parte del cliente, debido a que demandaría un soporte adicional relacionado con
+las contraseñas y esfuerzo innecesario por parte del usuario. Finalmente, se decide el uso del
+usuario dominio de la VPN de la empresa.
+
+En el módulo de control de acceso no se permite utilizar el usuario dominio de la VPN dado
+el rol de “estudiante” con el que contaba en la empresa por motivos de seguridad, por lo cual se
+decide continuar con la realización de la gestión de permisos que se le conceden al usuario y el
+control de sesión en la aplicación, este módulo se terminó en el tiempo estipulado pero nunca se
+
+33realizó la integración a producción por decisión de la empresa.
+
+El módulo de control de acceso finalmente carga la empresa y país a los que tiene acceso el
+usuario como lo muestra la figura 3.7 .
+
+Todo esto se hizo siguiendo los lineamientos dados en las historias de usuario, queda constancia
+que todas las pruebas se realizaron y fueron documentadas en los anexos A y B.
+
+Dajs Colombia ”
+
+Empresa Tecnologia "
+
+Figura 3.7: Lista de empresa y país, Fuente: aplicación SILIC Carvajal TéZS
+
+3.5.2 Módulo Gestión de licenciamientos y contrato con los proveedores
+
+Para la gestión de licenciamientos se consideraron dos partes. La primera parte es en la cual se
+tiene en cuenta que ya se contaba con un módulo que consultaba los datos, por lo cual se modificó
+el mismo para la primera fase de consulta y finalmente se extendió dado que solo generaba
+estadísticas. Por eso se le agregó la función de consultar los datos de nombre del software, número
+de Contrato u orden de compra y fecha, además de una interfaz de consulta específica para
+implementar los requerimientos adicionales, entre ellos la opción de modificar los criterios de
+búsqueda. Por ello, al finalizar la consulta y seleccionar uno de los elementos se despliega una
+ventana con los datos y es posible modificarlos. La otra parte de este módulo es la posibilidad
+de agregar nuevas órdenes de compra, que además de almacenar la orden, agrega los datos
+relacionados de la misma.
+
+Desarrollo Módulo Gestión de licenciamientos
+
+Para el desarrollo de este módulo se dispuso un tiempo de 2 meses en el cual se realizo la
+codificación y con reuniones semanales se ajustaron las historias de usuario. Se entiende la
+relación directa entre producto de software y la licencia, por ello se agrego la opción en el modulo
+el cual se encarga de gestionar el software en caso que el producto sea nuevo o alguna de las
+características del software cambie.
+
+Desarrollo Módulo Gestión de contrato con los proveedores
+
+Para el desarrollo de este módulo se dispuso un tiempo 2 meses en el cual se realizó la codificación
+y con reuniones semanales se ajustaron las historias de usuario. Se entiende que los proveedores
+tienen una relación directa con el nombre del software y se decide integrar acceso al módulo de
+gestión de software.
+
+34Desarrollo Módulo Gestión de Órdenes de compra
+
+Al finalizar se deciden unificar los módulos anteriores como el módulo Gestión de Órdenes de
+compra, debido a que se analizo que se relacionaban directamente y si se desea agregar una nueva
+licencia y no se contaba con un contrato con proveedor esta no se podía adicionar, en el momento
+que se agrega una nueva licencia y ya se cuenta con un contrato simplemente se asigna a este, de
+lo contrario se crea un nuevo contrato.
+
+Este módulo requirió de tiempo y desarrollo de manera fragmentada ya que maneja las
+licencias y los proveedores además que también interactúa con los tipos de software y órdenes
+de compra. Este módulo finalmente presenta más a profundidad el manejo de las licencias y las
+compras. Para dar cumplimiento a los requerimientos se trabajó al lado de los encargados de
+diligenciar las órdenes de compra en el sistema y se conocieron los inconvenientes que presentaban.
+Se concluye que el uso de esta aplicación les facilita el trabajo debido a que anteriormente debían
+solicitar ayuda de terceros , pues no conocen el lenguaje SQL para obtener información de las base
+de datos, y esto causaba que el trabajo fuera más complicado y tedioso de lo que realmente debía
+ser. Ahora con la aplicación pueden consultar información de manera rápida y sin intermediarios.
+
+Registro
+
+Usando los datos que se deben llenar en la base de datos para agregar una nueva licencia y
+un nuevo contrato, se crea una interfaz con los mismos y siguiendo las historias de usuario se
+observa que si la licencia y contrato no existe finaliza la tarea almacenando la información como
+lo muestra la figura 3.8.
+
+Consulta
+
+Siguiendo las especificaciones de las historias de usuario se crea una interfaz de consulta filtrada
+con los datos solicitados: nombre del software, número de contrato, fecha de adquisición esto
+muestra una lista para seleccionar los datos que cumplan con los criterios de búsqueda como lo
+muestra la figura 3.9.
+
+Edición
+
+Al seleccionar uno de los datos consultados este almacena la información de este registro y es
+mandada por el método push hasta una interfaz de edición en donde carga toda la información
+de este registro tanto de licencia como la información del contrato, una vez el usuario termina la
+edición selecciona guardar y el registro se actualiza como lo muestra la figura 3.8.
+
+30AI TT A Ie
+
+ 
+
+Home : Compras : Registrar
+
+LS ia] DS (ES Cotizador SS
+
+ 
+
+Compras
+
+En este módulo podrás registrar y editar todas las ordenes de compra de software existentes en tu empresa
+Software
+
+| + | Agregar Software
+
+Numero de orden |
+Cantidad
+
+Precio
+
+Fecha Lv]
+
+UEN
+
+Centro de Costos
+
+Pais | Colombia
+
+Empresa Tecnologia
+
+URL | Cargar |
+
+NIT Proveedor
+
+| Agregar | | Limpiar |
+
+Figura 3.8: Registrar nueva compra, Fuente: aplicación SILIC Carvajal TéZS
+
+Carvajal TT AA AO
+
+ 
+
+Home : Compras : Consultar
+
+ 
+
+LS ale DES Compras [Meir tele MES
+
+Busqueda Compra
+
+A continuación podras visualizar el software comprado, para ello podrás seleccionar los criterios de búsqueda disponibles.
+
+ 
+
+Nombre del software | Orden de compra | | Fecha|
+
+[000000 + |
+
+NombreSW NumeroOrden A
+
+Office Barreroide0. 1 000000 4 13/02/2016 12:00:00 a. m. Consulta
+
+Figura 3.9: Buscar orden de compra, Fuente: aplicación SILIC Carvajal TéZS
+
+3.5.3 Pruebas
+
+Las pruebas evalúan el producto para determinar si cumple con el objetivo previsto, por lo que
+es necesario diseñar un plan de pruebas que se adapte y sea coherente con la metodología de
+desarrollo, que proporcione un enfoque de fácil acceso a la estructura para verificar los requisitos.
+
+36Por eso se diseñó el siguiente modelo de casos de prueba mostrado en las tablas en el capitulo de
+pruebas.
+
+3.6 FASE 4. Producción
+
+Para poner la aplicación en producción se realizo dos iteraciones de pruebas e intregación donde
+se perfeccionaron detalles finales.
+
+Nota: Las dos últimas fases de XP no se ven evidenciadas en el proyecto, por que no se ha
+llegado a ellas, es decir al mantenimiento y muerte de proyecto.
+
+A grandes rasgos las fases se pueden resumir así:
+
+1. Análisis de las deficiencias del sistema actual de la empresa.
+2. Implementación del módulo de gestión de contratación con los proveedores.
+
+3. Implementar un sistema control de costos de licenciamiento de acuerdo a los valores de
+licenciamiento que Carvajal S.A. tiene actualmente con los diferentes proveedores.
+
+4. Realizar pruebas y retroalimentación.
+
+5. Implementación de Seguridad en los módulos.
+
+31Capitulo 4
+
+Pruebas
+
+En el siguiente capítulo se muestra el proceso de pruebas que se realizó en el desarrollo y se
+ejemplifica uno de los casos con más relevancia en el proyecto junto con el modelo de casos de
+prueba usado en el desarrollo.
+
+4.1 Fases:
+
+Las pruebas se realizaron en tres fases.
+
+4.1.1 Fase 1:
+
+Pruebas unitarias realizadas por el desarrollador a medida que se realizaba el proyecto en esta
+solo se verifica el cumplimiento de las historias de usuarios detalladas.
+
+Con el uso de las principales historias de usuario se codificaban y se verificaba inmediatamente.
+Al finalizar la semana se realizaban las pruebas de regresión para verificar que ninguna de las
+historias de usuario tuviera conflicto con otras, para poder continuar la segunda fase.
+
+En esta fase se usaron varias historias de usuario, por ejemplo la que describe la validación de
+los campos a ingresar «El sistema en el módulo de gestión de licencias en el campo X se requiere
+que el usuario solo ingrese datos de tipo X ».
+
+4.1.2 Fase 2:
+
+Tomando como base las historias de usuario específicas con las que se realizaron las pruebas
+unitarias, se hacen las historias de usuario generales con las cuales se realiza una serie de casos
+de prueba verificando que no se obtenga ninguna No conformidad.
+
+Al finalizar esta fase se archivaron las historias de usuario específicas y las nuevas historias
+
+de usuario generales se ven de la siguiente forma «El sistema en el modulo de gestión de licencias
+debe validar los campos con los tipos requeridos y que no se encuentre vacíos».
+
+384.1.3 Fase 3:
+
+Al finalizar las Entregas los casos de prueba y las historias de usuario específicas y su manera
+general a la Ingeniera Carolina Crespo quien se encargaba de verificar que los casos de prueba no
+tengan ninguna no conformidad y basada en estas realizaba una retroalimentación a las historias
+de usuario.
+
+4.2 Caso de prueba CP_ 1.3
+
+Se identificó durante el proceso de desarrollo que la validación para los campos (caso de prueba 3.1)
+se debía realizar de una forma particular, pues estos campos requieren incluso un CRUD individual,
+así como algunos dependen entre ellos, como es el caso de empresas que dependen del campo país, a continuación se muestra el caso de prueba 3.1 referente a las validaciones en la tabla 4.3.
+
+Se realizaron pruebas unitarias a los campos, sin embargo NO se identificó una no conformidad
+en las pruebas unitarias pero sí, en las pruebas funcionales realizadas la Ingeniera Carolina Crespo,
+En las cuales se evidenció que la longitud de los datos no se almacenaban por completo, pues NO
+se había tenido en cuenta el tipo de datos que maneja SQL server. Dicha corrección fue realizada
+corrigiendo el tipo de dato que se estaba almacenando dando así cerrado la no conformidad.
+
+A continuación se muestran los casos de prueba generales resultantes al final del proceso en
+los cuales se evidencia el resultado de ninguna no conformidad.
+
+39ve DOCUMENTO: CP_1.1
+Id caso de prueba CP 1.1
+Nombre caso de prueba CUl Ingresar software nuevo
+Descripción Si el software a registrar no existe se guarda el nuevo software
+con su respectiva orden de compra
+Pasos y condiciones de ejecuon 1. El usuario Ingresa al módulo de registrar compras
+2. El usuario da click en el botón “Agregar software nuevo”
+3. El sistema despliega los campos requeridos
+4. El usuario llena los campos solicitados
+5. El usuario da click en el botón “guardar”
+6. El sistema guarda el registro del nuevo software
+Resultado esperado El sistema guarda el registro del nuevo software
+Estado caso de prueba Terminado
+Respuesta obtenida El Registro se ha guardado satisfactoriamente
+Errores asociados Ninguno
+Comentarios
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cuadro 4.1: Modelo de historia de usuario.
+
+40ha
+
+Universidad
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+del Valle DOCUMENTO: CP_ 1.2
+Id caso de prueba CP_1.2
+Nombre caso de prueba CU2 Registro de orden de compra
+Descripción Registrar una orden de compra
+Pasos y condiciones de ejecuon 1. El usuario Ingresa al módulo de registrar compras llena
+los campos solicitados
+2. El usuario da click en el botón “guardar”
+3. El sistema guarda el registro de la nueva orden de
+compra de licencia
+Resultado esperado El sistema debe guardar el registro de la nueva orden de
+compra de licencia
+Estado caso de prueba Terminado
+Respuesta obtenida El Registro se ha guardado satisfactoriamente
+Errores asociados Ninguno
+Comentarios Para los pasos y condiciones de ejecución descritas en este
+
+caso de prueba, un administrador previamente debió de haber guardado el nombre del software correspondiente a esta
+licencia
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cuadro 4.2: Casos de Prueba, Registro de orden de compra, módulo de Gestión de órdenes de
+compra de licencias.
+
+41ha
+
+Universidad
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+del Valle DOCUMENTO: CP_1.3
+Id caso de prueba CP_1.3
+Nombre caso de prueba CU3 Campos inválidos o nulos
+Descripción Si los campos no son los requeridos o no están vacíos
+Pasos y condiciones de ejecución
+
+1. El usuario Ingresa al módulo de registrar compras
+2. El usuario no llena los campos solicitados
+3. El usuario da click en el botón “guardar”
+
+4. El sistema muestra un mensaje que hay campos inválidos
+
+5. el sistema muestra señalados los campos incorrectos
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Resultado esperado El sistema no debe guardar el registro y muestra las alertas
+correspondientes
+
+Estado caso de prueba Terminado
+
+Respuesta obtenida El sistema no guardo el registro y muestra las alertas correspondientes
+
+Errores asociados Ninguno
+
+Comentarios
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cuadro 4.3: Casos de Prueba, Campos inválidos o nulos , módulo de Gestión de órdenes de
+compra de licencias.
+
+42ha
+
+Universidad
+del Valle
+
+ 
+
+DOCUMENTO: CP_2.1
+
+ 
+
+Id caso de prueba
+
+CP_2.1
+
+ 
+
+Nombre caso de prueba
+
+CU4 Consultar las orden de compra de licencia
+
+ 
+
+Descripción
+
+Permite consultar las órdenes de compra de licencias por
+el nombre del software, el número de orden o la fecha de
+compra
+
+ 
+
+Pasos y condiciones de ejecución
+
+1. El usuario Ingresa al módulo de gestión de compras
+2. El usuario selecciona el criterio de búsqueda
+
+3. El usuario llena los campos solicitados
+
+ 
+
+Resultado esperado
+
+El sistema debe mostrar una tabla con los el filtro seleccionado.
+
+ 
+
+Estado caso de prueba
+
+Terminado
+
+ 
+
+Respuesta obtenida
+
+El sistema muestra una tabla satisfactoriamente.
+
+ 
+
+Errores asociados
+
+Ninguno
+
+ 
+
+ 
+
+Comentarios
+
+ 
+
+ 
+
+Cuadro 4.4: Casos de Prueba, consultar las orden de compra de licencia, módulo de Gestión de
+
+órdenes de compra de licencias.
+
+ 
+
+ha
+
+Universidad
+del Valle
+
+ 
+
+DOCUMENTO: CP_2.2
+
+ 
+
+Id caso de prueba
+
+CP_2.2
+
+ 
+
+Nombre caso de prueba
+
+CU5 Consulta de datos no asociados a órdenes de compra
+
+ 
+
+Descripción
+
+Si se consultan por datos que no están asociados a al menos
+una orden de compra
+
+ 
+
+Pasos y condiciones de ejecución
+
+1. El usuario Ingresa al módulo de gestión de compras
+2. El usuario selecciona el criterio de búsqueda
+
+3. El usuario llena los campos solicitados
+
+ 
+
+Resultado esperado
+
+El sistema debe mostrar una tabla vacía
+
+ 
+
+Estado caso de prueba
+
+Terminado
+
+ 
+
+Respuesta obtenida
+
+El sistema muestra una tabla satisfactoriamente.
+
+ 
+
+Errores asociados
+
+Ninguno
+
+ 
+
+Comentarios
+
+ 
+
+ 
+
+ 
+
+Cuadro 4.5: Casos de Prueba, consultar las orden de compra de licencia, módulo de Gestión de
+
+órdenes de compra de licencias.
+
+43deal DOCUMENTO: CP_3.1
+Id caso de prueba CP_3.1
+Nombre caso de prueba CU6 Editar Órdenes de compra de licenciamientos
+Descripción Cuando se selecciona una orden de compra debe cargar los
+datos de dicha orden y permitir que sean modificados
+Pasos y condiciones de ejecuon 1. El usuario Ingresa al módulo de gestión de compras
+2. El usuario selecciona la orden que desea editar
+3. El sistema carga los datos de la orden de compra
+4. El usuario modifica los campos deseados
+5. El usuario da click en el botón “guardar”
+Resultado esperado El sistema debe Guardar los datos que se modificaron
+Estado caso de prueba Terminado
+Respuesta obtenida El sistema Guarda los datos satisfactoriamente.
+Errores asociados Ninguno
+Comentarios
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cuadro 4.6: Casos de Prueba, Editar Órdenes de compra de licenciamientos., módulo de Gestión
+de órdenes de compra de licencias.
+
+44ha
+
+Universidad
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+del Valle DOCUMENTO: CP_ 3.2
+Id caso de prueba CP_3.2
+Nombre caso de prueba CU7 Campos inválidos o nulos
+Descripción Si los campos no son los requeridos o no están vacíos
+Pasos y condiciones de ejecución
+
+1. El usuario Ingresa a Editar orden de compras
+2. El usuario no llena uno de los campos solicitados
+3. El usuario da click en el botón “guardar”
+
+4. El sistema muestra un mensaje que hay campos inválidos
+
+5. el sistema muestra señalados los campos incorrectos
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Resultado esperado El sistema no debe actualiza el registro y muestra las alertas
+correspondientes
+
+Estado caso de prueba Terminado
+
+Respuesta obtenida El sistema no guardo los cambios y muestra las alertas correspondientes.
+
+Errores asociados Ninguno
+
+Comentarios
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cuadro 4.7: Casos de Prueba, Campos inválidos o nulos , módulo de Gestión de órdenes de
+compra de licencias.
+
+45ha
+
+Universidad
+del Valle
+
+ 
+
+DOCUMENTO: CP_ 4.1
+
+ 
+
+Id caso de prueba
+
+CP_4.1
+
+ 
+
+Nombre caso de prueba
+
+CU8 Acceso lista de empresa
+
+ 
+
+Descripción
+
+Al ingresar al modulo de gestión de ordenes de compra
+muestre solo la lista de las empresas y países que el usuario
+tiene acceso
+
+ 
+
+Pasos y condiciones de ejecución
+
+1. El usuario Ingresa al modulo de gestión de ordenes de
+compra
+
+2. El sistema carga las listas desplegables
+
+ 
+
+Resultado esperado
+
+El sistema debe cargar los datos de empresa y país correspondientes a ese usuario
+
+ 
+
+Estado caso de prueba
+
+Terminado
+
+ 
+
+Respuesta obtenida
+
+El sistema carga los datos de empresa y país correspondientes
+a ese usuario satisfactoriamente
+
+ 
+
+Errores asociados
+
+Ninguno
+
+ 
+
+Comentarios
+
+ 
+
+ 
+
+ 
+
+Cuadro 4.8: Casos de Prueba, Acceso lista de empresa , módulo de Seguridad.
+
+ 
+
+ha
+
+Universidad
+del Valle
+
+ 
+
+DOCUMENTO: CP_ 4.2
+
+ 
+
+Id caso de prueba
+
+CP_4.2
+
+ 
+
+Nombre caso de prueba
+
+CU9 No tiene acceso
+
+ 
+
+Descripción
+
+Si el usuario no tiene permisos para acceder a la aplicación
+
+ 
+
+Pasos y condiciones de ejecución
+
+1. El usuario Ingresa módulo de gestión de órdenes de
+compra
+
+ 
+
+Resultado esperado
+
+El sistema debe informar que no tiene acceso
+
+ 
+
+Estado caso de prueba
+
+Terminado
+
+ 
+
+Respuesta obtenida
+
+El sistema informa que no tiene acceso
+
+ 
+
+Errores asociados
+
+Ninguno
+
+ 
+
+ 
+
+Comentarios
+
+ 
+
+ 
+
+Cuadro 4.9: Casos de Prueba, No tiene acceso, módulo de Seguridad.
+
+46ha
+
+Universidad
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+del Valle DOCUMENTO: CP_ 5.1
+
+Id caso de prueba CP_5.1
+
+Nombre caso de prueba CU10 “Cotizador”
+
+Descripción Realiza una cotización del costo de un colaborador nuevo.
+Pasos y condiciones de ejecu
+ción
+
+1. El usuario ingresa al módulo de “Cotizador”
+
+2. selecciona los activos que va a tener el nuevo colaborador
+
+3. El usuario da click en el botón “Calcular”
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Resultado esperado El sistema debe muestra un estimado del costo anual
+Estado caso de prueba Terminado
+
+Respuesta obtenida el sistema muestra el estimado de manera correcta.
+Errores asociados Ninguno
+
+Comentarios
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cuadro 4.10: Casos de Prueba, módulo de “Cotizador”.
+
+47Capitulo 5
+
+Conclusiones y Resultados
+
+En este capítulo se discuten los resultados durante la pasantía con respecto a los objetivos
+propuestos y en general al proceso de desarrollo de los módulos. Se presentan, al final del capítulo,
+algunas líneas de trabajo futuro.
+
+5.1 Resultados
+
+La implementación de un software toma valor cuando realmente contribuye a la mejora de algún
+proceso, cumple con sus objetivos o simplemente ayuda a suplir una necesidad.
+
+Por esto al optimizar la manera en la que en Carvajal TéZS guarda los datos de órdenes de
+compra de licenciamiento, pues se manejaban archivos de excel, se mejoró el proceso de la gestión
+de dichas órdenes.
+
+Con la implementación de los módulos de gestión de órdenes de compra, el uso de excel ya
+es innecesario reduciendo considerablemente el tiempo en el que guardan las nuevas órdenes de
+compra. Además, permite editar y realizar búsquedas de los datos en una interfaz de usuario.
+Se aumentó la confiabilidad de los datos almacenados, lo que contribuye a mantener las buenas
+prácticas para la gestión de activos de software que permite a Carvajal Tecnología y Servicios
+llevar un adecuado control sobre el licenciamiento existente en sus instalaciones. De tal forma
+que se empezó a beneficiar, generando ahorros y evitando compras adicionales, poniéndose al
+día en términos de las licencias requeridas, reasignando licenciamiento según el tipo de usuario,
+estando preparado para alguna auditoría que se presente en cualquier momento, conocer el uso
+que sus colaboradores dan al software y ante todo tener un control organizado y visible el cual
+permite tomar decisiones de calidad cuando se requiere.
+
+5.2 Conclusiones
+
+e Con este trabajo se fortalece el proceso de gestión de licenciamiento de software en la
+empresa, sistematizando la forma como se guardan las órdenes de compra, aparte ayuda a
+la búsqueda y actualización de datos de manera fácil sin necesidad de recurrir a SQL que
+era la manera en la que se hacía anteriormente.
+
+e El procedimiento anterior a este desarrollo, implicaba que la persona encargada de trabajar
+
+48en la gestión de contratos con proveedores y licencias, registrará en un documento Excel los
+datos de la orden de compra física y esta misma información fuera guardada en la base de
+datos por otra persona que tuviera conocimientos SQL. Después, la informacion actualizada
+es verificada de nuevo y si algún dato no correspondia debía solicitarlo a la persona con
+acceso a la Base de datos.
+
+Con la implementación de estos nuevos módulos la persona encargada de la gestión de contratos con proveedores y licencias sin conocimientos de SQL, puede guardar la información de la
+orden de compra fisica directamente en la base de datos e inmediatamente puede verificarlos.
+
+e Cuando inicie el proyecto mis conocimientos de .NET' eran mínimos pero gracias a la
+formación orientada y al autoaprendizaje se afronto y se aprendió en corto tiempo la nueva
+herramienta y el uso del framework para el lenguaje Cf.
+
+e Alinicio del proyecto los requerimientos cambiaron y durante la pasantía se necesitaría la
+colaboración con el cliente para dar cumplimiento a los mismos en el tiempo estipulado,
+por ello se escogió la metodología XP, pues era la que mejor se adaptaba al proyecto.
+Siguiendo los lineamientos de la misma, se generaron iteraciones cortas que permitieron
+avanzar rapidamente con la ejecucion de los módulos y dar por finalizado el proyecto.
+
+5.3 Experiencia durante el desarrollo de la pasantía
+
+El hecho de intervenir en los procesos del área de desarrollo organizacional permitió desarrollar
+otro tipo de competencias diferentes a las que podría adquirir como ingeniero de sistemas enfocado únicamente a la programación, ya que realizar la pasantía en un área de apoyo a toda la
+organización, requiere de mucho manejo y trato del cliente interno. Gracias a esto se mejoraron
+las habilidades comunicativas y se aprendió a dar un manejo adecuado al cliente el cual siempre
+tiene una necesidad la que debe ser resuelta. Se adquirió conocimiento sobre la labor y tareas que
+desempeñan otras áreas de la organización a tal punto que en cualquier momento se puede dar
+apoyo a nivel tecnológico apoyándose en los recursos presentes en la organización. Esta pasantía
+fue importante para mejorar la confianza y ayudó a fortalecer la toma de decisiones importantes
+en las cuales se estuvo involucrado. Desarrolló la creatividad de tal forma que aprendí a dar
+soluciones rápidas para un negocio que continuamente está circulando y requiere de respuestas
+eficaces e inmediatas. Se fortalecieron las relaciones personales con compañeros de otras áreas, a
+tal punto que fueron los desarrolladores de la capacidad de aplicaciones de la organización los que
+dieron la asesoría para la implementación del módulo de gestión de órdenes, aprender un nuevo
+lenguaje de programación .NET, el uso de nuevos frameworks y tecnologías, entre otros elementos.
+Es por esto que considero que calificó mi pasantía dentro de Carvajal Tecnología y Servicios
+como una experiencia enriquecedora que me permitió crecer tanto personal como profesionalmente.
+
+5.4 Trabajos futuros
+
+Se logra evidenciar que no se tiene el control en tiempo real del software comprado versus el
+instalado debido a que el software instalado tienen un nombre diferente en todos los casos cuando
+
+49se compra una licencia esta deja instalar cualquier versión incluida dentro de ella, o algo tan
+simple como el idioma agrega unas siglas al final del software instalado, debido a que el alcance
+de la pasantía solo cubría lo referente al software comprado el nombre del software instalado es
+un problema para un trabajo futuro, de acuerdo a los resultados obtenidos se proponen como
+trabajos futuros :
+
+1. Incluir un módulo en la aplicación la cual permitirá tener control en tiempo real de las
+contrataciones y asignación de software a nuevos colaboradores.
+
+2. Módulo de control de software instalado se encargaría de supervisar los software instalado en
+cada equipo y compararlo con el software comprado para tener mayor precisión de los activos.
+
+3. Módulo de Calculadora el cual me permita consultar el costo de un empleado en la empresa
+es decir el costo de software que este requiera.
+
+90Referencias
+
+[1] CARVAJAL TECNOLOGÍA Y SERVICIOS. Acerca de nosotros, Recuperado el 5 de Agosto de
+2015, http: //carvajaltys.com/acerca-de-nosotros-2/
+
+[2) CARVAJAL TECNOLOGÍA Y SERVICIOS. Mision y vision, Recuperado el 5 de Agosto de 2015,
+http://carvajaltys.com/acerca-de-nosotros-2/mision-y-vision/
+
+[3] CARVAJAL TECNOLOGÍA Y SERVICIOS. nuestra-historia, Recuperado el 5 de Agosto de 2015,
+http://carvajaltys.com/acerca-de-nosotros-2/nuestra-historia/
+
+[4] LerDI DAYELY RUANO ARCOS. ¿Qué tanto sabe sobre licenciamiento? Recuperado el 21 de
+Agosto de 2015, http://www.colombiaaprende.edu.co/html/docentes/1596/article-73576.html
+
+[5] “Aplicación del modelo de la fundación Carvajal a tres microempresas de las comunas 3, 11 y
+15 de la ciudad de Cali”, thesis, Universidad del valle, Cali, Colombia, 2011
+
+[6] PROGRAMACIÓN EN  .NET. Recuperado el 15 de Agosto de 2015,
+http: //grupobds.com/?page_id=89
+
+7] MANAGEENGINE ADMINISTRACIÓN DE LICENCIAS DE SOFTWARE. Recuperado el 10 de Agosto
+de 2015, http: //manageengine.mzx/service-desk/administracion-licencias-software.html
+
+[8] HEWLETT-PACKARD. (S.F.). ASSsET MANAGER. Gestione sus activos de TI con
+eficiencia y control a lo largo de su ciclo de vida: Recuperado el 13 de Junio de 2014,
+
+http: //www8.hp.com/co/es/softwaresolutions/software.html?compURI=11746964%.U_ Bnyvl5Mg
+
+[9] TTIL. (S.F.). GESTIÓN DE LA CONFIGURACIÓN Y ACTIVOS
+DEL SERVICIO. Recuperado el 11 de  Sepiembre de 2015, de
+http://itilu3.ostatis.es/transicion_servicios_ TI/gestion_configuracion_activos_servicio.php
+
+[10] CONTROL DE LICENCIAMIENTO Y USO DE SOFTWARE. Recuperado el 21 de Agosto de 2015,
+http: //hachi.co/control-de-licenciamiento-y-uso-de-software/
+
+[11] ¿QUÉ son LOs FRAMEWORKS? Recuperado el 20 de Agosto de 2015,
+dehttp: //www.nubelo.com/blog/que-son-los-frameworks/
+
+[12] LA DEFINICIÓN DE (OPEN SOURCE. Recuperado el 13 de Agosto de 2015, de
+http: //opensource.org/osd-annotated.
+
+[13] PRESSMAN ROGER S. PH.D. SOFTWARE ENGINEERING. McGrawhill. Septima edición.
+páginas 30-96. (2010)
+
+114) PROGRAMACION EXTREMA XP. Ingenieria de Software,
+http://ingemieriadesoftware.mezx.tl/52753_ XP—Extreme-Programing.html
+
+ol[15] CAROLINA CRESPO CHAVARRO. ”ANÁLISIS, DEFINICIÓN Y OPTIMIZACIÓN DEL
+SISTEMA PARA LA GESTIÓN DE LICENCIAMIENTO DE CARVAJAL TECNOLOGÍA
+Y SERVICIO”, tesis, Universidad del valle, Cali, Colombia , 20151
+
+116) PROGRAMACION EXTREMA XP. http://www.cyta.com.ar/ta0502/v5n2a1.htm
+
+92Anexos A
+
+Historias de usuario
+
+ 
+
+ha
+
+Universidad
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+delvale_ | Identificador de la HU HU1
+Rol Usuario
+l Necesito crear una nueva orden de compra de licencia. Puedo asignarle
+Funcionalidad
+la UEN, centro de costos y empresa a la que tengo permisos
+Resultado Orden de compra de licencia registrada.
+Número de Esce- 1 )
+nario
+Criterio de Acepa o Cep Ingresar software nuevo Validar campos
+tación
+Contexto En caso que el Software no existe En caso que se ingresen campos vacÍos.
+Cuando se selecciona la opción “agre- ”
+Evento » Cuando se selecciona la opción
+gar software ' '
+Guardar”.
+Comportamiento | El sistema debe permitir agregar un El sistema notificará que hay campos
+esperado nuevo software vacios
+
+ 
+
+ 
+
+ 
+
+Cuadro A.1: Historias de usuario Registro, módulo de Gestión de órdenes de compra de licencias.
+
+93Universidad
+
+ 
+
+ 
+
+ 
+
+ 
+
+_selvale_ | Identificador de la HU HU2
+Rol Usuario
+. . Necesito consultar las orden de compra de licencia, puedo consultarlas
+Funcionalidad ,
+por el nombre del software y el número de orden.
+Resultado Muestra una tabla con las órdenes de compra de licencias
+
+ 
+
+Número de Escenario
+
+1
+
+ 
+
+Criterio de Aceptación
+
+Datos seleccionados no asociada a ninguna orden de compra
+
+ 
+
+ 
+
+ 
+
+ 
+
+Contexto En caso los datos seleccionados no tenga una orden asociada
+
+Evento el usuario selecciona un software y una orden de compra.
+Comportamiento | El sistema muestra la tabla de lista vacía e informa que no se encontró
+esperado ninguna orden.
+
+ 
+
+ 
+
+Cuadro A.2: Historias de usuario, Consulta, módulo de Gestión de órdenes de compra de licencias.
+
+ 
+
+Universidad
+
+ 
+
+ 
+
+ 
+
+ 
+
+_selvaie_ | [Identificador de la HU HU3
+Rol Usuario
+Funcionalidad ecesito seleccionar una orden de compra de licencias y puedo editar los
+datos de la orden
+Resultado La orden de compra se carga en la ventana de edición.
+
+ 
+
+Número de Escenario
+
+1
+
+2
+
+ 
+
+Criterio de Aceptación
+
+Validar campos
+
+Guardar Cambios
+
+ 
+
+En caso que se ingresen campos va
+ 
+
+ 
+
+ 
+
+ 
+
+Contexto , En caso que se cambien los datos de
+cÍos.
+la orden de compra
+Cuando se selecciona la opción añ. H
+Evento ' ' cuando se selecciona la opción "GuarGuardar”. ,
+dar".
+Comportamiento | El sistema notificará que hay campos
+me l 4 z P El sistema actualiza la orden de comesperado vacios.
+
+pra con los nuevos datos
+
+ 
+
+Cuadro A.3: Historias de usuario, Actualizar, módulo de Gestión de órdenes de compra de
+
+licencias.
+
+94ha
+
+Universidad
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+delvale_ | Identificador de la HU HU4
+Usuario
+Rol
+Necesito que me muestre las empresas aíses que tiene acceso cada
+Funcionalidad coa p ae
+usuario
+Resultad El usuario ingresa a sistema y le muestra la configuración correspondiente
+esultado
+
+a su perfil
+
+ 
+
+Número de Escenario
+
+1
+
+ 
+
+Criterio de Aceptación
+
+Ingreso a sistema
+
+ 
+
+ 
+
+ 
+
+ 
+
+Contexto En caso que el usuario no tenga permisos
+Evento Si intenta ingresar a la aplicación
+Comportamiento os ]
+
+La aplicación le informa que no tiene acceso a esta.
+esperado
+
+ 
+
+Cuadro A.4: Historias de usuario, Consulta, módulo de Seguridad.
+
+ 
+
+ha
+
+Universidad
+
+ 
+
+ 
+
+ 
+
+ 
+
+delvalle_ | [Identificador de la HU HU5
+Rol Usuario
+Funcionalidad Necesito consultar el costo aproximado de un empleado
+
+ 
+
+Resultado
+
+Genera la estimación del costo de un empleado nuevo y muestra un
+detalle de este
+
+ 
+
+Número de Escenario
+
+1
+
+ 
+
+Criterio de Aceptación
+
+Validar campos
+
+ 
+
+ 
+
+ 
+
+ 
+
+Contexto En caso que se ingresen campos vacíos.
+Evento Cuando se selecciona la opción Consultar”.
+Comportamiento l ,
+
+p El sistema notificará que hay campos vacios.
+esperado
+
+ 
+
+Cuadro A.5: Historias de usuario, Módulo de Cotizar.
+
+313Anexos B
+
+Actividades para prácticas
+empresariales — Estudiantes
+Ingeniería de Sistemas
+
+El grupo de gestión tecnológica dentro de la empresa Carvajal Tecnología y servicios tiene como
+misión el control y gestión de la arquitectura empresarial, los componentes de tecnología claves
+para una gestión costo efectivo de la empresa. Buscamos para más de 2000 colaboradores en 5
+países, entregar herramientas de tecnología que permitan agilizar y fortalecer el trabajo en el día
+a día. A continuación se describen las actividades agrupadas por subproceso o servicio, a realizar
+durante su práctica empresarial los estudiantes de ingeniería de sistemas en el equipo de gestión
+tecnológica.
+
+B.1 Subproceso Servicio: Herramienta de flujos de trabajo para
+
+CTyS
+
+e Capacitación en herramienta actual de flujos de trabajo por parte del grupo de Gestión
+Tecnológica. El estudiante al finalizar esta fase estará en capacidad de entender y comprender
+la herramienta y el cómo se trabaja en la empresa con ella.
+
+e El estudiante debe investigar nuevas funcionalidades a implementar en la herramienta de
+flujos de trabajo, revisando el estado del arte y entrega informes de dichos análisis, de
+acuerdo al impacto que se esperaría obtener para la empresa. A continuación se describen
+al detalle algunas las funcionalidades a profundizar:
+
+— Integración de documentación Excel y Word: Se refiere a que dentro de los flujos se
+puedan crear documentos a partir de información del flujo (actas de inicio, propuestas,
+contratos, etc.)
+
+— Como integrar redes sociales para inicio de flujos y captura de información externa
+(tipo encuestas, o interacción con clientes).
+
+— Pausar o detener flujos, notificaciones, recordatorios: Es una función requerida por varios usuarios, sería importante hacer pruebas para verificar como se podría implementar
+y como funciona.
+
+— Revisión de Documentación en el “Community” de la aplicación: Es una gran base
+de conocimiento y existen innumerables casos expuestos de cómo usar funciones e
+
+96implementar funcionalidades, se debe realizar un monitoreo (semanal o quincenal) de
+los casos y exponer aquellos que podría aplicarse a corto o largo plazo.
+
+El estudiante investigará como se realiza la configuración de la herramienta de flujos en
+dispositivos móviles y configurará y desarrollará los formularios para los flujos de trabajo que
+sean priorizados por los dueños de los procesos que están sistematizados en la herramienta.
+El entregable final para esta actividad será documentar la metodología usada para el diseño
+de los formularios en la versión móvil de la herramienta y conclusiones sobre el impacto
+dentro de la productividad de los flujos de procesos de la empresa al implementarse dichas
+mejoras.
+
+B.2 Subproceso Servicio: Gestión de licenciamiento para CTyS
+
+Desarrollar un módulo de control de accesos para el software de control de licenciamiento.
+El entregable final sería un módulo implementado en lenguaje de programación .NE'T con
+su respectiva documentación, de acuerdo a los estándares de desarrollo de software
+
+Desarrollar un módulo de control de contratos de proveedores de licenciamiento que permita
+conocer las cantidades adquiridas por la compañía, mitigando el riesgo de millones de
+dólares que podrían costar las multas por auditorías de fabricantes de software que puedan
+impactar las finanzas de la compañía. El entregable final sería un módulo implementado
+en lenguaje de programación .NET con su respectiva documentación, de acuerdo a, los
+estándares de desarrollo de software.
+
+Desarrollo de un módulo de control de costos de licenciamiento por cada una de las áreas de
+acuerdo a los valores de licenciamiento que tenemos actualmente con los diferentes fabricantes. Esto con el fin de generar un estimado en tiempo real de los costos de licenciamiento que
+tienen las diferentes unidades de negocio. El entregable final sería un módulo implementado
+en lenguaje de programación .NET con su respectiva documentación, de acuerdo a los
+estándares de desarrollo de software. Subproceso /Servicio: Control de tecnología para CTyS
+
+Desarrollo de una calculadora de costos por cargo de acuerdo a las necesidades tecnologías de
+la empresa. El entregable final sería un módulo implementado en lenguaje de programación
+.NET con su respectiva documentación, de acuerdo a los estándares de desarrollo de
+software.
+
+37

@@ -1,0 +1,3556 @@
+Sistema de información de Genética de Yuca
+
+(Pasantia)
+
+Luis Ovidio Gónzalez Alzate
+cód 201154010
+
+Universidad del Valle
+Facultad de Ingeniería
+Escuela de Ingeniería de Sistemas y Computación
+
+Programa Académico de Ingeniería de Sistemas
+Tuluá, Octubre de 2016Sistema de información de Genética de Yuca
+
+(Pasantia)
+
+Luis Ovidio Gónzalez Alzate
+cód 201154010
+
+Trabajo de grado como requisito para optar el título de:
+Ingeníero de sistemas
+
+Director:
+Jhoan Manuel Muñoz Serrano, Ing.
+
+Co-Director:
+Carolina Garcia, Ing.
+
+Universidad del Valle
+Facultad de Ingeniería
+Escuela de Ingeniería de Sistemas y Computación
+
+Programa Académico de Ingeniería de Sistemas
+Tuluá, Octubre de 2016Nota de aceptación
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Firma del Evaluador
+
+ 
+
+Firma del Director
+
+Tuluá, —//Dedicatoria
+
+El presente trabajo de grado está dedicado a mi familia que con su apoyo, acompanamiento, cariño y tolerancia fue fundamental para culminar mi pregrado.
+
+A la memoria de mi hermana que con su tenacidad, empuje y ganas de perseverar
+siempre fue y seguirá siendo un aliciente para conseguir mis metas.Agradecimientos
+
+(Juiero agradecer al director de trabajo de grado por la disposición que mostro para
+orientarme y ayudarme con los inconvenientes que se me presentaron para la realizacion de este trabajo de grado.
+
+A los integrantes del grupo de datos e informacion y compañeros de trabajo que con
+sus aportes contribuyeron para la realizacion del proyecto.
+
+A los profesores, amigos, compañeros y demás personas que de una u otra forma
+aportaron para que mis esfuerzos se materializaran.Resumen
+
+El CIAT busca contribuir a un auge, potencialmente global, de la yuca a través de
+un mejoramiento en rendimiento y calidad de producto, mejor agronomía y esfuerzos
+concertados para combatir plagas y enfermedades emergentes.
+
+Es por ello que el área de Genética de Yuca es un motor muy importante en el
+cumplimiento de la estrategia del CIAT y en particular el laboratorio de Cultivo
+de Tejido porque es el responsable de conservar los materiales que están en análisis
+y luego distribuir estos materiales a la misma comunidad CIAT y sus socios para
+continuar con la investigación en este cultivo.
+
+Las operaciones que se realizan en el área de Genética de Yuca y en especial en el
+laboratorio, en el invernadero y en el campo generan cierta cantidad de datos que
+para el área es importante almacenar ya que se convertirán en información crítica
+para tomar decisiones en las investigaciones. Adicionalmente, estas operaciones acarrea ciertos costos que también son de interés para el líder del área. Por otro lado,
+las plantas que conserva el laboratorio son afectadas por diversos movimientos o procedimientos durante todo su ciclo de vida, y para el área de Genética de Yuca es
+útil hacer el seguimiento de cada uno de los movimientos o procedimientos que se le
+efectúan a los genotipos para conocer de manera detallada el proceso de evolución
+de los mismos.
+
+Con base en lo anterior es necesario un sistema para estructurar y configurar los
+procesos, gestionar los recursos y llevar el registro de los genotipos conservados junto con los procedimientos que se le aplican, que permita llevar la trazabilidad de
+
+determinado genotipo y conocer los costos asociados y que además sirva como una
+herramienta de administración y gerenciamiento.
+
+Palabras clave: trazabilidad, costos, genotipo, sistema de informaciónAbstract
+
+CIAT seeks to contribute to a potentially global, cassava boom through improved
+performance and product quality, better agronomy and concerted efforts to combat
+pests and emerging diseases.
+
+That is why the Cassava's Genetic area is very important for the implementation of
+CIAT'“s strategy, specifically the Tissue's Crop Laboratory which is responsible for
+preserving the materials used for analysis and then distribute those materials to the
+CIAT"s community and its partners to continue research in this crop.
+
+The operations performed in the Cassava's Genetics Area, especially in the laboratory, greenhouse and field generate a certain amount of data that is important
+for the area to store as 1t's essential to make decisions in the research. In addition,
+these operations entail certain costs that are also of the interest to the leader of the
+area. On the other hand, plants that are preserved in the laboratory are affected by
+different movements or procedures throughout their life cycle, and 1t's useful for the
+area of Cassava's Genetics to keep track of each of the movements or procedures to
+be made to genotypes in order to know in detail the process of their evolution.
+
+Based on the above, it's necessary to create a system that allows to structure and
+configure the processes, manage resources and keep track of genotypes preserved
+along with the procedures that are applied to them, allows tracing of incoming for a
+particular genotype and know the associated costs and that also serves as an administration and management tool.
+
+key words: tracking, costs, genotype, information system.Índice general
+
+Resumen
+
+Abstract
+Lista de tablas
+Lista de figuras
+
+1. Introducción
+1.1. Decripción general ..............
+1.2. Problema ......
+1.2.1. Descripción del problema .............. .. . . ..
+1.2.2. Formulación del problema .............. ... . ..
+1.3. Objetivos ......
+1.3.1. Objetivo general .............. . e...
+1.3.2. Objetivos especÍfiCOS . ............ o... o.
+1.4. Justificación...
+
+LD Alraance
+1.6. Estructura del documento
+
+2. Marco referencial
+
+2.1. Marco conceptual .........
+DL2. MÍArCO GEÓTICO
+2.2.1. Conservación de plantas de Yuca en el laboratorio|3] .......
+2.2.2. Distribución de Genotipos [3] ...................
+2.2.3. Tecnologías de desarrollo. . ......................
+23. Amtecedentes ......
+
+3. Sistema de información de genetica de yuca
+
+3.1. Descripción general .............. . . . e...
+A
+3.0. PIOCESOS Y GAareas ....
+3.4. Inventario de materiales . ............ .. . . +... e...
+3.5. Ordenes de trabajo .......... e...
+
+3.5.1. Cálculo estimado de tiempo y COSÍO... ....... . . . 0.
+
+3.9.2. Programación de tareas ......... . . . . e...
+3.6. Reportes y consultas .......
+
+4. Desarrollo del Software
+4.1. Inicio y planificación ...... e...
+
+4.2. Elaboración y CONStLUCCIÓNA
+4.2.1. AMálisis .........
+
+10
+
+11
+
+12
+12
+13
+13
+14
+14
+14
+14
+14
+15
+15
+
+17
+17
+17
+17
+20
+21
+26
+
+27
+28
+30
+30
+31
+32
+32
+39
+d0Ara. DS
+AB. Codificación
+
+42.4. Pruebas...
+43. Implementación...
+AA Ceres
+
+. Conclusiones y Trabajos futuros
+DL. Conclusiones .....
+9.2. Trabajos futuros ....
+
+Referencias
+
+Anexos
+
+Anexo A
+
+Anexo B
+
+48
+48
+90
+
+51
+
+52
+
+53
+
+65Índice de tablas
+
+4.1.
+Ad
+
+Bull
+cal
+9.3.
+9.4.
+M9
+9.6.
+9.7.
+9.8.
+
+Especificación de requerimientos módulo de órdenes de trabajo.
+
+(continuación) Especificacion de requerimientos módulo de ordenes de
+abajo...
+
+Especificación de requerimientos Usuarios y perfiles. ..........
+Especificación de requerimientos de acceso al sistema... .......
+Especificación de requerimientos módulo de notificaciones. . ........
+Especificación de requerimientos módulo de recursos. .........
+Especificación de requerimientos módulo de procesos. .........
+Especificación de requerimientos módulo de órdenes de trabajo.
+Especificación de requerimientos módulo de inventario de materiales.
+Especificación de requerimientos módulo de reportes y consultas.
+
+10
+
+39
+
+40
+
+69
+65
+69
+66
+66
+67
+68
+68Índice de figuras
+
+all
+Avd
+
+2.3.
+2.4.
+
+2.0.
+
+2.6.
+
+3.1.
+3. Z.
+3.3.
+3.4.
+3.0.
+3.0.
+Bd
+3.8.
+3.9.
+3.10.
+a LL,
+4.1.
+4.2.
+4.3.
+
+4.4,
+4.5.
+
+Rescate de embriones. Elabarorado por Adriana alzate ........ 18
+proceso de conservación de materiales provenientes del invernadero.
+
+(Elabarado por Adriana Alzate.) . oo... o... 20
+Proceso de distribución de genotipos. (Elaborado por Adriana Alzate) 21
+Arquitectura Hibernate (tutorialspoint.com |6)) ............ 22
+Respuesta a una solicitud de cliente para una página JavaServer Faces.
+
+(Oracle [B)) ....... oo... o... 23
+Modelo clasico de una aplicación web vs modelo de una aplicación web
+
+usando ajax. (Kris Hadlock [10)) ........... o... o... .. 24
+Estructura general, interfaz sistema de Genética de Yuca. ...... 21
+Menú dashboard, pantalla de iMici0. . ................ . . .. 28
+formularios para la creacion de ordenes de trabajo y equipos . ....... 29
+Labla de msumos 29
+Procesos y tareas despues de ser registrados . .............. 31
+ordenes de trabajo ........ 33
+Detalle de una orden de trabaj0O . ............ .. .. . . +. 34
+Tabla de programación de tareas para una orden de trabajo. . . . ... 35
+Interfaz reportes por ordennes de trabajo. . .............. 36
+Interfaz reportes por responsables. ............ ... . . .. 36
+Interfaz reportes por disponibilidad de instalaciones. .......... 37
+
+Diagrama de estructura del sistema de información de Genética de Yuca. 41
+
+Arquitectura del sistema. 41
+Modelo relacional sistema de informaición de Genética de Yuca ... 43
+Diagrama de navegación sistema de informaición de Genética de Yuca. 44
+I nterfaz herramienta Mantis Bug TrackiM. ................ 46
+
+11Capítulo 1
+
+Introducción
+
+1.1. Decripción general
+
+El Grupo de Datos, Información y Conocimiento del CIAT?, tiene entre sus funciones
+facilitar los procesos internos del área de investigación, la preservación de los datos e
+información, y compartir los datos abiertos con la comunidad, entre otras. Teniendo
+en cuenta lo anterior, este grupo acompaña a las diferentes áreas de investigación
+en la búsqueda de alternativas a desafíos en sus procesos internos, las cuales puede
+implicar el uso de diferentes tecnologías.
+
+Es por ello que después de un análisis previo, nace la necesidad de diseñar una
+herramienta que facilite la administración de los procesos en el área de Genética de
+Yuca, inicialmente en lo relacionado al laboratorio de Cultivo de Tejido.
+
+Dentro de este laboratorio se llevan a cabo principalmente dos macro-procesos: la
+conservación in vitro de yuca y la distribución de genotipos. Estos procesos y otros
+que son subyacentes, generan cierta cantidad datos que para el área de Genética de
+Yuca es importante almacenar ya que se convertirán en información crítica para tomar decisiones en las investigaciones. Adicionalmente, las operaciones que se realizan
+en el laboratorio y en las demás instalaciones utilizadas por el área de Genética de
+Yuca acarrea ciertos costos que también son de interés para el líder del área. Por otro
+lado, las plantas que conserva el laboratorio son afectadas por diversos movimientos
+o procedimientos durante todo su ciclo de vida, y para el área de Genética de Yuca
+es útil hacer el seguimiento de cada uno de los movimientos o procedimientos que se
+le efectúan a los genotipos para conocer de manera detallada el proceso de evolución
+de los mismos.
+
+Teniendo en cuenta los puntos descritos anteriormente, se ha desarrollado un sistema
+que permite el registro de los datos generados en los macroprocesos y subprocesos
+desarrollados por el área de genética de yuca, así como para hacer la gestión de
+los recursos que son requeridos en cada una de las tareas realizadas por el área de
+genética de yuca para calcular los costos derivados de las operaciones realizadas. El
+sistema permitirá al líder del proyecto gerenciar de manera más efectiva los procesos
+y recursos que son realizados en el área de genética de yuca.
+
+ 
+
+"CIAT (Centro Internacional de Agricultura Tropical) https: / /ciat.cgiar.org/es/
+
+121.2. Problema
+
+1.2.1. Descripción del problema
+
+La yuca es el tercer cultivo alimenticio más importante en los trópicos y sirve además como alimento para el ganado y materia prima industrial, casi 500 millones
+de personas en África al igual que en América Latina y el Caribe dependen de ella
+para la alimentación; además, millones de pequeños agricultores en Asia la cultivan
+para mercados industriales. La yuca puede soportar condiciones hostiles, lo que la
+convierte en un cultivo clave para proteger la agricultura de pequeña escala contra
+el cambio climático. Partiendo de este punto, el CIAT busca contribuir a un auge,
+potencialmente global, de la yuca a través de un mejoramiento en rendimiento y
+calidad de producto, mejor agronomía y esfuerzos concertados para combatir plagas
+y enfermedades emergentes [1].
+
+Es por ello que el área de Genética de Yuca es un motor muy importante en el
+cumplimiento de la estrategia del CIAT y en particular el laboratorio de Cultivo
+de Tejido porque es el responsable de conservar los materiales que están en análisis
+y luego distribuir estos materiales a la misma comunidad CIAT y sus socios para
+continuar con la investigación en este cultivo. El proceso de conservación consiste en
+preservar los materiales de yuca de manera in-vitro, los cuales llegan al laboratorio de
+diferentes fuentes, y aplicando diversas técnicas preestablecidas permiten resguardar
+un número de plantas en los respectivos cuartos de conservación y crecimiento. Por
+otro lado, el proceso de distribución de estas plantas in vitro consiste básicamente
+en la entrega o envío de estos materiales a diferentes programas dentro del mismo
+centro y a otras entidades socias que las requieran. Igualmente estas plantas in-vitro
+pueden ser enviadas a los invernaderos y/o lotes de campo del área Genética de Yuca
+para establecer diferentes ensayos de investigación.
+
+Todos estos procesos generan mucha información, la cual se debe registrar y almacenar porque sirven de base para los ensayos actuales y futuros. Entre esta información
+se puede enumerar algunos ejemplos como el origen, las evaluaciones de laboratorio,
+invernadero y campo, e inventarios de los distintos materiales conservados. Adicionalmente, estos procesos consumen recursos los cuales el área de Genética de Yuca
+debe presupuestar. Actualmente el laboratorio de Cultivo de Tejidos cuenta con un
+sistema de información que les permite registrar el ingreso de familias, genotipos,
+movimientos y un subsistema de alarmas [2]. Sin embargo este sistema no permite generar los costos, ni determinar la trazabilidad de un material, y está enfocado
+solamente al laboratorio, sin tener en cuenta los invernaderos y las evaluaciones en
+campo.
+
+Teniendo en cuenta el contexto descrito anteriormente, se creó un sistema que ayuda
+a la solución de esta problemática y permite hacer seguimiento a la historia de los
+materiales conservados en el laboratorio de Cultivo de Tejidos y además genera un
+valor estimado en tiempo y costo de los procesos que se le desea aplicar a un material
+tanto en el laboratorio, invernadero y campo.
+
+131.2.2.
+
+Formulación del problema
+
+¿Cómo determinar la trazabilidad de un material del área de Genética de Yuca y los
+costos asociados a la misma?
+
+1.3.
+
+1.3.1.
+
+Desar
+terial
+
+1.3.2.
+
+1.4.
+
+Desar
+
+Objetivos
+
+Objetivo general
+
+rollar una aplicación WEB que permita determinar la trazabilidad de un madel área de Genética de Yuca y los costos asociados.
+
+Objetivos específicos
+
+. Implementar el módulo de recursos que permita llevar el control del inventario
+
+de los insumos, equipos, instalaciones y roles que son necesarios para la ejecución de los procesos en el laboratorio de Cultivo de Tejidos, Invernadero y
+Campo.
+
+. Implementar el módulo de procesos que permita configurar las actividades y
+
+tareas que se realizan en el laboratorio de Cultivo de Tejidos, Invernadero y
+Campo.
+
+. Implementar el módulo de inventario de materiales de yuca que son conservados
+
+por en el laboratorio de Cultivo de Tejidos, y los que se encuentran en el
+Invernadero y/o Campo.
+
+. Implementar el módulo de Órdenes de Trabajo para la ejecución de los procesos
+
+diarios.
+
+. Implementar el módulo de reportes para consultar la trazabilidad de los ma
+teriales de yuca que son conservados y los costos de los procesos asociados a
+estos.
+
+Justificación
+
+rollar una aplicación web que permita determinar la trazabilidad de un material
+
+del área de Genética de Yuca y los costos asociados a esta, le permitirá al líder del
+área planear y controlar sus actividades de manera más eficiente. También servirá
+
+en un
+
+momento determinado para la toma de decisiones gerenciales.
+
+Por otro lado, la herramienta permitirá centralizar muchos datos que se generan en
+el área de genética de yuca, producto de los procesos que se realizan, ya que en
+la actualidad se maneja mucha información en hojas electrónicas, lo que produce
+que la información se encuentre dispersa y se dificulte la consulta y actualización
+de dicha información. La centralización de esta información facilitará la consulta o
+
+14actualización, además de esto, poder consultar sobre los procesos que se le aplican a
+los genotipos y sus resultados, es un punto clave para los investigadores del proyecto
+ya que les permitirá tomar determinadas decisiones para sus investigaciones.
+
+Por último, este proyecto contribuirá con el afianzamiento de los conocimientos adquiridos durante el transcurso de la carrera como el diseño y construcción de aplicaciones, diseño y construcción de bases de datos, metodologías de desarrollo de
+software entre otros. Además permitirá la adquisición de nuevos saberes ya que se
+conocerán y aprenderán nuevas tecnologías que se utilizan en el proceso de elaboración de soluciones informáticas.
+
+1.5. Alcance
+
+El sistema que se pretende desarrollar será una aplicación en ambiente web, la cual
+permitirá tener la información centralizada y actualizada de los datos que se producen
+con los procesos que lleva a cabo Genética de Yuca, con la cual se buscar determinar
+la trazabilidad de los materiales y los costos asociados. Para ello se desarrollarán 5
+módulos: Recursos, Procesos, Inventario de materiales, Ordenes de Trabajo y ReporLes.
+
+En el módulo de Recursos se llevará el inventario de todos los recursos que son
+necesarios en Genética de Yuca para su operación diaria. En el módulo de Procesos
+se van a configurar todas las tareas que se llevan a cabo en el laboratorio de Cultivo
+de Tejidos, en el invernadero y en el campo. Estos dos módulos son esenciales para
+el cálculo de los costos que se generan en Genética de Yuca.
+
+El módulo de Inventario de Materiales será desarrollado para la gestión de la información relacionada con el inventario de las plantas, así como de los procedimientos que
+se le aplican a las mismas. Estos módulos son de gran importancia para determinar
+la trazabilidad de los materiales.
+
+El módulo de Órdenes de Trabajo permitirá establecer los procesos que se le realizaran a los materiales del laboratorio de Cultivo de Tejidos.
+
+Por último, el módulo de reportes será donde se muestre el compendio de toda la
+información. Permitirá la consulta de la trazabilidad para consultar la trazabilidad
+de los materiales de yuca y los costos de los procesos asociados a estos.
+
+Los módulos se implementaran de tal manera que permiten la creación, lectura,
+modificación y eliminación de información en los módulos que así lo requieran. Dichos
+
+módulos serán desarrollados en las fases: análisis, diseno, desarrollo o codificación y
+pruebas.
+
+1.6. Estructura del documento
+
+En el Capítulo 2, se presenta el marco teórico, las tecnologías para el desarrollo
+web y los antecedentes sobre el sistema utilizado anteriormente por el laboratorio de
+
+15cultivo de tejidos. El Capítulo 3, muestra las características de la aplicación :sistema
+de gestión de genética de yuca, desarrollada en este proyecto. El Capítulo 4, presenta
+los procesos de ingeniería del software seguidos en la implementación del sistema.
+Finalmente el Capítulo 5 muestra las conclusiones y trabajos futuros.
+
+16Capítulo 2
+
+Marco referencial
+
+2.1.
+
+2.2.
+
+2.2.1.
+
+Marco conceptual
+
+Genotipo: Se refiere a cada una de las plantas completamente formadas que
+corresponden a una familia con un número de serie único con las que trabajan
+en el proyecto de genética de yuca.
+
+Menú dashboard: menús que se despliegan en forma de cuadricula.
+
+Singleton: es un patrón de diseño diseñado para restringir la creación de objetos
+pertenecientes a una clase o el valor de un tipo a un único objeto. Su intención
+consiste en garantizar que una clase sólo tenga una instancia y proporcionar
+un punto de acceso global a ella.
+
+Trazabilidad: seguimiento de los movimientos o procedimientos que afectan a
+los genotipos durante todo su ciclo de ciclo de vida.
+
+Marco teórico
+
+Conservación de plantas de Yuca en el laboratorio][3]
+
+El proceso de conservación se desarrolla teniendo en cuenta la procedencia o fuente
+de origen de los genotipos. A continuación se describen las etapas o subprocesos que
+se realizan para conservar un genotipo de acuerdo a cada fuente.
+
+Fuente 1: Obtención de plantas in vitro a partir de la semilla de yuca (materiales
+propios del laboratorio de genética de yuca).
+
+1.
+
+Inicialmente se reciben las semillas y se hace una preselección mediante una
+prueba de agua para determinar cuáles semillas son aptas para germinar y cuáles se deben desechar. La prueba consiste en depositar las semillas en un beaker
+con agua corriente, y se seleccionan las semillas que se precipitan descartando
+las que flotan.
+
+17ECIAT EMBRYO RESCUE Vis
+
+CIAT- GENETICA DE YUCA- CULTIVO DE TEJIDOS
+
+a al
+
+  
+
+ 
+
+Sulfuric acid 97%
+Test in water 28 in O 70%
+2 min
+ó a
+The cotyledons must be
+
+separated without causing CArification Process Wash with esteril water Sodium hypoclorite 0.5%
+damage to the embryo 3 times 12 min
+
+ 
+
+Embryo + cotyledon Complete darkness Complete plants .
+17N 5 days — T: 27-30 C Photoperiod e 27
+ 
+
+ 
+
+Figura 2.1: Rescate de embriones.
+Elabarorado por Adriana alzate
+
+2. El siguiente paso se ablanda la testa (cáscara) de la semilla. El proceso de
+ablandamiento consiste en depositar las semillas seleccionadas en la tarea anterior en un recipiente el cual contiene ácido sulfúrico durante un periodo de
+tiempo.
+
+3. Después de ablandar la testa de la semilla se hace una desinfección. Para el
+proceso de desinfección se necesita: alcohol, hipoclorito y agua estéril.
+
+4. Una vez se tiene la semilla desinfectada, se le retira la testa o cáscara a la
+semilla y se siembra en un tubo de ensayo, el cual contiene el medio de cultivo.
+Posteriormente los tubos con las semillas sembradas, se tapan con una tela
+oscura por un periodo de 5 días y se colocan en el cuarto de crecimiento a una
+temperatura entre 27 y 30 grados centígrados. Pasados los 5 días, se retira la
+tela y a las 6 semanas se obtiene una planta desarrollada.
+
+5. Después de las 6 semanas la planta completamente desarrollada (con raíz, tallo
+y hojas) puede ser multiplicada para obtener 3 plantas nuevas. El proceso de
+multiplicación consiste en tomar la planta y dividirla en 3 secciones o explantes
+(ápice y nudos), cada explante es sembrado en un tubo de ensayo. De manera
+similar se debe esperar que pase un periodo de 6 semanas para que las plantas se
+desarrollen y continuar con el proceso de multiplicación. Cada planta producirá
+3 explantes lo que significa que después de las 6 semanas se tendrán 3 plantas
+con 9 explantes que se seguirán multiplicando cada 6 semanas hasta obtener
+27 plantas que serán distribuidas así: 9 plantas para invernadero, 10 plantas
+para envíos y 8 plantas para conservación. La Figura 2.1 ilustra el proceso de
+rescate de embriones.
+
+Fuente 2: Materiales Provenientes del Programa de Mejoramiento
+Los genotipos que produce el Programa de Mejoramiento son obtenidos mediante
+
+cruzamientos en campo. Posteriormente definen que materiales se llevarán a conservación in vitro. Cuando se tienen seleccionados los genotipos para conservar, se envía
+
+18a invernadero semilla de estaca. Cuando se tienen las estacas en el invernadero se
+realiza la siembra en bolsas, con el objetivo de que dichas estacas broten y desarrollen
+una rama. El invernadero facilita un ambiente libre de plagas y enfermedades que
+permite el crecimiento sano de las plantas. La rama se lleva al laboratorio de cultivo
+de tejidos para comenzar el proceso de conservación in vitro.
+
+El proceso de conservación in vitro consta de las siguientes etapas:
+
+1. De la rama que llega al laboratorio, se obtienen 3 explantes a los que se les
+realiza un proceso de desinfección, el cual comienza con pasar los explantes por
+un fungicida sistémico durante 20 a 30 minutos.
+
+2. Posteriormente, se continúa la desinfección pasando los explantes por alcohol,
+hipoclorito de sodio y enjuague con agua estéril.
+
+3. Los explantes desinfectados se siembran en tubos de ensayo con medio de cultivo, y se colocan en cuarto de crecimiento.
+
+4. Transcurrida una semana, se procede a realizar evaluaciones visuales para determinar si el material está contaminado por hongos y/o bacterias. Si se obtienen resultados negativos para la prueba de hongos y bacterias se espera por un
+periodo de 3 semanas para que las plántulas hayan crecido lo suficiente para
+realizar la multiplicación.
+
+5. Pasadas las 3 semanas, las plantas desarrolladas se multiplican. Este proceso
+se realiza cortando los ápices y el 2do nudo de cada plántula, y se siembran
+en los frascos con medio de cultivo. El proceso continúa de igual forma hasta
+completar un stock por genotipo de 3 frascos con 5 plantas cada uno.
+
+En general, los genotipos provenientes de campo, incluyendo los procedentes
+del Programa de Mejoramiento, pueden tener enfermedades producidas por
+virus, las cuales solo se detectan a partir de pruebas de laboratorio o pruebas
+de indexación. Esta prueba se realiza usando las hojas de las plantas de los
+genotipos in vitro. Si el resultado de la prueba es positivo para virus, el genotipo
+se somete al proceso de termoterapia, el cual consiste en sembrar los ápices
+de las plantas enfermas en tubos de ensayo con medio y se ubican en una
+incubadora bajo las siguientes condiciones: 400C de día y 350C de noche, 12
+horas fotoperiodo, por un periodo de 12 días. El proceso se repite 3 veces,
+es decir, 36 días. Cumplidas 3 semanas se realiza nuevamente la prueba de
+indexación.
+
+Cuando la prueba de indexación es negativa (material está libre de virus), se
+realiza el procedimiento de conservación normal.
+
+6. En todos los casos de genotipos provenientes de campo, el material es multiplicado y se espera una semana para revisar si hay contaminación por hongos o
+bacterias, si la planta está limpia, se procede a conservarla (almacenarla) en el
+cuarto de conservación. Por otro lado si la planta está contaminada se realiza
+un proceso de desinfección y se espera nuevamente una semana para volver a
+revisar.
+
+Fuente 3: Materiales provenientes del Banco de Germoplasma.
+
+19Ga é
+INTRODUCCION DE GENOTIPOS DE INVERNADERO A IN VITRO
+CIAT- Genética de Yuca— Cultivo de Tejidos
+
+0
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+E CONTAMINACIÓN
+CONSERVAR
+MULTIPLICAR ÁPICES Y 2%
+
+NUDO
+
+1 RAMITA CON 3 | 3 SEMANAS MITA
+
+NUDOS DE
+
+INVERNADERO LLEVAR HOJAS A PRUEBA DE
+
+| SIN HONGO | INDEXACIÓN
+
+  
+ 
+ 
+
+l PROCESO DE DESINFECCIÓN
+
+NEGATIVA
+
+      
+ 
+
+    
+
+SI PRUEBA DE
+
+CONTAMINACIÓN INDEXACIÓN:
+
+ 
+
+Incubar: 40% dia, 35% noche,
+ES
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+< por 12 días
+PROCESO DE 1 SEMANA E e
+DESINFECCION
+=>
+
+E CORTAR Y
+
+Ú SEMBRAR
+
+ZÉ ÁPICE
+
+3 veces
+to]
+SIEMBRA IN VITRO
+Notes:
+
+Figura 2.2: proceso de conservación de materiales provenientes del invernadero. (Elabarado por Adriana Alzate.)
+
+El proceso de conservación de los materiales provenientes del Banco de Germoplasma
+inicia con la llegada de 5 plántulas de las cuales se pueden obtener 15 explantes. Inmediatamente llegan las 5 plántulas del Banco se procede a realizar la multiplicación.
+Después de que multiplican las 5 plántulas y se siembran en los respectivos tubos
+con medio de cultivo (4E), se espera que pase un periodo de 6 semanas para obtener
+15 plántulas nuevas con 45 explantes (15 ápices y 30 nudos), después de tener las
+15 plantas se multiplican nuevamente, realizando el mismo proceso de multiplicación
+ya descrito. Pasadas las semanas de rigor se obtendrán 45 plántulas nuevas que se
+podrán destinar así: 15 plantas de ápices para invernadero, 10 plantas para envió, 20
+plantas para conservación.
+
+Fuente 4: Materiales procedentes de otros países
+
+El proceso de conservación de los materiales que llegan provenientes de otros países
+es igual al que se realiza con los materiales que provienen del Banco de Germoplasma.
+Estos genotipos llegan en forma in vitro y con certificados que garantizan su sanidad,
+es decir, libres de enfermedades o cualquier agente contaminante. Por tanto, después
+de recibir el material se multiplica para conservarlo y no se le realizan tratamientos
+especiales.
+
+2.2.2. Distribución de Genotipos [3]
+
+El material que se tiene en el cuarto de conservación puede tener cuatro destinos:
+
+1. Envío para socios (otros países).
+2. Usuarios CIAT
+
+3. Laboratorio de Genética Molecular de Yuca.
+
+20ECIAT (Hmm
+
+ENVÍOS DE GENOTIPOS IN VITRO
+CIAT- Genética de Yuca— Cultivo de Tejidos
+
+USUARIOS MOLECULAR GY HOJAS |
+
+6 SEMANAS
+
+1 PLANTA
+> | USUARIOS CIAT | ————>
+6 SEMANAS
+
+10 PLANTAS
+
+ 
+
+15 PLANTAS
+
+STOCK EN USUARIOS OTROS PAISES a
+CONSERVACIÓN POR 6 SEMANAS
+GENOTIPO
+5 PLANTAS
+CAMPO
+A . PP
+6 SEMANAS 12 SEMANAS
+COMENZAR ENSAYOS
+
+10 PLANTAS
+
+ 
+
+Figura 2.3: Proceso de distribución de genotipos.
+(Elaborado por Adriana Alzate)
+
+4. Invernaderos, que posteriormente pueden ser enviados a campo
+
+El inicio del proceso de distribución de un material se da con la solicitud de los
+genotipos al laboratorio de Cultivo de Tejidos de Genética de Yuca, después de que la
+solicitud es atendida se debe esperar por un periodo de 6 semanas o más dependiendo
+del tamaño del pedido, mientras el laboratorio puede producir la cantidad de material
+solicitado. Transcurrido este periodo, se entregan los recipientes (frascos o tubos de
+ensayo) que contienen las plantas in vitro.
+
+Cuando los materiales son solicitados por usuarios de otros países o por usuarios
+CIAT, después de recibida la solicitud, se propaga el material in vitro y se espera
+que las plantas crezcan durante 6 semanas, posteriormente son enviadas a otro país
+o entregadas al usuario CIAT entre 5 y 10 plantas. Por otro lado, los usuarios del
+área Molecular del mismo Programa de Genética de Yuca (GY), solicitan y se les
+entregan hojas in vitro que son almacenadas temporalmente en nitrógeno líquido y
+se despachan el mismo día.
+
+Cuando un genotipo se entrega para ser sembrado en campo o cuando son genotipos
+que se utilizarán para ensayos del Programa de GY, deben pasar por un periodo
+de aclimatación en invernadero. Es decir, un periodo intermedio entre laboratorio
+
+y campo donde se prepara la planta in vitro para que se adapte y sobreviva a las
+nuevas condiciones ambientales del campo.
+
+2.2.3. Tecnologías de desarrollo
+
+Para abarcar el problema presentado en este trabajo, se hará uso de las siguientes
+tecnologías para el desarrollo web.
+
+ORM: Object-Relational mapping, o lo que es lo mismo, mapeo objeto-relacional,
+
+21MD
+
+ 
+
+Java Objects RDBMIS
+
+Figura 2.4: Arquitectura Hibernate (tutorialspoint.com [6|)
+
+es un modelo de programación que consiste en la transformación de las tablas de una
+base de datos, en una serie de entidades que simplifiquen las tareas básicas de acceso
+a los datos para el programador.|4]
+
+La ventaja principal de estos sistemas es que reducen la cantidad de código necesario
+para lograr lo que se conoce como una persistencia de objetos. Esto permite además,
+lograr una integración con otros patrones como el Modelo-Vista-Controlador.[5]
+
+En otras palabras el mapeo objeto-relacional es básicamente la abstracción de la base
+de datos en clases del modelo orientado a objetos que le permiten al programador
+centrarse en el desarrollo de la aplicación, ya que le ahorra mucho tiempo en lo
+relacionado al acceso a los datos de la base de datos.
+
+Casi todos los lenguajes de alto nivel actualmente disponen de alguna solución de
+este tipo, una de las más conocidas es Hibernate para JAVA, sin embargo existen
+muchos más.
+
+Hibernate:|6| Hibernate es una solución de mapeo objeto-relacional (ORM) para
+JAVA y se creó como un framework de persistencia de código abierto. Se trata de
+un servicio de consulta y persistencia Objeto-Relacional de alto rendimiento para
+cualquier aplicación Java.
+
+Hibernate mapea las tablas de la base de datos a clases de Java y de tipo de datos SQL
+a tipos de datos de Java y libera al desarrolladores del 95 % de tareas de programación
+relacionados con la persistencia de datos comunes [7].
+
+Hibernate se encuentra entre los objetos de Java tradicionales y servidor de base de
+datos para manejar todo el trabajo en la persistencia de esos objetos en función de
+los mecanismos y patrones apropiados O/R.
+
+Entre las ventajas que ofrece Hibernate se encuentran:
+
+1. Hibernate cuida de mapear las tablas de base de datos a clases Java usando
+archivos XML sin escribir ninguna línea de código.
+
+2. Proporciona APls sencillas para el almacenamiento y recuperación de Objetos
+Java directamente a la base de datos.
+
+3. Abstraer los tipos de SQL desconocidas y nos permite trabajar alrededor de
+objetos familiares Java.
+
+22La E
+a
+
+ 
+ 
+     
+
+AS Access pane Web Container
+> PR? PAR A myfacelet.xHitml
+Browser MTTP Request y
+
+  
+
+      
+   
+
+Renders HTML
+HTTP Response
+
+Notes:
+
+Figura 2.5: Respuesta a una solicitud de cliente para una
+página JavaServer Faces. (Oracle [8])
+
+Java Server Faces:|8] La funcionalidad proporcionada por una aplicación como
+JavaServer Faces es similar a la de cualquier otra aplicación Web Java. Una típica
+aplicación de JavaServer Faces incluye las siguientes partes:
+
+1. Un conjunto de páginas Web en las que los componentes se presentan, un
+conjunto de etiquetas para agregar componentes a la página Web y un conjunto
+de beans gestionados, que son objetos contenedores gestionados ligeros (POJO)
+con requisitos mínimos. Apoyan un pequeño conjunto de servicios básicos, como
+la inyección de recursos, las devoluciones de llamada de ciclo de vida y los
+interceptores.
+
+2. Un descriptor de despliegue Web (archivo web.xml) y uno o más archivos de
+recursos de configuración de la aplicación, como por ejemplo un archivo facesconfig.xml, que se puede utilizar para definir reglas de navegación de páginas y
+configurar los beans y otros objetos personalizados, tales como los componentes
+personalizados
+
+3. Un conjunto de objetos personalizados, que pueden incluir componentes personalizados, validadores, convertidores o listeners, creado por el desarrollador
+de aplicaciones. También un conjunto de etiquetas personalizadas para la representación de objetos personalizados en la página.
+
+AJAX: AJAX es el acrónimo para Asynchronous JavaScript And XML. AJAx per
+mite que las páginas web sean actualizadas asíncronamente mediante el intercambio
+de información con el servidor. Lo que quiere decir que es posible actualizar partes de
+la página o componentes sin necesidad de recargar la página entera. Esta tecnología
+busca principalmente mejorar la interacción del usuario con las aplicaciones ya que
+
+evita que el usuario se encuentre con pantallas vacías en espera a la respuesta del
+servidor.[10]
+
+la Figura 2.6 ilustra el modelo clásico de las aplicaciones web, y el modelo usando
+ajax. En las aplicaciones que usan el modelo clásico los usuarios debe esperar a que
+se cargue la página con los cambios solicitados ya que la aplicación debe realizar
+peticiones continuas al servidor generando una sensación de demora en el usuario.
+AJAX busca eliminar esta recarga constante de las páginas y por ende mejorar la
+experiencia del usuario, mediante la creación de un elemento intermedio entre el
+
+23cr irritan
+
+| di
+Jubii call |
+| AMPL 4
+
+f A
+peer imierlare Ajaz =rqine
+| » | 4
+HTTP regul HTTP roca
+| | |
+HTML data OU deta
+' |
+ME A
+Y - í ñ
+diles, Doll Sl ra, bochtral
+DOCE. ESO ETS DOCE. E? ETE
+classic Ajax
+we> application model web application model
+
+Notes:
+
+Figura 2.6: Modelo clasico de una aplicación web vs modelo
+de una aplicación web usando ajax. (Kris Hadlock [10])
+
+usuario y el servidor ya que hace que el intercambio de información se realicen en
+un segundo plano logrando así que se mejore la respuesta de la aplicación para las
+solicitudes del cliente.
+
+PrimeFaces:|9] es un framework de desarrollo web para JSF de código abierto utilizada para el desarrollo de interfaces gráficas de usuario (GUI) gracias a que cuenta
+con un conjunto de componentes enriquecidos (RIA) que Mejora la eficiencia del
+desarrollador mientras reduce el tiempo de comercialización y los costos de operación. Primefaces posee características muy especiales que lo convierten en una de las
+tecnologías más utilizadas en el mercado del desarrollo de aplicaciones web y móviles
+ya que también ofrece componentes para dispositivos móviles. Además del amplio
+conjunto de componentes que posee, también se caracteriza por ser fácil de utilizar y
+configurar, ya que solo necesita un archivo y no requiere de otras dependencias para
+funcionar, sin embargo una de las características más importantes es el soporte para
+AJAX, lo cual es una gran ventaja ya que le evita al desarrollador hacer métodos
+complejos utilizando javascript para comunicarse con el servidor debido a que las implementaciones de la técnica AJAX son transparentes para a él, pero permitiéndole
+utilizar todo el poder que ofrece esta tecnología.
+
+JQuery:[11] Para ayudar en la construcción de sitios web interactivos, existen librerías de JavaScript, como ¡Query para automatizar tareas comunes y simplificar
+procesos. Esta librería proporciona una capa de abstracción de propósito general
+para la programación web común, cubriendo las siguientes necesidades:
+
+= Acceso a los elementos de un documento. Ahorrando una gran cantidad de
+líneas de código necesario para recorrer el árbol DOM (Document Object
+Model), y para localizar partes específicas de la estructura de un documento
+HTML. Ofreciendo un robusto y eficiente mecanismo de selección para recuperar la pieza exacta del documento que se va a inspeccionar o manipular.
+
+= Modificar la apariencia de una página web. Brindando un estándar para todos
+los navegadores que no ha podido ofrecer CSS; además, permite cambiar las
+
+24propiedades de estilo aplicadas a una parte del documento, aunque la página
+ya haya sido cargada.
+
+= Alterar el contenido de un documento. Permitiendo modificar el contenido (texto, imágenes, listas, estructura HTML, etc.) interactuando con el mismo.
+
+= Responder a la interacción del usuario. Permitiendo interactuar con una va
+riedad de controladores de eventos, sin necesidad de recargar todo el código
+HTML.
+
+= Animar cambios hechos a un documento. Para aplicar comportamientos interactivos, proporcionando información visual al usuario.
+
+= Recuperar información de un servidor sin actualizar la página. Por medio de
+Asynchronous JavaScript And XML (AJAX), ayudando en la elaboración de
+un sitio sensible, rico en funciones. La librería ¡Query elimina la complejidad
+específica de este proceso, lo que permite a los desarrolladores centrarse en la
+funcionalidad del servidor.
+
+= Simplifica las tareas comunes de JavaScript.
+
+JSON: Es un formato para el intercambio de datos, esta basado en texto, es ligero y
+prsenta un formato legible para las personas que permite el intercambio de datos entre
+clinetes y servidores. JSON se deriva del lenguaje JavaScript y tiene un gran parecido
+a los objetos de JavaScript, pero no depende del mismo. JSON es independiente del
+lenguaje y es soportado por todos los lenguajes mas populares, entre los que estan
+
+C4, C++, Java, PHP, Python y Ruby.
+
+JSON esta construido sobre dos estructuras:
+
+= Una coleccion de pares nombre-valor. In varios lenguajes esto es realizado como
+un objeto, un registro, una structura, un diccionario y tabla hash, una lista con
+elementos clave-valor o un arreglo asociativo.
+
+= Una lista de valores ordenados. En la mayoria de lenguajes de programacion,
+esto es realizado como un arreglo, un vector, una lista, o una secuencia.
+
+Estas estructuras de datos son universales. Todos los lenguajes de programacion
+modernos las soportan. En JSON estas toman las siguientes formas:
+
+Un objeto es un conjunto del par no ordenador nombre/valor. un objeto inicio con 4
+(llave izquierda) y termina con | (llave derecha). Cada nombre es seguido por :(dos
+puntos) y los pares nombre /valor son separados por , (coma).
+
+Un arreglo is una coleccion ordenada de valores. Un arreglo inicia con | (corchete
+izquierdo) y termina con | (corchete derecho). Los valores son separados por , (coma).
+
+Un valor puede ser una cadena de texto, o un número, un valor booleano o un null.
+Estas estructuras pueden ser anidadas.
+
+Una cadena de texto es una secuencia de cero o mas caracteres, encerrados en comi
+llas dobles. Un caracter es representado como una cadena de texto como un simple
+caracter.
+
+20Un número es como un numero en C o Java, excepto que no son usados los formatos
+octal o hexadecimal.
+
+PL/SQL:[12] Es un lenguaje de procesamiento procedimental implementado por
+Oracle. Dispone de estructuras de programación similares a las de la mayoría de los
+lenguajes de programación y su principal objetivo es el de interactuar con la base de
+datos
+
+2.3. Antecedentes
+
+Actualmente el Laboratorio de cultivo de tejidos de genética de yuca cuenta con una
+herramienta de software, para el registro de la información de los genotipos que allí
+se conservan, el sistema de información de genética de yuca (SIGY).|2]
+
+SIGY, está compuesto de dos módulos: el módulo de Cultivo de Tejidos y el módulo de Gestión. Esta herramienta cubre todo lo relacionado con el ingreso de familias (ingreso de semillas sexuales que posteriormente generará genotipos), genotipos
+(plantas completamente formadas que corresponden a una familia con un número de
+serie único y un estado que revela las acciones que se debe tomar con el mismo),
+movimientos, y por último un subsistema de alarmas que indica al usuario las tareas
+que debe ejecutar con su debida prioridad. Es importante destacar que este sistema
+tiene 2 componentes tecnológicos definidos, como primer componente una aplicación
+Web, con la cual se hace la gestión de los puntos anteriormente descritos, y un componente móvil (PDA) con el cual se hace la toma de datos mediante un estándar de
+código de barras que es definido y generado por la aplicación Web, este es usado en
+sitios donde es difícil ingresar un computador.
+
+26Capítulo 3
+
+Sistema de información de
+genetica de yuca
+
+El sistema de información de genética de yuca es una herramienta web que permite
+hacer seguimiento a la historia de los materiales conservados por el área de Genética
+de Yuca y además genera un valor estimado en tiempo y costo de los procesos. El
+sistema permite la gestión de los recursos que son necesarios para la realización de los
+procesos, la configuración de los procesos y/o tareas que se le aplican a los materiales,
+la gestión del inventario de los materiales que son almacenados, calcular un estimado
+de tiempo y costo de ejecutar los procesos y adicionalmente almacenar información
+para llevar la trazabilidad de determinado material.
+
+La Figura 3.1 ilustra la estructura general de las interfaces gráficas de la aplicación,
+las cuales están constituidas por 3 partes: 1) la superior que contiene el logotipo del
+CIAT; 2) la siguiente contiene la barra de navegación con los menus y submenus de
+cada módulo, que le dan al usuario una navegabilidad completa por todo el módulo,
+además tiene las opciones de ir al inicio y cerrar sesión; y por último 3) la sección
+central o área de trabajo que le indica al usuario en que módulo se encuentra y es
+donde se muestran toda la información registrada y las opciones para hacer la gestión
+de la misma.
+
+AA ( | A Science to cultivate change O)
+MUA
+
+International Center for Tropical Agriculture / Since 1967
+
+Cultivo de Tejidos
+
+xportar equipos
+
+m
+
+Nuevo Equipo
+
+» AUTOCLAVES
+
+» BALANZA ELECTRICA (6)
+
+» BEAKER
+
+» BISTURI
+
+» CABINA EXTRACTORA
+
+» CAJA PETRI
+
+» CAMARA FLUJO LAMINAR
+» LAVAVAJILLAS
+
+» MAQUINA ESTERILIZANTE
+
+Figura 3.1: Estructura general, interfaz sistema de Genética de Yuca.
+
+27LAW ( | A | Science to cultivate change
+MU AA
+
+International Center for Tropical Agriculture / Since 1967
+
+ 
+
+O Ó
+O AS
+O AS
+O y
+
+ 
+
+Or
+
+a
+
+enes de Trabajo Cultivo de Tejidos Invernadero
+
+Campo Reportes y Consultas Configuración
+
+Figura 3.2: Menú dashboard, pantalla de inicio.
+
+3.1. Descripción general
+
+El sistema de información de Genética de Yuca cuenta con un conjunto de módulos
+que facilitan la interacción del usuario con el sistema. Las interfaces gráficas están
+constituidas por una serie de componentes visuales como tablas o listas desplegables
+tipo acordeón que le facilitan al usuario la consulta de los datos registrados en el
+sistema. Adicionalmente ofrece las opciones para la manipulación de los datos como
+la edición, eliminación, habilitación o deshabilitación de estados.
+
+La Figura 3.2 muestra la página principal del aplicativo, la cual está compuesta por
+un menú tipo dashboard en la que se listan cada uno de los módulos que componen
+el sistema facilitando así el acceso a cada uno.
+
+Para el ingreso manual de datos , la aplicación ofrece formularios, que cuentan con
+diversos tipos de campos buscando facilitar el ingreso de la información, por ejemplo,
+para el ingreso de las fechas se ofrecen campos que despliegan pequeños calendarios
+donde el usuario podrá seleccionar la fecha deseada, sin tener que preocuparse por
+digitar el formato de la fecha correctamente. Adicionalmente existe la opción para
+hacer la carga de archivos con extensión .xls para aquellos formularios donde el
+usuario deba hacer la relación de una gran cantidad de datos. La Figura 3.3a y la
+Figura 3.3b muestran el formulario de creación de una orden de una orden de trabajo
+y un equipo respectivamente.
+
+La Figura 3.4 muestra la tabla con los insumos creados para el módulo de cultivo de
+tejidos, de forma similar serán mostrados los equipos, roles y ubicaciones para cada
+uno de los módulos.
+
+Dentro de cada tabla existe una sección que contiene las opciones de manipulación
+de los datos que le permite al usuario realizar las operaciones de edición, borrado,
+descarte o cambio de estado, según sea el caso.
+
+Uno de los elementos de utilidad dentro del sistema son las opciones para exportar
+
+información en formato excel, estas opciones permite que se obtenga un archivo
+con extensión .xls de la información detallada y actualizada de algún elemento que
+
+23Adicionar Equipo - AUTOCLAVE 5 a
+
+Nueva orden de trabajo ml
+Flaca”
+Momia * | Aombre Equipo ”
+Peer de compra |
+LES CNPRoion * Precio compra (USD] o Delosár 3016 o
+Repo bde ld Mc Ti ab Th Fr 5a
+Genobpos Browse ed ]
+nh : Wa útil daños)”
+Pa e o) 2.0 3.405.0607 048
+Peñodo de mantenámienio (meses * 1060 10 4014-15
+Exportar blemgolabe recto Capacidad mama * 16 1 Y M3 A 2
+bi DOHA A
+Ac 0 MT mos
+Número de serudlas, Estado” Acto E
+LOTHarTarEl
+Acepliar Cancelar
+AecópLar Canomar
+(a) creación de una orden de trabajo (b) creación de un equipo
+
+Figura 3.3: formularios para la creacion de ordenes de trabajo y equipos
+
+Cultivo de ¡ejidos
+
+Nuevo insumo Exportar excel
+e UE leo)
+Editar
+
+Adicionar insumo
+
+Fecha
+
+Nombre Precio compra (USD) Precio unitario (USD) Cantidad (Litros) a Fecha vencimiento Comentario Opciones
+compra/preparación
+¿
+acido sulfurico 97% USD 4654.0 54.0 690.0 21-Jul-16
+?
+acido sulfurito al 90% USD 2000.0 20.0 1690.0 D6-Jul-16
+(10f1)
+
+Cantidad Total de ACIDO SULFURICO: 2380.0 (Litros)
+
+» AGUA ESTERIL
+» ALCOHOL DE 96 GRADOS
+
+» ALGODON
+
+Figura 3.4: tabla de insumos
+
+se encuentre registrado en el sistema, por ejemplo se puede descargar un informe
+en formato excel de los insumos registrados en el sistema, de igual manera se hizo
+extensiva esta opción para cada uno de los elementos que componen el módulo de
+recursos.
+
+Otro elemento dentro de la aplicación de gran utilidad para visualizar la información
+de las tablas son los paginadores ubicados en parte inferior de cada una, los cuales
+dividen la información de cada tabla en diferentes páginas para no perder de vista
+el encabezado de la tabla y no llenar la interfaz de elementos desplegados hacia
+abajo. Cada paginador indica el número de página en que se encuentra la tabla, y
+el número de ítems que la componen, a medida que se navega con el paginador este
+indica cuántos elementos ha paginado.
+
+293.2. Recursos
+
+Al igual que para la elaboración de un producto o la prestación de un servicio se hace
+indispensable el uso de recursos, para la ejecución de los proceso dentro del área de
+Genética de Yuca se hace necesario la utilización de ciertos recursos que van desde
+los insumos pasando por los equipos hasta el recurso humano. Para gestionar esta
+información el sistema de información de Genética de Yuca cuenta con un módulo
+de recursos donde se registran y administran cada uno de los elementos, es decir,
+equipos, insumos y personas que son requeridos para la realización de las tareas.
+
+Este módulo le permite al usuario la creación y edición de cada uno de estos elementos tanto para el laboratorio de cultivo de tejido, como para el invernadero y el
+campo. Adicionalmente el usuario puede realizar el descarte y cambio de estado de
+los insumos y equipos respectivamente. Por otro lado, en la opción para la gestión
+de los equipos, el usuario también puede registrar equipos que no son utilizados en
+ninguna tarea, pero que se quieren tener inventariados, de esta misma manera se
+pueden registrar insumos o implementos que no necesariamente son requeridos en
+las tareas.
+
+Para la gestión del talento humano, se debe registrar los roles y posteriormente
+registrar la información de los empleados que pertenecen a cada uno de esos roles.
+
+Por último, este módulo también permite hacer el registro y manipulación de la
+información de las instalaciones con las que cuenta el área de Genética de Yuca.
+
+3.3. Procesos y tareas
+
+La base operativa del quehacer diario del área de genética de yuca son las tareas que
+allí se llevan a cabo con los materiales que pertenecen al programa o que llegan al
+mismo provenientes de las diferentes fuentes. dicha tareas son definidas de acuerdo
+al lugar donde se deban aplicar, es así como cada subdivisión del área de genética de
+yuca tiene establecidas sus propias tareas.
+
+Las tareas son una parte fundamental para hacer el cálculo estimado de los costos
+generados por las operaciones del área y del tiempo invertido en las mismas. Estas,
+representan las unidades mínimas de trabajo. Cuando varias tareas están relacionadas entre sí se pueden agrupar en un Proceso el cual es un conjunto de tareas con
+determinado vínculo y que se realizan de manera secuencial. La diferencia principal
+entre ambos elementos es que las tareas son los elementos configurables, mientras
+que los procesos sólo sirven como contenedores de tareas, encargados principalmente
+de agruparlas, para así evitarle al usuario tener que ingresar una por una las tareas
+al momento de crear una orden de trabajo.
+
+Teniendo en cuenta lo anterior, el sistema de información de Genética de Yuca cuenta
+con un módulo que permite hacer la configuración y gestión de las tareas que son
+requeridas tanto en laboratorio de cultivo de tejidos, en el invernadero y en el campo.
+Este módulo ofrece una vista en la cual se puede crear una tarea y asignar los insumos,
+los equipos y la persona que son requeridos para la consecución de la misma.
+
+30Nueva tarea
+Nuevo Proceso
+
+RS TIN NA A le * ABLANDAMIENTO
+
+editar
+
+Editar
++ e e
+Descripción
+> - . 7
+Descripción
+Adicionar tarea Adicionar proceso
++
+Tareas Insumos
+1. DESINFECCIÓN CON FUNGICIDA
+2. LAVADO CON ALCOHOL
+3. LAVADO CON HIPOCLORITO
+4. LAVADO CON AGUA ESTERIL + .
+5. SIEMBRA EN MEDIO 4E CON ANTIBIC Equ Ipos
+»> 6. MULTIPLICACIÓN
+7. EVALUACION PARA VIRUS
+< >
+Eliminar +
+Roles
+» MULTIPLICACIÓN
+> RESCATE DE EMBRIONES
+(a) proceso (b) tarea
+
+Figura 3.5: Procesos y tareas despues de ser registrados
+
+Adicionalmente la configuración de las tareas permite no solo el cálculo del tiempo y
+el costo, sino también la realización de otros movimientos dentro del sistema como los
+relacionados con el inventario de insumos, brindando la posibilidad de configurar qué
+tarea genera un nuevo insumo, que posteriormente será registrado en el inventario.
+
+Las tareas también pueden ser configuradas para determinar si afectan o no el in
+ventario de los materiales, qué inventario afecta y si es un movimiento de entrada o
+de salida.
+
+Por último, también se presenta la opción para la creación y gestión de los procesos.
+La Figura 3.5a y la Figura 3.5b muestran un proceso y una tarea respectivamente.
+
+En la Figura 3.5a se observa un proceso con la lista de tareas que le fueron asignadas.
+mientras que en la Figura 3.5b se observa una tarea con los recursos que le fueron
+asignados.
+
+3.4. Inventario de materiales
+
+Uno de los principales intereses del área de genética de yuca es conocer el inventario
+de los materiales que han pasado o están almacenados en el laboratorio de cultivo de
+tejidos, en el invernadero y en el campo. esta información es de gran utilidad ya que
+permite tener el conocimiento de todas los genotipos que existen en conservación in
+vitro en el Programa Genética de Yuca, su procedencia, características y proyectos
+en los cuales han sido usadas. se puede llevar un control de pérdidas de genotipos y
+
+31dejar registro de la existencia de éstos. Los registros permiten tener un soporte en
+publicaciones y artículos de los materiales usados en ensayos en caso de ser requerido.
+Adicionalmente, Conociendo lo que existe, el área de Genética de Yuca puede programarse para dar cumplimento a las solicitudes de envíos de plantas a otros países,
+establecimiento de ensayos en campo y material vegetal para trabajos moleculares.
+
+El sistema utilizado actualmente por área solo permite llevar el inventario de los
+materiales que se tiene en el laboratorio de cultivo de tejidos. En pro de brindar
+una solución a esta situación el sistema de información de Genética de Yuca permite
+hacer el registro y la consulta de los materiales que son llevados al invernadero y/o
+el campo. El sistema ofrece al usuario vistas para la visualización de los materiales y
+de toda su información permitiendo que pueda hacer consultas filtradas sobre estos y
+obtener solo la información que sea del interés del usuario. Adicionalmente el módulo
+de inventario de materiales ofrece la opción para realizar movimientos de salida que
+sean determinados por el usuario, para esto solo es necesario seleccionar los genotipos
+que desea retirar del sistema e indicar la cantidad de frascos y plantas que se van a
+retirar en el caso del laboratorio de cultivo de tejidos y el número de plantas para el
+caso del invernadero o el campo.
+
+3.5. Ordenes de trabajo
+
+El módulo de órdenes de trabajo es el que permite establecer las operaciones diarias
+del área de Genética de Yuca. Este módulo permite determinar qué procesos o tareas
+se van a realizar a determinados genotipos de yuca.
+
+Adicionalmente, permite crear una programación para la ejecución de dichas tareas.
+Esta programación es generada de manera automática por el sistema tomando como
+base la disponibilidad de los recursos que se requieran para las tareas. El sistema
+ofrece la opción de hacer modificaciones a la programación según los considere el
+usuario.
+
+Este módulo también permite conocer el cálculo estimado del costo y el tiempo que
+se generan para una orden de trabajo en particular. Por ultimo, permite configurar
+el responsable de ejecutar un procesos o tareas.
+
+La Figura 3.6 ilustra como son listadas las ordenes de trabajo. Estas son listadas en
+diferentes pestañas segun su estado: Por iniciar, En progreso, Terminada o Cancelada.
+
+3.5.1. Cálculo estimado de tiempo y costo
+
+La mayoría de las empresas u organizaciones ven la necesidad de conocer un cálculo
+estimado del costo que se genera con sus operaciones y por otro lado también les
+interesa saber cuanto tiempo se llevan en culminar dichas operaciones. Esta información es posteriormente utilizada para llevar un seguimiento a los costos relacionados
+a un proceso con el fin de tomar decisiones que lleven al mejoramiento de los mismos.
+Teniendo en mente lo anterior, el aplicativo permite conocer un estimado de tiempo
+y costo de los procesos del área de Genética de Yuca.
+
+32LAW ( | A | Science to cultivate change
+MU yA
+
+International Center for Tropical Agriculture / Since 1967
+
+Nueva orden
+
+En progreso Terminada Cancelada
+
+prueba3 prueba2 prueba6 PRUEBA 14
+
+06/10/2016 06/10/2016 06/10/2016 18/10/2016
+
+Figura 3.6: ordenes de trabajo
+
+La clave principal para realizar la estimación de los costos y el tiempo de las operaciones del área de genética de yuca es la configuración acertada de cada una de las
+tareas que se realiza dentro de cada subdivisión, es por ellos que para obtener unos
+cálculos que se asemejen en la medida de lo posible a la realidad, es esencial que la
+información suministrada durante la configuración de las tareas sea lo más exacta
+posible determinando las cantidades o unidades de tiempo que se requieren de los
+insumos, los equipos y las personas respectivamente.
+
+Con toda esa información cargada previamente se procede con el cálculo del costos y
+el tiempo, para cada una de las tareas. Para el cálculo del costo se tienen en cuenta los
+recursos requeridos por la tarea, tomando así, la cantidades de insumos requeridos,
+las horas que se requiere un equipo y una persona para la ejecución de dicha tarea
+y multiplicando estos valores por la cantidades de genotipos o semillas de yuca que
+serán afectados por dicha tarea.
+
+La Figura 3.7 ilustra el detalle de una orden de trabajo creada, en esta vista se puede
+observar los procesos y tareas que son adicionados a la orden de trabajo, tambien
+se muestra los genotipos que son adjuntados a la orden. Además el tiempo que se
+estima se tomara para ejecutar la orden de trabajo como el costo que tiene la misma.
+
+Por otro lado esta vista le ofrece al usuario la opcion para generar la programación
+de las ordenes de trabajo, ademas las opciones para termninar y cancelar la ejecucion
+de las mismas.
+
+3.5.2. Programación de tareas
+
+Los cronogramas de trabajo son una herramienta muy útil a la hora de hacer una
+gestión eficiente del tiempo. Teniendo en cuenta esto, el sistema de información de
+genética de yuca genera la programación de las tareas que son adicionadas a una
+orden de trabajo de manera automática tomando como entrada los recursos que
+estas tareas requieren para su ejecución, y a partir de estas entradas se calculan
+las fechas de inicio y finalización de dichas tareas de acuerdo a la disponibilidad
+de los recursos. Adicionalmente el sistema toma en consideración el tiempo de las
+
+39LAW ( | A | Science to cultivate change
+MU yA
+
+International Center for Tropical Agriculture / Since 1967
+
+prueba3
+
+En progreso Terminada Cancelada
+
+   
+
+Tiempo: 1 dias, 7 horas Costo: 503470.0 USD
+
+Adicionar proceso Adicionar tarea Eliminar
+
+INTRODUCCIÓN DE PLANTAS DE INVERNADERO A IN VITRO
+MULTIPLICACIÓN
+
+ALMACENAR TUBOS
+
+OBTENCIÓN DE EXPLANTES
+
+LAVADO CON ALCOHOL
+
+NASDNs
+
+fa Generar
+programación
+
+prueba
+
+ 
+
+Figura 3.7: Detalle de una orden de trabajo
+
+jornadas laborales como una restricción para los cálculos descritos, al igual que los
+días feriados (sábados y domingos) y los periodos de mantenimientos de los equipos,
+información que es configurada en el módulo de recursos en la opción equipos.
+
+Sin embargo, la generación de esta programación de manera automática no es definitiva, es decir, el sistema ofrece la opción para que el usuario pueda hacer las
+modificaciones de esta programación, segun sea más conveniente, modificando así la
+fechas de inicio o finalización de una tarea. Cada vez que el usuario modifique una
+propuesta de programación, el sistema recalculara las fechas de acuerdo a la nueva
+información.
+
+Para Generar de manera automática la fecha de inicio y finalización de una tarea, el
+sistema inicialmente verifica la disponibilidad de los insumos que son requeridos para
+cada tarea, es decir, se valida que la cantidad de insumo que está en el inventario sea
+mayor o igual a la cantidad que es requerida por la terea. Esta validación se realiza
+para cada uno de los insumos que son necesarios para la ejecución de una tarea.
+
+Después de hacer esa primera validación, el sistema prosigue con la verificación de
+la disponibilidad de los equipos. Para ello, se consulta por la disponibilidad de cada
+equipo involucrado en la tarea, buscando por la fecha más próxima en la que cada
+equipo esté disponible, de esta manera se respeta la asignación de equipos para las
+tereas anteriores. Una vez se tiene la posible fecha de inicio y finalización de la tarea
+se procede a consultar por la disponibilidad de la persona que debe ejecutar la tarea.
+Este paso consiste en consultar si la persona está disponible para esas fechas, de
+lo contrario se obtiene la siguiente fecha disponible y se asigna, modificando así las
+fechas calculadas inicialmente y obteniendo finalmente unas fechas en las cuales se
+tiene en consideración la disponibilidad de los equipos y personas.
+
+Una vez se tiene las posibles fechas de inicio y finalización se procede a verificar si
+
+cumplen con las restricciones de fechas de mantenimientos programados, tiempo de
+jornada laboral y días no feriados. Inicialmente se evalúa que la fecha de inicio y la de
+
+34LAW ( | A | Science to cultivate change
+MU yA
+
+International Center for Tropical Agriculture / Since 1967
+
+atras Ayuda
+
+Adicionar proceso Adicionar tarea Eliminar
+
+Nombre Duración Inicio Finalización Progreso
+Finalizar ABLANDAMIENTO 1 (horas) 06/10/2016 08:28 06/10/2016 09:28 0%
+LIMPIEZA DE
+Finalizar 2 1 (horas) 06/10/2016 09:28 06/10/2016 10:28 0%
+
+SEMILLAS
+
+SEPARACION DE
+
+Finalizar COTILEDÓN 1 (horas) 06/10/2016 10-28 06/10/2016 11:28 0%
+SIEMBRA EN
+
+Finalizar MEDIO DE 2 (horas) 06/10/2016 11-28 06/10/2016 13:28 0%
+CULTIVO 17N
+
+Figura 3.8: Tabla de programación de tareas para una orden de trabajo.
+
+finalización no correspondan con alguna fecha de mantenimiento programado para
+aleún equipo, para lograr esto se obtiene la fecha del ultimo mantenimiento realizado
+al equipo y se calcula el siguiente mantenimiento de acuerdo a la periodicidad que
+tenga configurado el equipo, si las fechas coinciden se desplazan las fechas de inicio y
+finalización de la tarea un día en el calendario. Para cumplir la siguiente restricción
+se valida que dentro del intervalo de inicio y finalización no hayan días no hábiles, es
+decir sábados o domingos, de ser así, se recalcula la fecha de finalización de la tarea,
+tomando en cuenta la cantidad de días no hábiles. Por último se valida que la hora
+de inicio y finalización se encuentren dentro del intervalo [7:30, 16:30] para cumplir
+con la tercera restricción.
+
+La Figura 3.8 muestra la programación generada para una orden de trabajo. En
+esta vista, el usaurio tiene opciones para adicionar procesos y tareas, finalizar las
+tareas y editar las fechas de inicio y finalizacion de cada una de las tareas listadas.
+Adicionalmente se puede visualizar el progreso de cada tarea.
+
+3.6. Reportes y consultas
+
+Los informes o reportes son uno de los mecanismos de gerenciamiento más utilizados
+en una organización, ya que brindan información sintetizada pero muy relevante
+sobre el estado de los procesos o sobre las actividades diarias que en una empresa u
+organización se realicen.
+
+Para el área de genética de yuca es muy importante realizar un seguimiento sobre el
+funcionamiento de cada una de sus subdivisiones donde se pueda discriminar de una
+manera más resumida los costos y tiempo en los que se incurre con cada una de sus
+operaciones así como también en nivel de ocupación de sus empleados, de manera que
+esta información le sirva al líder del programa como una herramienta de gerenciamiento. Teniendo en cuenta lo anteriormente descrito, el sistema de información de
+
+d0LA | A Sclence to cultivate change
+yA C |
+sal
+
+International Center for Tropical Agriculture / Since 1967
+
+Ordenes de trabajo
+
+Orden de traba]
+
+pruena3
+
+ 
+
+pruena3
+
+ 
+
+Figura 3.9: Interfaz reportes por ordennes de trabajo.
+
+LAW ( | A | Science to cultivate change
+ANA
+
+International Center for Tropical Agriculture / Since 1967
+
+ 
+
+Inicio Simular Reportes Ayuda A [AE
+
+Bienvenido: logonzalez
+
+Responsable Proceso Tiempo planeado (horas) Codigo orden de trabajo Orden de trabajo Estado orden trabajo
+
+Responsables
+
+apRiana MERCEDES aLzare | INTRODUCCIÓN DE PLANTAS |, di introduccion de plantas de boreso
+A MS DE INVERNADERO A IN VITRO invernadero a invitro prose
+
+INTRODUCCIÓN DE PLANTAS introduccion de invernadero a in
+
+DE INVERNADERO A IN VITRO 5 1 vitro progreso
+
+ADRIANA MERCEDES alzare | INTRODUCCIÓN DE PLANTAS |, s% ae ...
+A DE INVERNADERO A IN VITRO A E is
+
+Figura 3.10: Interfaz reportes por responsables.
+
+genética de yuca cuenta con el módulo de reportes que le permite al usuario obtener
+informes de manera mas practica sobre el estado actual de las actividades o labores
+programadas en el cualquiera de las subdivisiones del programa de genética de yuca,
+dicho módulo ofrece varias vistas en las cuales se muestran los diferentes reportes.
+Los reportes contienen esquemas y gráficos que muestran de manera resumida la
+información registrada en el sistema. Los informes son:
+
+= Informe de estado de las órdenes de trabajo.
+= Informe de ocupación de los empleados.
+
+= Informe de ocupación de las ubicaciones.
+
+En el informe de estado de las órdenes de trabajo se muestra de forma muy sintetizada
+la información de las órdenes de trabajo: la fecha de creación, fecha de inicio, fecha
+de finalización, costo, tiempo y estado actual de la misma.
+
+Las Figuras 3.9, 3.10 y 3.11, ilustran la manera cómo son generados los reportes. en
+ellos se presenta inicialmente una tabla que muestra toda la información y posteriormente se generan los gráficos de acuerdo a esta información.
+
+Por otro lado el informe de ocupación de los empleados relaciona los empleados frente
+a los procesos que se están realizando o los que ya fueron culminados, de tal manera
+que se muestra la información de qué empleado es o fue el responsable de un proceso
+en particular.
+
+36LA ( | A | Science to cultivate change
+MN AA
+
+International Center for Tropical Agriculture / Since 1967
+
+ 
+
+ES e O E] yn [AU
+
+Bienvenido: logonzalez
+
+Ubicaciones
+
+Instalacion Espacio total % Espacio ocupado % Espacio disponible
+
+ 
+
+4000.0 0.9% 29.1%
+
+Cuarto de conservacion Cuarto de crecimiento
+
+0 % Espacio
+Ocupado
+
+Ó * Espacio
+disponible
+
+0 % Espacio
+Ocupado
+
+0 % Espacio
+disponible
+
+  
+
+Figura 3.11: Interfaz reportes por disponibilidad de instalaciones.
+
+Por último el informe de ocupación de las ubicaciones resume de buena forma la
+ocupación de cada una de las instalaciones que estén registradas en el sistema, relacionando el porcentaje de espacio ocupado y el porcentaje de espacio disponible con
+respecto al espacio total de cada una de las instalaciones, de manera que le permitan
+al usuario conocer qué espacio está disponible para tenerlo en consideración a la hora
+de programar una orden de trabajo.
+
+Para la generación de las gráficas para los reportes fue utilizada la aplicación google
+charts |? en conjunto con las utilidades del mismo framework primefaces. Esta aplicación ofrece un amplio conjunto de gráficos los cuales pueden ser personalizados y
+ajustados a las necesidades del sistema que los implemente, además puede ser usada
+en diferentes formatos tales como Json, javascript y plugins que se pueden integrar
+con diferentes lenguajes de programación.
+
+Por otro lado el módulo de reportes y consultas permite la realización de simulaciones
+de órdenes de trabajo, donde el usuario puede ingresar información como si estuviera
+creando una orden de trabajo y de esta manera simular el comportamiento de la órden
+de trabajo conociendo los costos y el tiempo, además de el schedule o programación
+para las tareas adicionadas a la simulación.
+
+ 
+
+1 https: / developers.google.com/chart
+
+37Capítulo 4
+
+Desarrollo del Software
+
+Para el desarrollo del presente trabajo de grado se siguieron los lineamientos establecidos en la metodología de desarrollo de proyectos de software utilizada por la
+Unidad de Servicios de Tecnologías de la Información del CIAT denominada Software methodology IT' Unit. Esta metodología se caracteriza por ser ágil y presenta
+un enfoque incremental, que la hace muy apropiada para el desarrollo de los proyectos informáticos del centro ya que permite que los proyectos avancen de manera
+progresiva y se vaya mejorando el producto final. La ejecución de los proyectos de
+software del centro se hace siguiendo 4 fases: Inicio y Planificación, Elaboración y
+Construcción, Implantación y Cierre.[13]
+
+4.1. Inicio y planificación
+
+En esta primera fase se realizan una serie de reuniones o entrevistas con los involucrados en el proyecto con el ánimo de entender el problema y recolectar la mayor
+cantidad de información para entenderlo y conocer los requerimientos del sistema.
+
+Adicionalmente en esta fase se planifica el flujo de trabajo que se llevaría durante la
+realización del proyecto, se estableció la forma en que se trabajaría, así como también
+las herramientas y/o tecnologías a usar.
+
+4.2. Elaboración y construcción
+
+En esta fase se realizan las actividades de análisis, diseño, codificación y pruebas.
+
+4.2.1. Análisis
+
+Para esta etapa, la metodología ofrece la especificación de requerimientos como artefacto para definición y delimitación del alcance del proyecto. Sin embargo para este
+
+39proyecto tambien se definió hacer uso de otro artefacto como las historias de usuario
+para ayudar a la comprensión de las necesidades del proyecto.
+
+Historias de usuario
+
+Las historias de usuario permiten que el problema sea descrito de manera detallada
+y plasmado de la manera como fue entendido por el analista. Para el sistema de
+información de genética de yuca el documento de historias de usuario describe de
+manera minuciosa cada uno de los procesos que se llevan a cabo en las instalaciones
+del programa de genética de yuca, allí se tienen en cuenta cada uno de los aspectos
+que se involucran en cada proceso, como las tareas que se realizan para cada uno,
+así como también los recursos (equipos, insumos, personas) que son necesarios para
+llevarlos a cabo, esto con el fin de que sea entendido de la manera más clara y sencilla
+el quehacer diario del programa y así mismo entender las necesidades del programa
+con respecto al sistema que requerían.
+
+Requerimientos funcionales
+
+El segundo artefacto que es utilizado en la etapa de análisis es el documento de
+requerimientos funcionales. la especificación de los requerimientos se desarrolla de
+forma modular y de manera general las funcionalidades que debe tener el sistema
+para delimitar su alcance y cumplir con los objetivos propuestos. En esta fase se
+decidió dividir el proyecto en 5 módulos: Cultivo de tejidos, Invernadero, campo,
+los cuales están constituidos por los submódulos: recursos, procesos, inventario de
+materiales; órdenes de trabajo, consultas y reportes. En la tabla 4.2 se muestra la
+especificación de los requerimientos funcionales del módulo de órdenes de trabajo.
+
+ 
+
+Especificación de requerimientos
+Sistema de informacion de Genética de Yuca
+
+ 
+
+ 
+
+ 
+
+ 
+
+Módulo de ordenes de trabajo
+
+ 
+
+ 
+
+ 
+
+ 
+
+No. Requerimiento
+1 Se requiere que el usuario pueda crear órdenes de trabajo
+2 el sistema permitirá al usuario ingresar un valor numérico para
+
+el número de semillas o cargar un archivo en formato excel para relacionar los genotipos que serán afectados por la orden de
+
+ 
+
+ 
+
+ 
+
+ 
+
+trabajo
+3 El sistema deberá listar las órdenes de trabajo existentes.
+4 El sistema debe permitir al usuario editar una orden de trabajo.
+9 Se requiere que el sistema le permite al usuario adicionar procesos
+y/o tareas a una orden de trabajo.
+6 Se requiere que en la orden de trabajo se muestra el estimado del
+
+costo y tiempo para la ejecución de la orden de trabajo después
+de que se adicione un proceso y/o tarea.
+
+7 Se requiere que el sistema le permite al usuario eliminar una tarea
+O proceso agregado a la orden de trabajo
+
+Tabla 4.1: Especificación de requerimientos módulo de órdenes de trabajo.
+
+39Especificación de requerimientos
+
+ 
+
+Sistema de informacion de Genética de Yuca
+Módulo de órdenes de trabajo
+
+ 
+
+ 
+
+ 
+
+ 
+
+No. Requerimiento
+
+ 
+
+ 
+
+8 Se requiere que el sistema consulte la disponibilidad de los insumos cuando se le asignen procesos a las órdenes de trabajo, para
+determinar si se puede cumplir la orden de trabajo o no.
+
+ 
+
+9 Se requiere que el usuario pueda cambiar de estado (iniciada,
+terminada, cancelada) a una orden de trabajo.
+
+ 
+
+10 Se requiere que el sistema genere automáticamente la programación de las tareas, mostrando la fecha de inicio y finalización de
+las mismas.
+
+ 
+
+11 Se requiere que el sistema le permite modificar las fechas de inicio
+y finalización de la programación generada.
+
+ 
+
+12 Se requiere que el sistema recalcule las fechas de inicio y finalización de las tareas cada vez que el usuario efectúe una modificación
+
+ 
+
+13 se requiere que el sistema le permite al usuario marcar las tareas
+como finalizadas.
+
+ 
+
+14 El sistema en el módulo de órdenes de trabajo deberá verificar
+que una tarea no se termine si no se ha marcado como terminada
+la tarea inmediatamente anterior.
+
+ 
+
+15 se requiere que el sistema actualice el inventario de insumos cuando se marque una tarea como finalizada.
+
+ 
+
+16 se requiere que el sistema verifique que todas las tareas se han
+marcado como finalizadas para poder terminar una orden de trabajo.
+
+Tabla 4.2: (continuación) Especificacion de requerimientos módulo de ordenes de
+trabajo.
+
+La Figura 4.1 representa el diagrama de estructura|14] del sistema de gestión de
+genética de yuca, los recuadros superiores representan los módulos principales de
+cultivo de tejidos, invernadero y campo respectivamente, los recuadros en su interior
+representan los submódulos de recursos, procesos e inventarios de materiales. El
+recuadro de la izquierda representa otra aplicación llamada FieldBook desarrolla por
+el grupo de datos e información, la cual se utiliza para crear y administrar información
+de ensayos experimentales y cargar libros de campo que los investigadores le realizan
+a los materiales de yuca con los cuales ellos trabajan, sin embargo dicha funcionalidad
+no hace parte del alcance de esta trabajo. El recuadro que aparece en el centro de la
+imagen representa el módulo de ordenes de trabajo y por ultimo el recuadro inferior
+es la representación del módulo de reportes y consultas.
+
+40CULTIVO DE TEJIDOS INVERNADERO
+
+ 
+
+ 
+
+ 
+
+ORDEN DE TRABAJO
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+REPORTES Y CONSULTAS
+
+Figura 4.1: Diagrama de estructura del sistema de información de Genética de Yuca.
+
+4.2.2. Diseno
+
+Arquitectura
+
+El sistema de información de Genética de Yuca es una aplicación interactiva construida usando el patrón de arquitectura MVC (modelo-vista-controlador) ya que este
+patrón ofrece muchas ventajas en relación a la organización del sistema debido a que
+se hace una división del mismo en 3 capas que contiene las funcionalidades propias
+de cada una y que se pueden comunicar entre sí, permitiendo así tener un sistema
+
+PRESENTACIÓN
+
+HIBERNATE
+
+JavaScript
+XHTML
+
+Css
+
+m-=>=0mrmU ,
+
+ 
+
+O
+
+VISTA CONTROLADOR MODELO
+
+Figura 4.2: Arquitectura del sistema.
+
+41con una estructura más fácil de entender y de modificar. Adicionalmente, en busca
+de conseguir un sistema con mayor facilidad de mantenimiento, reutilización del código y la separación de conceptos se hizo una subdivisión de la capa de modelo en
+3 subcapas: Lógica, Persistencia, Datos. La Figura 4.2 muestra la arquitectura del
+sistema de información de Genética de Yuca.
+
+La capa de presentación es la encarga de comunicar al usuario con la aplicación, ha
+sido construida usando el framework Primefaces, el cual integra tecnologías como
+html, javaScript, css y AJAX para comunicarse con la capa de vista.
+
+La capa de vista está encargada de recolectar la información ingresada por el usuario
+mediante la tecnología de jsf, para pasarla a la siguiente capa. Esta capa tiene el rol
+de controlador, ya que es la encargada de recibir las peticiones o eventos del usuario,
+manejarlos o redireccionarlos a la siguiente capa para posteriormente mandar una
+respuesta al usuario.
+
+La capa de lógica es la encargada de realizar toda la lógica funcional del sistema o
+lógica de negocio (business logic ), está envia y recibe información mediante la capa
+de persistencia hacia la base de datos y devuelve respuestas de eventos a la capa
+de vista o controlador. La siguiente capa es la de persistencia la cual encapsula el
+comportamiento necesario para mantener los objetos, es decir: leer, escribir, borrar
+o actualizar objetos en el almacenamiento persistente (base de datos) o lo que se ha
+llamado procesos CRUD (Create, Retrieve, Update, Delete). Entre la capa de vista y
+la de persistencia se encuentra una pequeña capa denominada delegante la cual hace
+de intermediaria entre estas dos capas, y en ella se implementa el patrón de diseño
+Singleton.
+
+En la última capa se encuentra el motor de base de datos ORACLE la cual interactúa
+con la capa de persistencia para la gestión persistente de los datos.
+
+Modelo relacional
+
+Para representar la entidades y sus interrelaciones se propone un esquema de base
+de datos por medio de un modelo relacional, el cual está ilustrado en la Figura 4.3.
+
+42JD_ROLDETALLE=3D_ROLDETALLE
+
+ 
+
+ID_ORDENTRABAJO=ID_ORDENTRABAJO
+
+ 
+
+ID_ROL=ID_ROL
+
+ID_EMPLEADO=]D_EMPLEADO
+
+ID_ORDENTRABAJO.3D_ORDENTRABAJO
+
+ 
+
+ID_ORD' ly all
+
+MO AOL AOL
+
+ 
+
+ 
+
+ 
+
+ 
+
+ID_ENSAYO=ID_ENSAVO.
+
+ 
+
+ 
+
+ 
+
+ZE IDENSAYO NUMBERS)
+
+ 
+
+TD_TAREA=ID_TAREA
+
+ 
+
+1D JNSUMO=TIPOINSUMO
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+   
+ 
+   
+   
+   
+  
+       
+  
+ 
+
+[ES m—
+NUMBERS)
+
+VARCHAR2GO)
+NUMBER)
+VARCHAR240)
+VARCHAR2000)
+NUMBEROZ
+VARCHAR25)
+NUMBERS)
+
+  
+
+ 
+
+ID_TAREA 1D TA O
+
+ID _PROCESOSPROCESO.HIO  ——
+
+ 
+
+ 
+
+| "ID PROCESO PROCESO PADRE
+
+ 
+
+ 
+
+ 
+
+ 
+
+A
+IDMODULO=1D_MODULO
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+NM ———— DD MODULP-10 MODULO 1 ——— 4
+
+ 
+
+ 
+
+4
+
+ 
+
+ID_LLOCACION=ID_LOCACION
+
+1D MODULO=ID_ MODULO
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+A
+
+ 
+
+ 
+
+ 
+
+ 
+
+1D_MPDULO=ID_MODULO
+
+   
+
+ 
+
+9D MODULO =ID MODULO
+
+1D_PERAGRID_PERFIL
+
+ 
+
+ 
+
+ 
+
+ 
+
+Pata AEUSUARIONOMBREUSUARIO
+
+ 
+
+1D =1D_JNSUMODETALLE
+
+ 
+
+ 
+
+1D HAODULO=ID_ MODULO
+
+Figura 4.3: Modelo relacional sistema de informaición de Genética de Yuca
+
+43SN TA -A———— SK Tr,
+: A AO > X mn Ae)
+] SO —EY EE
+LEY (> invernadero.xhtmil Procesos.xhtml
+va” PP...
+
+ 
+
+Ed LIL
+
+index.xhtm inicio.xhtmi =
+
+¿TI
+
+TRA
+LS
+
+A
+
+Y
+
+>
+
+ 
+
+ñ
+campo.xhtml
+
+| s EDS
+| inventario.xhtml
+
+ 
+
+configuraciones.xhtml
+
+Figura 4.4: Diagrama de navegación sistema de informaición de Genética de Yuca.
+
+Modelo de navegación
+
+La Figura 4.4 muestra la disposición cada una de las ventanas principales del sistema
+de información de genética de yuca. Este diagrama de navegación describe la manera
+en cómo el usuario se puede desplazar por la aplicación, a continuación se describe
+de manera general las principales componentes del sistema.
+
+El usuario inicia en la página principal donde ingresa su usuario y contraseña para
+poder ingresar al sistema. Una vez se autentica el usuario es direccionado a la página
+principal de la aplicación desde donde puede crear una orden de trabajo, puede inegresar a cualquiera de los módulos (Cultivo de tejidos, Invernadero o campo) una vez
+dentro puede gestionar los recursos( Equipos, Insumos, Personas o Ubicaciones), puede configurar los procesos o puede consultar los inventarios de materiales; También
+puede consultar los reportes o si lo desea dirigirse a las configuraciones.
+
+4.2.3. Codificación
+
+Para la codificación del sistema de información de genética de yuca se usó el entorno
+de desarrollo MyEclipse * Enterprise Workbench en la version 10.5, este entorno de
+desarrollo permite la utilización de contenedores de servlets como apache tomcat que
+permitió realizar el despliegue de aplicación para probar sus funcionalidades. Para la
+fabricación del Back-End (lado del servidor) se utilizó el lenguajes de programación
+java para manejar toda la parte de la lógica del sistema, adicionalmente, para realizar
+lo relacionado a la persistencia de los datos se utilizó el framework para el mapeo
+objeto relacional ( ORM por sus siglas en inglés) Hibernate en su versión 3.3, el cual
+permite hacer la comunicación entre el sistema y el motor de bases de datos oracle
+
+ 
+
+https: / /www.genuitec.com/products /myeclipse /
+
+44de una manera más sencilla gracias a que maneja su propio lenguaje de consulta
+denominado HQL, que es una de sus características principales.
+
+Para la comunicación web con el Front-End (lado del cliente) se usó la tecnología jsf
+Java Server Faces la cual se encarga de procesar las solicitudes del cliente por medio
+de los Managed Bean y traducirlas a variables en java y devolver las respuestas del
+servidor al cliente; para el desarrollo de la interfaz gráfica de usuario (GUI por sus
+sigla en inglés) se utilizó el framework Primefaces en su versión 5.3 que está basado
+en la especificaciones jsf, y que además integra la técnica ajax y la librería ¡Query.
+
+Cabe mencionar que este framework no había sido utilizado antes para ninguna de
+las aplicaciones desarrolladas por el grupo de datos, información y conocimiento,
+de manera que este trabajo representó, en cierta medida, una prueba piloto para la
+utilización de esta tecnología para el CIAT, que a la final obtuvo unos resultados satisfactorios en cuanto a la integración con las demás tecnologías existentes ya que no
+no generó ningún inconveniente a la hora de hacer el despliegue en el servidor utilizado por el ciat para almacenar sus aplicaciones demostrando así que esta tecnología
+puede coexistir sin problemas con las demás.
+
+4.2.4. Pruebas
+
+El grupo de datos, información y conocimiento del CIAT, en busca del aseguramiento
+de la calidad para cada uno de los proyectos de desarrollo de software que allí se
+ejecutan, tiene establecido un procedimiento para la aplicación de las pruebas que le
+garantice que dichos proyectos cumplen en un gran porcentaje con los requerimientos
+del cliente.
+
+La fase de pruebas es clave y muy importante para el grupo de datos, información
+y conocimiento ya que es donde se determina si el sistema cumple o no con las
+especificaciones que se establecieron en la primera fase de la etapa de elaboración
+y construcción. En el desarrollo de esta proyecto se aplicaron pruebas unitarias,
+pruebas funcionales y de sistema, y pruebas de aceptación.
+
+Para las pruebas unitarias, las cuales fueron ejecutadas durante todo el proceso de
+desarrollo para garantizar la correcta funcionalidad de cada módulo, se utilizó la
+herramienta JSFUnit?.
+
+El plan de pruebas funcionales y de sistema fue establecido por módulos, lo que permitió que cada vez que se terminara la codificación de un módulo se pasara para que
+fuera probado y de esta manera obtener un feedback y realizar los correspondientes
+ajustes. Las pruebas fueron conducidas por el equipo encargado de estas. El equipo
+estuvo encargado de la planificación, diseño y ejecución de estas pruebas. Para esto
+se diseña una matriz de requerimientos de prueba (MRP), la cual consiste en un
+documento donde se registra el proceso o funcionalidad a probar, el requerimiento
+al que corresponde, el elemento del sistema que se desea probar, el resultado que
+se espera y el tipo de prueba ( positiva o negativa), adicionalmente se registra el
+número de iteración de prueba. esta matriz es de suma utilidad ya que permite hacer
+una planificación acertada de las pruebas y llevar un seguimiento sobre la alteración
+
+ 
+
+“http: / /jsfunit.jboss.org/
+
+45mantis
+
+BUG TRACKER
+
+Logged in as: logonzalez (Luis Ovidio - developer) 2016-10-10 20:28 COT
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Main | My View | View Issues | Report Issue | Change Log | Roadmap | My Account | Logout Issue $ [Sumo
+Unassigned [7 ](0-0/0) Reported by Me[ 7 ](0- 0/0)
+Resolved[”](0-0/0) Recently Modified [ 7 ] (1-7 / 7)
+£008693 Nuevos apuntes
+a 0 General - 2016-06-13 09:37
+Procesos
+-U General - 2016-06-13 09:27
+$09990017 Pantalla bloqueada
+—( General - 2016-05-16 16:03
+£06998+5 No aparecen los datos
+— 0 Reports - 2016-05-16 16:01
+$£99980+4 Modulo recursos, con pantallas bloqueantes
+—( General - 2016-05-16 14:26
+£0909013 Rol, Nuevo rol
+— 6 General - 2016-05-13 14:34
+$9608915 Acceso al sistema
+— General - 2016-05-10 14:47
+Monitored by Me[ 7 ](0- 0/0)
+new feedback i assigned resolved closed
+Copyright €) 2000 - 2012 MantisBT Group o
+rootOlocalhost m a ti
+BUG TRACKER
+
+Figura 4.5: I nterfaz herramienta Mantis Bug Trackin.
+
+de la ejecución de las mismas. Adicionalmente se utilizó la herramienta mantis ? la
+cual permitió hacer el registro, comunicación y seguimiento de las no conformidades
+que resultaron después de la ejecución de las pruebas. El proceso de pruebas se inició
+con el módulo de recursos para el que se estableció su matriz de requerimientos de
+prueba.
+
+Una vez se obtuvieron los resultados de las no conformidades, se procedió a realizar
+los ajuste requeridos para dar solución a las mismas. En la Figura 4.5 se puede
+observar los resultados obtenidos después de aplicar las pruebas para el módulo
+de recursos y los ajustes requeridos. En esta iteracion de pruebas, para el módulo
+de recursos se generaron 5 no conformidades (sección derecha) que finalmente fueron
+resueltas y marcadas como cerradas. Esta misma dinámica se siguió para los módulos
+restantes.
+
+4.3. Implementación
+
+La implantación o despliegue del sistema se realiza siguiendo los parámetros establecidos en las guías para el despliegue de aplicaciones en el centro de cómputo del
+CIAT, las cuales establecen que primero se debe hacer un despliegue en una máquina de prueba para la cual se requiere realizar una parametrización determinada en
+las guías y posteriormente montarla en una máquina de producción. Dichos despliegue fueron realizados por la líder de desarrollo del grupo de datos, información y
+conocimiento.
+
+Caracteristicas de las máquinas:
+
+Máquina de pruebas:
+
+= Servidor: PowerEdge 2900
+
+ 
+
+https: / /www.mantisbt.org/
+
+46= SO: Red Hat Enterprise Linux Server release 6.8
+= Tomcat: 6.0.24
+
+= Java: 1.6.0 115
+
+= Procesador: Intel Xeon E5440 Q 2.83GHz
+
+= RAM: 32Gb
+
+= Disco: 146Gb (RAID1)
+
+Máquina de producción:
+
+= Servidor: PowerEdge M610
+
+= SO: Red Hat Enterprise Linux Server release 6.8
+= Tomcat: 6.0.24
+
+= Java: 1.6.0 115
+
+= Procesador: Intel Xeon E5620 Q 2.40GHz
+
+= RAM: 32Gb
+
+= Disco: 146Gb (RAID1)
+
+4.4. Cierre
+
+En este punto se firma el acta de cierre/entrega de la solución a satisfacción del
+solicitante. Esta etapa incluye el periodo de estabilización de la aplicación que debe
+ser acordado de acuerdo a los requerimientos particulares tanto funcionales como
+no funcionales. Deberá ser acordado en la etapa de planificación y comprenderá el
+tiempo en el cual la aplicación de software normaliza su funcionamiento.
+
+47Capítulo 5
+
+Conclusiones y Trabajos futuros
+
+5.1. Conclusiones
+
+A continuación se presentan las conclusiones del trabajo de grado, correspondientes
+a los objetivos planteados y alcanzados en el desarrollo del sistema de información
+de genética de yuca del Centro Internacional para la Agricultura Tropical CIAT.
+Posteriormente se presentan algunos trabajos futuros.
+
+En este trabajo de grado se desarrolló una aplicación WEB que permite determinar
+la trazabilidad de un material de yuca del área de Genética de Yuca y los costos
+asociados a los procedimientos que afectan a dicho material. la aplicación proporciona
+información que permite hacer un seguimiento de un determinado material y conocer
+los procesos que se les han realizado y los costos en los que se incurre con cada uno
+de ellos.
+
+Dentro del alcance de este trabajo de grado se consideró solo el cálculo de la estimación de tiempo y costo de los procesos y/o tareas del área de genética de yuca,
+específicamente el laboratorio de cultivo de tejidos, invernadero y campo sin embargo la aplicación está en la capacidad de realizar esta estimación para cualquier otra
+área del programa, sin embargo esto depende exclusivamente de que se definan de
+manera clara cuáles son los procesos y/o tareas por cada área y que se configuren
+adecuadamente dentro del sistema.
+
+El sistema de información de genética de yuca permite llevar el control del inventario
+de los insumos, equipos, instalaciones y roles que son requeridos para la ejecución de
+cualquier proceso dentro del área de genética de yuca.
+
+La configuración de los procesos y tareas es la clave para el éxito del sistema en
+lo relacionada con el cálculo estimado de tiempo y costo en los que se incurre con
+la operaciones del área de genética de yuca, aunque esta puede resultar a la larga
+una tarea dispendiosa para el usuario por el número de proceso y/o tareas que debe
+registrar y configurar. Por lo que se halló la manera de elaborar un módulo que
+permitiera la creación y configuración de las tareas y procesos una sola vez y que
+posteriormente funcionaran como una especie de plantillas las cuales pueden ser
+invocadas en cuantas veces se requiera y sin necesidad de tener que configurarlas
+
+48cada vez.
+
+Para conocer la trazabilidad de un material en el área de genética de yuca es necesario
+conocer que instalaciones lo han albergado y en donde se encuentra actualmente para
+ellos se implementó el módulo de inventario de materiales de yuca que a diferencia
+del sistema de información utilizado por el area, tambien lleva el inventario de las
+plantas que se encuentran en el invernadero y las que son llevadas a campo.
+
+La relación entre los procesos y/o tareas que se realizan diariamente con los recursos
+que son requeridos para su ejecución son los que determinan los costos que se generan
+y el tiempo que se requiere. Las órdenes de trabajo hace uso de esta relación para
+generar una programación de tiempos, la planeación de estos tiempos está restringida
+por 3 variables principales: la disponibilidad de los recursos, los horarios laborales
+(8 horas) y por fechas preprogramadas para los mantenimientos de equipos. Esto
+representó un reto a la hora de la generación automática de la fechas de inicio y
+terminación de las tareas, sin embargo se logró desarrollar un algoritmo que permitió
+cumplir con cada una de estas restricciones y cumplir así con el cuarto objetivo
+específico.
+
+Los reportes generados por la aplicación permite al líder del programa tener una
+visión global del comportamiento del área de genética de yuca en cuanto a los costos
+incurridos en determinadas ordenes de trabajo y los tiempo de ejecución de los procesos, del nivel de ocupación de los empleados y del estado de disponibilidad de las
+instalaciones donde se almacenan los materiales, de tal manera que le permita hacer
+proyecciones y tomar decisiones gerenciales con respecto al quehacer del área.
+
+Por otro lado, uno de los puntos de mayor relevancia dentro del desarrollo de aplicaciones web es sin duda la parte visual, todo lo relacionado con las interfaces gráficas
+con las que interactúa el usuario, este tema es clave ya que la consecución de una
+interfaz gráfica de usuario agradable complementa las funcionalidades del sistema
+y genera una experiencia de usuario favorable. Considerando este factor se determinó utilizar una tecnología para web que permitiera crear interfaces gráficas ricas
+visualmente, por lo que se decidió utilizar primefaces. Se logró implementar satisfactoriamente esta tecnología sin ningún inconveniente y obteniendo los resultados
+esperados, consiguiendo así establecer un precedente de la utilización de la misma.
+Hay que resaltar que para tomar la decisión de utilizar tecnologías diferentes a las
+que son utilizadas por los desarrolladores en CIAT es fundamental tener en cuenta
+dos factores principales, que la tecnología que se va a implementar no cause conflictos con las demás y que ofrezca un desempeño igual o superior a la que se utilizadas
+dentro del centro.
+
+En general la metodología de desarrollo de software que tienen establecida es buena
+puesto que permite estructurar un proyecto organizado en las cuatro fases principales
+del desarrollo de software. Esta metodología implementa artefactos muy útiles como
+las historias de usuario y los prototipos no funcionales que son recursos de gran ayuda
+porque permite reducir el tiempo de validación de los requerimientos, sin embargo se
+debe hacer una revisión más meticulosa a la especificación de los requerimientos para
+así evitar que se obvie alguno. Por otro lado es de gran ayuda para el desarrollador
+contar con test o casos de prueba antes de iniciar con su labor ya que contar con
+esto le da un punto de partida par empezar a codificar además esto puede ayudar a
+minimizar la aparición de no conformidades.
+
+495.2. Trabajos futuros
+
+1. Analizar y estructurar los proceso del laboratorio de genética molecular para
+que integrarlos al sistema.
+
+2. Desarrollar un módulo que permita la creación y visualización de mapas de
+campo para los ensayos que se desean realizar o para los materiales que están
+establecidos en el campo.
+
+3. Implementar un módulo para realizar el registro de los resultados de las evualuaciones que se le realizan a los genotipos directamente desde el laboratorio
+de indexación.
+
+30Bibliografía
+
+[1] Leslie Lamport, MTÉX: a document preparation system, Addison Wesley, Massachusetts, 2nd edition, 1994.
+
+[2] Sistema de información de Genética de yuca (SIGY). Documento Interno. Manual de usuario. Noviembre 15 del 2007.
+
+[3] ENTREVISTA con Adriana Alzate, asistente de investigación del laboratorio
+de Cultivo de Tejidos de Genética de Yuca, Palmira, 16 de Diciembre del 2015.
+
+[4] tuprogramacion.com. (Febrero de 2016). ¿Qué es un ORM? [En línea]. Disponible: http: //www.tuprogramacion.com /glosario /que-es- un-orm/
+
+[5] rlbisbe.net. (Febrero de 2016). ¿Qué es un ORM y por qué nos interesa? [En
+línea]. Disponible: http: //rlbisbe.net/2011/12/13/que-es- un-orm- y-por- quenos- interesa
+
+[6] tutorialspoint.com. (Febrero de 2016). Hibernate-Overview. [En línea]. Disponible: http: //www.tutorialspoint.com/hibernate /hibernate-overview.html
+
+[7] C. Bauer, G. King, G.Gregory, Java Persistence with Hibernate.New Delhi:Dreamtech Press,2006, pp (18)
+
+[8] Oracle. a. (Enero de 2016) .Oracle docs. [En línea]. Disponible:
+https: //docs.oracle.com /javaee/6/tutorial /doc/bnapk.html
+
+[9] primefaces.org.(Octubre 14 de 2016).Guia de usuario.|En lineal.Disponible:
+http: / /www.primefaces.org/
+
+[10] Kris Hadlock. Ajax for Web Application Developers. Developers Library, 2006
+
+[11] Jonathan Chaffer, and Karl Swedberg. Learning ¡Query 1.3: Better Interaction
+
+Design and Web Development with Simple JavaScript Techniques. Packt Publishing Ltd, 2009.
+
+[12] Exes. (Enero de 2016). Mundo Oracle. [En línea]. Disponible:
+http: / /www.mundoracle.com /pl-sql.html?Pg=sql-plsql-11.htm
+
+[13] unidad de Servicios de Tecnología de la Información, CIAT. Estatuto interno.Metodología de desarrollo de proyectos informáticos. Octubre del 2013.
+
+[14] S.R Gomez Palomo, E. Moraleda Gil, Aproximación a la ingeniería de software.
+España: Centro de estudios Ramón Araces S.A, 2014, pp. 135-137.
+
+olLista de anexos
+
+92Anexo A
+
+Historias de usuario
+
+HISTORIAS DE USUARIO LABORATORIO DE GENÉTICA DE YUCA
+
+Fecha: 16/10/2015
+
+1. Nombre del proyecto: Sistema de información de Genética de Yuca
+
+2. Tipo de historia:
+
+= Nueva: X
+
+= Mejorada:
+
+= Error:
+
+3. Descripción del proyecto:
+
+Las reuniones se han llevado a cabo con el fin de definir los parámetros para
+la implementación de un sistema de control de inventario para el laboratorio
+de Cultivo de Tejidos de Genética de yuca, así mismo el sistema debe permitir
+llevar la trazabilidad o seguimiento del material de yuca y también determinar los costos de los procesos generados en la producción de un determinado
+material.
+
+En el Laboratorio de Cultivo de Tejidos de Genética de Yuca se realizan los
+procesos de recepción y conservación de genotipos, distribución y descarte de
+genotipos. A continuación se describen estos procesos.
+
+RECEPCIÓN Y CONSERVACIÓN DE GENOTIPOS EN EL LABORATORIO:
+
+El proceso de Recepción y Conservación de genotipos se desarrolla teniendo
+en cuenta la procedencia o fuente de origen de los genotipos. A continuación
+se describen las etapas o subprocesos que se realizan al Recibir y Conservar
+un genotipo de acuerdo a cada fuente.
+
+Fuente 1: Obtención de plantas in vitro a partir de la semilla de yuca
+(materiales propios del laboratorio de genética de yuca).
+
+1. Inicialmente se reciben las semillas y se hace una preselección mediante
+una prueba de agua para determinar cuáles semillas son aptas para germinar y cuáles se deben descartar. La prueba consiste en depositar las
+
+93semillas en un beaker con agua corriente, y seleccionar las semillas que
+se precipitan descartando las que flotan.
+
+. El siguiente paso consiste en ablandar la testa (cáscara) de la semilla. Para
+este procedimiento se usa ácido sulfúrico. El proceso de ablandamiento
+consiste en depositar las semillas seleccionadas en la tarea anterior en un
+recipiente el cual contiene ácido sulfúrico durante un periodo de tiempo.
+Este periodo está determinado por el tipo de semilla, si es una semilla
+comercial el tiempo que se debe emplear es 30 a 40 minutos, mientras
+que para una semilla silvestre puede ser de 50 a 60 minutos.
+
+. Después de ablandar la testa de la semilla se hace una desinfección, la
+cual se lleva a cabo en la cámara de flujo laminar. Para el proceso de
+desinfección se necesita: alcohol, hipoclorito y agua estéril.
+
+. Una vez se tiene la semilla desinfectada, se le retira la testa o cáscara a
+la semilla y se siembra en un tubo de ensayo, el cual contiene el medio
+de cultivo 17N preparado con anterioridad. Posteriormente los tubos con
+las semillas sembradas, se tapan con una tela oscura por un periodo de
+5 días y se colocan en el cuarto de crecimiento a una temperatura entre
+
+27 y 30 grados centígrados. Pasados los 5 días, se retira la tela y a las 6
+semanas se obtiene una planta desarrollada.
+
+. Después de las 6 semanas la planta completamente desarrollada (con raíz,
+tallo y hojas) puede ser multiplicada para obtener 3 plantas nuevas. El
+proceso de multiplicación consiste en tomar la planta y dividirla en 3 secciones o explantes (ápice y nudos), cada explante es sembrado en un tubo
+de ensayo con medio de cultivo 4E. De manera similar se debe esperar que
+pase un periodo de 6 semanas para que las plantas se desarrollen y continuar con el proceso de multiplicación. Cada planta producirá 3 explantes
+lo que significa que después de las 6 semanas se tendrán 3 plantas con
+9 explantes que se seguirán multiplicando cada 6 semanas hasta obtener
+27 plantas que serán distribuidas así: 9 plantas en 17N para invernadero,
+10 plantas en 4É para envíos y 8 plantas en 4É para conservación.
+
+Fuente 2: Materiales Provenientes del Programa de Mejoramiento
+
+Los genotipos que produce el Programa de Mejoramiento son obtenidos mediante cruzamientos en campo. Posteriormente definen que materiales se llevarán a conservación in vitro. Cuando se tienen seleccionados los genotipos
+para conservar, se envía a invernadero semilla de estaca. Cuando se tienen
+las estacas en el invernadero se realiza la siembra en bolsas, con el objetivo
+de que dichas estacas broten y desarrollen una rama. El invernadero facilita
+un ambiente controlado de plagas y enfermedades que permite el crecimiento
+sano de las plantas. La rama se lleva al laboratorio de cultivo de tejidos para
+comenzar el proceso de conservación in vitro.
+
+El proceso de conservación in vitro consta de las siguientes etapas:
+
+1. De la rama que llega al laboratorio, se obtienen 3 explantes a los que
+
+94se les realiza un proceso de desinfección, el cual comienza con pasar los
+explantes por un fungicida sistémico durante 20 a 30 minutos.
+
+. Posteriormente, en cámara de flujo laminar, se continúa la desinfección
+pasando los explantes por alcohol, hipoclorito de sodio y enjuague con
+agua estéril.
+
+. Los explantes desinfectados se siembran en tubos de ensayo con medio
+de cultivo 4E con antibiótico, y se colocan en cuarto de crecimiento.
+
+. Transcurrida una semana, se procede a realizar evaluaciones visuales para
+determinar si el material está contaminado por hongos y/o bacterias. Si
+se obtienen resultados negativos para la prueba de hongos y bacterias
+se espera por un periodo de 3 semanas durante el cual las plantas han
+crecido lo suficiente para realizar la multiplicación.
+
+. Pasadas las 3 semanas, las plantas desarrolladas se multiplican. Este proceso se realiza cortando los ápices y el 2do nudo de cada plántula, y se
+siembran en los frascos con medio de cultivo 4E. El proceso continúa de
+igual forma hasta completar un stock por genotipo de 3 frascos con 5
+plantas cada uno.
+
+En general, los genotipos provenientes de campo, incluyendo los procedentes del Programa de Mejoramiento, pueden tener enfermedades producidas por virus, las cuales solo se detectar a partir de pruebas de laboratorio o pruebas de indexación. Esta prueba se realiza usando las hojas
+de las plantas de los genotipos in vitro. Si el resultado de la prueba es
+positivo para virus, el genotipo se somete al proceso de termoterapia, el
+cual consiste en sembrar los ápices de las plantas enfermas en tubos de
+ensayo con medio 17N y se ubican en una incubadora bajo las siguientes condiciones: 400C de día y 350€ de noche, 12 horas fotoperiodo, por
+un periodo de 12 días. El proceso se repite 3 veces, es decir, 36 días.
+Cumplidas 3 semanas se realiza nuevamente la prueba de indexación.
+
+Cuando la prueba de indexación es negativa (material está libre de virus),
+se realiza el procedimiento de conservación normal.
+
+. En todos los casos de genotipos provenientes de campo, el material es
+multiplicado y se espera una semana para revisar si hay contaminación
+por hogos o bacterias, si la planta está limpia, se procese a conservarla
+(almacenarla) en el cuarto de conservación. Por otro lado si la planta
+está contaminada se realizar un proceso de desinfección y se espera nuevamente una semana para volver a revisarla.
+
+Fuente 3: Materiales provenientes del Banco de Germoplasma.
+
+El proceso de conservación de los materiales provenientes del Banco de Germoplasma inicia con la llegada de 5 plántulas de las cuales se pueden obtener 15
+explantes. Inmediatamente llegan las 5 plántulas del Banco se procede a realizar la multiplicación. Después de que multiplican las 5 plántulas y se siembran
+en los respectivos tubos con medio de cultivo (4E), se espera que pase un
+periodo de 6 semanas para obtener 15 plántulas nuevas con 45 explantes (15
+ápices y 30 nudos), después de tener las 15 plantas se multiplican nuevamente,
+
+99realizando el mismo proceso de multiplicación ya descrito. Pasadas las semanas de rigor se obtendrán 45 plántulas nuevas que se podrán destinar así: 15
+plantas de ápices para invernadero, 10 plantas para envió, 20 plantas para
+conservación.
+
+Fuente 4: Materiales procedentes de otros países. El proceso de conservación de los materiales que llegan provenientes de otros países es igual al
+que se realiza con los materiales que provienen del Banco de Germoplasma.
+Estos genotipos llegan en forma in vitro y con certificados que garantizan su
+sanidad, es decir, libres de enfermedades o cualquier agente contaminante. Por
+tanto, después de recibir el material se multiplica para conservarlo y no se le
+realizan tratamientos especiales.
+
+DESCARTE DE GENOTIPOS
+
+Los materiales que son afectados por hongos o por bacterias son descartados.
+El proceso que se lleva a cabo para descartar un material contaminado se
+resume así: Se extrae del cuarto de crecimiento o conservación el frasco que
+contiene el material contaminado, se esteriliza dicho frasco (en la autoclave),
+se descarta el residuo, se lava el frasco y nuevamente se esteriliza el frasco vacío
+y limpio para reusarlo en la preparación del medio de cultivo que servirá para
+la multiplicación de otro genotipo.
+
+DISTRIBUCIÓN DE UN MATERIAL
+
+El material que se tiene en el cuarto de conservación puede tener cuatro destinos:
+
+1. Envío para socios (otros países).
+2. Usuarios CIAT
+
+3. Laboratorio de Genética Molecular de Yuca.
+
+4. Invernaderos, que posteriormente pueden ser enviados a campo
+
+El inicio del proceso de distribución de un material se da con la solicitud
+de los genotipos al laboratorio de Cultivo de Tejidos de Genética de Yuca,
+después de que la solicitud es atendida se debe esperar por un periodo de 6
+semanas o más dependiendo del tamano del pedido, mientras el laboratorio
+puede producir la cantidad de material solicitado. Transcurrido este periodo,
+se entregan los recipientes (frascos o tubos de ensayo) que contienen las plantas
+in vitro.
+
+Cuando los materiales son solicitados por usuarios de otros países O por
+usuarios CIAT, después de recibida la solicitud, se propaga el material in vitro
+y se espera que las plantas crezca durante 6 semanas, posteriormente son enviadas a otro país o entregadas al usuario CIAT entre 5 y 10 plantas. Por otro
+lado, los usuarios del área Molecular del mismo Programa de GY, solicitan y se
+
+316les entregan hojas in vitro que son almacenadas temporalmente en nitrógeno
+líquido y se despachan el mismo día.
+
+Cuando un genotipo se entrega para ser sembrado en campo o cuando son
+genotipos que se utilizarán para ensayos del Programa de GY, deben pasar por
+un periodo de aclimatación en invernadero. Es decir, un periodo intermedio
+entre laboratorio y campo donde se prepara la planta in vitro para que se
+adapte y sobreviva a las nuevas condiciones ambientales del campo.
+
+Llevar un material al invernadero involucra la realización de tareas como:
+
+= Preparación del sustrato.
+= Proceso de adaptación en cámara húmeda.
+
+= Etiquetado.
+
+El sustrato en el cual se trasplantan las plantas de yuca in vitro, está compuesto de arena, suelo y una solución de fertilizante y fungicida. Este proceso
+inicia con cernir, lavar y secar la arena; posteriormente se debe moler el suelo
+que será utilizado. Luego de tener la arena cernida, lavada y seca, y el suelo molido, se mezclan, en proporciones de 1-3, 1 cantidad de suelo por 3 de
+arena. Posteriormente se pasa por una máquina de vapor para esterilizar el
+sustrato. Después de que se tiene el sustrato listo, se llenan las bolsas con
+aproximadamente 400 er de suelo y se procede a la siembra del material.
+
+Para el proceso de siembra, primero se procede a retirar el gel de las plantas
+in vitro que consiste en, sacar las plantas del frasco y retirarle el gel lavando
+las raíces con agua común sobre una bandeja. Después de lavar las raíces, se
+procede a sembrar la plántula en la bolsa con el sustrato previamente preparado
+y adicionando o humedeciéndola con una solución de fungicida y fertilizante,
+luego de sembrar la plántula se inicia el proceso de cámara de humedad.
+
+El proceso de cámara de húmeda consiste en tapar las plántulas sembradas con
+un vaso plástico transparente durante un periodo de 8 días. Después de que
+se cumple este periodo, se retiran los vasos y se hace un conteo de las plantas
+sobrevivientes que pasaran a un plan de fertilización. Después de esto se pasa
+a la siguiente tarea que es el marcado para identificación.
+
+El marcado se realiza pegando a cada bolsa con planta una etiqueta que contiene el nombre del genotipo. Se utilizan pajuelas para identificar un grupo de
+familia la cual se coloca o introduce en la primera bolsa con planta de cada
+
+grupo.
+
+Las plantas sembradas permanecen en invernadero de 6 a 8 semanas antes
+de ser llevas a campo o para hacer ensayos experimentales dentro del mismo
+invernadero.
+
+Algunas veces para los ensayos experimentales en invernadero, se requiere incrementar el número de plantas por genotipo. En ese caso, el proceso consiste
+
+97en cortar las ramas de las plantas y ponerlas a enraizar en agua común por
+dos semanas, posteriormente sembrarlas en una bolsa con sustrato.
+
+Cuando el material es llevado a sembrar en campo, primero se establecen en un
+sistema lineal de surcos, buscando que la planta se vaya adaptando al medio
+ambiente. En este proceso se realizan diversas tareas como, preparación del
+suelo, aplicación de fertilizantes, realización de los hoyos donde se sembraran
+las plantas, entre otras.
+
+La siembra de los materiales se hace teniendo en cuenta un orden, dicho orden
+se establece alfabéticamente por ejemplo, por países, es decir, se empiezan por
+los materiales de Argentina, Brasil y así sucesivamente hasta llegar a los de
+Venezuela.Una vez se siembran las plantas en campo, y dependiendo de la
+presencia de plagas o enfermedades se aplican agro-químicos para controlar
+dichos factores.
+
+Después de que las plantas ya están establecidas en campo y se encuentren en
+condiciones de extraer semilla por estaca (aproximadamente 6-7 meses dependiendo de la variedad), se hace la multiplicación por estaca de los genotipos
+para ser establecerlos en un “sistema de parcelas” el cual consiste en agrupar
+genotipos diferentes que tienen características genéticamente similares. Las
+parcelas por lo general se siembran en grupos de 16 plantas, sin embargo esta cantidad puede variar dependiendo de lo establecido por el investigador en
+los ensayos experimentales que este realice. Están plantas sirven para realizar
+diferentes estudios entre ellos de calidad.
+
+4. Historias de usuario.
+
+HU 001: USUARIOS.
+
+El sistema debe contar con tres tipos de usuarios o roles el administrador, líder
+del proyecto y operario. El usuario administrador será aquel que tiene el acceso
+total sobre el sistema, es decir, que contara con las opciones de crear, leer,
+modificar o eliminar información del sistema y podrá crear los demás usuario
+con sus respectivos permisos. El usuario con rol líder del proyecto será aquel
+que puede visualizar toda la información del sistema, además tendrá permisos
+de lectura y escritura sobre el módulo de órdenes de trabajo y reportes. El
+usuario con rol operario será aquel que tendrá opciones de lectura y escritura
+solo en los módulos a los que tenga acceso.
+
+HU 002: CONTROL DE INVENTARIO DE MATERIALES
+
+Los usuarios podrán conocer el inventario de materiales que se encuentran en
+el laboratorio de cultivo de tejidos, en el invernadero y en campo. También
+podrán consultar toda la información del material relacionada con la fuente de
+procedencia, la persona responsable de dicho material, la cantidad de material
+disponible, entre otra información.
+
+HU 003: ORIGEN DE UN MATERIAL
+
+El sistema debe permitir almacenar la procedencia de un material. Los materiales que llegan al laboratorio de Cultivo de Tejidos de Genética de Yuca
+
+98provienen de 4 fuentes diferentes: genotipos propios del laboratorio, el banco
+de Germoplasma, genotipos del Programa de Mejoramiento o genotipos que
+llegan del exterior.
+
+HU 004: TRAZABILIDAD DE UN MATERIAL.
+
+Los usuarios podrán realizar el seguimiento de un genotipo específico. Con esto, se busca que el usuario, mientras tenga autorización por el administrador,
+pueda conocer información como las etapas y procesos por los que ha pasado
+un genotipo. También permitirá conocer la procedencia de los genotipos, las
+características o descriptores de ese material; determinar quién es el responsable de la multiplicación in vitro y en caso de pérdida del genotipo, establecer en
+qué etapa ocurrió y quién era el responsable. De igual forma, el usuario podrá
+relacionar los materiales cuando se encuentren tanto en campo, invernadero o
+laboratorio.
+
+HU 005: COSTOS DE PRODUCCIÓN Y/O CONSERVACIÓN DE UN MATERIAL.
+
+Los usuarios podrán conocer el costo que genera la tarea de producir y/o conservar un material en el laboratorio desde el momento en que se recibe un
+material o las semillas hasta que está listo para ser distribuido; también los
+costos que se generan en el mismo proceso de distribución y los costos generados por los diferentes procesos realizados a los materiales en cada una de
+las instalaciones (laboratorio de Cultivo de Tejidos, invernadero y campo). Se
+busca determinar cuánto cuesta producir cierto material teniendo en cuenta
+los insumos usados en: preparar el medio de cultivo, la mano de obra, los equipos, el mantenimiento de los equipos, la depreciación, gastos de instalaciones
+y edificio, el tiempo que se toma producir un material, entre otros.
+
+HU 006: CONTROL DE INVENTARIO DE RECURSOS.
+
+Para la ejecución de las tareas que se llevan a cabo en el laboratorio de cultivo
+de tejidos, en el invernadero y en el campo, son necesarios recursos como: insumos, equipos y personas o roles, se requiere que el usuario pueda determinar
+qué insumos, equipos y roles son necesarios en determinada tarea y de esta
+manera asignarlos a la misma. Además se requiere que los usuarios puedan
+conocer el inventario detallado y actualizado de dichos recursos. Para ello es
+necesario que se guarden dichos recursos con toda la información necesaria.
+
+Para los insumos se requiere almacenar el nombre, precio, cantidad, unidad
+de medida, fecha de compra y/o preparación, fecha vencimiento, ubicación.
+Adicionalmente se requiere que se muestre la cantidad actual de cada insumo
+registrado cada vez que sea utilizado en la realización de una tarea. Así como
+también determinar cuáles de los insumos son reutilizables o desechables; y
+un campo para agregar comentarios. También se debe permitir determinar
+la cantidad mínima de cada uno de los insumos. Se requiere que se pueda
+exportar un archivo en formato Excel donde se listen los insumos registrados
+en el sistema.
+
+Para los equipos es necesario guardar el nombre, la fecha de compra, vida
+
+útil, fecha de la última calibración, fecha del ultimo mantenimiento, periodo
+de calibración, periodo de mantenimiento, costo por hora, número de placa o
+
+99identificación CIAT, responsable, ubicación, tipo de mantenimiento, costo de
+mantenimiento, numero de mantenimientos. Además de almacenar un historial
+de los mantenimientos realizados. Se requiere que se pueda generar una búsqueda filtrando los equipos registrados y que posteriormente se pueda generar
+un archivo en formato Excel donde se listen los equipos y toda su información, sin embargo solo se mostrara información sobre el ultimo mantenimiento
+realizado y no el historial de los mantenimientos.
+
+Para los roles se requiere el nombre del rol, y el costo por hora. Además de
+insumos, equipos y roles, se necesita guardar las instalaciones, para estas se
+solicita el tipo de instalación, el nombre, los m? que tiene y el precio por 1m,
+adicionalmente se desea conocer cuál es la capacidad máxima que tiene cada
+instalación con respecto al número de plantas que se pueden mantener en ellas.
+Por otro lado, También se desea llevar un registro histórico de los precios de
+los recursos. Se requiere que se pueda exportar un archivo en formato Excel
+
+donde se listen los roles o las instalaciones.
+
+HU 007: DAR DE BAJA UN RECURSO.
+
+En ocasiones es necesario sacar recursos del inventario por diversas causas
+entre ellas porque han caducado, por mal estado, porque se han denado entre
+otras, para esto se requiere que los usuarios puedan registrar el movimiento de
+salida de un recurso indicando la causa de salida, así mismo el sistema deberá
+realizar las modificaciones correspondientes en el inventario de los recursos.
+Además se debe guardar registro de estos movimientos para futuras consultas.
+
+HU 008: PROCESOS, ACTIVIDADES, TAREAS.
+
+Los procesos son las unidades que componen las órdenes de trabajo, estos a
+su vez están compuestos de actividades. Las actividades son la asociación de
+tareas. Las tareas son las unidades mínimas de trabajo. Se requiere que el
+sistema permita crear procesos, actividades y tareas, adicionalmente que se
+pueda asignar a las tareas los recursos que son necesarios para su ejecución
+así como el tiempo de duración. Para crear un proceso o actividad se debe
+registrar un nombre, un tipo (si es para campo, invernadero o laboratorio), un
+responsable y una descripción. Para las tareas se consigna el nombre, un tipo
+(si es para campo, invernadero o laboratorio), la duración y una descripción.
+
+El sistema debe además brindarle la opción al usuario de marcar si las tareas
+generan como resultado otro insumo. Si se produce otro insumo después de
+terminado el proceso, actividad o tarea el sistema deberá mostrar al usuario
+el formulario necesario para crear o actualizar dicho insumo.
+
+HU 009: ORDEN DE TRABAJO (OT).
+
+El usuario deberá determinar que procesos, actividades o tareas se le deben
+realizar a uno o varios genotipos, para ello es necesario crear una orden de
+trabajo, la cual consiste en un documento donde se describen los procesos,
+actividades o tareas, y los genotipos a los que se les realizaran dichos procesos,
+actividades o tareas. Las órdenes de trabajo pueden tener varios procesos asociados. Las órdenes de trabajo permitirán al usuario con rol líder de proyecto
+hacer un presupuesto del costo que se generaría y el tiempo que se necesita
+para ejecutar dichos procesos, actividades o tareas a los genotipos involucrados
+
+60en la OT.
+
+Cuando se asigne un proceso a una OT, se debe relacionar las actividades y/o
+tereas de ese proceso en particular, que deben haber sido creadas previamente
+y deben tener asociados los recursos necesarios para su ejecución, así como
+el tiempo que tarda realizar cada tarea. Esto permitirá determinar el costo
+
+de ejecutar un proceso y el tiempo de duración de dicho proceso, la suma de
+los costos y tiempos que se invierten en terminar cada proceso servirá para
+calcular el estimado de los costos y tiempo para ejecutar una orden de trabajo.
+
+Una vez creada la O'T' con sus procesos, el usuario debe establecer la ejecución
+de esta. El ciclo de vida de la orden de trabajo comienza con el primer proceso,
+este genera una entrada, para este caso los genotipos que serán afectados por
+dicho proceso, esta entrada deberá ser registrada por el usuario en el sistema.
+Después de registrada la entrada, el sistema empieza a contabilizar el tiempo
+que se estableció para terminar el proceso; este tiempo es calculado de acuerdo
+a la duración de cada una de las tareas que se le asignaron a dicho proceso.
+Una vez se termine el proceso, el usuario deberá marcarlo como finalizado,
+para iniciar con el siguiente proceso descrito en la orden de trabajo, para que
+un proceso se pueda marcar como finalizado se deben marcan cada una de
+las tareas que lo constituyan como finalizadas. Cuando un proceso termina,
+el usuario deberá generar el movimiento de salida del material afectado, dicha
+salida puede ser un movimiento de entrada para otro proceso o instalación, que
+el usuario deberá registrar con la causa u origen del movimiento y el destino.
+El sistema también deberá registrar estos movimientos de entrada de manera
+automática dependiendo de dónde se generen. Por ejemplo, cuando se crea
+una orden de trabajo que inicialmente involucre procesos en el laboratorio, el
+sistema primero debería registrar una entrada de genotipos al laboratorio, posteriormente cuando se termine el proceso del laboratorio, este proceso generará
+una salida para invernadero, el sistema deberá permitir al usuario registrar la
+salida del laboratorio con el destino determinado por el usuario, en este caso
+invernadero, y el sistema automáticamente deberá registrar el movimiento de
+entrada al invernadero, de la misma manera cuando se genere un movimiento
+de salida en el invernadero, el sistema deberá registrar el movimiento de entrada al campo automáticamente. Esta misma dinámica se realiza para todos los
+procesos que se asignen a la OT hasta llegar al último. Cada vez que se termine
+un proceso el sistema debe brindar al usuario la opción de registrar comentarios u observaciones, así como también permitirle que asigne el responsable
+para el siguiente proceso descrito en la orden de trabajo. El ciclo de vida de
+una orden de trabajo termina cuando todos los proceso han sido terminados.
+
+Además de asignar procesos en las O'T se puede relacionar ensayos experimentales en los cuales estarán descritas las evaluaciones asociadas a dichos ensayo.
+Para relacionar los ensayos experimentales se hará uso de la aplicación FieldBook, la cual está encargada de gestionar todos los ensayos experimentales,
+libros de campo, unidades experimentales, evaluaciones, variables, entre otras.
+
+Por otro lado, también se le podrán asignar procesos, actividades o tareas en
+cualquier momento que el usuario considere que debe aplicar bien sea un proceso, actividad o tarea adicional y que no fueron considerados en el momento
+
+61de crear la orden de trabajo o que se produzcan por alguna eventualidad. Así
+mismo el sistema deberá recalcular el costo y el tiempo que son necesarios para
+terminar la ejecución de la O'T.
+
+HU 010: CAMPO, INVERNADERO, LABORATORIO DE CULTIVO DE
+TEJIDOS.
+
+Se requiere que el usuario pueda realizar las siguientes funciones en cualquiera
+de las instalaciones.
+
+1. Ingreso de un material: el ingreso de material se puede realizar de dos
+formas, individual o en bloque. Individual cuando se registra genotipo por
+genotipo, y en bloque cuando se desea cargar varios genotipos al tiempo,
+para ello es necesario cargar un archivo en formato Excel que contiene
+toda la información necesaria para registrar los materiales.
+
+Para ingresar genotipos a campo se requiere guardar la siguiente información: código de familia, código de genotipo, responsable, cantidad de
+plantas ingresadas, fecha de ingreso, ubicación, número lote, fecha de
+siembra, último movimiento. La ubicación y el número de lote permitirán asociarse a información meteorológica o información histórica del
+suelo.
+
+Cuando se va a ingresar genotipos al invernadero se requiere la siguiente
+información: código de genotipo, responsable, cantidad de plantas ingresadas, fecha de ingreso, último movimiento.
+
+Cuando se van a ingresar materiales al laboratorio de Cultivo de Tejidos
+se requiere la siguiente información: Código de genotipo, medio en el
+cual está sembrado, numero de frascos, cantidad de plantas, responsable,
+ubicación (cuarto, estante, nivel).
+
+2. Listar/consultar material: Para los materiales que se encuentran registrados en campo se listaran los genotipos y la siguiente información: Código de genotipo, responsable, cantidad de plantas ingresadas, fecha de
+ingreso, lote, fecha de siembra, último movimiento y las evaluaciones correspondientes, así como también poder consultar los resultados de las
+evaluaciones que se le han aplicado a los genotipos.
+
+Para los materiales del invernadero se listara Código de genotipo, responsable, cantidad de plantas ingresadas, fecha de ingreso, invernadero,
+fecha de siembra y las evaluaciones correspondientes.
+
+Para los materiales que se encuentran en el laboratorio de Cultivo de
+Tejidos se listara código de genotipo, medio, usuario, responsable, saldo
+de frascos, cantidad de plantas, ubicación (cuarto, estante, nivel), Además
+se tendrá un link en el que se podrá consultar todo el historial de un
+genotipo como por ejemplo, las evaluaciones que se le han realizado, los
+ensayos experimentales, etc.
+
+3. Salida de material: Al igual que el ingreso de material, la salida se puede
+realizar de dos formas, individual o en bloque. En ambos casos y para los
+materiales a ser retirados del campo, del invernadero o del laboratorio,
+se requiere registrar la siguiente información: código de genotipo, respon
+62sable, cantidad de plantas retiradas, causa de la salida, fecha de salida,
+último movimiento.
+
+4. Evaluaciones: se requiere cargar las evaluaciones que se le realizan a los
+materiales, así como también cargar los ensayos experimentales que se le
+aplique a los genotipos.
+
+HU 011: REPORTES Y CONSULTAS.
+
+Se requiere que se generen reportes por órdenes de trabajo donde se muestre
+toda la información detallada de una orden de trabajo: los responsables, la
+fecha de inicio, la fecha de finalización, el tiempo planeado para terminar esa
+orden de trabajo, el estado y el costo de esa orden de trabajo.
+
+También se requiere que se generen reportes por responsables, para conocer
+quién es el responsable de la ejecución de cierto proceso y el tiempo que estará
+ocupado en el mismo, así como también la orden u órdenes de trabajo en las
+que está involucrado.
+
+Por otro lado se requiere llevar un reporte de la ocupación de las instalaciones
+con las que cuenta Genética de Yuca. Para esto se requiere listar el nombre de
+la instalación su espacio total, el porcentaje de espacio ocupado y el porcentaje
+de espacio disponible.
+
+Por último se requiere que se generen reportes por materiales o genotipos,
+donde se describa toda la información histórica correspondiente a los procesos,
+evaluaciones, ensayos experimentales, etc. que esté ligada a un determinado
+material.
+
+HU 012: NOTIFICACIONES.
+
+El sistema debe contar con un mecanismo de notificaciones donde se le indique
+al usuario administrador, por ejemplo, cuando un insumo llegue a la cantidad
+mínima establecida, los materiales que están cumpliendo su fecha de propagación, los insumos que están prontos a cumplir la fecha de vencimiento, las
+fechas de mantenimiento y/o calibración para los equipos.
+
+En cualquier caso, el parámetro de tiempo en que se debe mostrar una notificación se podrá configurar de acuerdo a las necesidades.
+
+Glosario
+
+= Instalaciones: Se refiere a las ubicaciones físicas donde se almacena, conserva O mantiene material.
+
+= Orden de trabajo: documento donde se describe la secuencia de procesos
+que deben ser realizados a ciertos genotipos para un objetivo en particular.
+
+= Proceso: Conjunto de actividades.
+
+= Recurso: Se refiere a los insumos, equipos o roles que son utilizados para
+llevar a cabo una tarea.
+
+63= Rol: Se refiere al personal que se asigna para desempeñar una tarea.
+
+= Tarea: Unidad mínima de trabajo.
+
+64Anexo B
+Especificación de requerimientos
+
+ 
+
+Especificación de requerimientos
+
+ 
+
+Sistema de información de Genética de Yuca
+
+ 
+
+ 
+
+Usuarios y perfiles
+
+ 
+
+No.
+
+Requerimiento
+
+ 
+
+ 
+
+Se requiere que el sistema cuente con 3 perfiles definidos: administrador, líder del proyecto, operario.
+
+ 
+
+Se requiere que el sistema permita crear nuevos usuario, a los
+cuales se les podrá asociar solo uno de los perfiles. Además se le
+podrá asignar los módulos sobre los que tendrá acceso.
+
+ 
+
+Tabla
+
+5.1: Especificación de requerimientos Usuarios y perfiles.
+
+ 
+
+Especificación de requerimientos
+
+ 
+
+Sistema de información de Genética de Yuca
+
+ 
+
+ 
+
+Acceso al sistema
+
+ 
+
+No.
+
+Requerimiento
+
+ 
+
+ 
+
+El sistema deberá garantizar que solo accedan los usuarios registrados.
+
+ 
+
+Se requiere que cuando un usuario registrado ingrese al sistema
+solo se le muestren los módulos a los que tiene acceso de acuerdo
+a su perfil.
+
+ 
+
+Tabla 5.2: Especificación de requerimientos de acceso al sistema.
+
+ 
+
+Especificación de requerimientos
+
+ 
+
+Sistema de información de Genética de Yuca
+
+ 
+
+ 
+
+Módulo de notificaciones
+
+ 
+
+No.
+
+Requerimiento
+
+ 
+
+ 
+
+Se requiere que el sistema notifique al usuario sobre situaciones
+como: fecha de propagación de materiales, fecha de caducidad de
+insumos, cantidad mínimas de insumos, etc.
+
+ 
+
+Se requiere que el usuario pueda eliminar las notificaciones.
+
+ 
+
+Tabla 5.3: Especificación de requerimientos módulo de notificaciones.
+
+69Especificación de requerimientos
+
+ 
+
+Sistema de información de Genética de Yuca
+
+ 
+
+ 
+
+Módulo de recursos
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+No. Requerimiento
+
+1 Se requiere que el usuario pueda crear equipos, insumos, instalaciones y roles.
+
+2 Se requiere llevar un historial de los precios de compra de un
+insumo.
+
+3 Se requiere que se listen los equipos, insumos, instalaciones y roles
+mostrando toda su información.
+
+4 Se requiere que el usuario pueda dar de baja un recurso.
+
+5 El sistema debe permitir al usuario descargar un archivo en formato Excel donde se listen los recursos que están actualmente en
+el inventario
+
+Tabla 5.4: Especificación de requerimientos módulo de recursos.
+Especificación de requerimientos
+Sistema de información de Genética de Yuca
+Módulo de procesos
+
+No. Requerimiento
+
+1 Se requiere que el usuario pueda crear procesos
+
+2 Se requiere que el usuario pueda crear tareas
+
+3 El usuario podrá asignarle tareas a los procesos
+
+4 El sistema debe permitir que se les puedan asignar recursos a las
+tareas
+
+9 Se requiere que el sistema permita configurar las tareas que gene
+ran como resultado un nuevo insumo o que afectan el inventario
+de materiales en alguna instalación.
+
+ 
+
+Tabla 5.5: Especificación de requerimientos módulo de procesos.
+
+66Especificación de requerimientos
+
+ 
+
+Sistema de informacion de Genética de Yuca
+
+ 
+
+ 
+
+Módulo de ordenes de trabajo
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+No. Requerimiento
+
+1 Se requiere que el usuario pueda crear órdenes de trabajo
+
+2 el sistema permitirá al usuario ingresar un valor numérico para
+el número de semillas o cargar un archivo en formato excel para relacionar los genotipos que serán afectados por la orden de
+trabajo
+
+3 El sistema deberá listar las órdenes de trabajo existentes.
+
+4 El sistema debe permitir al usuario editar una orden de trabajo.
+
+9 Se requiere que el sistema le permite al usuario adicionar procesos
+y/o tareas a una orden de trabajo.
+
+6 Se requiere que en la orden de trabajo se muestra el estimado del
+costo y tiempo para la ejecución de la orden de trabajo después
+de que se adicione un proceso y/o tarea.
+
+7 Se requiere que el sistema le permite al usuario eliminar una tarea
+O proceso agregado a la orden de trabajo
+
+8 Se requiere que el sistema consulte la disponibilidad de los insumos cuando se le asignen procesos a las órdenes de trabajo, para
+determinar si se puede cumplir la orden de trabajo o no.
+
+9 Se requiere que el usuario pueda cambiar de estado (iniciada,
+terminada, cancelada) a una orden de trabajo.
+
+10 Se requiere que el sistema genere automáticamente la programación de las tareas, mostrando la fecha de inicio y finalización de
+las mismas.
+
+11 Se requiere que el sistema le permite modificar las fechas de inicio
+y finalización de la programación generada.
+
+12 Se requiere que el sistema recalcule las fechas de inicio y finalización de las tareas cada vez que el usuario efectúe una modificación
+
+13 se requiere que el sistema le permite al usuario marcar las tareas
+como finalizadas.
+
+14 El sistema en el módulo de órdenes de trabajo deberá verificar
+que una tarea no se termine si no se ha marcado como terminada
+la tarea inmediatamente anterior.
+
+15 se requiere que el sistema actualice el inventario de insumos cuando se marque una tarea como finalizada.
+
+16 se requiere que el sistema verifique que todas las tareas se han
+
+marcado como finalizadas para poder terminar una orden de trabajo.
+
+ 
+
+Tabla 5.6: Especificación de requerimientos módulo de órdenes de trabajo.
+
+67Especificación de requerimientos
+
+ 
+
+Sistema de información de Genética de Yuca
+
+ 
+
+ 
+
+Módulo de inventario de marterlales
+
+ 
+
+No. Requerimiento
+
+ 
+
+ 
+
+1 Se requiere que el sistema permita llevar el registro de los genotipos que se conservan en el laboratorio de Cultivo de Tejidos, los
+que se llevan al invernadero y los que se plantan en el campo.
+
+ 
+
+2 Se requiere que el usuario pueda registrar un ingreso de materiales de manera individual o en bloque a cualquiera de las tres
+instalaciones (laboratorio de cultivo de tejidos, invernadero, cam
+ 
+
+ 
+
+po).
+
+3 Se requiere que el usuario pueda registrar salida de los genotipos
+de manera individual o en bloque en cualquiera de las instalaciones.
+
+4 Se requiere que el usuario pueda consultar toda la información de
+
+un genotipo además del historial de procedimientos, evaluaciones,
+experimentos, etc. por los que ha pasado.
+
+ 
+
+Tabla 5.7: Especificación de requerimientos módulo de inventario de materiales.
+
+ 
+
+Especificación de requerimientos
+
+ 
+
+Sistema de información de Genética de Yuca
+
+ 
+
+ 
+
+Módulo de reportes y consultas
+
+ 
+
+No. Requerimiento
+
+ 
+
+ 
+
+1 Se requiere que el sistema muestre reportes por órdenes de trabajo, listando todas las ordenes de trabajo que se han creado y su
+información correspondiente, como el costo, el tiempo estimado,
+el estado de la orden de trabajo, etc.
+
+ 
+
+2 Se requiere que el usuario pueda consultar el reporte de los procesos que se están ejecutando y los responsables de dichos procesos.
+
+ 
+
+3 El sistema debe permitir al usuario consultar el reporte de la
+ocupación de las instalaciones donde se conservan materiales.
+
+ 
+
+4 Se requiere que el usuario pueda consultar el reporte de los genotipos de los procesos, evaluaciones, ensayos experimentales, etc.,
+que se le hayan realizado a un genotipo o familia.
+
+ 
+
+9 Se requiere que el usuario pueda simular una orden de trabajo para realizar una estimación de los costos y tiempo que se requieren
+en la ejecución de la orden de trabajo.
+
+ 
+
+Tabla 5.8: Especificación de requerimientos módulo de reportes y consultas.
+
+68

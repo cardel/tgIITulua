@@ -1,0 +1,3375 @@
+Herramienta web para el apoyo al diagnóstico
+
+de enfermedades en la medicina alternativa a
+
+través de la interpretación morfológica del iris
+del ojo.
+
+Julián Rojas Ramirez
+Cód. 200767294
+
+Universidad del Valle
+
+Programa de Ingeniería de Sistemas
+Octubre de 2013Herramienta web para el apoyo al diagnóstico
+
+de enfermedades en la medicina alternativa a
+
+través de la interpretación morfológica del iris
+del ojo.
+
+Julián Rojas Ramirez
+Cód. 200767294
+
+Trabajo de grado para optar el título de Ingeniero de Sistemas
+
+Director
+Albeiro Aponte Vargas, MSc.
+
+Universidad del Valle
+
+Programa de Ingeniería de Sistemas
+Octubre de 2013Nota de aceptación
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Presidente del Jurado
+
+ 
+
+Jurado 1
+
+ 
+
+Jurado 2
+
+Tuluá, Octubre de 2013
+
+111Resumen
+
+El propósito de este trabajo fue proporcionar una aplicación web como una herramienta de apoyo
+a iridólogos para determinar el estado de una lesión a través de la interpretación de la imagen
+del iris del ojo.
+
+En este trabajo se utilizó como metodología de desarrollo el Proceso Unificado Ágil (AUP), el cual
+consta de cuatro fases, iniciación, elaboración, construcción y transición. Adicionalmente para el
+tratamiento de las imágenes se utilizo el proceso completo de la visión artificial, el cual tiene como
+etapas: adquisición de imágenes, preprocesamiento, segmentación, descripción, reconocimiento e
+interpretación.
+
+El resultado fue una aplicacion web que sirve como herramienta de apoyo al iridologo, debido a
+que permite registrar y consultar la informacion basica de un paciente, y determinar el estado de
+una lesion mediante un procesamiento digital a la imagen del iris del ojo.
+
+Palabras clave: Ilridologia, Procesamiento Digital de Imagenes.
+
+lvAbstract
+
+The purpose for this work was to develop a web application as a support tool to iridologist to
+determine the status of one lesion through image iterpretation of the eye's iris.
+
+in this work Agile Unified Process (AUP) was as developed methodology, which consists of four
+phases, initiation, development, construction and transition. Additionally, the entire process of
+computer vision, which has stages as image acquisition, preprocessing, segmentation, description,
+recognition and interpretation was used.
+
+The result was a web application that serves as a support tool iridologist because it allows you
+to register and view basic information of a patient, and determine the status of a lesion using a
+digital image processing of the iris of the eye.
+
+Keywords: Iridology, Digital Image Processing.Dedicatoria
+
+A mi familia, a mi director, a Cristal, al azar que se confabuló para estar en el momento y el
+tiempo adecuado.
+
+Julián Rojas Ramirez
+
+vlAgradecimientos
+
+A mis padres por su apoyo incondicional durante toda mi formación académica y por creer en
+mí, a mis tías por acogerme en vuestra casa y darme vuestra confianza, a todos los profesores
+que contribuyeron con mi formación académica, a mi director de Trabajo de grado el Ingeniero
+Albeiro Aponte por el tiempo que dedico asesorando el desarrollo de este trabajo de grado, a
+Cristal por vuestra permanencia, dependencia, acompañamiento, y afecto.
+
+A mi compañera Carolina quien fue quien despertó curiosidad con relación al tema de trabajo de
+
+grado, a todos los que forman parte de mi vida y quienes me apoyaron con esta idea, muchas
+gracias.
+
+vilÍndice general
+
+Indice de cuadros
+
+Índice de figuras
+
+Lista de anexos
+
+1 Introducción
+
+1.1
+1.2
+
+1.3
+
+1.4
+
+Descripción general ..........
+Problema
+1.2.1 Descripción del problema ......... e...
+1.2.2 Formulación del problema ......... e...
+Objetivos...
+1.3.1. Objetivo general .........
+1.3.2 Objetivos especÍtICOs ......
+Estructura del documento .......
+
+2 Marco Referencial
+
+2.1
+2.2
+
+3.1
+
+3.2
+
+Antecedentes
+Marco Teórico. ....
+2.2.1. Iridología ..........
+2.2.2 Carta lridológica .......
+2.2.3 Estado de las lesiones [13] ............ 0... o... e... ... ...
+2.2.4 Procesamiento de imágenes digitales [14] . ....................
+2.2.5 Imágenes digitales [15] ......... 0... o... . e... e... ...
+2.2.6 Filtros ......
+2.2.7 Métodos en el dominio espacial ............. . . . . . . . . o.
+2.2.8 Suavizado de IMágenes ......
+2.2.9 Contrastado de la imagen ......... e...
+2.2.10 Operaciones morfológicas báSiCaS . ......... . . . . . . . . . . . ..
+DD Segmentación
+2.2.12 Lógica difusa
+3 Aspectos del desarrollo de software
+Aaalisis
+3.1.1 Especificación de requerimientos ...... e...
+3.1.2 Planeación del flujo de trabajo .......... . . . . . . o...
+Diseno
+3.2.1. Arquitectura...
+
+xl
+
+x1i
+
+W WN WAN pp pl
+
+O O 00 00 OOO] Ha
+
+hhh
+_] O) 0UO hh O3.3
+3.4
+9.9
+
+3.2.2 Diagrama de Clases . ............ e...
+3.2.3 Diagrama de Navegación ......
+Codificación...
+Interfaz web para la carga de la imagen digital de los 0j0S . . .............
+Procesamiento digital de iMágenes ............ . +...
+3.5.1 Identificar las características del iris del ojo en la imagen. .........
+3.5.2 Determinar el estado de las características en la imagen del iris del ojo.
+3.5.3 Comparar las características de la imagen adquirida con la carta iridológica
+para determinar la ubicación de los órganos con lesiones. . .........
+
+4 Pruebas y Resultados
+
+4.1
+
+4.2
+4.3
+
+4.4
+
+Descripción de las pruebas...
+
+All Prueban...
+4.1.2 PruebaB .......
+Procedimiento de las pruebas .........
+Resultados...
+43Bl Prueban...
+43.2 PruebaB .......
+
+Análisis de los Resultados
+
+5 Conclusiones y trabajos futuros
+
+9.1
+9.2
+
+Anexos
+
+Conclusiones
+Trabajos futuros...
+
+A Anexo I: Casos de Uso.
+
+B Anexo Il: Diagrama de la base de datos.
+
+Referencias
+
+1x
+
+47
+
+50
+90
+90
+91
+92
+93
+93
+99
+37
+
+59
+99
+60
+
+61
+
+62
+
+69
+
+YOIndice de cuadros
+
+Tabla 1.1
+
+Tabla 3.1
+Tabla 3.2
+Tabla 3.3
+Tabla 3.4
+Tabla 3.5
+Tabla 3.6
+Tabla 3.7
+Tabla 3.8
+
+Tabla 4.1
+Tabla 4.2
+
+Relación objetivos específicos con los productos esperados ......... 3
+Requerimientos funcionales, módulo Manejador ...... o... ..... 20
+Requerimientos funcionales, módulo carga de la iMagen . .......... 21
+Requerimientos funcionales, módulo identificado” .....o o... .... 22
+Actividad-funcionalidad ...... o... 26
+Tipos de Iridoscopios .... 30
+Tipos de cámaras web, Matriz circular de 8 LED .............. 31
+Estado de la lesión ..... 47
+Relación Área/ órganos Ojo [zquierdO ... o... o... 49
+Análisis de la fase de identificación de lesiones . .... o... o... . . 1 58
+Resultados: fase donde se determina el estado de la lesion ......... 98Índice de figuras
+
+Figura 1.1
+
+Figura 2.1
+Figura 2.2
+Figura 2.3
+Figura 2.4
+Figura 2.5
+Figura 2.6
+Figura 2.7
+Figura 2.8
+Figura 2.9
+Figura 2.10
+Figura 2.11
+
+Figura 3.1
+Figura 3.2
+Figura 3.3
+Figura 3.4
+Figura 3.5
+Figura 3.6
+Figura 3.7
+Figura 3.8
+Figura 3.9
+Figura 3.10
+Figura 3.11
+Figura 3.12
+Figura 3.13
+Figura 3.14
+Figura 3.15
+Figura 3.16
+Figura 3.17
+Figura 3.18
+Figura 3.19
+Figura 3.20
+Figura 3.21
+Figura 3.22
+Figura 3.23
+Figura 3.24
+
+Carta Iridologica .... 2
+LOMAS del is 6
+Carta de iridología .... 7
+Estado de las lesiones ..... 8
+Diagrama de bloques mostrando el proceso completo de la visión artificial 9
+Entorno Rectangular de 3 x 3 en un punto (EY) ... o... o... 10
+Ejemplo Mascara 38... 11
+Ejemplo Mascara... 12
+Filtros especiales de paso bajo de diferentes tamaños ..... o... . 0. 13
+Procedimientos para obtener el gradiente de UNA ÍMAJEN ... o... ... 14
+ESTTUCÍUTAS le erostoNn 15
+Ejemplo fusificador .... 17
+Metodología Agile UP ............ 18
+Arquitectura funcional 23
+Diagrama de Clases ...... 25
+Diagrama de Navegación ...... 27
+Interfaz: datos personales... 29
+Interfaz de carga de la ¡MaJen .... o... 29
+Imagen Repositorio... 30
+Ventana de alerta .... 31
+Visualización de una imagen OCular COATGAda . o... o... 33
+ANÁÍISIS 0J0 AereCho .... 33
+Interfaz Diagnóstico ... 34
+Diagrama del procesamiento de la IMaAgen .... o... o... 30
+Ejemplos de imágenes que presentan TUIO o... o... 36
+ÍMAJEN SIN TUBO 36
+Proceso de Identificación de Puptla . .... o... oo... e... 31
+Evaluación de máscaras para el filtro de SUAVIZAdO .... o... ..... 38
+Mmiensidades 39
+Imagen procesada donde se detecta la pupila... .... o... ...... 40
+imagen con región del iris SEeGMEentada .... o... o... 41
+Evaluación de máscaras con el filtro de suavizado para el operador canny 42
+imagen con región del iris segmentada .... o... o... 44
+Regiones atípicas en el iris del 00 ..... o... . ... . . . e .o. 44
+Lesiones identificadas 46
+Fusificador 47Figura 3.25 Imagen con carta de iridología acoplada a la ¡Magen .....o.o o... 48
+Figura 3.26 Barrido para hallar el ángulo de UNA lesión ... o... o... ..... 48
+
+Figura 4.1 Conjunto de imagenes para la prueba A, las imágenes a),c),e),8) correspon
+den al ojo derecho y las imágenes b), d), f) corresponden al ojo izquierdo. . . . . 51
+Figura 4.2 Conjunto de imagenes para la prueba B, las imágenes corresponden al ojo
+LEQUieradOa 92
+
+Figura 4.3 Conjunto de imágenes tratadas de la prueba A para la identificación del
+iris. las imágenes a),c),e),g) corresponden al ojo derecho y las imágenes b), d), f)
+
+corresponden al 0jO iZQUÍerdo ....... 54
+Figura 4.4 Conjunto de imágenes de la prueba A tratadas donde se identifican de
+lesiones... 99
+Figura 4.5 Conjunto de imágenes de la prueba B tratadas donde se identifican de
+lesiones... 56
+Figura 4.6 Conjunto de imágenes de la prueba B tratadas por la aplicacion donde se
+identifican de lesiones y se determina el estado de la lesion ............ 57
+
+xlLista de anexos
+
+Anexo A: Casos de Uso.
+
+Anexo B: Diagrama de la base de datos.
+Anexo C: Manual de instalación librería OpenCV.
+
+x1lCapitulo 1
+
+Introducción
+
+1.1 Descripción general
+
+Los profesionales en la práctica de la iridología al analizar el iris del ojo categorizan el estado de
+una lesión ya sea aguda, subaguda, crónica o degenerativa, luego la relacionan con los órganos del
+cuerpo humano al compararla con una grafica de iridología, la práctica manual de este proceso se
+debe realizar objetivamente, la eficacia del diagnóstico depende de la experiencia del profesional,
+la subjetividad en el análisis es latente y como consecuencia puede llevar a un dictamen erróneo,
+el profesional determina el nivel de afección el cual depende de la intensidad en la escala de grises
+de la región afectada, esta es una tarea difícil para el ojo humano a su vez es ambiguo determinar
+el color de cierta área.
+
+Actualmente, en los estudios [1, 2, 3] muestran varios procesos para el diagnostico de iridología a
+través de un tratamiento digital de imágenes del iris, sin embargo no existe registro de un sistema
+web que facilite a los profesionales en el campo de la iridología a encontrar posibles lesiones y a
+determinar el nivel de afección de los órganos de un paciente. Se desarrolló una herramienta de
+apoyo a los profesionales en iridología, y su estructura la conforma dos principales componentes,
+un módulo principal encargado del tratamiento digital de la imagen y módulos secundarios para
+la visualización de los reportes, y persistencia de la información.
+
+La aplicación permite generar un diagnóstico de iridología determinando el estado de las posibles
+lesiones que son validadas por el usuario con conocimientos en el tema. La herramienta permite al
+usuario crear una cuenta, registrar historias clínicas, consultar un diagnóstico en un ambiente web,
+y realizar el tratamiento a la imagen del iris por medio de algunas etapas como: pre-procesamiento,
+segmentación, descripción y reconocimiento.
+
+1.2 Problema
+
+1.2.1 Descripción del problema
+
+deacuerdo a [4] las personas están buscando constantemente alternativas para aliviar sus dolencias
+físicas sin que esto implique altos costos o efectos secundarios, la principal razón que motiva a los
+pacientes para practicar estos tratamientos son: la prevención de enfermedades y la promoción
+de la salud en la medicina alternativa, porque actualmente la medicina tradicional está asociadaa efectos secundarios.
+
+En la medicina alternativa se utilizan técnicas para diagnosticar posibles complicaciones en los
+diferentes órganos, dentro de estas técnicas sobresale la iridología, procedimiento en el cual se
+analiza el ojo del paciente; Los profesionales en este campo verifican el color, la densidad y la
+ubicación de los diferentes signos en el iris, cotejándolos con una carta iridológica ver Figura 1.1
+la cual indica en qué posición se encuentra los órganos del cuerpo, para así determinar el tipo de
+lesión y diagnosticar la salud de un paciente.
+
+gÉNSORIAL CEREN,
+
+1)
+ELO LOLOGICO CEREBRO) Mor
+o Fl 12 PSUe y Re
+e
+
+Ue
+ce Ae,
+
+ 
+
+Figura 1.1: Carta Iridologica [5]
+
+Valorando la situación actual, desde la perspectiva del iridólogo en el proceso manual se evidencian inconvenientes, puesto que, al realizar la interpretación morfológica del iris del ojo los
+profesionales determinan el color del iris y de las regiones como las lagunas las cuales tienen un
+grado de degeneración ya sea agudo, sub agudo, crónico y degenerativo, en las que se clasifica
+según su intensidad de grises; la efectividad de determinar el estado de una lesion depende de un
+amplio conocimiento en el tema y una gran experiencia, lo cual para profesionales principiantes
+hace probable fallar en su dictamen. También determinan la ubicación del órgano del cuerpo en
+el iris como se indica en la carta iridológica.
+
+Hoy en día, los investigadores en el área del procesamiento digital de imágenes aplicado a la
+iridología, han desarrollado varias herramientas computacionales que se relacionan con el problema descrito anteriormente, sin embargo entre las aplicaciones existentes no son comunes las
+aplicaciones web y de libre acceso, que permitan analizar el iris basado en la iridología. Teniendo
+en cuenta lo anterior, se observa la necesidad de una aplicación web que tomando como base una
+fotografía ocular, identifique las características en la imagen y realice una comparación con la
+carta iridológica para generar un diagnóstico del estado de los órganos afectados.1.2.2 Formulación del problema
+
+¿Cómo determinar el nivel de afección de una enfermedad a través de la interpretación morfológica
+del iris del ojo, usando técnicas de procesamiento digital de imágenes en un ambiente web, que
+sirva como herramienta de apoyo en la medicina alternativa?
+
+1.3 Objetivos
+
+1.3.1 Objetivo general
+
+Desarrollar una aplicación web como herramienta de apoyo en la medicina alternativa, para
+determinar el nivel de afección de enfermedades, a través de la interpretación de la imagen del
+iris del ojo.
+
+1.3.2 Objetivos específicos
+
+En el Cuadro 1.1 se relacionan los objetivos específicos con los resultados esperados en la sección
+correspondiente.
+
+Objetivos específicos Sección
+1. Realizar una interfaz web para la carga de la imagen digital de los ojos. 3.4
+
+2. Identificar las características del iris del ojo en la imagen. Sl
+3. Determinar el estado de las características en la imagen del iris del ojo. 3.5.2
+
+4. Comparar las características de la imagen adquirida con la carta iridológica para determi- 3.5.3
+nar la ubicación de los órganos con lesiones.
+
+Cuadro 1.1: Relación objetivos específicos con los productos esperados
+
+1.4 Estructura del documento
+
+El documento está organizado de la siguiente manera:
+
+En el Capítulo 1, se muestra la introducción, descripción del problema, objetivo general, objetivos
+específicos.
+
+En el Capítulo 2, se muestra el marco teórico y los antecedentes sobre aplicaciones de apoyo a
+iridologos que realizan el procesamiento a la imagen del iris con el fin de detectar lesiones según
+el concepto de iridología.
+
+En el Capítulo 3, se muestran los aspectos de desarrollo de software, las diferentes fases del
+procesamiento digital de la imagen llevado a cabo para cumplir con los objetivos propuestos.
+Este trabajo finaliza con el Capítulo 4: Conclusiones y trabajos futuro.Capitulo 2
+
+Marco Referencial
+
+En este capítulo se muestran los antecedentes de metodologías que permiten identificar lesiones
+en la imagen del iris según la iridología y los diferentes conceptos que fueron utilizados, como
+son: la descripción del concepto de iridología, estado de las lesiones, carta iridológica, las fases
+del procesamiento digital de imágenes y las técnicas utilizadas.
+
+2.1 Antecedentes
+
+Los antecedentes de una aplicación web de libre acceso, que permita dar un diagnóstico de los
+órganos a través del reconocimiento de características en la imagen del iris, no son comunes,
+existen aplicaciones de apoyo en este campo pero implican costos para adquirirlas. Diferentes
+herramientas se han propuesto, por ejemplo, en [6] se describe SPSO es una aplicación de escritorio
+que se utiliza en conjunto con un sistema portable de captura imágenes y es necesario comprar
+una licencia para adquirirlo, permite un análisis de iridología instantáneo mediante el escaneo del
+iris del ojo. En [7], AIGAL es una aplicación de escritorio especializado en el análisis del iris ,
+se basa en la topología de Bernard Jensen, permite almacenar de forma ordenada el historial
+del paciente, brinda en todo momento la posibilidad de realizar el seguimiento de la evolución
+del tratamiento, el sistema está enfocado para colaborar con el iridologo ayudándolo a localizar
+los signos en la imagen del iris, marcar áreas, ingresar comentarios y aplicar niveles de zoom
+necesarios para realizar el diagnóstico, es de uso privativo.
+
+Dentro de las aplicaciones que realizan este proceso para determinar el estado de los órganos
+del cuerpo basados en la iridología, se evidencian dos características, aquellas que necesitan
+de personas con conocimientos previos en este campo para valorar el diagnóstico, y otras que
+realizan el diagnóstico automáticamente, para estos tipos de aplicaciones se han desarrollado
+diferentes metodologías para el procesamiento a la imagen del iris del ojo.
+
+En [1] los investigadores en el Centro de Tecnología de Inteligencia Artificial (CAIT) plantean una
+metodología para sistema de reconocimiento del iris que describiremos a continuación: primero
+se detecta el círculo del iris y el de la pupila la cual se utiliza para aislar los parpados y las
+pestañas en la imagen del iris, luego se diferencia el iris izquierdo del derecho, esta etapa es
+importante debido a que la representación de los órganos en el iris del ojo derecho es diferente del
+iris del ojo izquierdo en la carta iridológica; se determina el color del iris, se aplica un método de
+segmentación wáter flow [8] para ségmentar la imagen del iris, luego se seleccionan y extraen las
+
+4características en la imagen para ser cotejadas con la carta iridológica, por último se diagnostica
+los órganos afectados.
+
+También, en [2] los investigadores del Departamento de Informática de la Universidad Fo Guang
+desarrollaron un metodología para este fin, la cual se compone de cuatro etapas, la captura de la
+imagen del ojo humano, el pre-procesamiento de la imagen, la extracción de las características de
+cada imagen en la que se utiliza el filtro de Gabor 2-D [9], y por último el análisis de los síntomas
+mostrando los signos de la enfermedad.
+
+En [3] los investigadores del Departamento de Electrónica de la Universidad Técnica de ClujNapoca proponen realizar este proceso de forma semiautomática donde el diagnóstico deberá ser
+aprobado por un iridologo, la cual se compone de tres etapas, el reconocimiento y la identificación
+del iris en donde se captura la imagen ocular y se segmenta el área de interés por medio de la
+transformada de Hough [10], luego se analiza la imagen del iris, se identifica el color y se aplica un
+método de umbralización para segmentar las regiones con texturas oscuras y claras, por último
+se genera el diagnóstico donde al ser identificadas las regiones con texturas oscuras facilita la
+comparacion de la carta de iridología donde se determinan el estado de los órganos del cuerpo y
+se procede a la valoración y aprobación del iridologo.
+
+2.2 Marco Teórico
+
+2.2.1 Iridología
+
+La iridólogia básicamente es la interpretación del iris. Es un método de diagnóstico practicado en
+la medicina alternativa para determinar el estado de los órganos del cuerpo; en [9] se describe
+que a través de la practica de esta se puede conocer el estado físico de un individuo a través
+de su iris, cuanto mayor sea el número de características irregulares encontradas en el tejido
+más corta es la vitalidad y resistencia, por lo tanto más lejos está la persona de su bienestar.
+El objetivo principal de la iridología es la detección de trastornos y su intervención temprana,
+de modo que éstos no evolucionene en una enfermedad; la mayor ventaja de la iridología se
+encuentra en la prevención de enfermedades pues el iridologo es capaz de detectar señales de
+cualquier trastorno y utilizar los medios necesarios para mantener la homeostasis del organismo.
+El cuerpo se concibe como un sistema integral y su representación según los iridólogos está
+dada por un un grafico, en la cual se muestra la distribución de los órganos representados en el iris.
+
+En el proceso manual de ésta práctica, el profesional utiliza una lámpara de hendidura! para
+examinar el iris del paciente, luego identifica los síntomas de acuerdo a sus conocimientos, y por
+último se elabora un reporte del examen.
+
+2.2.2 Carta iridológica
+
+La carta iridológica consiste en una representación gráfica de las áreas correspondientes a cada
+órgano, sistema o región del cuerpo humano. Se refiere a la base de conocimiento que tiene el
+profesional y el procedimiento tradicional, es de suma importancia para el diagnóstico de órganos
+del cuerpo. En la figura 2.1, muestra la distribución de siete zonas que representan la ubicación
+
+ 
+
+"http: //www.optivision2020.com/lampara-de-hendidura.html
+9de los órganos en el iris, las cuales forman siete círculos concéntricos, estas zonas son:
+
+ 
+
+Figura 2.1: Zonas del iris [11]
+
+Las diferentes investigaciones de herramientas que sistematizan el proceso de la interpretación
+del iris del ojo se basan en la carta iridólogica de Bernard Jensen la cual para nuestro estudio
+será utilizada ver figura 2.2.YMa 5
+
+Figura 2.2: Carta de iridología[12/
+
+  
+
+My
+OVA isa
+
+ 
+
+12.2.3 Estado de las lesiones [13]
+
+Cada enfermedad en el curso de su desenvolvimiento es representada por los siguientes estados:
+agudo, sub agudo, crónico y degenerativo. En la figura 2.3, muestra cada capa con un grado de
+luminosidad, el estado agudo lo representa la capa más superficial de color blanco, sub agudo de
+color gris, crónico de color gris oscuro y degenerativo de color negro, estos diferentes matices
+como se ve en la imagen son fases de inflamación en el iris.
+
+ 
+
+Figura 2.3: Estado de las lesiones[14/
+
+2.2.4 Procesamiento de imágenes digitales [14]
+
+La visión artificial por computador es la capacidad de la máquina para ver el mundo que le rodea,
+más precisamente para deducir la estructura y las propiedades del mundo tridimensional a partir
+de una o más imágenes bidimensionales, en la figura 2.4 se parte de la escena tridimensional y se
+termina con la aplicación de interés, donde las cajas representan los datos y las burbujas el proceso.
+
+La escena tridimensional es vista por una, o dos o más cámaras para producir imágenes monocromáticas o en color. Después de que la imagen ha sido obtenida, lo siguiente es el procesamiento en
+donde se aplican técnicas para realzar el contraste y remover el ruido en la imagen. Las imágenes
+adquiridas pueden ser segmentadas para obtener de ellas características de interés como bordes o
+regiones, posteriormente con las características se obtienen las propiedades subyacentes mediante
+el correspondiente proceso de descripción. Luego el reconocimiento es el proceso en el cual se
+
+etiqueta o se asigna un nombre a un objeto.xs Ly
+> Aplicación <
+
+ 
+
+Adquisición de
+imágenes
+
+Base de
+
+Reconocimiento e
+
+interpretación
+
+  
+
+conocimiento
+Preprocesamiento :
+Segmentación Descripción
+
+Figura 2.4: Diagrama de bloques mostrando el proceso completo de la visión artificial
+
+2.2.5 Imágenes digitales [15]
+
+Las imágenes se definen por medio de la función f(x,y), el valor o la amplitud de f en las
+coordenadas espaciales (x, y) son una cantidad escalar positiva cuyos valores abarcan la escala de
+grises, cuando una imagen es generada por un proceso físico, sus valores son proporcionales a la
+energía radiada por una fuente física y como consecuencia, f(x, y) debe ser distinto de cero e
+infinito, es decir,
+
+0> flx,y) > oo (2.1)
+
+La función f(x, y) se caracterizar por dos componentes: (1) la cantidad de fuente de iluminación
+incidente en la escena que se está viendo, y (2) la cantidad de iluminación reflejada por los objetos
+de la escena, éstos se llaman iluminación y componentes de reflectancia y se denotan por ¿(x, y)
+y r(x,y) respectivamente, las dos funciones se combinan como un producto para formar f(x, y).
+
+2.2.6 Filtros
+
+En general los filtros son operaciones que se aplican a pixels de una imagen para generar otra en
+donde se han suavizado o realzado detalles en la imagen. Los filtros son necesarios para reducir
+efectos de ruido que son en la imagen que no son indispensables para el procesamiento que se
+quiere llevar a cabo de forma que el resultado sea mas adecuado que la imagen original para una
+aplicación específica.
+
+Existen dos categorias basicas al aplicar técnicas de filtrado que son los métodos en el dominio
+espacial y métodos en el dominio de la frecuencia. el dominio espacial se refiere al plano de la
+imagen, y las técnicas de esta categoria se basan en la manipulación de los pixels de la imagen
+utilizando máscaras, el dominio de la frecuencia se trata de calcular la transformada de fourier
+de la imagen a intencificar, multiplicar el resultado por la función de transferencia de un filtro y
+
+9finalmente, tomar la transformada de inversa de Furier para llegar a una imagen mejorada.
+
+2.2.7 Métodos en el dominio espacial
+
+El empleo de máscaras para el procesamiento de las imágenes se denomina filtrado espacial y
+las propias máscaras se denominan filtros espaciales. al aplicar un filtro se puede realizar un
+suavizado de la imagen y un realce de la imagen.
+
+Los métodos en el dominio espacial son procedimientos que operan directamente sobre los pixeles
+que componen una imagen. las funciones de procesamiento de la imagen en el dominio espacial
+pueden expresarse como
+
+g(u,y) = Tlfx, y) (2.2)
+
+Donde f(x, y) es la imagen de entrada, g(x, y) es la imagen procesada y T es un operador que
+actua sobre f, definido en algun entorno de (x,y). La aproximacion principal para definir un
+entonorno alrededor de (x, y) es emplear un área rectangular tambien llamada máscara, centrada
+en (x,y) como lo muestra la figura 2.5.
+
+ 
+
+Figura 2.5: Entorno Rectangular de 3 x 3 en un punto (x1,y)
+
+Una de las formas de realizar este proceso es mediante máscaras. Basicamente una mascara es
+una matriz bidimensional pequeña cuyo valor de los elementos son escogidos para detectar una
+propiedad de la imagen como se muestra en la figura 2.6.
+
+10Figura 2.6: Ejemplo Mascara 3 1 3
+
+El centro del área rectangular se mueve a lo largo de la imagen. En cada posicion multiplicamos
+cada punto que esta contenido dentro del área que ocupa la mascara por el correspondiente coeficiente de la mascara. Entonces, el valor de cada punto de la nueva imagen g(x, y) se obtiene como:
+
+g(x,y) = T (f(x, y)) =W,f(x—1,y - 1) + Waflz,y —- 1) + W3f(2+1,y — 1) + W¿f(x — 1, y)
+
+=+Woflíz+1,y+1)
+(2.3)
+
+Se pueden formar máscaras de cualquier tamaño, tambien aparte de máscaras con entorno rectangular se puede aplicar máscaras con diferentes formas geométircas como circulares, trapezoidales,
+
+etc.
+
+2.2.8 Suavizado de imágenes
+
+Los filtros suavizantes se emplean para hacer que la imagen aparezca borrosa y tambien para
+reducir el ruido. Es útil que la imagen aparezca algo borrosa en algunas etapas de preprocesado,
+como la eliminacion de los pequeños detalles de una imagen antes de la extraccion de un objeto,
+
+y el relleno de pequeños espacios entre lineas o curvas.
+
+Promedio de vecinos.
+
+Dada una imagen f(x,y) de tamañno NxN, el valor del nivel de gris de la imagen suavizada
+g(x,y) en el punto (1, y) se obtiene promediando los valores de nivel de gris de los puntos de f
+
+contenidos en una cierta vecindad de (x, y).
+
+1
+(x,y)ES
+Donde x,y =0,1,2,...,.N — 1yS es el conjunto de coordenadas de los puntos vecinos a
+
+(x, y), incluyendo el propio (x, y), y M es el numero de puntos de la vecindad. Por ejemplo, en la
+figura 2.7 consideremos una subimagen y una máscara.
+
+11(z — 1, y — 1)
+
+ 
+
+Figura 2.7: Ejemplo Mascara
+
+Que queremos reemplazar el valor de f(x,y) por el promedio de los puntos en una región de
+tamaño 3x3 centrada en (x, y), es decir, queremos asignar el valor promedio a f(x, y):
+
+Esta operación se puede realizar de forma general centrando la máscara en (1, y) y multiplicando
+cada punto debajo de la mascara por el correspondiente coeficiente de la máscara y sumando el
+resultado.
+
+Filtro espacial de paso bajo
+
+La forma de la respuesta de un impulso necesaria para implementar un filtro espacial de
+paso bajo indica que el filtro ha de tener todos sus coeficientes positivos. Aunque la forma
+del filtro espacial de la Figura 2.8(a) pueda ser descrita, por ejemplo, por una función
+gaussiana predeterminada, el requisito clave es que todos los coeficientes sean positivos.
+Para un filtro espacial 3x3, la construccion mas simple consistiria en una máscara en la
+que todos los coeficientes fuesen iguales a 1. las figuras 2.8 (b) y (c) muestran máscaras
+mayores que siguen el mismo concepto.
+
+12Figura 2.8: Filtros especiales de paso bajo de diferentes tamaños
+
+Filtro Mediana
+
+Uno de los principales problemas del filtrado especial paso bajo es que difumina los bordes
+y otros detalles de contraste. Un método alternativo es utilizar filtros de mediana, en los
+que remplazamos e valor de gris de un punto por la mediana de los niveles de gris de una
+cierta vecindad.
+
+Recordemos que la mediana m de un conjunto de valores es aquel tal que la mitad de los
+valores del conjunto son menores que m y la otra mitad son mayores que m.
+
+La función principal de los filtros de mediana es forzar a los puntos con valores de intensidad
+muy distintos a sus vecinos a tener valores mas próximos a sus vecinos, de modo que se
+eliminan los picos de intensidad que aparecen en áreas aisladas.
+
+2.2.9 Contrastado de la imagen
+
+Las técnicas de contrastacion son útiles principalmente para resaltar los bordes en una
+imagen. En esta sección se van a presentar métodos de contrastación en el dominio espacial
+y en el dominio de la frecuencia.
+
+13Contrastacion por diferenciacion
+
+Ya hemos visto en la sección anterior que el promedio de puntos en una vecindad tiende a
+suavizar o difuminar los detalles de una imagen. Como el proceso de promediar es análogo a
+la integración, es natural esperar que la diferenciación tendrá el efecto opuesto y por lo tanto
+contrastará la imagen. El método mas usado en la diferenciacion de imágenes es el gradiente.
+
+Se define el gradiente de una imagen f(x,y) en el punto (x,y) como el vector de dos
+dimensiones:
+
+aran = (6) = (3) 26
+
+Una importante propiedad es que el vector gradiente G apunta en la direccion de máximo
+cambio de f en el punto (zx, y).
+
+Para la deteccion de bordes solo nos interesa la magnitud, que llamaremos simplemente
+eradiente y que denotaremos por G(f(x, y)),
+
+G(fz,y)) = y E +6; (2.7)
+
+El gradiente se puede aproximar por la siguiente expresion que es mas facil de implementar:
+
+G(fz,y)) = Gs] + |Gy (2.8)
+
+En una imagen digital las derivadas son aproximadas por diferencias. Una de las aproximaciones que se suele hacer es
+
+Glfx, y) =1flx,y) = a+ 1, yl +1fo,y)- Mu,y +1) (2.9)
+
+(Jue se puede observar en la figura 2.9 parte b En todas las aproximaciones el valor del
+
+ 
+
+Figura 2.9: Procedimientos para obtener el gradiente de una imagen
+
+Gradiente es proporcional a la diferencia en los niveles de gris de puntos adjacentes. Por
+lo tanto, el gradiente tomara valores altos en los bordes de objetos con niveles de gris
+considerablemente difererentes, mientras que tomara valores bajos en aquellas zonas en los
+
+que no existen cambios bruscos de intensidad, y tomara el valor O en aquellas regiones en
+14donde el nivel de gris es constante.
+
+2.2.10 Operaciones morfológicas básicas
+
+La morfología matemática se basa en la geometría y forma de los objetos en una imagen,
+la función es simplificar imágenes conservando sus principales características de forma
+de los objetos que la componen. La morfología es usada en la fase de preprocesamiento
+para la supresión de ruidos y simplificación de formas, también es usada en la descripción
+de objetos en una imagen. Existen varias operaciones morfológicas y la utilizada en este
+trabajo de grado fue la de erosión.
+
+Filtro de erosión
+
+La erosión es uno de los dos operadores básicos en el área de la morfología matemática.
+Normalmente se aplica a las imágenes binarias pero hay versiones que funcionan en escala
+de grises. El efecto básico del operador en una imagen binaria es erosionar los límites de
+las regiones de píxeles blancos por lo general y así es como las aéreas en pixeles disminuyen
+de tamaño, y los agujeros dentro de estas áreas se hacen más grandes, en la figura 2.10 se
+muestran cuatro ejemplos de estructuras para erosionar con contornos.
+
+ 
+
+Figura 2.10: En la primera fila se muestran ejemplos de estructuras para el filtro de erosion, y en
+la segunda fila se muestran elementos de estructuras convertidas en matrices rectangulares
+
+152.2.11 Segmentación
+
+La segmentación significa subdividir una imagen en regiones de interés, el proceso de segmentación debe detenerse cuando las regiones de interes en una aplicación han sido aislados
+y cada región segmentada suele tener un significado físico dentro de la imagen, la segmentación es uno de los procesos más importantes dentro del procesamiento digital de imagenes
+ya que permite extraer las regiones de la imagen para su posteriores fases del procesamiento.
+
+En este trabajo se hicieron uso de varias técnicas de segmentación como lo son umbralización y transformadas de Hough para regiones circulares.
+
+Transformada de Hough
+
+La transformada de Hough se utiliza para detectar formas geométricas sencillas en una
+imagen como lo son líneas, circunferencias, elipses o cualquier tipo de curva parametrizada
+o no, en nuestro caso se utilizó para detectar círculos en la imagen, antes de aplicar
+esta transformada la imagen debe pasar previamente por un preprocesamiento donde es
+binarizada y los bordes son parcialmente identificados, es una técnica robusta frente al
+ruido y a la existencia de huecos en la frontera del objeto.
+
+la transformada de Hough para regiones circulares es un procedimiento estándar dentro
+del procesamiento digital de imagenes, inicialmente la imagen es tratada con un detector
+de bordes. la transformada de Hough para regiones circulares consiste básicamente en
+recorrer todos los bordes en la imagen y para cada una de ellas plantear infinitos círculos
+que pasan por ese punto con distintos radios y distintos centros, acumulando datos en una
+estructura de tres dimensiones que cumplan con la siguiente ecuación.
+
+(1=H*+ (y —=k) =r?, (2.10)
+
+donde (h,k) son las coordenadas del centro de la circunferencia de radio r que pasa por
+(x,y), sobre un sistema de coordenadas cartesianas.
+
+Umbralización
+
+La umbralización es una técnica de segmentación que se utiliza cuando hay una clara
+diferencia entre los objetos a extraer respecto del fondo de la escena. Los principios que
+rigen son la similitud entre los píxeles pertenecientes a un objeto y sus diferencias respecto
+al resto, al aplicar un umbral, la imagen de niveles de grises quedará binarizada etiquetando
+con “1? los píxeles correspondientes al objeto y con “0” aquellos que son del fondo. Por
+ejemplo, si los objetos son claros respecto del fondo, se aplicará:
+
+Hz, y) = do > 5
+
+16
+
+y)
+
+Y po (2.11)
+
+IA IV
+
+L,
+L,f(x,y) es la función que retorna el nivel de gris del píxel (x,y), g(x,y) será la función de la
+imagen binarizada y T' es el umbral. En el caso de que los objetos sean oscuros respecto
+del fondo, la asignación sería a la inversa:
+
+1 sif
+
+fx, y) = 0 e y)
+
+y)
+
+VIA
+
+7 T
+2, T (2.12)
+
+2.2.12 Lógica difusa
+
+La lógica difusa proporciona una manera simple de obtener una conclusión a partir de
+información de entrada vaga, ambigua, imprecisa, con ruido o incompleta, Zadeh dice "La
+lógica difusa trata de copiar la forma en que los humanos toman decisiones. Lo curioso es
+que, aunque baraja información imprecisa, esta lógica es en cierto modo muy precisa" |16|],
+La importancia de utilizar un fusificador en la aplicación radica en la toma de decisión
+cuando se identifique el estado de una lesión de forma automática.
+
+Fusificacion
+
+Es el proceso de asignar valores de pertenencia a un valor numerico de entrada para cada
+una de las etiquetas difusas que forman la variable lingúística, por ejemplo la variable
+luinguistica 1' la cual representa la temperatura de un cuarto de una casa y puede tomar
+valores como lo son baja, semi-media, media, alta, para este caso la entrada al fusificador
+es un valor de temperatura y la salida esta formada por los valores de verdad de cada una
+de las etiquetas como se muestra en la figura 2.11.
+
+Grado de membresía
+
+Temperatura de la sala
+
+  
+
+Baja (0.0)
+Semi Baja (0.6) y mua sn
+Media (0.4)
+Alta (0.0)
+15 20 22 25 30
+Fusificador Universo de Discurso
+
+Figura 2.11: Ejemplo fusificador
+
+17Capitulo 3
+
+Aspectos del desarrollo de software
+
+En este capítulo se muestra los artefactos más relevantes del desarrollo de software consecuentes con las fases de la metodología del proceso unificado ágil (AU.P) como lo muestra
+la figura 3.1, esta metodología fue escogida para el desarrollo de este proyecto debido a
+que aplica técnicas de una metodología ágil junto con el proceso unificado realizando todas
+las fases de manera incremental e iterativa.
+
+   
+
+Inicio del
+Proyecto
+
+Definición de
+—/
+
+  
+  
+ 
+ 
+   
+
+Elaboración Construcción
+
+ay)
+Análisis Implementación
+
+Transición
+
+  
+   
+
+   
+
+ 
+
+v1,v2,v3,v4, v(n-1)
+
+Figura 3.1: Ciclo de vida de la metodología Agile UP
+
+El proceso unificado ágil es un enfoque al desarrollo de software basado en el Rational
+Unified Process (RUP). En el ciclo de vida de esta metodología las fases fueron implementadas de forma serial y cada una de ellas fue dividida en una serie de iteraciones
+para obtener un incremento del producto desarrollado mejorando las funcionalidades del
+sistema. Durante cada una de las iteraciones se realizaron actividades como especificación
+de requerimientos, análisis, diseño e implementación.
+
+183.1 Análisis
+
+En la etapa de análisis se realizó la especificación de requerimientos y casos de uso. el
+levantamiento de requerimientos se desarrolló en base a la información investigada en
+diferentes artículos científicos y libros con respecto al tema. Este proyecto se divide en dos
+hitos a implementar que es la interfaz web donde el usuario con conocimientos en iridología
+interactúa con la aplicación y el módulo que realiza el procesamiento digital de imágenes,
+en esta seccion se muestran los requerimientos de la aplicacion, y el flujo de trabajo.
+
+3.1.1 Especificación de requerimientos
+
+Al realizar el análisis del material en esta investigacion, se establecieron tres módulos:
+módulo manejador, módulo de carga de la imagen que representan la logica de la interfaz
+del usuario, y un módulo identificador el cual representa el tratamiento de la imagen.
+En la tabla 3.1 se muestran los requerimientos del módulo manejador, en la tabla 3.2 se
+muestra los requerimientos del módulo de carga de la imagen, en la tabla 3.3 se muestra
+los requerimientos del módulo de identificación, en el anexo Á se muestra el documento
+completo con la relacion a los casos de uso.
+
+19had
+
+Universidad
+del Valle
+
+ 
+
+ 
+
+Documento: ER-006
+
+Especificación de Requerimientos Revisión: 002
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+REQUERIMIENTOS FUNCIONALES Fecha:
+5. Módulo Manejador
+Req. Descripción
+R 1.1 | El sistema en el módulo Manejador debe permitir al usuario final crear una cuenta.
+R12 El sistema en el módulo Manejador debe permitir al usuario final registrar el nombre,
+apellidos, email, confirmación de email, contraseña del usuario final.
+R13 El sistema en el módulo Manejador debe permitir al usuario final ingresar a la
+aplicación.
+R14 El sistema en el módulo Manejador debe permitir al usuario final mostrar un manual
+grafico de cómo utilizar la aplicación.
+R 15 El sistema en el módulo Manejador debe permitir al usuario final autenticarse con
+un nombre de usuario y una contraseña.
+El sistema en el módulo Manejador debe permitir al usuario final registrar el nombre,
+R 1.6 | la edad, el género, el tipo de identificación personal, la dirección de residencia y el
+número telefónico de un paciente.
+R17 El sistema en el módulo Manejador debe permitir al usuario final modificar los datos
+personales de un paciente consultando el numero de identificación personal.
+R 18 El sistema en el módulo Manejador debe permitir al usuario final eliminar los datos
+personales de un paciente consultando el número de identificación personal.
+R 1.9 | El sistema en el módulo Manejador debe permitir al usuario final salir de la aplicación.
+R 110 El sistema en el módulo Manejador debe permitir cargar la imagen ocular primero el
+
+ 
+
+ojo izquierdo y posteriormente el derecho.
+
+ 
+
+Cuadro 3.1: Requerimientos funcionales, módulo Manejador
+
+20[tw Documento: ER-006
+Especificación de Requerimientos Revisión: 002
+REQUERIMIENTOS FUNCIONALES Fecha:
+
+ 
+
+2.carga de la imagen
+
+ 
+
+Req. Descripción
+
+ 
+
+El sistema en el módulo de carga de la imagen debe permitir al usuario final
+
+R 2.1
+seleccionar una imagen de un directorio para ser almacenada en el servidor.
+
+ 
+
+El sistema en el módulo de carga de la imagen debe permitir al usuario final
+R 2.2 | capturar una imagen por medio de una cámara digital, para ser almacenada
+en el servidor.
+
+ 
+
+El sistema en el módulo de carga de la imagen debe restringir que el archivo a
+
+ 
+
+ 
+
+R 2.3
+cargar sea el de una imagen con formato *.png
+
+R94 El sistema en el módulo de carga de la imagen debe permitir al usuario final
+enviar la imagen cargada al servidor.
+
+R95 El sistema en el módulo de carga de la imagen debe permitir al usuario visualizar
+
+ 
+
+la imagen cargada.
+
+ 
+
+ 
+
+Cuadro 3.2: Requerimientos funcionales, módulo carga de la imagen
+
+21[tw Documento: ER-006
+
+Especificación de Requerimientos Revisión: 002
+REQUERIMIENTOS FUNCIONALES Fecha:
+2. Módulo Carga de la imagen
+Req. Descripción
+
+R31 El sistema en el módulo de identificación debe permitir identificar la pupila en
+la imagen del iris del ojo.
+
+R 39 El sistema en el módulo de identificación debe permitir identificar el iris del
+ojo.
+
+R 33 El sistema en el módulo de identificación debe permitir eliminar áreas como
+parpados, pestañas, cejas que no sean de interés.
+
+R34 El sistema en el módulo de identificación debe permitir realizar un sub muestreo
+de la imagen al identificar el iris.
+
+R35 El sistema en el módulo de identificación debe permitir detectar las regiones
+atípicas al color del ojo del iris.
+
+R36 El sistema en el módulo de identificación debe permitir detectar el nivel de
+afección de las regiones atípicas.
+
+R 3.7 El sistema en el módulo de identificación debe permitir distribuir dimensionalmente la carta iridológica en el dominio de la imagen.
+
+R 38 El sistema en el módulo de identificación debe permitir realizar un diagnóstico
+de los órganos afectados
+El sistema en el módulo de identificación debe permitir almacenar los datos
+
+R 3.9 SA
+del diagnóstico en una base de datos.
+
+R 310 El sistema en el módulo de identificación debe permitir almacenar la imagen
+tratada en un repositorio de imágenes.
+
+ 
+
+ 
+
+Cuadro 3.3: Requerimientos funcionales, módulo identificador
+
+3.1.2 Planeación del flujo de trabajo
+
+El flujo de trabajo que se realizó para esta aplicación acorde con la metodología AUP
+determina que se debe realizar cuatro fases y por cada una establecer un numero de
+iteraciones, a continuación se describe la iteraciones por fases que se realizaron.
+
+Inicio
+
+En esta fase se realizó una iteración donde se analizó el material bibliográfico sobre iridología, se definió un alcance, riesgos y se levantaron requerimientos iniciales del aplicativo,
+también en esta fase se eligió el framework de desarrollo.
+
+Elaboración
+
+En esta fase se realizaron dos iteraciones en las se validaron los requerimientos funcionales,
+se realizaron casos de uso, se modelo la arquitectura de la aplicación, el diagrama de clases,
+el diagrama de navegación, el diagrama de base de datos y algunas interfaces. Se eligió
+el lenguaje de programación y las librerías para realizar el procesamiento digital de la
+
+22imagen.
+
+Construcción
+
+En esta fase se realizaron dos iteraciones en las cuales se validaron los requerimientos finales
+de la aplicación, se validaron los diferentes diagramas realizados en la fase de elaboración,
+se implementó la interfaz con Flex un framework de desarrollo, se realizó el módulo que
+realiza el procesamiento digital de la imagen, se realizaron pruebas de funcionalidad.
+
+Transición
+En esta fase se realizó una iteración en la cual se validó los diferentes diagramas, la cohesión
+de la aplicación en C++ con Flex, y se realizaron pruebas de funcionalidad a la aplicación.
+
+3.2 Diseño
+
+3.2.1 Arquitectura
+
+La arquitectura de la aplicación es orientada al modelo de tres capas donde cada una
+representa un nivel, la primera capa se denomina capa de presentación esta consiste en una
+interfaz grafica amigable al usuario la cual comunica y captura la información para presentarla solo a la siguiente capa, la segunda capa consiste en la lógica del negocio esta recibe
+las peticiones de los usuarios, se validan y se envían las respuestas tras el proceso, también
+se comunica con la capa de datos, para solicitar al gestor de base de datos y así almacenar la información o recuperar datos, la figura 3.2 muestra la arquitectura de la aplicacion.
+
+Servidor
+
+ 
+  
+  
+
+Petición
+
+Ejecucion
+
+Aplicacion PD!|.exe
+tratamiento a la
+imagen)
+
+  
+
+Respuestas
+
+Figura 3.2: Arquitectura funcional
+
+En la aplicación la capa de presentación el usuario interactúa con la interfaz grafica, llenando campos y cargando una imagen, se implementó una interfaz amigable para el usuario
+haciendo uso de la tecnología AJAX. Los diferentes procesos que contiene la interfaz son:
+sistema de inicio de sesión que consta de los siguientes campos: email y contraseña, sistema
+de registro del usuario final de la aplicación que consta de un formulario con los campos
+para los datos personales, un sistema de CRUD para un paciente, un sistema de captura
+de la imagen el cual es el mas relevante en esta capa, y un sistema de consulta donde se
+
+23visualiza un reporte con la informacion del paciente y la imagen procesada.
+
+La capa lógica del negocio contiene varias componentes, la mas relevante es un programa
+que realiza el procesamiento digital a las imágenes, éstas están alojadas en el servidor
+en un repositorio cuando se registra un paciente, posteriormente se ejecuta un programa
+(implementado en c+ +) que realiza el procesamiento digital a la imagen del paciente.
+Además, en esta capa se hacen las respectivas conexiones con la base de datos para registrar,
+modificar, consultar o eliminar los diferentes datos de acuerdo a las peticiones realizadas por
+el usuario final desde la interfaz. Finalmente, en la tercera capa esta alojada la base de datos.
+
+3.2.2 Diagrama de clases
+
+A partir de la etapa de análisis se ha diseñado el diagrama de clases, el diseño obtenido se
+ha sometido a un proceso de validación el cual es acorde con las funcionalidades descritas
+en la especificación de requerimientos del módulo de identificación. A continuación se
+describe la funcionalidad de cada clase
+
+Clase Core. Esta clase se encarga de verificar que la imagen a tratar se encuentre en la
+ubicación del directorio a través de una variable de entrada de tipo String la cual es enviada
+desde la aplicación web por medio de un XML, este parámetro de entrada representa la
+ubicación de un directorio. Esta clase es el núcleo que interactúa y comunica todas las
+demás clases.
+
+Clase PupilaDetected. Esta clase se encarga de identificar la pupila en la imagen, busca
+la posición en el dominio del espacio de la imagen del centro de la pupila, almacena los
+datos generados en un vector.
+
+Clase IrisDetected. Esta clase se encarga de identificar el iris en la imagen, también
+estima el radio del iris considerándolo circular, y la posición en el dominio del espacio de
+la imagen. Genera un sub muestreo generando una nueva imagen, también almacena los
+datos generados en un vector.
+
+Clase Regiones. Esta clase se encarga de identificar regiones atípicas con el criterio de
+valores atipos de intensidades de cada pixel dentro del área del iris considerándolas como
+lesiones. Almacena los datos de cada región encontrada y sus intensidades en dos vectores.
+
+Clase Gra ficalridologica. Esta clase se encarga de cotejar la carta iridológica con las
+regiones encontradas para ubicar los órganos con lesiones, el nivel de afección es procesado
+con un fusificador el cual indica el nivel de degeneración del órgano.
+
+Clase Conexion. Esta clase se encarga de almacenar en la base de datos la información
+de la ubicación de la imagen procesada, y el diagnóstico de los órganos con afecciones
+cotejado con el grafico iridológico.
+
+En la figura 3.3 se presenta el diagrama de clases mostrando sus principales clases y
+
+relaciones entre ellos
+24GE
+
+Grafica iridologica
+
++ estadoX: vector<double>
+
++ estadoY: vector<double>
+
++ PromedioAfeccion: vector<double>
++ radios: vector<double>
+
++ estado: vector<double>
+
++ organos: vector<double>
+
++ angulo: double
+
++ setAfeccion(nivel: vector<double> ): void
+
++ setPosiciones(posicionX: vector<double>, posicionY: vector<double> ): void
++ getPosiciones(): void
+
++ rangos(): void
+
++ grafica(x: int, y: int, radio: int, datos: char, idpaciente: char): void
+
++ fuzzy(x: int,y: int,radio: int): void
+
+ 
+
++ URIRegiones: string
+
++ Umbral: double
+
++ datosX: vector<int>
+
++ datosY: vector<int>
+
++ PromedioAfeccion: vector<double>
++ centroX: vector<double>
+
++ centroY: vector<double>
+
++nivel: vector<int>
+
++ GetcentroX(): vector<double>
+
++ GetcentroY(): vector<double>
+
++ getPromedio(): vector<double>
+
++ nivelAfeccion(x: vector<int>, y: vector<int>): void
++ excepciones(i: int): void
+
++ IdentificaRegiones(): void
+
++ NormalizacionRegiones(): void
+
++ DetectarRegiones(regiones: char): void
+
+IrisDetected
+
++ URliris: string
++ Umbral: double
++ datosXx: vector<int>
+
++ datosY: vector<int>
++ nivel: vector<int>
+
++ tratamiento(imagen: char, X: double Y: double, datos: char, idpaciente: char): void
+
+- namelmage: char
+
+-idUsser: char- Xcentro: vector<double>
+-Ycentro: vector<double>
+
+- Xpupila: double
+
+-Ypupila: double
+
+- Rpupila: double
+
+“iris: IrisDetected
+
+- carta: Cartalridologica
+- pupila: PupilaDetected
+- reg: Regiones
+
++ identificarPupila(): Void
+
++ identificarlris(datos: char,idpaciente: char): void
+
++ detectarRegiones(regiones: char): void
+
++ detectarNivelAfeccion(datos: char,idpaciente: char): void
+
++ acoplarGrafica(): void
+
++ diagnostico(idUser: string, imagen: string, idPaciente: string): void
++ idlmagen(): char
+
+     
+
++ mysql: MYSQL
++ seccion: vector<string>
++ Lesion: vector<string>
+
++ iniciar(): void
++ getVector(lesionAux: vector<string>,datosY: seccionAux<string>): void
++ consulta(idUser: string, imagen: string, idPaciente:string, rutainicial:string ): void
+
+Figura 3.3: Diagrama de Clases
+
+ 
+
+ 
+
+PupilaDetected
+
+Ú
+
+atosA: vector<int>
++ datosY: vector<int>
++ radio: double
++ nombre: char* (ReadOnly)
++ pupillmg: Iplimage
++ frame: Ipllmage
++ frameAux: Ipllmage
++ storage: CvMemStorage
++ Clone_Image: Ipllmage
++ White: CvScalar
+
++ char Nombrelmagen(); void (Read0Only)
++ carga(imagen: char): void
+
++ crearlmagenes(): void
+
++ mostrarlmagen(): void
+
++ destruirlmagen(): void
+
++ tratamiento(): void
+
++ setCentro( x: double, y: double); double
++ Get_Radio(): double (isQuery)
++Get_X_CentroPupila(): double (isQuery)
++Get_Y_CentroPupila(): double fisQuery)
++ImagenPupila(imagen_nueva: char, posX: double, posY: double, Rad_Pupila: double): void3.2.3 Diagrama de Navegación
+
+La Figura 3.4 muestra la organización de la presentación de la informacion de la aplicacion
+web. Este diagrama de navegación fue elaborado para que el lector pueda entender como
+el usuario se desplaza por la aplicacion, a continuación se describe en forma secuencial las
+principales componentes del diagrama.
+
+Inicialmente el usuario inicia en el Index, donde puede acceder a crear una cuenta, O
+ingresar su email y contraseña para poder loguearse. Una vez el usuario se autentica puede
+acceder a registrar un paciente para posteriormente cargar las imágenes oculares y realizar
+el procesamiento digital de imágenes, el usuario puede consultar el reporte de sus pacientes,
+también puede consultar, eliminar o modificar un paciente registrado.
+
+En la tabla 3.4 se muestran las actividades que pueden realizar los usuarios con las funcionalidades de cada una.
+
+ 
+
+Actividad Funcionalidad
+En la interfaz principal El usuario ingresa los datos
+
+ 
+
+personales oprime un boton de ingresar, la informacion
+Autenticación es enviada por medio de un XML a un archio en php
+
+la cual realiza una consulta de validacion si los datos
+
+concuerdan, el usuario accede a la aplicacion
+
+ 
+
+El usuario diligencia un formulario donde registra sus
+datos personales, esta informacion en enviada a un
+archivo en php por medio de un XML donde se realiza una consulta a la base de datos registrando la
+informacion, luego el usuario accede a la aplicacion
+
+Registra Usuario
+Final
+
+ 
+
+El usuario diligencia un formulario donde registra los
+datos personales de un paciente, los datos del formula
+Registra Paciente rio son enviados por medio de un XML a un archivo
+en php que consulta en la base de datos registrando
+los valores en una tabla
+
+ 
+
+Modifica Paciente El usuario de la aplicación consulta un paciente
+
+ 
+
+ 
+
+Elimina Paciente El usuario de la aplicación elimina un paciente
+El usuario carga las imágenes oculares de un paciente,
+Registra Imagen las imágenes son procesadas y la ruta de ubicación en
+Paciente el servidor de las imágenes procesadas es almacenada
+
+ 
+
+ 
+
+en una tabla de la base de datos
+
+ 
+
+Cuadro 3.4: Actividad-funcionalidad
+
+26LE
+
+ 
+
+U
+
+R
+
+L
+
+ 
+
+index.html
+
+Y
+
+<input» states
+
+>
+
+validarCampos.js
+
+1.1.1 <<Submit->
+
+   
+   
+
+ 
+
+1.1 <<Redirect>>
+
+  
+  
+    
+    
+  
+
+1.2 <<Datalipdate»>
+Autenticacion.swf consultsAutenticacion.php
+
+     
+   
+
+. 1.2.1 <<Submit>>
+1.2 <<Redirect>>
+
+ 
+
+ 
+
+1.2 <<DatsUpdate>>
+RegistraUsusrioFinal. swf consultsRegistraFinal.php
+
+1.3.1 <<Submit->
+
+1.3 <<Redirect>> 1.2 <<DB_A0o085>>
+
+ 
+
+ 
+
+1.2 <<Datalpdste>>
+ModificaPaciente swf consultaModifica.php
+
+DBSystem.db
+
+1.4.1<<Submit>>
+1.4 <<Redirect>>
+
+ 
+
+ 
+
+ 
+
+ 
+
+o 1.2 <<DatsUpdate>>
+EliminsPaciente.swf consultsElimina.php
+
+1.5 <<Redirect>> 1.5.1 <<Submit>>
+
+ 
+
+ 
+
+1.2 <<DatsUpdate>> Regi Paci ph
+RegistraPaciente sul ConsultaRegistraPaciente.p
+
+1.6.1 <<Submit>>
+
+ 
+
+1.0 <<Redirect>>
+
+ 
+
+ 
+
+1.2 <<DataUpdaste»> Almacens|imagen.php
+RegistralmagenPaciente swf
+
+Almacen de
+imagenes
+
+Figura 3.4: Diagrama de Navegación3.3 Codificación
+
+Acorde con la arquitectura de la aplicacion las tecnologias utilizadas por cada capa son
+descritas a continuacion:
+
+El framework que se utilizo para desarrollar la aplicacion web relacionado con la capa de
+presentacion fue Flex que que es completamente funcional y compatible con cualquier
+navegador, con este framework se pueden desarrollar interfaz con buen aspecto de una
+manera ágil, ademas esta tecnologia cumple con los estanderes de las W3c.
+
+Este framework es un entorno integrador de tecnologías que permite ejecutar la aplicación
+en cualquier navegador, aplicaciones de escritorio, incluso soporta entornos de dispositivos
+móviles, Flex facilita el desarrollo de forma muy intuitiva, sin embargo es necesario para
+ejecutar la aplicación web una máquina virtual de Flash esto es un inconveniente ya que
+el usuario que quiera acceder a la aplicación necesita descargar la máquina virtual para
+su ejecución, pero haciendo un comparativo con otras tecnologías como por ejemplo Java
+también es necesario instalar una máquina virtual para su funcionamiento debido a que
+es un lenguaje interpretado, con este framework se puede acceder a servicios mediante
+llamadas HT'T'P, WebServices o Objetos remotos y las aplicaciones son completamente
+RIA. la máquina virtual nos permite, además funcionalidades gráficas que las que permite
+HTML incluido HT'ML5 y dispone de una gran variedad de componentes permitiendo el
+aspecto de las aplicaciones de escritorio.
+
+Por otra parte en la capa del servidor, el desarrollo del módulo que realiza el procesamiento
+digital de la imagen es desarrollado en C++ y se utilizo OpenCV, la comunicación entre
+el flex y c++ se hace mediante un webservice, es decir a través de un zml se envían
+información de formularios o datos relevantes del usuario al ejecutable en C++ el cual
+almacena en la base de datos la información, a la vez que la imagen es tratada.
+
+OpenC'V fue hecho con el fin de disponer librerías que apoyan el trabajo en el procesamiento digital de imágenes, es una herramienta completamente libre, y es muy rentable en
+cuanto a tiempo de ejecución.
+
+Finalmente en la tercera capa, se hace uso de un sistema de gestión de bases de datos
+Mysql el cual permitió la persistencia de la información, como los datos personales del
+usuario y la direccion o ruta de las imágenes procesadas por usuario.
+
+3.4 Interfaz web para la carga de la imagen digital de los ojos
+
+Para iniciar el tratamiento de la imagen es necesario de una interfaz que permita la interacción con el usuario, en nuestro caso y para dar cumplimiento a los objetivos en especial al
+primer objetivo y en pro de dar solución a la problemática, se diseñó una interfaz con el fin
+de que fuese intuitiva, fácil de navegar, orientada a la WEB y completamente RIA. Para
+ello utilizamos el framework de desarrollo Flex el cual utiliza como lenguaje de etiquetas
+el MX ML y permite un resultado final favorable para el usuario con la interacción de la
+aplicación.
+
+28Según la arquitectura de la aplicación, la capa de presentación gestiona la interactividad
+del usuario con la aplicación y permite al usuario almacenar información de los datos
+personales y cargar una imagen para iniciar el procesamiento digital. En la figura 3.6 se
+puede observar la pestaña de datos personales donde el usuario llena un formato donde se
+pueden registrar los datos de un paciente, omo nombre, identificación personal, número de
+móvil, tipo de género, correo electrónico.
+
+ 
+
+Julian Rojas Ramirez v
+
+REGISTRA UN PACIENTE
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Datos Personales
+Registro
+COMPLETA LOS CAMPOS CON
+Por LOS DATOS Y PRESIONA
+Edad REGISTRAR PARA ALMACENAR LA
+O INFORMACIÓN DE TUS
+cOnora PACIENTES, PARA
+e POSTERIORMENTE CARGAR LAS
+IMÁGENES OCULARES.
+Movil
+Registrar
+Cargar Imagen
+
+ 
+
+ 
+
+Figura 3.5: Interfaz: datos personales
+
+En la figura 3.6 se puede observar la pestaña de carga de la imagen, consta de tres pasos
+secuenciales, inicialmente en el paso uno el usuario puede capturar la imagen tanto del
+ojo izquierdo como el derecho desde la aplicación para ello debe tener una cámara digital
+adecuada para el correcto funcionamiento de la aplicación, y posteriormente almacenarla en
+un directorio, el paso 2 y el paso 3 consiste en cargar la imagen para realizar el tratamiento
+de la imagen.
+
+2 Julian Rojas Ramirez "
+
+REGISTRA UN PACIENTE
+
+| DATOS PERSONALES
+CARGA IMAGEN |
+
+Figura 3.6: Interfaz de carga de la imagen
+
+29
+
+ 
+
+  
+
+Capa asPara el tipo de cámara a utilizar se destacan tres aspectos, el primero son las características visuales en las imágenes del repositorio CasilrisversionCuatro!, el segundo son las
+características de los iridoscopios, y el tercero son los costos de los diferentes productos
+encontrados en la web acordes con el presupuesto.
+
+Con relación al primer aspecto sobre la cámara digital que utilizan en el repositorio de imágenes oculares CasialrisInterval versión cuatro, debido a que estas imágenes proporcionan
+un buen detalle del iris del ojo y son acordes con el peso por imagen para el procesamiento
+en cuanto a tiempo de ejecución, sin embargo esta cámara no es de uso comercial, no
+tiene documentación técnica. El único detalle técnico que se presenta es que la cámara maneja ocho leds, como lo muestra la figura 3.7, especificamente en el área de la pupila del ojo.
+
+ 
+
+Figura 3.7: Imagen Repositorio
+
+Para el siguiente aspecto, se investigó las características de algunos modelos de iridoscopios
+entre las más relevantes encontramos el sensor y la resolución, ya que estas determinan la
+calidad de la imagen, en la tabla 3.5 Podemos observar algunos modelos.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Iridoscopios
+Modelo Sensor Pixeles Interfaz
+Hsk9800 CMOS 1.3 MP USB
+IR-9918U CMOS 1.3 MP USB
+DM-888U2 CMOS 1.3 MP USB
+DM-882U1 CMOS 1.3 MP USB
+
+ 
+
+ 
+
+Cuadro 3.5: Tipos Iridoscopios
+
+En cuanto al costo, se encontraron cuatro tipos de cámara a evaluar las cuales se acondicionan a las características de los aspectos de selección, en la tabla 3.6 se muestran las
+
+ 
+
+"http: / /biometrics.idealtest.org/dbDetailForUser.do?id=4
+
+SUdiferentes características de cámaras a evaluar y sus costos.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Webcam, 8led Matriz circular
+Opcion | Sensor | Dynamic resolution Static resolution | Pixeles | Interfaz Valor
+1 CMOS 1600x1200 pxl 4000x3000 pxl 12MP | USB 2.0 | ARS 100
+2 CMOS 1600x1200 pxl 3648x2736 pxl 10MP | USB 2.0 | USD 42.99
+3 CMOS 1024x768 pxl 1024x768 pxl 53MP | USB 2.0 | USD 35.66
+4 CMOS 800x600 pxl 1280x1024 pxl 1.3MP | USB 2,0 | USD 10.58
+
+ 
+
+ 
+
+Cuadro 3.6: Tipos de cámaras web, Matriz circular de 8 LED
+
+En este orden ideas se optó por escoger la opción uno, cuyas características son sobresalientes en comparación con las demás cámaras web analizadas, son acordes con el tipo
+de sensor y resolución que tienen algunos iridoscopios. De igual manera de las opciones
+de cámara a elegir es poco relevante cual se utilice debido a que las características de las
+cámaras son similares y el tamaño de la imagen a procesar es mínimo 3201280pxl, no
+obstante se busca que la aplicación funcione para cualquier tipo de cámara con matriz
+circular de 8leds, con el fin de que el procesamiento de la imagen sea más adecuado. En la
+aplicacion no se tiene implantado el sistema con la camara web escogida debido a que los
+costos de adquission del producto sobrepasan lo presupuestado para el proyecto, pero se
+realizaron pruebas con las imágenes del repositorio CASIA Interval
+
+Los pasos posteriores, son cargar las imágenes del ojo derecho e izquierdo, en el paso
+dos inicialmente aparece una ventana donde indica al usuario cargar la imagen que le
+corresponde ya sea el izquierdo o el derecho como lo muestra la figura 3.8.
+
+ 
+
+Figura 3.8: Ventana de alerta
+
+Para escoger el formato de la imagen se tuvieron en cuenta varios criterios de selección,
+como es la velocidad de transmisión, visualización en la web, y el formato de imagen más
+
+adecuado para realizar el procesamiento digital de imágenes. Por otro lado las características técnicas de la imagen se describirán a continuación:
+
+31Primero, el tiempo de respuesta al tratar la imagen cargada debe ser corto debido a que la
+imagen es procesada en el servidor, por este motivo las dimenciones de la imagen deben
+ser de 340x280p3xeles para que el desempeño del procesamiento digital de imágenes con
+respecto al tiempo de ejecución sea bueno, la segunda caracteristica es con relacion al
+espacio en memoria que ocupa, el peso debe ser menor a 25kb ya que las imágenes evaluadas
+del repositorio de información en la aplicación tienen características semejantes y muestran
+resultados favorables en tiempo de ejecución. De acuerdo a lo anterior se tuvo en cuenta
+varios tipos de formatos de imágenes, con compresión sin pérdida de información y sin
+compresión, entre los cuales evaluamos PNG, JPG y PPM.
+
+El PPM(PortablePixmapFormat) se utiliza para almacenar imágenes en color, existe
+una versión binaria donde la imagen se codifica como una secuencia de bits y otra ASCII
+el cual se codifica en un archivo de texto donde se listan los valores numéricos de cada
+pixel, puede ser identificada automáticamente por un código pl, p2, p3, p4,p5,p6 en la
+cabecera, este formato de imagen es adecuado para realizar prácticas de procesamiento
+digital de imágenes debido a sus características sin embargo las imágenes ocupan una gran
+cantidad de memoria y no sería el adecuado para transferir una imagen y almacenarla en
+un servidor, también para ser visualizadas en un navegador.
+
+El formato PNG(PortableN etworkGraphics) el cual sirve para comprimir sin perdida
+las imágenes con grandes áreas de color uniforme de 256colores, la compresión puede ser
+reversible por lo tanto la imagen que se recupera puede ser exacta a la original, estas
+imágenes generalmente son livianas en cuanto a peso debido a que es con compresión, es
+el formato más adecuado para imágenes con elementos renderizados ya que logra unos
+degradados muy suaves, y una buena definición en imágenes de objetos con líneas.
+
+El formato PPM es el que más calidad nos ofrece, sin embargo, la opción JPG (Joint
+Photographic Experts Group) parece la más adecuada por su relación calidad peso, este
+formato almacena imágenes de 16 millones de colores, y con la gran ventaja de permitir
+distintos niveles de compresión. El JPG se utiliza comúnmente para almacenar fotografías
+y otras imágenes de tono continuo, y también se utiliza en documentos HI ML para
+Internet, JPG guarda toda la información referente al color en RGB. a la hora de capturar
+la imagen y con respecto a otros formatos, el formato jpg almacena los valores de la imagen
+con perdida de informacion esto quieree decir que faltara informacion en comparacion con
+otro formatos. En este orden de ideas el formato que se eligió fue JPG.
+
+Para el proceso de carga de la imagen se desarrolló una aplicación web, la cual permite al
+usuario, crear una cuenta, logearse, registrar un paciente, realizar la captura de la imagen
+ocular, guardar la imagen en un directorio, cargar la dirección donde se guardó la imagen,
+cargar la imagen y subirla al servidor.
+
+El tipo de archivo a subir es filtrado desde el framework, se implementó la restricción de
+solo formatos JPG con el fin de mantener la seguridad de la aplicación en el servidor. De
+igual manera se limita y se restringe el peso de la imagen para no congestionar el servidor
+cuando el usuario intente subir archivos muy grandes. la figura 3.9 muestra la interfaz de
+una imagen ocular cargada en la aplicación.
+
+32£ Jan Fosa amina 7
+
+REGISTRA UN PACIENTE
+
+DATOS PERSONALES
+CARGA IMAGEN
+
+ 
+
+ 
+
+Figura 3.9: Visualización de una imagen ocular cargada
+
+Una vez la imagen es subida al servidor y almacenada, inicia el procesamiento digital de
+imágenes y arroja un diagnóstico de la aplicación como lo muestra la figura 3.10.
+
+A Juan Ao rd
+
+REGISTRA UN PACIENTE
+
+ 
+     
+   
+   
+ 
+
+O A
+| Apoormen ináprior | Croráos
+
+Puimnan | Jublguja
+A
+Cu Cremas
+| Cuello | JusAgoso
+Citasto Samil dubilgutó
+| Camaro mota | Cronica
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figura 3.10: Análisis ojo derecho
+
+Otras funcionalidad apreciable en la interfaz de la aplicación es que el usuario puede consultar los diagnósticos de los pacientes registrados, en la figura 3.11 muestra el diagnóstico
+de un usuario que ha registrado a un paciente.
+
+33Xx An o e
+
+Em añ rn A e PA
+
+  
+
+ 
+
+AA jaj | Esrinlas |
+mm
+Diaz Peron
+Md e as Ll er tig DA
+Cds 43 an MOMIAS
+EA AA
+Ciprian CT Eure Red 1d Lp
+AO A Hacen Púa
+l A 4 )
+ño ma debe di Pal AN Crono
+A Es a ro
+Ed a E aa
+2 Cr
+Cir Sa ad
+Carbo eiris rd
+*
+
+Figura 3.11: Interfaz Diagnóstico
+
+343.5 Procesamiento digital de imágenes
+
+El procesamiento digital de imágenes del iris del ojo fue implementado en el lenguaje C++.
+Se utilizó la biblioteca OpenCV [17] para aplicar tecnicas de procesamiento digital. Se
+diseñaron varias etapas para este procesamiento, ver figura 3.12. Inicialmente se adquieren
+las imágenes digitales del iris del ojo, luego se procede a realizar la identificación del iris
+para posteriormente identificar y etiquetar las caracteristicas que son las regiones atípicas
+al color del iris una vez etiquetadas se pasan los datos al fusificador para detectar el nivel
+de afeccion de cada lesión y finalmente se procede a realizar un reporte con la imagen
+procesada con el nivel de afeccion de cada lesión encontrada.
+
+Adquisición de la
+imagen
+
+No
+
+Determinación de las
+caracteristicas
+
+Etiguetamiento de las
+caracteristicas
+
+Reporte del nivel de
+
+   
+
+afección de los
+
+Figura 3.12: Diagrama del procesamiento de la imagen
+
+La adquisición de las imágenes oculares para el desarrollo y pruebas del procesamiento digital de imágenes fueron obtenidas del Laboratorio Nacional de Reconocimiento de Patrones
+(VLPR) e Instituto de Automatización de la Academia China de Ciencias (CASI A), cada
+
+imagen tiene un resolución de 320x280p3xeles.
+30Al analizar el contenido del repositorio de imágenes se identificaron dos tipos, imágenes
+con condiciones ruidosas e imágenes con condiciones menos ruidosas, en la figura 4.3 se
+pueden apreciar algunas imágenes con condiciones ruidosas.
+
+ 
+
+Figura 3.13: Ejemplos de imágenes que presentan ruidos. a) Ruido del parpado sobre el iris, b) Ruido de reflejos múltiples en la pupila y pestañas sobre el área de interes, c) El iris dimensionalmente
+se encuentra junto al borde inferior.
+
+Las imágenes con condiciones menos ruidosas son aquellas donde el área de interés no
+presenta obstrucción por el parpado o por pestañas y el iris no toca el borde de la imagen
+como lo muestra la figura 3.14.
+
+ 
+
+Figura 3.14: Imagen sin ruido en área de interes
+
+36Se seleccionó un conjunto de imágenes del repositorio CASITA las cuales presentan condiciones menos ruidosas es decir que el área de interés está libre de ruido, es necesario que el
+iris no tenga ruido para que el resultado del procesamiento sea eficiente.
+
+A continuación se presenta los resultados obtenidos en las siguientes etapas.
+
+3.5.1 Identificar las características del iris del ojo en la imagen.
+
+Para dar cumplimiento a este objetivo se realizaron dos etapas del diagrama de flujo que
+son identificación del iris y determinación de las características. Con el fin de identificar las
+características del iris del ojo en la imagen se desarrolló una estrategia donde se cumplieron
+los siguientes pasos como identificación de la pupila en la imagen, identificación del iris,
+identificación de las características en el iris, Para lo anterior se utilizaron las etapas de
+preprocesamiento y segmentación que maneja Gonzalez [18]. A continuación se describen
+los pasos para identificar las características del iris del ojo en la imagen.
+
+Identificación de la pupila en la imagen.
+
+El objetivo en esta actividad es identificar y tener registro de la pupila y sus características,
+como el centro en coordenadas espaciales, y su radio, en la figura 3.15 se muestra la imagen
+inical y la imagen tratada donde se identifica la pupila.
+
+ 
+
+Figura 3.15: Proceso de Identificación de Pupila
+
+En la fase de preprocesamiento se aplica un filtro paso bajo, el primero de tipo gaussiano
+para suavizar la imagen y asi lograr perder nitidez y difuminar la imagen, y el segundo
+un filtro de erosión para dilatar la imagen, a continuación se muestran los resultados en
+la figura 3.16 utilizando máscaras para el filtro gaussiano de 313, 515, 7x7 y 9x9 y una
+máscara de 313 como elemento estructural para el filtro de erosión, la idea de aplicar estos
+filtros es que la imagen pierda detalle y se realce la morfología de las figuras para este caso
+la forma circular de la pupila y del iris.
+
+31Figura 3.16: Evaluación de máscaras para el filtro de suavizado de tipo Gaussiano y el filtro de
+erocion, para cada figura la imagen derecha es el resutlado de aplicar un filtro de erocion con
+una máscara constante de 3x3 y la figura de la izquierdo es el resultado de aplicar de un filtro de
+suavizado de tipó gausiano con una máscara de a) tamaño 313 b) tamaño 515 c) tamaño 717, d)
+tamaño 9x9
+
+La máscara más adecuada para proseguir con las siguientes etapas del procesamiento
+
+38digital de imágenes es la de 9x9 para el filtro suavizado ya que se difumina la imagen
+adecuadamente para posteriormente resaltar la morfología de las regiones de interés la
+pupila con el filtro de erosión.
+
+Después de este procesamiento la imagen presenta las condiciones ideales, como proceso
+de segmentación se procede a binarizar la imagen, para ello se establece un rango de
+intensidades que varia entre Oxle y 0x50 como se muestra en la figura 3.17, donde se
+evalúa la intensidad de cada pixel que conforma la imagen preprocesada, los pixeles que
+se encuentren en ese rango de intensidad son ajustados a una intensidad de OxF'F, y los
+que no se encuentren en ese rango los valores seran ajustados a 0x00 estos nuevos valores
+son almacenados en un vector bidimencional. Posteriormente se procede a encontrar el
+contorno de la pupila para almacenar el valor del centro del contorno segun dominio
+especial de la imagen y el área del contorno que es el numero de pixeles que lo conforman
+en una estructura de almacenamiento, este contorno debe tener un área superior a un
+valor constante en pixeles que representa un aproximado a la cantidad maxima del área de
+la pupila de acuerdo a las dimenciones de las imágenes del repositorio CASIA, una vez
+hallado un contorno con área mayor o igual a ese valor constante finaliza la busqueda y la
+informacion es almacenada.
+
+  
+
+(b)
+
+Figura 3.17: intensidades de a) Ox1e y b) 0150
+
+Finalmente con la información generada del área del contorno y el centro en coordenadas espaciales se procede a obtener el radio con el área del contorno con la fórmula
+
+Radio = ,/area/r para dibujar un círculo con el centro y radio hallado anteriormente. En
+la figura 3.18 se muestra el resultado parcial del procesamiento en la cual se elimina ruido
+en la imagen obteniendo el contorno de la pupila.
+
+39Figura 3.18: Imagen procesada donde se detecta la pupila
+
+A continuación se muestra un fragmento del algoritmo el cual se describió anteriormente y
+se implementó para obtener el contorno de la pupila.
+
+cvSmooth (inputlmage, inputlmage, CV_GAUSSIAN, 9,9);
+cvErode( inputlmage, inputlmage, NULL, 5);
+
+cvInRangeS (inputlmage, cvScalar(30,30,30), cvScalar(80,80,80) ,outputlmage)';
+
+A SN A A
+
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+
+25
+26
+27
+28
+29
+30
+31
+
+32
+33
+
+ 
+
+CvSeq *first_contour = NULL;
+
+cvFindContours (outputlmage,storage ,dfirst_contour ,sizeof(CvContour),
+
+CV_RETR_EXTERNAL) ;
+double area;
+pupillmg = cvClonelmage(inputlmage);
+
+CvMoments moments;
+double pupilarea ,xcentro ,ycentro;
+int pupil;
+
+for( CvSeq* c=first_contour; c!=NULL; c=c->h_next )
+
+Í
+
+cvMoments (c,émoments,0);
+
+area = cvGetCentralMoment(é£moments, 0,0);
+
+if(area>50)(
+
+xcentro = cvGetSpatialMoment(*£moments,1,0)/area;
+cvGetSpatialMoment(é£moments,0,1)/area;
+
+ycentro
+setCentro(xcentro ,ycentro);
+
+cvDrawContours (outputlmage,c,CV_RGB(0,0,0),CV_RGB(0,0,0), 2,CV_FILLED
+
+,8)3
+break;
+
+J
+
+CvPoint pt = cvPoint( cvRound(xcentro), cvRound(ycentro) );
+
+cvCircle (outputIimage ,pt,cvRound (sqrt(area/3.141516))-5, CV_RGB(0,0,0),
+
+CV_FILLED);
+
+cvCircle (outputlmage ,pt,cvRound(2), CV_RGB(255,255,255) ,CV_FILLED);
+
+radio=sqrt(area/3.141516)-—5;
+
+40Identificación del Iris en la imagen.
+
+Una vez identificada la pupila en la imagen el objetivo en esta actividad es identificar
+y tener registro del iris del ojo y sus características como su radio, en la figura 3.19 se
+muestra la imagen con la pupila identificada y la imagen tratada donde se identifica el iris.
+
+ 
+
+Figura 3.19: ¿imagen con región del iris segmentada
+
+En la fase de preprocesamiento y con el fin de mejorar la imagen se aplicó un filtro de
+suavizado a la imagen tratada anteriormente preparandola para binarizarla resaltando los
+bordes en la imagen con el operador Canny, a continuación se muestran los resultados
+del efecto que ocurre al aplicar varios tamaños de máscaras en el filtro de suavizado para
+preparar la imagen y posteriormente utilizar el algoritmo canny para detectar los bordes,
+en la columna izquierda de la figura 3.20 se muestran los resultados después aplicar la
+máscara de 515,7x7,9x9 y 11x11 para el filtro de suavizado y en la columna derecha la
+aplicación del operador Canny para el resalte de bordes con umbrales de 5 y 70
+
+41Figura 3.20: Evaluación de máscaras con el filtro de suavizado de tipo Gaussiano con tamaños de
+a) máscara 5x5, b) máscara 7x7 c) máscara 919, d) máscara 11x11 para el operador Canny con
+umbrales de 5 y 70
+
+Como se puede observar en la imagen anterior, a medida que el tamaño de la máscara
+para el filtro de suavizado aumenta, el ruido en el interior del iris al aplicar el operador
+canny disminuye pero la conectividad del contorno identificado se desvanece perdiendo la
+
+42CE SN A
+
+ho o. op
+N » 0
+
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+
+ 
+
+morfología circular del borde del iris en la imagen. El tamaño de la máscara para el filtro
+de suavizado más adecuada para proseguir con las siguientes etapas del procesamiento
+digital de imágenes es la de 7x7 debido a que el borde a comparación con los demás tamaños de máscaras aplicadas en los filtros de suavizado no pierde parcialmente su conectividad.
+
+El objetivo de resaltar los bordes en la imagen con el operador Canny se realiza para
+preparar la imagen y aplicar la transformada de Hough para regiones circulares y así
+segmentar la forma circular del iris.
+
+Se desarrollo un algoritmo para la detección del círculo del iris, se tuvo en cuenta un
+rango específico de radios del iris en pixeles para ese procesamiento que fue establecido al
+tomar varias muestras de imágenes de la base de datos CASIA interval y procesarlas para
+encontrar los radios del iris en varias imágenes, el algoritmo encuentra un circulo cuyo
+radio pertenezca a ese rango facilitando continuar con el procesamiento en general, a continuación se muestra un fragmento de código el cual encuentra el círculo del iris en la imagen.
+
+CvScalar White = CV_RGB(255,255,255);
+Ipllmage x*image = cvLoadImage (imagen, ,CV_LOAD IMAGE GRAYSCALE) ;
+Ipllmage «*reslmg cvClonelmage (image);
+CvMemsStorage *storage = cvCreateMemStorage(0);
+Ipllmage *croplmg;
+Ipllmage x*clonl cvClonelmage (image);
+cvSmooth (image, image, CV_GAUSSIAN,7,7);
+cvCanny( image, image, 5,70, 3);
+
+for (int ¡i=80;i<151;i4+)f
+CvSeq *results = cvHoughCircles(image, storage, CV_HOUGH_GRADIENT
+,2,100.0,30,1,100,140);
+if (results —>total==1)Í
+float* p = (float*) cvGetSeqElem( results, 1 );
+if ((p[2] >=100)€:4(p[2] <=110))4
+CvPoint pt = cvPoint( cvRound(X), cvRound(Y) );
+cvCircle(reslmg ,pt,cvRound( p[2]), White, CV_FILLED) ;
+cvNot (reslmg ,resImg);
+cvSub (image ,image,clonl ,resImg);
+x= int(X — 110);
+
+y = int(Y — 110);
+w= iint(110 * 2);
+h=w;
+
+cvSetImageROI(clon1 ,cvRect(x,y,220,220));
+cvSavelmage("clon1.jpg",clon1);
+
+croplmg = cvLoadIlmage("clon1.jpg" ,CV_LOAD IMAGE GRAYSCALE) ;
+cvResetIimageROlI (clon1);
+break;
+
+J
+J
+
+cvSavelmage("Arealnteres.jpg",croplmg);
+
+El algortimo anterior permite segmentar la morfologia circular del iris, realiza un submuestreo del área segmentada, y almacena los valores como el radio y la posicion del dominio
+
+43espacial de la imagen del iris, en la figura 3.21 se muestra el submuestreo que se realiza a
+la imagen con la pupila identificada donde se aprecia la región de interes.
+
+ 
+
+Figura 3.21: ¿imagen con región del iris segmentada
+
+Identificación de regiones atípicas en el iris del ojo
+
+Una vez identificada la pupila y el iris del ojo, se procede a encontrar las regiones atípicas
+sobre el iris, lesiones, para ello se utilizó el radio y el centro tanto de la pupila como del
+iris para determinar el área de busqueda de estas regiones, para posteriormente segmentar
+y obtener las lesiones. El área de búsqueda se calcula a partir de la siguiente ecuación:
+
+(1 — centorX Iris) + (y — centroY Iris)? < Radiolris
+
+3.1
+(1 — centorX Iris) + (y — centroY Iris)? > RadioPupila (3.1)
+
+ 
+
+Las regiones atípicas son lesiones que se identifican en la superficie del iris. Para identificar
+estas regiones se determino un umbral para diferenciar las regiones claras de las oscuras
+dentro del área de busqueda [3]. Las regiones oscuras son las lesiones en el iris del ojo,
+como se muestra en la figura 3.22. El valor del umbral se calculó a partir de la intensidad
+media de los píxeles correspondientes al área del iris del ojo.
+
+ 
+
+Figura 3.22: Identificación de regiones atípicas en el iris del ojo
+
+443.5.2 Determinar el estado de las características en la imagen del iris del ojo.
+
+Para dar cumplimiento a este objetivo se realizaron dos etapas según el diagrama de
+flujo que son etiquetado de las características y fusificador. Para el etiquetamiento de
+las características y el fusificador se utilizó la etapa de descripción donde se abstrae la
+información de cada contorno del área segmentada, las características que se determinan en
+el iris son las lesiones, para determinar el estado de una lesión es necesario de la información
+de los contornos de cada característica o lesión. A continuación se describen los pasos para
+Determinar las características del iris del ojo en la imagen.
+
+Etiquetado de las caracteristicas
+
+Para esta etapa del diagrama de flujo se implementó un algoritmo que permite filtrar las
+lesiones de la imagen anteriormente tratada la cual se binarizo, el objetivo es buscar todos
+los contornos cuyas áreas se encuentren entre 15 y 60 pixeles etiquetando cada región
+filtrada y almacenando la posición en coordenadas espaciales de cada pixel que conforma
+cada presunta lesión en una estructura de almacenamiento, en la figura 3.23 se muestra
+las regiones filtradas.
+
+  
+
+45(1)
+
+Figura 3.23: Lesiones identificadas
+
+Fusificador
+
+En esta etapa del diagrama de flujo la información de la posición de cada pixel que conforman cada lesión la cual esta almacenada en una estructura generada por el procesamiento
+anterior es utilizada para determinar el nivel de afección de cada lesión por medio de un
+fusificador.
+
+Con la información de la posición de cada pixel que conforma una determinada lesión se
+puede revisar la intensidad en la imagen original, esto se realiza para calcular el valor
+medio de intensidad por lesión, luego se pasa a porcentaje por medio de una regla de
+tres, y esta información es el valor de entrada al fusificador, el cual sirve para procesar los
+valores numéricos de porcentajes de intensidades de entrada detectados automáticamente
+por la aplicación.
+
+En este fusificador se establecen cuatro etiquetas difusas que son: subagudo, agudo, crónico,
+degenerativo. el criterio de selección del estado de una lesión se determina con el valor
+numérico promedio de cada contorno, este valor se representa en porcentaje y su equivalente se agrupa en un estado dependiendo de su valor como se muestra en la siguiente tabla.
+
+46. ., Porcentaje de
+Etiqueta Coloración intensidad
+Agudo Blanco 0% - 25%
+Sub-Agudo Gris 25% - 50%
+Cronico Negro 50% - 75%
+
+Degenerativo Negro 75% - 100%
+
+ 
+
+ 
+
+ 
+
+Cuadro 3.7: Estado de la lesión
+
+Por ejemplo, suponiendo que el valor en porcentaje de intensidad media de una lesión
+es de 52% entonces el valor donde el grado de pertenencia es mayor es crónico como se
+muestra en la figura 3.24.
+
+Grado de membresía
+
+Agudo (0.0) Porcentaje de intensidad
+52% Sub-Agudo — (0.4)
+¡E Agudo Sub-Agud Cronico Degenerativo
+Entrada Cronico (0.6)
+0.6
+
+Degenerativo (0.0) **
+
+ 
+
+Universo de Discurso
+
+Fusificador
+
+Figura 3.24: Fusificador
+
+3.5.3 Comparar las características de la imagen adquirida con la carta iridológica para determinar la ubicación de los órganos con lesiones.
+
+El objetivo en esta actividad es comparar la ubicacion de las lesiones identificadas con la
+carta de iridología y asi determinar a que organo corresponde la afeccion, en la figura 3.25
+se muestra la imagen final.
+
+47Figura 3.25: Imagen con carta de iridología acoplada a la ¿imagen
+
+Para realizar el acoplamiento de la carta de iridología se procede a dividir la diferencia del
+radio del iris con el de la pupila entre siete, este valor es adicionado al del radio y cada vez
+que e adicionado se pinta un circulo, esto se realiza para pintar los círculos concéntricos de
+la carta de iridología, para las rectas se realiza una distribución donde cada T/6 se pinta
+una recta.
+
+Para realizar el reporte del nivel de afección de cada lesión se toma la estructura que tiene
+la información de los contornos de cada lesión, luego con cada contorno se determina el
+centro del contorno en coordenadas espaciales, y se procede a calcular el ángulo medido
+desde el eje positivo Y en sentido horario hasta cada centro, los cuales son evaluados en un
+condicional en donde se determina el rango al cual pertenece cada contorno, en la tabla 3.8
+se muestra el área y los órganos con relación al rango de ángulos, esta se realizo a partir
+de la grafica de iridología.
+
+En la figura 3.26 se muestra la imagen donde se identifica el contorno de una lesión, el
+ángulo O medido desde el eje Y' en sentido horario pertenece al rango de entre 30 y 60
+grados según la tabla anterior la lesión está ubicada en el área del cuello.
+
+ 
+
+Figura 3.26: Barrido para hallar el ángulo de una lesión
+
+48Area
+
+Organos
+
+Ángulo
+
+ 
+
+Cerebro sensorial
+
+Sistema de
+locomocion,
+Mentalidad innata,
+
+Centro del equilibrio,
+Medula
+
+0-30
+
+ 
+
+Cuello
+
+Mastoides, Oido,
+Cuello, Corazon
+
+30-60
+
+ 
+
+Pulmon
+
+Corazon,
+Bronquiolos, pulmon
+
+60-90
+
+ 
+
+Torax
+
+Timo, Pleura, Torax,
+Costillas, Pl. Solar
+
+90-120
+
+ 
+
+Abdomen Superior
+
+Brazo, mano, Bazo,
+Diafragma, Abd.
+Superior, Ovario,
+
+Testiculo
+
+120-150
+
+ 
+
+Abdomen inferior
+
+Pelvis, Peritoneo,
+Pared abdominal,
+Ingle
+
+150-130
+
+ 
+
+Pelvis
+
+Muslo, rodilla, pie,
+Riñon, Escroto,
+perineo, ano, recto,
+Vagina, utero
+
+180-210
+
+ 
+
+Espalda baja
+
+Vejiga, Espalda baja,
+Espalda media
+
+210-240
+
+ 
+
+Espalda alta
+
+Espalda alta,
+Omoplato, Esofago
+
+240-270
+
+ 
+
+Garganta
+
+Traquea, C. Vocales,
+Tiroides, Faringe,
+Laringe, Amigdalas
+
+270-300
+
+ 
+
+Cara
+
+Mandibula inferior,
+Lengua, Boca, Nariz,
+Mandibula superior,
+
+Ojo, Frente, Sien
+
+300-330
+
+ 
+
+ 
+
+Cerebro motriz
+
+Desarrollo mental,
+Centro de la palabra,
+Ego, Presion arterial
+
+330-3060
+
+ 
+
+Cuadro 3.8: Relación Área/órganos Ojo izquierdo [12]
+
+49Capitulo 4
+
+Pruebas y Resultados
+
+Una vez se describen los diferentes pasos usados para el procesamiento digital de imágenes,
+se hace necesario verificar los resultados de los procedimientos planteados aplicado a un
+conjunto de imágenes. En este capítulo se presenta las pruebas y los resultados obtenidos
+del tratamiento al conjunto de imágenes, los resultados don validados por un experto en el
+área de la iridología los cuales se muestran en el análisis de los resultados. El conjunto de
+imágenes oculares utilizadas como entradas de la aplicación son obtenidas del Laboratorio
+Nacional de Reconocimiento de Patrones (NLPR) e Instituto de Automatización de la
+Academia China de Ciencias (CASITA), cada imagen tiene una resolución espacial de
+
+3201280p3xeles.
+
+4.1 Descripción de las pruebas
+
+Se establecieron dos tipos de casos de pruebas: prueba A y prueba B, se realizan de acuerdo
+al conjunto de imágenes que el experto en iridología el Dr.Trillos* valoro. Para el caso de
+tipo de prueba Á se evalúa el proceso del tratamiento digital de la imagen ocular de la
+fase de identificación del iris y la fase identificación de las lesiones y para el caso de tipo
+de prueba B se evalúa el proceso del tratamiento digital de la imagen ocular desde la fase
+de identificación de regiones hasta la generación del diagnostico.
+
+4.1.1 Prueba A
+
+El objetivo de esta prueba es evaluar las fases del tratamiento digital de la imagen como
+lo son: identificación del iris y la determinación de las lesiones. En la figura 4.1 se muestra
+el conjunto de imágenes que se utilizo como entradas a la aplicación.
+
+ 
+
+"http: //medicinaalternativaeleden.com/breve-hoja-de-vida-dr-miguel-trilos.html
+
+90M7
+
+(e) imagen No5 (f) imagen No6
+
+Er n
+Du E
+lo"
+
+AA MIA is
+ses SSI dl
+SA Z7 “ " "e d
+
+  
+
+(g) imagen No7
+
+Figura 4.1: Conjunto de imagenes para la prueba A, las imágenes a),c),e),g) corresponden al ojo
+derecho y las imágenes b), d), f) corresponden al ojo izquierdo
+
+4.1.2 Prueba B
+
+El objetivo de este caso de prueba es evaluar los diferentes pasos que hacen parte del
+procesamiento digital de la imagen, como lo son: el proceso de identificación de las lesiones,
+la ubicación de las regiones según la grafica de iridología y el proceso de definir el estado
+
+91de la lesión.
+
+Las entradas de la aplicación para este caso de prueba son parte del conjunto de imágenes
+las cuales se muestran en la figura 4.2.
+
+7 m7 8
+
+ 
+
+(c) imagen No6
+
+Figura 4.2: Conjunto de imagenes para la prueba B, las imágenes corresponden al ojo izquierdo
+
+4.2 Procedimiento de las pruebas
+
+El procedimiento para el conjunto de imágenes que se muestra en la figura 4.1 que pertenecen al caso de prueba Á consiste en tomar cada imagen como entrada al procesamiento
+digital y obtener los resultados para las fases de identificaron del iris e identificación de
+lesiones generando así un conjunto de imágenes resultantes, por otro lado para el procedimiento del caso de pruebas de tipo B consiste en utilizar como entradas al procesamiento
+digital las imágenes pertenecientes a esta prueba las cuales se muestran en la figura 4.2
+con el fin de obtener las imágenes resultantes en las fases de identificación de lesiones,
+ubicación de las lesiones en la grafica de iridología y la determinación del estado de la
+lesión. Estas pruebas se realizan con el fin de analizar los resultados para establecer que
+tan eficientes son las estrategias del procesamiento establecidas en cada fase.
+
+los resultados de identificación de lesiones, determinación del estado de la lesión y acoplamiento de la grafica iridología pertenecientes a ambos casos de prueba son comparados
+con la valoración de un experto en el área de iridología.
+
+924.3 Resultados
+
+4.3.1 Prueba A
+
+A continuación se muestran los resultados de las fases descritas en esta prueba al tratar el
+conjunto imágenes correspondientes a este tipo de prueba en el aplicativo encargado del
+procesamiento digital.
+
+Resultado de la Identificación del iris
+
+En la figura 4.3 se muestran el conjunto de imágenes tratadas en esta fase, donde se
+obtuvieron los siguientes resultados.
+
+ 
+
+(e) imagen No5 (f) imagen No6
+
+93(g) imagen No7
+
+Figura 4.3: Conjunto de imágenes tratadas de la prueba A para la identificación del iris. las
+
+imágenes a),c),e),8) corresponden al ojo derecho y las imágenes b), d), f) corresponden al ojo
+izquierdo
+
+Resultado de la identificación de las lesiones
+
+En la figura 4.4 se muestran el conjunto de imágenes tratadas en esta fase, donde se
+obtuvieron los siguientes resultados.
+
+ 
+
+(c) imagen No3 (d) imagen No4
+
+94(e) imagen No5 (f) imagen No6
+
+ 
+
+(g) imagen No7
+
+Figura 4.4: Conjunto de imágenes de la prueba Á tratadas donde se identifican de lesiones.
+
+En cada imagen de la figura anterior se puede observar las posibles lesiones señaladas por
+el tratamiento digital de la fase de identificación de lesiones con un punto rojo. En la figura
+4.4a la aplicación sugiere que las lesiones encontradas pertenecen a las zonas del abdomen
+inferior, garganta, cara, cerebro motriz, cerebro sensorial y pulmón, En la figura 4.4b la
+aplicación sugiere que la lesión se encuentra en la zona del pulmón, en la figura 4.4c la
+aplicación sugiere que la lesión se encuentra en la zona de la espalda baja, en la figura
+4.4d la aplicación sugiere que la lesión se encuentra en la zona del cuello, en la figura 4.4d
+la aplicación sugiere que la lesión se encuentra en la zona del tórax, en la figura 4.4f la
+aplicación sugiere que las lesiones encontradas pertenecen a las zonas del tórax y el pulmón.
+
+4.3.2 Prueba B
+
+A continuación se muestran los resultados por cada fase al tratar el conjunto imágenes que
+corresponde a este tipo de prueba en el aplicativo encargado del procesamiento digital.
+
+Resultado de la identificación de las lesiones
+
+En la figura 4.6 se muestran los resultados del tratamiento correspondiente a la fase de
+identificación de lesiones aplicado al conjunto de imágenes.
+
+313(c) imagen No6
+
+Figura 4.5: Conjunto de imágenes de la prueba B tratadas donde se identifican de lesiones.
+
+En generar para el conjunto de imágenes resultante se observa una serie de puntos rojos,
+estos son los resultados parciales de la identificación de las lesiones, es decir el procesamiento digital sugiere que en la ubicación de un punto rojo existe una lesión. En la figura 4.6a
+ubica una posible lesión que corresponde según la grafica de iridología al segmento entre
+las 2 y las 3 al área del pulmón, en la figura 4.6b ubica una posible lesión que corresponde
+según la grafica de iridología al segmento entre las 1 y las 2 el área del cuello, en la figura
+4.6c ubica tres posibles lesiones que corresponde según la grafica de iridología al segmento
+entre las 2 y las 3 el área del pulmón y entre las 3 y las 4 el área del tórax.
+
+Resultado de la ubicación en la grafica de iridología y el estado de la lesión
+
+En la figura 4.6 se muestran los resultados del tratamiento correspondiente a la fase de
+ubicación en la grafica de iridología y el estado de la lesión aplicado al conjunto de imágenes.
+
+96(b) imagen No4
+
+ 
+
+(c) imagen No6
+
+Figura 4.6: Conjunto de imágenes de la prueba B tratadas por la aplicacion donde se identifican
+de lesiones y se determina el estado de la lesión
+
+En generar para el conjunto de imágenes resultante se observa el acoplamiento de la grafica
+iridología. En la figura 4.6a la aplicación sugiere que la lesión se encuentra en la zona del
+pulmón y que el estado de la lesión es sub-Agudo, en la figura 4.6b la aplicación sugiere
+que la lesión se encuentra en la zona del cuello y que el estado de la lesión es crónica,
+en la figura 4.6c la aplicación sugiere que las lesiones encontradas de abajo hacia arriba
+pertenecen a las zonas del tórax y el pulmón, la primera lesión es crónica, la segunda lesión
+es sub-aguda, y la tercera lesión es Sub-Aguda.
+
+4.4 Análisis de los Resultados
+
+De acuerdo a los resultados de las diferentes fases del tratamiento a la imagen para el
+conjunto de imágenes en los dos casos de prueba y los resultados de la valoración del
+iridólogo descritos en el anexo D (ver documento en CD)se puede inferir que:
+
+identificación de las lesiones y acoplamiento de la grafica de iridología
+
+los resultados en la identificación de lesiones correspondientes a la prueba A fueron valorados por un experto en el área de la iridología el cual determino que los puntos rojos
+señalados en cada imagen pertenecían a una lesión, sin embargo al realizar el acoplamiento
+
+37de la grafica de iridología el profesional es mas preciso al determinar la región que pertenece
+la lesión la cual en todos los casos pertenece al segmento indicado por la aplicación, en la
+tabla 4.1 se muestra la ubicación de las lesiones valorada por el iridólogo con relación a la
+ubicación de la lesiones determinadas por la aplicación.
+
+Ubicación de las lesiones
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Iridólogo Aplicación
+Cerebro Motriz Cerebro motriz
+Nariz Cara
+Pared abdominal Abdomen Inferior
+Imagen Nol Bronquios Pulmón
+Mastoide Cuello
+Imagen No2 Pulmón Pulmón
+Imagen No3 Espalda Baja Espalda Media
+Imagen No4 Cuello Cuello
+Imagen No5 Torax Pleura
+Compromiso Cardiaco Torax
+Imagen Nob Compromiso Pleural Bores
+Compromiso Bronquial Pulmón
+Imagen No7 Bronquios Pulmón
+
+ 
+
+Cuadro 4.1: Análisis de la fase de identificación de lesiones
+
+Estado de la lesión
+
+El procesamiento realizado para el caso de prueba de menor escala identifica el estado de
+una lesión, el profesional determino el estado de la lesión para este caso de prueba, en La
+tabla 4.2 se muestran los resultados de la valoración del iridólogo en comparación con lo
+que arroja la aplicación.
+
+Estado de las lesiones
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Diagnostico del Iridologo Diagnostico de la aplicación
+Nombre de Ubicación Estado | Ubicación Estado
+la imagen
+
+Imagen No2 pulmon subaguda | pulmon subaguda
+Imagen No4 cuello cronica cuello cronica
+Imagen No6 | compromiso cardiaco | subaguda tórax cronica
+
+pleural subaguda tórax subaguda
+
+bronquial subaguda | pulmón subaguda
+
+ 
+
+Cuadro 4.2: Resultados: fase donde se determina el estado de la lesión
+
+98Capitulo 5
+
+Conclusiones y trabajos futuros
+
+Este capítulo trata sobre las conclusiones del trabajo de grado con respecto a los objetivos
+cumplidos y en general al proceso de desarrollo de la aplicación y finalmente sobre los
+trabajos futuros.
+
+5.1 Conclusiones
+
+Se logro abstraer el problema de tal manera que se pudieron generar estrategias para
+el procesamiento digital de la imagen ocular diseñada para solucionar la problemática
+planteada.
+
+El limitante de la aplicación esta en el proceso de captura de la imagen debido a que el
+
+usuario debe capturar las imágenes con una cámara similar a la utilizada en el proceso de
+captura del repositorio de imágenes CASIA INTERVAL V4.
+
+Se utilizo un conjunto de imágenes como entradas a la aplicación y los resultados fueron
+valorados por un experto en el área de la iridología, el cual evaluó si los resultados presentaban lesiones o no, obteniendo buenos resultados.
+
+La aplicación desarrollada cumple con el objetivo de ser una herramienta de apoyo al
+iridólogo, ya que en la valoración por parte del iridólogo donde determino si la imagen
+resultante procesada por la estrategia de identificación de lesiones contenía una lesión o
+no, fue acertada para todos las imágenes del conjunto de imágenes en la prueba A.
+
+El filtro Canny presenta una muy buena detección de los bordes del iris, la transformada
+de Hough para regiones circulares detecta todos los circulos y el algoritmo que se diseño
+identifica un único circulo que es el del iris.
+
+El uso del filtro morfológico para la erosión permite que se puedan encontrar los contornos
+de las lesiones.
+
+Las intensidades de cada pixel abstraídas de cada contorno de las lesiones permitieron
+calcular la intensidad media como entrada de dato al fusificador para determinar así el
+
+99estado de una lesión.
+
+los contornos de cada lesion son evaluados por los rangos de división de segmentos establecidos por la carta de iridología permitiendo determinar a que área de órganos corresponde
+la lesión para determinar en el reporte las áreas de órganos correspondientes a la ubicación
+de cada lesión.
+
+La estrategia para acoplar la grafica de iridología de manera visual en la imagen final no es eficiente debido a que obstruye al iridólogo para determinar el estado de una
+lesión para el caso de que el iridólogo encuentre lesiones que el procesamiento no identifique.
+
+Las estrategias demostraron ser eficientes en cuanto a la identificación de lesiones que son
+las regiones atípicas al color del iris.
+
+5.2 Trabajos futuros
+
+Con el desarrollo de esta herramienta web se identificaron diferentes líneas de trabajo que
+existen o complementan esta herramienta. Como trabajos futuros se consideran:
+
+e Interfaz de carga de la imagen sobre dispositivos moviles.
+
+Con el auge actual de aplicaciones funcionales en dispositivos móviles y su impacto
+en el mercado se puede realizar una interfaz de carga de la imagen para realizar el
+procesamiento de la imagen, todo esto orientado a dispositivos móviles.
+
+e identificación de lesiones por tipo.
+
+Existen varios tipos de lesiones las cuales se pueden identificar, los contornos de
+estos tipos de lesiones según la iridología tienen intensidades atípicas al color del iris.
+En este trabajo de grado no se identifican las lesiones por tipo ya que la aplicacion
+es semiasistida, un trabajo futuro puede ser, añadir al reporte el tipo de lesión
+identificado por medio de técnicas de procesamiento digital de imágenes.
+
+e Estudio comparativo entre diferentes metodologías afines al reconocimiento de lesiones por medio de técnicas de procesamiento digital de imágenes.
+
+Como trabajo futuro se puede realizar un estudio comparativo entre las diferentes
+metodologías que utilizan técnicas de procesamiento digital de imágenes para detectar lesiones en la imagen del iris del ojo según la iridología para establecer una
+metodología eficaz y proponer una.
+
+60Anexos
+
+61Anexos A
+
+Anexo l: Casos de Uso.
+
+El presente documento tiene como finalidad describir las funcionalidades de una manera
+
+más detallada por medio de casos de uso como artefacto para un mayor entendimiento del
+producto de Software.
+
+Document | Revisión
+o: :
+cuU-001
+
+solicitando los datos a los campos
+email y contraseña.
+
+Despliega el perfil con todas las
+funcionalidades del usuaño de la
+aplicación.
+
+El sistema valida al usuario
+
++ El sistema venfica que los campos estén llenos, en el caso de
+que no estén, arroja una excepción para completar los campos
+faltantes.
+El sistema venfica que la contraseña corresponda al email del
+usuario, en el caso de que no coresponda la contraseña al
+email arroja una ventana donde indica que los datos son
+emoaneas.
+
+ 
+
+62Página: 2/20
+Fecha: 23/10/2012
+
+; sl Documento: | Revisión:
+hal Especificación de Caso de Uso CU-001
+Página: 2/20 |
+
+Curso normal de eventos
+
+|___1___ | Oprime la opción “Cerrar Sesión” PR —————
+
+Muestra un cuadro de dialogo solicitando
+la confirmación del cierre de sesión, “Esta
+que desea cerrar sesión”.
+
+| 3 _ | Oprimela opción “Aceptar” AAA
+A O E EST
+
+Cursos alternos y/o excepciones
+
+EN Documento: | Revisión:
+lv] Especificación de Caso de Uso CU-001
+
+Página: 3/20
+Fecha: 23/10/2012
+
+Curso normal de eventos
+
+registrado?”
+
+Muestra un cuadro de Registro solicitando
+Los datos a los campos Nombre,
+Apellidos, identificación personal, email,
+contraseña, repetir contraseña del usuario
+que desea registrarse, una opción para
+aceptar los términos y condiciones, y una
+opción para seleccionar el idioma del
+texto en la aplicación.
+
+Digita los datos, selecciona la opción de
+
+términos y condiciones, y selecciona el
+
+idioma como respuesta al sistema
+
+o Almacena los datos del usuario Final en
+un repositorio de información.
+
+SS AE
+registro fue exitoso
+
+Oprime el botón crear cuenta:
+Verifica si el usuario se encuentra en el repositorio de información, en el caso
+de que usuario final ya está registrado muestra en un cuadro de dialogo
+indicando que el usuario ya esta registrado
+Para el dato ingresado por el usuario del campo contraseña, antes de ser
+almacenado en el repositorio de información encripta el dato, una vez hecho
+almacena todos los datos de los campos.
+
+ 
+
+63Documento: | Revisión:
+CU-001 001
+
+Página: 4/20
+Fecha: 23/10/2012
+
+Especificación de Caso de Uso
+
+Curso normal de eventos
+
+| 1 | Oprimela opción modificar)... | ______________________ |
+META IEA [+55
+usuario final a modificar.
+modificar.
+
+|__ 4 _ | Oprime el botón modificar AS
+
+Almacena los datos actualizados del
+información
+
+Muestra un cuadro de dialogo informando
+que los datos del usuario final han sido
+actualizados.
+
+Cursos alternos y/o excepciones
+
+El sistema valida los campos de la información personal diligenciados por el usuario
++ El sistema verifica que los campos estén llenos, en el caso de que no
+estén, arroja una excepción para completar los campos faltantes.
+
+Documento: | Revisión:
+hal Especificación de Caso de Uso CU-001
+
+Página: Página: 5/20 |
+
+Fecha: 23/10/2012
+
+Curso normal de eventos
+
+|___ 1___ | Oprime la opción eliminar cuenta ¡EN A
+
+Muestra un cuadro eliminar cuenta donde
+contraseña
+MO locales A
+sistema
+
+|__ 4 _ | Oprime el botón “Eliminar Cuenta” OOOO]
+
+Elimina los datos y la. paa
+
+repositorio de información. _
+A a
+
+cuenta eliminada, lo saca del sistema
+
+Cursos alternos y/o excepciones
+
+El sistema valida al usuario
+e El sistema verifica que los campos estén llenos, en el caso de que no
+estén, arroja un mensaje para completar los campos faltantes.
+El sistema verifica que la contraseña corresponda al email del usuario, en
+el caso de que no corresponda la contraseña al email arroja una ventana
+donde indica que los datos son erróneos.
+
+ 
+
+64Documento: | Revisión:
+ww] Especificación de Caso de Uso CU-001
+
+Página: Página: 6/20 |
+Fecha: 23/10/2012
+
+Curso normal de eventos
+
+|___1__| Oprime la opción Registrar paciente.  — _ _ _—_ _—_—___—_—]
+
+Muestra un cuadro de registro solicitando
+
+los datos de los campos nombre, edad,
+
+Género, identificación personal, dirección,
+
+movil, email del paciente a registrar.
+respuesta al sistema.
+
+| 4 | Oprimeel botón registrar paciente. | ____________________ |
+
+A A
+repositorio de información.
+
+A
+registro fue exitoso
+
+Cursos alternos y/o excepciones
+
+Verifica si el paciente se encuentra en el repositorio de información, en el caso de que
+usuario final ya está registrado:
+
+e Muestra en un cuadro de dialogo indicando que el paciente ya esta registrado.
+
+Documento: | Revisión:
+hal Especificación de Caso de Uso CU-001
+
+Página: Página: 7/20 |
+
+Fecha: 23/10/2012
+
+Curso normal de eventos
+
+|__ 1__ | Oprime la opción Modificar paciente. AAA
+
+Despliega un listado con los pacientes a
+modificar.
+
+| 3 _ | Selecciona el paciente a modificar. OOOO
+
+modificar.
+
+|__ 5 | Modifica los datos del paciente. OO]
+|__ 6___ | Oprime el botón modificar. AA
+
+A
+
+paciente en un repositorio de información.
+Muestra un cuadro de dialogo informando
+han sido actualizados.
+
+Cursos alternos y/o excepciones
+
+ 
+
+65: iS Documento: | Revisión:
+hal Especificación de Caso de Uso CU-001
+
+Página: 8/20
+Fecha: 23/10/2012
+
+Curso normal de eventos
+
+Oprime la opción eliminar Paciente
+
+Despliega un listado con los pacientes a
+modificar.
+
+elecciona el paciente a eliminar.
+
+prime el botón eliminar paciente
+
+Elimina los datos del paciente en el
+repositorio de información.
+Muestra un mensaje indicando que el
+paciente fue eliminado.
+
+Cursos alternos y/o excepciones
+
+ó 2% Documento: | Revisión:
+hal Especificación de Caso de Uso CU-001 001
+
+Página: 9/20
+Fecha: 23/10/2012
+
+Curso normal de eventos
+
+contraseña?”
+
+Muestra un cuadro de perdida de
+contraseña donde solicita el dato al
+campo correo electronico
+
+Digita los datos en los campos como
+
+respuesta al sistema.
+
+|__ 3 _ | Oprime el botón enviar. OOOO
+
+Envía un correo electrónico al usuario con
+una nueva contraseña
+
+El usuario oprime el botón enviar:
+
+e El sistema verifica que los campos estén llenos, y que sea el de un correo
+electrónico
+El sistema envía una contraseña:
+e El sistema encripta el numero de identificación personal la cual será su nueva
+contraseña
+
+ 
+
+66; sl Documento: | Revisión:
+hal Especificación de Caso de Uso CU-001
+
+Página: 10/20
+Fecha: 23/10/2012
+
+Curso normal de eventos
+
+Oprime la opción “Como usar la
+
+aplicación”
+Muestra un manual de cómo utilizar la
+aplicación
+
+Oprime el botón salir.
+Vuelve a la pagina principal
+
+Cursos alternos y/o excepciones
+
+y ” Documento: | Revisión:
+Especificación de Caso de Uso CU-001 001
+
+Página: 11/20
+Fecha: 23/10/2012
+
+Curso normal de eventos
+
+Oprime la opción “buscar imagen”
+Despliega una ventana para buscar una
+imagen de formato ppm o png, en el
+equipo del cliente.
+
+Oprime el botón cargar
+La ¡imagen es almacenada en. mel
+repositorio de información.
+
+Cursos alternos y/o excepciones
+
+ 
+
+67, ós Documento: | Revisión:
+Especificación de Caso de Uso CU-001 001
+
+Página: 12/20
+Fecha: 23/10/2012
+
+Curso normal de eventos
+
+Oprime la opción “captura imagen”
+Despliega una ventana donde se visualiza
+en video una escena 3D por medio de
+una webcam
+
+Oprime el botón cargar imagen
+Captura una imagen y es almacenada en
+el repositorio de información
+
+Cursos alternos y/o excepciones
+
+ 
+
+68Anexos B
+
+Anexo Il: Diagrama de la base de
+datos.
+
+AutenticaUsuario
+Usuario Final 3 Idp_UsuarioFinal
+
+id Personal contraseña
+
+hora
+fecha
+
+Nombre
+Apellidos
+
+Estado Sesion
+
+Registro_Paciente Hora
+Fecha
+|PK,FK1 |ldp UsuarioFinal UsuarioFinal FK2 |IdP_UsuarioFinal
+
+   
+  
+    
+      
+ 
+  
+
+ 
+
+hora
+
+fecha
+deal
+
+nombre_img
+
+ 
+
+Idpersonal
+
+ 
+
+Nombre
+
+Edad
+
+Genero
+Direccion
+Numero movil
+Idp_UsuarioFinal
+
+Historias Paciente
+
+Ruta_nueva_Imagen
+FK2 |idp Paciente
+FK1 [ld Personal
+
+ 
+
+69Referencias
+
+11] Z. Othman and A.S. Prabuwono. Preliminary study on iris recognition system: Tissues
+of body organs in iridology. In Biomedical Engineering and Sciences (IECBES), 2010
+IEEE EMBS Conference on, pages 115-119, 2010.
+
+(2) Cheng-Liang Lai and Chien-Lun Chiu. Health examination based on iris images.
+In Machine Learning and Cybernetics (ICMLC), 2010 International Conference on,
+volume 5, pages 2616-2621, 2010.
+
+13] A. Lodin and S. Demea. Design of an iris-based medical diagnosis system. In Signals,
+Circuits and Systems, 2009. ISSCS 2009. International Symposium on, pages 1-4,
+2009.
+
+[4] Maria Júlia Paes da Salles, Léia Fortes; SILVA. Iridologia: revisáo sistemática. Revista
+da Escola de Enfermagem da USP, 42:596 — 600, 09 2008.
+
+15] Bernard Jensen. Vision of health Understanding iridology. Editora Y Distribuidora
+Yug, first edition, 1994, Pages 32-33.
+
+16] Frank Navratil BSc. N.D. Sitio web irisdiagnosis. <http://www.irisdiagnosis.
+org/new/sp/computer/computer4.htm1>, 2001. [Accesado 02-Nov-2011].
+
+[7] Sitio web aigaliris. <http://aigaliris.com/es/node/9>, 2009. [Accesado 03-Nov2011].
+
+18] X.U. Liu and M.S. Nixon. Water flow based vessel detection in retinal images. In
+Visual Information Engineering, 2006. VIE 2006. IET International Conference on,
+pages 345-350, 2006.
+
+[9] Rogério Schmidt Feris, Teófilo Emdio de Campos, Roberto Marcondes Cesar Junior,
+Roberto Marcondes, and Cesar Junior. Detection and tracking of facial features in
+video sequences. In Lecture Notes in Artificial Intelligence, pages 129-137. Springer
+Verlag Press, 2000.
+
+110] M. Rizon, H. Yazid, and Puteh Saad. A comparison of circular object detection using
+hough transform and chord intersection. In Geometric Modeling and Imaging, 2007.
+
+GMAI ?07, pages 115-120, 2007.
+
+111] Bernard Jensen. Vision of health Understanding iridology. Editora Y Distribuidora
+Yug, first edition, 1994, Pages 36.
+
+YO112] Bernard Jensen. Vision of health Understanding iridology. Editora Y Distribuidora
+Yug, first edition, 1994, Pages 32-33.
+
+113] Bernard Jensen. Vision of health Understanding iridology. Editora Y Distribuidora
+Yug, first edition, 1994, Pages 15-19.
+
+114] Bernard Jensen. Vision of health Understanding iridology. Editora Y Distribuidora
+Yug, first edition, 1994, Pages 14.
+
+115] R. C. Gonzalez and R. E. Woods. Digital Image Processing. Prentice Hall, 2002,
+Pages 28.
+
+116] Sitio web bisc. <http://www.cs .berkeley.edu/-zadeh/>. [Accesado Nov-2011].
+
+117] G. Bradski and A. Kaehler. Learning OpenC'V. O'Reilly Media, September 2008,
+Pages 1.
+
+118] R. C. Gonzalez and R. E. Woods. Digital Image Processing. Prentice Hall, 2002,
+Pages 25-27.
+
+71

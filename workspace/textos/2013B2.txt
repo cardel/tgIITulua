@@ -1,0 +1,4136 @@
+SISTEMA DE INFORMACIÓN PARA LA GESTIÓN DE ANTEPROYECTOS
+Y PROYECTOS DE GRADO DE LOS PROGRAMAS PROFESIONALES DE
+LA UNIVERSIDAD DEL VALLE - SEDE TULUÁ
+
+CESAR ADOLFO ESPINAL ESCOBAR
+CóD. 201153664
+
+UNIVERSIDAD DEL VALLE SEDE TULUÁ PROGRAMA ACADÉMICO DE
+INGENIERÍA DE SISTEMAS
+TULUÁ, 2015SISTEMA DE INFORMACIÓN PARA LA GESTIÓN DE ANTEPROYECTOS
+Y PROYECTOS DE GRADO DE LOS PROGRAMAS PROFESIONALES DE
+LA UNIVERSIDAD DEL VALLE - SEDE TULUÁ
+
+CESAR ADOLFO ESPINAL ESCOBAR
+CóD. 201153664
+
+TRABAJO DE GRADO PARA OPTAR AL TÍTULO DE
+INGENIERO DE SISTEMAS
+
+DIRECTOR
+PAVEL FRANCO MARÍN, ING.
+
+UNIVERSIDAD DEL VALLE SEDE TULUÁ PROGRAMA ACADÉMICO DE
+INGENIERÍA DE SISTEMAS
+TULUÁ, 2015Nota de Aceptación
+
+Firma del Presidente del Jurado
+
+Firma del Jurado
+
+Firma del Jurado
+
+Tuluá, enero 19 de 2015Dedicatoria
+
+A mis Padres, por su educación, sacrificio, enseñanza, por todos aquellos momentos que
+han estado junto a mi brindándome su apoyo incondicional para salir adelante, ser una
+persona de bien y alcanzar mis metas propuestas.
+
+Á ellos que me enseñaron que con amor, esfuerzo y dedicación puedo alcanzar todo lo
+que me propongo. Espero haber correspondido todo su sacrificio brindado, llenándoles
+de orgullo y convirtiéndome en el hijo que siempre soñaron y cabe recalcar que el éxito
+hoy alcanzado no es únicamente mio sino nuestro.
+
+A mi Esposa, porque nunca me dejo solo y siempre estuvo apoyándome, indicándome
+que cualquier carga pesada es más llevadera si se comparte entre dos. Por brindarme su
+amor, comprensión, respeto, lealtad, paciencia y ayudarme en cada una de las decisiones
+diarias.
+
+A mis Hijos, porque me dan las fuerzas para superarme cada día más, enseñándoles que
+existe un buen porvenir obtenido con esfuerzo, trabajo honesto, amor y principalmente
+apoyo familiar. A ellos que saben que siempre podrán contar conmigo y que en mi tienen
+un Padre incondicional.
+
+Cesar Adolfo Espinal Escobar
+
+TIAgradecimientos
+
+Con el objetivo alcanzado, es importante agradecer a todas las personas que me
+apoyaron e hicieron posible este propósito culminado, que aportaron en mi desarrollo y
+crecimiento personal, académico y profesional. Sin dejar a nadie de lado agradezco a
+todos los que contribuyeron formando parte de mi vida y haciéndose presentes en hechos
+
+y acontecimientos transcendentales.
+
+Agradezco principalmente a mi familia por brindarme su apoyo, la posibilidad de
+estudiar profesionalmente contribuyendo positivamente al avance de la sociedad. Por
+todo el amor ofrecido, los valores enseñados, los sacrificios realizados y por ser el pilar
+fundamental para la obtención de mi título profesional. Gracias por ayudarme a que este
+
+momento llegara.
+
+Mi más sincera gratitud a mi director de tesis el ingeniero Pavel Franco Marín, por
+haberme brindado sus diversas formas de ayuda y orientación durante el desarrollo de la
+presente; Gracias Ingeniero por compartir tu conocimiento y amistad.
+
+Á mis compañeros de estudio que siempre estuvieron ahí cuando más los necesite
+
+entregándome su apoyo y amistad al cien por ciento.
+Un agradecimiento a mi esposa por haberme regalado los dos tesoros más hermosos de
+
+mi vida, mis hijos, gracias Amor por todo tu apoyo y comprensión.
+
+Para finalizar un agradecimiento muy especial a la Universidad del Valle sede Tulua y a
+todos mis profesores por impartirme sus conocimientos durante todos estos años.
+
+A todos ellos! Infinitas Gracias ¡
+Cesar Adolfo Espinal Escobar
+
+HHINDICE GENERAL
+
+A e TX
+ABSTRACT ooo Xx
+CAPÍTULO 1 222 nm 2
+1. Introducción ---=====>>======ccccno nn -- 2
+1.1. Planteamiento del Problema. ---========oooooooooooono=--- 3
+1.2. Formulación del Problema. ----============>oooooooooo---- 4
+1.3. Objetivos. ===> 4
+1.3.1. Objetivo General --iccccccnonooconooooonto- 4
+1.3.2. Objetivos EspecifiCOS ===> 4
+1.4. Estructura del Documento --==========>coconoonnn--- 4
+CAPÍTULO 2 => > 6
+2. MARCO DE REFERENCIA corro 6
+2.1. Estado del Arte y Antecedentes ocn 6
+2.2. Marco TeÓriCO lo 7
+2.2.1 Metodología XP (extreme programming) ----======cconoocooooocoooo=-- 7
+2.2.2. Metodología Scrum ---=======oocc nooo Í
+2.2.3. Proceso de Modelado Unificado. -----=>iccccccconononnonooooooooo=-- 9
+2.2.4. Herramientas Métodos y Procesos coco oooooooooo-- 9
+2.2.5. Marco Conceptual === ooooooo- 10
+2.2.6. PHP => 10
+2.2.7. Aplicaciones con PHP. ===> nooo 11
+2.2.8. HTML ===> => 11
+2.2.9, Activo Digital ----======oooooooco nono 12
+2.2. 10 ArChivVO ===> ooo 12
+2.2.1 1. Búsqueda---=====ocoo ooo 13
+2.2.12. Datos Estructurados =--========coconccono nono 14
+2.2.13. Datos no estructurados === 15
+2.2.14. Permisos === o 15
+2.2.1.5. POYrtal => ooo 16
+2.2.16. Productividad ---=======ooonoc cnn 17
+2.2.17. Repositorio de Documentos ===> 18
+2.2.18. Software de Colaboración ----====ccccoccconcoconnn nono 18
+2,2,19, Web => 19
+2.2.20. Framework ===> ooo 20
+CAPÍTULO 3 ooo > 23
+3. DESARROLLO DEL PROYECTO ==> 23
+Aspectos del desarrollo de SOfÍ(WAare === 23
+3.1 Metodologla ==> 23
+3.2. Planeación == ooo 25
+3.3 Especificación de requerimientos === 30
+3.4. Requerimientos ===> 32
+3.5. Productbacklog ---> no 34
+3.6. Sprint Backlog >> 35
+37 MDISOÑO nr 35
+3.7.1. Arquitectura - Diagrama de COMPONENÍES. ===> 35
+3.8. Diagrama Entidad Relación ----==>=>===oooocnonccccconcno- 37
+3.9. Diagrama de Clases ooo 39
+3.10 Codificación ===> ooo 40
+3.1.1. Instalación ===> 42
+3.12. Descripción general del aplicativo Web-=-=====icocoocococcooo-- 42
+CAPÍTULO 4 ono 46
+4. PRUEBAS Y DISCUSIÓN DE LOS RESULTADOS === nncnnnnncn nro 46
+
+IV4.1 Pruebas de Unidad. --caiicna nooo 46
+4.2. Pruebas de Integración
+
+So 47
+CAPÍTUDO $ ono 51
+5. CONCLUSIONES Y PROYECCIONES === anna 51
+5.1. Conclusiones ===> 51
+5.2. Trabajos Futuros ===> 51
+BIBLIOGRAFÍA ===> 62LISTA DE TABLAS
+
+Tabla 1. Presentación de los módulos establecidos para la aplicación. ---=======>>=oooo=-- 23
+Tabla 2. Homologación de los procesos de gestión de proyectos de grado. ---===o===-- 32
+Tabla 3. Historias de USUAYFÍO. --==============>>> nn n==--- 34
+Tabla 4. Planeación de Sprints (SIGPUV) => rnnii coo 33
+Tabla 5. Tabla de pruebas de Unidad. => 48
+Tabla 6. Pruebas de Integración Í ==> 48
+Tabla 7. Pruebas de Integración 2 => nino 49
+Tabla 8. Pruebas de Integración 3 >>> rro 49
+Tabla 9. Pruebas de Validación. -----====nncococonnoooooo o 50
+
+VIINDICE DE FIGURAS
+
+Figura 1. Fases de la metodología XP ron > S
+Figura 2. Metodología Scrum. ol $
+Figura 3. Metodología del proyecto --ononll rr > 253
+Figura 4. Modulo INiCiO. >>> II 25
+Figura 5. Modulo Autenticación Ó Registro. ==> 26
+Figura 6. Modulo Usuarios y perfiles. ooo > 26
+Figura 7. Modulo Anteproyectos Registro de Propuesta Nueva. --==nonnriinniinoo--- 27
+Figura 8. Modulo Anteproyectos Propuesta Registradas de Anteproyectos. == 27
+Figura 9. Modulo Anteproyectos Bitácora de Anteproyectos. => 28
+Figura 10. Modulo Proyectos de grado. ono -- 28
+Figura 11. Modulo Proyectos Bitácora de Proyectos de grado. --ooooannninoo--- 29
+Figura 12. Modulo Grupos de Investigación. ont rro 29
+Figura 13. Modulo Grupos de Investigación registro de IngeniuX. -—oo==onnoni----- 30
+Figura 14. Modulo Ayudas. --=======tttl lll III II o 30
+Figura 15. Diagrama de Componentes ===> III 36
+Figura 16. Diagrama Entidad Relación ===> rro 38
+Figura 17. Diagrama de clases (Feneral. >si 40
+Figura 18 .Pagina principal de SIGPUV. romina 43
+Figura 19. Ingreso al Sistema tt II 43
+Figura 20. Interfaz gráfica del modulo estudiante == -- 44
+Figura 21. Panel administrativo del coordinador ===> nro 44
+Figura 22. Comunicación Interna === rss II II 45
+Figura 23. Bitácora de seguimiento de ANteprOyectOs === nro 45
+
+VIILISTA DE ANEXOS
+
+IIA ON 54
+IIA ON A 56
+IIA O 58
+
+VIIIResumen
+
+El mercado actual es altamente competitivo y cambiante. En ese contexto el desarrollo
+del Software busca básicamente rapidez, calidad y reducción de costos en la ejecución de
+sus proyectos; para asumir estos retos es necesario tener agilidad y flexibilidad. Estas
+características se constituyen en el fundamento mismo de las metodologías agiles de
+desarrollo de software.
+
+Esta investigación es fundamentada en procedimientos de desarrollo de software ágiles,
+tomando como base la metodología Scrum, para la construcción de un producto de
+software que apoye los procedimientos administrativos inherentes a la gestión de los
+anteproyectos y proyectos de grado de los programas de la Universidad del Valle sede
+Tuluá.
+
+El resultado de este trabajo, es un producto de software funcional, en cuyo desarrollo se
+pudo demostrar la validez de Scrum aplicado a proyectos de software de mediano
+tamaño, en entornos cambiantes y con grupos de trabajo pequeños que involucran
+permanentemente al dueño del producto.Como resultado de la ejecución del trabajo, se
+obtuvo un sistema de información para la gestión de los trabajos de grado en la
+Universidad del Valle sede Tuluá, así como sus manuales de usuario y del sistema, con lo
+que se permite a los docentes encargados llevar a cabo de manera más eficiente todo el
+proceso relacionado, lo que involucra la asignación de evaluador para anteproyectos y
+proyectos, así como la selección de director para éstos últimos, el registro de los
+seguimientos realizados y el cumplimiento de las entregas.
+
+IXAbstract
+
+Today's market is highly competitive and changing. In this context the development of
+software basically looking for speed, quality and cost reduction in the execution of their
+projects; to take on these challenges need to have agility and flexibility. These features
+constitute the foundation of agile software development methodologies it.
+
+This research is based on development procedures agile software, based on the Scrum
+methodology for the construction of a software product that supports the associated
+administrative procedures for managing projects and projects of degree programs at the
+University of Tuluá Valley head quarters.
+
+The Result of this work is a product of functional software, whose development could
+prove the validity of Scrum applied to software projects of medium size, in changing
+environments and small workgroups that involve the permanent owner of product. As
+result execution of work, an information system for management of business degree at the
+University of Valle headquarters Tuluá and user manuals and system whereby teachers
+are permitted obtained responsible conduct more efficiently all related process, which
+involves the allocation evaluator for projects and projects as well as the selection of
+principal to the latter, the record of compliance follow-ups and deliveries.Capítulo 1
+
+1. Introducción
+
+En la Universidad del Valle sede Tuluá, desde el programa de Ingeniería de Sistemas, se
+evidenció una problemática relacionada con la gestión de los anteproyectos y proyectos
+de grado de los programas profesionales ', que genera inconsistencias en los procesos
+inherentes, la poca oportunidad de los estudiantes para los trámites administrativos y la
+baja fiabilidad de la información requerida.
+
+Este proyecto formuló e implementó una solución a la problemática con relación al
+manejo la gestión de los proyectos de grado. La solución se estructuró mediante la
+creación de un sistema de información para la gestión de los anteproyectos y proyectos de
+grado. El producto final lo constituye un sistema de información web, que permita
+brindar un mejor servicio en relación a la gestión de los anteproyectos y proyectos de
+
+grado, para los estudiantes, profesores y personal administrativo de la Universidad del
+Valle sede Tuluá.
+
+También se crea una estructura homogénea inherente a los proyectos, que contiene los
+lineamientos básicos de la gestión administrativa y académica de los estudiantes,
+generando guías que le permitan la aplicación de los conceptos necesarios en la estructura
+de todo el proyecto, desde el punto de vista de los programas profesionales se busca
+implementar procesos confiables y efectivos en el momento de utilizar las TIC.*
+
+En síntesis, en el presente documento se presentarán las etapas de desarrollo de este
+sistema de información, que parten desde el inicio de la investigación y la búsqueda de
+soluciones a las problemáticas evidenciadas en la gestión de los anteproyectos y
+proyectos de grado de los programas profesionales de la Universidad del Valle sede
+Tuluá, hasta la finalización y el cumplimiento de objetivos, teniendo en cuenta el marco
+referencial como base teórica, conceptual y contextual.
+
+ 
+
+1 Dentro de este trabajo se entenderá como programas profesionales a: Administración de Empresas,
+
+2 Dentro de este trabajo se entenderá como TIC a: Las tecnologías de la información y la comunicación que
+se necesitan para la gestión y transformación de la información.1.1. Planteamiento del Problema.
+
+La Universidad del Valle sede Tuluá cuenta con aproximadamente 1200 estudiantes entre
+los programas de: Tecnología en sistemas, tecnología en alimentos, tecnología en
+electrónica, trabajo social, ingeniería de sistemas, administración de empresas y
+contaduría pública donde los estudiantes de los programas profesionales, para culminar
+con sus estudios de pregrado deben presentar ante la Universidad un proyecto de grado
+que les permita solucionar una problemática inherente a la naturaleza de cada programa,
+también existe la posibilidad de realizar una pasantía en una empresa, pero de igual
+manera se debe entregar un documento que permita evidenciar las actividades realizadas
+y los resultados obtenidos.
+
+La Universidad del Valle sede Tuluá, debe llevar un seguimiento manual en todos los
+procesos relacionados con la gestión de anteproyectos y proyectos de grado en los
+diferentes programas mencionados anteriormente, con el fin de evidenciar como se llevan
+éstos procesos, fueron realizadas dos entrevistas, una al ingeniero ALBEIRO APONTE
+VARGAS, Profesor tiempo completo de la Sede, responsable de dirigir la elaboración y
+estructuración de los anteproyectos de grado en la cátedra de seminario de trabajo de
+grado del programa de Ingeniería de Sistemas (VER ANEXO A) y la segunda entrevista
+
+a la ingeniera YURI MERCEDES BERMÚDEZ MAZUERA, coordinadora del
+programa de Ingeniería de Sistemas de la sede Tuluá (VER ANEXO B), donde sus
+
+respuestas evidenciaron la necesidad de dinamizar los procesos inherentes a la gestión de
+los anteproyectos y proyectos de grado en función de alternativas que los apoyen.
+
+Se evidencia entonces una situación de gestión inherente al desarrollo de anteproyectos y
+proyectos de grado, con un esquema de seguimiento que va desde el planteamiento de
+una propuesta, pasando por una etapa de revisiones periódicas y procesos de evaluación,
+para posteriormente desarrollarlas y aplicarlas a situaciones reales, donde se muestre el
+proyecto como producto final y dentro de ello todo un procedimiento definido por los
+estatutos de la Universidad.
+
+Por otra parte el trámite relacionado deben ser asumido por los estudiantes, dentro de lo
+que se encuentra la selección de un posible director de trabajo de grado, muchas veces sin
+
+conocer el perfil y la disponibilidad de tiempo de los docentes idóneos en la temática
+requerida, que generalmente es un docente de la sede, encargado de dirigir, discernir y
+
+brindar asesorías continuas en la elaboración y seguimiento del documento, con el fin de
+entregarlo a un evaluador, el cual determinará si la propuesta es adecuada y cumple con
+todos los requisitos establecidos por la Universidad.
+
+Para el avance de estos procedimientos es necesario presentar varios formatos; entre
+ellos, la carta de compromiso del director, la carta de aceptación del evaluador, formato
+de seguimiento y asesorías; posteriormente el estudiante debe sustentar su proyecto en
+una situación real, donde se pueda demostrar su eficiencia, dándole una calificación y
+aprobación. De esta manera el estudiante culmina con todos los procesos de trabajo de
+grado y automáticamente se da el aval para que sea candidato a grado.
+
+Como efecto de lo anterior, se evidencian problemáticas tanto en el manejo de la
+información como en los procesos de la gestión de los anteproyectos y proyectos de grado
+generando inconformidad por parte de los alumnos al empezar su trabajo de grado, que le
+permitan culminar con su carrera profesional, por tal razón es indispensable crear una
+solución adecuada para este asunto, con el propósito de mejorar y garantizar el buen
+desarrollo en la gestión de los anteproyectos y proyectos de grado, en los diferentes
+programas profesionales de la Universidad del Valle sede Tuluá, siguiendo loslineamientos básicos que admitan avanzar con eficiencia en todos los procesos de gestión
+que implica la realización de los proyectos de grado.
+
+1.2. Formulación del Problema.
+
+¿Cómo dinamizar y apoyar la gestión de los procesos inherentes a los anteproyectos y
+proyectos de grado en los diferentes programas profesionales de la Universidad del Valle
+sede Tuluá?
+
+1.3. Objetivos.
+
+1.3.1. Objetivo General
+
+Desarrollar una plataforma tecnológica que dinamice y apoye la gestión de los procesos
+inherentes a los anteproyectos y proyectos de grado de los diferentes programas
+profesionales de la universidad del valle sede Tuluá.
+
+1.3.2. Objetivos Específicos
+
+"= Determinar cuál es la realidad actual de los procesos inherentes en la gestión de
+
+los anteproyectos y proyectos de grado de los diferentes programas profesionales
+de la Universidad del Valle sede Tuluá.
+
+"= Establecer un proceso a través del cual en los diferentes programas profesionales
+de la Universidad del Valle sede Tuluá, se pueda homologar la gestión inherente
+de los anteproyectos y proyectos de grado.
+
+" Implementar una solución web que integre cada uno de los módulos
+desarrollados de modo que se adapte a cada uno de los procesos inherentes de los
+
+anteproyectos y proyectos de grado en los diferentes programas profesionales de
+la Universidad del Valle sede Tuluá.
+
+1.4. Estructura del Documento
+
+Con el objeto de brindar una mejor comprensión sobre el desarrollo y las principales
+características del proyecto, el presente documento se estructura en cinco capítulos a
+saber:
+
+El primer capítulo describe los aspectos relacionados con la problemática del proyecto,
+que abarcan la realidad actual de los procesos inherentes en la gestión de los
+anteproyectos y proyectos de grado en los diferentes programas profesionales de la
+Universidad del Valle Tuluá. Además de denotar el contexto donde se identifica la
+
+problemática, se introduce los lineamientos relativos a las primeras nociones teóricas que
+sustentan el marco de desarrollo del proyecto y la estructuración sistemática de la
+
+solución basada en el desarrollo de un sistema de información para la gestión de
+
+anteproyectos y proyectos de grado de los programas profesionales de la Universidad del
+Valle sede Tuluá.
+
+El segundo capítulo brinda un acercamiento más específico a la fundamentación teórica
+dentro de la cual, se enmarca toda la investigación que soporta un amplio estudio sobre
+los principales planteamientos con conceptos previos de diversas áreas de investigación,
+de los sistemas de información y sus características diferenciales.El tercer capítulo define los aspectos metodológicos llevados a cabo durante el desarrollo
+del proyecto, permite conocer las etapas, actividades realizadas, las técnicas, los
+
+procedimientos y los resultados correspondientes. Además, presenta las tecnologías de
+soporte y la consolidación de elementos base para la estructura funcional de la solución
+
+propuesta en el capítulo uno.
+
+El cuarto capítulo explica los resultados derivados de las diferentes pruebas a las que se
+somete el aplicativo Web a través de todo su ciclo de desarrollo, con el objetivo particular
+de asegurar unos estándares mínimos de calidad en el producto e identificar potenciales
+mejoras en el mismo.
+
+El quinto capítulo contiene las conclusiones formuladas a partir del desarrollo del
+proyecto y los trabajos futuros que se pueden desprender de la consecución del objetivo
+de este proyecto de ingeniería. Este capítulo consigna los hechos y las consideraciones
+teórico-prácticas más importantes implicadas en la consolidación del producto final.Capítulo 2
+
+2. Marco de Referencia
+
+2.1. Estado del Arte y Antecedentes
+
+El proyecto está enmarcado en el ámbito de la gestión de los procesos de los
+anteproyectos y proyectos de grado de los diferentes programas de la Universidad del
+Valle sede Tuluá a través de la web, actualmente el volumen de información manejado
+por la Universidad está en un constante crecimiento, lo cual hace cada vez más complejo
+el seguimiento, manipulación, administración y culminación de los anteproyectos y
+proyectos de grado de los estudiantes.
+
+Los sistemas de información son una herramienta para el mejoramiento y gobernabilidad
+de los procesos, permiten registrar gran cantidad de información, la cual se puede
+procesar y gestionar, asegurando la disponibilidad de información de calidad, que facilita
+la toma de decisiones y permite el aumento de la productividad.
+
+Este Sistema de Información pretende agilizar los procesos inherentes en la gestión de los
+
+anteproyectos y proyectos de grado, de forma que se pueda hacer un debido uso
+optimizando los recursos con los que cuenta la Universidad, debido a que éste sistema de
+información significaría un gran ahorro de tiempo para el personal implicado.
+
+El sistema de información propuesto será una gran ayuda para los estudiantes que están
+culminando sus estudios, brindándoles una herramienta completa que les facilite el
+seguimiento de sus anteproyectos y proyectos de grado, debido a que muchos estudiantes
+cursan materias mientras están con el desarrollo del trabajo de grado.
+
+En el entorno Nacional para el año 2005 se encuentra que en la Pontificia Universidad
+Javeriana dos de sus estudiantes generaron para su tesis un software que lleva por nombre
+Sistema de información para la administración de proyectos de grado (SIAP). Dicho
+proyecto busca generar los procesos de gestión y metodología de desarrollo de una tesis
+para dejar evidencia del cumplimiento de los mismos, además de ofrecer acceso a los
+datos actualizados, precisos y detallados de cada uno de los avances o eventos que se
+generan por proyecto.”
+
+Para el año 2006 en la Universidad del Valle Cali, en la oficina de planeación y
+desarrollo institucional “OPDI”, se implementó una aplicación web para la
+administración integrada de proyectos “sistema integrado de proyectos SIP”, que
+busca mejorar los procesos inherentes a los proyectos de inversión de la Universidad.
+Los proyectos financiados por la estampilla pro- universidad del Valle pasan por las
+fases de presentación, selección, registro, ejecución, seguimiento y cierre. Estas fases se
+convierten en los módulos de la aplicación web que se desarrolló, con un módulo
+adicional en el cual se registran datos básicos de los convenios ya que estos hacen parte
+de la información que debe estar bajo el control de la “OPDI” puesto que diversos
+proyectos de inversión se pueden generar bajo el marco de un convenio. La aplicación
+web facilita la generación oportuna de reportes con información util y veraz que permite
+dar a conocer datos importantes tanto a la “OPDI”, como a toda la comunidad
+universitaria.
+
+ 
+
+? SIAP (2013).
+*“Univalle (2013 e).Para el año 2011 se publicó en la biblioteca virtual de la Universidad del Valle un artículo
+relacionado con el diseño de un modelo de gestión basado en el Balanced Scorecard,
+para mejorar la calidad e incrementar el desempeño del sistema de Postgrado, en los siete
+Núcleos de la Universidad Gran Mariscal de Ayacucho (UGMA). En la investigación se
+pudo observar que el postgrado-UGMA no dispone de un sistema de gestión de
+desempeño que permita evaluar la calidad y efectividad del mismo. El diseño de la
+investigación es de tipo exploratorio y de campo.”
+
+Para el año 2013 se encontró en la biblioteca virtual de la Universidad del Valle un
+artículo basado en los resultados de investigación relacionada con la evaluación de las
+TIC utilizadas como apoyo a la gestión del talento humano y su objetivo esencial es
+caracterizar las principales herramientas TIC que se utilizan en los procesos operativos
+involucrados en la gestión del talento humano.*
+
+2.2. Marco Teórico
+
+Una metodología de desarrollo de software, hace referencia a un framework que es usado
+para estructurar, planear y controlar un proceso de desarrollo en un sistema de
+información.” Comprende procesos secuenciales de desarrollo en el que los pasos son
+vistos hacia abajo, a través de las fases de análisis de los requisitos, diseño del sistema,
+diseño del programa, codificación, pruebas, implantación y mantenimiento.
+
+Para una mejor comprensión de los procesos tecnológicos que deben realizarse en el
+desarrollo del proyecto, es necesario hacer una breve reseña de la metodología
+tecnológica que se utilizará.
+
+2.2.1 Metodología XP (extreme programming)
+
+La programación extrema es una metodología de desarrollo ligero (o ágil) basada en una
+serie de valores y de prácticas que persiguen el objetivo de aumentar la productividad a la
+hora de desarrollar programas.
+
+Este modelo de programación se basa en una serie de metodologías de desarrollo de
+software en la que se da prioridad a los trabajos, que dan un resultado directo y que
+reducen la burocracia que hay alrededor de la programación.*
+
+Univalle (2013 c).
+
+SUnivalle (2013 b).
+
+"Metodologías de desarrollo (2013).
+"Metodología xp (2013).XP Practices 2...
+
+     
+ 
+  
+  
+
+   
+ 
+   
+ 
+
+KA
+Collective Coding
+
+Ownership Test-Oriven Standard
+
+Customer Pair . Planning
+Tests Programming pr. ng Game
+Continuous me Simpl a Sus tainable
+integration vega Pace
+—— Metaphor —
+
+Small
+Rele ases vara PO Na, derma
+
+Figura 1. Fases de la metodología XP
+
+2.2.2. Metodología Scrum
+
+Scrum es una metodología ágil y flexible para gestionar el desarrollo de software, cuyo
+principal objetivo es maximizar el retorno de la inversión para su empresa (ROD). Se basa
+en construir primero la funcionalidad de mayor valor para el cliente y en los principios de
+inspección continua, adaptación, auto-gestión e innovación.”
+
+ 
+
+Figura 2. Metodología Scrum.
+
+ 
+
+"Metodología Scrum (2013).2.2.3. Proceso de Modelado Unificado.
+
+Es un proceso de Ingeniería de Software, el cual sirve como marco de trabajo genérico
+que se puede especializar para el uso de sistemas de Software, en áreas de aplicación, en
+las organizaciones, en los diferentes niveles de aptitud y tamaños del proyecto.
+
+El proceso unificado se puede definir como forma disciplinada de asignar tareas y
+
+responsabilidades en un desarrollo de software, que puede asegurar la producción de
+software de calidad, dentro de plazos y presupuestos predecibles.”
+
+Debido a que la finalidad de un sistema es dar servicio a los usuarios, es imprescindible
+definir cómo se va a realizar la interacción entre el usuario y el sistema.
+
+Un caso de uso es una fracción de la funcionalidad del sistema que produce un resultado
+importante para el usuario.
+
+Al especificar la arquitectura del sistema, se obtiene una visión general del mismo, y se
+facilita su desarrollo. El concepto de arquitectura del sistema depende de muchos
+factores, entre ellos se pueden destacar las necesidades de la empresa, el sistema
+operativo sobre el que va a funcionar el software, el sistema de gestión de base de datos y
+los protocolos de comunicación.
+
+El proceso unificado está centrado en la arquitectura, debido a que todo producto tiene
+tanto funcionalidad como forma. De tal manera, la funcionalidad está dada por los casos
+de uso y la forma de la arquitectura.
+
+El software moderno es complejo y novedoso, de modo que no es realista seguir un
+modelo lineal de desarrollo como el de cascada. Un proceso iterativo permite una
+comprensión creciente de los requerimientos a la vez que se va haciendo crecer el
+sistema. Teniendo esto en mente, es posible abordar las tareas más riesgosas primero,
+para así reducir los riesgos del proyecto y tener un subsistema ejecutable en corto tiempo.
+
+2.2.4. Herramientas Métodos y Procesos
+
+Herramientas: En la ingeniería del software proporcionan un soporte automático o semiautomático para el proceso y para los métodos. Cuando se integran mecanismos para que
+la información creada por una herramienta pueda utilizar otra, se establece un sistema de
+soporte para el desarrollo software llamado Ingeniería del Software asistida por
+computador (CASE). Case combina software, hardware y una base de datos para crear un
+entorno de ingeniería de software.
+
+Métodos: En la ingeniería del software indican cómo construir técnicamente el software.
+Entre ellos abarcan una gran gama de tareas que incluyen análisis de requisitos, diseño,
+construcción de programas, pruebas y mantenimiento.
+
+Proceso: Este permite un desarrollo racional y oportuno de la ingeniería del software;
+define un marco de trabajo para un conjunto de áreas clave de desarrollo que se deben
+establecer para la entrega efectiva de la tecnología de la ingeniería del software. Las áreas
+clave del proceso establecen el contexto en el que se aplican los métodos técnicos, se
+producen resultados del trabajo (modelos, documentos, informes, formularios, etc.)
+
+ 
+
+1% Proceso unificado (2013).2.2.5. Marco Conceptual
+
+Los conceptos teóricos utilizados en el proyecto, están enfocados a los diversos lenguajes
+empleados para la programación y codificación de funciones, que permiten crear páginas
+dinámicas donde se puede editar e inter-actuar con otras, por ejemplo cuando se procesa
+información de formularios preestablecidos, cuando se describe la estructura y el
+contenido de las páginas web en forma de texto, también un lenguaje de composición de
+documentos incluyendo textos, imágenes y otros medios.
+
+Es decir, los conceptos teóricos están ligados a un lenguaje en el que se desarrolla una
+aplicación con un determinado tipo de códigos y a través de ellos se determina una
+funcionalidad específica, generando una base de datos. De allí la importancia de emplear
+otras arquitecturas para incluir contenidos dinámicos que permita interactuar y generar
+procesos novedosos para alcanzar logros con más eficacia.
+
+2.2.6. PHP
+
+Fue desarrollado en el otoño de 1.994 por Rasmus Lerdorf. Es un lenguaje de tipo Script
+que se ejecuta en el servidor Web. Es una herramienta que permite crear Web dinámicas
+
+y hace posible que estas sean tratadas como una página HTML común, de igual forma su
+creación y edición es igual a la de cualquier documento HTML.
+
+Con PHP se escribe un script incrustado en el documento HTML, cuyo resultado será
+visualizado directamente al desplegarse dicho documento. El código PHP está contenido
+
+en etiquetas especiales que indican el comienzo y fin del código, permitiendo conmutar
+entre el código PHP y HTML.
+
+PHP es un lenguaje sencillo, de sintaxis cómoda y similar a la de otros lenguajes como C
+o C++, es rápido a pesar de ser interpretado, multiplataforma y dispone de una gran
+cantidad de librerías que facilitan el desarrollo de las aplicaciones.
+
+El código generado es modificable, es legible y se programa utilizando objetos. PHP es
+un lenguaje ideal tanto para el que comienza a desarrollar aplicaciones web como para el
+desarrollador experimentado, más de un millón de páginas web lo utilizan, ofreciendo
+conocimientos indispensables para los profesionales del desarrollo web.
+
+Además, PHP es un lenguaje basado en herramientas con licencia de software libre, es
+decir, sin pago de permisos, ni limitaciones en su distribución, además con la posibilidad
+de ampliarlo con nuevas funcionalidades si así lo desea.
+
+Cuando se solicita a un servidor web una página PHP, que no es más que un programa
+PHP que genera HTML, antes de enviar dicha página al cliente se la pasa al intérprete de
+PHP. Este la interpreta y es el resultado de esta interpretación del programa PHP,
+contenido en la página PHP, lo que termina llegando al cliente.**
+
+ 
+
+PHP (2013).
+
+102.2.7. Aplicaciones con PHP
+
+Es posible procesar la información de formularios, generar páginas Web con contenidos
+dinámicos, o mandar o recibir cookies.
+
+Sin duda alguna la capacidad más importante es el soporte para una gran cantidad de base
+de datos. Entre algunas Bases de Datos que soportan el lenguaje de PHP tenemos:
+
+=  Adabas File Pro IBM DB2 Informix Velocis DBase.
+"= Inter Base Front Base MSQL MySQL Empress Oracle.
+"=  Postgre SQL Solid Sybase.
+
+Como se mencionó, PHP permite generar páginas con contenido dinámico, por lo cual es
+necesario recordar cómo funcionan estas páginas. Las páginas web son documentos que
+se pueden visualizar a través de un navegador web y que pueden incluir texto, imágenes,
+ligas de hipertexto y otros medios. Para poder visualizar estas páginas, es necesario tener
+un programa que sea capaz de comunicarse con el servidor web, a través de un protocolo
+de comunicación llamado HTTP.
+
+El programa que permite visualizar las páginas Web, se le conoce como Navegador
+(Browser), ejemplos de éstos programas tenemos a Netscape Navigator, Internet
+
+Explorer, Opera entre otros.
+
+2.2.8. HTML
+
+Hyper Text Markup Language, es el lenguaje de marcas más utilizado para hacer páginas
+web. Se utiliza para describir la estructura y el contenido de las páginas Web en forma de
+texto, y para complementarlo con otros objetos tales como imágenes, sonidos y videos. Se
+escribe en forma de etiquetas rodeadas por corchetes angulares (< >). Los archivos
+escritos en este lenguaje tienen normalmente extensión HTM o HTML, **
+
+Las páginas de Web están escritas en un Lenguaje de Marcado de Hipertexto mejor
+conocido como HTML. Esto es la base de todo desarrollo en la Web.
+
+HTML es un lenguaje de composición de documentos y especificaciones de ligas de
+hipertexto que define la sintaxis y coloca instrucciones especiales que no muestra el
+navegador, aunque sí le indica cómo desplegar el contenido del documento, incluyendo
+texto, imágenes y otros medios soportados.
+
+HTML también le indica cómo hacer un documento interactivo a través de ligas
+especiales de hipertexto, las cuales conectan diferentes documentos.
+
+HTML es la parte fundamental de las páginas Web y cualquiera que desee desarrollar una
+aplicación debe estar familiarizado con este tipo de código.
+
+HTML es un lenguaje muy sencillo que tiene demasiadas limitaciones, es por ello que es
+necesario complementarlo con alguna metodología de desarrollo que permita ofrecer una
+mayor funcionalidad.
+
+Las páginas de HTML únicamente tienen contenido estático, pero cuando se emplean
+otros lenguajes como PHP, se puede incluir contenido dinámico, es decir contenido que
+varía dependiendo de la información suministrada por el usuario. La mayoría de las
+veces, la información que se genera de manera dinámica, proviene de una Base de Datos.
+
+“HTML (2013).
+
+112.2.9. Activo Digital
+
+La gestión de Activos Digitales (DAM) se refiere a la tecnología que ayuda a gestionar la
+masa de datos con los que se trabaja en la vida personal y profesional.
+
+Activos digitales incluyen documentos, correos electrónicos, fotografías, MP3, películas
+online, y cualquier otro contenido que almacenar en un ordenador. Las Aplicaciones de
+gestión de activos digitales ayudan a tratar con una o más de las típicas tareas de gestión
+de archivos: Búsqueda de un activo digital, organización de activos digitales, copia de
+seguridad de activos digitales, obtención de activos digitales, verificar la integridad de los
+activos digitales, Descubrimiento de copias duplicadas de activos digitales. *
+
+DSPACE (Es un software de código abierto que provee herramientas para la
+administración de colecciones digitales), en la gestión de activos digitales de Open
+Source es un sistema que fue elaborado conjuntamente por el MIT (El Instituto
+Tecnológico de Massachusetts) y HP Labs (Hewlett-Packard).
+
+DSPACE está diseñado para capturar, almacenar, indexar, preservar y redistribuir
+enormes cantidades de datos digitales este se ejecuta en Unix, Linux y Microsoft
+Windows.
+
+Un activo digital, es una herramienta de valor agregado que propicia en el marketing
+digital a través de la comunicación directa de las empresas e individuos con sus
+seguidores o consumidores en el internet.
+
+A diferencia de los activos tradicionales no son sólo propiedad privada o particular sino
+tratándose de plataformas de comunicación éstas también pertenecen a los usuarios.
+
+Los activos digitales actualmente se dividen en tres categorías.
+
+Medios Propios: Son aquellos creados por las empresas que permiten interactuar con la
+comunidad virtual por ejemplo: los sitios web clásicos y móviles, blogs y canales en
+redes sociales (Social Media).
+
+Medios de Pago: Se constituyen así todas aquellas plataformas que faciliten el diseño de
+campañas publicitarias virtuales, generen inteligencia de negocios esto en el caso de
+bases de datos, anuncios en redes sociales, pago a influenciadores, etc.
+
+Medios Ganados, Obtenidos o Retribuidos: Son aquellos que se refieren a la influencia
+de la marca como tal y que son producidos con acciones puntuales en el internet éstos
+pueden ser publicaciones, revistas, foros, contenido multimedia de carácter educativo,
+etc.
+
+La generación de activos digitales puede ser por medio de páginas web con contenidos de
+calidad para el consumo masivo, aplicaciones móviles con contenidos, redes sociales,
+puede incluir fotos, video, audio, documento de texto, presentaciones de PowerPoint, etc.
+
+2.2.10 Archivo
+
+Transferencia sistemática a medios de almacenamiento alternativo de datos digitales que
+no requieren ser acezados inmediatamente. También, se refiere a una colección de
+registros históricos y documentos, especialmente sobre una institución.
+
+Los archivos también denominados ficheros (file); es una colección de
+información (datos relacionados entre sí), localizada o almacenada como una unidad en
+
+alguna parte de la computadora.
+
+ 
+
+13 Activos Digitales (http: //www.ideup.com/proyecto/unificacion-y-rediseno-responsive-de-los-activosdigitales-del-grupo-presto-iberica).
+
+12Los archivos como colección de datos sirve para la entrada y salida a la computadora y
+son manejados con programas, pueden ser contrastados con arrays y registros; Lo que
+resulta dinámico y por esto en un registro se deben especificar los campos, él número de
+
+elementos de un arrays (o arreglo), el número de caracteres en una cadena; por esto se
+denotan como "estructuras estáticas".
+
+Los archivos tipeados (con tipo), también llamados archivos binarios, contienen datos de
+
+tipo simple o estructurado, tales como integer, real, record, etc., excepto otro tipo de
+archivos.
+
+Los archivos con tipos están estructurados en elementos o registros (record) cuyo tipo
+puede ser cualquiera. A los elementos de estos archivos se accede directamente, al no
+situarse éstos en posiciones fisicamente consecutivas, sino en posiciones lógicas. Esta es
+la razón por la cual se les denomina archivos de acceso aleatorio o directo.
+
+Los elementos de los archivos aleatorios son de igual tamaño y el término acceso directo
+significa que es posible acceder directamente a un elemento con solo especificar su
+posición.
+
+Los archivos Binarios no son un nuevo tipo de archivo, pero si una nueva forma de
+manipular cualquier tipo de archivo. Las técnicas de archivo binarios permiten leer o
+cambiar cualquier byte de un archivo.
+
+Los archivos son almacenados por medio de directorios, esta clasificación es de acuerdo a
+la conveniencia del usuario o de la empresa. La estructura tiene una forma de árbol con
+raíz, este método es el más utilizado debido a que la revisión o búsqueda se realiza de
+forma sencilla. Para ingresar a los archivos que se almacenan en un sistema jerárquico, el
+usuario debe indicar los directorios que se deben recorrer para localizar el archivo
+deseado, a esto se le denomina ruta de acceso del archivo.
+
+La manipulación de los archivos se hace en el contexto de la programación en un
+lenguaje por procedimientos de alto nivel. Estos lenguajes tienden a expresar la
+
+manipulación de archivos mediante subrutinas que se definen como parte del lenguaje
+formal o se incluyen como extensiones del lenguaje en una biblioteca estándar. La mayor
+
+parte de los lenguajes por procedimiento de alto nivel cuenta con características que
+ayudan a detectar la marca de fin de archivo.
+
+2.2.11. Búsqueda
+
+Realizar un registro para un dato específico o una ocurrencia de texto en un archivo o una
+página. Implica el escaneo secuencial de contenido o indexado para encontrar los
+resultados en vez de realizar un examen directo.
+
+En el ámbito de Internet, una búsqueda es la acción que se lleva a cabo en un motor (que
+recibe el nombre de buscador), con el objetivo de hallar ciertos archivos oO
+documentos que están alojados en servidores web.
+
+El usuario debe ingresar términos o frases (conocidos como palabras clave o keywords)
+en el buscador para que éste presente una página con resultados.
+
+Por más que se lo presente de forma diversa, y a pesar de las diferencias en cuanto a
+la tecnología utilizada por cada motor de búsqueda, aquellos que hayan usado
+
+ordenadores con asiduidad antes del nacimiento de Internet seguramente buscaron
+archivos muchas veces antes de conocer y aprovechar los servicios de Yahoo o Alta vista,
+
+dos de los primeros buscadores en línea.
+
+13A lo largo de la corta pero intensa historia de Internet, las búsquedas han adquirido una
+gran importancia, a pesar de haber sido ignoradas por muchos en un principio. Cabe
+mencionar que a comienzos de los años 90 no había tantos sitios similares, y que la gente
+llegaba a ciertos portales por recomendación de sus conocidos. Pero el crecimiento de la
+Red hizo necesario un modo de explorar las consultas para encontrar lo que se necesite,
+como si de una gran biblioteca se tratara.
+
+En la Informática, un motor de búsqueda resulta ser aquel sistema informático que busca
+archivos que se encuentran guardados en diversos servidores web gracias a sus spiders. El
+ejemplo más popular y clásico de este tipo son los buscadores de internet.
+
+Las búsquedas las llevan a cabo a través de palabras clave o árboles jerárquicos
+ordenados por temas y el resultado de la búsqueda nos dará una listado de diferentes
+direcciones web en las cuales se mencionan temas o palabras que coinciden con las
+palabras clave ingresadas.
+
+Google es el buscador más famoso del momento y, en gran parte, debe su éxito a la serie
+de innovaciones tecnológicas que la empresa homónima lleva incorporando año tras año.
+Una de sus características más útiles consiste en intentar adivinar qué desean buscar sus
+usuarios antes de que terminen de ingresar las palabras claves; esto lo logra gracias a la
+gran cantidad de información que recolecta constantemente, razón por la que muchos
+temen utilizar sus servicios.
+
+Es importante recordar que Google cuenta con Gmail, Youtube y Blogger, entre otras
+plataformas, y que puede monitorizar la actividad de todos sus clientes para conocerlos
+mejor.
+
+2.2.12. Datos Estructurados
+
+A diferencia de los datos de tipo simple que sólo pueden almacenar un valor, los datos
+estructurados o estructuras de datos pueden recolectar varios valores simultáneamente. Se
+
+hace una primera introducción a los datos estructurados destacando en primer lugar que
+se les asigna una cantidad fija de memoria durante la ejecución del programa cuando se
+
+declara una variable de un determinado tipo estructurado.
+
+El primer tipo estructurado es el tipo array que permite agrupar otros datos más simples
+de igual tipo bajo un mismo identificador. Este tipo de estructuras permiten definir
+vectores, matrices, tablas y estructuras multidimensionales. Turbo Pascal incorpora un
+tipo especial de array: el tipo string. Se define como una secuencia de caracteres cuya
+longitud puede variar entre 1 y 255. El tipo record está compuesto de elementos de
+diferentes tipos a cada uno de los cuales se les asocia un identificador. Finalmente se
+analiza el tipo estructurado set equivalente al concepto de conjunto matemático y otros
+tipos de datos no simples.
+
+Los datos estructurados son una serie de etiquetas que, por una parte, dan a los
+
+buscadores una indicación precisa del contenido de tu web y, por otra, te muestran en los
+resultados de búsqueda de una manera más atractiva.
+
+Los tipos de datos se utilizan para asignar una variable o una constante con un nombre
+fijo que tome una porción de memoria y que almacene una información en memoria, si el
+tipo de dato es numérico solo almacenará datos numéricos y si el tipo de dato es una
+cadena de caracteres almacenará texto. Dependiendo el tipo de datos numérico se podrá
+almacenar una cantidad de dato dependiendo la precisión que tenga la variable.
+
+14En programación los tipos de datos son (o pueden ser) distintos entre sí, cada tipo
+corresponde a como se va a jugar con la memoria, es decir un dato numérico puede usar
+entre 2 y 4 byte (depende del compilador), mientras que un dato carácter usara un byte
+por cada carácter, es por eso que se especifica que es lo que se necesita.
+
+Los datos que residen en campos fijos dentro de un registro o archivo. Las bases de datos
+relacionales y las hojas de cálculo son ejemplos de datos estructurados.
+
+2.2.13. Datos no estructurados
+
+La administración de datos no estructurados es uno de los mayores problemas aún no
+resueltos en la industria de la tecnología de la información. La principal razón radica en
+
+que las herramientas y técnicas existentes han sido desarrolladas para el tratamiento de
+información estructurada pero fallan al momento de procesar información no
+estructurada.
+
+Cuando se hace mención a datos no estructurados o información no estructurada se hace
+referencia a información de computadora que no tiene un modelo formal de dato que la
+represente o que, en caso de poseer uno, no es fácilmente utilizable por un programa de
+computadora. El término distingue este tipo de información de aquella que se encuentra
+almacenada en bases de datos y organizada a través de campos.
+
+Los datos no estructurados (o información no estructurada) se refiere a las masas
+(generalmente) de la información automatizada que hacen que cualquier estructura de
+datos no sea fácilmente legible por una máquina.
+
+Los ejemplos de “datos no estructurados” pueden incluir audio, vídeo y texto no
+estructurado tal como el cuerpo del email o procesador de textos de documentos.
+
+Los datos con una cierta forma de estructura se pueden también referir como datos no
+estructurados si la estructura no es provechosa para la tarea de proceso deseada.
+
+Muchos de los datos no estructurados son texto ruidoso. Los Email espontáneos de la
+comunicación por ejemplo, SMS, blogs, web pages contienen el texto ruidoso. El ruido
+en texto se define como cualquier clase de diferencia entre la forma superficial de una
+representación cifrada del texto y el texto previsto, correcto, u original.
+
+2.2.14. Permisos
+
+Hace referencia a la administración de quien puede acceder a una determinada
+información en un computador o en una red. La Lista de Control de Acceso (ACL) es el
+conjunto de datos asociados con un archivo, directorio u otro recurso que define los
+permisos que los usuarios, grupos, procesos o dispositivos tienen para acceder a él.
+
+Los permisos son reglas asociadas a los objetos de un equipo o red, como archivos y
+carpetas. Los permisos determinan si se puede obtener acceso a un objeto y lo que se
+puede hacer con él. Por ejemplo, puede tener acceso a un documento en una carpeta
+compartida de una red. Aunque pueda leer el documento, es posible que no tenga
+permisos para modificarlo. Los administradores del sistema y los usuarios con cuentas de
+administrador en los equipos pueden asignar permisos a usuarios individuales o a grupos.
+
+El concepto de permiso se ha adoptado para asignar el derecho o no de acceso de la
+
+mayoría de los archivos, a un grupo de usuarios determinados. De esta manera, es posible
+restringir un archivo para evitar ser leído, modificado o ejecutado por una determinada
+
+15persona u organización. Muchas empresas se manejan con listas de control de acceso, con
+lo cual logran administrar los permisos más variados y complejos.
+
+2.2.15. Portal
+
+Dentro de la empresa, un portal es el software que proporciona acceso a un navegador
+web, a todos los activos de información y aplicaciones de una organización. Los portales
+proporcionan una gran variedad de servicios, incluyendo la búsqueda web, noticias,
+directorios de páginas amarillas y blancas, e-mail gratuito, grupos de discusión, tiendas
+online y vínculos a otros sitios. Un componente de la Enterprise Content Management
+(ECM), de contenidos empresariales como: “las estrategias, métodos y herramientas
+utilizadas para capturar, administrar, almacenar, preservar y distribuir la información no
+estructurada y que está relacionada con los procesos empresariales.
+
+Portal es un nuevo término, comúnmente sinónimo de puerto, que se utiliza para
+referirnos a un sitio web que sirve de punto de partida para iniciar nuestra actividad de
+navegación en internet, al cual visitamos con frecuencia y al que generalmente se designa
+como página de inicio en nuestro navegador, Google.com por ejemplo.
+
+Existen portales genéricos y especializados, conocidos estos últimos como portales de
+nicho. Algunos de los portales más conocidos son el de Yahoo!, Google, Excite,
+Netscape, Lycos, Cnet, Microsoft Network y el de América Online. Ejemplos de portales
+especializados incluyen, mas no se limitan a, Garden.com (para jardinería), Fool.com
+(para inversionistas) y SearchNT.com (para administración de Windows NT)
+
+Dado que no se puede auto denominar a cualquier página o sitio Web como portal, estas
+son las características qué debe cumplir todo Portal:
+
+"= Tiene un tema de interés con una importancia totalmente definida para un público
+definido cuyo número ha de ser de algunos miles, como mínimo.
+
+"= Aunque el portal tenga varios temas debe haber un tema predominante y
+claramente identificable al estar en la página principal del portal.
+
+"= Sirve de enlace a todas las páginas relacionadas al tema del Portal, dejando de
+enlazar unas pocas que representan un mínimo porcentaje.
+
+"= El portal debe permitir ubicar información fácilmente. Esta característica es la
+que fortalece o debilita la “popularidad” de un portal, porque el “publico
+objetivo” es muy heterogéneo, lo que convierte en desafío el nivel de
+“usabilidad” aplicada en su diseño, la estrategia y dialecto.
+
+= Alto tráfico. Un portal que es visitado algunas centenas de veces al día, en forma
+sostenida, debe dejarse de autodenominarse portal. No hay excepción a esta regla.
+Tanto la programación como la base de datos y servidores de aplicaciones deben
+soportar miles de visitas por hora.
+
+"= Miles de enlaces o el 95% del universo. Un portal, si bien en cierto contiene
+mucha información de un tema importante, debe estar en capacidad de contener
+todos los miles de enlaces que puedan haber en Internet o las relacionados al
+tema del portal. Un portal que tenga menos del 90% del universo de enlaces del
+tema, en el mediano plazo, debe dejarse de autodenominar portal.
+
+" Cambio centrado en el usuario. Un portal debe su existencia a la necesidad del
+visitante de encontrar toda la información relacionada con un tema en la forma
+
+16más sencilla posible y es por esta razón que todo portal debe conceptuarse,
+adaptarse y evolucionar de acuerdo a las condiciones cambiantes de los
+
+visitantes. Por esto se usa UCD (Diseño orientado al usuario) para el diseño, un
+portal que no es capaz de adaptarse al visitante, en el mediano plazo debe dejar
+de serlo. Quienes califican un portal como tal son los visitantes y no sus gestores.
+Un sitio o página Web puede mantenerse “de espalda” al visitante y podrá ser
+“poco popular” y seguir cumpliendo su rol. Un portal que “vive de espaldas” al
+visitante bajará su tráfico y dejará de ser portal.
+
+"= Métricas de desempeño. Un portal debe medir su desempeño, de manera que
+conserve los niveles que lo diferencias de un sitio o página Web. Un portal que
+“Ignore” lo que está ocurriendo en Internet carece de argumentos técnicos para
+autodenominarse Portal.
+
+"= Motor de búsqueda. Un portal no es un buscador, pero siempre contiene una
+forma “fácil” de búsqueda. Una de las formas de búsqueda más aceptadas es la
+que permite “filtrar” por el uso de palabras o frases clave y las iconográficas. Un
+portal que no almacene en una “base de datos” todos los contenidos y que no los
+ofrezca dentro un mecanismo de búsqueda “amigable” a sus visitantes está
+destinado a ser olvidado a mediano plazo.
+
+" Dinámico. Un portal cuyo contenido no cambie en el tiempo debe dejar de
+llamarse portal. Internet cambia vertiginosamente y todo portal debe alimentarse
+y alimentar la red. Algunos portales incluyen un gestor de contenidos basados en
+buscadores autónomos en Internet. Otros se basan en suscripciones, convenios y
+buscadores privados. Si un portal se actualiza solo con información “interna”
+debe dejar de autodenominarse portal.
+
+"= Créditos. El error más común del inexperto es denominar portal a cualquier
+página a sitio Web que se crea, con el propósito de darle una mayor importancia a
+su trabajo. Lo inteligente es lanzar una solución Web sin autodenominarla Portal,
+luego ir alcanzando cada uno de los requisitos de un portal y, solo como
+consecuencia de este esfuerzo denominarlo como tal. Lo ideal: que los mismos
+visitantes (sabiendo qué es y qué no es un portal), exijan que dicho sitio o página
+Web se considera (con todo mérito) un portal.
+
+2.2.16. Productividad
+
+La productividad es la que permite establecer la relación entre los resultados y el tiempo
+utilizado para obtenerlos: cuanto menor sea el tiempo que lleve obtener el resultado
+deseado, más productivo es el sistema. En realidad la productividad debe ser definida
+como el indicador de eficiencia que relaciona la cantidad de producto utilizado con la
+cantidad de producción obtenida”.
+
+En estos tiempos de crisis la palabra "productividad" es algo mágico. Todo el mundo
+busca aumentarla como sea. En el mundo de la programación y del desarrollo siempre
+hemos tenido muchas opciones para mejorarla. Podemos aplicar metodologías para el
+desarrollo ágil como por ejemplo Serum. Nos podemos apoyar en buenas prácticas y
+patrones de diseño o podemos apostar por herramientas como visual Studio ó Eclipse
+para mejorar nuestra productividad.
+
+Los productos y servicios son resultado de diferentes procesos, que están
+interrelacionados y que no necesariamente abarcan una sola área de trabajo, pues se
+
+17vinculan diferentes funciones, ya sea de orden productivo, financiero, comercial,
+abastecimiento, recursos humanos, etc. Por ende, la calidad final de un producto o un
+
+servicio, será la resultante del control de todos los procesos. De esta manera se busca
+minimizar las variaciones de cada proceso logrando así abatir al mínimo las variaciones
+
+en la calidad del producto o servicio final.
+
+En lo que respecta con la productividad se dice que hoy en día no es competitivo alguien
+que no cumple con calidad, producción, bajos costos, tiempos estándares, eficiencia,
+innovación, nuevos métodos de trabajo, tecnología y muchos otros conceptos que hacen
+que cada día la productividad sea un punto de cuidado en los planes a largo y pequeño
+plazo, que tan productiva sea o no una empresa podría demostrar el tiempo de vida de
+dicha corporación.
+
+2.2.17. Repositorio de Documentos
+
+Repositorio de documentos de archivo significa una oficina de documento, una biblioteca,
+un museo o cualquier otra institución que custodia documentos que están abiertos para la
+inspección pública.
+
+Un repositorio es un sitio centralizado donde se almacena y se mantiene información
+digital, habitualmente bases de datos o archivos informáticos.
+
+Los repositorios están preparados para distribuirse habitualmente sirviéndose de una red
+informática como Internet o en un medio físico como un disco compacto. Y pueden ser de
+
+acceso público, o pueden estar protegidos y necesitar de una autentificación previa. Los
+repositorios más conocidos son los de carácter académico y los institucionales.
+
+Los repositorios institucionales son depósitos de archivos digitales de diferentes
+tipologías para accederlos, difundirlos y preservarlos. Estos repositorios, enmarcados
+generalmente en la iniciativa Open Access, permiten asegurar el acceso libre y abierto
+(sin restricciones legales y económicas) a los diferentes sectores de la sociedad y de esa
+manera puedan hacer uso de los servicios que ofrecen. Finalmente, los repositorios están
+evolucionando en el ámbito académico y científico, y las diferentes disciplinas de la
+Ingeniería deben prepararse para brindar un conjunto de servicios a través de esos
+sistemas para la sociedad de hoy y del futuro.
+
+A diferencia de los ordenadores personales o de las PC de escritorio, los repositorios
+suelen contar con sistemas de Backup y mantenimiento preventivo y correctivo, lo que
+
+hace que nuestra información se pueda recuperar en el caso que nuestra máquina o PC
+quede inutilizable.
+
+2.2.18. Software de Colaboración
+
+Programas que vinculan procesos e individuos en diferentes lugares y zonas horarias para
+crear un ambiente donde los miembros del equipo trabajan juntos para hacer circular
+ideas, experiencias y conocimiento.
+
+No solo permiten la comunicación, le brinda a las empresas beneficios enfocados en la
+gestión de proyectos, la mejora en el flujo de trabajo y el acceso a los servicios de
+facturación y documentos en cualquier momento.
+
+18Hay seis opciones que cuentan con todas las funciones empresariales, que buscan ser
+colaboración con las pymes. La mayoría se integran con la productividad de la oficina y
+las herramientas de comunicación.
+
+"= Affinity Live: Es un sistema empresarial personalizable y diseñado para ayudar a
+las empresas a gestionar clientes y proyectos. Ofrece herramientas de
+organización de contacto, correos y calendarios.
+
+"= The box: El servicio ofrece el intercambio y colaboración en línea para cualquier
+tipo de negocio. Permite el uso del buzón para almacenar, acceder, gestionar y
+compartir contenido en línea desde cualquier lugar.
+
+"  DeskAway: El software de colaboración ayuda a sincronizar los diferentes
+equipos en el negocio, proporcionando una ubicación central para organizar,
+dirigir y controlar el trabajo de forma privada o pública.
+
+"= Google Apps: La suite de productividad basada en la nube de Google ayuda a los
+equipos a conectarse y realizar trabajos desde cualquier lugar y dispositivo.
+Incluye calendario, hojas de cálculo, diapositivas y el drive para almacenar y
+compartir documentos en la nube.
+
+"=  Huddle: Permite compartir archivos, colaborar con el contenido y conectar a las
+personas que contribuyen en un proyecto específico. Incluye un tablero de
+instrumentos de colaboración para dar a los usuarios acceso inmediato a la
+información, registros de actividad e historial de actividad del usuario.
+
+"= Microsoft Office 365: Esta versión se ejecuta en la nube, tanto en versiones
+
+móviles como para explorador, con el fin de tener los documentos disponibles
+con la facilidad de cambios y distribución.
+
+2.2.19. Web
+
+Esta palabra proviene del inglés, significa red, malla o telaraña y podemos aplicarla al
+concepto de World Wide Web (gran telaraña mundial) también conocida como la Web o
+
+sistema de documentos (páginas web) interconectados por enlaces de hipertexto
+disponibles en Internet.
+
+Fue allí, con la aparición de la www (World Wide Web) donde se comenzó a usar dicho
+concepto y aparece la Web 1.0 (1991-2003), la cual es la forma más básica que existe,
+con navegadores de sólo texto bastante rápidos y después surgió el HTML (Hyper Text
+Markup Language o Lenguaje de Marcado de Hipertexto) que hizo las páginas web más
+agradables a la vista, así como los primeros navegadores visuales tales como IE (Internet
+Explorer), Netscape Explorer, etc.
+
+La Web 1.0 es de sólo lectura y el usuario no puede interactuar con el contenido de la
+página (nada de comentarios, respuestas, citas, etc.) estando totalmente limitado a lo que
+el Web máster (persona responsable de mantenimiento o programación de un sitio web)
+sube a ésta.
+
+Web 1.0 se refiere a un estado de la World Wide Web, es en general un término que ha
+sido creado para describir la Web antes del impacto de la fiebre punto com (.com) en el
+2001, y a cualquier página diseñada con un estilo anterior al fenómeno de la Web 2.0, que
+es visto por muchos como el momento en que el Internet dio un giro. Comenzó a aparecer
+la segunda generación de la Web basada en comunidades de usuarios y una gama especial
+
+19de servicios web, como las redes sociales, los blogs, los wikis que fomentan la
+colaboración e intercambio ágil de información entre los usuarios.
+
+Con este cambio radical y para referirse a la segunda generación de la Web se empieza a
+utilizar el término Web 2.0 que fue acuñado por Tim O'Reilly en 2004,
+
+El navegador web o navegador de internet es el instrumento que permite a los usuarios de
+
+internet navegar o surfear entre las distintas páginas de sus sitios webs preferidos. Se trata
+de un software que posee una interfaz gráfica compuesta básicamente de: botones de
+navegación, una barra de dirección, una barra de estado (generalmente, en la parte
+inferior de la ventana) y la mayor parte, en el centro, que sirve para mostrar las páginas
+web a las que se accede.
+
+Los principales navegadores web del mercado son: Microsoft Internet Explorer, Firefox,
+Google Chrome, Opera, Safari.
+
+2.2.20. Framework
+
+Los frameworks son desarrollados con el objetivo de brindarles a los programadores y
+diseñadores una mejor organización y estructura a sus proyectos.
+
+Se utiliza la Programación Orientada a Objetos, permitiendo la reutilización de nuestro
+código. Un frameworks de aplicaciones permite el desarrollo de sitios dinámicos, web
+services y aplicaciones.
+
+El propósito de este tipo de frameworks es permitir a los desarrolladores construir
+aplicaciones y centrarse en los aspectos interesantes, aliviando la típica tarea repetitiva
+asociada con patrones comunes de desarrollo web.
+
+La mayoría de los frameworks de aplicaciones proporcionan los tipos de funcionalidad
+básica común, tales como sistemas de templates (plantillas), manejo de sesiones de
+usuario, interfaces comunes con el disco o el almacenamiento en base de datos de
+contenido cacheado, y persistencia de datos. Normalmente, los frameworks de aplicación
+además promueven la reutilización y conectividad de los componentes, así como la
+reutilización de código, y la implementación de bibliotecas para el acceso a base de datos.
+
+Los mejores frameworks son especialmente buenos para organizar proyectos de gran
+magnitud, y a su vez tratando de mantenerse fuera del camino, sin imponerse por encima
+del proyecto.
+
+El más conocido patrón de diseño de aplicaciones web en los frameworks son la
+arquitectura Model-View-Controller (MVC: Modelo-Vista-Controlador). Un Modelo es
+un objeto que representa datos o incluso una actividad en forma de tabla en base de datos.
+Una Vista es algún tipo de visualización del estado del modelo, y un Controlador ofrece
+funciones (herramientas) para cambiar el estado del modelo.
+
+Entre los Frameworks más conocidos tenemos:
+"= Symfony. Diseñado con el objetivo de optimizar la creación de las aplicaciones
+
+web, con el uso de sus características. Posee una librería de clases que permiten
+reducir el tiempo de desarrollo. Está desarrollado en PHPS5, se puede utilizar en
+
+20plataformas *nix (Unix, Linux) y Windows. Requiere de una instalación,
+configuración y líneas de comando, incorpora el patrón MVC, soporta AJAX,
+plantillas y un gran número de bases de datos.
+
+"=  Seagull. El frameworks Seagull, permite realizar una programación modular,
+posee un sistema de gestión de contenidos (CMS).Entre sus características se
+encuentran su compatibilidad con PHP 4 y PHP 5, ORM integrado, incorpora el
+patrón MVC, uso de templates, soporte para múltiples bases de datos, validación
+
+de datos, alto nivel de configuración, autentificación, integración de librerías
+PEAR.
+
+"= Prado. Prado está basado en componentes eventos con el objetivo de acelerar el
+desarrollo de aplicaciones web usando (PHP 5). El concepto del desarrollo de
+aplicaciones en Prado es diferente, se utilizan componentes, eventos y
+propiedades en vez de procedimientos, URL y parámetros. Esté framework
+combina especificaciones en un archivo XML, plantillas HTML y una clase PHP.
+Prado, cuenta con soporte para AJAX, validación, autentificación, plantillas,
+múltiples bases de datos.
+
+=  Laravel. Laravel!'* es un nuevo y poderoso Framework PHP desarrollado
+por Taylor Otwell, que promete llevar al lenguaje PHP a un nuevo
+nivel. Desarrollar aplicaciones usando  hLaravel es muy sencillo,
+fundamentalmente debido a su expresiva sintaxis, sus generadores de código, y
+su ORM (Object-Relational mapping), que es un modelo de programación que
+consiste en la transformación de las tablas de una base de datos, en una serie de
+entidades que simplifiquen las tareas básicas de acceso a los datos para el
+
+programador. Incluido el paquete llamado £loquent ORM, Laravel, propone una
+forma de desarrollar aplicaciones web de un modo mucho más ágil. Por ejemplo,
+en Laravel opcionalmente podemos usar el patrón de diseño MVC (ModeloVista-Controlador) tradicional, donde al igual que otros Frameworks PHP, el
+controlador es programado como una clase. Por lo tanto, un Controlador es
+una clase PHP que dispone de métodos públicos que son el punto de entrada final
+de una petición HTTP (Request PHP) en la aplicación. Pero, Laravel propone
+además una forma distinta y más directa de responder a la solicitud HTTP,
+Laravel “entrega la opción” de seguir usando la metodología tradicional MVC.
+Sin embargo, el Frameworks propone una vía más rápida en PHP, la cual
+consiste en Programar la interacción HTTP directamente como una función
+anónima asociada a una Ruta. Esto tiene la ventaja de reducir la cantidad de
+código, especialmente cuando sólo necesitamos incluir una funcionalidad. Así,
+donde antes necesitábamos programar una clase, ahora en Laravel sólo
+requerimos escribir una función en PHP.
+
+Algunas de estas razones, que influyen notablemente en el empleo de frameworks
+en lugar de desarrollar aplicaciones desde cero con PHP son:
+
+"=  — Quese dispone de componentes plenamente probados que simplificarán las tareas
+de programación y reducirán enormemente el trabajo repetitivo, con el objetivo
+de mejorar la productividad, construir todo tipo de aplicaciones, agregar nuevas
+funcionalidades y extender las ya existentes.
+
+"= Separación de capas lógicas (MVC) con un controlador frontal.
+
+ 
+
+“Laravel (http://codehero.co/series/laravel-4-desde-cero/).
+
+21La seguridad, factor clave en cualquier aplicación. Los datos introducidos por el
+usuario deben de estar debidamente validados y filtrados para evitar cualquier
+tipo de ataque.
+
+La Comunicación con Bases de Datos (MySQL) está perfectamente
+automatizada, y validadas todas las consultas.
+
+22Capítulo 3
+3. Desarrollo del Proyecto
+
+Aspectos del desarrollo de software
+
+En este capítulo se presenta el proceso de desarrollo para la implementación del Sistema
+de información en la gestión de los trabajos de grado de la Universidad del Valle, que
+comprende un conjunto de etapas: análisis, diseño, codificación, pruebas e
+implementación, en las cuales se evidencia el cumplimiento del objetivo tercero del
+proyecto, con el fin de también dar cumplimiento al objetivo principal de este proyecto,
+se planteó como actividad metodológica las técnicas de recolección de información; el
+
+análisis de contenido y las entrevistas, ya que son excelentes técnicas para la obtención de
+los requerimientos de información en una organización.
+
+3.1 Metodología
+
+A continuación se muestra las distintas fases, las actividades que se realizaron en ellas y
+los objetivos que se cumplieron.
+
+Marco de
+referencia
+
+ 
+
+Esquema
+genérico de la
+
+solución
+
+Modelado
+
+Sistema de
+Información
+
+ 
+
+Figura 3. Metodología del proyecto
+
+Fase de Análisis.
+
+El objetivo de esta fase fue establecer claramente los límites del Sistema de Información.
+Se realizaron actividades de planteamiento del negocio y definición de entidades que
+interactúan en el modelo de negocio, para esto se realizaron entrevistas en los programas
+
+académicos, (VER ANEXO A) y (VER ANEXO BJ) para conocer el proceso de entrega
+de trabajos de grado. Se hizo evidente la carencia de un sistema de información para la
+gestión de trabajos de grado en la Universidad del Valle. Con la realización de ésta etapa
+se cumplió con el primer objetivo específico.
+
+23Fase de Modelado.
+
+En esta fase se buscó crear un modelo a través del cual fuera posible sistematizar una
+herramienta que permita gestionar los procesos de proyectos de grado.
+
+Para el desarrollo específico del proyecto y dentro del marco de adquisición de
+conocimientos se contó con la importante colaboración de la Oficina de Calidad de la
+Universidad del Valle - Sede Tuluá. Esta dependencia ayudó a la comprensión de la
+estructura organizacional y proporcionó diversos contenidos digitales como documentos,
+esquemas y enlaces Web, referentes al contexto específico dentro de la organización,
+permitiendo así la definición posterior de las características y el alcance del producto
+final. De toda esta información se logró organizar un documento en el cual se identifican
+
+todas las actividades realizadas por cada programa en la gestión de los proyectos de
+grado. (VER ANEXO C).
+
+Fase de Construcción.
+
+El objetivo de esta fase fue diseñar una arquitectura de software del sistema, la cual fue la
+base para el desarrollo de las partes, que posteriormente se integraron para formar el
+sistema de información, se generó el código fuente y se realizaron las pruebas de caja
+blanca para verificar el buen funcionamiento de las partes que conforman el sistema. Con
+la culminación se obtuvo el sistema de información operativo con toda la documentación
+correspondiente y así se dio cumplimiento al segundo y tercer objetivo específico. En esta
+fase se coloco en marcha el sistema de información, es decir, llevarlo desde el ambiente
+de desarrollo al ambiente del usuario, para que funcionara en el entorno real y poder
+realizar pruebas de caja negra las cuales ofrecieron una visión general del sistema desde
+el punto de vista funcional y verificar que cumpliera con los requerimientos exigidos por
+los usuarios.
+
+Al culminar esta se pudo contar con el software totalmente documentado y funcionando
+correctamente en su entorno real, cumpliendo con el último objetivo específico
+propuesto. Para este proyecto, se contó con una metodología de desarrollo de software
+llamada Scrum. Esta consiste en un método ágil de gestión de proyectos cuyo objetivo
+principal es elevar al máximo la productividad de equipo de desarrollo. Scrum es
+
+actualmente una de las metodología agiles para el desarrollo de softwarede mayor
+difusión en la industria.
+
+Al inicio del proyecto se define el Productbacklog, que contiene los requerimientos
+funcionales y no funcionales del sistema. Estos deberán estar especificados de acuerdo a
+las convenciones de cada organización, donde usualmente se utiliza un artefacto de alto
+nivel, como lo son las historias de usuario. A partir de este, el Productbacklog, se definen
+las iteraciones, conocidas como Sprint. Cada Sprint tendrá su propio Productbacklog que
+será subconjunto del Productbacklog definido inicialmente; la duración recomendada
+para cada Sprint es de una a cuatro semanas.
+
+243.2. Planeación
+
+En la tabla 1. Se presentan los módulos establecidos para la aplicación.
+
+ 
+
+Planeación Detalles C/T
+Módulo Inicio
+
+ 
+
+Módulo de autenticación
+
+Módulo de perfiles y usuarios
+MODULOS Módulo anteproyectos 7
+Módulo proyectos
+
+ 
+
+ 
+
+Módulo grupos de investigación
+Módulo de ayudas
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 1. Presentación de los módulos establecidos para la aplicación.
+Módulos del sistema
+
+1. Módulo Inicio es la página de inicio Índex, donde se muestran los módulos
+principales que componen toda la aplicación. Además, presenta una breve
+descripción acerca del autor, director del Sistema y herramientas que se tuvieron
+en cuenta para su desarrollo.
+
+had Universidad del Valle He
+Sede Tuluá
+RR Inicio Bi Anteproyecto de Grado > Proyecto de Grado E Grupos de Investigación l Enlaces de Interés » a, Ingresar al Sistema ? Ayuda +»
+SIGPUV
+
+SISTEMA DE INFORMACIÓN PARA LA GESTIÓN DE ANTEPROYECTOS Y PROYECTOS DE GRADO DE LOS PROGRAMAS PROFESIONALES DE LA UNIVERSIDAD
+DEL VALLE SEDE TULUÁ
+
+Información importante
+
+Candidatos a Grado
+
+Cronograma Académico
+
+Programación Académica
+e E a TA
+
+SIGPUV permite realizar las actividades que se llevan a cabo con la recepción y evaluación de los anteproyectos y trabajos de grado que presentan los estudiantes en los
+programas académicos de la universidad: Ingeniería de Sistemas, Administración de Empresas, Trabajo Social y Contaduría Pública, a través de una aplicación web. Este
+sistema de información se elaboró como propuesta final de grado por el estudiante de Ingeniería de Sistemas, CESAR ADOLFO ESPINAL ESCOBAR, bajo la dirección de
+PÁVEL FRANCO MARÍN, ING.
+
+ 
+
+Esta aplicación se desarrolló en cuanto a interfaz gráfica con HTML, CSS, JavaScript, utilizando como base el framework Bootstrap y como lenguaje de programación de
+software web se utilizó PHP 5.4, y MySql 5.5 como motor de base de datos. Su desarrollo esta basado en el framework Laravel 4 diseñado sobre PHP orientado a objetos que
+utiliza el patrón de diseño Model View Controller (Modelo Vista Controlador).
+
+Universidad del Valle Sede Tuluá
+Villa Campestre: Calle 43 No 43-33. PBX:(5712241816-17
+Principe:Carrera 22 calle 42. Tel:2259706
+Victoria:Carrera 35 No. 33-60 Esquina. Tel:2326326
+Tulua - Valle- Colombia
+1994-2014
+academica. tulua(WHcoreounivalle.edu.co
+
+Figura 4. Modulo Inicio.
+
+Este módulo es de información general y está diseñado para todos los usuarios del
+sistema, para ingresar a este módulo no se requiere de registro en el aplicativo, ya que la
+información allí suministrada, es de interés general para cualquier usuario.
+
+25Al ingresar a esta página de inicio, el usuario podrá consultar información de los
+anteproyectos y de los proyectos de grado de los diferentes programas profesionales.
+
+2. Módulo autenticación o registro permite la autenticación o ingreso de usuarios
+al sistema.
+
+Estimado Usuario, para ingresar al sistema utilice sus datos de acceso. En el caso de que sea un estudiante y no este registrado, debe registrarse primero. Importante: Si
+considera que no cumple con los requisitos para iniciar su proceso de Anteproyecto de Grado, por favor no se registre todavía.
+
+Q
+
+Nara)
+
+ingrese su usuario
+
+Ingrese su contraseña
+
+IEEE
+
++ ¿Olvidó su contraseña?
+« Registrarse (sólo para estudiantes)
+
+Figura 5. Modulo Autenticación ó Registro.
+
+3. Módulo usuario y perfiles permite la administración de los usuarios del sistema
+el cual permite definir los roles y sus alcances en el sistema. Es decir, Crear,
+modificar, eliminar y visualizar roles. Un rol es una configuración que permite
+visualización, modificación, actualización, creación o desactivación de algún
+elemento de la aplicación, es decir, son los permisos de los usuarios.
+
+ti Universidad del Valle
+
+Módulo Coordinador — - Ingeniería de Sistemas MO Si a oe
+
+e Principal
+
+( Usuarios
+
+ESE Y
+a Estudiantes
+Mostrar|10 "registros Buscar: [nor
+
+Administradores
+
+a Administradores
+
+Dor. Identidad Nombre + Programa Académico + Estado $ Opciones $
+a Directores ——————————————————
+31 ADMINISTRADOR SISTEMAS - Ingeniería de Sistemas Activo 6 E
+á Evaluadores ] - 000
+Doc. Identidad Nombre Programa Académico Estado Opciones
+“$ Grupos de Investigación
+Mostrando del 1 al 1. Total: 1 registros Anterior | 1 | Siguiente
+
+A)" Anteproyectos
+
+g Proyectos
+
+Figura 6. Modulo Usuarios y perfiles.
+
+264. Módulo anteproyectos en este módulo los usuarios registrados en el sistema
+pueden registrar nuevas propuestas de grado, también consultar el estado de las
+mismas y llevar un control de la elaboración del anteproyecto a través de la
+bitácora de anteproyectos la cual le permite llevar a cabo las asesorías con el
+
+director de la tesis.
+
+Registrar Anteproyecto
+
+Nombre Anteproyecto
+
+Aplicativo WEB para gestión de maquinaria
+
+Descripción Anteproyecto
+
+La empresa unitec Americana necesita
+agilizar sus procesos por medio de un
+aplicativo WEB que permita controlar toda
+la maquinaria de la empresa
+
+Modalidad Anteproyecto
+
+Trabajo de Investigación v
+
+Director Anteproyecto
+
+ 
+
+| No esta en la lista Y" |
+
+ 
+
+E A
+
+ 
+
+Figura 7. Modulo Anteproyectos Registro de Propuesta Nueva.
+
+Y Universidad del Valle
+
+IATA
+
+ 
+
+Módulo Estudiante - Ingeniería de Sistemas
+
+e Principal
+Propuestas de Anteproyecto de Grado
+
+Mostrar 10 registros Buscar: lInorese s:
+
+Estudiante Estado Director Propuesta Opciones
+
+v y y v v
+
+AN" Anteproyectos
+
+ez,
+
+a Comunicación Interna
+
+B Cronogramas
+
+o Formatos
+
+Nombre Proyecto  * Modalidad $
+
+Aplicativo WEB para gestión de Trabajo de PP.
+maquinaria Investigación 0020400 AE [E (E) El
+
+Nombre Proyecto Modalidad Estudiante Estado Director Propuesta Opciones
+
+= Tareas
+- Mostrando del 1 al 1. Total: 1 registros Anterior 1 | Siguiente
+
+Figura 8. Modulo Anteproyectos Propuesta Registradas de Anteproyectos.
+
+27bil Universidad del Valle
+
+AN TA
+
+ 
+
+Módulo Estudiante  - Ingeniería de Sistemas
+
+> Principal
+
+ps Bitácora de Anteproyectos de Grado
+Anteproyectos
+
+bx) Comunicación Interna ¡
+e Entregable Descripción Exp Son Calificación
+o Cronogramas
+
+sie E
+a 1 Entrega 1 Entrega api O Sin Calificar
+B| Formatos 0000
+
+= 2 Entrega 2 Entrega 00-00 Sin Calificar
+“mud
+
+2 Tareas
+
+0000
+00-00 Sin Calificar
+
+3 Entrega 3 Entrega
+
+00-00
+
+0000
+00-00 Sin Calificar
+
+5 Entrega 5 Entrega
+
+ 
+
+0000
+00-00 Sin Calificar
+
+O
+O
+4 Entrega 4 Entrega q O Sin Calificar
+O
+O
+
+6 Entrega 6 Entrega
+
+PARA EL DIA 3 DE OCTUBRE DEBEN ESTAR
+
+ 
+
+anteerovecto — REGISTRADOS TODOS LOS ANTEPROYECTOS ENEL 20m
+APLICATIVO
+Entregable Descripción os ADE Calificación
+
+Límite  Entregable
+
+Figura 9. Modulo Anteproyectos Bitácora de Anteproyectos.
+
+5. Módulo proyectos en este módulo los usuarios registrados en el sistema pueden
+llevar a cabo el proceso de culminación de trabajo de grado siguiendo las
+asesorías emitidas por el director de la tesis a través de la bitácora de trabajo de
+
+grado.
+
+Módulo Estudiante - Ingeniería de Sistemas EAS
+ñ Principal
+
+Propuestas de Proyecto de Grado
+= Anteproyectos
+
+de IE:
+ML Propuestas Universidad
+
+Mostrar| 10 Y registros Buscar. |!
+> Proyectos
+
+ 
+
+Nombre Proyecto * Modalidad? Estudiante Estado Director Propuesta Opciones
+
+E Sustentaciones r r r r _
+PRIMER PROYECTO DE Trabajo de
+Ó puotcación Proyectos INGENIERIA DE SISTEMAS Investigación "1 “brobado E3
+NJ) o Nombre Proyecto Modalidad Estudiante Estado Director Propuesta Opciones
+4 Comunicación Interna
+Mostrando del 1 al 1. Total: 1 registros Anterior 1 Siguiente
+A Cronogramas
+
+A Cronogramas Bitacoras
+
+Formatos
+
+Figura 10. Modulo Proyectos de grado.
+
+281) Universidad del Valle
+
+8 ESTUDIANTE SISTEMAS Y
+
+ 
+
+Modulo Estudiante - Ingeniería de Sistemas
+
+A Principal
+
+ 
+
+ 
+
+ 
+
+tenes Bitácora de Proyectos de Grado
+f Propuestas Universidad
+Entregable Descripción Fecha Límite Subir Entregable Calificación Observación
+S Proyectos
+tEntega —  ENTREGADEPROYECTOPARTE1 2014-11-24 0
+E 2Entega —  ENTREGADEPROYECTOPARTEZ 2014-11-28 4 bin
+Ó muoitacin Poyo 3Entrega  ENTREGADEPROYECTOPARTES 2014-1243 4 buen trabajo
+comunican nena 4Entega —  ENTREGADEPROYECTOPARTE4 2014-1208 4 revise la paginacion
+5Entega —  ENTREGADEPROYECTOPARTES 2014-12-13 4 revisar indice
+A Cronogramas
+GEntega ENTREGADEPROYECTOPARTES  2014-t1-20 5 excelente trabajo
+0 Bla ' ll | o A
+0 ss Entregable Descripción Fecha Limite Subir Entregable Calificación Observación
+1 Formatos
+=
+ma Tareas
+
+Figura 11. Modulo Proyectos Bitácora de Proyectos de grado.
+
+6. Módulo grupos de investigación en este módulo los usuarios pueden consultar
+la información de todos los grupos de investigación de cada programa académico
+y si desean hacer parte de algún grupo pueden registrarse a través del aplicativo,
+el cual emitirá un correo a la oficina de grupos de investigación de la universidad.
+
+hal Universidad del Valle TIT Y
+Sede Tuluá 0, 0
+
+A inicio Bj Anteproyecto de Grado ¡$ Proyecto de Grado  *“% Grupos de Investigación — 1 Enlaces de Interés » + Ingresaral Sistema  ? Ayuda»
+
+Ingeniería en Sistemas
+
+ 
+
+Grupos de Investigación
+> Principal Mostrar! 10 Y [registros Buscar:
+Nombre Grupo Ml Información Detallada $ Opción 2
+£ Grupos de Investigación
+Estimado usuario, no existen registros disponibles
+Nombre Grupo Información Detallada Opción
+Mostrando del O al 0. Total: O registros Anteñor Siguiente
+
+Figura 12. Modulo Grupos de Investigación.
+
+29Grupos de Investigación
+
+ 
+
+Registrar un nuevo grupo de investigación di +
+
+Mostrar 10 "registros Buscar | (
+
+Nombre Grupo A Información Detallada ; Opciones :
+INGENIUX Q 00058
+Nombre Grupo Información Detallada Opciones
+Mostrando del 1 al 1. Total: 1 registros Anterior 4 | Siguiente
+
+Figura 13. Modulo Grupos de Investigación registro de Ingeniux.
+
+7. Módulo de ayudas este permite a cualquier usuario acceder a las instrucciones
+de cómo manejar el sistema. Para ver este modulo de ayudas ver el directorio
+Manual de Usuario el cual se encuentra disponible en el CD.
+
+hi Universidad del Valle CS
+Sede Tuluá
+
+A Inicio E Anteproyecto de Grado » Proyecto de Grado 9 Grupos de Investigación l Enlaces de Interés Q Ingresar al Sistema 2? Ayudaw
+
+O Manual de Usuario
+
+Figura 14. Modulo Ayudas.
+
+3.3 Especificación de requerimientos
+
+Como apoyo a las historias de usuario y en general al proceso de planeación se realizó
+una homologación de los procesos de gestión de anteproyectos y proyectos de grado de
+los programas profesionales de la universidad del valle para establecer el alcance de la
+aplicación. En la tabla 2 se evidencia el proceso de homologación.
+
+30A EMPRESAS A DE SISTEMAS IS _TRABAJO SOCIAL
+
+á ú B- Consolidar la idea de TG en el
+A- Presentar una propuesta de A- Consolidar la idea de Trabajo de : .
+Tuhelada Guada. Grado (TG). po asignatura Seminario de
+
+B- Matricular la asignatura B- Matricular la asignatura
+Seminario de Trabajo de Grado y  |metodologia de la investigacion y
+elaborar el anteproyecto recibiendo [elaborar el anteproyecto recibiendo |A- Matricular la asignatura Seminario
+las asesorias necesarias en el las asesorias necesarias en el de Monografía en octavo semestre.
+transcurso del semestre por parte [transcurso del semestre por parte
+del Docente que dicte el curso. del Docente que dicte el curso.
+
+C- Seleccionar el Docente
+pertinente que lo asesore en el tema
+seleccionado para el anteproyecto.
+
+         
+ 
+   
+  
+
+A- Consolidar la idea de Trabajo de
+Grado (TG).
+
+B- Matricular la asignatura
+metodología de la investigacion y
+elaborar el anteproyecto recibiendo
+las asesorias necesarias en el
+transcurso del semestre por parte
+del Docente que dicte el curso.
+
+ 
+  
+         
+       
+      
+
+     
+
+ 
+
+  
+
+ 
+ 
+ 
+ 
+
+     
+
+C- Elaborar el anteproyecto,
+recibiendo las asesorías necesarias
+en el transcurso del semestre por
+parte del Docente que dicte el curso.
+
+  
+  
+  
+ 
+
+     
+
+C- Aprobar el anteproyecto. C- Aprobar el anteproyecto.
+
+    
+  
+ 
+  
+ 
+ 
+     
+   
+    
+ 
+   
+     
+   
+  
+
+A- Realizar el contacto inicial con el
+docente para elegir la persona
+indicada para dirigir el TG y hacerlo
+saber al Coordinador del Programa.
+
+     
+   
+
+    
+
+A- Asignar Director de TG, con base
+en el tema o la especialidad del
+
+trabajo de grado.
+
+A- Asignar Director de TG, con base
+en el tema o la especialidad del
+
+trabajo de grado.
+
+B- El estudiante debe buscar un
+Director de TG y enviar una carta
+dirigida a la Coordinación del
+Programa.
+
+A- Asignar Director de TG, con base
+en el tema o la especialidad del
+
+  
+  
+
+ 
+
+B- Si el estudiante necesita o
+requiere un Director de TG en
+especial, lo puede solicitar por
+medio de una carta dirigida a la
+
+B- Si el estudiante necesita o
+requiere un Director de TG en
+especial, lo puede solicitar por
+medio de una carta dirigida a la
+Coordinación del Programa.
+
+  
+  
+ 
+  
+
+   
+  
+ 
+
+B- Asignar Directores de TG a cada
+uno de los proyectos con base en el
+tema o la especialidad del TG.
+
+    
+
+  
+ 
+
+  
+    
+
+  
+    
+
+A- Realizar una carta en la que se  [A- Realizar una carta en la que se
+asigne un Docente para la asigne un Docente para la asigne un Docente para la
+evaluación del anteproyecto y evaluación del anteproyecto y evaluación del anteproyecto y
+
+egar el formato de evaluación.  |entregar el formato de evaluación. egar el formato de evaluación.
+
+B- Evaluar y realizar las debidas
+sugerencias al anteproyecto.
+
+A- Realizar una carta en la que se
+A- Emitir un concepto de evaluación
+a cada uno de los anteproyectos.
+
+  
+  
+     
+   
+   
+ 
+
+B- Enviar los conceptos de los
+anteproyectos a la Coordinación del
+
+  
+  
+
+B- Evaluar y realizar las debidas
+sugerencias al anteproyecto.
+
+B- Evaluar y realizar las debidas
+
+ 
+    
+  
+    
+  
+   
+   
+  
+  
+   
+   
+ 
+ 
+ 
+
+c- Realizar el debido proceso
+dependiendo del concepto dado por
+el evaluador. Ver literal 4.1.1
+Trabajos de Grado Programa de
+Trabajo Social.
+
+   
+   
+ 
+
+C- Diligenciar el formato de
+evaluación y entregar el
+anteproyecto al Coordinador de
+
+Programa.
+
+C- Diligenciar el formato de
+evaluación y entregar el
+anteproyecto al Coordinador de
+
+Programa.
+
+C- Diligenciar el formato de
+evaluación y entregar el
+anteproyecto al Coordinador de
+Programa.
+
+ 
+    
+   
+   
+    
+   
+     
+ 
+ 
+ 
+    
+
+A- Asesorar, Instruir y realizar el
+debido seguimiento al TG para
+culminarlo con éxito, realizando
+asesorías semanales por espacio de
+dos horas y diligenciando el formato
+respectivo según se desarrollen las
+asesorías con firma de los
+estudiantes y el Director de TG.
+
+B- Entregar a la Coordinación del
+B- Enviar carta de cumplimiento de |Programa dos copias del informe
+requisitos del TG a la Coordinación |final del TG con la carta de
+
+de Programa. cumplimiento de requisitos del TG
+remitida por el Director.
+
+A- Entregar al Coordinador de A- Asignar dos evaluadores para
+Programa el proyecto para A- Elegir al evaluador del TG. informar a la unidad académica de
+someterlo a evaluación. Trabajo Social.
+
+B- Realizar carta al evaluador
+elegido para solicitarle que evalúen |B- Enviar carta de asignación del
+
+el TG y entregarle el Formato de documento a evaluar con criterios y
+Primera Evaluación de Trabajo de [tiempo establecidos para tal fin por la
+Grado, según la modalidad de éste. |Unidad académica de Trabajo Social.
+
+  
+  
+   
+   
+  
+  
+ 
+
+A- Asesorar, Instruir y realizar el
+debido seguimiento al TG para
+culminarlo con éxito, realizando las
+reuniones necesarias para ello y
+diligenciando el formato respectivo
+con firma de los estudiantes y el
+Director de TG.
+
+A- Asesorar, Instruir y realizar el
+debido seguimiento al TG para
+culminario con éxito, realizando las
+reuniones necesarias para ello y
+diligenciando el formato respectivo
+con firma de los estudiantes y el
+Director de TG.
+
+A- Asesorar, Instruir y realizar el
+debido seguimiento al TG para
+culminario con éxito, realizando las
+reuniones necesarias para ello y
+diligenciando el formato respectivo
+con firma de los estudiantes y el
+Director de TG.
+
+   
+
+B- Enviar carta de cumplimiento de
+requisitos del TG a la Coordinación
+de Programa.
+
+B- Diligenciar el formato de
+seguimiento de TG, indicando el
+avance del mismo por semestre.
+
+         
+  
+   
+     
+  
+
+  
+  
+
+A- Elegir al evaluador del TG.
+
+ 
+
+B- Realizar carta al evaluador
+elegido para solicitarle que evalúen
+el TG y entregarle el Formato de
+Primera Evaluación de Trabajo de
+Grado, según la modalidad de éste.
+
+       
+  
+  
+
+B- Entregar una carta al
+Coordinador de Programa,
+
+indicando que el proyecto de grado
+está listo para evaluar.
+
+  
+  
+    
+ 
+ 
+   
+   
+    
+   
+    
+ 
+  
+ 
+
+ 
+
+A- Entregar carta dirigida al
+Coordinador del Programa donde se
+deja constancia de los cambios y
+correcciones exigidos al(os)
+estudiante(s) en el Formato de
+Primera Evaluación. Se debe
+anexar como documento físico o
+medio magnético las secciones del
+documento final que fueron objeto
+B- Entregar carta dirigida al
+evaluador para la realización de la
+segunda evaluación, según lo
+exigido en la primera evaluación,
+anexando el Formato de Segunda
+Evaluación donde, según el criterio
+del evaluador, se puede autorizar la
+sustentación del TG.
+C- En caso de que el Evaluador no
+autorice sustentación del TG, se
+procede a realizar las actividades A
+y B de la etapa 6. Entrega de las
+correcciones para segunda
+evaluación, hasta cumplir con los
+pquisitos exigidos por el mismo.
+
+A- Entregar carta dirigida al
+Coordinador del Programa donde se
+deja constancia de los cambios y
+correcciones exigidos al(os)
+estudiante(s) en el Formato de
+Primera Evaluación. Se debe
+anexar como documento físico o
+medio magnético las secciones del
+documento final que fueron objeto
+
+ 
+  
+ 
+   
+    
+  
+  
+
+   
+  
+  
+   
+
+A- Entrega del informe con las
+correcciones realizadas para nueva
+revisión del evaluador. A partir de la
+fecha tiene 15 días para dar cuenta
+de la valuación.
+
+A- Entrega del informe con
+correcciones realizadas para nueva
+revisión del evaluador. A partir de la
+fecha tiene 15 dias para dar cuenta
+de la valuación.
+
+  
+  
+ 
+
+  
+ 
+ 
+ 
+   
+ 
+
+B- Entregar carta dirigida al
+evaluador para la realización de la
+segunda evaluación, según lo
+exigido en la primera evaluación,
+anexando el Formato de Segunda
+Evaluación donde, según el criterio
+del evaluador, se puede autorizar la
+sustentación del TG.
+
+C- En caso de que el Evaluador no
+autorice sustentación del TG, se
+procede a realizar las actividades A
+y B de la etapa 6. Entrega de las
+correcciones para segunda
+evaluación, hasta cumplir con los
+equisitos exigidos por el mismo.
+
+ 
+  
+  
+ 
+   
+   
+  
+
+    
+ 
+
+B- Realizar el debido proceso
+dependiendo del concepto dado por
+los evaluadores de Trabajo de
+Grado del Programa de ingenieria
+de sistemas.
+
+B- Realizar el debido proceso
+dependiendo del concepto dado por
+hos evaluadores. Ver literal 4.1.1
+Trabajo de Grado Programa de
+Trabajo Social.
+
+   
+ 
+  
+ 
+
+    
+       
+     
+   
+  
+   
+  
+ 
+  
+
+ 
+ 
+ 
+ 
+
+ 
+ 
+
+  
+  
+
+  
+  
+
+A- Verificar en el formato de A- Werificar en el formato de A- Verificar en el formato de A- Werificar en el formato de
+seguimiento de TG si solicitan seguimiento de TG si solicitan seguimiento de TG si solicitan seguimiento de TG si solicitan
+matrícula para Continuación de TG. [matrícula para Continuación de TG. [matrícula para Continuación de TG. [matrícula para Continuación de TG.
+
+B- Dar respuesta a la solicitud de la |B- Dar respuesta a la solicitud de la |B- Dar respuesta a la solicitud de la |B- Dar respuesta a la solicitud de la
+matrícula de Continuación de TG. matrícula de Continuación de TG. matrícula de Continuación de TG. matrícula de Continuación de TG.
+
+31
+
+nano o-o-
+is iiiA- Dirigir carta a la Coordinación de
+Programa en donde especifique que |A- Entregar carta al Coordinador de
+el TG cumple totalmente con todos |Programa donde certifiquen el
+
+los requisitos para la asignación de [evaluador y el Director las
+
+fecha de sustentación. Se debe correcciones que el estudiante
+
+A- Dirigir carta a la Coordinación de
+Programa en donde especifique que
+el TG cumple totalmente con todos
+los requisitos para la asignación de |A- Solicitar la sustentación de los
+fecha de sustentación. Se debe TG's que lo requieran.
+
+   
+   
+    
+  
+
+    
+   
+
+    
+   
+     
+  
+   
+  
+  
+  
+
+    
+
+anexar el Formato de Segunda debió haber realizado de acuerdo a janexar el Formato de Segunda
+Evaluación debidamente las sugerencias del evaluador.
+
+diligenciado. .
+
+B- Adjudicar la fecha de B- Adjudicar la fecha de B- Adjudicar la fecha de
+
+    
+  
+ 
+
+  
+ 
+  
+  
+
+sustentación del TG. Esta se fija en
+acuerdo con la disponibilidad de
+tiempo del Director del TG y el
+
+sustentación del TG. Esta se fija en
+acuerdo con la disponibilidad de
+tiempo del Director del TG y el
+Evaluador del mismo. Evaluador del mismo. Evaluador del mismo.
+
+C- Reunión del Director y el C- Reunión del Director y el C- Reunión del Director y el
+Evaluador al finalizar la sustentación Evaluador al finalizar la sustentación | Evaluador al finalizar la sustentación
+
+sustentación del TG. Esta se fija en
+acuerdo con la disponibilidad de
+tiempo del Director del TG y el
+
+B- Informar por escrito a la unidad
+académica de Trabajo Social sobre
+la aprobación del informe.
+
+1
+1
+|
+|
+1
+1
+|
+|
+|
+1
+1
+|
+|
+|
+|
+l
+|
+|
+|
+1
+|
+|
+'
+1
+1
+1
+|
+1
+1
+|
+|
+|
+|
+|
+|
+|
+|
+'
+|
+1
+1
+|
+1
+1
+|
+|
+|
+1
+|
+|
+1
+1
+|
+|
+|
+|
+|
+|
+|
+'
+A
+
+        
+      
+     
+   
+  
+ 
+ 
+ 
+    
+  
+ 
+   
+   
+  
+    
+ 
+      
+    
+  
+   
+ 
+ 
+     
+
+C- Reunión del Director y el
+Evaluador al finalizar la sustentación
+
+   
+ 
+ 
+
+  
+  
+ 
+
+para levantar el acta y asignar la para levantar el acta y asignar la para levantar el acta y asignar la y
+nota respectiva de Trabajo de nota respectiva de Trabajo de nota respectiva de Trabajo de pr pig E ar y fragor ..
+grado. grado. grado. ' AAA
+
+A- Acordar la fecha de sustentación
+tanto con el evaluador como el
+director e informar al estudiante.
+
+B- El estudiante gestiona la logística
+para la sustentación.
+
+C- El estudiante realizará su
+sustentación en 45 minutos,
+asignados de la siguiente manera:
+30 minutos de presentación del
+proyecto y los 15 minutos restantes
+de preguntas.
+
+D- Reunión del Director y el
+Evaluador al finalizar la sustentación
+para levantar el acta y asignar la
+nota respectiva de Trabajo de
+
+grado.
+
+A- Solicitar la sustentación de los
+TG's que lo requieran.
+
+B- Emitir una nota cualitativa sobre el
+trabajo de grado que se remite al
+director respectivo.
+
+ 
+ 
+ 
+   
+  
+ 
+
+ 
+ 
+   
+  
+ 
+
+A- Entregar y sustentar el Trabajo
+de Grado frente al evaluador y el
+Director del Trabajo.
+
+A- Entregar y sustentar el Trabajo
+de Grado frente al evaluador y el
+Director del Trabajo.
+
+  
+
+C- Informar por escrito a la unidad
+académica de Trabajo Social sobre
+
+la aprobación del informe.
+
+  
+
+A- Levantar el Acta de Aprobación, [|A- Levantar el Acta de Aprobación, |A- Levantar el Acta de Aprobación, |A- Levantar el Acta de Aprobación, la
+la cual indicará que el estudiante ya |la cual indicará que el estudiante ya | la cual indicará que el estudiante ya [cual indicará que el estudiante ya es
+es apto para ser candidato a grado, [es apto para ser candidato a grado, |es apto para ser candidato a grado, [apto para ser candidato a grado,
+igualmente se indicará la nota igualmente se indicará la nota igualmente se indicará la nota igualmente se indicará la nota
+correspondiente al Trabajo de correspondiente al Trabajo de correspondiente al Trabajo de correspondiente al Trabajo de Grado
+Grado (Aprobado o No Aprobado)  |Grado (Aprobado o No Aprobado) [Grado (Aprobado o No Aprobado)  |(Aprobado o No Aprobado) con la
+con la sustentación. con la sustentación. con la sustentación. sustentación.
+
+B- Firmar el Acta de Aprobación. B- Firmar el Acta de Aprobación. B- Firmar el Acta de Aprobación. B- Firmar el Acta de Aprobación.
+A- Entregar dos copias magnéticas [A- Entregar dos copias magnéticas |A- Entregar dos copias magnéticas
+del TG con una carta de entrega a [del TG con una carta de entrega a |del TG con una carta de entrega a la
+ta biblioteca de la Sede. ta biblioteca de la Sede. biblioteca de la Sede.
+
+A- Actualizar la base de datos del
+programa con base en el proceso
+
+      
+   
+ 
+
+ 
+
+   
+ 
+   
+
+      
+  
+ 
+ 
+ 
+
+  
+ 
+
+A- Entregar dos copias magnéticas
+del TG con una carta de entrega
+ta biblioteca de la Sede.
+
+   
+ 
+  
+   
+ 
+
+A- Actualizar la base de datos del
+programa con base en el proceso
+
+  
+ 
+ 
+ 
+ 
+  
+
+  
+  
+  
+
+A- Archivar los registros
+correspondientes a cada uno de los
+
+A- Archivar los registros
+correspondientes a cada uno de los
+
+   
+    
+ 
+ 
+
+   
+
+da cada babejo de grado. TG en la carpeta destinada para da cada labejo de grado. TG en la carpeta destinada para este
+D-oar Na este fin, de PP no establecido Da Na fin, de a! E A en
+trabajos de grado para que se " trabajos de grado para que se :
+
+culminen a tiempo y sin problemas. culminen a tiempo y sin problemas.
+
+Tabla 2. Homologación de los procesos de gestión de proyectos de grado.
+
+3.4. Requerimientos
+Requerimientos Funcionales
+"= El sistema debe permitir al estudiante, registrarse en él.
+
+= El sistema debe permitir al coordinador administrador crear, editar, y buscar
+usuarios del sistema.
+
+" El sistema debe permitir el ingreso de todos los usuarios por medio de una
+autenticación.
+
+"= El sistema debe permitir al estudiante crear y registrar los anteproyectos de grado.
+
+32"= El sistema debe permitir al estudiante cargar al sistema por medio de la bitácora
+de seguimiento los avances de los anteproyectos y los proyectos de grado.
+
+"= El sistema debe permitir al director, revisar avances de los anteproyectos y
+proyectos de grado a los que está asignado y cargar correcciones.
+
+"= El sistema debe permitir al director registrar el avance de los proyectos.
+
+= El sistema debe permitir al coordinador la asignación de directores y evaluadores
+a los proyectos.
+
+"= El sistema debe permitir al coordinador la asignación de evaluador a los
+proyectos.
+
+"= El sistema debe permitir al evaluador registrar el envío de correcciones.
+
+"= El sistema debe permitir ver el seguimiento a estudiantes, directores, evaluadores,
+y coordinador que se le hace a cada proyecto.
+
+"= El sistema debe permitir al coordinador pasar el anteproyecto y proyecto de grado
+aprobado.
+
+"= El sistema debe permitir al coordinador dar por finalizado un proyecto.
+"= El sistema debe permitir al coordinador generar reportes.
+"= El sistema debe permitir al coordinador: crear, editar, eliminar cronogramas.
+
+"= El sistema debe permitir a todo el público visualizar los cronogramas.
+"= El sistema debe permitir al coordinador: crear, editar, y subir actas.
+
+"= El sistema debe permitir el envío automático de correos a estudiantes, directores
+y evaluadores cuando el proyecto tiene alguna asignación o cambia de estado.
+
+Requerimientos No Funcionales
+= El sistema debe tener la facilidad de Mantenimiento.
+"= El sistema debe ser de gran escalabilidad y modularidad.
+= El sistema debe ser una aplicación segura.
+= El sistema debe tener los colores y logos corporativos.
+
+"= El sistema debe estar disponible las 24 horas para todo el personal de la
+universidad.
+
+"= El sistema debe ser estable en su funcionamiento y en su desarrollo.
+
+"= El sistema debe ser de fácil acceso a la aplicación.
+
+= El sistema debe ser de una fácil usabilidad.
+
+33Requerimientos de Software
+"= El sistema debe ser una aplicación de tipo web.
+
+= El desarrollo del sistema SIGPUV debe ser realizado en PHP 5.4 utilizando el
+Frameworks de Laravel 4.
+
+"= El sistema necesita de un motor de base de datos MySQL 5.5.
+
+= El sistema necesita de un Servidor Windows o Linux.
+
+Requerimientos de Hardware
+
+= Debido al almacenamiento continuo de archivos, el sistema debe tener un disco
+de 500 GB.
+
+"= El sistema necesita un procesador mínimo core 1 2 o superior.
+
+= El sistema necesita mínimo una memoria de 2 GB.
+
+3.5. Productbacklog
+
+En base a los módulos definidos en el proceso de planeación se realizaron las historias de
+usuario correspondientes, definiendo las funcionalidades requeridas, características
+básicas, algunas excepciones y condiciones para establecer el correcto funcionamiento del
+sistema, por medio de las pruebas de aceptación que se establecen en el Productbacklog,
+estas fueron documentadas en un lenguaje no técnico.
+
+La Tabla 3. Muestra las historias de usuario de los módulos del aplicativo, las otras
+historias de usuario se encuentran en (VER ANEXO C).
+
+    
+   
+
+ 
+  
+   
+   
+ 
+ 
+  
+   
+
+   
+
+Entrar a la aplicación, ingresar
+Ñ usuario y contraseña, si el El usuario debe
+rdinador sist . mediente un usuario es correcto ingresa al ¡estar registrado en
+coordinador fusuario y una menú inicial caso contrario se  |la base de datos.
+
+contraseña presentara un mensaje de error
+
+Necesito ingresar al
+
+  
+    
+   
+
+ 
+ 
+ 
+
+Ai
+
+  
+ 
+  
+   
+
+Necesito que el sistema [Entrar a la aplicación, ingresar
+realice la autenticación [usuario y contraseña, el
+de cada usuario para
+iniciar sesión en la
+
+ 
+  
+
+Como
+coordinador
+
+ 
+   
+
+Autenticar usuarios
+
+ 
+ 
+ 
+  
+   
+  
+  
+
+Entrar a la aplicación, ir a ;
+
+, , a Para la creación
+agurcas, tra E de usuario el
+ingresar los datos solicitados, ,
+
+sistema debe
+realizar el ingreso de la .
+] : permitir registrar
+información, verificar en el veros en el
+sistema que ES haya creado un sist :
+nuevo usuario.
+
+  
+  
+  
+  
+
+  
+
+Necesito crear los
+coordinador lusuarios del sistema.
+
+ 
+
+   
+
+Registrar usuarios
+
+  
+
+    
+
+     
+   
+
+     
+
+   
+  
+
+Necesito consultar la ntra icación, ¡ Los usuarios
+
+informacion de los a ads : ceben estar
+coordinador xl , in ' registrados en la
+
+usuarios del sistema. OIMACIon. base de datos.
+
+  
+   
+
+Necesito que el sistema
+me permita actualizar Entrar a la aplicación, ir a
+los datos de los usuarios ¡usuarios y actualizar la
+registrados en el informacion.
+
+Como
+coordinador
+
+      
+
+Actualizar usuarios
+
+  
+
+sistema.
+
+Tabla 3. Historias de usuario
+
+343.6. Sprint Backlog
+
+Para el desarrollo de la aplicación que aquí se presenta, llamada SIGPUV se realizaron 7
+Iiteraciones. En la Tabla 4.Se observa la tabla de iteraciones o Sprint que se realizaron.
+
+CIO
+
+a Definicion de Sprints
+
+SIGPUV (Sistema en gestion de Proyectos de grado)
+
+ld] Actividades |Duracion| Responsable | Prioridad
+| 1 [Creación del módulo HOME___k|4semanas |Equipodetrabajo| 10 |
+2 |Creación del módulo Autenticación __ | 3semanas |Equipo detrabajo| 10 |
+3 |Creación del módulo Perfiles y Usuarios ___| 3semanas |Equipo detrabajo| 10 |
+4 |Creación del módulo Anteproyectos __k|4semanas |Equipo detrabajo| 10 |
+| 5 _ |Creación del módulo Proyectos __Ák|4semanas |Equipodetrabajo| 10 |
+6 |Creación del módulo Grupois de Investigación __ | 2semanas |Equipo detrabajo| 10 |
+L_2__ [Creación del módulo Ayudas | 2semanas |Equipodetrabajo| 10 |
+
+Tabla 4. Planeación de Sprints (SIGPUV)
+
+ 
+
+3.7 Diseño
+
+3.7.1. Arquitectura - Diagrama de componentes
+La figura 4. Muestra la arquitectura diseñada para la aplicación SIGPUV, con ayuda del
+
+análisis previo realizado con las historias de usuario, que permitieron en gran medida la
+estructuración de la misma.
+
+35OU
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+  
+
+| |
+y |
+1) AN ¡ Modelo |
+MO Y : :
+ie INTO ' '
+'
+e pugna acacorico INT(1D) i |
+2 a Mp0 uva INTO) |
+'
+de goteo INTI
+11 or JO INTIN1) +.
+leo ¡denticacio VARCHA RE | + usar JO INT(1!)
+% E
+20m losetas 9 INTI? y | categoria VANCNAN(ESS) / cutogoría VARCHAA(255)
+' MA e 1
+> pasmosa VAROMAR ZO ! 2 ono VARCHAR(258) | ¿Ono VARCHAR(265
+O isis |
+pomor VARCHAR E! + edo VARCHARI255) ' , o VARCHAR(Z5
+ds boelicos VARCHAZS , son VARCHARIOSA) '
+0 ¡ | + descripción VARCHAAR(265) > Goscrioción VARCHAR(ZSS)
+) | AIRIS
+2 s h + juro VAROMAN(25S) Í
+A : [| arto VAMCHAALZS)
+A 1 | y observación VARCHAR205
+simo " a la > oouorvación VAFICHAM2S5)
+raca VASCA 12981 rota INTI)
+Pra 7 2 nota INT(A1)
+(gro, sectores DN! > eroatod_al TIMESTAMP IMESTAMP
+10 VIICHA CEA ¿eratod m1 TIMES ,
+ra vodalod al TMESTAMP e
+ao VNIAMA +wodntod at TMESTAMP
+¿oe y TRACE »
+aptas 4d TA
+
+   
+
+ 
+
+Figura 15. Diagrama de Componentes
+
+Está aplicación se desarrolló en cuanto a interfaz gráfica con HTML, CSS, Java Script,
+utilizando como base el Frameworks Bootstrap y como lenguaje de programación de
+software se utilizó PHP 5.4, y como motor de base de datos MySQL 5.5 su desarrollo está
+basado en el Frameworks de Laravel 4, diseñado sobre PHP orientado a objetos que
+utiliza el patrón de diseño Model View Controller (modelo vista controlador).
+
+Capa Vista: La capa de la vista está formada por el conjunto de páginas que puede ver el
+cliente desde el navegador. El código html que recibe el navegador, es decir, las
+secciones que tiene acceso un usuario depende de los permisos de que disponga dicho
+usuario. El sistema de información dispone de una página de inicio, de donde se podrá ir
+accediendo a los diferentes menús dependiendo del tipo de usuario o sesión que se haya
+iniciado al introducir un código y una contraseña. Por ejemplo no verá lo mismo un
+estudiante a un evaluador.
+
+Cuando un usuario se conecta al sistema adquiere una sesión. En dicha sesión se
+almacena datos del navegante como código y contraseña para que cuando valla pasando
+de una página a otra, no se le vuelva a pedir sus datos de ingreso. Estas sesiones acaban
+cuando el usuario sale de la sesión (destruye la sesión), cierra el navegador o supera el
+tiempo de inactividad de la sesión.
+
+Para el diseño de la interfaz del sistema se utilizaron paginas PHP mezcladas con código
+HTML. Para darles un aspecto más atractivo se utilizaron hojas de estilo CSS. También
+se hizo uso de otras tecnologías como java script y ajax que embellecen la vista del
+sistema.
+
+36
+
+yPara el control de los datos introducidos en los diferentes formularios de las paginas, se
+hizo uso de java script para validar que los datos ingresados fueran los correctos, como
+por ejemplo se valida que en el campo código no ingresen letras y viceversa.
+
+A continuación se muestra el aspecto que tiene la página de inicio junto con un fragmento
+de su código fuente.
+
+Capa Controlador: Es la parte que se encarga de coordinar las acciones de la aplicación.
+Conformado por los componentes validar y validar login. Para implementarlas se utilizó
+clases php. La creación de una estructura como el controlador permite controlar las
+acciones desde la vista hacia el modelo y viceversa. Como ya se comentó antes en la vista
+existe una clase llamada index.php donde almacena los datos del formulario de la página
+tras pulsar un botón de “submit” o enviar. Cuando se acciona un evento de una página,
+una clase en el controlador llamada validarlogin.php captura los datos almacenados para
+llamar a la clase conexión.php en el modelo y validar ese registro.
+
+Capa Modelo: Es la parte donde se encuentra la lógica del sistema, es decir, donde se
+procesan las acciones y se devuelven resultados. También es la encargada de acceder a la
+base de datos. Se implementa a partir de la clase php.
+
+3.8. Diagrama Entidad Relación
+
+El Modelo Entidad Relación es un diagrama que modela la composición de la Base de
+Datos del Sistema con sus diferentes tipos de relaciones entre tablas. Para el sistema
+SIGPUV se trabajó con una Base de Datos relacional MySQL que se presenta en la
+Figura 16, diagrama de entidad relación.
+
+37Mm
+1 e P
+248 INTO) ¡U ' qe usas JOINT0) ' '
+OINTUO ¿progama academico INT) | / out ( Indexes 1 [9 odio INT(11) ron 20 Un
+¿9 documento identicacion_ emisor INT(10) ¿user INT(11) / ¿categoria VARCHAR(5S) || ¿7d programa, academico INT(11 y iiO
+¿9 nombre_ emisor VARCHAR|(255) ¿9 bitacora ENUM no! 7 | avontoVARCHAR(255) | ¿ue NT(11) Z
+¿ apelido, emisor VARCHAR(256) ¿9 nombre_proyecto VARCHAR(256) / ¿estado VARCHAR(255) , ¿y bitacora ENUM(no!
+| / ¿y omal VARCHAR|255
+¿9 documento, identcacon_ destinatario INT(10) ¿9 desoripcion_proyecto VARCHAR(ZE6) / ¿ desoricion VARCHAR(285) || EIA ¿9 nombre, proyecto VARCHAR(255)
+¿Y asunto VARCHAR(255) ¿9 modalidad proyecto ENUM(.) / o adunto VARCHAR(SE) || ¿ descrpcon proyecto VARCHARIZSS)
+| j | ¿creatad_at TIMESTAMP
+¿ adjunto VARCHAR(255) ¿ doctr_proyecto VARCHAR(Z55) Vo) ¿Y observacion VARCHAR(Z55) | EEN ¿9 modalidad proyecto ENUM.)
+¿9 mensaje VARCHAR(255) ¿9 director proycto_ estado VARCHAR(255) / ¿nota INT(11) | : ¿9 dector_proyecto VARCHAR(ZES)
+¿ estado VARCHAR(255) ¿Y asado VARCHAR(255) Y) ¿cmatod_atTMESTAMP | ¿ director proycto_ estado VARCHAR(255)
+¿ catod_al TIMESTAMP ¿9 observacion VARCHAR/255) | f ¿updated al TIMESTAMP ¿ ¿y estado VARCHAR(255)
+updated al TIMESTAMP ¿ asado, propuesta VARCHAR(256) / CN ¿9 adjunto VARCHAR(256)
+¡SEI ¿rated al TIMESTANP A a) ÑN ¿ observacion VARCHAR (285
+, | | /
+¿updated al TIMESTAMP WEN | y ¿ estado, propuesta VARCHAR(255)
+« bitcoraproyects id INT(10) m=/ | TA / ¿created at TIMESTAMP
+Y lacras INTA | IN ; ¿updatod at TIMESTANP
+A |
+| | |
+| | |
+2410 INT(10) : | ul |
+| | 1 0
+¿codigo INT(11) | | | 010 INTO) 948 INT(10)
+(91d _programa_academico INT(14) | | 4 d_programa_academico INT(10) | | 0 id_programa_academico INT(11)
+¿user 0 INT(11) | | | <98_ipo_usuario INTO) | / ¿nombre_ programa, academico VARCHAR(Z55)
+¿y bitacora ENUM no") A ¿91d_prfesion INT(10) ¿y oreatad_al TIMESTAMP
+¿nombre proyeco VARCHAR(25) | | ¿tipo identíiacion VARCHAR|255 ¿ updated_al TIMESTAMP
+¿ descripcion proyecto VARCHAR(A5) Á 24010) | ¿9 documento identificacion INT(11) | |
+¿9 modalidad proyecto ENUM/.) | ¿user J0INT(11) / ¿ password VARCHAR(255) |
+¿9 dirctor_ proyecto VARCHAR(Z5S) | ¿categoria VARCHAR/255) | | ¿nombres VARCHAR(A5)
+¿ dicto proyecto, estado VARCHAR(255) | ¿evento VARCHAR(255) h ¿ apolidos VARCHAR(255) |
+¿Y astado VARCHAR(255) l ¿y estado VARCHAR(256 ( | ¿ptoolono, fio VARCHAR/255) LV
+¿Y observacion VARCHAR/255) | ¿ descripcion VARCHAR(286) | ¿9 collar VARCHAR/256) | san rro nt
+¿ atado propuesta VARCHAR(256 ! ¿ adjunto VARCHAR(255) ( | ¿y omal VARCHAR/255) ]
+| /1d_programa_ academico INT[11)
+¿fecha DATE | | observacion VARCHAR/255) | ¿Y estado VARCHAR(255) |
+| | | | ¿) pooaso VARCHAR/255)
+¿9 hora VARCHAR(255) y [OnaaINT(1) | | ¿ ingreso, portal ENUM( nos) raid
+¿lugar VARCHAR (255) A ¿ cruaad, al TIMESTAMP | | ¿registro propuesta ENUM nos) ONENE
+¿ estado_proyecto ENUM|..) h ¿9 updated_al TIMESTAMP | ¿ anteproyecto ENUM(no''si) 0 apto TMESTAMP
+¿ crated_at TIMESTANP ¿ susentaciones, id INT(10) | L [oproyectoENUM(no'') ] o
+| |  bitacoraantaproyactos id INT(10)
+¿updated at TIMESTAMP YY | O sustntaion ENUM(no+s") 1
+A YE
+y Lo oupttod at TESTANP NT
+| " 4 a Bl ¿9 sor INT(1)
+! 1 | q bitacorapoyectos, id INTO) cl ) 2410 1NT10) 2 usuarios 40 INT(1O) dol
+' | 0 ranas admi INTO) pl p [gota % anteproyectos 1d INTO) A ss
+y 1, | 9otmoganas NT) n/ 1 | proesion VARCHAR!... ¿ bitacoraantoproyectos 1d INTO) SSI
+| Ir 9 aa INTO) 4 ¿ ¿cmaod at TIMESTANP A oben
+! | o publicaciones, id INT(10) mal / ¿ updated_at TIMESTA... e
+Y usuarios NT] $ | ¿auto VARCHAR|SS)
+Y comunicacion interna id INTL) l po emo) y) ¿Y observacion VARCHAR/256)
+_.—. a ¿ profesiones, id INT(10) tal |
+1Hipos usuario, INT(10) | ¿nota INT(11)
+late MO TESTS
+| | La 0100) | ¿updated al TIMESTAMP
+| 1 II ¿codigo INT(11)
+C
+: 1 mun ¿user_d0 INT(11)
+2410 1NT10) ¿9 evento VARCHAR/255)
+¿y bitacora ENUM(no' 3)
+¿p10_Apo_ usuario INT(11) ¿ descpcion VARCHAR(255)
+. . ¿9 nombre_anteproyecto VARCHAR(255)
+¿9 tpo_usuaro VARCHAR(Z55) ¿tacha DATE o 1
+¿created at TIMESTAMP ¿codigo VARCHAR(255) opc ape VARIAR)
+_ ¿) modaldad_anteproyecto ENUM/..)
+¿updated at TIMESTAMP ¿created al TIMESTAMP
+¿9 drector_anteproyecto VARCHAR(256)
+¿updated al TIMESTANP
+pe ¿9 dector_anteproyeco. estado VARCHAR(255)
+ma ¿y astado VARCHAR(256)
+¡EO ¿Y observacion VARCHAR/255)
+¿ estado, propuesta VARCHAR(255)
+¿created at TIMESTAMP
+¿updated at TIMESTAMP
+
+ 
+
+ 
+
+Figura 16. Diagrama Entidad Relación
+
+Esta es la composición de la base de datos del sistema con sus diferentes tipos de
+relaciones entre tablas
+
+383.9. Diagrama de Clases
+
+Las Clases utilizadas en el sistema corresponden a las siguientes: “clase usuarios, clase
+proyectos, clase anteproyectos” ellas abarcan dentro de sí el contenido general del sistema
+elaborado.
+
+Proyectos, es la clase que contempla dentro de sus atributos y métodos toda la
+información relacionada con cada uno de los trabajos de grado; Usuarios es la clase que
+interpreta todos los tipos de usuarios del sistema, esto es, visitantes, profesores,
+estudiantes, directores, evaluadores, administrador y coordinador del sistema, esta clase
+maneja todas y cada una de las operaciones que realizan cada uno de los usuarios.
+
+Anteproyectos, es la clase que contiene dentro de sus atributos y métodos toda la
+información relacionada con cada uno de los anteproyectos.
+
+De manera general, un anteproyecto y un proyecto pueden ser inscritos, modificados,
+borrados, evaluados y consultados; al igual un usuario del sistema puede inscribir,
+modificar, borrar evaluar ó Consultar cualquier acción del sistema estas operaciones son
+generales para cada proceso que cumple un proyecto desde su vinculación con el
+aplicativo, como por ejemplo, registro de propuesta , evaluación de propuesta, asignación
+de directores, asignación de evaluadores, generación de actas etc.; todas ellas hacen uso
+de las operaciones anteriormente mencionadas. En la Figura 17, se presenta el diagrama
+de clases.
+
+397 usuarios_has anteproyectos! Y . — usuarios_has proyectos Y
+
+% usuarios id INT(10) ? usuarios_id INT(10)
+? anteproyectos id INT(10) ? proyectos id INT(10)
+
+00
+
+»
+DA
+
+  
+  
+ 
+ 
+
+IN | AS
+2d INT(10) 1 1
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+       
+     
+   
+
+% dd INT[10) pa
+% codigo INT(11) F |
+1 | 19 codigo INT(11)
+9 id_programa_academico INT(11) La? id INT(10) /
+9 d_programa_academico INT(11)
+% user_id INT(11) 9 id_programa_academico INT(10) /
+| % user_id INT(11)
+9 bitacora ENUM(no'/'si') 9 id_tipo_usuario INT(10) |
+9 bitacora ENUM(no''si')
+G nombre_anteproyecto VARCHAR(255) 9 id_profesion INT(10) |
+. / % nombre_proyecto VARCHAR(255)
+9 descripcion_anteproyecto VARCHAR(255) 9 tipo_identificacion VARCHAR(255) /
+9 descripcion proyecto VARCHAR(255)
+<%G modalidad_anteproyecto ENUM(...) 9 documento_ identificacion INT(11) |
+. 9 modalidad proyecto ENUM(...)
+9 director_anteproyecto VARCHAR(255) 9 password VARCHAR(255)
+/ 9 director proyecto VARCHAR(255)
+9 director_anteproyecto_estado VARCHAR(255) % nombres VARCHAR(255) / .
+| 9 director_proyecto_estado VARCHAR(255)
+9 estado VARCHAR(255) % apellidos VARCHAR(255)
+| 9 estado VARCHAR(255)
+% observacion VARCHAR(255)  telefono_fijo VARCHAR(255) / .
+| 9 observacion VARCHAR(255)
+9 estado propuesta VARCHAR(255) 9 celular VARCHAR(255)
+| % estado_propuesta VARCHAR(255)
+9 created_at TIMESTAMP 9 email VARCHAR(255) /
+/ 9 created_at TIMESTAMP
+% updated_at TIMESTAMP % estado VARCHAR(255)
+| O updated_at TIMESTAMP
+» % ingreso_portal ENUM('no'/'si') | . .
+CA is ta ENUM( 5 / % bitacoraproyectos_id INT(10)
+9 registro_propues 'no'/'si
+y / % bitacorasustentaciones_id INT(10)
+9 anteproyecto ENUM('no'/'si) | >
+proyecto ENUM(n0) AS
+9 sustentación ENUM('no''si') ¡
+9 publicacion ENUM('no' 'si") /
+1 9 remember_token VARCHAR(255) h
+25d INT(10) 9 created_at TIMESTAMP /
+9 id_tipo_usuario INT(11) A % updated_at TIMESTAMP l
+9 tipo_usuario VARCHAR(255) X > bitacoraproyectos_id INT(10) |
+NX
+o created _at TIMESTAMP NX 9 programas_academicos_id INT(10) ¡
+% updated_at TIMESTAMP N > cronogramas_id INT(10) |
+* Nao! 4 tipos_usuarios_id INT(10) j
+> publicaciones id INT(10) el
+% proyectos_id INT(10) junaal
+> profesiones id INT(10)
+9 bitacorasustentaciones_id INT(10)
+
+ 
+
+ 
+
+>
+IEA AS
+
+Figura 17. Diagrama de clases General.
+
+3.10 Codificación
+
+Para codificar todas las funcionalidades del sistema se usó un editor de texto simple pero
+muy versátil conocido como Sublime Text, es un editor de texto y editor de código
+fuente está escrito en C++ y Python para los plugins. Desarrollado originalmente como
+una extensión de VIM, el cual tiene un entorno multilenguaje y ofrece las herramientas
+básicas para el desarrollo de tareas relacionadas con la elaboración de fuentes en un
+lenguaje interpretado.
+
+Herramientas gráficas utilizadas para diseñar SIGPUV (front-end)
+El diseño de la aplicación se basó en el Framework Bootstrap, que es actualmente el
+más popular para el diseño de aplicaciones y sitios web, ya que permite adaptarse a
+
+diferentes dispositivos, ya sea un computador, una Tablet o teléfonos inteligentes
+(Smartphone).
+
+40Este Frameworks está estructurado en HTML, CSS y JS (JQuery y otras librerías),
+incluyendo una serie de herramientas, componentes y librerías para su uso en cualquier
+proyecto.
+
+Las siguientes son algunas herramientas utilizadas en el proyecto:
+
+e Para el diseño del inicio de la aplicación, es decir, el ambiente gráfico del
+visitante e ingreso al sistema, se utilizó una plantilla que se encuentra disponible
+en los ejemplos Bootstrap de: http://getbootstrap.com/examples/carousel/
+
+ 
+
+"= Para el diseño de las tablas con las cuáles se cargan y se muestran los datos desde
+la base de datos, se utilizó una plantilla gratuita que al igual que Bootstrap, está
+
+estructurada bajo HTML, CSS y JS con algunas librerías de:
+http://getbootstrap.com/examples/carousel/
+
+ 
+
+" Para el diseño del panel administrativo también se utilizó una plantilla basada en
+Bootstrap, que al igual que las demás tuvo que ser adaptada a la necesidad de la
+aplicación, incluyendo el menú de cada uno de los usuarios y el menú para el
+manejo del perfil de cada usuario que ingresa a la aplicación. Así como en la
+plantilla del visitante se utilizó el data tables en este panel con el mismo objetivo.
+
+Es necesario aclarar que todas estas herramientas se tuvieron que adaptar a la necesidad
+del proyecto SIGPUV, por lo cual fue necesario utilizar ciertos conocimientos en
+HTML, CSS y Java Script, incluyendo el manejo de las librerías de JQuery.
+
+Así mismo, las vistas (las páginas que se muestran en el navegador con el contenido de la
+
+información) se crearon con el sistema BLADE de Laravel para que se pudieran mostrar
+a través de toda la navegación dentro de la aplicación. Ver figuras 18, 19, 20 y 21.
+
+413.11. Instalación
+
+Para garantizar las condiciones necesarias en la ejecución integral de la plataforma Web
+se tuvieron en cuenta el uso de diferentes tecnologías de soporte.
+
+A continuación se describe las herramientas necesarias para el correcto funcionamiento
+de la plataforma:
+
+"= Extensión MYSQL para soporte de conexión con servidores MySQL en PHP.
+"= Servidor de Bases de Datos MySQL 5.5.24 o superior.
+
+"= Framework Bootstrap basado CSS Currently V 3.3.0
+= Plantilla Bootstrap de: http://getbootstrap.com/examples/carousel/
+
+"= Para el diseño de las tablas se utilizó data tables que es un plug -in para la
+biblioteca JQuery Java Script.
+
+= Instalación del Frameworks Laravel el cual está basado en PHP, obviamente tiene
+como requisito tener instalado el PHP, en este caso, la versión de PHP 5.5.
+"= Además se necesita la extensión MCrypt de PHP.
+
+= Instalación de la base de datos MySQL4.2.
+= Instalación de un servidor web como Apache.
+
+"= Instalación de Composer que es un excelente manejador de paquetes y
+dependencias entre paquetes para PHP. https:/getcomposer.org/installer | php.
+
+Como una exigencia adicional a las ya mencionadas, el sistema debió contar con una
+conexión directa a Internet y un dominio público legalmente establecido.
+
+3.12. Descripción general del aplicativo Web
+
+En este apartado se define de forma breve y concisa los elementos gráficos más
+importantes que presenta el sistema SIGPUV para la gestión de los proyectos de grado de
+
+las Universidad del Valle - Sede Tuluá.
+
+En la figura 18. Se presenta la pantalla principal de interacción del sistema.
+
+42had niversi | Valle rev so
+
+Sede Tuluá
+
+Á% inicio [Bj Anteproyecto de Grado 2 Proyecto de Grado  B% Grupos de Investigación | Enlaces de Interés » A; Ingresaral Sistema  ? Ayuda»
+
+SIGPUV
+SISTEMA DE INFORMACIÓN PARA LA GESTIÓN DE ANTEPROYECTOS Y PROYECTOS DE GRADO DE LOS PROGRAMAS PROFESIONALES DE LA UNIVERSIDAD
+DEL VALLE SEDE TULUÁ
+
+— . Información importante
+— a sr
+$ :
+y o e pe L 2 > ve Candidatos a Grado
+E" L' Cronograma Académico
+e E Programación Académica
+
+fa 7
+ES A | Y ,
+A A y »
+ns > e e A a A
+e
+
+y
+
+ 
+
+SIGPUV permite realizar las actividades que se llevan a cabo con la recepción y evaluación de los anteproyectos y trabajos de grado que presentan los estudiantes en los
+programas académicos de la universidad: Ingeniería de Sistemas, Administración de Empresas, Trabajo Social y Contaduría Pública, a través de una aplicación web. Este
+sistema de información se elaboró como propuesta final de grado por el estudiante de Ingeniería de Sistemas, CESAR ADOLFO ESPINAL ESCOBAR, bajo la dirección de
+
+PÁVEL FRANCO MARÍN, ING.
+
+Esta aplicación se desarrolló en cuanto a interfaz gráfica con HTML, CSS, JavaScript, utilizando como base el framework Bootstrap y como lenguaje de programación de
+software web se utilizó PHP 5.4, y MySql 5.5 como motor de base de datos. Su desarrollo esta basado en el framework Laravel 4 diseñado sobre PHP orientado a objetos que
+
+utiliza el patrón de diseño Model View Controller (Modelo Vista Controlador).
+
+Universidad del Valle Sede Tulua
+Villa Campestre: Calle 43 No 43-33. PBX:(57/2241816-17
+Principe:Carrera 22 calle 42.Te1:2259706
+Victoria:Carrera 35 No. 33-60 Esquina. Tel:2326326
+Tulua - Valle- Colombia
+1994-2014
+academica. tuluafHcorreounivalle.edu.co
+
+Figura 18 .Pagina principal de SIGPUV.
+
+Estimado Usuario, para ingresar al sistema utilice sus datos de acceso. En el caso de que sea un estudiante y no este registrado, debe registrarse primero. Importante: Si
+considera que no cumple con los requisitos para iniciar su proceso de Anteproyecto de Grado, por favor no se registre todavía.
+
+Na)
+
+Ingrese su usuario
+
+Ingrese su contraseña
+
+Ingresar al Sistema
+
+e ¿Olvidó su contraseña?
++ Registrarse (sólo para estudiantes)
+
+Figura 19. Ingreso al sistema
+
+Este el sistema de registro de los usuarios para el ingreso al aplicativo, el único con
+privilegios para realizar este registro a través del aplicativo web son los estudiantes, los
+demás usuarios como el director, evaluador deberán ser registrados por el coordinador del
+programa académico o en su defecto por el super-adminstrador del todo el sistema.
+
+431 Universidad del Valle
+
+Módulo Estudiante - Ingeniería de Sistemas MENTES diia sita
+
+a Principal
+1
+Bienvenido a SIGPUV
+
+MJ" Anteproyectos
+_,
+a Comunicación Interna
+
+E Cronogramas
+
+Dl Formatos
+J
+
+—
+
+Este Panel Administrativo le permite acceder a todas las funciones que tiene asignadas dentro de la aplicación.
+
+NY AOS MEE NEAR
+
+Ao
+
+   
+
+Ver Mensajes Nuevos
+23 Tareas
+
+ 
+
+ 
+
+Figura 20. Interfaz gráfica del modulo estudiante
+
+Esta es la interfaz gráfica del estudiante donde podrá interactuar con las funcionalidades
+que ofrece el aplicativo, pero para poder hacer uso de ella requiere tener ciertos permisos
+
+por parte del coordinador del sistema. Cada Usuario tiene una interfaz gráfica diferente e
+independiente para realizar todas sus funciones.
+
+hi4 Universidad del Valle
+
+Módulo Coordinador  - Ingeniería de Sistemas PENES A A
+
+2 Principal
+Bienvenido a SIGPUV
+ÑÚ Usuarios $
+A Anteproyectos Este Panel Administrativo le permite acceder a todas las funciones que tiene asignadas dentro de la aplicación.
+
+ys Proyectos
+
+¡NY No Hay Mensajes Nuevos ME
+
+ 
+
+mas ; Cumplir
+= Sustentaciones Pp
+£
+
+   
+
+A ENE AA EE
+
+Ver Mensajes Nuevos o Ver Tareas Pendientes o | er Alertas de Fecha O |
+. Publicación Proyectos
+
+ 
+
+a Comunicación Interna
+
+3 Cronogramas
+Y
+
+B| Formatos
+
+—
+2= Tareas
+
+Figura 21. Panel administrativo del coordinador
+
+Este es la interfaz grafica utilizada por el coordinador de cualquier programa académico
+desde aquí se puede controlar todo el aplicativo como establecer las fechas calendario
+para el desarrollo de actividades, activación y eliminación de los usuarios al sistema,
+aprobación de los proyectos a través de las bitácoras de seguimientos.
+
+44bid Universidad del Valle
+
+Módulo Coordinador  - Ingeniería de Sistemas MTS A AS
+
+¿a Principal
+
+Ñ Usuarios
+
+Comunicación Interna - Mensajes Recibidos
+AY ' Anteproyectos
+
+M + Redactar RAEE M3 4 Mensajes enviados
+E Mostrar | 10 Y ¡registros Buscar:
+$ Proyectos
+
+Asunto a Fecha 5 Enviado Por 5 Ver Mensaje 
+ 
+
+Ss Sustentaciones z z :
+Estimado usuario, no existen registros disponibles
+
+ 
+
+e Publicación Proyectos Asunto Fecha Enviado Por Ver Mensaje
+
+Mostrando del 0 al 0. Total: O registr S
+a Comunicación Interna o a Anterior iguiente
+
+8 Cronogramas
+
+B| Formatos
+
+Tareas
+
+Figura 22. Comunicación Interna
+
+Todos los usuarios del sistema tiene a su favor una potente herramienta para la
+
+comunicación interna entre los usuarios, desde allí pueden emitir mensajes, revisar
+mensajes, lo cual permite una excelente comunicación entre los usuarios.
+
+bid Universidad del Valle
+
+      
+   
+
+; E ; PN NA y
+Módulo Estudiante  - Ingeniería de Sistemas A
+
+<a Principal
+1
+Bitácora de Anteproyectos de Grado
+
+My ' Anteproyectos
+
+ 
+
+ 
+
+(2 Comunicación Interna Entregable Descripción Pu o Calificación
+3 Cronogramas Entrega 1 Entrega E a | Sin Calificar
+a es 2 Entrega 2 Entrega 6 a Sin Calificar
+Tareas 0000- : za
+
+3 Entrega 3 Entrega 00-00 a | Sin Calificar
+
+4 Entrega 4 Entrega 0 au Sin Calificar
+
+5 Entrega 5 Entrega Se [a | Sin Calificar
+
+6 Entrega 6 Entrega pg e | Sin Calificar
+
+Entregable Descripción Encin pe Calificación
+
+Límite Entregable
+
+Figura 23. Bitácora de seguimiento de Anteproyectos
+
+Esta bitácora es la interfaz de seguimiento de los anteproyectos y proyectos de grado, por
+medio de ella el estudiante puede subir sus entregables presentárselos al director y al
+evaluador para su posterior revisión.
+
+Para el resto de imágenes del aplicativo ver el directorio Manual de Usuarios el cual
+se encuentra disponible en CD.
+
+45Capítulo 4
+
+4. Pruebas y Discusión de los Resultados
+
+La consolidación de la calidad en el software resultó una tarea que implicó el desarrollo
+integral de actividades como el análisis, el diseño, la codificación y la prueba en todos los
+ámbitos de la realización del proyecto. La calidad, como factor determinante, se logró
+fundamentar sobre ciertas pruebas (validación y verificación) que se realizaron de
+
+acuerdo a parámetros completamente particulares tales como los requerimientos de
+software.
+
+Los procedimientos realizados en esta etapa de pruebas del proyecto estuvieron
+direccionados a: Diseñar pruebas que sistemáticamente sacaran a la luz diferentes clases
+de errores, haciéndolo con la menor cantidad de tiempo y esfuerzo.
+
+"= Verificar la interacción de componentes.
+
+"= Verificar la integración adecuada de los componentes.
+
+= Verificar que todos los requisitos se hubiesen implementado de forma correcta.
+
+"= Identificar y asegurar que los defectos encontrados fuesen corregidos antes de
+entregar el software.
+
+4.1 Pruebas de Unidad
+
+Las pruebas de unidad se configuraron como un proceso para evaluar los subprogramas,
+las subrutinas, los procedimientos individuales y las clases del sistema. En este orden de
+ideas, el plan de pruebas del proyecto inició probando primero los bloques más pequeños
+desarrollados en la plataforma. Las motivaciones para desarrollar este tipo de pruebas
+fueron tres:
+
+"= En primer lugar, las pruebas de unidad son una manera de manejar los elementos
+de prueba combinados, puesto que se centra la atención inicialmente en unidades
+más pequeñas del programa.
+
+" En segundo lugar, la prueba de una unidad facilita la tarea de eliminar errores (el
+proceso de establecer claramente y de corregir un error descubierto), puesto que,
+cuando se encuentra un error, se sabe que existe en un módulo particular.
+
+" Finalmente, las pruebas de unidad introducen paralelismo en el proceso de
+pruebas del software presentándose la oportunidad de probar los múltiples
+módulos simultáneamente.
+
+Durante las pruebas de unidad se hizo uso intensivo de las pruebas de caja blanca
+ejercitando caminos específicos de ejecución y estructura de control de cada pieza de
+código para asegurar un alcance completo y una detección máxima de errores. Las
+
+pruebas, orientadas al enfoque de la caja blanca lograron:
+
+" Garantizar que se ejercitaran por lo menos una vez todos los caminos
+independientes de cada módulo.
+
+=  Ejercitar todas las decisiones lógicas en sus vertientes verdadera y falsa.
+"= Ejecutar todos los bucles en sus límites y con sus límites operacionales.
+
+=  Ejercitar las estructuras internas de datos para asegurar su validez.
+
+464.2. Pruebas de Integración
+
+El objetivo de las pruebas de integración consistió en verificar el correcto ensamblaje
+entre los distintos componentes una vez que hubiesen sido probados unitariamente con el
+fin de comprobar que interactuaran correctamente a través de sus interfaces, tanto internas
+como externas, cubriendo la funcionalidad establecida y ajustándose a los requisitos no
+funcionales especificados en las verificaciones correspondientes.
+
+Este tipo de pruebas se plantearon desde un punto de vista estructural y funcional. Las
+pruebas estructurales de integración fueron similares a las pruebas de caja blanca; pero
+
+trabajaban a un nivel conceptual superior. En lugar de referirse a sentencias del lenguaje,
+se refirieron a llamadas entre módulos.
+
+Las pruebas funcionales de integración se enfocaron sobre pruebas de caja negra. Aquí se
+trató de encontrar fallos en la respuesta de un módulo cuando su operación depende de
+los servicios prestados por otro(s) módulo(s). En la medida en que se consolidaba el
+sistema total, estas pruebas se basaban más y más en la especificación de los requisitos
+del usuario. Es importante recordar que la utilización de la prueba de caja negra se hizo
+con el objeto de encontrar errores de las siguientes categorías:
+
+= Funciones incorrectas o ausentes.
+= Errores de interfaz.
+= Errores en estructuras de datos.
+
+A continuación, en las tablas 5, 6, 7, 8 y 9. Se describe la plantilla donde se consigna la
+información relacionada con el desarrollo de las pruebas.
+
+47Pruebas de id
+
+E Resultado
+
+iniciar-sesion.blade. blade. a a de valores] El método realiza una consulta en la
+Frontera base de datos, compara los datos
+obtenidos con los ingresados por el
+usuario, una vez verificados permite
+el inicio de sesión.
+
+cambiar-password.blade.php Cambiar Contraseña[(]) Prueba de valores El método permite modificar un
+Frontera registro existente en controlador de
+usuarios de la base de datos.
+
+proygectos.blade.php progectosgrado() Prueba de valores] El método permite almacenar, los
+Frontera datos ingresados por el usuario, en la
+tabla de proyectos.
+
+usuarios.blade.php Prueba de valores|el metodo permite borrar un usuario
+Frontera de la base de datos.
+
+sistemas_formatos.blade.php Prueba de Camino [el metodo permite buscar un archivo
+.-pdf en el directorio proyectos para
+cargarlo en el sistema.
+
+ 
+
+Tabla 5. Tabla de pruebas de Unidad.
+
+Pruebas de integración
+
+Registro de propuesta nueva de grado.
+a
+Historia de Usuario GENERAR EL REGISTRO DE LA NUEVA PROPUESTA DE GRADO
+
+Permite al usuario estudiante, la creación de una nueva propuesta de grado.
+
+Tipo de Prueba Prueba causa-efecto
+
+Hardware Requerido Portatil Toshiba Satellite-L755 Procesador intel£ core”" ¡5, 4
+GB de RAM, 500 GB de almacenamiento,
+Servidor, XAMPP, Software Larabel y composer.
+
+Personal Requerido
+Datos de Prueba Los datos ingresados por el usuario a través de la vista anteproyecto.php
+
+Procedimiento de Prueba Se despliega la aplicación Web, se accede mediante datos de login existentes, se
+busca el formulario de proyectos en el menú principal, se escriben los datos
+solicitados mediante en campos de la vista, se da click en el botón guardar.
+
+Resultado Esperado Los datos ingresados por el usuario son almacenados en la tabla proyectos de la
+base de datos. La aplicación notifica que se ha creado una nueva propuesta de
+grado de manera exitosa.
+
+Resultado Obtenido Prueba Exitosa SI(X) No()
+La aplicación crea de manera correcta la nueva propuesta de grado.
+Realizado por | Fecha Cesar Adolfo Espinal en agosto 8 de 2014
+
+Tabla 6. Pruebas de Integración 1
+
+ 
+
+48IS A
+Hardw are Requerido Portatil Toshiba Satellite-L755 Procesador intel core” ¡5, 4
+Pa | GB de RAM, 500 GB de almacenamiento.
+
+Personal Requerido
+Datos de Prueba Los datos ingresados por el usuario administrador a través de la vista usuarios. php
+
+Procedimiento de Prueba Se despliega la aplicación Web, se accede mediante datos de login existentes, se
+busca el formulario Usuarios en el menú principal, se escriben los datos de usuario
+solicitados mediante los campos de la vista, se da click en el botón crear.
+
+Resultado Esperado Los datos ingresados por el usuario son almacenados en la tabla usuarios de la base
+de datos. La aplicación notifica que se ha creado un nuevo usuario de manera
+exitosa.
+
+Resultado Obtenido Prueba Exitosa Sl(X) No()
+La aplicación crea de manera correcta el nuevo usuario.
+Realizado por | Fecha Cesar Adolfo Espinal en agosto 8 de 2014
+
+Tabla 7. Pruebas de Integración 2
+
+ 
+
+y _CRORERAXxonA A E OR A AAA
+Hardware Requerido Portatil Toshiba Satellite-L 755 Procesador intel? core” ¡5, 4
+AN
+
+Personal Requerido
+Datos de Prueba Fecha limite establecida por el administrador en la base de datos.
+
+Procedimiento de Prueba Habiendo previamente programado una fecha y hora casi inmediata y estando
+dentro del sistema SIGPUY, se espera la hora programada para que aparezca en la
+vista alerta de fechas.
+
+Resultado Esperado Á la hora establecida y calendario se muestra la alerta en en sistema en la vista
+Resultado Obtenido Prueba Exitosa S1(X) No()
+La aplicación permite gestionar las alertas de manera efectiva.
+
+ 
+
+Tabla 8. Pruebas de Integración 3
+
+49Pruebas de Validación
+
+Prueba de los componentes y herramientas de la aplicación en forma aleatoria.
+
+básico ccoo ón eo al rn ape ms ici.
+
+ACCEDER AL SISTEMA, GENERAR REPORTES, GESTIONAR
+PROYECTOS
+
+Objetivo Permite el acceso del usuario administrador al sistema, de manera que al
+ingresar pueda utilizar las distintas funcionalidades de creación, modificación
+y eliminación de usuarios, módulos USUARIOS, módulos de perfiles, etc, así
+como la consulta de datos, generación de informes pdf y visualización de
+alertas, que la aplicación tendrá disponibles.
+
+Tipo de Prueba
+
+Hardware Requerido Portatil Toshiba Satellite-L755 Procesador intelE core" iS, 4
+GB de RAM, 500 GB de almacenamiento.
+
+Personal Requerido 22222 pe y]
+
+Datos de acceso de un usuario administrador existente (Login y contraseña).
+Datos de prueba ingresados en las diferentes tablas de la base de datos.
+
+Procedimiento de Prueba Se despliega la aplicación Web, se muestra la pantalla de Login, el usuario
+ingresa su nombre y contraseña, da click en el botón ingresar; la aplicación
+verifica que los datos correspondan a un usuario administrador del sistema y
+permite el ingreso a la aplicación. Una vez identificado, el usuario
+
+administrador puede acceder a cada componente categorizado en el menú
+incipal.
+
+Resultado Esperado El sistema compara los datos de usuario ingresados en el login con los datos de
+usuario almacenados en la base de datos, finalmente verifica que si son
+correctos y permite el acceso a la aplicación. Una vez dentro se realizan
+operaciones básicas de registro, modificación, eliminación y consulta de datos,
+en diferentes modulos de la aplicacion.
+
+Resultado Obtenido Prueba Exitosa SIX) No()
+La aplicación valida los datos correctamente.
+Realizado por / Fecha Cesar Adolfo Espinal agosto 08 de 2014
+
+Tabla 9. Pruebas de Validación.
+
+ 
+
+S0Capítulo 5
+
+5. Conclusiones y Proyecciones
+
+A continuación, se presentan las conclusiones derivadas del desarrollo de los diferentes
+objetivos del proyecto e igualmente se proponen algunos conceptos sobre los cuales se
+pueden abordar futuros trabajos en cuanto a desarrollo de aplicaciones web para gestión
+de proyectos.
+
+5.1. Conclusiones
+
+" Cada vez son más los procesos manuales que son reemplazados por software y
+tecnología, para mejorar de manera considerable la eficiencia de un proceso. En
+este caso particular y con el desarrollo de este proyecto llamado SIGPUV la
+Universidad del Valle sede Tuluá, cuenta con una aplicación web para gestionar
+los proyectos de grado en los diferentes programas profesionales que ofrece.
+
+"= El uso del Framework de Laravel permitió al desarrollo de la aplicación un gran
+valor agregado, cuando se reduce el margen de fallos de funcionamiento y
+aumenta el potencial de la misma; También es una herramienta muy útil en
+cuanto a desarrollo, porque permite a los programadores reutilizar su código.
+
+"= La configuración de todos los componentes del MVC y utilizando el Framework
+de Laravel, permitió los conocimientos necesarios para desarrollar sistemas de
+información, implementando las metodologías de desarrollo para proyectos a
+mediana y gran escala, con altos niveles de calidad, esto requirió inversión de
+tiempo, pero una vez terminada esta etapa de apropiación, se hizo más sencillo el
+
+desarrollo del proyecto SIGPUV.
+
+" La implementación del sistema de información SIGPUV desarrollado para
+mejorar la gestión de los trabajos de grado de la Universidad de Valle sede Tuluá,
+agiliza los procesos de la organización, cuando desarrolla una solución práctica,
+utilizando tecnologías actuales y de punta, que permiten al usuario final,
+interactuar dentro del proceso de gestión de proyectos.
+
+5.2. Trabajos Futuros
+
+"  Esrecomendable dar continuidad a este proyecto para que al momento de ampliar
+la oferta académica de los programas profesionales de la universidad del valle
+sede Tuluá, se puedan acoplar al aplicativo, homologando todos los procesos en
+la gestión de proyectos de grado, con el objeto de hacer uso de esta herramienta
+tecnológica para agilizar la gestión de dichos procesos.
+
+"  SIGPUV es un proyecto en su etapa inicial, que pretende para el futuro sea una
+herramienta útil para todos los programas profesionales de la Universidad del
+Valle sede Tuluá, que permita con el paso del tiempo a otros estudiantes realizar
+aportes a la propuesta, con nuevas ideas que diversifiquen el uso de esta
+
+aplicación web, para que día a día sea más robusta y confiable.
+
+51SIGPUV es un proyecto en su etapa inicial, que pretende para el futuro sea una
+
+herramienta útil para todos los programas profesionales de la Universidad del
+Valle sede Tuluá, que permita con el paso del tiempo a otros estudiantes realizar
+
+aportes a la propuesta, con nuevas ideas que diversifiquen el uso de esta
+aplicación web, para que día a día sea más completa, robusta y confiable.
+
+Es recomendable para una nueva versión del aplicativo SIGPUV realizar la
+actualización de las herramientas utilizadas, en especial la del framework de
+Laravel en su versión 4.0 por otra versión mas reciente, con el objetivo de
+solucionar un conflicto interno que tiene Laravel en el manejo de las excepciones
+que genera el controlador en sus rutas; Con la actualización de última versión
+este problema se solucionaría de fondo.
+
+52Anexos
+
+53ANEXO A.
+
+Entrevista al Ingeniero ALBEIRO APONTE VARGAS.
+
+1. ¿Qué problemáticas ha evidenciado usted, en los procesos de la gestión de los
+anteproyectos y proyectos de grado de Universidad del Valle Sede Tuluá?
+
+Es necesario facilitar un medio con el cual se pueda cargar un anteproyecto a una
+herramienta computacional para así tener un listado de profesores que estén activos
+dentro del semestre y asignar dependiendo de la temática del proyecto el área o el perfil
+de conocimiento para que el estudiante observe cual educador se desenvuelve más fácil
+en la temática.
+
+2. ¿Considera usted la necesidad de crear una plataforma que homologue los
+
+procesos de gestión de anteproyectos y proyectos de grado de Universidad del Valle
+Sede Tuluá?
+
+S1, lo considero importante. Que la plataforma en la cual vamos a ingresar la información,
+por medio de un repositorio muestre el anteproyecto y genere un posible evaluador, para
+que se genere una carta impresa y por correo electrónico llegue como notificación al
+posible evaluador; con el fin que el posible evaluador ingrese a la plataforma y pueda
+evaluar el trabajo de grado.
+
+Esta plataforma también puede generar un formato de evaluación y que el evaluador
+pueda hacer comentarios sobre el documento de anteproyecto.
+
+3. ¿cree usted factible que la plataforma sea utilizada por estudiantes y profesores?
+
+Es posible lograrlo, siempre y cuando se muestre en el sistema cuales anteproyectos
+
+fueron aprobados por el evaluador en un listado y así el estudiante pueda registrar trabajo
+de grado 1.
+
+4. ¿Considera usted que la materia de seminario puede llevar un control desde esta
+herramienta tecnológica?
+
+Sería indispensable, lograr que se lleve un control de la materia de seminario, puesto que
+es el pilar de los anteproyectos de grado, es decir que el seguimiento de los estudiantes se
+haga desde que matriculan esta materia.
+
+5. ¿Considera usted importante que los anteproyectos y proyectos de grado
+realizados por los estudiantes que ya obtuvieron su título profesional, puedan ser
+publicados en la aplicación web para el beneficio de otros estudiantes que empiezan
+el proceso de su proyecto de grado?
+
+Lo considero pertinente siempre y cuando se realice a través de Repositorios de trabajos
+de grado, que queden en un servidor específico para que los estudiantes de ingeniería de
+sistemas puedan ver que se ha implementado y que estos trabajos no puedan ser bajados
+por los estudiantes solamente mostrados en pantalla por cuestiones de derechos de autor.
+
+6. ¿Cree usted que sería conveniente homologar los procesos de pregrado en
+diferentes programas profesionales que ofrece la Universidad?
+
+54Lo considero interesante porque no solo deberíamos aplicarlo a Ingeniería de Sistemas
+sino que también debería ser presentado para otros programas, logrando que sea de una
+manera configurable que se adapte a cada programa.
+
+7. ¿Considera usted aplicable que el proceso de asesorías realizadas por los docentes
+se puedan hacer de manera virtual?
+
+Sí, me parece conveniente, porque permite una mejor comunicación en los procesos de
+asesorías con los estudiantes que no puedan asistir, siempre y cuando quede un registro
+de dicha asesoría en tiempo y espacio con un resumen de lo que se trató.
+
+8. ¿Considera usted que es conveniente para los estudiantes realizar los trámites con
+las directivas Universitarias, a través de formatos aplicados a los diferentes
+programas que ofrece la Universidad utilizando la aplicación web?
+
+S1, sería muy interesante generar a través de un sistema los formatos que requieren los
+estudiantes de los diferentes programas, para que puedan descargarlos y diligenciarlos
+ante las directivas Universitarias, por medio de la aplicación.
+
+9. ¿Cree usted que la aplicación debería llevar estadísticas y porcentajes sobre los
+trabajos de grado elaborados por los estudiantes?
+
+S1, el programa debe mostrar la estadística y el cronograma de actividades para saber
+
+cómo va el proceso, por ejemplo saber si el estudiante va en el 30% o el 60% del
+cronograma si va bien o está estancado. Etc.
+
+55ANEXO B.
+
+Entrevista a la Ingeniera YURI MERCEDES BERMÚDEZ MAZUERA.
+
+1. ¿Qué problemáticas ha evidenciado usted, en los procesos de la gestión de los
+anteproyectos y proyectos de grado de Universidad del Valle Sede Tuluá?
+
+La problemática que evidenció es que todos los procesos se llevan manualmente, es
+
+necesario crear un sistema de información que lleve todos estos procesos, con el fin de
+agilizar todos los procesos relacionados con los anteproyectos y proyectos de grado.
+
+2. ¿Considera usted la necesidad de crear una plataforma que homologue los
+procesos de gestión de anteproyectos y proyectos de grado de Universidad del Valle
+
+Sede Tuluá?
+
+St, lo considero muy importante ya que a través de esta plataforma tecnológica se
+llevaran todos los procesos referentes a la gestión de los anteproyectos y proyectos de
+grado, lo cual permitirá un mejor manejo de la información entre estudiantes y
+profesores.
+
+3. ¿cree usted factible que la plataforma sea utilizada por estudiantes y profesores?
+S1 es factible siempre y cuando la plataforma tenga los requerimientos necesarios tanto en
+seguridad como estabilidad.
+
+4. ¿Considera usted que la materia de seminario puede llevar un control desde esta
+herramienta tecnológica?
+
+Lo considero muy importante, ya que la materia de seminario es el inicio del
+anteproyecto de grado, y es necesario llevar un control de los estudiantes para la
+evaluación de sus propuestas de grado y de esta manera llevar un seguimiento desde que
+matriculan esta materia.
+
+5. ¿Considera usted importante que los anteproyectos y proyectos de grado
+realizados por los estudiantes que ya obtuvieron su título profesional, puedan ser
+publicados en la aplicación web para el beneficio de otros estudiantes que empiezan
+el proceso de su proyecto de grado?
+
+Si lo considero importante porque de esta manera los estudiantes tendrían una
+herramienta tecnológica de apoyo que les permita enfocar sus ideas y transmitirlas de
+una manera más eficiente. Pero esta información solo debería ser consultada mas no
+descargada de la aplicación ya que esto generaría plagió.
+
+6. ¿Cree usted que sería conveniente homologar los procesos de pregrado en
+diferentes programas profesionales que ofrece la Universidad?
+
+Lo considero conveniente ya que la plataforma tecnológica se implementaría en toda la
+sede y en los diferentes programas profesionales para el manejo de todos estos procesos.
+
+7. ¿Considera usted aplicable que el proceso de asesorías realizadas por los docentes
+se puedan hacer de manera virtual?
+
+Sí, me parece conveniente, ya que muchas veces los profesores o estudiantes no pueden
+
+desplazarse a las asesorías y hacerlo de forma virtual se cumpliría de igual manera con el
+proceso siempre y cuando quede evidencia que se realizo dicha asesoría.
+
+S68. ¿Considera usted que es conveniente para los estudiantes realizar los trámites con
+
+las directivas Universitarias, a través de formatos aplicados a los diferentes
+programas que ofrece la Universidad utilizando la aplicación web?
+
+Si sería conveniente que el sistema generara todos los formatos que necesitan los
+estudiantes y profesores para así lograr diligenciarlos y cumplir con los requisitos
+establecidos por la Universidad.
+
+9. ¿Cree usted que la aplicación debería llevar estadísticas y porcentajes sobre los
+trabajos de grado elaborados por los estudiantes?
+
+Sería conveniente para llevar una estadística de los estudiantes en cuanto al desarrollo del
+trabajo para observar cómo va el proceso y compararlo con el cronograma de actividades.
+También sería conveniente mostrar las estadísticas de los proyectos que se están
+ejecución y los realizados, con el fin de evidenciar cuantos estudiantes hay en proyectos
+de ingeniería, de investigación, de pasantía.
+
+57ANEXO C.
+
+Historias de Usuarios.
+
+Hd
+bi
+
+Entrar a la aplicación, ira [Los uSuaros
+los datos de los usuarios [usuarios y actualizar la registrados en la
+A base de datos.
+
+Entrar a la aplicación, ir a la
+base de datos, buscar el
+
+li
+
+ 
+
+Como
+coordinador
+Como
+coordinador
+Como
+coordinador
+Como
+coordinador
+Como
+coordinador
+
+58|
+
+]
+|
+
+2
+
+Como
+coordinador
+
+Como
+coordinador
+
+Notificar fecha de Como
+sustentación coordinador
+coordinador
+
+Como
+coordinador
+
+ 
+
+59|
+|
+
+Esta información
+solo puede ser
+moduo de estudiantes, las [revisada por el
+coordinador y
+registrados.
+
+|
+
+E
+
+ 
+
+6061Bibliografía
+
+[1] Gómez Vieities Álvaro, Suárez Rey Carlos. “Sistemas de Información Herra
+mientas prácticas para la gestión empresarial”. Cuarta Edición. España: Editorial RA-MA, 2011.
+
+[2] Univalle (2013 a). Dirección de Regionalización — Universidad del Valle. Reseña
+Histórica. Recuperado el 5 de Noviembre de 2013,
+de:http://tulua.univalle.edu.co/index.php/conoce-tu-u/28-historia-de-univalletulua.html.
+
+ 
+
+[3] SIAP. (2013). Forero, Alejandro. SIAP Sistema de Información para
+
+Administración de Proyectos de Grado. Recuperado el 10 de noviembre de 2013,
+de: http://bookr2.com/viewmanual/27184.
+
+ 
+
+[4] Univalle (2013 b).Biblioteca Virtual — Universidad del Valle. TIC Gestión del
+Talento Humano Administración. Recuperado el 15 de Noviembre de 2013, de:
+http://bibliotecadigital.univalle.edu.co:8000/bitstream/10893/4830/1/Herramienta
+
+s%20TIC.pdf.
+
+ 
+
+[5] Univalle (2013 c). Biblioteca Virtual — Universidad del Valle. Modelo de gestión
+del sistema de postgrado UGMA basado en el Balanced Scorecard. Recuperado
+el 14 de Noviembre de 2013,
+de:http://bibliotecadigital.univalle.edu.co:$000/bitstream/10893/2155/1/Modelo
+%20de%20gestion%20del%20sistema%20de%20postegrado.pdf.
+
+ 
+
+ 
+
+[6] Univalle (2013 e). Biblioteca Virtual — Universidad del Valle.Aplicación web
+para la administración integrada de proyectos, sistema integrado de proyectos
+SIP. Universidad del Valle. Recuperado el 4 de Diciembre de 2013 de:
+
+http://opac.univalle.edu.co/cg1-olib?infile=list items.glues£si=-201 con código
+0357300.
+
+ 
+
+[7] Metodologías de desarrollo (2013). José H. Canos, Patricio. Metodologías Ágiles
+en el Desarrollo de Software. Universidad Politécnica de Valencia. Recuperado el
+5 de julio de 2013 dehttp://www.willydev.net/descargas/prev/TodoA gil .pdf.
+
+ 
+
+[S] Aplicaciones Web (2014 a). Departamento de lenguajes y sistemas de
+informáticos. Programación en internet 2006-2007. Aplicaciones Web.
+Universidad de Alicante. Recuperado el 04 de julio de 2014 de:
+http://rua.ua.es/dspace/bitstream/10045/4412/5/03c-AplicacionesWeb.pdf.
+
+ 
+
+[9] Metodologías de desarrollo (2013). José H. Canos, Patricio. Metodologías Ágiles
+en el Desarrollo de Software. Universidad Politécnica de Valencia. Recuperado el
+5 de julio de 2013 de: http://www.willydev.net/descargas/prev/TodoA gil pdf.
+
+ 
+
+[10] Metodología XP (2013). Gerardo, F. Introducción a Extreme
+Programming. Recuperado el 27 de octubre de 2013
+de:http://aalbertovargasc.files.wordpress.com/2011/07/presentacion-xp.pdf.
+
+ 
+
+[11] Metodología Scrum (2013).Víctor, C. SOFTENG Metodologías Scrum
+para desarrollo de software. Recuperado el 19 de febrero de 2013 de:
+http://www.softeng.es/es-es/empresa/metodologias-de-trabajo/metodologiascrum.html.
+
+62[12] Proceso unificado (2013). Víctor, C. Proceso unificado de Desarrollo.
+Recuperado el 16 de noviembre de 2013 de:  http://informaticatutll.blogspot.com/2013/03/proceso-unificado-de-desarrollo.html.
+
+[13] PHP (2013). Philip, O. Manual de PHP. Recuperado el 11 de noviembre
+de 2013 de: http://php.net/manual/es/index.php.
+
+[14] HTML (013). Jaca, C. Manual de HTML. Recuperado el 13 de octubre
+de 2013 de: http://www.uv.es/jac/guia/.
+
+[15] Univalle (2013 d). Dirección de Regionalización. Historia Univalle
+Tuluá. Recuperado el 5 de noviembre 2013 de:
+http://tulua.univalle.edu.co/index.php/conoce-tu-u/28-historia-de-univalletulua.html.
+
+[16] ANAYA, LukeWelling, Laura Thomson. Desarrollo Web con PHP y
+MySQL. Madrid: Artes Gráficas Guemo, S.L., 2003. 912 págs.
+
+[17] INSTITUTO COLOMBIANO DE NORMAS TÉCNICAS. Compendio
+tesis y otros trabajos de grado. Santafé de Bogotá, D.C. Icontec 2006. NTC 1486,
+
+NTC 1075, NTC 1487, NTC 1160, NTC 1308, NTC 1307, NTC 4490. ISBN
+958-9383-07-6.
+
+[18] LARMAN Craig. UML y Patrones. Introducción al análisis y diseño
+orientado a objetos. 506 págs.
+
+[19] PRESSMAN, Roger S., Ingeniería del software: Un enfoque práctico.
+Madrid. McGraw-Hill, 2002. 601 págs.
+
+[20] ROB, Peter Coronel, Carlos. Sistemas de Bases de Datos. Diseño,
+implementación y Administración. México D.F. Thomson, 2003. 838 págs.
+
+63

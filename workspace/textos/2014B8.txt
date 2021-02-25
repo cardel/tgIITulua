@@ -1,0 +1,3129 @@
+DESARROLLO DE UN SISTEMA DE INFOMACIÓN PARA LA GESTIÓN DE LAS
+ORDENES DE SERVICIO EN LA EMPRESA AREA INFORMATICA DE BUGA
+
+JONATHAN CADENA GÓMEZ
+
+UNIVERSIDAD DEL VALLE
+FACULTAD DE INGENIERÍA
+ESCUELA DE INGENIERÍA DE SISTEMAS Y COMPUTACIÓN
+PROGRAMA ACADÉMICO DE INGENIERÍA DE SISTEMAS
+
+2016
+IDESARROLLO DE UN SISTEMA DE INFOMACIÓN PARA LA GESTIÓN DE LAS
+ORDENES DE SERVICIO EN LA EMPRESA AREA INFORMATICA DE BUGA
+
+JONATHAN CADENA GÓMEZ
+201449947
+Cadena.jonathan Ocorreounivalle.edu.co
+
+Trabajo de grado para optar al título de
+Ingeniero de Sistemas
+
+Director:
+JULIÁN ANDRÉS RODAS LAVERDE
+Ingeniero de Sistemas
+julrod_700 yahoo.com
+
+UNIVERSIDAD DEL VALLE
+FACULTAD DE INGENIERÍA
+
+ESCUELA DE INGENIERÍA DE SISTEMAS Y COMPUTACIÓN
+PROGRAMA ACADÉMICO DE INGENIERÍA DE SISTEMAS
+
+2016
+
+IITuluá — Valle, 6 de abril del 2016
+
+Nota de aceptación:
+
+Firma del presidente del jurado
+
+ 
+
+Firma del jurado
+
+ 
+
+Firma del jurado
+
+ 
+
+THAGRADECIMIENTOS
+
+A los profesores que aportaron en mi desarrollo como persona y con su orientación han
+contribuido en mi formación académica y profesional.
+
+A mi director de proyecto de grado quien estuvo acompañándome en el largo proceso de la
+realización del proyecto, durante todo este tiempo aportándome ideas y conocimientos, los
+cuales fueron de gran soporte para mí.
+
+IVCONTENIDO
+
+. INTRODUCCIÓN ..ooooconnnnnnnnnnononcnnnonannnnoconannnnnóos
+2 PLANTEAMIENTO DEL PROBLEMA ...........
+2.1 DESCRIPCION DEL PROBLEMA. .0ooococncos
+
+2.1 FORMULACIÓN DEL PROBLEMA.............
+
+3.1 OBJETIVO GENERAL .ooooccccccccccccnnnnnnnnncnnnnnss
+3.2 OBJETIVOS ESPECIFICOS c.ccccccccocnnnnicccnnnos:
+4 ESTRUCTURA DEL DOCUMENTO coooccccccns.
+2. MARCO DE REFERENCIA. ccuniniciciccnnonoccccnioiocicinss
+
+2.1 MARCO TEORICO ¿oooccccccccncnnnnnnnnnninonnnnnnnnnnnnoss
+
+pued pa pu pu pd pad
+
+Da bb hh bu Dn mn
+
+2.3 ANTECEDENTES O ESTADO DEL
+
+3. DESARROLLO DEL PROYECTO.....
+
+1 REQUERIMIENTOS c.occoccccccncnconinnoninnnos
+3.2.1 CASOS DE USO coocooccccccconinnnnnonincnncnnnns
+3.2.2 MODELO DE PROTOTIPOS ..00oooco.o...
+3.3. DISEÑO ..oooococcoccononcnncnnonononnnnnoncnccncnncncnns
+3.3.1 MODELO DE LA BASE DE D 5
+3.3.2 ARQUITECTURA .ccooccccconcnnincnnoncnncnnnns
+3.4 IMPLEMENTACIÓN ..coocccoccccconinninninncnns
+3.4.1 CODIFICACIÓN .ocooocccocconcnnconinccnninncnos
+3.4.2 INTALACIÓN ..cocoocccoccoccononncnncnninccnnónos
+3.4.3 VISTAS DE LA APLICACIÓN ...........
+
+4.4 PAGINA PRINCIPAL ..ooooooccccccincincnnino.
+
+4. PRUEBAS .coocococccccnnonnononcnncnnononncnnononcnacanonons
+
+4.1 PRUEBAS DE SEGURIDAD Y CONTRO
+4.2 PRUEBAS UNITARIAS DEL SISTEMA
+4.3 PRUEBAS DE INTEGRACION ¿oocccccccos.
+5. CONCLUSIONES cocccccccccccnnnnnnnnnnnncnnncnnnnnnnnnoss
+6. TRABAJOS FUTUROS c.coccoconnnnnnnncccccnnncnannnoss
+
+12
+12
+16
+19
+24
+27
+27
+29
+30
+30
+30
+31
+31
+37
+37
+39
+41
+44
+45LISTA DE TABLAS
+
+Tabla 1: Comparativa entre metodologías tradicionales y desarrollo ágil..............oonnccccnn...... 8
+Tabla 2: Requerimientos Funcionales ......occcccnoononnncnnnnnnnnnoncnnnnnnnonnnnncnnnnnnnnnnnnrnnnnonnnnrecnnnnnnnns 15
+Tabla 3: Product Blacklog del proyecto ......ccocooooonnccccnnnonononcncnnnnnonnnnncnnnnnnnonnnnrcnnnononarennnnnnnnns 13
+Tabla 4: Sprint Blacklog del proyecto.......cccccooooonncncnnncnonnoncncnnnnnnnnnnncnnnnononnnnnrnnnnonnnnnennnnnonnns 16
+Tabla 5: Sprint Blacklog del proyecto.......ccccoooonnnccccnnnonononcncnnnononnnnncnnnnnononanncnnnnonnnnrennnnnnnnns 17
+Tabla 6: Sprint Blacklog del proyecto.......cccooooononcccnoncnononnncnnnnnononnnnnnnnnononnnnncnnnnonnnarecnnnnnnnns 17
+Tabla 7: Sprint Blacklog del proyecto.......cccooooonnncccnnncnoonnnncnnnnnononnnnnnnnnonononnncnnnnnnnnnnnnnnnnnnnns 18
+Tabla $: Sprint Blacklog del DEOYECÍO ..crsiorareriariia rra rirarantia rara ria r444 peIA rE A PAIR IA ARA DADO BABA 18
+Tabla 9: Caso De Uso Crear Nueva Ord ..cccoooooncncnnncnonnnnncnnnnnononancccnnnnnonnnnnnnnnnnnnnnnnrnnnnnnnns 20
+Tabla 10: Caso De Uso Crear Nuevo Cliente ....oooccccccccnonncccnnnnnnonnncnnnnnnononnncnnnnnnonnnnnnnnnnnnnnos 21
+Tabla 11: Caso De Uso Crear Actividad ....cccooononnnccnnccononnnnnnnnnnnonanncnnnnnnnnnnnnrnnnnononnnrcnnnnnnnns 22
+Tabla 12: Caso De Uso Crear empleado ...crcrarmarnariiiranarararariiartra vera rnrdre rd ra arar dn nos eto e0aA 23
+Tabla 13: Caso De Uso Ejecutar Agenda....c.ooccccncnncncnnoncnnnnnnnononnnnnnnononnnnnnnnnrnnnnnnnonnnnnrnnonannns 23
+Tabla 14: Pruebas De Seguridad Y Control De ACCESO ...ccoooocccnncnnncconcnonaccnnonancnnnnnnnconnnnnnnos 38
+Tabla 15: Pruebas Unitarias Crear Nuevos Clientes ......ooooooccccnccononncccnnnncnnnnccnnnnnnnonanncnnnnnnonos 40
+Tabla 16: Pruebas De Integración Crear Nueva Orden ...occccconcccnnccnncnonnnonaconnnnnccnnnnnnnrnnnnnnnnos 41
+Tabla 17: Prueba Unitaria Editar Cliente ......ccooonnnnncnnncnononnnnnnnnnononancnnnnnononnnnncnnnnnnnnnnrcnnnnnnnns 43
+
+VILISTA DE FIGURAS
+
+Figura 1: Diagrama del Proceso ScrUM...oocccccncccnonncnnnnnncnnnnnoccnnnnnonnnnnrnconnnonnnnnrrncnnnnnnncrncnnnnnnns 9
+Figura 2: Tareas pendientes ....oooooncnccccnnccncnnnnnnnnnnnnnnnnncnnnnnnnoss ¡Error! Marcador no definido.
+Figura 3: Prototipo autenticación para los usuarios del SisteMa .....oocccccncnnnnnnncncnnnnnnnnnccnnnnnnnns 25
+Figura 4: Prototipo registrar orden de ServiciO ....oooccccccnoonnncncnnnnnononoccnnnonnnnnncncnnnnnnnnncrcnnnnnnnns 25
+Figura 5: Prototipo agenda de UN tÉCNICO ...ooocccnccnocncnncnnnccnnnnnonocononnnoronnnnnancnnnononocononanccnnnnnoss 26
+Figura 6: Modelo Entidad Relación ...........oooonccncnnocncnnnnnocnnnnnnnoccnnnnnnnncnnnononccnnonoccnnnnnnnccnnnnnnos 28
+Figura 7: Modelo Vista Controlador ........oooonncnncnoooncnnnonocncnnnnonocononnonncnnnnnancnnnonncrnnonanocincnnanos 29
+Figura 8: Página de autenticación para los usuarios del sistema. ......ococcoonnncncnnnoccnnnnnannnnnnons: 31
+Figura 9: Página para registrar clientes nuevos en del sistema. .........occcooonnncncnnnoccnnnnnnnnnnnnnnos 32
+Figura 10: Página de registrar nueva labor para asigNal. ...oocccccccnnonccnnnnnnnnnnnnocnnnnnnnnncnnnnnnnnnos 33
+Figura 11: Página de asignación de agenda. ...ccccooocccnncnnncnnnnononcnnnonnnononnnonancnnnonnnnrononnnnonnnnnos 34
+Figura 12: Página de generación de reportes. .....oooocccncnoocccnnnnnncnnnonnnononnnnnancnnnnnnnrcnnonnnininonnnos 35
+Figura 13: Página de reportes en excel. ......ooooccccononncnnonnoocnnnononocononnnononnnnnnoccnnononocnnnnnanononnnoss 36
+Figura 14: Página de reportes en PDF. ...oooccccnncnoonnccccnncncnnnnoncnnnnnonnnnccncnnnnnnnnnnrcnnnonnnnnrccnnnnnnns 36
+
+vIlLISTA DE ANEXOS
+
+Anexo A — Requerimientos
+
+Anexo B — Product Backlog
+
+Anexo C — Casos de uso
+
+Anexo D - Prototipo
+
+Anexo E — Modelo de la Base de Datos
+Anexo F — Manual de instalación
+
+Anexo G — Pruebas
+
+vIllRESUMEN
+
+En la empresa Área Informática S.A.S, se llevaban a cabo muchos procesos de forma manual,
+esto conllevo a retrasos y descontrol sobre la información que se generaba en los diferentes
+procedimientos. Se vio entonces, la necesidad de ayudar a mejorar estos procesos aportando
+los conocimientos adquiridos, buscando mejoras significativas en función de la calidad.
+
+Se realizó un análisis, diseño e implementación para un sistema de información el cual
+ayudó a la empresa a gestionar los procesos relacionados con las órdenes de servicio, se
+desarrolló un mecanismo el cual permitió generar la agenda de trabajo partiendo de la
+prioridad de los servicios que solicitan los clientes y de la disponibilidad de los técnicos, con
+la posibilidad de generar reportes estadísticos, sobre el estado de los procesos de Área
+Informática S.A.S. Y de esta forma mejorar la calidad en los procesos que se llevan a cabo en
+esta empresa.
+
+ABSTRACT
+
+In the company Area Informática S.A.S, carried out many processes manually, this leads to
+delays and uncontrol of information that constantly generates. Is the need to help improve
+these processes by providing the knowledge acquired, looking for significant improvements
+in the quality function.
+
+An analysis was performed, design and implementation of an information system which will
+help the company manage the processes associated with service orders, It is developing a
+mechanism which allows to generate the agenda based on the priority of services requested
+by customers and the availability of technical, Also you can perform statistical reports on the
+status of the processes Area Informática S.A.S and thus improve the quality of the processes
+that take place in this company.
+
+IX1. INTRODUCCIÓN
+
+1.1 DESCRIPCIÓN GENERAL
+
+Con el tiempo los sistemas de información se han convertido en una herramienta importante
+que toma un lugar significativo en las organizaciones debido al ágil y fácil manejo de los
+datos, con el fin de poder brindar la posibilidad de obtener grandes ventajas competitivas con
+valor agregado e incrementar la capacidad de la organización.
+
+Los sistemas de información constituyen un factor esencial para la empresa ya que la rapidez
+en la consulta de los datos va a ser determinante en la calidad de las decisiones que se
+adopten y en consecuencia de la estrategia que pueda, en un momento determinado diseñarse
+y posteriormente ponerse en práctica. Unos buenos reportes generados a partir de la
+
+información recolectada pueden evitar en gran medida problemas derivados de la
+incertidumbre sobre el entorno, ya sea por la falta de claridad sobre algunos aspectos, o por
+
+una gran acumulación de datos donde se requiere tomar una decisión en un corto periodo de
+tiempo. [1]
+
+La empresa Área Informática S.A.S, en el pasado hacia uso de herramientas ofimáticas como
+hojas de cálculo y procesadores de palabra para manejar y gestionar sus Órdenes de servicio,
+por ello se analizó, diseño e implemento un sistema de información para ayudar a la empresa
+a mejorar sus servicios y de esta manera, dar solución a los problemas que se presentaban,
+como lo eran: información no centralizada, mal manejo en su agenda de trabajo entre otros.
+Se logró agilizar los procesos que se llevan en la empresa de una forma más clara y ordenada,
+lo cual fue una herramienta de ayuda tanto para el personal administrativo como para sus
+clientes, ya que permitió la obtención de información a tiempo, ordenada y eficaz.1.2 PLANTEAMIENTO DEL PROBLEMA
+
+1.2.1 DESCRIPCION DEL PROBLEMA
+
+Área Informática S.A.S es una empresa ubicada en la ciudad de Buga; desde hace 8 años
+presta diferentes servicios como lo son: soporte técnico, mantenimiento, reparación y venta
+de equipos de tecnología, en especial equipos de cómputo, montaje de cableado estructurado
+de redes LAN, WLAN (cobre y fibra óptica) para el sector industrial, comercial y residencial.
+
+En los últimos años, Área Informática S.A.S ha experimentado un incremento considerable
+en la demanda de sus servicios, pasando de recibir 20 solicitudes diarias a 50 solicitudes
+aproximadamente'. Lo que implica un mayor esfuerzo para llevar a cabo los procesos que
+permitan prestar un buen servicio, que no solo haga posible procesar las solicitudes de forma
+correcta, controlar el desempeño de los técnicos, sino también, evaluar la calidad del servicio
+y la percepción que tienen los clientes sobre el mismo.
+
+En la empresa cuando un cliente solicita un servicio técnico, el asesor comercial le toma los
+datos personales escribiéndolos manualmente en una orden de servicio, así mismo describe el
+problema por el cual se solicita; posteriormente se digitan estos datos en una hoja de cálculo
+que está compartida en red para todas las dependencias de la empresa como lo son:
+recepción, administración, laboratorio y ventas.
+
+El jefe del laboratorio es el encargado de asignar manualmente al personal técnico, las
+labores que se van a realizar en el transcurso del día según su grado de dificultad, o
+disponibilidad que tenga un técnico, así también asigna prioridades de servicio para cada una
+de las solicitudes realizadas por los clientes.
+
+Los técnicos revisan la hoja de cálculo en la cual están las labores que deben cumplir. Al
+finalizar su día de trabajo deben actualizarla digitando lo que se realizó según lo asignado, de
+la misma manera deben registrar manualmente aquellas ordenes de servicio que se llevaron a
+cabo en su totalidad. De este modo el asesor comercial tiene que estar pendiente para llamar
+al cliente y acordar la entrega.
+
+De los procesos descritos anteriormente, se derivan inconvenientes relacionados con la forma
+en que se llevan a cabo éstos, los cuales se describen a continuación.
+
+Registrar manualmente las órdenes de servicio y las novedades diarias, para luego ser
+ingresadas en hojas de cálculo, hace que la información no se almacene de forma organizada,
+así mismo, se presenten inconsistencias en dicha información, éstas generan confusión
+afectando las entregas en el tiempo acordado, haciendo que los clientes tengan que esperar
+más e incluso llamar para preguntar por el estado de sus equipos.
+
+' Conversación personal con Manuel Hernández, Representante Área Informática. Buga, Enero 3 de 2015.
+
+2Para el encargado de asignar las órdenes de servicio a los técnicos, es dispendioso verificar
+rápidamente la disponibilidad del personal, sus habilidades, y las órdenes que ya les han sido
+asignadas, haciendo que en ocasiones se asignen tareas a técnicos sin disponibilidad o no al
+más adecuado para llevarlas a cabo. Como parte de su responsabilidad está asignar
+nuevamente un técnico para aquellos servicios que no se terminan, pero como el proceso se
+realiza al día siguiente en muchas ocasiones no se le asigna al mismo técnico, esta situación
+genera un manejo inadecuado del proceso técnico, afectando el tiempo de la entrega.
+
+Por otro lado, en el caso de aquellos servicios que no son de extrema urgencia y que los
+clientes solicitan para realizar a largo plazo, los equipos se archivan dándole prioridad a otros
+con menor tiempo de entrega. Haciendo que en la mayoría de los casos no se preste atención
+a la fecha estipulada para hacerlo, ni exista un mecanismo que lo indique con anterioridad, lo
+mismo que ocurre en los casos en que se han programado mantenimientos preventivos
+periódicos o renovación de licencias de equipos. Así cuando llega ese día, el servicio no se ha
+llevado a cabo o apenas está siendo asignado. Lo que implica que la empresa pierda
+credibilidad y clientes.
+
+Debido a los problemas anteriores fue necesario dar solución a las falencias presentadas en la
+empresa Area Informática S.A.S, relacionadas con el manejo de información y la gestión de
+Órdenes de servicio.
+
+1.2.1 FORMULACIÓN DEL PROBLEMA
+
+¿Cómo gestionar las órdenes de servicio de Area Informática S.A.S y administrar
+adecuadamente la información que de allí se deriva?1.3 OBJETIVOS
+
+1.3.1 OBJETIVO GENERAL
+
+Desarrollar e implantar un sistema de información para gestionar las ordenes de servicio de
+los clientes y que apoye la toma de decisiones en la empresa Area Informática S.A.S.
+
+1.3.2 OBJETIVOS ESPECIFICOS
+
+e Desarrollar un módulo que permita gestionar los procesos relacionados con las
+órdenes de servicio.
+
+e Desarrollar un mecanismo que permita generar la agenda de trabajo partiendo de la
+prioridad de los servicios que solicitan los clientes y de la disponibilidad de los
+técnicos.
+
+e Generar reportes estadísticos, sobre el estado de los procesos de Área Informática
+S.A.S.
+
+e Implantar el sistema de información en la empresa Área Informática S.A.S de Buga.1.4 ESTRUCTURA DEL DOCUMENTO
+
+En este documento se encuentra el análisis, diseño e implementación del proyecto, de la
+siguiente forma:
+
+Análisis del proyecto: Se ubica dentro del contexto del trabajo realizado, señalando clara y
+concisamente la justificación de éste, su importancia en general y el estado actual del tema.
+Como también un resumen de los conceptos teóricos necesarios para el desarrollo del
+proyecto.
+
+Desarrollo del proyecto: Se expone la metodología que permite el desarrollo del sistema en
+general desde la parte de análisis de la información, diseño del software e implementación.
+
+Pruebas y Resultados: Se muestran los resultados de las pruebas realizadas al producto
+aplicando las diferentes técnicas conocidas en la ingeniería de software y las conclusiones
+finales a la que se llega, indicando si el diseño cumple con los objetivos propuestos
+inicialmente.2. MARCO DE REFERENCIA
+
+2.1 MARCO TEORICO
+
+PHP:
+
+PHP (acrónimo recursivo de PHP: Hypertext Preprocessor) es un lenguaje de código abierto
+
+muy popular especialmente adecuado para el desarrollo web y que puede ser incrustado en
+HTML.
+
+Las páginas escritas en PHP contienen HTML con código incrustado; algo que distingue a
+PHP de lenguajes de programación del lado del cliente como Javascript es que el código es
+ejecutado en el servidor, generando código HTML y enviándolo al cliente. Este lenguaje
+posee etiquetas especiales que permiten salir fácilmente del modo PHP. Con PHP se puede
+construir sitios web dinámicos e interactivos en corto tiempo, inclusive si aún no se conoce el
+lenguaje, esto debido a lo fácil que es aprenderlo. [2]
+
+MySQL:
+
+Es un sistema de administración de base de datos relacional (RDBMS). Se trata de un
+programa capaz de almacenar una enorme cantidad de datos de gran variedad y de
+distribución para cubrir la necesidad de cualquier tipo de organización, desde pequeños
+establecimientos comerciales a grandes empresas y organismos administrativos, MySQL
+compite con sistemas RDBMS propietarios conocidos como Oracle, SQL Server y DB222.
+
+MySQL, es un desarrollo de código abierto, lo que significa que el código fuente está
+
+gratuitamente para todo el mundo que lo quiera. Como el código fuente de MySQL está
+disponible, hay formas de instalar MySQL [3].
+
+Muchas de las organizaciones más grandes y de más rápido crecimiento del mundo,
+incluyendo Facebook, Google, Adobe, Alcatel Lucent y Zappos dependen de MySQL para
+ahorrar tiempo y dinero alimentar sus sitios Web de alto volumen, los sistemas críticos para
+el negocio y el software empaquetado|4].
+
+Symfony:
+
+Es un completo framework diseñado para optimizar, gracias a sus características, al
+desarrollo de las aplicaciones web. Para empezar, separa la lógica de negocio, la lógica de
+servidor y la presentación de la aplicación web. Proporciona varias herramientas y clases
+encaminadas a reducir el tiempo de desarrollo de una aplicación web compleja. Además,
+automatiza las tareas más comunes, permitiendo al desarrollador dedicarse por completo a los
+aspectos específicos de cada aplicación. El resultado de todas estas ventajas es que no se debe
+reinventar la rueda cada vez que se crea una nueva aplicación web.Symfony está desarrollado completamente con PHP y ha sido probado con éxito en sitios
+como Yahoo! Answers, delicious, DailyMotion y muchos otros sitios web de primer nivel.
+Symfony es compatible con la mayoría de gestores de bases de datos, como MySQL,
+PostgreSQL, Oracle y SQL Server de Microsoft. Se puede ejecutar tanto en plataformas
+Unix, Linux, etc. como en plataformas Windows. A continuación se muestran algunas de sus
+características [5].
+
+Sistemas de Información Empresarial (SIE):
+
+El sistema de información empresarial constituye el conjunto de recursos de la empresa que
+
+sirven como soporte para el proceso básico de captación, transformación y comunicación de
+. .7.2
+la información”.
+
+Un sistema de información debe ser eficaz y eficiente. Es eficaz si facilita la información
+necesaria, y es eficiente si lo realiza con los menores recursos posibles.
+
+Un SIE debe adaptarse a las necesidades concretas de cada organización y a su estructura
+organizativa. Cuando se piensa en una implantación nunca se parte de cero pues todas las
+empresas disponen de algún tipo de información, más o menos rudimentario, con distintos
+grados de calidad/fiabilidad y con niveles de accesibilidad mayores o menores, etc. Esa
+información debe contemplarse como parte del SIE [6].
+
+Metodología SCRUM:
+
+Según la filosofía de desarrollo se pueden clasificar las metodologías en dos grupos. Las
+metodologías tradicionales, que se basan en una fuerte planificación durante todo el
+desarrollo, y las metodologías ágiles, en las que el desarrollo de software es incremental,
+cooperativo, sencillo y adaptado.
+
+Metodologías tradicionales son denominadas, a veces, de forma peyorativa, como
+metodologías pesadas, centran su atención en llevar una documentación exhaustiva de todo el
+proyecto y en cumplir con un plan de proyecto, definido todo esto, en la fase inicial del
+desarrollo del proyecto.
+
+Otra de las características importantes dentro de este enfoque, son los altos costes al
+implementar un cambio y la falta de flexibilidad en proyectos donde el entorno es volátil.
+
+Las metodologías tradicionales formales se focalizan en la documentación, planificación y
+procesos, plantillas, técnicas de administración, revisiones, etc...
+
+Metodologías ágiles: este enfoque nace como respuesta a los problemas que puedan
+ocasionar las metodologías tradicionales y se basa en dos aspectos fundamentales, retrasar las
+decisiones y la planificación adaptativa. Basan su fundamento en la adaptabilidad de los
+procesos de desarrollo.
+
+ 
+
+2Tomado de Escuela de organización Industrial EOI [en línea] Disponible en: www.eoi.es/blogs/scm/2013/02/23/sistemas-deinformacion-empresarial-2/Estas metodologías ponen de relevancia que la capacidad de respuesta a un cambio es más
+importante que el seguimiento estricto de un plan. [7]
+
+Metodologías ágiles Metodologías tradicionales
+
+ 
+
+Basadas en heurísticas provenientes de
+prácticas de producción de código
+
+Especialmente preparados para cambios
+durante el proyecto
+
+Impuestas internamente (por el equipo)
+
+Proceso menos controlado, con pocos
+principios
+
+No existe contrato tradicional o al menos es
+bastante flexible
+
+El cliente es parte del equipo de desarrollo
+
+Grupos pequeños (<10 integrantes) y
+trabajando en el mismo sitio
+
+Pocos artefactos
+
+Pocos roles
+
+Menos énfasis en la arquitectura del software
+
+Basadas en normas provenientes de
+estándares seguidos por el entorno de
+desarrollo
+
+Cierta resistencia a los cambios
+
+Impuestas externamente
+
+Proceso mucho más controlado, con
+numerosas políticas/normas
+
+Existe un contrato prefijado
+El cliente interactúa con el equipo de
+desarrollo mediante reuniones
+
+Grupos grandes y posiblemente
+distribuidos
+
+Más artefactos
+
+Más roles
+
+La arquitectura del software es esencial y
+se expresa mediante modelos
+
+Tabla 1: Comparativa entre metodologías tradicionales y desarrollo ágil
+
+Scrum es un proceso en el que se aplican de manera regular un conjunto de buenas prácticas
+para trabajar colaborativamente, en equipo, y obtener el mejor resultado posible de un
+proyecto. Estas prácticas se apoyan unas a otras y su selección tiene origen en un estudio de
+la manera de trabajar de equipos altamente productivos.
+
+En Scrum se realizan entregas parciales y regulares del producto final, priorizadas por el
+beneficio que aportan al receptor del proyecto. Por ello, Scrum está especialmente indicado
+para proyectos en entornos complejos, en el cual se necesita obtener resultados rápidos,
+donde los requisitos son cambiantes o poco definidos, y la innovación, la competitividad, la
+flexibilidad y la productividad son fundamentales.Scrum también se utiliza para resolver situaciones en que no se está entregando al cliente lo
+que necesita, cuando las entregas se alargan demasiado, los costes se disparan o la calidad no
+es aceptable, cuando se necesita capacidad de reacción ante la competencia, cuando la moral
+de los equipos es baja y la rotación alta, cuando es necesario identificar y solucionar
+ineficiencias sistemáticamente o cuando se quiere trabajar utilizando un proceso
+especializado en el desarrollo de producto. [8]
+
+Lista tareas Meración
+
+Proceso
+Scrum
+
+ 
+
+Planificación
+iteración ,”
+Selección ¡>=
+requisitos
+
+ 
+ 
+ 
+ 
+ 
+ 
+      
+  
+ 
+
+Lista objetivos requisitos priorizados
+
+      
+   
+
+Sincronizaciones
+diarias
+15
+
+ 
+
+ITERACIÓN
+150 30 dias
+
+LF
+Retrospectiva
+ar Colaboración cliente - equipo
+ERA Incremento de Colaboración intraequipo
+requisitos producto
+
+Proyectosigiles.org
+Y (oc EXE
+
+Figura 1: Diagrama del Proceso Scrum'
+
+Orden de Servicio:
+
+Una orden de servicio es un documento escrito en el cual se especifican los servicios que el
+cliente solicita a la empresa, éste contiene una descripción pormenorizada del trabajo a llevar
+a cabo y los siguientes datos: fecha, algunos datos personales de quien solicitó la realización
+del trabajo, descripción de los equipos y las posibles fallas.
+
+3Imagen tomada de herramientas para Scrum [en línea] Disponible en: https://medium.com/espanol/herramientas-para-scrum
+
+92.3 ANTECEDENTES O ESTADO DEL ARTE
+
+En la actualidad en el mercado existen soluciones con fines similares a los propuestos en el
+presente trabajo, estas se enuncian a continuación:
+
+e  ERPiInstalaciones eléctricas Eneboo
+
+El Eneboo ERP es un sistema orientado a cubrir todas las necesidades de las empresas del
+sector de Instalaciones Eléctricas y que pretende integrar las diferentes áreas de trabajo de la
+Empresa, de forma que usted pueda aspirar a una información real y actualizada de cualquier
+evento que se produzca en su empresa.
+
+Dentro de las bondades que ofrece este software están:
+1. Gestión de Presupuestos y Proyectos de instalaciones
+
+2. Gestión de órdenes de trabajo para instalaciones: este módulo permite tener un control
+absoluto del estado de cada trabajo realizado, así como: Informes variados detallados o
+resumidos de las órdenes por estado, operario, fecha, cliente, etc... Con información de
+materiales, precios de venta y coste.
+
+3. Gestión de almacén de los instaladores
+
+4. Lectores de códigos de barra o RFID autónomos (PDA -wifi)
+5. Actualización automática de tarifas de precios
+
+6. Facturación y Contabilidad integrada
+
+7. Variedad de Informes
+
+8. Escalabilidad de nuevos módulos y herramientas para su gestión integral [14]
+
+e SAPbBestPractices Software
+
+Paquetes SAP BestPractices se desarrollan para ayudar a las empresas de todos los tamaños
+se benefician de mejores prácticas probadas definidos para una amplia gama de procesos y
+temas que se pueden aprovechar para asegurar rápidamente un rápido retorno de la inversión.
+
+10El paquete SAP BestPractices ofrece la posibilidad de hacer Gestión de Órdenes de Servicio.
+El escenario Gestión de órdenes de servicio de SAP BestPractices describe el flujo de
+
+procesos completo en relación con una solicitud de servicio.
+
+El proceso comienza con la creación e impresión de una oferta de servicio y continúa con los
+pasos correspondientes relacionados con la solicitud de servicio, como creación,
+planificación y salida, confirmación, finalización, facturación (a través del sistema back end
+ERP), impresión de factura y evaluación del servicio. [15]
+
+e Sistema de gestión de órdenes de servicio COINGCOL
+
+A través del sistema los técnicos de COINGCOL S.A.S gestionan las órdenes de servicio.
+
+COINGCOL S.A.S presta servicio en todo lo relacionado con la refrigeración industrial y
+comercial, montaje y mantenimiento de equipos de aire acondicionado, congeladores,
+botelleros, cuartos fríos y conservación, así como de vehículos refrigerados, suministro,
+montaje y mantenimiento de cuartos fríos, baja, media y alta temperatura. [16]
+
+A pesar de que las soluciones de software enunciadas guardan similitudes con la de la
+propuesta. Cabe decir que las dos últimas son de uso privativo y acarrean un costo
+significativo para la empresa que desee adquirirlas, así mismo la primera está diseñada
+específicamente para instalaciones eléctricas. Por otro lado si se quisiera adquirir alguna de
+estas soluciones, sería necesario tomar todo el paquete y como se puede observar son varios
+
+módulos que si bien son útiles en algunos, para el caso de esta propuesta de grado no lo son.
+
+113. DESARROLLO DEL PROYECTO
+
+Desarrollar un software de calidad depende de un gran número de actividades y etapas, donde
+la elección de la metodología a aplicar en el proyecto genera un impacto determinante en el
+éxito del proyecto.
+
+Para la realización y desarrollo del proyecto se escogió la metodología “SCRUM” entre los
+diversos tipos de metodologías, fue elegida por su flexibilidad e interacción con los clientes,
+es la más acertada, debido a su manejo de entregas parciales durante la realización del
+proyecto, permitiendo una mejor comunicación con el cliente como también con el director
+del proyecto.
+
+La metodología SCRUM se ajustó a las necesidades del proyecto, debido a los constantes
+cambios que fueron surgiendo y el crecimiento gradual de los mismos, una de las etapas
+principales son las reuniones constantes con el cliente, esto proporcionó más claridad en todo
+el proceso anterior al desarrollo y durante el mismo, de igual manera, las reuniones realizadas
+con el director del trabajo de grado ayudaron a cumplir los Sprint planteados definiendo
+tareas a corto plazo, o logrando cambiar rápidamente algún requerimiento y seguir avanzando
+
+3.1 REQUERIMIENTOS
+
+Los requerimientos para este proyecto se dividieron en módulos al igual que la aplicación,
+estos fueron levantados en reuniones con el cliente que se realizaron en diferente sprint a lo
+largo del proyecto, todo para brindar un mayor entendimiento al usuario. Para observar los
+demás requerimientos dirigirse a la carpeta Anexos A.
+
+ 
+
+Documento:
+
+Especificación De Requerimientos Funcionales ER-001
+
+Universidad
+del Valle
+
+ 
+
+DESARROLLO DE UN SISTEMA DE INFOMACIÓN PARA LA | Rev: 001
+
+ 
+
+GESTIÓN DE LAS ORDENES DE SERVICIO EN LA EMPRESA [hecha 26-04.
+AREA INFORMATICA DE BUGA 2015
+
+ 
+
+ 
+
+Autor: Jonathan Cadena Gómez
+
+ 
+
+REQUERIMIENTOS FUNCIONALES
+Sprint 2
+
+Análisis, diseño y desarrollo del módulo empleado
+
+12Módulo: Administración de empleados
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Req. No. Funciones
+
+1.1 El sistema debe permitir validar los usuarios al momento de ingresar al sistema
+y mostrarle las ventanas o menús según el rol.
+
+1.2 El sistema debe permitir al administrador crear un empleado mediante una
+interfaz gráfica, la cual le proporcionara la opción para el ingreso de los datos
+correspondientes.
+
+1.3 El sistema debe permitir al administrador asignarle permisos al empleado en el
+momento de crearlo.
+
+1.4 El sistema debe permitir al administrador modificar o actualizar la información
+de un empleado creado en el sistema.
+
+1.5 El sistema debe permitir al administrador mediante una interfaz gráfica
+seleccionar el estado de un empleado: activo o inactivo.
+
+1.6 El sistema debe permitir al administrador calificar las habilidades de
+desempeño laboral de un empleado para los diferentes servicios prestados por
+la empresa.
+
+1.7 El sistema debe permitir a los empleados cambiar de contraseña.
+
+1.8 El sistema debe permitir al administrador consultar un empleado en particular.
+
+1.9 El sistema debe permitir al administrador eliminar empleados que ya no se
+
+ 
+
+encuentren relacionados laboralmente con la empresa.
+
+ 
+
+Análisis, diseño y desarrollo del módulo cliente
+
+Módulo: Administración de clientes
+
+ 
+
+ 
+
+ 
+
+Req. No. Funciones
+
+2.1 El sistema debe permitir al administrador, recepcionista o secretaria crear un
+cliente mediante una interfaz gráfica, la cual le proporcionara la opción para el
+ingreso de los datos correspondientes.
+
+2.2 El sistema debe permitir al administrador, recepcionista o secretaria modificar o
+actualizar la información de un cliente creado en la base de datos.
+
+2.3 El sistema debe permitir al administrador, recepcionista, secretaria o técnico
+consultar un cliente en particular.
+
+2.4 El sistema debe permitir al administrador eliminar un cliente, únicamente si no
+
+ 
+
+está asociado a una orden de servicio.
+
+ 
+
+Módulo: Administración de equipos
+
+ 
+
+ 
+
+ 
+
+Req. No. Funciones
+El sistema debe permitir al administrador, recepcionista o secretaria crear un
+
+3.1 equipo mediante una interfaz gráfica, la cual le proporcionara la opción para el
+ingreso de los datos correspondientes.
+
+3.2 El sistema debe permitir al administrador, recepcionista o secretaria modificar o
+actualizar la información de un equipo creado en la base de datos.
+
+3.3 El sistema debe permitir al administrador, recepcionista, secretaria o técnico
+
+ 
+
+consultar un equipo en particular.
+
+133.4
+
+ 
+
+El sistema debe permitir al administrador eliminar un equipo en particular,
+únicamente si no está asociado a una orden de servicio.
+
+ 
+
+Sprint 3
+
+Análisis, diseño y desarrollo del módulo para crear una actividad
+
+Módulo: Administración Actividad, procesos y subprocesos
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Req. No. Funciones
+
+4.1 El sistema debe permitir al administrador crear una actividad en la cual
+describa los procesos y subprocesos que ella demande.
+
+4.2 El sistema debe permitir al administrador, modificar o actualizar la actividad
+creada permitiéndole añadir o eliminar procesos o subprocesos.
+
+4.3 El sistema debe permitir al administrador consultar una actividad.
+
+4.4 El sistema debe permitir al administrador eliminar una actividad en particular.
+
+4.5 El sistema debe permitir al administrador eliminar un proceso o subproceso de
+
+ 
+
+una actividad en particular.
+
+ 
+
+Análisis, diseño y desarrollo del módulo para crear una orden de servicio
+
+Módulo: Administración Ordenes de servicio
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Reg. No. Funciones
+
+5.1 El sistema debe permitir al administrador, recepcionista o secretaria crear una
+orden de servicio para un cliente en particular.
+
+3.2 El sistema debe permitir al administrador, recepcionista o secretaria dar
+prioridades de tiempo de ejecución en una orden de servicio.
+
+5.3 El sistema permitirá agendar automáticamente las órdenes de servicio.
+
+5.4 El sistema agendara servicios a un técnico de acuerdo a sus habilidades.
+
+5.5 El sistema debe permitir al administrador, recepcionista o secretaria consultar
+una orden de servicio ya agendada.
+
+5.6 El sistema debe permitir al administrador, recepcionista o secretaria consultar
+una orden de servicio terminada.
+
+Sprint 5
+
+Análisis, diseño y desarrollo del módulo de seguimiento
+
+Módulo: Administración seguimientos
+
+ 
+
+ 
+
+ 
+
+Reg. No. Funciones
+
+6.1 El sistema permitirá al administrador, recepcionista o secretaria crear un cuadro
+de control para servicios ya prestados.
+
+6.2 Cuando un servicio se da por terminado el sistema debe permitir al técnico
+
+ 
+
+asignarle un seguimiento, el cual puede relacionar este servicio para fechas
+futuras las cuales se tendrá que realizar nuevamente esta labor.
+
+ 
+
+146.3 El sistema debe permitir al administrador, recepcionista o secretaria mediante
+una interfaz gráfica consultar el cuadro de control de servicios para mirar que
+equipos o labores están pendientes.
+
+6.4 El sistema debe permitir al administrador, recepcionista o secretaria modificar
+el estado de un cuadro de control determinado el cual será: sin éxito, con éxito
+o reintentar
+
+6.5 El sistema debe permitir al administrador, recepcionista o secretaria eliminar un
+cuadro de control determinado.
+
+Sprint 4
+
+Análisis, diseño y desarrollo del módulo de agendamiento
+
+Módulo: Administración ordenes de servicio de un técnico
+
+ 
+
+ 
+
+ 
+
+ 
+
+Reg. No. Funciones
+
+7.1 El sistema permitirá al técnico visualizar las órdenes de servicio asignadas a su
+día laboral.
+
+1.2 El sistema debe permitir al técnico mediante una interfaz gráfica marcar el
+avance en el servicio asignado mediante un checklist la cual describe que
+labores a realizar en un determinado servicio técnico.
+
+7.3 El sistema debe permitir al técnico mediante un campo de texto reportar en la
+orden de servicio que anomalías u observaciones tiene el equipo en particular.
+
+7.4 El sistema debe permitir al técnico mediante un campo de texto reportar de
+forma privada en la orden de servicio que anomalías u observaciones tiene el
+equipo en particular solo lo visualizaran los actores del sistema.
+
+7.5 El sistema debe permitir al técnico mediante una interfaz gráfica agregar fotos
+
+ 
+
+del estado del equipo (antes y después) en la orden de servicio.
+
+Análisis, diseño y desarrollo del módulo de informes de los procesos que se realizan en la
+
+empresa
+
+Módulo: Administración reportes de rendimiento
+
+ 
+
+ 
+
+ 
+
+Reg. No. Funciones
+
+8.1 El sistema debe permitir al administrador generar un informe del rendimiento
+de cada uno de los técnicos basados en el cumplimiento de los servicios
+asignados, en un rango de tiempo definido por el administrador
+
+8.2 El sistema debe permitir al administrador generar reportes relacionados con las
+
+ 
+
+estadísticas que le ayuden a la toma de decisiones.
+
+ 
+
+Tabla 2: Requerimientos Funcionales
+
+153.2 ANÁLISIS
+
+En la fase de análisis se identificaron las actividades que se llevarían a cabo como son:
+
+e  Sedefinieron los Sprint que se iban a realizar durante el desarrollo del proyecto
+
+e El alcance del sistema de información, es decir hasta qué punto se podría desarrollar el
+proyecto.
+
+e Reuniones y entrevistas con el cliente para conocer el funcionamiento de la empresa ,
+para lograr que la aplicación propuesta pueda dar una solución óptima a las necesidades
+de la misma, logrando que el cliente se sienta satisfecho y conforme con el trabajo final.
+
+Product Backlog
+
+Se realizó un lista ordenada donde se priorizaron tareas que se ejecutaron formando un
+conjunto de Sprint que se generan durante el proyecto de esta manera alcanzar cada uno de
+los objetivos, estos se realizaron sucesivamente desacuerdo a un tiempo estimado de trabajo.
+Para observar los demás Product Backlog dirigirse a la carpeta Anexos B.
+
+16TAREAS ESTADO FECHA RESPONSABLES
+Primera Reunión en AREA INFORMATICA en la cual se aclararon los problemas de la
+empresa y la necesidad de sistematizar. FINALIZADO | 5/FEBRERO — OMAR GOMEZ
+
+13/FEBRERO
+Reunión con Omar Gómez, dueño de área informática para planear el proceso de JONATHAN CADENA
+levantamiento de los requerimientos del sistema.
+Reunión en AREA INFORMATICA con el jefe de laboratorio Manuel Hernández, con el
+fin de levantar los primeros requerimientos.
+
+OMAR GOMEZ
+
+Adaptación de la metodología SCRUM como metodología de desarrollo para el proyecto. FINALIZADO 16/FEBRERO —
+
+13/MARZO JONATHAN CADENA
+Reunión en AREA INFORMATICA — para continuar con el levantamiento de los
+requerimientos. MANUEL HERNANDEZ
+Se reúne con el director de trabajo de grado Julián Andrés Rodas Laverde para evaluar la JULIÁN ANDRÉS
+formulación de todo el proyecto y los requerimientos recolectados hasta el momento. 14/ MARZO — RODAS LAVERDE
+
+FINALIZADO | 21/MARZO
+Es necesario realizar correcciones en el documento. JONATHAN CADENA
+Se reúne con el director de trabajo de grado Julián Andrés Rodas Laverde se analizó la
+metodología a utilizar en el desarrollo del proyecto. JULIÁN ANDRÉS
+FINALIZADO | 21/ MARZO — RODAS LAVERDE
+
+Se pide terminar de recolectar todos los requerimientos de la empresa de los procesos que 28/MARZO
+
+involucran al proyecto.
+
+ 
+
+ 
+
+ 
+
+JONATHAN CADENA
+
+ 
+
+Tabla 3: Product Blacklog del proyecto
+
+13Sprint Backlog:
+
+Se visitó en repetidas ocasiones la empresa área informática, y se definieron las actividades o
+tareas para el desarrollo del proyecto, formando un conjunto de sprint que se generaron
+durante el proyecto. Los sprint fueron tiempos constantes, en los cuales se definieron tareas,
+con la intención de lograr avances significativos asignándoles fechas de inicio y final, de esta
+manera ser presentados al cliente o director de trabajo de grado como entregables estándar de
+las reuniones y tareas ya realizadas, y así tener una perspectiva clara de lo que se quiere
+
+lograr y las prioridades en la ejecución del trabajo.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Sprint 1 Inicio: Duración:
+ID | Tarea Tipo Esfuerzo
+l | Definir la plataforma de desarrollo para la Análisis | Semana
+realización del sistema de información
+2 | Investigación y estudio sobre los diferentes
+framework que se adapten a las necesidades para | Análisis 1 Semana
+utilizar en el desarrollo del sistema
+3 | Definición requerimientos para el desarrollo | Análisis
+del sistema 1 Semana
+4 | Modelo y creación de la base de datos relacional | Desarrollo 2 Semana
+5 | Descripción de los módulos definidos Análisis 1 Semana
+6 | Análisis, diseño y desarrollo del módulo login Desarrollo 2 Semana
+7 | Pruebas de los módulos desarrollados Desarrollo 1 Semana
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 4: Sprint Blacklog del proyecto
+
+16Sprint 2 Inicio: Duración:
+ID | Tarea Tipo Esfuerzo
+Análisis
+
+1 | Análisis, diseño y desarrollo del módulo cliente Desarrollo 2 Semana
+
+2 | Análisis, diseño y desarrollo del módulo | Análisis 2 Semana
+empleado Desarrollo
+
+3 | Revisión, producción y desarrollo de los CRUD | Análisis ] Semana
+(Create, Read, Update), funciones básicas de la | Desarrollo
+base de datos
+
+4 | Implementación del servidor de aplicaciones de | Análisis 1 Semana
+Tomcat
+
+5 | Pruebas de los módulos desarrollados Desarrollo 1 Semana
+
+Tabla 5: Sprint Blacklog del proyecto
+
+Sprint 3 Inicio: Duración:
+
+ID | Tarea Tipo Esfuerzo
+
+1 | Análisis, diseño y desarrollo del módulo para | Análisis 3 Semana
+crear una actividad Desarrollo
+
+2 | Análisis, diseño y desarrollo del módulo para | Análisis 3 Semana
+crear una orden de servicio Desarrollo
+
+3 | Modificación de la base de datos agregando | Desarrollo | Semana
+nuevas tablas y campos
+
+4 | Pruebas de los módulos desarrollados Desarrollo 1 Semana
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 6: Sprint Blacklog del proyecto
+
+17Sprint 4 Inicio: Duración:
+
+ID | Tarea Tipo Esfuerzo
+
+l | Análisis, diseño y desarrollo del módulo de | Análisis 3 Semana
+agendamiento Desarrollo
+
+2 | Definir reglas para el agendaminento automático | Análisis 1 Semana
+partiendo del grado de experiencia de un técnico | Desarrollo
+
+3 | Análisis, diseño y desarrollo del módulo de | Análisis 3 Semana
+informes de los procesos que se realizan en la | Desarrollo
+empresa
+
+4 | Implementación de JasperReports para generar 1 Semana
+los informes en Pdf y Excel Análisis
+
+5 | Implementación del ireport para editar los jrxml Análisis 1 Semana
+
+6 | Pruebas de los módulos desarrollados Desarrollo 1 Semana
+
+Tabla 7: Sprint Blacklog del proyecto
+
+Sprint 5 Inicio: Duración:
+
+ID | Tarea Tipo Esfuerzo
+
+l | Análisis, diseño y desarrollo del módulo de | Análisis 2 Semana
+seguimiento Desarrollo
+
+2 | Implementación de Jquery para seleccionar fecha | Análisis 2 Semana
+y hora de un seguimiento Desarrollo
+
+3 | Pruebas de los módulos desarrollados Desarrollo 1 Semana
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 8: Sprint Blacklog del proyecto
+
+183.2.1 CASOS DE USO
+
+En el desarrollo de este proyecto se decide utilizar casos de uso y no historias de usuario, ya
+que los casos de uso son sumamente útiles para analizar, elaborar y comprender el
+
+funcionamiento deseado del sistema, siendo estos una opción para modelar y crear elementos
+del backlog.
+
+Se desarrollaron casos de uso del sistema, teniendo en cuenta los distintos requerimientos
+funcionales que se esperan del sistema, describiendo paso a paso lo que debería hacer la
+aplicación.
+
+Cada caso de uso forma parte del flujo completo de los eventos en el sistema, y también
+especifican la interacción que toma lugar entre el actor y el sistema. Para observar más casos
+de uso, dirigirse a la carpeta de Anexos C.
+
+Sprint 1
+
+Análisis, diseño y desarrollo del módulo login
+
+ 
+
+ 
+
+ 
+
+DESARROLLO DE UN SISTEMA DE
+INFOMACIÓN PARA LA GESTIÓN DE LAS | Document |...
+ORDENES DE SERVICIO EN LA EMPRESA | 04: 001
+Universidad [| AREA INFORMATICA DE BUGA CU-001
+Título: Caso de Uso Página Ft:
+Crear nueva orden Fecha: 26-042015
+
+ 
+
+ 
+
+ 
+
+Documentos de Referencia
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Nro. Documento Descripción Formato
+ERF-001 Especificación de Requerimientos Funcionales PDF
+INFORMACIÓN GENERAL
+Actores: Administrador, Recepcionista, Secretaria
+Propósito: Permitir a los usuarios crear Órdenes de servicio para que el
+sistema las asigne dependiendo de la habilidad de un técnico en
+particular.
+
+Resumen: Permite a los usuarios crear órdenes de servicio que los clientes
+van solicitando.
+
+Tipo: Primario
+
+ 
+
+ 
+
+ 
+
+ 
+
+19PROCESO
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Curso Normal de los Eventos
+Acción de los Actores Respuesta del Sistema
+1. El usuario ingresa la opción de nueva 2. La aplicación muestra la opción para
+orden. ingresar el nombre del cliente.
+3. El usuario suministra el nombre del 4. La aplicación muestra los datos del cliente
+cliente y la da clic en la opción en cargar. y un formulario con los criterios para
+ingresar los datos del servicio solicitado. Exc1
+5. El usuario diligencia el formulario y 6. La aplicación muestra la orden de servicio
+selecciona la opción guardar. terminada, con la opción de editar o agendar e
+imprimir la orden de servicio.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Excepción Descripción Sistema
+
+ 
+
+Exc-1 El cliente no existe El sistema da la opción de crear un
+nuevo cliente (caso de uso crear cliente)
+
+Si la orden requiere de un equipo y esteSe despliega una nueva ventana la cual
+no está creado. dará la opción de registrar un equipo con
+
+su respectivo serial, modelo y marca.
+(caso de uso crear equipo)
+
+ 
+
+ 
+
+ 
+
+Tabla 9: Caso De Uso Crear Nueva Orden
+
+Sprint 2
+
+Análisis, diseño y desarrollo del módulo cliente
+
+ 
+
+DESARROLLO DE UN SISTEMA DE | Document
+INFOMACIÓN PARA LA GESTIÓN DE LAS |, y. Rev:
+
+ORDENES DE SERVICIO EN LA EMPRESA | cu-001 001
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+“delvale | AREA INFORMATICA DE BUGA
+
+Título: Caso de Uso Página *:
+
+Crear nuevo cliente Fecha: 26-042015
+
+ 
+
+Documentos de Referencia
+
+ 
+
+Nro. Documento Descripción Formato
+
+ 
+
+ 
+
+ 
+
+ERF-001 Especificación de Requerimientos Funcionales PDF
+
+ 
+
+20INFORMACIÓN GENERAL
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Actores: Administrador, Recepcionista, Secretaria
+
+Propósito: Permitir al usuario crear un nuevo cliente por medio de un
+formulario, cuya información será registrada en la base de datos.
+
+Resumen: Permite al usuario crear nuevos clientes.
+
+Tipo: Primario
+
+PROCESO
+
+Curso Normal de los Eventos
+Acción de los Actores Respuesta del Sistema
+1. Ingresa la opción de crear equipo. 2. El sistema despliega una interfaz que
+
+ 
+
+muestra un formulario para ingresar los
+datos del cliente.
+
+ 
+
+3. El usuario diligencia el formulario y lo 4. La aplicación guarda el formulario en la
+guarda. base de datos.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 10: Caso De Uso Crear Nuevo Cliente
+
+Sprint 3
+
+Análisis, diseño y desarrollo del módulo para crear una actividad
+
+ 
+
+ 
+
+ 
+
+DESARROLLO DE UN SISTEMA DE
+INFOMACIÓN PARA LA GESTIÓN DE LAS | Document [p..
+ORDENES DE SERVICIO EN LA EMPRESA |0f+: 001 :
+Universidad AREA INFORMATICA DE BUGA CU-001
+Título: Caso de Uso Página +:
+Crear Actividad Fecha: 26-042015
+
+ 
+
+ 
+
+ 
+
+Documentos de Referencia
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Nro. Documento Descripción Formato
+ERF-001 Especificación de Requerimientos Funcionales PDF
+INFORMACIÓN GENERAL
+Actores: Administrador
+Propósito: Permitir al administrador crear una nueva actividad en la cual se
+
+plasma los procesos que tienen las labores de los servicios
+
+ 
+
+ 
+
+ 
+
+ 
+
+21prestados en la empresa.
+
+ 
+
+Resumen: Permite al administrador crear nueva actividad.
+Tipo: Primario
+
+ 
+
+ 
+
+PROCESO
+
+ 
+
+ 
+
+Curso Normal de los Eventos
+
+ 
+
+Acción de los Actores Respuesta del Sistema
+1. Ingresa la opción de crear actividad. 2. El sistema despliega una interfaz que
+muestra un formulario para ingresar el
+nombre de la labor, los procesos y
+subprocesos que tiene una actividad en
+particular.
+
+ 
+
+3. El administrador diligencia el formulario | 4. La aplicación guarda en la base de datos.
+y lo guarda.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 11: Caso De Uso Crear Actividad
+
+ 
+
+ 
+
+ 
+
+DESARROLLO DE UN SISTEMA DE
+INFOMACIÓN PARA LA GESTIÓN DE LAS | Document Rev:
+ORDENES DE SERVICIO EN LA EMPRESA 0: 001
+Universidad AREA INFORMATICA DE BUGA CU-001
+Título: Caso de Uso Página *:
+Crear empleado "Fecha: 26-04- |
+2015
+
+ 
+
+ 
+
+ 
+
+Documentos de Referencia
+
+Nro. Documento Descripción
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ERF-001 Especificación de Requerimientos Funcionales PDF
+INFORMACIÓN GENERAL
+Actores: Administrador
+Propósito: Permitir al administrador crear un nuevo empleado el cual tendrá
+diferentes permisos en el sistema según su rol asignado.
+Resumen: Permite al administrador crear nuevos empleados.
+Tipo: Primario
+PROCESO
+Curso Normal de los Eventos
+Acción de los Actores Respuesta del Sistema
+1. El usuario ingresa la opción consultar 2. El sistema despliega una interfaz que
+
+ 
+
+ 
+
+ 
+
+ 
+
+22empleado y da clic en nuevo.
+
+muestra un formulario para ingresar los
+datos, habilidad y cargo del empleado.
+
+ 
+
+ 
+
+3. El usuario diligencia el formulario y lo
+guarda.
+
+4. La aplicación guarda el formulario con los
+datos del empleado en la base de datos.
+
+ 
+
+ 
+
+Tabla 12: Caso De Uso Crear empleado
+
+Sprint 4
+
+Análisis, diseño y desarrollo del módulo de agendamiento
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+DESARROLLO DE UN SISTEMA DE
+INFOMACIÓN PARA LA GESTIÓN DE LAS | Document | p...
+ORDENES DE SERVICIO EN LA EMPRESA | 0*: 001
+
+Universidad AREA INFORMATICA DE BUGA CU-001
+
+Título: Caso de Uso Página *:
+
+Ejecutar agenda Fecha: 26-042015
+Documentos de Referencia
+Nro. Documento Descripción Formato
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ERF-001 Especificación de Requerimientos Funcionales PDF
+INFORMACIÓN GENERAL
+
+Actores: Técnico
+
+Propósito: Permitir al técnico ver la agenda asignada a su día.
+Resumen: Permite ver a un técnico su agenda laboral.
+
+Tipo: Primario
+
+PROCESO
+
+ 
+
+Curso Normal de los Eventos
+
+Acción de los Actores
+
+Respuesta del Sistema
+
+ 
+
+l. El técnico ya estando en opción de
+agenda selecciona detalles de un servicio en
+particular.
+
+2. El sistema despliega una interfaz que
+muestra la orden de servicio pormenorizada.
+
+ 
+
+ 
+
+3. El técnico llena la orden de acuerdo a su
+avance con la labor asignada.
+
+ 
+
+Tabla 13: Caso De Uso Ejecutar Agenda
+
+233.2.2 MODELO DE PROTOTIPOS
+
+Se realizó un modelo de prototipo desechable el cual sirvió para eliminar dudas sobre lo que
+realmente quiere el cliente, con el software Axure RP Pro, se crearon prototipos sin
+necesidad de programación, o alguna lógica interna, solo mostrando las pantallas por las que
+ira pasando la aplicación y de este modo dar una vista preliminar al cliente, y darle a entender
+y visualizar ciertos aspectos del software, la forma de cómo percibe el cliente la aplicación
+ayudó para clarificar los requerimientos y problemas que se presentan durante el diseño. De
+esta forma podemos reducir el riesgo de construir un producto que no satisfaga las
+necesidades del usuario final.
+
+La realización del modelo de prototipado se desarrolló en las siguientes etapas:
+
+= Recolección y refinamiento de requisitos
+
+"= Modelado
+
+"= Construcción del Prototipo
+
+"= Desarrollo, evaluación del prototipo por el cliente
+"=  Refinamiento del prototipo
+
+Recolección y refinamiento de requisitos: En esta etapa se estudian los requisitos del
+cliente, se analizan y se mejoran para que expresen claramente lo que el cliente necesita.
+
+Modelado: En esta etapa se diseña en papel y con la ayuda del cliente la interfaz que va a
+representar cada prototipo.
+
+Construcción del prototipo: Con ayuda de una herramienta de procesamiento de imágenes
+se construye de la forma más ágil y sencilla posible la interfaz para mostrar al usuario.
+
+Desarrollo: El prototipo construido es mostrado al cliente para que el decida si se ajusta a
+sus necesidades.
+
+Refinamiento del prototipo: Si la prueba con el cliente no fue exitosa se corrigen los errores
+y se regresa a la etapa anterior.
+
+Para observar el desarrollo de los modelos de prototipo dirigirse a la carpeta Anexos D.
+
+243.2.2.1 PAGINA PRINCIPAL
+
+[E Home x
+
+ 
+
+€ > ( [5 127.0.0.1:32768/14.19.38/home.html
+
+az Y
+
+ 
+
+ 
+
+> Are Informatica
+
+PR,
+
+Usuario
+/ / $ ] an
+Area Informática TN
+
+ 
+
+a contar]
+
+ 
+
+Figura 2: Prototipo autenticación para los usuarios del sistema
+
+3.2.2.2 REGISTRAR ORDEN DE SERVICIO
+
+- —
+
+/xrea Informática
+
+COPA PAS PA ATACA APA VITEL AA E BIS TIO A
+
+ 
+
+Administrador Ordenes Seguimiento | Estadisticas
+
+ 
+
+ 
+
+ 
+
+Registro de Orden
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Orden de
+
+Servicio
+
+Fecha 2015-04-15 8:22
+
+Nombre/ Pepito
+
+Razon social
+
+Identificacion 94456259
+
+Direccion Carrera 9 No 10 -23
+
+Telefono 2367576
+
+Celular 3002563658
+E
+
+Orden 13452
+
+Actividad |
+
+Equipo
+
+Seccion
+
+Descripcion
+
+Descripcion
+
+privada
+
+Prioridad Aña v |
+
+Fecha
+
+Cliente y [ame v [ari v |
+
+| Guardar|
+
+ 
+
+Figura 3: Prototipo registrar orden de servicio
+
+253.2.2.3 AGENDA DE UN TECNICO
+
+ 
+
+ 
+
+y [') Asignacion Agenda a |
+€ 3 ( [| 127.0.0.1:32768/14.18.37/asignacion_agenda.html ay A =
+
+_— WN
+
+Area Informática
+
+COOPAPALIMICA TICA APA 5 VITA MOLL TICA
+
+| Comsulta | Agenda | Ordenes |
+
+Agenda
+
+Labores asignadas a Mario Paniagua
+
+ 
+
+ 
+
+ 
+
+Fecha
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Actividad: Instalacion de sistema operativo Fecha a :
+| E 2015-24-04 14:45
+
+ 
+
+Equipo: — [1Z384-Poporall-Aoer Aspire 3050 | O 2015-25-04 8:45
+
+ 
+
+Asignada Jonathan Cadena
+Por:
+
+ 
+
+ 
+
+Tecnico Mario Paniagua
+
+ 
+
+Fecha
+
+Asiganada: 2015-24-04 14:45
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figura 4: Prototipo agenda de un técnico
+
+263.3. DISEÑO
+
+En esta fase se diseña la lógica del sistema con respecto al análisis que se realizó
+anteriormente, para obtener un producto coherente y que se ajuste a los requisitos del cliente.
+De esta forma obtener una orientación clara y estratégica del proyecto.
+
+En esta fase también se realizó un prototipo de la aplicación, esto ayudó a tener una visión
+preliminar puesto que es un modelo a escala, se pudo verificar el funcionamiento de la
+aplicación, notar algunos errores presentados y dar una solución a tiempo, permitiendo tomar
+decisiones y proporcionando una retroalimentación temprana, los prototipos permiten hallar
+un equilibrio entre diseño e interacción.
+
+3.3.1 MODELO DE LA BASE DE DATOS
+
+Se inicia modelando la base de datos, esto permitió tener un modelo flexible para realizar
+cambios constantemente y que a la vez pueda ajustarse a las necesidades del entorno,
+permitiendo o logrando garantizar que el modelo propuesto cumpla con los requerimientos y
+pueda soportar toda la información que se desee administrar o manipular desde la aplicación.
+
+En el siguiente modelo entidad-relación, se observa las entidades que participan en el
+sistema, cada entidad tiene sus atributos, y cada atributo tiene una llave primaria llamada id.
+
+En la figura 2 se mostrara el modelo de la base de datos.
+
+Para observar el modelo de la base de datos dirigirse a la carpeta Anexos E.
+
+27% id INT(10)
+
+% id INT(10)
+% agenda_id INT(10) % personal_id INT(11)
+
+9 descripcion VAROHAR(192) 9 fecha DATETIME
+
+ruta VARCHAR(192) < > empresa_id INT(10) E
+% dliente_id INT(10)
+
+9 descripcion VARCHAR(63)
+% activa TINYINT(1)
+
+      
+
+  
+ 
+  
+    
+  
+   
+  
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+id INT(10) % id INT(10) *id INT(10)
+% tipo_documento VARCHAR(3)  personal_registra_id INT(11) % descripcion VARCHAR(64)
+“2 num ero_docum ento VAROHAR(12) % fecha_registo DATETIME % color TINYINT(4)
+% nombres VARCHAR(127) % diente_id INT(10) % horas_estimadas TINYINT(3) |
+> apellidos VARCHAR(127) % labor_id INT(10) % activa TINYINT(1)
+% barrio_id INT(11) 2 % descripcion TEXT |
+direccion VAROHAR(128) LW] O fecha DATE 5
+% telefono BIGINT(20)  descripcion_gestion TEXT |
+ telefono_dos BIGINT(20) % fecha_gestion DATETIME |
+% celular BIGINT(20) 9 personal_id INT(11) 1!
+% id INT(10) 11 | id1inr(10) —y< * idINT(10)
+ celular_dos BIGINT(20) % estado TINYINT(3) T
+o % labor_detalle_id INT(10) | descripcion VARCHAR(64) % orden_id INT(10)
+“> otro_contacto VARCHAR(128) % orden_id INT(10) df delle 1d e pa de
+id INT(10 il ipo TINYINT(1 —< ctivi id INT(10'
+“> correo_electronico VAROHAR(63) SS AN (10) AA Mm ani (10)
+S Si % programada TINYINT(1) % texto_publico_ayuda TEXT 4 | Sequipo_id INT(10)
+[E | | | % realizada TINYINT(1) % texto_privado_ayuda TEXT y. pi 1? seccion VARCHAR(32)
+| 9 valor INT(10) % horas_estimadas DOUBLE(18,2) | | |“ descripcion TEXT
+
+% personal_user_id INT(11) % activa TINYINT(1) ug  descripcion_privada TEXT
+% fecha_gestion DATETIME 9 descripcion_final TEXT
+5 9 prioridad_id INT(10)
+
+% fecha_dliente DATE
+
+9 fecha_empresa DATE
+
+— — 49 ? valor MEDIUMINT(8)
+% estado TINYINT(3)
+
+id INT(10) id INT(10) % user_id INT(11) % id INT(10) ———5
+% marca_id INT(10) > descripcion VARCHAR(63) “2 nombre VAROHAR(127) % categoria_id INT(10)
+
+% tipo_id INT(10) % activa TINYINT(1) % cargo VARCHAR(45) 9 descripcion VARCHAR(64)
+2 descripcion VARCHAR(63) % activa TINYINT(1) E % activa TINYINT(1)
+
+— — 3H ? personal_id INT(11)
+% activa TINYINT(1)
+
+O fecha_final DATETIME
+
+== --- H+ 9 personal_soluciona_id INT(11)
+Cy
+
+ 
+
+ 
+
+  
+   
+ 
+  
+
+id INT(10) % id INT(10) id INT(10) % id INT(10) % id INT(10)
+
+9 descripcion VARCHAR(64) |4+ ———- %labor_id INT(10) % serie VARCHAR(31) -—-+| | %actividad_id INT(10) % actividad_id INT(10)
+
+% activa TINYINT(1) % actividad_id INT(10) % modelo_id INT(10) % personal_user_id INT(11) % detalle_id INT(10)
+
+% personal_asigna_id INT(11) % descripcion VARCHAR(63) 9 habilidad TINYINT(3) % descripcion VARCHAR(64)
+% fecha_asignacion DATETIME 9 valor INT(10)
+
+% fecha_programada DATE % activa TINYINT(1)
+
+ 
+
+ 
+    
+
+% hora_programada TIME
+% personal_agenda_id INT(11)
+ fecha_reporta DATETIME
+
+9 descripcion_privada TEXT * id INT(10) % id INT(10)
+2 descripcion_publica TEXT % descripcion VARCOHAR(63) %labor_id INT(10)
+% estado TINYINT(3) % activa TINYINT(1) % detalle_id INT(10)
+
+% actividad_final_id INT(10) 9 realizada TINYINT(1)
+“5 valor MEDIUMINT (8) descripcion TEXT
+
+% fecha_gestion DATETIME
+
+ 
+
+ 
+
+% id INT(10)
+
+% detalle_¡id INT(10)
+9 descripcion TEXT
+% activa TINYINT(1)
+
+ 
+
+ 
+
+ 
+
+Figura 5: Modelo Entidad Relación
+
+283.3.2 ARQUITECTURA
+
+La arquitectura que se utilizó en el proyecto fue el Modelo Vista Controlador (MVC), debido
+a que se puede tener un orden en la aplicación, es de gran ayuda si se quiere aplicar un
+cambio en el transcurso del desarrollo del proyecto, debido a que no es necesario modificar
+todos los componentes, pues este se encuentra dividido por capas.
+
+El patrón de arquitectura MVC (Modelo Vista Controlador) define la organización
+independiente del Modelo, la Vista (interfaz con el usuario u otro sistema) y el Controlador.
+De esta forma, se divide el sistema en tres capas, la encapsulación de los datos, la interfaz o
+vista por otro y por último la lógica interna o controlador. [16].
+
+ 
+
+peticion
+
+Controlador respuesta
+
+ 
+
+A A e” xx
+
+   
+
+Figura 6: Modelo Vista Controlador
+
+Modelo: Contiene el núcleo de la funcionalidad de la aplicación, en este son creadas las
+funciones de las vistas con el controlador.
+
+Vista: Es la presentación del Modelo, puede acceder al Modelo pero nunca cambiar su
+estado, Puede ser notificada cuando hay un cambio de estado en el Modelo.
+
+Controlador: Reacciona a la petición del Cliente, ejecutando la acción adecuada y creando el
+modelo pertinente. [16].
+
+293.4 IMPLEMENTACIÓN
+
+En esta fase del proyecto, se partió del análisis y diseño realizados previamente, la aplicación
+se desarrolló bajo tecnología web, esto permite que se pueda acceder sin ningún contratiempo
+a través de un servidor web, dado que la empresa tiene varias dependencias desde las cuales
+necesita acceder a la aplicación como lo son: recepción, secretaria, laboratorio, gerencia.
+
+3.4.1 CODIFICACIÓN
+
+La codificación se llevó acabo en módulos de acuerdo a los sprint del proceso de desarrollo
+bajo la metodología SCRUM
+
+Para el desarrollo de este proyecto se emplearon las siguientes herramientas:
+
+e Servidor Web: Apache v. 2
+e Lenguaje de programación: PHP, JQuery, CSS
+e Administrador base de datos MySql v 5.5.27
+
+Se utilizó Symfony entre los framework que actualmente están en el mercado, considerando
+que es uno de los más completos e integrados, que además cumple con las características
+requeridas para el desarrollo de este proyecto.
+
+Una de las ventajas de trabajar con este framework es la disminución de errores debido al uso
+de código fuente ampliamente probado. Con Symfony no se tiene problemas de
+licenciamiento ya que usa licencia open source MIT, con la cual se puede hacer aplicaciones
+comerciales, gratuitas o de software libre.
+
+3.4.2 INTALACIÓN
+
+Debido a que es una aplicación que se va a manipular internamente en la empresa se instaló
+en un servidor local de Área Informática garantizando la ejecución integral de la aplicación y
+su correcto funcionamiento. A continuación se listan las herramientas necesarias:
+
+Para observar el manual de instalación dirigirse a la carpeta Anexos F.
+
+Sistema Operativo Microsoft Windows XP o superior
+Servidor de Base de Datos XAMPP 3.1.0
+
+Java SE Development Kit 7
+Contenedor web Apache Tomcat 7
+
+30Propiedades de hardware del servidor local:
+
+e Tipo de CPU: AMD Phenom(tm) U X4 965 Pocessor 3.4 GHz
+e Memoria del sistema: 8 GB 1600Mhz CL 11 PC DDR3
+e Disco rígido: 1TB SATA 7.2 RPM 3Gbps
+
+3.4.3 VISTAS DE LA APLICACIÓN
+
+En las siguientes figuras se presentan partes de las interfaces con las que cuenta la aplicación.
+
+3.4.4 PAGINA PRINCIPAL
+
+En la página principal de la aplicación se mostraran las opciones para acceder al sistema,
+como se muestra en la figura 8. En esta interfaz se podrán loguear usuarios del sistema
+creados por el administrador.
+
+               
+   
+  
+
+  
+
+Archivo Editar Ver Historial Marcadores Herramientas Ayu
+
+http: //localhost:8081/
+
+€ D localhost:8081 | Q, Buscar | Y 8 3d ReASOSsS> Si
+
+ 
+
+ 
+
+ 
+
+ 
+
+—
+
+COMMUNICATIONS AMD SYSTEMS SOLUTIONS
+
+Conectar
+
+Remember
+
+Figura 7: Página de autenticación para los usuarios del sistema.
+
+31Las diferentes opciones estarán visibles dependiendo del cargo del usuario de la aplicación.
+Se puede observar que el administrador está registrando un nuevo cliente, por lo tanto se
+muestra un formulario para diligenciarlo con los datos del cliente, algunos campos que son
+obligatorios están marcados con un asterisco de color rojo como se muestra en la figura 9.
+
+Archivo Editar Ver Historial Marcadores Herramientas Ayuda
+
+http; /focalhost:8081/clientefnew
+
+ 
+
+ 
+
+£ E localhost:8081/ciente/mew | | A Buscar
+
+E
+
+ 
+
+kk «a A
+
+Jonathan Cadena Gomez Salir
+/ LAN DESARROLLADOR DEL SISTEMA
+
+Area Informática
+
+COIMMIUCATEODAA AMO SIETE BOLTON
+
+e O A ISA A
+
+Administración Operaciones Seguimiento Reporte
+
+Registrar Cliente
+
+Tipo Documento * Poo y
+
+éé Documento * o
+Nombres * ea.
+Apellidos * _—e—e—— ———Q—
+Direccion * SS
+
+Telefono * |
+Telefono dos |
+Celular * |
+
+Celular dos |
+Otro contacto |
+Correo electronico * |
+
+Guardar|
+
+Figura 8: Página para registrar clientes nuevos en del sistema.
+
+32Para registrar una labor se buscara un cliente ya registrado en la base de datos, si no existe,
+tendrá la opción de crearlo, luego se muestran las opciones para elegir la actividad a realizar,
+el equipo que se va a intervenir el cual se registrará con el serial, sección donde se va a
+realizar el servicio, descripción para detallar algunas recomendaciones y finalmente una
+descripción privada que solo se podrá ver internamente por los usuarios del sistema, mas no
+por el cliente, como se muestra en la figura 10.
+
+Archivo Editar Yer Historial Marcadores Herramientas Ayuda
+
+ 
+
+http: /flocalhost...newforden_id/140
+
+ 
+
+ 
+
+€ 2% localhost:3081/laborfnew/orden_id/140 o QL Buscar
+
+ 
+
+Area Informática
+
+ATA AMD BYETEMO SOLUTIDAS
+
+— A A
+
+Administración Operaciones Seguimiento Reporte
+
+Registrar Labor
+
+Orden
+
+2) Imprimir
+
+Fecha: 2015-11-30 19:31:00
+Nombre/Razón PEDRO
+
+social
+
+Identificación 2cc94.000.000
+
+Dirección CARRERA 12% 01 - 23-Telefono 228-0043
+
+Telefono 2 227-0098
+
+Celular (316) 987-6787
+
+ld Actividad Equipo Sección Descripcion Acción
+
+El elemento se ha creado correctamente.
+
+Orden An
+
+Actividad INSTALACION DE SISTEMA OPERATIVO.
+
+Equipo [890123 - Samsung - PORTATIL - aspire. ]
+Jigite Serial del Equipi
+
+seccion [asa
+
+Descripcion ninguna
+
+Descripcion privada
+
+Prioridad | Alta - Horas: 24 +]
+Guardar|
+
+Figura 9: Página de registrar nueva labor para asignar.
+
+33En la opción agenda, se visualiza las labores asignadas automáticamente, según la habilidad
+
+del técnico y su disponibilidad. Se puede observar la hora asignada de dicha labor y su
+técnico correspondiente, como se muestra en la figura 11.
+
+Archivo Editar Wer Historial Marcadores Herramientas Ayuda
+
+http: /flocalhost:8081/ agenda
+
+ 
+
+ 
+
+  
+
+b ta E localhost:3081 agenda Cc [a Buscar Y | 5 ) 2% A
+
+Jonathan Cadena Gomez Salir
+AN DESARROLLADOR DEL SISTEMA
+
+Area Informática
+
+GOMMUINCATIDAS AMD BYETEMA BOLUTDOAD
+
+ 
+
+MA | SA
+
+ds
+
+Administración Operaciones Seguimiento
+
+Asignación de Agenda
+
+Fecha: [2015-10-27
+Cambiar Fecha
+
+ 
+
+R Labores sin Asignar Hora angela mario paniagua camilo
+
+06:00
+07:00
+
+08:00
+
+Labor de Orden + 130 Labor de Orden + 131 Labor de Orden 4 132
+
+Actividad CABLEADO Actividad: INSTALACION DE Actividad: REPARAR PORTATIL
+ESTRUCTURADO SISTEMA OPERATIVO
+Equipo
+Descripción  Ninguga Equipo — 2345009590 - HP - PORTATIL — 890123 - Samsung - PORTATIL - PRESARIO F5D0
+
+Cliente CC94479.123 JUAN aspire
+
+CAMILO - Tels: Descripción ninguna
+Descripción ninguna
+
+Cliente NIT1.115.066.792- 7
+
+Cliente CC94.000.000 PEDRO - BERNARDO MARTINEZ - Tels:
+Tels:
+
+ 
+
+Figura 10: Página de asignación de agenda.
+
+34En la opción reporte, se visualiza los diferentes tipos de reportes como lo son: reporte de
+rendimiento de técnicos, reporte de clientes, reporte de equipos, y reportes de servicios
+prestados, según el rango de fechas proporcionados por el usuario se genera un documento
+en Excel o PDF, como se muestra en la figura 12.
+
+Archivo Editar Wer Historial Marcadores Herramientas Ayuda
+
+http: //localhost:8081/reportefnew Xx MA localhost / 127,0,0,1 f gestio.. Xx | +
+
+k ES ¡eb - localhost:80891/reportefnew | QL Buscar
+
+ 
+
+ 
+
+ 
+
+A A A A
+
+Jonathan Cadena Gomez Salir
+EN DESARROLLADOR DEL SISTEMA
+
+Area Informática
+
+COMA TDME AMD EYETIMA 280.11 8B
+
+al A EA A
+
+Administración Operaciones Seguimiento Reporte
+
+Generación de Reporte
+
+Fecha from[02 7]/ septiembre >]/ 2015 >] ...]
+to | 12 =]/ noviembre +14 2015 >]...
+
+Tipo [Reporte de Labores +]
+
+Formato [Excel y]
+
+Generar]
+
+Figura 11: Página de generación de reportes.
+
+35Midas. Gr TT reportexis [Modo de compatibilidad] = Microsoft Excel... a SS
+
+Inicio Insertar Diseño de página Fórmulas Datos Revisar Vista Programador a Q oax
+
+ 
+
+. y ¡£es Formato condicional + 3' Insertar + E. y
+B sansserit 0 +A [==> [E Sener + Es a Y $
+Ba + E Dar formato como tabla + | 3% Eliminar + El r
+Pegar > 7 A sl = = 22 33 » a <0 00 E Ordenar Buscar y
+il NX $ > ==» == y $ lo 000 | “oo »0 [5 Estilos de celda + Ei Formato + | ¿27 yfiltrary seleccionar +
+Portapape... lx Fuente [E Alineación Ga Número ra | Estilos Celdas | Modificar
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+3
+4 ua 2015-11-10 23:59:59 | |
+5 |
+6 Labor*  Orden* Doc. Cliente Cliente Nombres Cliente Apellidos Labor Descripción Labor Final Fecha Solución ¡Tecnico
+0 85 NIT1115066792 BERNARDO MARTINEZ ninguno Realizar mantenimiento 10/09/15 12:11 —— ¡Mario Paniagua
+d !
+8 17 90 CC31657055 PAULA ANDREA ESQUIVEL ninguna Instalcion de S.O 12/09/15 7:29 ¡Mario Paniagua
+9 | 25 98 NIT1115066792 BERNARDO MARTINEZ ninguna Instalcion de S.O 12/09/15 8:21 ¡Camilo
+10 51 132 NIT1115066792 DANIELA VELEZ ninguna Instalcion de S.O 13/09/15 8:21 Mario Paniagua
+11 83 CC31657055 PAULA ANDREA ESQUIVEL ninguna Mantenimiento 9/09/15 14:05 | Camilo
+11] Impresora |
+12 13 86 CC12345 CARLOS WACA ninguna Reparar portatil 10/09/15 12:48 ¡Angela
+13 | 24 97 CC31657055 PAULA ANDREA ESQUIVEL ninguna Instalcion de S.O 12/09/15 7:34 ¡Mario Paniagua
+30 103 cc123 DANIELA WELEZ ninguno Mantenimiento 7110/15 21:05 ¡Mario Paniagua
+14 Impresora |
+15 14 87 CC12345 CARLOS WACA ninugna Reparar portatil 12/09/15 7:28 | Mario Paniagua
+16 | 23 96 CC12345 CARLOS VACA ninguna Realizar mantenimiento 12/09/15 8:21 ¡Camilo
+17 35 108 NIT1115066792 BERNARDO MARTINEZ ninguna Realizar mantenimiento 13/10/15 16:06 ¡Angela
+18 15 88 Cc123 DANIELA VELEZ ninguna Realizar mantenimiento 12/09/15 7:28 ¡Camilo
+p 21 94 cc123 DANIELA VELEZ ninguna Instalcion de S.O 12/09/15 7:30 ¡Mario Paniagua
+22 95 CCc12345 CARLOS WACA ninguna Mantenimiento 12/09/15 7:31 ¡Camilo w
+1
+M_ 4 » | reporte_ingreso Y N 4 101 » |
+listo 1] |El El 100% E) 00
+
+Figura 12: Página de reportes en Excel.
+
+PL reporte.pdf - Adobe Reader CT A CAE ca es)
+
+Archivo Edición Ver Ventana Ayuda x
+
+(E) Abrir | da NoE a 14] 75% r | PA Herramientas | Rellenar y firmar | Comentario
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+REPORTE DE LABORES
+
+pe | 2015-09-09 00:00:00 Fecha Impreso:|30/11/2015 15:49
+pee | 2015-11-10 23:59:59
+
+NIT1115068792 BERNARDO il 10/09/15 12:11
+
+Cc31657055 PAULA ANDREA i 12/09/15 729
+NIT1115080792 BERNARDO i 12/09/15 8-21
+NIT1115088792 DANIELA i 1309/15 821
+CC31857055 PAULA ANDREA i ami 9/09/15 14:05
+
+CC 12245 CARLOS i 10/09/15 12:48
+CC31657055 PAULA ANDREA i 12/09/15 7:34
+cc123 DANIELA i imi 7/10/15 21:05
+CC12345 i 12/09/15 728
+CC12345 i imiento — 12/09/15 821
+NIT1115068792 i i imiento — 13/10/15 16:06
+cc123 i 12/09/15 728
+cc123 i 12/09/15 7-20
+
+Ccc12345 i ami 12/09/15 7-31
+NIT1115080792 i 12/09/15 8:17
+
+cc123 i 16/09/15 7:40
+
+cc123 DANIELA i 16/09/15 7-37
+
+CC31657055 PAULA ANDREA i ami 7/10/15 21:19
+
+cc123 DANIELA i 7110/15 22:03
+Cc12345 i Realizar mantenimiento 1/10/15 16:09
+Cc12345 i Realizar mantenimiento 11/11/15 22:15
+
+CCas4782394 i Realizar mantenimiento 9/09/15 14:05
+
+ 
+
+ 
+
+Figura 13: Página de reportes en PDF.
+
+364, PRUEBAS
+
+Las pruebas realizadas a la aplicación fueron enfocadas en cada iteración del proceso Scrum,
+Con el fin de encontrar errores en el contenido, La función, la facilidad de uso, la
+navegabilidad, el desempeño, la capacidad y la seguridad de la aplicación.
+
+Para ello se efectuaron diferentes tipos de pruebas en la etapa de desarrollo, se buscó
+determinar si el software cumple con los requerimientos definidos en fases anteriores, para
+garantizar la funcionabilidad correcta de la aplicación y que devuelva datos exactos según las
+entradas proporcionadas. Para observar más pruebas dirigirse a la carpeta Anexos G.
+
+Con este tipo de pruebas se intentó encontrar:
+
+e Funcionalidades incorrectas o ausentes.
+e Errores de interfaz.
+
+e Errores en estructuras de datos.
+
+e Errores de rendimiento
+
+e Errores de inicialización y finalización
+
+4.1 PRUEBAS DE SEGURIDAD Y CONTROL DE ACCESO
+
+Con las pruebas de seguridad de la aplicación busca garantizar que con base en la seguridad
+
+deseada, los usuarios estén restringidos a funciones específicas o su acceso está limitado
+únicamente a los datos que está autorizado a acceder, evaluando el funcionamiento correcto
+
+de los controles de seguridad y de este modo asegurar la integridad de la aplicación y la
+confidencialidad de los datos.
+
+Finalización Sprint 1
+
+DESARROLLO DE UN SISTEMA DE
+
+INFOMACIÓN PARA LA GESTIÓN DE Rev:
+A/A | LAS ORDENES DE SERVICIO EN LA | Pruebas 001
+del Valle | EMPRESA AREA INFORMATICA DE
+
+BUGA
+
+Título: Pruebas de seguridad y control de acceso Fecha: 26-102015
+
+ 
+
+Prueba de control de acceso de usuarios
+
+ 
+
+Descripción El usuario, al iniciar la aplicación verá la
+opción para el acceso a la aplicación, en la
+que se le solicitará el usuario o email y la
+
+ 
+
+37contraseña. El usuario debe llenar estos
+
+campos.
+
+ 
+
+Pasos l. El usuario ingresa la url de la
+aplicación en el navegador
+
+2. La aplicación le muestra un
+formulario solicitando usuario y
+contraseña.
+
+3. El usuario introduce ambos y
+presiona el botón “conectar”
+
+4. El sistema verifica ambos campos en
+la base de datos y comprueba que
+existe el usuario.
+
+5. El sistema muestra un mensaje que
+los datos ingresados son inválidos.
+
+6. El usuario sale de la aplicación,
+dando clic en salir
+
+7. El sistema cierra la sesión
+
+ 
+
+ 
+
+Desarrollo de la prueba
+
+Prueba Exitosa
+
+El usuario, al iniciar la aplicación
+verá la opción para el acceso a la
+El usuario ingresa a la | aplicación, en la que se le solicitará
+aplicación. el usuario o e-mail y la contraseña.
+Para acceder a la aplicación.
+
+El sistema valida los campos
+ingresados como lo son el usuario
+y la contraseña, cuando se cumple
+que el usuario no está creado en el
+sistema, no tendrá acceso a la
+aplicación, si los datos son
+correctos, el usuario ingresara a la
+aplicación
+
+El usuario ingresa los datos
+requeridos como: usuario que
+es igual su cedula o el e-mail,
+e ingresa la contraseña
+
+La aplicación cierra la sesión de
+El usuario da clic en el enlace | dicho usuario, de este modo si el
+salir usuario quiere volver a entrar,
+
+deberá loguearse nuevamente.
+
+ 
+
+Tabla 14: Pruebas De Seguridad Y Control De Acceso
+
+384.2 PRUEBAS UNITARIAS DEL SISTEMA
+
+Las pruebas unitarias se realizaron al terminar cada módulo, verificando que los procesos se
+realizaban correctamente y que los resultados fueran los esperados, buscando minimizar el
+margen de error. Las siguientes pruebas que se realizaron a la aplicación se plantearon desde
+
+el enfoque de pruebas de caja negra
+
+Finalización Sprint 2
+
+DESARROLLO DE UN SISTEMA DE
+
+INFOMACIÓN PARA LA GESTIÓN DE
+LAS ORDENES DE SERVICIO EN LA | Pruebas 001.
+
+Universidad
+
+Rev:
+
+del Valle | EMPRESA AREA INFORMATICA DE
+BUGA
+
+ 
+
+Título: Pruebas Unitarias del Sistema Fecha: 26-102015
+
+Prueba de crear nuevos clientes
+
+ 
+
+Descripción
+
+El usuario administrador ingresa al sistema
+con un login y una contraseña, el sistema le
+muestra todas las funcionalidades que tiene
+para su rol, el administrador elige la opción
+de crear un cliente nuevo.
+
+ 
+
+Pasos
+
+l. Ingresar a la aplicación
+2. Dar clic en el enlace administración
+—>pnuevo
+
+3. Elegir la opción de nuevo cliente
+
+4. Diligencia el formulario mostrado
+por el sistema
+
+5. Guardar el formulario
+
+6. El sistema lo guarda en la base de
+datos y muestra un mensaje exitoso
+
+ 
+
+ 
+
+Desarrollo de la prueba
+
+Prueba Exitosa
+
+El usuario, al iniciar la aplicación
+verá la opción para el acceso a la
+
+El usuario ingresa a la | aplicación, en la que se le solicitará
+aplicación. el usuario o e-mail y la contraseña.
+Para acceder a la aplicación.
+
+ 
+
+39El usuario ingresa los datos
+requeridos como: usuario que
+es igual su cedula o el e-mail,
+e ingresa la contraseña
+
+El usuario administrador elige
+
+la opción administración —>
+nuevo —>cliente
+
+administrador
+campos del
+
+El usuario
+diligencia los
+formulario
+
+El sistema valida los campos
+ingresados como lo son el usuario
+y la contraseña, cuando se cumple
+que el usuario no está creado en el
+sistema, no tendrá acceso a la
+aplicación, si los datos son
+correctos, el usuario ingresara a la
+aplicación
+
+El sistema muestra un formulario
+con todos los campos a ser
+diligenciados
+
+El sistema valida los campos
+ingresados, muestra mensajes
+arriba del campo a diligenciar si
+está ingresando datos incorrectos o
+hay campos vacíos que son
+obligatorios, si los datos están
+correctos el sistema los guarda en
+la base de datos y crea un nuevo
+cliente.
+
+ 
+
+Tabla 15: Pruebas Unitarias Crear Nuevos Clientes
+
+404.3 PRUEBAS DE INTEGRACION
+
+Finalización Sprint 3
+
+ 
+
+ 
+
+DESARROLLO DE UN SISTEMA DE
+INFOMACIÓN PARA LA GESTIÓN DE LAS Rev:
+ORDENES DE SERVICIO EN LA EMPRESA | Pruebas | pp1
+
+Universidad | AREA INFORMATICA DE BUGA
+
+del Valle
+Título: Fecha: 26-10Pruebas de crear nueva orden 2015
+
+ 
+
+ 
+
+ 
+
+ 
+
+Descripción: El usuario, al ingresa a la aplicación con su usuario y contraseña,
+Busca la opción, —> Operaciones y da clic en nuevo, para crear
+una nueva orden de servicio ingresando los datos solicitados
+
+Entradas
+
+El usuario ingresa a la aplicación
+
+Se da clic en el enlace operaciones —> nuevo
+
+Selecciona el cliente al cual se le va a prestar el servicio
+
+Selecciona la actividad que se va a realizar
+
+Selecciona el equipo de cómputo al cual se le va a prestar el servicio.
+Selecciona el cliente al cual se le va a prestar el servicio.
+
+Escribe la sección a la cual pertenece el equipo
+
+Escribe una descripción para el servicio prestado
+
+q AA A A A
+
+Se da clic en la opción guardar
+
+Resultado Esperado
+
+Los datos ingresados por el usuario son guardados en sus respectivas tablas en la base de
+datos, se le asigna la labor a un técnico partiendo de sus habilidades y su disponibilidad
+
+Condiciones de El usuario debe haber iniciado sesión con anterioridad
+
+ejecución:
+
+Evaluación de la Prueba satisfactoria.
+prueba:
+
+Realizado por:
+
+Tabla 16: Pruebas De Integración Crear Nueva Orden
+
+ 
+
+41Finalización Sprint 5
+
+DESARROLLO DE UN SISTEMA DE
+
+INFOMACIÓN PARA LA GESTIÓN DE Rev:
+EA | LAS ORDENES DE SERVICIO EN LA | Pruebas 001
+del Valle | EMPRESA AREA INFORMATICA DE
+
+BUGA
+
+Título: Pruebas Unitarias del Sistema Fecha: 26-102015
+
+Prueba de editar cliente
+
+ 
+
+Descripción El usuario administrador ingresa al sistema
+con un login y una contraseña, el sistema le
+muestra todas las funcionalidades que tiene
+para su rol, el usuario elige la opción de
+consultar cliente y lo edita.
+
+ 
+
+Pasos l. Ingresar a la aplicación
+2. Dar clic en el enlace administración
+—>consultar
+
+3. Elegir la opción de cliente
+
+4. La aplicación muestra todos los
+clientes registrados con su respectivo
+botón para ser editado
+
+5. El usuario da clic en el botón de
+editado
+
+6. La aplicación muestra el formulario
+para editar datos del el cliente
+
+7. El usuario edita el cliente y lo guarda
+
+8. La aplicación guarda la modificación
+y muestra un mensaje de éxito
+
+ 
+
+ 
+
+Desarrollo de la prueba
+
+Prueba Exitosa
+
+El usuario, al iniciar la aplicación
+verá la opción para el acceso a la
+El usuario ingresa a la | aplicación, en la que se le solicitará
+aplicación. el usuario o e-mail y la contraseña.
+Para acceder a la aplicación.
+
+El sistema valida los campos
+ingresados como lo son el usuario
+y la contraseña, cuando se cumple
+que el usuario no está creado en el
+sistema, no tendrá acceso a la
+
+El usuario ingresa los datos
+requeridos como: usuario que
+
+es igual su cedula o el e-mail,
+e ingresa la contraseña
+
+ 
+
+42El usuario administrador elige
+la opción consultar cliente
+
+El usuario da clic en la opción
+editar del cliente en el que
+desea realizar la acción
+
+El usuario edita los campos
+que desea, como puede ser el
+
+nombre, el email, el teléfono,
+el celular o la dirección del
+cliente
+
+aplicación, si los datos son
+correctos, el usuario ingresara a la
+aplicación
+
+El sistema muestra todos los
+clientes ya registrados en la base
+de datos con su respectivo opción
+para ser editados
+
+El sistema le muestra un
+formulario para con los datos del
+cliente a editar
+
+El sistema valida los campos
+ingresados, muestra mensajes
+arriba del campo a diligenciar si
+está ingresando datos incorrectos o
+hay campos vacíos que son
+obligatorios, si los datos están
+correctos el sistema modifica los
+
+datos anteriores por los nuevos y
+los guarda en la base de datos
+mostrando un mensaje exitoso
+
+ 
+
+Tabla 17: Prueba Unitaria Editar Cliente
+
+435. CONCLUSIONES
+
+Durante el desarrollo de este proyecto se aplicaron los conocimientos adquiridos en
+diferentes asignaturas a lo largo de la carrera especialmente los de sistemas de
+información y desarrollo de software, logrando cumplir los objetivos planteados. En
+el desarrollo de la aplicación se adquirió conocimientos y experiencia que será de
+utilidad para ejecutar proyectos futuros.
+
+Para el cumplimento de los objetivos fue indispensable realizar una investigación
+previa de conceptos y procesos dentro de la empresa, estos sirvieron de guía para
+poder dar inicio al proyecto, y asimilar rápidamente los objetivos que se buscaba
+alcanzar. Fue importante relacionarse con dichos conceptos ya que esto facilito la
+comunicación en el trascurso del desarrollo de la aplicación.
+
+Se desarrolló una aplicación a la medida de la empresa Área informática que ayudó a
+automatizar las funciones y procesos que en ella se realizaban, se aprendió a tener
+una comunicación asertiva con el cliente al momento de levantar los requerimientos,
+se diseñó una aplicación que diera una solución ajustada a las necesidades del cliente
+y no el cliente a la aplicación.
+
+Al utilizar una metodología como lo fue SCRUM, no fue necesario el levantamiento
+de mucha documentación para el desarrollo del proyecto, dado que mediante la
+aplicación de esta metodología se valora más la funcionalidad del software y no tanto
+la documentación exhaustiva. Todo esto se enfoca más a la colaboración y
+comunicación constante entre el equipo desarrollador y el cliente, priorizando los
+requerimientos y el costo de desarrollo en cada iteración, con el fin de entregar un
+producto de buena calidad
+
+446. TRABAJOS FUTUROS
+
+La creación de un módulo de cartera, el cual permita generar facturas de cada uno de
+los servicios prestados en la empresa, consultar la cartera de cada uno de sus clientes,
+así mismo la generación de documentos como notas débito, crédito, anticipos, y
+pagos de los clientes.
+
+Se pueden implementar un módulo de inventario en la empresa, el cual permitirá
+llevar un control de los suministros y herramientas, generando reportes de los
+mismos
+
+Crear un módulo que permita integrar el manejo contable de la empresa con la
+aplicación.
+
+457. BIBLIOGRAFÍA
+
+[1] R. Lapiedra, C. Devece and J. Guiral, Introducción a la gestión de sistemas de
+información en la empresa. Universitat Jaume I, 2011.
+
+[2] PHP, what 1s Php, Definition [en línea], no Data Disponible en
+http://php.net//manual/es/intro-whatis.php
+
+[3] MySQL, Sistema de gestión de base de datos, Definition [en línea], no Data
+Disponible en http://www.mysql.com
+
+[4] MySQL, why MySQL como base de datos, Definition [en línea], no Data Disponible
+en http: //www.mysql.com
+
+[S] Librosweb, symfony en pocas palabras , Definition [en línea], no Data Disponible en
+http://librosweb.es/libro/symfony 1 4/capitulo 1/symfony en pocas palabras.html
+
+[6] K. C.Laudon, and J. P Laudon, Sistema de información gerencial. Pearson Pretince
+Hall, 2008. pp 17
+
+[7] R. F. Tachon, Metodologías Y Ciclos De Vida, 2009. Pp 42
+
+[S] Proyectos Agilesorg, Metodología SCRUM, Definición[ en línea], no Data Disponible
+en: www.proyectosagiles.org/que-es-scrum
+
+[9] R. S. Pressman, and A. Luis, Ingeniería Del Software Mik Mann, 1997. Pp 76
+
+[10] K. Schwaber y J. Sutherland,La Guía Definitiva de Scrum: Las Reglas del Juego La
+Guía de Scrum|en línea], 2003 Disponible en:
+www.scrumguides.org/docs/scrumguide/v1/Scrum-Guide-ES.pdf
+
+[11] Agile Alliance org, Daily Meeting, Definition [en línea], no Data Disponible
+en:http://guide.agilealliance. org/guide/daily. html
+
+[12] MOUNTAIN GOAT SOFTWARE, Temas de Scrum, Reunión de planificación de
+
+Sprint [en línea], no Data Disponible en:
+http://www.mountaingoatsoftware.com/agile/scrum/sprint-planning-meeting
+
+46[13]. Red Científica, Sistema Experto, Definition[en línea], no Data Disponible en:
+http: //www.redcientifica.com/doc/doc199908210001.html
+
+[14]  Gestiweb, ERP Instalaciones eléctricas Eneboo [en línea], no Data Disponible en:
+www. gestiweb.com/?q=content/erp-instalaciones-electricas-eneboo-software-libre
+
+[15] The best-run businesses Run Sap, Gestión De Órdenes De Servicio[en línea], no Data
+Disponible en: http://help.sap.com/bp_crmv12007/CRM_DE/html/C69 ES ES.htm
+
+[16]. COINGCOL, Sistema de gestión de órdenes de servicio COINGCOLTen línea], no
+Data Disponible en: comgcol.com/
+
+[17]  TIW, Model view controller, Definition [en línea], no Data Disponible en
+http://www. lab.inf.uc3m.es/
+
+47

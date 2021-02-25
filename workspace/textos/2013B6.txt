@@ -1,0 +1,5105 @@
+ANÁLISIS, DISEÑO E IMPLEMENTACIÓN DEL BALANCED SCORECARD
+EN LA COOPERATIVA DE AHORRO Y CRÉDITO CAFETERA DE LA CIUDAD DE
+ARMENIA
+
+JULIAN HENAO HENAO
+
+UNIVERSIDAD DEL VALLE SEDE TULUÁ
+PROGRAMA ACADÉMICO DE INGENIERÍA DE SISTEMAS
+TULUÁ, 2015ANÁLISIS, DISEÑO E IMPLEMENTACIÓN DEL BALANCED SCORECARD
+EN LA COOPERATIVA DE AHORRO Y CRÉDITO CAFETERA DE LA CIUDAD DE
+ARMENIA
+
+JULIAN HENAO HENAO
+Cód. 200913228
+
+Trabajo de grado para optar al título de
+
+INGENIERO DE SISTEMAS
+
+Director
+
+EP. JULIÁN ANDRES RODAS LAVERDE
+
+UNIVERSIDAD DEL VALLE SEDE TULUÁ
+PROGRAMA ACADÉMICO DE INGENIERÍA DE SISTEMAS
+TULUÁ, 2015Nota de Aceptación
+
+Firma del Presidente del Jurado
+
+Firma del Jurado
+
+Firma del Jurado
+
+Tuluá, Enero 2015Dedicatoria
+
+Este trabajo es un homenaje a mis padres, quienes con gran esfuerzo y dedicación me
+han apoyado en cada decisión que he tomado en mi camino, otorgándome una vida
+independiente y libre para enfrentar el mundo con mis propias “armas”.
+
+Julian Henao HenaoAgradecimientos
+
+A mis padres, por su Sacrificio y apoyo incondicional, por permitirme ser libre y tener
+una vida propia sin que con ello dejaran de ser mi guía todos estos años.
+
+A mi hermano, quien también ha sido parte de este proceso y ha sido de gran ayuda en
+su desarrollo y culminación.
+
+A mis compañeros y amigos Armando Acosta Guerrero y Raúl Andrés Mejía Duque,
+quienes iniciaron conmigo este reto de ser profesionales y me brindaron su apoyo
+incondicional para lograr el objetivo final.
+
+A mi gran amigo y compañero de trabajo Hayder Alexander Rodas, por su gran apoyo y
+por la confianza que ha depositado en mí y en mis conocimientos.
+
+A mi amigo y compañero de trabajo Raúl Londoño Murillo, por todos los conocimientos
+compartidos y su colaboración a lo largo del desarrollo del proyecto.
+
+A mi familia de la Universidad del Valle Sede Caicedonia, quienes me brindaron su
+apoyo, tanto académico, laboral y personal ayudando a forjar mi formación profesional de
+una manera más integral.
+
+A la Universidad del Valle, sede Tuluá, por abrirme sus puertas y brindarme tantos
+conocimientos y experiencias que ayudaron a consolidar mi formación académica y
+
+profesional.
+
+Al Ingeniero y Magíster Julián Andrés Rodas Laverde, quien asumió la dirección y guía
+de mí proyecto de grado, depositando su confianza total en mí trabajo.
+
+Al Ingeniero Diego Fernando Zuluaga Trujillo, Product Owner del proyecto, quien
+facilitó las herramientas y tuvo total disposición para que la culminación del mismo fuera
+exttosa.
+
+A todos ellos !Infinitas Gracias ¡Índice general
+
+o A 10
+
+A PPP e... A 11
+
+1. —IntroducciÓnN.......oonccccccccnocnnnncnononenocnonocnonncnonoccnonccnnncroncrrnncrnoncronorronarononronncncnncrcnnccnnanss 12
+1.1. Planteamiento Y FormulacióÓnN........ccccccnnnnnnnnnnnnnnnnnnnnnononrnnononnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnennnnnnnninns 13
+1.2. Delimitación Del Problema.........oooooononononnncnnnnnnnnnnnnnnnnnnonononononnonnnnnnnnrrnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnns 13
+1.3. Formulación Del Problema ........cccccccnnoninoninnnnnnnnnnnnnnnnnnonnnonnnnnonnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnninns 13
+1.4. Resultados ESPerados ....ccoooooccccnnnncnonononnnnnnnnnnnnnnnnnnnnnnnnnnnrnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnanoss 13
+1.5. ODJOtiVOS ....ccccccccccoonnncnnnnnnnnnnnncnnnnnnnnnnonnnnnnnnnnnn nn nen nnnnnnnnnnnRnnnnnnnnnnnn nn nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnananess 14
+1.5.1. Objetivo General .....ooccccnnccccnonnnnnnnnnnnnnnnnncncnnnnnnnnononnnnnnnnnnnronnnnnnnnnnnnnnnnnnnnnnnnnnnnnrnnnannnnnnnoss 14
+1.5.2. Objetivos ESPecÍfiCOS......oooooonnnnnnccnnnnnnnnonononnnnnonnononononnnnnncnnnnnnnnnnnnnnnnnnnnnnnnnnnnnanananarennnnnnss 14
+
+2. Marco de Referencia.........oomccooccoccconnccocconenoncconononcconcroncconcroncnoncroncroncroncroncnoncronsnononanons 15
+2.1. Estado del Arte y AntecedenteS.....cccccccccooonnnnnnnnnononononnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnannnnnnnnnnnnns 15
+IN E 19
+2.3. MARCO CONTEXTUAL oooooocncnnccccconcnononcnoninonononononnoonooocorrnnnnnnnnnnnnnnnonnnnnnnnnnnnnnnronnnnnnnnnnnnnnnnnnnoss 28
+
+3. Desarrollo Del Proyecto.........oocooccocoocnonnccnonnccnnnnccnnnnocncnnocnconocncnncnncnnconcnncnnccncnccnncnaconos 31
+3.1. Arquitectura MVC ...cooonncccnncnnncnocnnonncncnonncnnnonorononnnonnnnonrnnnnrrnnnnarnnnnnnrnnnnnrnnnonnnnnnnnnrrnonnnrnnonnnnnnns 32
+3.2. Análisis De Requerimientos .....cccccccccccccccncnoncnnnnnnnnnnnncnnnnnnnonnnnnnnnnnnnnnnnnnnnnnnnnnnrrnnnnnnnnnnnnnnnnnnnnss 32
+3.2.1. BeneficiOS ....oocccccccnnnnnnnnnnnnnnnnnononnnnnnnooonnorrnnnnnnnnnnnnnnnnnn nono nono nn nnnnnrrrnnnnnnnnonnnnnnnnnnnnnnnnnnannnas 33
+3.2.2. Lecturas PreparatorilaS .....oooccccoonccncncnnnncnnnnnnnononononnnnonannnnonnnnnnnarononnnrrnnnnnnnnonannnnnaninnnnanoss 33
+3.2.3. ENTTeviStaS...oooccccncnonccnnnonononnnnnononnnnnnn non ro nono nn nn r nn nn nn RR RR nn nr nn nRnnnn rn RR nn rnnnnnnnnrnnnnnnainnnnnns 34
+3.2.4. A 34
+3.2.5. Requisitos Sobre Disponibilidad Y Desempeño Del Sistema ..........ooccccnccnnnonnnnnnnnncnnnnnns 34
+3.2.6. Requisitos FUNCIONALES.......ccccooooooncccnnnncnononnncnnnnnnnononononnnnnnnnnnnnnnnnnnnnnnnnnnonnnnnnnnnnnnnnnnnnnnos 35
+3.2.7. Requisitos No Funcionales ........oooocccnnccccononnncnnnnnnnnnnonannnnnnnnnnonnnnnnnnnnnnnnnnonnnnnnnnnnnnnnnnnnnnnss 37
+3.3. Módulos BSC.coccnnnnininonicnonnnnnnonnnoronononnonnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn naar rra rr r nn nn n nono 37
+3.4. Análisis y Diseño Preliminar..........ccccccccccccnnoncnnnononnnnnnccnnnnnnnnnnnnnnnnnnnnnnnnnnonnnnnnnrrnnnnnnnnnnnnnnnnnnnss 38
+3.4.1. BURNDOWN CHAR .ooccccccccccncnnnnnnnnnnnnonononccnnncononnnnnnnnnnononnnnnnnnonnnnnrrrnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnns 51
+3.4.2. Historias De UsuUarlO.....coooocccnnononocnnnnnnnononnnonnncnnnnnnnnnrnnnnonnrnnrnnnnnnrrnnnnonnrnnnnnnnnnronnnnnanrnnnnnos 51
+IS 53
+3.4.1. Modelo Entidad — Relación .......ooooooounnnnnnnccncnnnnnnnnnnnnnnnnnnononnnnoonooronnonnnnnncnnnnnnnnnnnnnnnnnnnnos 53
+3.4.2. Diagramas de Clases ...ooooccccnncccconoonncnnnnnnnnnnnnnnnnnonnnnnonnnnnnnnnnnnnnnnnnnrnnnnnnnnonnnnnnnnnnnnnnnnnnnnnos 56A IIA 58
+
+3.5.1. ¡AT 59
+3.5.2. InstalaciÓnN .......ccccnnncnnnonnnnnnnnnnnnannononrrnn nono nono nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn nn ran r rr nro 59
+3.5.3. Descripción general del aplicativo Web.............ccooonnnnnnnnnnnononononnnnnnnnnnononancnnnnnnnononannnnnnnnnos 60
+4. Pruebas y Discusión de los Resultados............ocooccoccorocccorocccoronccoronronrnoronrnnrnoronrnoronnnnos E)
+4.1. Pruebas de Unidad .....cccccncccncccccconnncncnnnnnnononnncnnnnnnnnnnnnnnnnnonnnnonnnnnnnnnnnrrrnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnns 69
+4.2. Pruebas de Integración ......cccccccccccccccnnnnnonnnnnncnnnnnnnnnnonnnnnnnnnnnnnononnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnns 71
+4.3. Pruebas de ValidacióÓn...........ccccccnnnnnnonononooonoocnnnnnnnnnnnnonnnnnnnnnonnnnononnonrrnnnnnnnnnnnnnnnnnnnnnononnnnnnnnns 74
+5. Conclusiones y ProyeccionesS.......oocococcocnonnccoroncncnncnocornornocaronrnonnrnororonrnonnrnnronornanaronenos 17
+A AN 77
+5.2. Trabajos FUTUFOS ...cccooooonnnnnnnnnononononnnnnnnnnnnnnnnnnnnnnn nn nn nn nnnnnnnnnn nn nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnannnnnnnnnnnnns 78
+Bibliografía ..........oocooccnonnoncncnnononccccnccnncnnaronconarnaronornoronornoronccnornncnnrnarnncrnarnaronornaronccnannncnnos 79Índice de imágenes
+
+Figura 1. Capítulo 2.: Mapa Estratégico de la OorganizaciÓn........oococcinoconoconocococnconcnoonnnannconnnnnnnons 23
+Figura 2. Capítulo 2.: Aspectos importantes en la MediciÓN..........ooconcccnoconocccocncancnnonnnannconnnnnnnons 24
+Figura 3. Capítulo 2.: Proceso interno en la organización .....oooonnccincnicnnoconoccnoncnrncnnnnonannnconncnnnonos 26
+Figura 4. Capítulo 2.: Procesos críticos en la Organización. ....oocoocccnncniccnnccnnccnonconanonannncnnnono cons 26
+Figura 5. Capítulo 2.: Factores vitales en la perspectiva de aprendizaje y crecimiento. ........ 27
+Figura 6. Capítulo 2.: Organigrama COFINCAFE oooooococccccoccnocncoocconncconononcconnnonnnconnnonnnconnnonnnnnnnons 29
+Figura 7. Capítulo 2.: Mapa Estratégico - COFINCAFE...ooooonncconoconocccocnconcconnncnnnconnnnonnconononnnnnnons 30
+Figura 8. Capítulo 2.: Cuadro de Indicadores - COFINGAFE ...oooocccccoccnoccononononononcconnnonnncannnonnonos 30
+Figura 9. Capítulo 2.: Modelo Vista Controlador...............ooooccnnccnocccooncnonononnconnconnocanoconnnoonnconnconnonos 32
+Figura 10. Capítulo 3.: Burndown Chart del proyecto BSC ..ooocoonicccccccccnoconoconanonnannncnnnanacannncnnnons 51
+Figura 11. Capítulo 3.: Modelo Entidad Relación del proyecto BSC ....nooonocccicccocccocccnonanannconnonos 54
+Figura 12. Capítulo 3.: Modelo Entidad Relación del proyecto BSC ....nooonoccnccccoccccocononccnnnconnonos 55
+Figura 13. Capítulo 3.: Diagrama de la clase Sesión del proyecto BSC....oooocnnccccocinocccicnconnono» 56
+Figura 14. Capítulo 3.: Diagrama de la clase GuestPreferences del proyecto BSC............... 57
+Figura 15. Capítulo 3.: Diagrama de la clase UsuariosController del proyecto BSC .............. 57
+Figura 16. Capítulo 3.: Diagrama de la clase UsuariosJpaController del proyecto BSC........ 58
+Figura 17. Capítulo 3.: Pantalla de Login de la aplicación Web BSC ...oooncooncccncocinoconocacacnconnonos 61
+Figura 18. Capítulo 3.: Interfaz de la aplicación Web BSC ....oooocococcoccconoconoconocononncancnonnnononcnnnonos 61
+Figura 19. Capítulo 3.: Menú contraído de la aplicación Web BSC...oooncooncccnocccocccicccoonncnnncnnnonos 63
+Figura 20. Capítulo 3.: Menú desplegado de la aplicación Web BSC....oooocccconocccoconocccocnnonnonss 63
+Figura 21. Capítulo 3.: Alertas locales de la aplicación Web BSC....oooocconicciccccocccocccnonncannnonnnnns 63
+Figura 22. Capítulo 3.: Perspectivas de la aplicación Web BSC...ooonocniconiccinccicnnocncnccnanannonnnons 64
+Figura 23. Capítulo 3.: Metas de la aplicación Web BSC....ooonccocccicccccococonaconanconananananonanonnconnnons 64
+Figura 24. Capítulo 3.: Control de usuarios de la aplicación Web BSC .oconioconocccoconocccacnnonnonss 65
+Figura 25. Capítulo 3.: Control de Grupos de la aplicación Web BSC ..oonooonccconoccnoccnocccocnnonnonss 65
+Figura 26. Capítulo 3.: Variables de la aplicación Web BSC ....ooconnicniccnicinocanocconnonnnonncnancnnnonnnons 66
+Figura 27. Capítulo 3.: Variables de la aplicación Web BSC ....coconnicniccncccnocanonconncnnnnnnonanano conan 66
+Figura 28. Capítulo 3.: Variables de la aplicación Web BSC ....oonconnicniccnicinicinccconnnonannnonanonaconnnono 67
+Figura 29. Capítulo 3.: Variables de la aplicación Web BSC ....coconiciiccnicinocinoccnnnconacnnonanannnonnnons 67
+Figura 30. Capítulo 3.: Generación de reportes .pdf de la aplicación Web BSGC ..................... 68
+Figura 31. Capítulo 3.: Generación de reportes .pdf de la aplicación Web BSGC ..................... 68
+Figura 32. Capítulo 3.: Dashboard de la aplicación Web BSC .oocconoccoccccoccnocccocnconncnonncnnnnonnonos 69Índice de Tablas
+
+Tabla 1- Capitulo 2.:
+Tabla 2. Capítulo 3.:
+Tabla 3. Capítulo 3.:
+Tabla 4. Capítulo 3.:
+Tabla 5. Capítulo 3.:
+Tabla 6. Capítulo 4.:
+Tabla 7. Capítulo 4.:
+
+Tabla 8. Capítulo 4.:
+Tabla 9. Capítulo 4.:
+
+Partes de la Estrategia de Una empresa ..oconocccnoccnoncconocncnnnncnnncnnonnncnnnonanos 21
+Product Backlog del Proyecto BSC.....oooooococconocccoccnocnconcconncconnconnononncnnnonnnos 50
+Historia de usuario — Acceder al sistema...........oooccnocccccoccccnonnnnnonnnnnonnnnnnos 52
+Historia de usuario — Administrar Grupos y Usuarl0S .........ooconccnoccconnoo... 53
+Historia de usuario — Creación de Módulos de texto......................m........ 53
+Pruebas de Unidad ..........o.ccnooccccoocccooocncnoncnononanonononccononncnnn nn cono nn cono nncnanoncnanoss 71
+Prueba de Integración — Registro de datos en el formulario Estrategias
+
+Prueba de Integración — Creación de usuarios del sistema................... 74
+Prueba de Integración — Verificación de las alertas locales del sistema
+
+Tabla 10. Capítulo 4.: Prueba de Validación — Prueba de los componentes y herramientas
+de la aplicación en forma aleatorla..........ooconoccnincccioncconcccnonnnonnncnnnncnoncnnononononnconnncon nn conan cana ncnnn nana ona 76Resumen
+
+Este proyecto se realizó con el objeto de facilitar la dirección de la Cooperativa de
+ahorro y crédito Cafetera COFINCAFE, empresa situada en el sector de la
+economía solidaria y ubicada en la carrera 16 No. 20-06 Armenia Quindío. El
+sistema de Balanced Scorecard permitió una medición precisa de prácticas de
+negocio mediante indicadores relacionados con la lealtad de los clientes, la creación
+de valor, el conocimiento (capital intelectual) y crecimiento del negocio. Es así, como
+este proyecto se basó en el desarrollo de un software de tipo Balanced Scorecard,
+bajo el modelo propuesto Robert Kaplan y David Norton en 1992, con el uso de
+metodologías ágiles, que permitieron el seguimiento y control de los indicadores
+estratégicos, la organización de la información, y la toma adecuada de decisiones.
+El software de tipo Balanced Scorecard fortaleció y mejoró los procesos
+administrativos de COFINCAFE, facilitó el monitoreo y la formulación de sus
+estrategias, valiéndose del análisis del comportamiento de su medio, la competencia
+y de sus condiciones internas.
+
+El resultado obtenido, fundamentado en procedimientos de desarrollo de software,
+modernos, ágiles y eficientes permitió establecer evidencias sólidas sobre los
+beneficios del uso y adaptación de nuevas tecnologías para el manejo de
+información, control y fortalecimiento de los procesos en múltiples empresas, sin
+importar su razón social o el sector al que estas pertenecen.
+
+Palabras claves: Balanced Scorecard, cooperativa, software, indicadores
+estratégicos, Objetivos Estratégicos, Gerencia, Control de Procesos.
+
+10Abstract
+
+This project was conducted in order to facilitate the management of the cooperative
+savings and credit COFINCAFE Coffee, a company located in the sector of social
+economy and the race located in Armenia Quindío 16 No. 20-06; Balanced
+Scorecard system allowed precise measurement practices related business by
+customer loyalty, value creation, knowledge (intellectual capital) and business
+growth indicators. The project was based on the development of a Balanced
+Scorecard software type, under the proposed Robert Kaplan and David Norton in
+1992, using agile methodologies, which enabled monitoring and control of strategic
+indicators model, the organization of information and proper decision-making. The
+Balanced Scorecard software type strengthened and improved administrative
+processes COFINCAFE, facilitating monitoring and formulating their strategies, using
+the analysis of the behavior of their environment, competition and internal conditions.
+
+The result, based on procedures for developing modern, flexible and efficient
+software finally allowed to establish solid evidence about the benefits of using and
+adapting new technologies for managing information, control and strengthening the
+processes at multiple companies without of their company name or the sector to
+which these belong.
+
+Keywords: Balanced scorecard, cooperative, software, strategic indicators,
+Strategic Objectives, Management, Process Control.
+
+111.Introducción
+
+En la actualidad las organizaciones se ven obligadas a evolucionar y adaptarse al
+ritmo de vida globalizado y a las oportunidades y desventajas que trae consigo
+(Mohan, Rao.; s,f) [20]. En la era de la información para las entidades de servicios
+financieros es indispensable poseer nuevas capacidades que permitan explotar sus
+activos intangibles o invisibles, conservar a sus antiguos clientes y conseguir
+nuevos, introducir diferentes productos y servicios innovadores y fácilmente
+adquiribles; servicios de alta calidad y bajo costo, además incrementar las
+
+habilidades y motivación de los empleados y su compromiso con la organización (
+Kaplan.R £ Norton.D, 1997) [6].
+
+La Cooperativa de Ahorro y Crédito Cafetera, COFINCAFE, nació en Armenia
+Quindío, el 21 de Julio de 1989, bajo Resolución No.1546 del Departamento
+Administrativo Nacional de Cooperativas, DANCOOP, como respuesta a la
+necesidad de construir una entidad Financiera Regional. COFINCAFÉ es una
+cooperativa de Ahorro y Crédito, donde se promueve la integración consciente del
+ahorrador, gozando de excelentes servicios y grandes beneficios. Está integrada por
+personas naturales, por entidades jurídicas sin ánimo de lucro y por empresas de
+economía solidaria que se asocian voluntariamente, diligenciando un formulario de
+solicitud de ingreso y suscribiendo un certificado de aportación.
+
+COFINCAFE — ha venido desarrollando sus actividades empleando garantes del
+cumplimiento de los objetivos que certifiguen el éxito de la cooperativa, entre los que
+están: indicadores financieros y metas específicas como guía para la proyección y
+progreso de la organización, la perspectiva financiera, los clientes, los procesos
+internos y el aprendizaje.
+
+El Balanced Scorecard es una técnica probada que combina medidas financieras
+claves con inductores operacionales para así dar una figura más completa del
+desempeño. (Flores Konja A, 2004) [3].
+
+Este proyecto analizó, desarrolló e implementó una solución adecuada a las
+problemáticas en relación al cumplimiento de la misión, visión y plan estratégico
+dentro de COFINCAFE, con lo cual se logra dar mayor claridad sobre la estabilidad
+y proyección a corto y largo plazo de la empresa, facilitando su dirección de una
+manera equilibrada en cada área de acción.
+
+121.1. Planteamiento Y Formulación
+
+En la actualidad la COOPERATIVA DE AHORRO Y CRÉDITO CAFETERA no tiene
+un sistema que le permita gestionar y evaluar las planeaciones estratégicas a largo
+plazo ni cumplir con los indicadores estratégicos en los que se basa la cooperativa.
+En consecuencia, se necesita una herramienta de software de tipo Balanced
+Scorecard, que permita combinar inductores operativos y financieros basados en los
+objetivos y la existente planeación estratégica de la empresa.
+
+Finalmente es importante anotar que existen otros software y alternativas que se
+podrían desarrollar; sin embargo, el BSC fue el requerido por COFINCAFE.
+
+1.2. Delimitación Del Problema
+
+El software, Balanced Scorecard, será diseñado y aplicado en la Cooperativa de
+Ahorro y Crédito Cafetera ubicada en el municipio de Armenia Quindío, en un
+período de 8 meses, de ahí que facilite la toma de decisiones de la gerencia y se dé
+cumplimiento a la misión, visión y objetivos de la cooperativa.
+
+1.3. Formulación Del Problema
+
+¿El software de tipo Balanced Scorecard garantizará la organización de la
+información y el total cumplimento de los indicadores estratégicos de la cooperativa
+de ahorro y crédito cafetera?
+
+1.4. Resultados Esperados
+
+Objetivos Específicos Producto(s) Esperados
+
+Lograr la cohesión entre lo dicho por los diferentes
+autores consultados y las necesidades de la
+empresa, para así dar inicio al desarrollo del
+software
+
+Obtener un software de tipo BSC que se enmarque
+en los indicadores estratégicos de la empresa. Y
+tener una interfaz web que permita la debida gestión
+y control administrativo.
+
+Implementar el software BSC en la Cooperativa de
+Ahorro y Crédito Cafetera en Armenia.
+
+ 
+
+Objetivo 1
+
+ 
+
+Objetivo 2
+
+ 
+
+ 
+
+Objetivo 3
+
+131.5. Objetivos
+
+1.5.1. Objetivo General
+
+Analizar, diseñar e implementar el Balanced Scorecard o BSC para la Cooperativa
+de Ahorro y Crédito Cafetera de la ciudad de Armenia (COFINCAFE ), como una
+herramienta de medición y control, que contribuya al cumplimiento de la estrategia y
+a la toma de decisiones de la cooperativa.
+
+1.5.2. Objetivos Específicos
+
+Estudiar los componentes del Balanced Scorecard adecuados para el cumplimiento
+de los indicadores estratégicos de la cooperativa.
+
+Desarrollar el software BSC de acuerdo con los indicadores estratégicos de la
+empresa, como también, implementar una interfaz web para la gestión de
+actividades y control administrativo.
+
+Equipar a COFINCAFE del software BSC con los debidos requisitos funcionales,
+de calidad, accesibilidad y fácil análisis.
+
+142.Marco de Referencia
+
+2.1. Estado del Arte y Antecedentes
+
+A partir de la revisión de distintos autores, el Balanced Scorecard es un método de
+planificación y gestión estratégica utilizada en negocios, cooperativas,
+organizaciones, empresas y gobiernos, para ahilar las actividades empresariales
+con los planes estratégicos, dicho de otro modo, monitorear los procesos y el
+desempeño de los mismos.
+
+Kaplan y Norton en 1990 realizaron una investigación sobre la “Medición del
+resultado en la organización del futuro” dando como resultado uno de los
+insttumentos de medición de mayor interés en los últimos años: el Balanced
+Scorecard o Cuadro de Mando Integral CMI. El estudio fue motivado por la creencia
+de los enfoques existentes sobre la medición de la actuación dependían
+primordialmente de la valoración de la contabilidad financiera, los cuales se estaban
+tornando obsoletos. Norton a mediados de 1993, como director general de una
+nueva organización, Renaissance Solutions, cuyo servicio primordial era la asesoría
+sobre la estrategia, utilizó el Balanced Scorecard como un vehículo para ayudar a la
+empresa a traducir y poner en práctica esta misma [7].
+
+Es así como (teniendo en cuenta o anterior o, dicho lo anterior) Margarida. J.C en su
+máster de investigación expone que “el Balanced Scorecard (BSC*) complementa
+indicadores de medición de los resultados de la actuación, con indicadores
+financieros y no financieros de los factores clave que influirán en los resultados del
+futuro, derivados de la visión y estrategia de la organización. Enfatiza la conversión
+de visión y estrategia de la empresa en objetivos e indicadores estratégicos” [14].
+
+En palabras de los anteriores autores, son tres los aspectos importantes que resalta
+el Balanced Scorecard. El primero, es la estrategia, en donde la mayoría de las
+organizaciones actuales operan a través de unidades de negocio descentralizadas y
+de equipos que están mucho más cerca del cliente. La segunda, la competencia que
+utiliza el conocimiento, las capacidades y las relaciones intangibles creadas por los
+empleados. Y el último, la alineación, que requiere la vinculación de todos los
+empleados, así como de todas las unidades de negocio y de apoyo.
+
+Los rápidos cambios en tecnología, la competencia, el control, la creación y la
+aplicación de la estrategia debe ser un proceso continuo y participativo. Por lo tanto,
+las organizaciones actuales necesitan un lenguaje que les permita comunicar la
+estrategia, así como procesos sistematizados que les ayuden a implementarlas y
+obtener información.
+
+l La abreviatura BSC hace referencia al término Balanced Scorecard que en español significa Cuadro de mando
+integral y cuya abreviatura es CMI.
+
+15Por un lado, el software, según Pablos. C, en el 2004 es “un conjunto de programas
+diseñados por profesionales o usuarios conocedores de las técnicas adecuadas que
+sirven para controlar las actividades del ordenador y para transformar datos de
+entrada en resultados”[12]. Y por otro lado, Estupiñan. O. en el 2006 plantea que el
+Balanced Scorecard “es una forma integrada, balanceada y estratégica de medir el
+progreso actual y suministrar la dirección futura de la compañía que le permitirá
+convertir los planes estratégicos en acción” [2].
+
+Retomando lo dicho por Kaplan y Norton, se puede afirmar que un buen Balanced
+Scorecard debe “contar la historia de sus estrategias”, es decir, debe reflejar la
+estrategia del negocio.
+
+El BSC es la representación en una estructura coherente, de la estrategia del
+negocio a través de objetivos claramente encadenados entre sí, medidos con los
+indicadores de desempeño, sujetos al logro de unos compromisos o metas
+determinadas y respaldados por un conjunto de iniciativas o proyectos.
+
+Por tal motivo, estos autores plantean seis componentes básicos del BSC y su
+modelo de implantación en cuatro fases. En cuanto a componentes básicos se
+plantean:
+
+El primero, cadena de relaciones de causa y efecto, que expresan el conjunto de
+hipótesis de la estrategia a través de objetivos estratégicos y su logro mediante
+indicadores de desempeño.
+
+El segundo, enlace a los resultados financieros, en donde los objetivos del negocio y
+sus respectivos indicadores, deben reflejar la composición sistémica de la
+estrategia, a través de cuatro perspectivas: financiera, clientes, procesos internos,
+aprendizaje y crecimiento. Finalmente los resultados deben traducirse en logros
+financieros que conlleven a la maximización del valor creado por el negocio para sus
+accionistas.
+
+El tercero, balance de indicadores de resultados e indicadores guías, que reflejan el
+desempeño final del negocio, y que muestren las cosas que se necesita “hacer
+bien” para cumplir con el objetivo, estos miden el progreso de las acciones que
+acercan o que propician el logro del objetivo con el propósito de canalizar acciones y
+esfuerzos orientados hacia la estrategia del negocio.
+
+El cuarto, mediciones que generen e impulsen el cambio, así, motivar determinados
+comportamientos, asociados tanto al logro como a la comunicación de los
+resultados organizacionales, de equipo e individuales. De allí que un componente
+fundamental es el de definir indicadores que generen los comportamientos
+esperados, particularmente aquellos que orienten a la organización y a la
+adaptabilidad ante un entorno en permanente y acelerado cambio.
+
+16El quinto, alineación de Iniciativas o Proyectos con la Estrategia a través de los
+Objetivos Estratégicos, en donde, proyecto que exista en la empresa debe
+relacionarse directamente con el apalancamiento de los logros esperados para los
+diversos objetivos expresado a través de sus indicadores.
+
+Y por último, consenso del equipo directivo de la empresa u organización, que
+resulta del diálogo entre los miembros del equipo directivo, para lograr reflejar la
+estrategia del negocio sobre cómo medir y respaldar lo que es importante para el
+logro de dicha estrategia [6].
+
+Paralelamente, en cuanto al modelo de implantación por fases están los que
+plantean la firma de desarrollo empresarial “Consejería Empresarial” y los
+autores anteriores:
+
+* Fase 1: Concepto Estratégico: Incluye misión, visión, desafíos, oportunidades,
+orientación estratégica, cadena del valor, plan del proyecto.
+
+x% Fase 2: Objetivos, Vectores y Medidas Estratégicas: Incluye objetivos
+estratégicos, modelo causa-efecto preliminar, indicadores estratégicos, vectores
+estratégicos y palancas de valor.
+
+«% Fase 3: Vectores, Metas e Iniciativas: Incluye objetivos estratégicos detallados,
+
+modelo causa-efecto con vectores y palancas, indicadores estratégicos, metas
+
+por indicador, iniciativas estratégicas.
+* Fase 4: Comunicación, Implantación y Sistematización: Incluye divulgación,
+
+automatización, agenda gerencial con BSC, planes de acción para detalles, plan
+de alineación de iniciativas y objetivos estratégicos, plan de despliegue a toda la
+empresa [6].
+
+Es por eso que el software de tipo Balanced Scorecard que se desarrolló en
+Cooperativa de ahorro y crédito COFINCAFE, debe estar inmerso dentro de la
+gerencia estratégica que es definida por el profesor Fred. D “como la formulación,
+ejecución y evaluación de acciones que permitirán que una organización logre sus
+objetivos”. Incluyendo la formulación de estrategias, la identificación de las
+debilidades y fortalezas internas y externas, el establecimiento de misiones de la
+compañía, la fijación de objetivos, el desarrollo de estrategias alternativas, el
+análisis de dichas alternativas y la decisión de cuales escoger, asegurando así, el
+éxito en la toma de decisiones de la cooperativa.
+
+No obstante, se deben de plantear una serie de perspectivas y metodologías para
+el desarrollo del software de tipo Balanced Scorecard, dentro de la cooperativa de
+ahorro y crédito cafetero de la ciudad de Armenia, entre las que están las
+planteadas por Kaplan y Norton:
+
+. Perspectiva Financiera:El BSC parte de la visión y estrategias de la
+empresa, luego se determinan los objetivos financieros requeridos para
+
+17alcanzar la visión, y estos a su vez serán el resultado de los mecanismos y
+estrategias que rijan los resultados con los clientes; los procesos internos se
+planifican para satisfacer los requerimientos financieros y de los clientes.
+
+Perspectiva del Accionista: Responde a las expectativas del accionista. Se
+centra en la creación de valor para el accionista y requiere definir objetivos e
+indicadores que permitan responder a las expectativas del accionista en
+cuanto a los parámetros financieros de: crecimiento, beneficios, retorno de
+capital, y uso del capital.
+
+Perspectiva de Clientes: Contesta a las expectativas de los Clientes de
+acuerdo al logro de los objetivos que se plantean en esta perspectiva,
+dependerá en gran medida la generación de ingresos, y por ende la
+“generación de valor” ya reflejada en la perspectiva financiera. Esta
+propuesta de valor cubre básicamente, el espectro de expectativas
+compuesto por: calidad, precio, relaciones, imagen que reflejen en su
+conjunto la transferencia al cliente. Los indicadores típicos de este segmento
+incluyen: satisfacción de clientes, desviaciones en acuerdos de servicio,
+reclamos resueltos del total de reclamos, incorporación, retención de clientes,
+y mercado.
+
+Perspectiva de Procesos Internos: identifican los objetivos e indicadores
+estratégicos asociados a los procesos clave de la organización o empresa, de
+cuyo éxito depende la satisfacción de las expectativas de clientes y
+accionistas. Usualmente, esta perspectiva se desarrolla luego que se han
+definido los objetivos e indicadores de las perspectivas financieras y de
+clientes .Es recomendable que, como punto de partida del despliegue de esta
+perspectiva, se desarrolle la cadena de valor o modelo del negocio asociado
+a la organización o empresa. Luego se establecerán los objetivos,
+indicadores, palancas de valor e iniciativas relacionados.
+
+Algunos indicadores de carácter genérico asociados a procesos son : tiempo
+de ciclo del proceso (cycle time), costo unitario por actividad, niveles de
+producción, costos de falla, costos de trabajo, costos de calidad, desperdicio,
+beneficios derivados del mejoramiento continuo, reingeniería, y eficiencia en
+uso de los Activos.
+
+Perspectiva de Aprendizaje Organizacional: Se refiere a los objetivos e
+
+indicadores que sirven como plataforma o motor del desempeño futuro de la
+empresa, y reflejan su capacidad para adaptarse a nuevas realidades,
+
+18cambiar y mejorar. Estas capacidades están fundamentadas en las
+competencias medulares del negocio, que incluyen las competencias de su
+gente, el uso de la tecnología como impulsor de valor, la disponibilidad de
+información estratégica que asegure la oportuna toma de decisiones y la
+creación de un clima cultural propio para afianzar las acciones
+transformadoras del negocio.
+
+2.2. Marco Teórico
+
+Tablero de mando integral — Balanced Scorecard
+
+Es un instrumento que facilita a la dirección de las empresas administrarlas en
+forma eficiente y equilibrada hacia el éxito competitivo, permitiendo comunicar y
+traducir a todo el personal, cual es la visión, la misión y la estrategia de la empresa;
+con el fin de alcanzar los objetivos propuestos, utilizando mediciones de desempeño
+que le permitan al empresario mejorar la actuación en todas la áreas de su negocio,
+controladas por medio de los indicadores de gestión, buscando siempre un valor
+
+agregado para los accionistas, los clientes y el equipo de colaboradores (Martínez €
+Milla 2005) [8].
+
+Para la implantación de un Balanced Scorecard son indispensables los siguientes
+elementos:
+
+Misión
+
+Visión
+
+Valores
+
+Estrategia
+Objetivos Estratégicos
+Mapas Estratégicos
+Perspectivas
+Indicadores
+
+Metas
+Responsables
+Recursos
+
+OO OOOOOOoOoOpO0osp0o0
+
+La implantación de un nuevo sistema de gestión en cualquier empresa debe superar
+obstáculos como los procesos actuales que se encuentran en marcha en la
+organización y que tienden a envolver o absorber cualquier nuevo programa de
+
+19cambio. Por esto es necesario definir un equipo encargado para la implantación de
+un sistema BSC (Muñiz 8 E. Monfort 2005) [11].
+
+Equipo del Balanced Scorecard planteado por Muñiz € Monfort son:
+
+e Promotor Agente del Cambio: Generalmente pertenece a la alta
+dirección, comúnmente es gerente o presidente de la empresa.
+
+e Coordinador de equipo: Es la persona encargada de hacer los
+seguimientos de implantación, convocar reuniones, marcar pautas,
+asignar tareas.
+
+e Arquitecto: Es la persona que entiende y conoce que es el Balanced
+Scorecard y sabe cómo implantarlo en la empresa, también puede ser
+el coordinador de equipo quien asuma este rol con el apoyo de un
+miembro de la empresa.
+
+e Miembros: Son los directores y responsables de las grandes áreas de
+la organización.
+
+Para garantizar un trabajo organizado el equipo de Balanced Scorecard no debe ser
+superior a 10 personas; Además de la definición del equipo, se debe realizar un
+análisis de la situación actual y establecer consenso sobre los siguientes elementos:
+
+e Sector
+
+e Recursos
+
+e Capacidades
+
+e Productos, Servicios
+
+A continuación se describen los elementos que se deben tener en un BSC:
+
+Misión, Visión, Valores
+Deben ser elaborados de manera consciente y seria.
+
+o Misión: Es una manifestación clara y permanente del propósito que distingue
+a un negocio de otros de su tipo e identifica el ámbito de sus operaciones en
+términos de pruebas. La misión debe hacer referencia máximo a dos grupos
+de interés que generalmente son los clientes y el personal.
+
+o Valores: En una organización los valores se refieren a los marcos generales
+de actuación y a principios rectores que ayudan a tomar decisiones y orientan
+la manera en que se comporta y actúa la empresa.
+
+20o Visión: Es una descripción imaginativa y alentadora del papel y objetivos
+futuros de una organización, que significativamente va más allá de su entorno
+actual y posición competitiva.
+
+La estrategia
+
+La formulación de cualquier estrategia se debe llevar a cabo después de que la
+empresa haya identificado, evaluado y seleccionado diferentes cursos de acción que
+se abre a sí misma (Manso 2003) [10].
+
+La estrategia de una empresa consta de dos partes que se mostraran en la
+siguiente tabla:
+
+Desarrollo Puesta en practica
+
+Productos y Servicios que se ofrecen
+
+Clientes y mercados a los que se ofrece los Los objetivos, sistemas,
+
+productos o servicios procesos y estructuras
+Estrategia competitiva(como ser los líderes del (como llevar a cabo, el
+
+mercado) que, para quien, porque
+
+y donde)
+Prioridades de producto y mercado (donde
+
+acentuarse).
+
+Tabla 1- Capitulo 2.: Partes de la Estrategia de una empresa
+
+Como parte de la construcción de la estrategia se debe realizar un detallado análisis
+del entorno; en esta parte se determinan los supuestos acerca del entorno:
+
+e Reglamentación
+
+e Situación económica
+
+e Tecnología
+
+e Competencias
+
+e Productos a ofrecer (Portafolio de servicios)
+
+e Criterios para evaluar los productos o servicios y su disponibilidad.
+e Zonas del mercado, tipo de clientes
+
+e Factores como: Precio, calidad, servicio.
+
+21Objetivos Estratégicos:
+
+Las organizaciones, al momento de definir sus objetivos estratégicos deben tener en
+cuenta lo siguiente según Kaplan y Norton:
+
+e Los objetivos específicos, financieros y de clientes que debe definir y
+controlar
+
+e Objetivos que se van a definir y controlar dependiendo de los procesos que
+son críticos para la ventaja competitiva.
+
+e Objetivos del personal, competencias, sistemas y motivación a definir, para
+que los procesos críticos tengan éxito.
+
+Los Objetivos estratégicos son la declaración de intenciones estratégicas alineadas
+con alguna perspectiva para conseguir la visión definida por la empresa. Estos
+indican:
+
+e Que se quiere lograr
+
+e Establece una dirección
+
+e Revelan las prioridades
+
+e Permiten una coordinación más acertada
+
+Adicionalmente estos objetivos deben ser pocos, desafiantes, mensurables,
+consistentes, razonables y claros (Fred 1994) [4].
+
+Mapa Estratégico
+
+Es una representación grafica de las relaciones causa efecto entre los componentes
+de la estrategia, entre los distintos objetivos estratégicos elegidos a través de las
+perspectivas establecidas.
+
+Adecuadamente construido, debe constar con la historia de la estrategia de la
+organización.
+
+A continuación, en la Figura 1 se muestra un modelo aplicado a cualquier
+organización.
+
+22Perspectiva financiera
+
+Crecimiento pan Rentabilidad Ai,
+Productividad
+
+de ingresos
+
+O DO
+
+ 
+
+Perspectiva de Proceso Interno
+
+ 
+
+Relaciones Excelencia Relaciones
+
+Innovación _
+Clientes operacional Comunidad
+
+Perspectiva aprendizaje y crecimiento
+
+ 
+
+Competencias 57 Infraestructura + Clima Organizacional
+del personal Tecnológica
+
+Figura 1. Capítulo 2.: Mapa Estratégico de la organización
+
+Perspectivas
+
+Las perspectivas en un Balanced Scorecard responde a las expectativas de los
+accionistas, centrada en la creación del valor; responde a las expectativas de los
+clientes, de ella depende la generación de ingresos; identifica los objetivos e
+indicadores estratégicos asociados a los procesos clave; objetivos e indicadores que
+sirven como plataforma para el futuro desempeño de la empresa (Martinez, € A.
+
+Milla 2005) [8].
+
+Aspectos importantes en la medición
+
+Para mantener el rastro del proceso de medición, es esencial una revisión
+estratégica y auditoría continua de las medidas de desempeño previamente
+centradas, balanceadas e integradas tal como se muestra en la Figura 2.
+
+23Desempeño y Desempeño
+
+del Cliente Financiero
+
+   
+
+  
+
+Desempeño Desempeño
+
+Ambiental de Empleados
+
+Desempeño Desempeño
+de innovación de Procesos
+
+Aprendizaje
+
+oganizacional yuanazad
+
+Figura 2. Capítulo 2.: Aspectos importantes en la medición
+
+Capital
+Intelectual
+
+ 
+
+Comúnmente se definen cuatro perspectivas que son:
+
+Perspectiva Financiera
+
+Perspectiva de Clientes
+
+Perspectiva proceso interno
+
+Perspectiva de aprendizaje y crecimiento
+
+O0OOOo./O
+
+Perspectiva financiera:
+
+Es el enfoque para el resto de perspectivas, mide las consecuencias económicas de
+acciones tomadas anteriormente.
+
+Crecimiento y rentabilidad
+
+Según Kaplan y Norton existen 4 temas financieros que impulsan la estrategia
+empresarial:
+
+e Crecimiento y diversificación de los ingresos
+
+24Nuevos productos
+
+Nuevas ampliaciones
+
+Nuevos clientes y mercados
+
+Nuevas relaciones
+
+Nueva variedad de productos y servicios
+Nueva estrategia de precios
+
+>O000Tp
+
+e Reducción de costes y mejora en la productividad
+a. Aumento de la productividad de los ingresos
+b. Reducción de costes unitarios
+Cc. Mejorar el mix de los canales de distribución
+d. Reducir los gatos de explotación.
+
+e Utilización de los activos y estrategia de inversión
+a. Ciclo de Caja
+b. Mejor utilización de los activos
+
+e Gestión del Riesgo
+a. Diversificación de las fuentes de ingreso
+b. Varias líneas de negocio
+Cc. Varias regiones geográficas
+
+Perspectiva de Clientes:
+
+Describe como se crea valor para el cliente, como se satisface esa demanda y
+porque el cliente acepta pagar por ello.
+
+Gran parte del esfuerzo se centra en aumentar y asegurar la fidelidad de los
+clientes, y en identificar los segmentos de clientes de mercado donde se va a
+competir. Para lograrlo, generalmente se toman dos medidas comunes.
+
+1) Grupo de indicadores centrales del cliente
+e Cuota de mercado
+
+e Retención de clientes
+
+e Adquisición de clientes
+
+e Satisfacción de clientes
+
+e Rentabilidad de clientes
+
+2) Propuestas de Valor que se entregaran a los clientes y segmentos
+seleccionados.
+e Atributos de los productos y servicios; funcionalidad calidad y precio
+
+25e Relación con los clientes; entrega del producto (respuesta y plazo)clave
+e Imagen y prestigio; factores intangibles que atraen a un cliente.
+
+Perspectiva de Proceso Interno:
+
+Con esta perspectiva se busca identificar los procesos críticos en los que la
+organización debe ser excelente y los cuales van a permitir entregar las propuestas
+de valor para atraer y retener a los clientes y satisfacer las expectativas financieras
+
+de los propietarios (Gómez € Surez 2001) [5].
+
+La Figura 3 muestra la cadena de valor de la empresa.
+
+Necesidades Proceso Necesidades del
+. Procesos de Proceso e
+del cliente ION TO TT] Ao To dare ete
+is P venta
+
+Figura 3. Capítulo 2.: Proceso interno en la organización
+
+   
+
+Toda empresa debe estar enfocada para un mejor cumplimiento de sus procesos,
+para esto se debe implementar un sistema de gestión donde los procesos más
+críticos estén en un centro y tomen como entradas las necesidades del mercado y
+los clientes y a su vez arrojen un producto o servicio adaptado lo más
+
+acertadamente posible a dichas necesidades. Ver Figura 4
+
+AS AE
+
+Procesos de apoyo
+
+Procesos Principales
+
+Procesos de gestión
+
+ 
+
+Figura 4. Capítulo 2.: Procesos críticos en la organización.
+
+26Una vez definidos los procesos principales para satisfacer a los clientes y
+propietarios hay que seguir los métodos para ver cómo están funcionando con
+respecto a las cuatro características para la gestión y análisis de los procesos que
+son:
+
+e Calidad
+e Tiempo
+e Coste
+
+e Servicio
+
+Perspectiva de aprendizaje y crecimiento:
+
+Es la base de toda la estrategia, define los activos intangibles necesarios para que
+las actividades de la organización y las relaciones con los clientes alcancen niveles
+
+cada vez más altos.
+Para esta perspectiva se deben tener en cuenta algunas categorías de variables:
+
+Y” Competencias y capacidades estratégicas: Las habilidades estratégicas y del
+conocimiento que los trabajadores deben tener para apoyar la estrategia
+
+Y” Capacidades tecnológicas: Los sistemas de información, bases de datos,
+herramientas y gestión de contactos necesarios para apoyar la estrategia.
+
+Y” Clima para la acción: Los cambios culturales necesarios para motivar,
+respaldar y alinear los recursos humanos.
+
+Todo esto garantizará la permanencia del empleado, su productividad y su sentido
+de pertenencia con la empresa, lo que finalmente se verá evidenciado en los
+resultados obtenidos tal como se muestra en la Figura 5 (Margarida s,f) [9].
+
+ER
+
+Tele o anio E To
+ORT OE Tele ORT OE Tele
+
+    
+
+ 
+
+SEM
+
+Wes del empleado mAK>
+
+1
+
+AE MEA
+del personal Laboral Tecnológica
+
+   
+
+Figura 5. Capítulo 2.: Factores vitales en la perspectiva de aprendizaje y crecimiento.
+
+272.3. MARCO CONTEXTUAL
+
+La Cooperativa de Ahorro y Crédito Cafetera “COFINCAFE ?”, nació en Armenia
+Quindío, el 21 de Julio de 1.989, fecha en la cual fue reconocida mediante
+resolución número 1546 del Departamento Administrativo Nacional de Cooperativas
+“DANCOOP” como respuesta a la necesidad de construir una entidad Financiera
+regional.
+
+COFINCAFE — es una Cooperativa de Ahorro y Crédito, donde se promueve la
+integración consciente del ahorrador, gozando de excelentes servicios y grandes
+beneficios. Está integrada por personas naturales, por entidades jurídicas sin ánimo
+de lucro y por empresas de economía solidaria que se asocian voluntariamente,
+diligenciando un formulario de solicitud de ingreso y suscribiendo un certificado de
+aportación.
+
+Beneficios: La Cooperativa de Ahorro y Crédito Cafetera “COFINCAFE” ofrece
+varias líneas de crédito tales como: libre inversión, vehículos nuevos y usados,
+educación y aportes entre otros.
+
+Actualmente, COFINCAFE cuenta con más de 21.800 asociados, que junto con
+sus familias han podido alcanzar sus metas de tener carro, ampliar su negocio,
+educar a sus hijos, ir de vacaciones y asegurar un futuro más tranquilo.
+
+Además, cuenta con nueve agencias, dos en Armenia en una de las cuales se
+encuentra ubicada la Dirección General, una en La Tebaida, una en Quimbaya, dos
+en Pereira, una en Chinchiná, una en Santa Rosa y una en Tuluá, dando
+cubrimiento al Eje cafetero y Norte del Valle. Su equipo de trabajo está conformado
+por 98 colaboradores.
+
+Los asociados disfrutan de un amplio portafolio de productos financieros, como:
+Aprobación de crédito en forma ágil y oportuna, con varias líneas destinadas a
+satisfacer sus diferentes necesidades; ahorro programado con excelentes
+rendimientos; tarjeta débito con la cuota de manejo más baja del mercado; CDAT y
+ahorro a la vista.
+
+Pero su compromiso va más allá; con el fin de contribuir al desarrollo integral de los
+asociados y sus familias, la cooperativa ofrece un portafolio de servicios sociales
+que incluye: Póliza exequial, un seguro equivalente a cuatro veces sus aportes
+sociales, auxilios educativos, vacaciones recreativas, campañas de salud, auxilios
+por calamidad doméstica, actividades de integración y el programa COFIVIDA, que
+incluye más de 70 convenios.
+
+282.3Estructura Organizacional COFINCAFE — 2014 - 2020
+
+CERA
+
+ATTE
+
+¡TAE AN
+Ce ¡AA TAE de servicio al CASOS
+Eolo)
+
+Gerencia
+AE!
+
+¡Ao Mo) Coord. de ES Aux. de ls al e
+illo lolo asociado
+
+Profesional de
+Coord. de credito IET laNY
+mercadeo
+
+Aux. de desarrollo Capacitación y
+
+: : Profesional SARL
+TNA AV LOjS
+
+AVE
+
+Aux. de compras ASES STA!
+: SY ¡oo MM TT E! Ilo e Profesional SARO
+mantenimiento anios ar Eo
+
+Coord. de
+olg-2-T01P2= To LOTA mY
+ts
+
+Coord. de tesoreria y
+operaciones
+
+¡CDA el
+
+EMI
+
+Coord. de sostemas
+
+Coord. Juridico
+
+ 
+
+Figura 6. Capítulo 2.: Organigrama COFINCAFE
+
+29Mapa Estratégico actual de COFINCAFE
+
+Fortalecimiento patrimonial
+
+. Asegurar la permanencia de la
+Cooperativa a través de su
+estabilidad financiera y su
+estructura.
+
+Fortalecer la confianza en los
+clientes actuales y generarla en los
+potenciales.
+
+. Ganar participación en el mercado.
+Desarrollar programas que
+contribuyan al bienestar del
+
+asociado y sus familias
+Desarrollar programas que
+contribuyan al bienestar de la
+comunidad menos favorecida
+Fortalecer el SGC y el SAR.
+. Actualizar e innovar en
+infraestructura, tecnología, procesos
+y productos que nos permitan
+competir con el sector financiero.
+, Crear equipos de alto desempeño
+. Construir un ambiente laboral que
+genere motivación y satisfacción
+entre los colaboradores,
+. Poner a disposición de los
+colaboradores los sistemas de
+información para facilitar las labores
+
+ 
+
+ 
+
+Figura 7. Capítulo 2.: Mapa Estratégico - COFINCAFE
+
+Cuadro de Posibles Indicadores del BSC de COFINCAFE
+
+CUADRO DE INDICADORES
+
+  
+   
+ 
+  
+    
+   
+ 
+ 
+  
+    
+
+ 
+ 
+
+Fortalecer la confianza en los clientes actuales y
+generarla en los potenciales
+
+CRECIMIENTO Ganar participación en el mercado
+
+ASOCIADOS Desarrollar programas que contribuyan al
+bienestar del asociado y sus familias
+
+Desarrollar programas que contribuyan al
+bienestar de la comunidad menos favorecida
+
+Crear equipos de alto desempeño
+
+APRENDIZAJE TURA Y CLIMA Construir un ambiente laboral que genere
+
+Poner a disposición de los colaboradores los
+sistemas de información para facilitar las labores
+
+ 
+
+Figura 8. Capítulo 2.: Cuadro de Indicadores - COFINCAFE
+
+303.Desarrollo Del Proyecto
+
+El análisis, diseño e implementación del Balanced Scorecard para la Cooperativa De
+Ahorro y Crédito Cafetera COFINCAFE, se desarrolló bajo la metodología de
+desarrollo de software SCRUM?. Como estrategia de apoyo a las diferentes
+actividades del proyecto, se propuso la utilización de una metodología ágil, flexible y
+práctica, lo que permitió la creación de equipos de trabajo auto-organizados y la
+comunicación verbal entre todos los miembros y disciplinas involucrados en el
+proyecto; esto con el fin de perfeccionar los resultados en cada una de las fases de
+análisis, diseño, implementación y pruebas. El desarrollo de este proyecto fue un
+trabajo conjunto entre el personal de COFINCAFE (empresa propietaria de la
+aplicación final), y la empresa AppsCloud a la cual fue vinculado el autor de este
+trabajo de grado.
+
+El uso de la metodología SCRUM en el proyecto de Balanced Scorecard fue una
+decisión acertada, debido a los constantes cambios de los requerimientos iníciales y
+el crecimiento gradual de los mismos.
+
+SCRUM como una estrategia para el desarrollo de software, se compone de un
+conjunto de técnicas que buscan solventar el costo del cambio. Debido a esto, un
+principio clave del desarrollo de software bajo la metodología SCRUM fue el
+reconocimiento de que durante el, proyecto los clientes podían cambiar de idea
+sobre lo que querían y necesitaban, debido al desconocimiento de factores vitales,
+que se evidenciaron una vez se inició el análisis. Además de los desafíos
+impredecibles que no podían ser fácilmente enfrentados de una forma predictiva y
+planificada. Por lo tanto, SCRUM permitió una aproximación pragmática, aceptando
+que el problema inicial necesitaba de un análisis más profundo para ser
+completamente entendido o definido, centrándose en maximizar la capacidad del
+equipo de entregar rápidamente y responder a requisitos emergentes.
+
+SCRUM, como estrategia, permitió realizar un análisis reiterativo mediante los
+SPRINT, lo cual ayudó a consolidar el alcance del problema e identificar los
+requisitos más importantes.
+
+Finalmente en la construcción del software BSC, se utilizó un patrón de diseño del
+software MVC o Modelo—Vista-Controlador, con el ánimo de facilitar la comunicación
+interna, ahorrar tiempo, mejorar la calidad del diseño y la implementación.
+
+2 SCRUM es una metodología ágil de desarrollo de software que fomenta el trabajo en equipo y permite una
+gestión y desarrollo de software basada en un proceso iterativo e incremental.
+
+313.1. Arquitectura MVC
+
+La arquitectura MVC (Model-View-Controller) separa el modelado del
+dominio, la presentación y las acciones basados en las entradas del usuario.
+
+e Modelo: Maneja el comportamiento y los datos del dominio de la
+aplicación, responde a los requerimientos de información acerca de
+su estado (desde la vista) y responde a las instrucciones para
+cambiar de estado (desde el controlador).
+
+e Vista: Maneja el despliegue de la información y la muestra en
+pantalla.
+
+e Controlador: Interpreta las acciones del usuario de teclado y ratón,
+informando al modelo y/o a la vista para cambiar apropiadamente sus
+estados.
+
+Tanto la vista como el controlador dependen del modelo. Sin embargo, el modelo no
+depende ni de la vista ni del controlador.
+
+La separación permite construir el modelo y probarlo independientemente de la
+presentación visual.
+
+La separación entre vista y controlador es secundaria en muchas aplicaciones, sin
+embargo en las aplicaciones Web la vista (el navegador) y el controlador (los
+componentes del lado servidor) están bien definidos.
+
+Usuario Servidor Base de Datos
+
+EE!
+
+ESA E
+
+do
+
+7
+
+h
+e
+m
+a
+
+Controlador
+(Navegadores: |
+
+Mozilla,
+ADS
+
+MG OA
+
+ALESS
+Java del
+Modelo
+
+AO 7
+TAE
+
+TT TEE
+
+Utilidades:
+LS
+
+SA
+aplicaciones
+
+ 
+
+Figura 9. Capítulo 2.: Modelo Vista Controlador
+
+3.2. Análisis De Requerimientos
+
+En la metodología SCRUM el análisis de requisitos se expresa como un conjunto de
+elementos del Product Backlog, el cual se compone de requisitos funcionales y no
+funcionales prevalecidos por su valor para el cliente. Estos se van acumulando en
+
+32Sprints dependiendo de cómo se van recopilando a medida de las reuniones y de
+que tan cambiantes son en el transcurso del proyecto.
+
+3.2.1. Beneficios
+
+Se decidió trabajar bajo la metodología SCRUM por ser una metodología ágil que
+consta de características que facilitan el desarrollo y la entrega final de los proyectos
+en lapsos de tiempo cortos, ya que una de sus principales etapas son las reuniones
+constantes con el cliente, lo que proporciona un poco más de claridad en todo el
+proceso anterior al desarrollo y durante el mismo, lo cual permitió una mayor
+precisión a la hora de traducir lo que el usuario final deseaba obtener.
+
+3.2.2. Lecturas Preparatorias
+
+La investigación Oo las lecturas preparatorias son parte vital del proceso de
+adquisición de conocimientos acerca de la organización y de las herramientas que
+permiten una gerencia más precisa, como lo es en este caso el Balanced Scorecard.
+Entre los documentos que constituyen fuentes adecuadas de información se
+incluyen los siguientes:
+
+e Informes de la empresa.
+
+e Gráficos de la Organización.
+e Descripciones de trabajos.
+
+e Informes.
+
+e Documentación sobre el modelo de Balanced Scorecard
+
+Para el desarrollo específico del proyecto y dentro del marco de adquisición de
+conocimientos se contó con la importante colaboración de la Cooperativa de ahorro
+y crédito COFINCAFE, empresa beneficiaria y dueña del producto final de software;
+y la empresa de desarrollo de software AppsCloud quien vinculo al estudiante
+Julián Henao Henao al desarrollo de este proyecto desde su etapa inicial.
+
+La primera de ellas facilito y confió diversos contenidos digitales, algunos incluso de
+carácter confidencial, como documentos, esquemas y capacitaciones, referentes al
+contexto específico de la gerencia en la organización donde se identificó la
+problemática, permitiendo así la definición posterior de las características y el
+alcance del producto final.
+
+La segunda facilito contenidos digitales y enlaces web, tanto en el contexto del
+Balanced Scorecard, como en las herramientas de desarrollo utilizadas, además de
+capacitaciones e instrucciones que contribuyeron notablemente en la curva de
+
+33aprendizaje sobre tecnologías que hasta el momento no se conocían a profundidad
+por parte del autor de esta tesis.
+
+3.2.3. Entrevistas
+
+Las entrevistas constituyen, una técnica de búsqueda y recolección de información
+muy común y efectiva a la hora de entender el problema que se piensa abordar.
+
+En este proyecto, se utilizaron las entrevistas para la recolección de información
+detallada de los procesos de cada una de las dependencias de la cooperativa de
+ahorro y crédito COFINCAFE — con el objetivo de lograr la cohesión entre los
+requisitos del sistema y el funcionamiento de la organización.
+
+Entre el personal de COFINCAFE que proporciono las entrevistas se destacan la
+gerente financiera Dora Cecilia Suárez Amaya, el asesor fiscal Carlos Alberto
+Salazar Montes y el ingeniero y coordinador de sistemas Diego Fernando Zuluaga
+
+Trujillo.
+
+3.2.4. Requerimientos
+
+Las diferentes consideraciones teórico-prácticas sobre los aspectos que se han
+realizado a lo largo del progreso de esta tesis, unida a los sprints sirvieron para
+cohesionar y perfeccionar los diferentes requerimientos que durante la primera
+etapa del desarrollo del proyecto se recolectaron. Es importante aclarar que durante
+esta fundamentación se buscó condensar los aspectos más relevantes sobre el
+Balanced Scorecard, contrastándolos con la realidad del contexto mismo, donde
+subyacía la problemática que se abordó y se expuso cada una de las propiedades
+
+más trascendentes como tal.
+A continuación, se enuncian los requerimientos tanto funcionales como no
+
+funcionales que se especificaron:
+
+3.2.5. Requisitos Sobre Disponibilidad Y Desempeño Del Sistema
+
+e El Balanced Scorecard debe estar disponible en la red las 24 horas del día,
+en normal funcionamiento.
+
+e Cada uno de los datos que se ingresen al sistema por parte de los
+
+funcionarios de la organización o los diferentes efectos, producto de los
+procedimientos inherentes al ciclo de vida que sobre los mismos existen,
+
+34deben permitir su disponibilidad en un tiempo de respuesta razonable (10
+segundos máximo para interfaces Web dinámicas).
+
+e La previsión sobre el volumen de datos que maneje el BSC debe ajustarse de
+forma tal que permita el almacenamiento de estos con perspectiva de
+crecimiento (preferiblemente del orden de Gigabytes) y su almacenamiento
+futuro.
+
+e El BSC debe proveer los mecanismos necesarios para garantizar la
+seguridad de la información en el contexto donde subyace (repositorios) y en
+su administración por parte de los diferentes usuarios con los que interactúa.
+
+3.2.6. Requisitos Funcionales
+
+e El sistema permitirá a un usuario administrador, la creación, modificación,
+asignación y eliminación de permisos en el Sistema.
+
+e El sistema deberá permitir administrar de forma centralizada el registro de
+usuarios, para ingresar sus datos personales, laborales, de acceso y de
+contacto respectivos.
+
+e El sistema deberá permitir la creación de grupos de usuarios.
+
+e El sistema deberá proporcionar un mecanismo de almacenamiento
+centralizado de contenidos digitales.
+
+e El sistema deberá facultar los procesos convencionales de creación, lectura,
+actualización y eliminación controlada de contenidos digitales específicos y
+los elementos del BSC que se enlistan a continuación:
+
+o Nombre de la organización
+
+o Misión y Visión, Valores, Políticas y demás elementos textuales que no
+alteran la funcionalidad de la aplicación.
+
+o Objetivos estratégicos con sus respectivos imperativos que irán
+
+ligados de forma permanente a los indicadores del BSC, los cuales
+servirán para medir la consecución de dichos objetivos.
+
+e El sistema deberá permitir administrar de forma independiente, cada uno de
+los módulos y categorías del BSC.
+
+35o Categorías: Las categorías son equivalentes a las perspectivas del
+Balanced Scorecard:
+= Perspectiva Financiera
+= Perspectiva del Asociado
+"= Procesos Internos
+"= Aprendizaje y Crecimiento
+
+o Definición de las metas ligadas a las categorías y los indicadores.
+
+o Módulo de Indicadores: Serán Financieros y no financieros
+dependiendo de la perspectiva a la que pertenezcan (categorías).
+
+o Los indicadores deben tener las siguientes características:
+
+" Nombre del indicador
+= Propósito
+
+= Objetivo estratégico
+"= Meta
+
+"= Fórmula
+
+"= Frecuencia
+
+" Fuentes de Datos
+
+"= Responsable
+
+= ¿Qué hace?
+
+"= Observaciones
+
+El sistema incluirá un módulo de presupuesto, mediante el cual se asignará el
+presupuesto respectivo para cada actividad de la organización.
+
+e El sistema deberá proporcionar un mecanismo de alertas mail programadas
+(alertas de fecha límite para la culminación de un objetivo, metas cumplidas y
+no cumplidas).
+
+e El sistema deberá permitir exportar contenidos específicos en formato pdf y
+reportes.
+
+e El sistema deberá permitir la visualización de gráficos estadísticos y barras
+de progreso ligadas a los procesos del BSC.
+
+e El sistema deberá permitir la carga de imágenes y archivos planos
+
+e El sistema deberá permitir la modificación en el avance de los procesos
+(metas, indicadores, objetivos).
+
+363.2.7. Requisitos No Funcionales
+
+El sistema deberá ser adaptable para cualquier tipo de negocio.
+Seguridad:
+
+o Protección de la información
+
+o Definir la autenticación o autorización del ingreso a usuarios.
+Disponibilidad: el sistema debe estar funcionando 24 horas los 7 días de la
+semana.
+El sistema deberá ser desarrollado en lenguaje java, utilizando el framework
+primefaces con el fin unificar algunos sistemas en el futuro.
+La interfaz gráfica garantizará la fácil navegabilidad y alta velocidad del
+procesamiento de datos.
+El sistema debe visualizarse y funcionar correctamente en cualquier
+navegador.
+El sistema no debe tardar más de cinco segundos en mostrar los resultados
+
+de una consulta. Si se supera este plazo, el sistema detiene la búsqueda y
+muestra los resultados encontrados.
+
+3.3. Módulos BSC
+
+El sistema contará inicialmente con unos módulos que le permitirán funcionar de
+forma adecuada y coherente con la necesidad que se busca cubrir, entre los cuales
+estarán:
+
+Módulos de Texto (Incluye Categorías):
+Misión, Visión, Valores y Objetivos.
+
+Módulo Perspectivas:
+
+Módulo de selección y configuración de perspectivas. (Normalmente son
+cuatro, pero podrían funcionar independientes, sin importar el número de
+perspectivas seleccionadas).
+
+Módulo Mapa Estratégico (Arrastrar elementos):
+Creación de mapas estratégicos a partir de objetivos ya definidos.
+
+Módulo Indicadores:
+
+Deben tener una categoría según las perspectivas.
+Están ligados a los objetivos estratégicos
+
+Ligados a las metas
+
+Tipo de indicador
+
+37e Módulo Metas
+Metas a cumplir, pueden ser cualitativas o cuantitativas.
+
+e Módulo Recursos:
+Variables o no variables (depende de si son o no consumibles)
+Implementos, equipos, presupuesto y personal.
+
+e Módulo Usuarios:
+Agregar, Eliminar y Modificar.
+Definir y modificar permisos de acceso.
+Definir responsables de los indicadores (ligado al cumplimiento de objetivos y
+alcance de metas específicas).
+
+e Módulo Administración:
+DashBoard
+Tablas de datos
+Barra de progreso
+Gráficos
+
+e Módulo Alertas:
+Metas alcanzadas
+Alertas de Calendario (diarias, semanales, mensuales y anuales)
+Alertas de avances significativos (porcentajes)
+Metas alcanzadas, pendientes y fallidas.
+
+e Módulo Observaciones:
+Módulo texto para comentarios y observaciones
+
+e Módulo Informes:
+Generador de informes parciales y definitivos en paf.
+
+e Módulo Aprendizaje (dividir en categorías):
+Carga de archivos
+Compartir textos, libros, videos y presentaciones.
+
+3.4. Análisis y Diseño Preliminar
+
+Product Backlog:
+
+Es una lista ordenada de los trabajos a realizar con el fin de crear, mantener y
+sostener un producto [13]. El Product Backlog está formado por todo el conjunto de
+sprints que se generan durante el proyecto. Los Sprints son tiempos constantes y
+
+38establecidos por el equipo de trabajo, en los cuales se definen tareas, fechas de
+inicio y final con la intención de lograr avances significativos para luego ser
+presentados al cliente como entregables estándar de las reuniones y tareas ya
+
+realizadas. A continuación en la tabla 2 se muestra el Product Backlog del proyecto
+de desarrollo de software de Balanced Scorecard.
+
+39TAREA ESTADO | FECHA RESPONSABLES
+Primera Reunión en COFINCAFE con el fin de aclarar la Y” Diego
+problemática de la empresa y la necesidad de sistematizar el Fernando
+modelo de Balanced Scorecard. Finalizado | 15 de Enero — 27 de Zuluaga
+
+Enero
+Reunión con Diego Fernando Zuluaga, Ingeniero de Sistemas y Julián
+SCRUM Owner del Proyecto de Balanced Scorecard para planear Henao
+el proceso de levantamiento de los requerimientos del sistema. Henao
+Reunión en COFINCAFE con la Contadora Publica, Magister en Diego
+Gestión Empresarial y gerente financiera Dora Cecilia Suárez Fernando
+Amaya, con el fin de levantar los primeros requerimientos. Zuluaga
+Reunión del equipo para hacer el análisis de los documentos
+dados por la empresa COFINCAFE, para en la siguiente reunión Dora
+visionar algunos de los requerimientos y definir la metodología a | Finalizado | 7 de Febrero -28 de Cecilia
+usar durante el desarrollo del proyecto. Febrero de 2014 Suárez
+Elección y adaptación de la metodología SCRUM como Julián
+metodología de desarrollo para el proyecto BSC (Balanced y
+enao
+
+Scorecaro).
+
+Henao
+
+Reunión en COFINCAFE para documentar los procesos que se
+llevan a cabo en la empresa y continuar con el levantamiento de los
+requerimientos.
+
+ 
+
+ 
+
+40Reunión con el director de trabajo de grado EP. Julián Andrés Julián
+Rodas Laverde: Se evalúan los diferentes objeticos, la pertinencia | Finalizado |11 de Febrero — 28 Andrés
+de los mismos y la formulación de todo el proyecto. de Febrero de 2014 Rodas
+Se piden correcciones en el documento.
+
+Julián
+
+Henao
+Reunión con el director de trabajo de grado EP. Julián Andrés Julián
+Rodas Laverde: Se analizaron los documentos en Excel dados por Andrés
+la empresa y la posible metodología a utilizar en el desarrollo del Rodas
+proyecto, Laverde
+Se pide hacer un análisis más profundo de los documentos en | Finalizado 28 de Febrero - 7 de
+
+Excel dados por la empresa, para la siguiente reunión visionar
+todos los posibles requerimientos.
+
+Se pide definir la metodología de desarrollo de software para el
+proyecto BSC.
+
+Reunión con el director de trabajo de grado EP. Julián Andrés
+Rodas Laverde: Se evalúa el avance en el análisis de los
+documentos dados por la empresa.
+
+Se pide Identificar y analizar todos los procesos posibles en la
+empresa a partir del documento de Excel que ellos facilitaron.
+
+Identificar los posibles módulos y roles o usuarios necesarios para
+la Implementación del Balance Scorecard a partir de la información
+ya recopilada en la empresa.
+
+Revisión especifica de los módulos proyectados.
+
+Finalizado
+
+Finalizado
+
+ 
+
+Marzo de 2014
+
+14 de Marzo — 17 de
+Marzo de 2014
+
+ 
+
+14 de Marzo -— 28 de
+Marzo de 2014
+
+Julián
+Henao
+
+Julián
+Andrés
+
+Rodas
+Laverde
+
+Julián
+Henao
+
+Julián
+Henao
+Henao
+
+ 
+
+41Elaboración de nuevos requerimientos a partir de los módulos
+definidos.
+
+Expansión y elaboración más detallada de los requerimientos,
+
+inicio de la elaboración de historias de usuario.
+
+ 
+
+Reunión con el director de trabajo de grado EP. Julián Andrés
+Rodas Laverde: Se revisa el planteamiento de la metodología y la
+información suministrada por la empresa.
+
+Se pide Identificar los módulos y roles o usuarios necesarios para
+la Implementación del Balance Scorecard.
+
+Finalizado
+
+17 de Marzo — 21 de
+Marzo de 2014
+
+Julián
+Andrés
+Rodas
+Julián
+Henao
+
+ 
+
+Reunión con el director de trabajo de grado EP. Julián Andrés
+Rodas Laverde: Se revisan los diferentes módulos proyectados
+
+Se pide realizar el levantamiento de todos los requerimientos
+funcionales.
+
+Finalizado
+
+21 de Marzo — 4 de
+abril de 2014
+
+Julián
+Andrés
+
+Rodas
+Laverde
+
+Julián
+Henao
+
+ 
+
+ 
+
+Reunión con el director de trabajo de grado EP. Julián Andrés
+Rodas Laverde: Se revisan los requerimientos realizados según los
+módulos vistos
+
+Se pide expandir más los requerimientos, hacerlos más detallados
+e iniciar las historias de usuario.
+
+Finalizado
+
+ 
+
+4 de Abril — 14 de
+Abril de 2014
+
+Julián
+Andrés
+
+Rodas
+Laverde
+
+Julián
+Henao
+
+ 
+
+42Diego
+
+ 
+
+ 
+
+ 
+
+ 
+
+Se finiquita el levantamiento de requerimientos en acuerdo con A de Abril — 18 de Fernando
+todo el equipo de desarrollo, el Product Owner Diego Zuluaga y la Finalizado | Abril de 2014 Zuluaga
+representante de la empresa o usuario final, la gerente financiera
+Dora Cecilia Suárez Amaya.
+Julián
+Henao
+Henao
+Julián
+Reunión con el director de trabajo de grado EP. Julián Andrés Andrés
+Rodas Laverde: Se evalúan los requerimientos creados. Finalizado |14 de Abril — 2 de Rodas
+Se pide definir la plataforma de desarrollo, continuar los casos de Mayo de 2014 Laverde
+uso y corregir algunos requerimientos.
+Julián
+Henao
+Diego
+Se elige el lenguaje de programación java, con un modelo vista Fernando
+controlador. Se plantea la búsqueda de Framework que se adapte Zuluaga
+a las necesidades y funcionalidad del software.
+Se elige PrimeFaces como framework a utilizar, Se inicia el estudio Julián
+y pruebas del mismo. Finalizado | 18 de Abril — 25 de Henao
+Abril de 2014 Henao
+Capacitación sobre el Modelo de Balanced Scorecard de Kaplan y
+Norton por parte del Contador Público y Magister en Talento Carlos
+humano y en Gestión Empresarial, Carlos Alberto Salazar Montes. Alberto
+Salazar
+
+ 
+
+43Reunión con el director de trabajo de grado EP. Julián Andrés
+
+ 
+
+ 
+
+Rodas Laverde: Se evidencia todo el proceso de investigación y Y Julián
+capacitación sobre el Balance Scorecard, además de los artefactos Andrés
+SCRUM. Finalizado |25 de Abril — 16 de Rodas
+Se pide iniciar modelo de la vista teniendo en cuenta el framework Mayo de 2014 Laverde
+PrimeFaces.
+Y Julián
+Se pide documentar por qué la metodología SCRUM. Henao
+Henao
+Se inicia la construcción y diseño del Modelo de la base de datos.
+Se revisan las primeras tablas de la base de datos. Y Julián
+Se realizan los primeros diseños posibles de las vistas del o 2 de Mayo — 30 de o
+software. Finalizado
+Mayo de 2014
+Se generan las primeras vistas en Primefaces.
+Se inicia la Construcción del módulo de usuarios.
+Y Julián
+» 0, , Andrés
+Reunión con el director de trabajo de grado EP. Julián Andrés 16 de Mavo — 23 de Rodas
+Rodas Laverde: Se revisó el documento sobre la metodología Mavo de 2014 Laverde
+SCRUM. Finalizado |“?
+Y Julián
+Henao
+Henao
+
+ 
+
+ 
+
+44Reunión con el director de trabajo de grado EP. Julián Andrés
+
+ 
+
+ 
+
+ 
+
+Rodas Laverde: Se verifica el avance en la curva de aprendizaje y Julián
+
+la proyección de la Base de Datos que definió. 23 de Mayo — 30 de Andrés
+
+Se pide continuar con la ruta de aprendizaje del Framework y | Finalizado Mayo de Eota nodas
+
+determinar la proyección del modelo de la vista. Laverde
+Julián
+Henao
+Henao
+
+Reunión con el director de trabajo de grado EP. Julián Andrés
+
+Rodas Laverde: Se verifica el avance en las vistas y entendimiento Julián
+
+de la lógica del Framework. 30 de Mayo - 9 de Andrés
+
+] , Finalizado | Junio de 2014 Rodas
+
+Se pide proyectar el manejo de los menús y submenús en la
+
+plantilla, y como manipula los mismos desde el framework. Laverde
+Julián
+Henao
+Henao
+
+Se establece una versión parcial del MER y se generan los
+
+primeros formularios (Datos de empresa, Objetivos, indicadores,
+
+Metas.) Diego
+
+Reunión en COFINCAFE con la gerente financiera Dora Cecilia ] Fernando
+
+Suárez Amaya y el Ingeniero Diego Zuluaga, Product Owner de | Finalizado | + Ye Junio = 20 de Zuluaga
+
+proyecto, para la revisión de las vistas ya desarrolladas y la Junio de 2014
+
+revisión de las tablas y campos de la base de datos. Julián
+Henao
+
+Revisión de las nuevas tablas agregadas a la base de datos y Henao
+
+planteamiento de las nuevas tablas y campos posibles.
+
+ 
+
+ 
+
+45Revisión del modelo parcial de la base de datos y las relaciones
+entre las tablas.
+
+ 
+
+Reunión con el director de trabajo de grado EP. Julián Andrés
+Rodas Laverde: Se verifica las plantillas generadas de la
+aplicación, y la proyección del modelo de la vista que se tiene.
+
+Se pide iniciar con el módulo de usuarios y con la administración de
+los roles o permisos.
+
+Finalizado
+
+9 de Junio — 18 de
+
+Junio de 2014
+
+Julián
+Andrés
+
+Rodas
+Laverde
+
+Julián
+Henao
+Henao
+
+ 
+
+ 
+
+Revisión de la Versión parcial del MER, planeación para la creación
+de la capa de persistencia del software BSC.
+
+Revisión Producción y desarrollo de los CRUD (Create, Read,
+Update, Delete) o funciones básicas en la base de datos. Capa de
+persistencia en el software.
+
+Reunión con el director de trabajo de grado EP. Julián Andrés
+Rodas Laverde: se evalúa el avance del trabajo de grado y se
+verifica el manejo de usuarios en la aplicación.
+
+Se pide continuar con la sesión de los Usuarios y el modelo de la
+Bases de datos
+
+Finalizado
+
+Finalizado
+
+ 
+
+11 de Julio — 25 de
+
+Julio de 2014
+
+18 de Julio
+Agosto de 2014
+
+25
+
+Julián
+Henao
+Henao
+
+Julián
+Andrés
+
+Rodas
+Laverde
+
+Julián
+Henao
+Henao
+
+ 
+
+46Nueva revisión de los requerimientos funcionales para posterior
+planeación de la creación de las herramientas adicionales del
+
+ 
+
+ 
+
+sistema. (Alertas de correo, lectura de archivos planos.) Y Diego
+oo Fernan
+Revisión de la carga y lectura de archivos planos o .cvs en el 8 de Acost 09 d > anto
+proyecto de Balanced Scorecard. Finalizado e AYOSIO — e uuaga
+Agosto de 2014
+
+Revisión de la función de alertas de correo en el software de Y Julián
+
+Balanced Scorecard. Henao
+Henao
+
+Revisión de nueva versión del MER debido a las tablas y relaciones
+
+adicionalmente generadas.
+
+Reunión con el director de trabajo de grado EP. Julián Andrés
+
+Rodas Laverde: Se plantea que se han presentado dificultadas en
+
+las reuniones con la empresa y por esto no se ha podido tener los
+
+O LaS sal ear dl lado en que se inicia TG | Finaizado | 25. Agosto - 29 de | Y Juán
+
+1 P 0 Agosto de 2014 Andrés
+
+Se revisan los avances en cuanto a implementación, Rodas
+
+requerimientos, historias de usuario, modelo de la BD (Parcial). Laverde
+
+Se verifica la implementación que se tiene partiendo de la Y Julián
+
+documentación. Henao
+Henao
+
+Sé determina hasta qué punto se han cumplido los requerimientos.
+
+Se pide definir para cada perspectiva que datos se necesitan,
+igualmente para configurar los indicadores.
+
+Se pide verificar la relación entre los indicadores y los procesos de
+la empresa.
+
+ 
+
+47Se pide terminar el modelo de la Base de Datos.
+
+ 
+
+Reunión con el director de trabajo de grado EP. Julián Andrés
+Rodas Laverde: se verifica el modelo de la Base de Datos y se
+realizan algunas recomendaciones.
+
+Se pide corregir el modelo de la Base de Datos y proyectar la capa
+de la vista de la implementación.
+
+Se pide completar la parte del documento que se tiene a la fecha y
+enviarla vía correo electrónico para su revisión.
+
+Finalizado
+
+29 de Agosto — 5 de
+Septiembre de 2014
+
+Julián
+Andrés
+Rodas
+
+Laverde
+
+Julián
+Henao
+Henao
+
+ 
+
+ 
+
+Planeación del módulo de Dashboard o gráficas, alertas locales.
+
+Reunión en COFINCAFE con la gerente financiera Dora Cecilia
+Suárez Amaya y el Ingeniero Diego Zuluaga, Product Owner de
+proyecto, para la revisión de las formulas y cálculos matemáticos
+que se incluirán en el cálculo de los indicadores, principalmente los
+de la perspectiva Financiera.
+
+Revisión de la herramienta de generación de informes pdf y Excel.
+
+Migración del servidor de aplicaciones de GlassFish a Tomcat a
+causa de la compatibilidad con otras aplicaciones que ya posee la
+empresa.
+
+Análisis de los posibles inconvenientes causados por la Adaptación
+de la aplicación al nuevo servidor. Planteamiento de soluciones y
+plan de trabajo para realizarlas.
+
+Finalizado
+
+ 
+
+5 de Septiembre — 26
+de Septiembre de
+2014
+
+Diego
+Fernando
+Zuluaga
+
+Julián
+Henao
+Henao
+
+Dora
+
+Cecilia
+Suárez
+Amaya
+
+Diego
+Fernando
+
+48Revisión de la versión del software BSC, funcionalidad, posibles
+
+Zuluaga
+
+ 
+
+ 
+
+ 
+
+errores, escaneo general de las herramientas en pro de garantizar Julian
+el cumplimiento de los requerimientos planteados en la primera Henao
+etapa del proyecto.
+
+Henao
+Reunión en COFINCAFE con la Gerente Financiera Dora Cecilia 3 de Octubre — 17 de
+Suárez Amaya, el Contador Público y Magister en Talento humano | Finalizado | Octubre de 2014 Dora
+y en Gestión Empresarial Carlos Alberto Salazar Montes y el Cecilia
+Ingeniero Diego Zuluaga, Product Owner de proyecto, para la Suárez
+revisión de las vistas ya desarrolladas y la revisión de las tablas y Amaya
+campos de la base de datos.
+Elaboración de Pruebas en la versión parcial de la aplicación BSC
+en el servidor donde se alojará.
+
+Diego
+Reunión en COFINCAFE con el Ingeniero Diego Zuluaga, Product Fernando
+Owner de proyecto: Se verifican los cálculos matemáticos que 17 de Octubre - 27 Zuluaga
+posee el aplicativo. Finalizado | de Octubre de 2014
+Se verifica el correcto funcionamiento de las herramientas de Julián
+generación de informes Pdf y Excel. Henao
+
+Henao
+Reunión con el director de trabajo de grado EP. Julián Andrés
+Rodas Laverde: se realiza una revisión detallada de la versión final Julián
+del documento del proyecto de desarrollo de software de Balanced Andrés
+Scorerara. Finalizado | 25 de Octubre —1 de Rodas
+
+Noviembre 2014 Laverde
+
+Se revisa el estado actual del software.
+
+Se pide realizar correcciones en el documento y gestionar la
+instalación del aplicativo en el servidor definitivo.
+
+ 
+
+Julián
+Henao
+
+ 
+
+49Henao
+
+ 
+
+ 
+
+ 
+
+Reunión en COFINCAFE con el Ingeniero Diego Zuluaga, Product Diego
+Owner de proyecto: Se verifican la gestión de gráficos estadísticos Fernando
+en el software de Balanced Scorecard. 97 de Octubre — 30 Zuluaga
+] oa o Finalizado | de Octubre de 2014
+Se realiza una revisión general y detallada del aplicativo. Julián
+Se pide realizar algunos ajustes finales para realizar la instalación Henao
+de la versión 1 del software de Balanced Scorecard. Henao
+Diego
+Fernando
+Instalación del software de Balanced Scorecard en el Servidor final. 30 de Octubre de Zuluaga
+o Finalizado | 2014
+Para esto se asigna la dirección http://zeta.net.co/khronos se Julián
+cargan los archivos khronos.war y bsc.sql al servidor y la aplicación H
+queda disponible a partir de la fecha. EnEo
+Henao
+Reunión con el director de trabajo de grado EP. Julián Andrés
+Rodas Laverde: Julián
+o Andrés
+nevisión Final del proyecto de grado Finalizado |1 de Noviembre de Rodas
+Revisión del aplicativo instalado en el Servidor 2014 Laverde
+Se pide realizar algunas pequeñas correcciones antes de la Julián
+entrega. Henao
+Henao
+
+ 
+
+ 
+
+Tabla 2. Capítulo 3.: Product Backlog del Proyecto BSC
+
+503.4.1. BURNDOWN CHAR
+
+La figura 9, que se observa a continuación, denominado burndown chart, registra el
+flujo de trabajo contenido en el sprint backlog.
+
+La línea vertical está basada en horas restantes desde que se recopilaron los
+primeros requisitos al inicio del proyecto y la horizontal es en base a los 7 meses de
+desarrollo del proyecto de software, contados a partir del mes de Abril de 2014
+hasta Octubre de 2014.
+
+Ml Series2
+
+y)
+
+0
+
+AS
+o
+o
+o
+o
+o
+o
+o
+o
+
+UNAS
+
+UNIDA!
+
+ot
+/
+
+> bon
+uan /
+
+NJ
+
+ 
+
+Figura 10. Capítulo 3.: Burndown Chart del proyecto BSC
+
+3.4.2. Historias De Usuario
+Son descripciones detalladas de las funcionalidades que se implementaran en el
+
+desarrollo del proyecto, las cuales se enfocan en lo que el usuario debe hacer al
+momento de interactuar directamente con el sistema software.
+
+51y
+
+ACCEDER AL SISTEMA
+
+Descripción: Se buscará brindar el acceso al sistema, de manera que al
+ingresar se pueda usar fácilmente a las distintas opciones que la aplicación
+tendrá disponibles.
+
+Estimación: Dos lteraciones
+
+ 
+
+Prioridad: Alta Dependiente de: — Asignación
+
+previa del Usuario Administrador
+en el sistema.
+
+ 
+
+ 
+
+El Administrador del BSC digita su usuario y contraseña para acceder
+al sistema.
+
+En el caso de una correcta identificación se notificará al usuario la
+bienvenida al Sistema y se proporcionará acceso a las distintas
+opciones asociadas al Administrador.
+
+En caso de que el identificador de usuario no exista o la contraseña no
+se corresponda con la del identificador, se mostrará de nuevo la
+pantalla de identificación añadiendo un mensaje de error invitando al
+usuario a corregir el dato erróneo proporcionado.
+
+El usuario Administrador del BSC es re-direccionado al panel de
+control del sistema para permitirle ejecutar actividades pertinentes a la
+administración de contenido, basado en subsistemas de gestión.
+
+Si el usuario trata de ingresar a algún servicio del sistema y no ha
+iniciado su correspondiente sesión, el sistema lo debe re-direccionar a
+la interfaz de inicio para poder autenticarse primero.
+
+Si el usuario ingresó los datos de forma errónea el sistema debe
+alertarlo y ofrecer mecanismos de ayuda para recordar sus datos.
+
+Tabla 3. Capítulo 3.: Historia de usuario — Acceder al sistema
+
+ 
+
+2
+
+ADMINISTRAR GRUPOS Y USUARIOS
+
+Descripción: Le permitirá al administrador manejar integralmente los
+usuarios BSC.
+
+Estimación: Dos lteraciones
+
+ 
+
+Prioridad: Alta Dependiente de: Usuario con
+
+permisos para administrar grupos en
+el sistema.
+
+ 
+
+ 
+
+ 
+
+El administrador, una vez haya ingresado al sistema, podrá crear,
+modificar, eliminar e inhabilitar grupos de usuarios los cuales tendrán
+permisos distintos, según lo defina el administrador.
+
+También podrá crear nuevos usuarios y incluirlo en alguno de los
+grupos existentes.
+
+Los cambios realizados en el subsistema de gestión de personal
+deberán tener efectos correspondientes e inmediatos sobre los demás
+subsistemas y usuarios.
+
+52e En caso de que el grupo exista el sistema mostrara un mensaje
+alertando sobre este hecho y solicitara cambiar el nombre al grupo.
+
+e En caso de que el usuario exista el sistema mostrara un mensaje
+alertando sobre este hecho y solicitara cambiar el nombre de usuario.
+
+e En caso que se desee cambiar el nombre de un grupo por uno ya
+existente el sistema informara que ya existe un grupo con ese nombre
+y pedirá usar otro distinto.
+
+ 
+
+ 
+
+Tabla 4. Capítulo 3.: Historia de usuario — Administrar Grupos y Usuarios
+
+3 CREACION DE MODULOS DE TEXTO
+
+ 
+
+Descripción: Le permitirá al administrador la creación de artículos o
+elementos de texto.
+
+Estimación: Cuatro lteraciones
+
+Prioridad: Alta Dependiente de: Inserciones previas
+en la base de datos.
+
+e El usuario administrador podrá personalizar el BSC con los datos y la
+información de su empresa.
+
+e El usuario administrador ingresará la información pertinente para
+estructurar el BSC según sus necesidades.
+
+e En caso de que el administrador proceda a eliminar un objetivo
+estratégico ligado a indicadores activos, el sistema enviará un mensaje
+de alerta negando la solicitud.
+
+ 
+
+ 
+
+Tabla 5. Capítulo 3.: Historia de usuario — Creación de Módulos de texto
+
+Dentro del anexo correspondiente a los elementos de diseño (ver anexo A) el
+Apéndice A.1 define y describe las historias de usuario complementarias del
+
+proyecto.
+
+3.4. Diseño
+
+3.4.1. Modelo Entidad — Relación
+
+Este modelo es solo y exclusivamente un método del que se dispone para diseñar
+los esquemas que posteriormente se deben de implementar en un gestor de BBDD
+
+(bases de datos).
+
+53idtipovaloriniciativa ini4
+idvaloriniciativa ni
+tipovaloriniciativa varchar 0
+
+ 
+ 
+
+     
+
+ldprogresometa: intá idmedicionobjetivo: ir:
+
+   
+
+ 
+
+idmeta int idobjetivo: int4
+medicionprogresometa timestamptz medicionanterior timestamptz
+progresometa ni/ proximamedicion timestampt:
+notaprogresometa varchar0) notamedicionobjetivo varchand)
+fecha timestamptz login varchar(50)
+
+login: varchar(50) fecha: timestamptz
+
+estado: varchar(255 estado varchar(255)
+
+ 
+
+ 
+
+[A la:
+ldmedicionmeta int4 descripcion: varchar(100)
+idmeta ni2 idestrategia in
+medicionanterior: timestamptz rs | idestrategia ini4
+
+login: varchar(50)
+
+ 
+  
+  
+
+IIA tocata 59-eH fecha: timestamptz peon 500) o Na
+
+- AS medicioninicial: timestamptz rrrcpantmas MR medicioninicial: imestarptz
+
+fecha: timestamptz i asta login: varchar(50) : A
+horizonte timestamptz horizonte: timestamptz
+
+login: varcharí50)
+estado varchar25
+
+fuentesverificacion varchar
+estado varchar255)
+
+. timest; nr
+o fuentesverificacion varchar: fecha: timestamptz
+o) Aa DER estado: varchar(255
+
+    
+
+ 
+
+  
+   
+
+RN
+
+idsubperspectiva ini4
+
+ 
+
+idindicadormeta :ni/
+
+  
+
+descripcion: varchar(300) Idperspectiva: in4
+idmeta: int4 nombre varchari59)
+login: varchar(50) descripcion: varchar(150)
+
+fecha: timestamptz login: varchar(50)
+idformulavaloriniciativa ¡11 estado. varchar(255) fecha: timestamptz
+estado varchar(255)
+
+idvaloriniciativa: int4
+formulavaloriniciativa: varchar 0)
+
+idiniciativa: int4
+login: varchar(50) idperspectiva: in14
+
+fecha: timestamptz idplanestrategico intá
+
+idvaloriniciativa ¡014 descripcioniniciativa varchar500 perspectiva: varchar50)
+idiniciativa 114 idindicadormeta int descripción: varchar(150)
+fechactualizacion: Limestampl estado varchar(255 login: varchar(50)
+
+fecha: timestamptz
+
+indicadorlogro varchar(0)
+fechainicio: timestamptz
+fechafinal timestampltz
+valoracionmax in 14
+
+estado varchar(255)
+
+idvariable ini4
+
+ 
+
+ 
+
+ 
+
+idvaloriniciativa: ini4
+idtipovariable: in14 en rrlrn int
+rarchar(500
+variable varchari0) mision varchar(590)
+valor: varchar(0) - rm — vision varchar(S50
+i idseguimiento. intá varchar(500
+fechaultimaactualización timestamot idinici ind valores a mars o
+fechaproximaactualizacion ativa ini4 estrategia varcharn500)
+nesta mt
+ma lis fecharegistro timestampt mapasstralegico: byisa
+puntuacion. intá idempresa int
+observacionseguimiento varcharós estado varchar255)
+estado varchari255 fecha: timestamptz
+login: varchar(50) login: varchar(50)
+fecha: timestamptz
+idtipovariable- inti Y
+
+tipovariable varchari0)
+
+Figura 11. Capítulo 3.: Modelo Entidad Relación del proyecto BSC
+
+- idbalance ini |
+
+cuenta varchar 0)
+saldoanterior Moató
+
+debito: vatá
+credito: fiovatá
+
+ 
+   
+    
+ 
+
+progresoobjetivos
+
+idprogresoobjetivo: int4
+idobjetivo- int4
+
+medicionprogresoobjetivo: limestamptz
+progresoobjetivo: int
+notaprogresoobjetivo varchar(9)
+estado: varchar255
+
+fecha: timestamptz
+
+login: varchar(50)
+
+ 
+ 
+
+ 
+
+54II eS
+
+   
+  
+   
+  
+  
+
+idpermisosusuario: int4
+idusuario: ini
+idformulario: ini4
+idpermiso- int
+
+login: varchar(50)
+fecha: timestamptz
+estado: varchar(255)
+
+  
+  
+
+permisos
+idpermiso- int4
+permiso: varchar(3...
+login: varchar(50)
+fecha: timestamptz
+estado: varchar(255)
+
+   
+  
+   
+ 
+
+Mee ptes) q
+ee
+
+  
+  
+ 
+ 
+ 
+
+idgrupo- int4 , PP.
+idformulario: int4 idformulario: intí
+idpermiso: int4 formulario: varchar(30)
+
+login: varchar(50)
+fecha: timestamptz
+estado: varchar(255)
+
+login: varchar(50)
+
+fecha: timestamptz
+Y ¡dpermisosgrupo: int4
+estado: varchar(255)
+
+ 
+ 
+ 
+ 
+
+  
+  
+
+idgrupo- int4
+grupo: varchar(30)
+login: varchar(50)
+
+fecha: timestamptz
+estado: varchar(255)
+
+ 
+
+So
+
+ 
+
+idempresa: ini
+
+nit: varchar(20)
+
+dv: varchar(1)
+
+login: varchar(50)
+fecha: timestamptz
+razonsocial: varchar(200)
+direccion: varchar(200)
+pbx: varchar(50)
+paginaweb: varchari50)
+email: varchar(50)
+twitter: varchar(20)
+codciudad: int4
+
+estado: varchar(255)
+
+ 
+
+ 
+
+ 
+
+login: varcharí50)
+
+contrasena: varcharn 00)
+nombres varchar50)
+
+apellidos: varcharn50)
+preguntasecreta varchar250)
+respuestapregunta: char 250)
+requierecambiocontrasena varchar2)
+diascambiocontrasena: inií
+ultimocambiocontrasena: date
+intentoscontrasena: ini
+cantidadintentoscontrasena: int4
+ultimoingreso- timestarmptz
+estado: varchar(255)
+
+idempresa ini
+temaaplicacion: varchar 20)
+idusuario: ini
+
+fecha: timestamptz
+
+ 
+
+ 
+
+  
+  
+  
+  
+ 
+  
+ 
+  
+  
+ 
+     
+   
+
+idusuariogrupo-: int4
+idusuario: ini4
+idgrupo-: int4
+estado: varchar(255)
+fecha: timestamptz
+login: varchar(50)
+
+   
+  
+ 
+
+ 
+
+  
+ 
+ 
+  
+   
+   
+ 
+  
+ 
+  
+ 
+
+usuarioresponsable
+
+idusuarioresponsable: ini
+idusario: intá
+idresponsable: int
+
+fecha: timestamptz
+
+login: varchar(50)
+
+estado: varchar(255)
+
+   
+  
+  
+   
+  
+
+ 
+  
+ 
+   
+   
+ 
+  
+ 
+  
+ 
+
+ 
+
+responsables
+
+idresponsable: ini4
+responsable: charn50)
+login: varchar(50)
+fecha: timestamptz
+estado: varchar(255)
+
+   
+
+Figura 12. Capítulo 3.: Modelo Entidad Relación del proyecto BSC
+
+RAE
+idresponsableiniciativa: int4
+
+idresponsable: ini4
+idiniciativa: ini4
+login: varchar(50)
+fecha: timestamptz
+estado: varchar(255)
+
+ 
+
+553.4.2. Diagramas de Clases
+
+Los diagramas de clases se emplean para visualizar las relaciones entre las clases
+que involucran el sistema [1].
+
+La aplicación de Balanced Scorecard se desarrolló como un proyecto java web,
+debido a las características de programación orientada a objetos que posee el
+lenguaje java, se generaron una gran cantidad de clases, entre clases propias de la
+aplicación como clases propias de java.
+
+A continuación se mostraran algunos diagramas de clases del proyecto:
+
+En la figura 13 se describen los métodos y atributos de la clase Sesión y sus
+relaciones con otras clases del sistema.
+
+java.io
+java.lang
+
+Serializable
+
+controladores vista
+UsuariosController =
+
+cambiarTema() : void
+cerrarsesion() : void
+
+geli6pO: GuestPreferences
+getipatontrolleró: SesionJpaGController
+
+getPermisos() : ListeString=
+
+gefema(: String
+
+geiTemas(: Map=String, String=>
+getlisuariosControlleró: UsuariosController
+iniciarsesion( : void
+
+setGp(GuestPreferences): void
+setiPermisos(List=String>): void
+selema(String): void
+
+setlemasiMap=String, String=): void
+selUisuariosControlleriUsuariosController) : void
+
+java. lang
+
+java.util
+List<E>
+
+Map<K, V>
+
+EE
+sE
+sE
+E
++
++
++
++
+EE
++
++
+E
+En
++
+
+modelos
+
+SesionJpaController
+
+vista
+
+GuestPreferences
+
+ 
+
+Figura 13. Capítulo 3.: Diagrama de la clase Sesión del proyecto BSC
+
+56A continuación en la figura 14 se muestra la clase el diagrama de clases
+GuestPreferences, relacionado con la clase Sesión, el cual permite llamar las
+preferencias para usuarios que aún no han iniciado sesión.
+
+: java.io
+java.lang
+5erializable
+Á
+|
+
+  
+     
+     
+
+java.lang vista
+
+GuestPreferences
+
++ GuestPreferencesi)
++ getlheme( : String
++* setlheme(String): void
+
+Figura 14. Capítulo 3.: Diagrama de la clase GuestPreferences del proyecto BSC
+
+En la figura 13 se expande la clase UsuariosController para denotar la relación con
+
+ 
+
+la clase Sesión anteriormente mostrada en la figura 15.
+java.io
+ava.lang
+Obje ct Serializable
+
+ 
+
+entidades controladores javaxfaces.event
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Usuarios =——— UsuariosController 7777773 = ActionEvent
+
++ UsuariosController()
++ activar(ActionEvent) : void
+java.lang + create() : void
+
+: + createDynamicColumns() : void
+String =————— + desactivar(ActionEvent) : void
+
++ getColumns() : ListeUsuariosController ColumnModel>
++ getColumnTemplate() : String
+
+java.util + getFiltro() : ListeUsuarios>
++ getindex() : Index
+
+ 
+
+ 
+
+ 
+
+ 
+
+ListeE> <= + getltems() : ListeUsuarios>
+
++ getPrimaryKey( : Usuarios
+
++ getSelected() : Usuarios
+
++ getUsuario() : Usuarios
+
+modelos + prepararEdicion( : void
+
++ prepareCreate() : void
+UsuariosJpaController =———— * setColumns(ListeUsuariosController. ColumnModel>) : void
++ setColumnTemplate(String) : void
++ setFiltro(ListeUsuarios>) : void
+
++ setindex(Index) : void
+
++ setPrimaryKey(Usuarios): void
+
+Index =———— + setUsuario(Usuarios): void
++ update() : void
+
+ 
+
+ 
+
+ 
+
+ 
+
+vista
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figura 15. Capítulo 3.: Diagrama de la clase UsuariosController del proyecto BSC
+
+57En la figura 16 se describe la clase UsuarioJpaController, la cual contiene los
+métodos necesarios para la comunicación con la tabla usuarios de la base de
+datos implementada en la solución.
+
+java.io
+
+ 
+
+java.lang
+Object Serializable
+A
+|
+|
+javax.persistence modelos ¡ entidades
+l
+EntityManagerFactoy. —=—— UsuariosJpaController 7=="""= => Usuarios.
+
++ UsuariosJpaController(EntityManagerFactory)
++ create(Usuarios): void
+
++ destroy(Integer) : void java.lang
++ edit(Usuarios) : void
++ findUsuarios(Integer) : Usuarios  ""77= ¿e Integer.
+
+* findUsuariosEntities( : ListeUsuarios>
++ findUsuariosEntities(int, int) : ListeUsuarios>
+
++ getEntityManager( : EntityManager java.util
++ getUsuariosCount() : int
+
+NH—— > ListeE>
+
+javax.persistence
+
+PA=---= = EntityManager
+
+ 
+
+ 
+
+Figura 16. Capítulo 3.: Diagrama de la clase UsuariosJpaController del proyecto BSC
+
+Dentro del anexo correspondiente a los elementos de diseño (ver anexo A) el
+Apéndice A.3 define y describe los diagramas de clase complementarios del
+proyecto.
+
+3.5. Implementación
+
+En esta etapa del proyecto, a pesar del constante crecimiento en los requerimientos
+iníciales y el surgimiento de nuevas necesidades solicitadas por la empresa que
+conllevaron a contantes modificaciones en el diseño y que obstaculizaron en cierta
+medida el flujo del desarrollo, la especificación de diseño final permitió estructurar la
+producción de código de manera fácil.
+
+En la etapa inicial del proyecto se presentaron algunos errores de compatibilidad
+entre los componentes y el servidor propuesto inicialmente.
+
+Posteriormente se eligió una versión distinta del servidor y se continuó el desarrollo
+sin mayores inconvenientes logrando compaginar el modelo del diseño y el código lo
+
+58que permitió una mayor agilidad en el desarrollo de los componentes faltantes en
+cortos intervalos de tiempo.
+
+3.5.1.Codificación
+
+Durante el proceso de codificación se trabajó de manera iterativa generando
+prototipos del software BSC, esto permitió un constante ajuste de cada componente
+codificado. Para realizar la codificación se usó el entorno de desarrollo NetBeans en
+su versión 8.0 el cual facilita múltiples herramientas para la realización de
+aplicaciones en lenguaje Java.
+
+Para la prueba de cada uno de los componentes del BSC se utilizó el servidor
+Apache Tomcat versión 7.0.27.0, que permite procesar y poner a prueba la
+aplicación y visualizar la presentación en el navegador. La aplicación interactúa con
+el motor de base de datos Postgres para la gestión del contenido.
+
+Una vez era ejecutado el software del Balanced Scorecard se realizaron las
+respectivas pruebas unitarias con el fin de verificar la existencia de posibles errores
+y se volvió a codificar las clases que lo requerían.
+
+Debido a la característica MVC — Modelo, Vista, Controlador con utilización de
+AJAX, cada una de las clases implementa llamados JQuery para lograr el envío de
+la información de cada componente.
+
+Para la elaboración de la interfaz de la aplicación web se utilizó la tecnología JSFJava Server Faces que incluye un conjunto de APls para representar componentes
+de interfaz de usuario y la gestión de su estado, la gestión de eventos y la validación
+de entrada, la definición de la página de navegación, y el apoyo a la
+internacionalización y accesibilidad. Adicionalmente se utilizó el componente
+PRIMEFACES creado para JSF, que cuenta con un conjunto de componentes
+enriquecidos que hacen más fácil la creación de aplicaciones web, además de tener
+soporte para AJAX, basándose en el estándar JSF 2.0 Ajax API.
+
+3.5.2.Instalación
+
+Para garantizar las condiciones necesarias en la ejecución integral de la aplicación
+Web se tuvieron en cuenta el uso de diferentes tecnologías de soporte. A
+continuación se listan las herramientas necesarias para el correcto funcionamiento
+del software de Balanced Scorecard:
+
+59e Contenedor de la aplicación Apache Tomcat7.0.27.0
+e Servidor de Bases de Datos PostgreSQL 9.0 o superior.
+e Sistema Operativo Fedora 20 Heisenbug (instalado en el servidor principal).
+
+En cuanto a las propiedades de hardware del servidor se tiene:
+
+e Tipo de CPU: Intel Xeon E5-2440, 2.40 GHZ (6 núcleos)
+
+e Memoria del sistema: 8 GB RDIMM, 1600MT/s, Low Volt, Single Rank, x4
+Data Width
+
+e RAID: RAID 1 for H710P/H710/H310 (2 HDDs) with Cabled Chassis
+
+e Disco rígido: Disco duro SATA 1TB 7.2K RPM 3Gbps 3.5 inchCabled
+
+Al inicio del proyecto tuvieron algunos inconvenientes con el perfil web del servidor
+inicialmente propuesto (Apache Tomee web profile 1.7.1 -web profile) debido a
+incompatibilidades en los componentes relacionados con la persistencia, en un
+intento de usar una tecnología actual para la generación de los CRUDSs con el fin de
+reducir tiempo en el desarrollo.
+
+Finalmente se tomó la decisión de mantener el perfil original del servidor de
+despliegue (Apache Tomcat 7.0.27.0).
+
+3.5.3.Descripción general del aplicativo Web
+
+La aplicación BSC se desarrolló tomando como base el modelo administrativo del
+Balanced Scorecard, la estructura de la aplicación permite al usuario final utilizar
+mediciones de desempeño que llevaran a mejorar la actuación en todas las áreas
+de la empresa, con el fin de alcanzar los objetivos estratégicos propuestos.
+
+Esta parte del documento describe de manera breve y concisa los componentes
+
+más relevantes del sistema de Balanced Scorecard desarrollado para la cooperativa
+de ahorro y crédito COFINCAFE.
+
+Además se describirá de manera general, la utilización de la aplicación web BSC.
+
+En la figura 17 se presenta la pantalla de login o de acceso a la aplicación. Dicho
+acceso posee una característica de multi-perfil, que permite a diversos usuarios
+acceder a través de una única interfaz.
+
+60"Archivo Editar Ver Historial Marcadores Herramientas Ayuda
+
+  
+ 
+
+ 
+ 
+
+Bienvenido a BSC
+
+€ zeta.net.co/khronos/ e | ¡E- coog!e PE y,Y AGS
+
+re
+
+Más visitados | | Comenzar a usar Firefox í Suggested Sites 1) Web Slice Gallery ul Simple 8l Secure Onlin... :_; Log In To Your Accou...
+
+ 
+
+AA AS
+necesita un valor.
+
+ 
+
+ 
+
+ 
+
+ 
+
+| INICIAR SESIÓN ]
+
+BSC ál
+
+Contraseña *
+
+ 
+
+ 
+
+Usuario: Error de validación: se necesita un valor.
+
+ 
+
+ 
+
+Iniciar Sesión ] | Cancelar Acción |
+
+ 
+
+ 
+
+Usuario: Error de validación: se necesita un valor. x
+—— Contraseña: Error de validación: se necesita un valor.
+
+ 
+
+ 
+
+SO AT DE INVEST
+
+Figura 17. Capítulo 3.: Pantalla de Login de la aplicación Web BSC
+
+Una vez el usuario ingresa, se muestra la interfaz general, figura 18, que a través de
+técnicas asincrónicas utilizando javascript carga los diversos elementos que
+componen el sistema.
+
+"Archivo Editar Ver Historial Marcadores Herramientas Ayuda
+
+ 
+ 
+
+Bienvenido a BSC x
+
+ 
+
+€ zeta.net.co/khronos/vistas/planeacionestrategica/List.xhtml Cc | ISE Google PLY BB y) Ra Y =
+
+Más visitados |: Comenzar a usar Firefox ¡| Suggested Sites || Web Slice Gallery í_: Simple 8l Secure Onlin... í_: Log In To Your Accou...
+
+ 
+
+ 
+
+Cambiar tema Julian Henao
+
+|Aristo A | Tecnologia En Sistemas
+
+Cerrar Sesion
+
+ 
+  
+
+Balanced $corecard
+
+ 
+
+ 
+
+ 
+
+MENU La) | » Consultar Plan Estratégico
+
+ 
+
+» Plan Estratégico | » Grabar Plan Estratégico |
+
+ 
+
+y Grupos
+» Ingreso de Variables
+
+» Administracion
+
+ 
+
+Control de Usuarios
+|
+]
+
+ 
+
+ 
+
+ 
+
+Metas proximas a vencerse O Objetivos proximos a vencerse 0 Mediciones de las metas proximas a vencerse O Mediciones de los objetivos proximos a vencerse 0 Iniciativas proximas a vencerse O
+Metas vencidas 2 Objetivos vencidas 0 Mediciones de las metas vencidas 0 Mediciones de los objetivos vencidas O Iniciativas vencidas 2
+
+Ca TI O
+
+ 
+
+Figura 18. Capítulo 3.: Interfaz de la aplicación Web BSC
+
+61De manera general la interfaz de la aplicación se compone de un header o
+encabezado de página que muestra en su parte superior izquierda el logo que
+identifica la aplicación y en la parte superior derecha las preferencias del usuario,
+acompañadas de sus datos de perfil y la opción de cerrar sesión
+
+En la parte del lateral izquierdo se encuentra un menú dinámico (menú principal),
+que se genera de acuerdo al rol del usuario que inicia la sesión.
+
+Este menú se encuentra dividido en tres categorías generales que contiene los
+componentes propios del plan estratégico, el manejo de usuarios y grupos y el
+ingreso de variables.
+
+En las figuras 19 y 20 se muestra dicho menú en su estado contraído y en su
+estado desplegado, respectivamente.
+
+62BSE Balanced |
+
+MENU 4
+
+Nuestra Misión es escuchar, asesorar.
+acompañar y llevar a los asociados a
+alcanzar el logro de sus objetivos a través de
+soluciones integrales
+
+» Plan Estratégico
+
+Control de Usuarios
+y Grupos
+
+>» Ingreso de Variables Y A
+
+» Administracion
+
+ 
+
+ 
+
+Mision
+
+Vision
+Valores
+
+Estrategia
+
+Guardar
+
+Metas proximas a vencerse O Objetivos proximos a vencerse 0 Mediciones de las metas prox
+
+Metas vencidas 2 Objetivos vencidas O Mediciones de las metas venc
+
+Lp
+
+Figura 19. Capítulo 3.: Menú contraído de la
+aplicación Web BSC
+
+BSE Balanced sorecra A]
+
+MENU 4
+
+"> Plan Estratégico a
+
+MA Planeación Estratégica
+
+Nuestra Misión es escuchar, asesorar.
+acompañar y llevar a los asociados a
+alcanzar el logro de sus objetivos a través de
+soluciones integrales
+
+Y Perspectivas
+
+1 Subperspectivas Ue A
+Se"
+
+ 
+
+ 
+
+ 
+
+ 
+
+Ml Estrategias Z
+
+1 Objetivos
+
+MH Metas
+
+A Indicadores Metas Mision
+M Iniciativas Vision
+
+ 
+
+   
+
+"Ol ( Valores
+Usuarios y Grupos ]
+y P Estrategia
+2 Usuarios
+Guardar
+2 Grupos
+
+_”
+
+Metas proximas a vencerse O Objetivos proximos a vencerse O Mediciones de las metas prox
+
+Metas vencidas 2 Objetivos vencidas 0 Mediciones de las metas venc
+
+E
+
+Figura 20. Capítulo 3.: Menú desplegado de
+la aplicación Web BSC
+
+La mayor parte de los módulos y herramientas de la aplicación de Balanced
+Scorecard se muestran en la parte más amplia de la interfaz, que inicialmente
+muestra al usuario el plan estratégico de la empresa, el cual es la base de
+construcción del sistema, este se compone de elementos tales como: Misión Visión,
+Valores y Estrategia.
+
+En la figura 21 se observa la parte inferior de la interfaz en la que se muestran las
+alertas locales que son enviadas simultánea y automáticamente a los correos de los
+usuarios encargados de controlar la aplicación, dichas alertas son generadas de
+manera automática por el sistema.
+
+Estrategia
+
+Guardar
+
+Metas proximas a vencerse O Objetivos proximos a vencerse 0 Mediciones de las metas proximas a vencerse O Mediciones de los objetivos proximos a vencerse 0 Iniciativas proximas a vencerse 0
+
+Metas vencidas 2 Objetivos vencidas O
+PY
+
+Mediciones de las metas vencidas 0 Mediciones de los objetivos vencidas O Iniciativas vencidas 2
+
+ 
+
+Figura 21. Capítulo 3.: Alertas locales de la aplicación Web BSC
+
+La figura 22 muestra el modulo de perspectivas, en este componente el usuario
+puede crear editar y eliminar una perspectiva deseada.
+
+63"Archivo Editar Ver Historial Marcadores Herramientas Ayuda
+
+ 
+   
+
+Perspectivas x
+
+SS] zeta.net.co/khronos/vistas/perspectivas/List.html a B- Google ad Y S Y + “¡=
+
+ 
+
+Más visitados | | Comenzar a usar Firefox í Suggested Sites 1) Web Slice Gallery DO Simple 8l Secure Onlin... O Log In To Your Accou...
+
+ 
+
+ 
+
+Cambiar tema Julian Henao
+
+Balanced $fcorecard |Aristo | Tecnologia En Sistemas
+
+a —> Cerrar Sesion
+
+ 
+
+ 
+
+MENU a)
+
+PERSPECTIVAS | LIMPIAR FILTROS |
+
+» Plan Estratégico
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Perspectivas $ Descripción $ | .
+, Control de Usuarios | | Acciones
+y Grupos ¿cÚÓÚÓ o — AA
+» Ingreso de Variables | Financiera Es el enfoque para el resto de perspectivas, mide las consecuencias económicas de acciones tomadas anteriormente. | 2 | ú |
+» Administracion |
+Cliente Describe como se crea valor para el cliente, como se satisface esa demanda y porque el cliente acepta pagar por ello. | 2 | u | =
+
+ 
+
+ 
+
+BO] (0) «e MO >
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Perspectiva:
+Descripción:
+
+Metas proximas a vencerse O Objetivos proximos a vencerse 0 Mediciones de las metas proximas a vencerse O Mediciones de los objetivos proximos a vencerse 0 Iniciativas proximas a vencerse 0
+Metas vencidas 2 Objetivos vencidas 0 Mediciones de las metas vencidas 0 Mediciones de los objetivos vencidas 0 Iniciativas vencidas 2
+
+ 
+
+ 
+
+ 
+
+ 
+
+SO AT E TA
+
+ 
+
+Figura 22. Capítulo 3.: Perspectivas de la aplicación Web BSC
+
+La figura 23 se muestra el componente de creación, consulta, edición y eliminación
+de metas definidas inicialmente en el sistema.
+
+“Archivo Editar Ver Historial Marcadores Herramientas Ayuda
+
+ 
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+Metas x
+€): zeta;net.co/khronos/vistas/metas/Listxhtml a + Google P ¡ZO y Á Y |=
+Más visitados | | Comenzar a usar Firefox í Suggested Sites 1) Web Slice Gallery dl Simple 8l Secure Onlin... ¡El Log In To Your Accou...
+Cambiar tema Julian Henao
+
+Balanced Scorecard |Aristo y) Tecnologia En Sistemas
+
+Cerrar Sesion
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+» Ingreso de Variables
+
+ 
+
+Bj] 10 1. «>
+
+ 
+
+ 
+
+compreisiicia zu zu Ue | | A
+MENU Lo), i
+» Plan Estratégico | hacer crecer la ventas E Sacar Fri Oct 30 08:41:52 COT 2015 hacer mas visitas / | 5 |
+| l
+' Control de Usuarios
+y Grupos vincular soscios Fri Oct 10 08:41:52 COT 2014 Fri Oct 10 08:41:52 COT 2014 holanannana Le) | ú |
+[ [
+
+» Administracion
+
+ 
+
+m
+
+ 
+
+Medicioninicial: hoy
+Horizonte: |
+Fuentesverificacion:
+
+Metas proximas a vencerse O Objetivos proximos a vencerse 0 Mediciones de las metas proximas a vencerse O Mediciones de los objetivos proximos a vencerse 0 Iniciativas proximas a vencerse 0
+Metas vencidas 2 Objetivos vencidas 0 Mediciones de las metas vencidas 0 Mediciones de los objetivos vencidas 0 Iniciativas vencidas 2
+
+|
+|
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figura 23. Capítulo 3.: Metas de la aplicación Web BSC
+
+Las figuras 24 y 25 muestran los componentes de Creación de usuarios y Grupos
+respectivamente.
+
+64ll t zeta.net.co/khronos/vistas/usuarios/Listxhtml ve | ¡[B- Google Pp Y | 56 |) A Y | =
+
+(A) Más visitados || Comenzar a usar Firefox | Suggested Sites [_] Web Slice Gallery í_: Simple 8l Secure Onlin... (Log ln To Your Accou...
+
+ 
+
+Cambiar tema Julian Henao
+Balanced 5$corecard Aristo sl Tecnologia En Sistemas
+Cerrar Sesion
+
+MENU la)
+
+» Plan Estratégico
+
+Control de Usuarios USUARIOS LIMPIAR FILTROS
+
+y Grupos Login $ Nombre Login $
+
+» Ingreso de Variables po 7] po] Acciones
+
+» Administracion HENAO Julian Henao
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+lll
+
+y)
+
+ 
+
+ 
+
+DIEGO Diego Zuluaga Trujillo
+
+ 
+
+ 
+
+EE
+
+ 
+
+3
+
+ 
+
+ 
+
+ 
+
+MO] (101) 1» <. mM pl jaa
+
+ 
+
+HA
+
+» Grabar Usuario
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Metas proximas a vencerse O Objetivos proximos a vencerse 0 Mediciones de las metas proximas a vencerse O Mediciones de los objetivos proximos a vencerse 0 Iniciativas proximas a vencerse 0
+Metas vencidas 2 Objetivos vencidas 0 Mediciones de las metas vencidas 0 Mediciones de los objetivos vencidas 0 Iniciativas vencidas 2
+
+_—
+
+Figura 24. Capítulo 3.: Control de usuarios de la aplicación Web BSC
+
+“Archivo Editar Ver Historial
+
+   
+ 
+
+ 
+
+€ zeta.net.co/khronos/vistas/grupos/List.xhtml ve | ¡B- Google P| ZB y ñh Y | SS
+
+Más visitados |: Comenzar a usar Firefox ¡| Suggested Sites | _¡ Web Slice Gallery |: Simple 8: Secure Onlin... ': Log In To Your Accou...
+
+Cambiar tema Julian Henao
+Balanced Scorecard Aristo | Dior era
+Cerrar Sesion
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+GRUPOS | LIMPIAR FILTROS
+
+Grupo $
+
+( ] Acciones
+DAS cs Admin (
+
+» Ingreso de Variables
+
+HA
+
+» Grabar Grupo
+
+ 
+
+ 
+
+*)
+3
+
+ 
+
+ 
+
+ 
+
+ 
+
+8)
+3
+
+ 
+
+ 
+
+ 
+
+ 
+
+10) 2 MM >
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Metas proximas a vencerse O Objetivos proximos a vencerse 0 Mediciones de las metas proximas a vencerse O Mediciones de los objetivos proximos a vencerse 0 Iniciativas proximas a vencerse 0
+localhost:S084/khronos/vistas/grupos/Listahtml idas 0 Mediciones de las metas vencidas 0 Mediciones de los objetivos vencidas 0 Iniciativas vencidas 2
+
+Figura 25. Capítulo 3.: Control de Grupos de la aplicación Web BSC
+
+La figura 26 muestra el componente de configuración de variables del sistema, las
+cuales son indispensables en el cálculo de los indicadores del Balanced Scorecard,
+dichas variables deben ser periódicamente actualizadas, según lo definan las alertas
+
+65automáticas del sistema, para recordar a los usuarios encargados de esta crítica
+labor.
+
+"Archivo Editar Ver Historial Marcadores Herramientas Ayuda
+
+ 
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Variables Xx
+€ zeta.net.co/khronos/vistas/variables/Listxhtml E a- Google AP | Y a y) € =
+Más visitados | | Comenzar a usar Firefox |: Suggested Sites (7) Web Slice Gallery 0 Simple 8l Secure Onlin... a Log In To Your Accou...
+Cambiar tema Julian Henao
+Balanced Scorecard Aristo e Tecnologia En Sistemas
+— Cerrar Sesion
+E | | A 7 j | | pd A
+MENU eN)
+» Plan Estratégico | ventas 20000 Thu Oct 30 03:00:00 COT 2014 Thu Dec 25 08:00:00 COT 2014 Ls | a
+Control de Usuarios
+y Grupos Pagos proveedores 500000 Thu Oct 23 00:00:00 COT 2014 Fri Feb 13 00:00:00 COT 2015 eta) a
+» Ingreso de Variables | a
+Fx, | AO] (10F << E |
+» Administracion | Y A
+7
+
+ 
+
+ 
+
+m
+
+ 
+
+ 
+
+Variable: [
+
+Valor:
+
+Fechaultimaactualizacion: | 1 |
+Fechaproximaactualizacion: | a |
+A
+
+Metas proximas a vencerse O Objetivos proximos a vencerse 0 Mediciones de las metas proximas a vencerse O Mediciones de los objetivos proximos a vencerse 0 Iniciativas proximas a vencerse 0
+Metas vencidas 2 Objetivos vencidas 0 Mediciones de las metas vencidas 0 Mediciones de los objetivos vencidas 0 Iniciativas vencidas 2
+
+ 
+
+ 
+
+ 
+
+ 
+
+O AT E ET
+
+Figura 26. Capítulo 3.: Variables de la aplicación Web BSC
+
+Las figuras 27 — 28 y 29 muestran la herramienta de carga de archivos .csv. Algunos
+de los datos contenidos en estos archivos planos se toman como variables que
+interviene en el cálculo de los indicadores del sistema.
+
+ 
+
+Carga de archivo e O la]
+JE) » Dropbox » Dante » Archivos Planos Cofincafe Ñ Buscar Archivos Planos Cofinc... PP |
+Y OS a a
+
+Organizar + Nueva carpeta 3. 40
+
+ 
+
+ 
+
+7
+de Favoritos Nombre Fecha de modifica... Tipo Tamaño
+
+de Descargas ES plano_bsc.csv 11/09/2014 12:26 .. Archivo de valores.. 88 KB
+$3 Dropbox
+
+di 72
+
+BI Escritorio
+
+E) Sitios recientes
+
+ 
+
+A Bibliotecas
++] Documentos
+lt] Imágenes
+a)? Música
+$ Videos
+
+*%, Grupo en el hogar
+¡E Equipo
+
+£L, TILO6234WOC (C:)
+¡ma Datos (D:)
+
+Cu Red
+
+Nombre: plano_bsc.csv y ¡Todos los archivos (*.*) ”
+
+E
+:
+é
+
+ 
+
+ 
+
+Figura 27. Capítulo 3.: Variables de la aplicación Web BSC
+
+66“Archivo Editar Ver Historia
+
+   
+ 
+
+ 
+
+L € zeta.net.co/khronos/vistas/cargador/List.xhtml ve | ¡[B- Google Pp By ñ Y | =
+
+(2) Más visitados Í] Comenzar a usar Firefox Í 3 Suggested Sites (| Web Slice Gallery [3 Simple 8l Secure Onlin... 3 Log ln To Your Accou...
+
+Cambiar tema Julian Henao
+Balanced 5$corecard Ñ Tecnologia En Sistemas
+o Cerrar Sesion
+
++ Choose 3 Upload o Cancel
+
+Control de Usuarios
+y Grupos plano_bsc.csv 87.7KB ( | a
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Ingreso de Variables
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Metas proximas a vencerse O Objetivos proximos a vencerse O Mediciones de las metas proximas a vencerse 0 Mediciones de los objetivos proximos a vencerse 0 Iniciativas proximas a vencerse 0
+Metas vencidas 2 Objetivos vencidas 0 Mediciones de las metas vencidas 0 Mediciones de los objetivos vencidas 0 Iniciativas vencidas 2
+
+_—
+
+Figura 28. Capítulo 3.: Variables de la aplicación Web BSC
+
+"Archivo Editar Ver Historial
+
+   
+ 
+
+ 
+
+E € zeta.net.co/khronos/vistas/cargador/List.xhtml vCe| ¡8- Google AP ZÉ Y A Y | =
+
+(2) Más visitados Í] Comenzar a usar Firefox Í 3 Suggested Sites [| Web Slice Gallery [3 Simple 8l Secure Onlin... 3 Log ln To Your Accou...
+
+Cambiar tema Julian Henao
+Balanced Scorecard Aristo y AOS
+Cerrar Sesion
+
++ Choose | s Upload e Cancel .
+l dl y Succesful
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+plano_bsc.csv is uploaded.
+
+Control de Usuarios
+
+ 
+
+ 
+
+e Grupos
+Ingreso de Variables
+
+ 
+
+Administracion
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Metas proximas a vencerse O Objetivos proximos a vencerse 0 Mediciones de las metas proximas a vencerse O Mediciones de los objetivos proximos a vencerse 0 Iniciativas proximas a vencerse 0
+Metas vencidas 2 Objetivos vencidas 0 Mediciones de las metas vencidas 0 Mediciones de los objetivos vencidas 0 Iniciativas vencidas 2
+
+AS
+
+Figura 29. Capítulo 3.: Variables de la aplicación Web BSC
+
+Las figuras 30 y 31 muestran la herramienta de generación de reportes .pdf del
+sistema. Adicionalmente la aplicación también genera reportes en formato .xls
+
+67"Archivo Editar Ver Historial Marcadores Herramientas Ayuda
+
+ 
+ 
+  
+ 
+
+ 
+
+€ zeta.net.co/khronos/vistas/variables/List xhtml a a- Google P| Y 5 y RÁ S =
+
+rr
+
+Cambiar tema Julian Henao
+
+[Aisto |y
+
+Tecnologia En Sistemas
+Cerrar Sesion
+
+ 
+
+  
+
+Ha elegido abrir:
+
+3) Variables.pdf
+que es: Adobe Acrobat Document (1,4 KB)
+de: http://localhost:8084
+
+     
+
+ 
+
+ 
+
+   
+
+» Plan Estratégico
+
+ 
+ 
+
+Acciones
+
+  
+ 
+
+Próxima Actualización $ A]
+
+Variable $
+, Control de Usuarios
+
+y Grupos
+
+il —_—_—_—_—_—______— excedentes
+» Ingreso de Variables
+
+Pagos proveedores
+
+   
+
+¿Qué debería hacer Firefox con este archivo?
+
+ 
+
+ 
+
+   
+
+MENU Ly)
+
+ 
+
+; | Adobe Acrobat 9.0 (predeterminada) Fri Oct 31 00:00:00 COT 2014
+
+  
+ 
+
+ 
+
+ 
+
+3
+
+ 
+
+(O) Guardar archivo
+
+   
+
+mM
+
+ 
+
+   
+
+ 
+
+   
+ 
+
+Thu Dec 25 08:00:00 COT 2014
+
+ 
+
+ 
+
+ 
+
+|| Hacer esto automáticamente para estos archivos a partir de ahora.
+
+ 
+
+la
+
+5
+
+  
+
+ 
+
+ 
+
+    
+
+Fri Feb 13 00:00:00 COT 2015
+
+ 
+
+|
+
+ 
+
+ 
+
+ 
+
+)
+
+ 
+
+ 
+
+ 
+
+»i
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+| Variable: | "
+
+Metas proximas a vencerse O Objetivos proximos a vencerse 0 Mediciones de las metas proximas a vencerse O Mediciones de los objetivos proximos a vencerse 0 Iniciativas proximas a vencerse 0
+Metas vencidas 2 Objetivos vencidas 0 Mediciones de las metas vencidas 0 Mediciones de los objetivos vencidas 0 Iniciativas vencidas 2
+
+ZA (TI DIE - URETA
+
+ 
+
+Figura 30. Capítulo 3.: Generación de reportes .pdf de la aplicación Web BSC
+
+"Archivo Editar Ver Historial Marcadores Herramientas Ayuda
+
+   
+   
+
+ 
+
+Variables x
+€ zeta.net.co/khronos/vistas/variables/List.xhtml c a - Google P| Y 5) A Y ¡ES
+Más visitados _: Comenzar a usar Firefox í_: Suggested Sites |: Web Slice Gallery _: Simple 8: Secure Onlin... ¿_: Log In To Your Accou...
+
+ 
+
+ 
+
+  
+
+Julian Henao
+
+Henas
+
+   
+ 
+  
+
+Cambiar tema
+
+  
+   
+
+Balanced $fcorecard
+
+    
+
+=>) Variables.pdf - Adobe Acrobat Pro
+Archivo Edición Ver Documento Comentarios Formularios Herramientas Avanzadas Ventana Ayuda x
+
+l > Crear > de) Combinar» é3) Colaborar» [fi] Proteger» 4 Firmar Formularios > Ey Muttimedia + ¿7 Comentario +
+
+   
+
+ 
+
+ 
+
+   
+
+ 
+
+ 
+
+   
+ 
+
+ 
+
+A OBRA ++: 54OI GR 002%: HE (tuo z
+» Plan Estratégico | Variable $ - A
+
+ 
+
+la
+
+ 
+
+y Control de Usuarios
+
+y Grupos
+(AA A A A A 2 A 2 A 2, excedentes
+» Ingreso de Variables
+
+» Administracion
+
+Variables
+
+| Variable [ Valor [  ÚltimaActualización Próxima Actualización
+
+50000 Wed Oct 29 00:00:00 COT — |Fri Oct 31 00:00:00 COT
+2014 2014
+
+20000 Thu Oct 30 03:00:00 COT [Thu Dec 25 08:00:00 COT
+2014 2014
+
+Pagos proveedores 500000 a 23 00:00:00 COT E 13 00:00:00 COT
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+
+MENU Ly)
+
+    
+
+ 
+
+ 
+    
+
+ 
+
+    
+ 
+
+ventas
+
+ 
+
+     
+ 
+ 
+
+ 
+
+  
+  
+ 
+   
+
+ 
+
+ 
+ 
+
+Pagos proveedores
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Metas proximas a vencerse O Objetivos proximos a vencerse O Mediciones de la
+Metas vencidas 2 Objetivos vencidas 0 Mediciones de la:
+
+  
+
+ 
+
+Figura 31. Capítulo 3.: Generación de reportes .pdf de la aplicación Web BSC
+
+La figura 32 muestra el dashboard de la aplicación donde se encuentran reflejados
+los avances de las mediciones a través de gráficos estadísticos, tablas y barras de
+
+progreso.
+
+68“Archivo Editar Ver Historial Marcadores Herramientas Ayuda
+
+de ; CATAS
+E Gráficas x + ina AAA
+
+ 
+
+ 
+
+ 
+
+zeta/net.co /khronos/vistas/graficas/graficas.xhtm e |[EJ- coogie P BE -)fS AÁ€ Y =
+Más visitados |: Comenzar a usar Firefox ¡| Suggested Sites |: Web Slice Gallery |: Simple 8: Secure Onlin... _¿ Log In To Your Accou...
+Cambiar tema Julian Henao
+BSE Balanced arena A] Aristo ” sas En Sistemas
+Cerrar Sesion
+MENU 4 Variables Variables
+
+» Plan Estratégico
+
+Control de Usuarios
+
+y Grupos
+» Ingreso de Variables E excedentes
+MM ve
+>» Administracion
+Pagos proves
+
+ 
+
+ 
+
+Metas proximas a vencerse O Objetivos proximos a vencerse O Mediciones de las metas proximas a vencerse O Mediciones de los objetivos proximos a vencerse 0 Iniciativas proximas a vencerse 0
+Metas vencidas 2 Objetivos vencidas 0 Mediciones de las metas vencidas 0 Mediciones de los objetivos vencidas 0 Iniciativas vencidas 2
+
+Ms ola lelel]= Ll. ]o ATTE
+
+ 
+
+—
+
+   
+
+ 
+
+Figura 32. Capítulo 3.: Dashboard de la aplicación Web BSC
+
+4.Pruebas y Discusión de los Resultados
+
+Con el fin de producir un software de calidad se desarrollaron actividades integrales
+de análisis, diseño, codificación, además de pruebas indispensables en todos los
+ámbitos de la realización del software. La garantía de calidad se fundamentó en
+pruebas (unidad, validación y verificación) que se realizaron de acuerdo a lo
+establecido en los requerimientos de software.
+
+Los procedimientos realizados en esta etapa de pruebas del proyecto estuvieron
+direccionados a:
+
+Verificar la interacción de componentes.
+Verificar la integración adecuada de los componentes.
+Verificar que todos los requisitos se han implementado correctamente.
+
+Identificar y asegurar que los defectos encontrados se han corregido antes de
+entregar el software al cliente.
+
+4.1. Pruebas de Unidad
+
+Las pruebas de unidad tienen el objetivo de verificar la funcionalidad y estructura de
+cada componente individualmente una vez que ha sido codificado.
+
+Las pruebas de unidad permiten evaluar los subprogramas, las subrutinas, los
+
+procedimientos individuales o las clases de la aplicación. Probar primero los bloques
+más pequeños desarrollados en el programa es mucho mejor que probar todo el
+
+69software. Teniendo en cuenta lo anterior se realizaron dichas pruebas debido a las
+siguientes razones:
+
+Las pruebas de unidad centran la atención inicialmente en unidades más pequeñas
+del programa y no en la totalidad del software.
+
+La prueba de una unidad facilita la tarea de eliminar errores, pues cuando se
+encuentra un error, se sabe específicamente en que módulo se encuentra.
+
+Las pruebas de unidad introducen paralelismo en el proceso de pruebas del
+software presentándose la oportunidad de probar los múltiples módulos
+simultáneamente.
+
+Durante la prueba de unidad, la comprobación selectiva de los caminos de ejecución
+es una tarea esencial. La prueba de unidad hace un uso intensivo de la prueba de la
+caja blanca ejercitando caminos específicos de la estructura de control de modulo
+para asegurar un alcance completo y una detección máxima de errores.
+
+La tabla 6 describe algunas de las pruebas de unidad realizadas sobre los métodos
+contenidos en algunos de los formularios y componentes del sistema de BSC
+implantado en la cooperativa de ahorro y crédito COFINCAFE.
+
+Fichero Método Técnica Resultado | Aprobado
+POSO O
+
+Sesion.java Iniciar El método Si
+
+Sesión() realiza una
+Frontera | consulta en
+
+la base de
+
+ 
+
+datos,
+compara los
+datos
+obtenidos
+con los
+ingresados
+por el
+usuario, una
+vez
+verificados
+permite el
+inicio de
+sesión.
+EstrategiasController.¡ava | update() El método Si
+
+permite
+Frontera | modificar un
+
+registro
+existente en
+la tabla
+estrategias
+de la base de
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+70VariablesController.java
+
+Perspectivas
+
+UploaderBB.java
+
+desactivar()
+
+run()
+
+Frontera
+
+Frontera
+
+datos.
+
+El método
+permite
+almacenar,
+los datos
+ingresados
+por el
+usuario,
+dentro de la
+tabla
+variable.
+Desactiva
+una
+perspectiva
+existente, sin
+eliminarla de
+la base de
+datos.
+
+Se busca un
+archivo  .csv
+en el
+directorio del
+equipo para
+tomar sus
+datos y
+almacenarlos
+en la tabla
+balance.
+
+Si
+
+Si
+
+Si
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 6. Capítulo 4.: Pruebas de Unidad
+
+4.2. Pruebas de Integración
+
+ 
+
+Las pruebas de integración permitieron verificar el correcto ensamblaje entre los
+distintos componentes del sistema una vez se probaron de manera unitaria con el
+fin de comprobar que interactuarán correctamente.
+
+71Estas pruebas realizadas a la aplicación se plantearon desde un enfoque de caja
+negra, con ellas se validó el cumplimiento de las funcionalidades establecidas en los
+requerimientos de la aplicación, así como los flujos de trabajo planteados en las
+
+historias de usuario.
+
+A continuación, la tabla 7 describe el proceso de prueba del ingreso correcto de
+información relacionada con la estrategia, según lo planteado en la historia de
+
+usuario generar módulos de texto.
+
+ 
+
+Titulo
+
+Historia de Usuario
+
+Registro de datos en el formulario
+Estrategias
+
+GENERAR MODULOS DE TEXTO
+
+ 
+
+Objetivo
+
+Permite al usuario administrador, la
+creación de artículos o elementos de
+texto.
+
+ 
+
+Tipo de Prueba
+Hardware Requerido
+
+Software requerido
+
+Personal Requerido
+
+Prueba causa-efecto
+
+Portatil Toshiba Satellite-L 755
+
+Procesador intelé core'" j¡5, 4
+GB de RAM, 500 GB de
+
+almacenamiento.
+
+Servidor Apache Tomcat, Netbeans
+8.0 y Software BSC
+
+1 persona
+
+ 
+
+Datos de Prueba
+
+Los datos ingresados por el usuario a
+través de la vista .xhtml
+
+ 
+
+Procedimiento de Prueba
+
+Se despliega la aplicación Web, se
+accede mediante datos de login
+existentes, se busca el formulario
+Estrategias en el menú principal, se
+escriben los datos solicitados
+mediante en campos de la vista, se
+da click en el botón guardar.
+
+ 
+
+Resultado Esperado
+
+Los datos ingresados por el usuario
+son almacenados en la tabla
+estrategias de la base de datos. La
+aplicación notifica que se ha creado
+una nueva estrategia de manera
+exitosa.
+
+ 
+
+Resultado Obtenido
+Comentarios
+
+ 
+
+ 
+
+Prueba Exitosa SI(X) No()
+
+La aplicación crea de manera
+correcta la nueva estrategia.
+
+ 
+
+72Realizado por / Fecha Julián Henao Henao
+
+Tabla 7. Capítulo 4.: Prueba de Integración — Registro de datos en el formulario Estrategias
+
+La tabla 8 describe el proceso mediante el cual se prueba la creación correcta de
+
+nuevos usuarios BSC, a partir de lo planteado en la historia de usuario
+ADMINISTRAR GRUPOS Y USUARIOS.
+
+ 
+
+Titulo
+
+Creación de usuarios del sistema
+
+ 
+
+ 
+
+Historia de Usuario
+
+ADMINISTRAR
+USUARIOS
+
+GRUPOS Y
+
+ 
+
+Objetivo
+
+Tipo de Prueba
+Hardware Requerido
+
+Software requerido
+
+Personal Requerido
+
+Le permitirá al administrador la
+creación de un nuevo usuario BSC.
+Prueba causa-efecto
+
+Portatil Toshiba Satellite-L 755
+Procesador intelé core'" j¡5, 4
+
+GB de RAM, 500 GB de
+almacenamiento.
+
+Servidor Apache Tomcat,
+Netbeans8.0 y Software BSC
+
+1 persona
+
+ 
+
+Datos de Prueba
+
+Los datos ingresados por el usuario
+administrador a través de la vista
+html
+
+ 
+
+Procedimiento de Prueba
+
+Se despliega la aplicación Web, se
+accede mediante datos de login
+existentes, se busca el formulario
+Usuarios en el menú principal, se
+escriben los datos de usuario
+solicitados mediante en campos de la
+vista, se da click en el botón crear.
+
+ 
+
+Resultado Esperado
+
+Resultado Obtenido
+Comentarios
+
+Los datos ingresados por el usuario
+son almacenados en la tabla usuarios
+de la base de datos. La aplicación
+notifica que se ha creado un nuevo
+usuario de manera exitosa.
+
+Prueba Exitosa Sl(X) No()
+
+La aplicación crea de
+correcta el nuevo usuario.
+
+manera
+
+ 
+
+ 
+
+Realizado por / Fecha
+
+ 
+
+Julián Henao Henao
+
+ 
+
+ 
+
+73Tabla 8. Capítulo 4.: Prueba de Integración — Creación de usuarios del sistema
+
+La tabla 9 describe el proceso mediante el cual se prueba el correcto
+funcionamiento de las alertas locales del sistema.
+
+ 
+
+Titulo
+
+Verificación de las alertas locales del
+sistema.
+
+ 
+
+ 
+
+Historia de Usuario
+
+Objetivo
+
+Tipo de Prueba
+
+GESTIONAR ALERTAS DEL
+SISTEMA
+
+Le permitirá al administrador la
+creación de artículos o elementos de
+texto.
+
+Prueba causa-efecto
+
+ 
+
+Hardware Requerido
+
+Software requerido
+
+Portatil Toshiba Satellite-L 755
+Procesador intel core'" ¡5, 4
+GB de RAM, 500 GB de
+
+almacenamiento.
+
+Servidor Apache Tomcat, Netbeans
+8.0 y Software BSC
+
+ 
+
+Personal Requerido
+
+1 persona
+
+ 
+
+Datos de Prueba
+
+Procedimiento de Prueba
+
+Resultado Esperado
+
+Resultado Obtenido
+
+Fecha límite establecida por el
+administrador en la base de datos.
+Habiendo previamente programado
+una fecha y hora casi inmediata y
+estando dentro del sistema BSC, se
+espera la hora programada para que
+aparezca la alerta automática.
+
+A la hora establecida se muestra la
+alerta en la parte inferior de la
+pantalla.
+
+Prueba Exitosa Sl(X) No()
+
+ 
+
+Comentarios
+
+La aplicación permite gestionar las
+alertas de manera efectiva.
+
+ 
+
+ 
+
+Realizado por / Fecha
+
+ 
+
+Julián Henao Henao
+
+Tabla 9. Capítulo 4.: Prueba de Integración — Verificación de las alertas locales del sistema
+
+4.3. Pruebas de Validación
+
+ 
+
+74Una vez terminadas las pruebas de integración y verificados cada uno de
+componentes de la aplicación y la aplicación como conjunto, se inició la prueba de
+validación.
+
+La prueba de validación aseguro que finalmente el software cumplía con todos los
+requerimientos funcionales, de comportamiento y de rendimiento.
+
+Durante la validación se utilizaron exclusivamente técnicas de prueba de caja negra.
+
+La tabla 10 resalta el proceso general de las funcionalidades del sistema partiendo
+desde ingreso por parte del usuario administrador hasta la realización de
+operaciones de creación, modificación, consulta, entre otras, y la generación de
+reportes pdf y visualización de barras de progreso que reflejan avances en la
+gerencia, para las historias de usuario, ACCEDER AL SISTEMA, GENERAR
+REPORTES, GESTIONAR ACTIVIDADES BSC que abarcan gran parte de las
+funcionalidades de la aplicación.
+
+ 
+
+Titulo Prueba de los componentes y
+herramientas de la aplicación en
+forma aleatoria.
+
+ 
+
+ 
+
+Historia de Usuario ACCEDER AL SISTEMA, GENERAR
+REPORTES, GESTIONAR
+ACTIVIDADES BSC.
+
+Objetivo Permite el acceso del usuario
+
+administrador al sistema, de manera
+que al ingresar pueda utilizar las
+distintas funcionalidades de creación,
+modificación y eliminación de
+usuarios, módulos BSC, módulos de
+plan estratégico, etc, así como la
+consulta de datos, generación de
+informes pdf y visualización de
+alertas y barras de progreso, que la
+aplicación tendrá disponibles.
+
+Tipo de Prueba Prueba causa-efecto
+
+Hardware Requerido Portatil Toshiba Satellite-L'755
+
+Procesador intel core'" j¡5, 4
+GB de RAM, 500 GB de
+
+almacenamiento.
+
+ 
+
+ 
+
+Software requerido Servidor Apache Tomcat, Netbeans
+8.0 y Software BSC
+
+Personal Requerido 1 persona
+
+Datos de Prueba Datos de acceso de un usuario
+
+administrador existente (Login y
+contraseña). Datos de prueba
+
+ 
+
+ 
+
+ 
+
+ 
+
+75Procedimiento de Prueba
+
+Resultado Esperado
+
+ingresados en las diferentes tablas de
+la base de datos.
+
+Se despliega la aplicación Web, se
+muestra la pantalla de Login, el
+usuario ingresa “su nombre y
+contraseña, da click en el botón
+ingresar; la aplicación verifica que los
+datos correspondan a un usuario
+administrador del sistema y permite el
+ingreso a la aplicación. Una vez
+identificado, el usuario administrador
+puede acceder a cada componente
+categorizado en el menú principal.
+
+El sistema compara los datos de
+usuario ingresados en el login con los
+datos de usuario almacenados en la
+base de datos, finalmente verifica que
+si son correctos y permite el acceso a
+la aplicación. Una vez dentro se
+realizan operaciones básicas de
+registro, modificación, eliminación y
+consulta de datos, en diferentes
+formularios seleccionados al azar.
+También se visualizan los gráficos y
+barras de progreso del sistema y la
+generación de informes .paf.
+
+ 
+
+Resultado Obtenido
+Comentarios
+
+Realizado por / Fecha
+
+ 
+
+ 
+
+Prueba Exitosa Sl(X) No()
+
+La aplicación valida los datos
+correctamente.
+
+Julián Henao Henao
+
+ 
+
+ 
+
+Tabla 10. Capítulo 4.: Prueba de Validación — Prueba de los componentes y herramientas de la
+
+aplicación en forma aleatoria.
+
+Dentro del anexo correspondiente a los elementos de diseño (ver anexo A) el
+apéndice A.2 define y describe las pruebas complementarias del proyecto.
+
+765. Conclusiones y Proyecciones
+
+5.1. Conclusiones
+
+A continuación, se muestran las conclusiones obtenidas al finalizar el desarrollo de
+los diferentes objetivos del proyecto e igualmente se proponen algunos futuros
+trabajos que se pueden realizar en relación al sistema de Balanced Scorecard.
+
+e Eltrabajar sobre un escenario real, permitió adquirir un amplio conocimiento,
+tanto en desarrollo de software, como en planeación de proyectos, sin
+embargo enfrentarse a la construcción de un proyecto de desarrollo bajo
+parámetros estrictos y enmarcados en situaciones reales del entorno de la
+organización hizo que en multiples ocasiones se dilatara el avance del
+desarrollo y llevo a la aparición de inconvenientes que debieron solucionarse
+de manera rápida y estratégica para evitar que la consecución del objetivo
+final se viera comprometida.
+
+e El lenguaje de programación java ofrece una versatilidad considerable en la
+construcción de aplicaciones RIA?, creando una comunicación de carácter
+asíncrona, permitiendo al usuario una mejor experiencia de trabajo en cuanto
+al aspecto visual (diseño) y funcional de la plataforma.
+
+e La investigación y adaptación de teorías administrativas de gerencia, gestión
+empresarial y planeación estratégica para la creación de herramientas de
+software avanzadas, permiten a las organizaciones un mayor control en sus
+procesos y un seguimiento más exhaustivo y precisen cada uno de ellos.
+
+Rich Internet Application, o RIA (en español "aplicaciones de Internet enriquecidas"), son aplicaciones web
+que surgen como una combinación de las ventajas que ofrecen las aplicaciones web y las aplicaciones
+tradicionales. Buscan mejorar la experiencia y productividad del usuario.
+
+175.2. Trabajos Futuros
+
+Desarrollar una vista que permita la consolidación de todos los pasos necesario
+para la construcción del cuadro de mando integral cubriendo desde la creación del
+plan estratégico, pasando por la creación de elementos propios del Balanced
+Scorecard (Objetivos, estrategias, metas, indicadores, iniciativas) hasta la
+asignación de usuarios responsables y creación de variables.
+
+Con el ánimo de crear herramientas más avanzadas y cada vez más precisas para
+la planeación estratégica de la organización, se propone unificar la aplicación BSC
+creada con la aplicación SAR: Sistema de Administración de Riesgos, aplicación
+web implantada en la empresa desde el año 2012. El trabajo conjunto de estas dos
+aplicaciones permitirá realizar mediciones de los riegos de manera más
+automatizada y evitara la exportación de datos de una aplicación para su posterior
+carga en la otra.
+
+78Bibliografia
+
+[1] S. Bennett, S. Mc Robb, R. Farmer. “Análisis y diseño orientado a objetos de
+sistemas usando UML”. Tercera Edición. Ed. Mc Graw Hill, 2007.
+
+[2] O .Estupiñan, “Análisis Financiero y de Gestión” [online]. Ed. ECOE ediciones,
+2006. Disponible en:
+hito://books.gooale.com.co/books?id=5a6W69SesW8C48hl=esésource=gbs na
+
+ 
+
+vlinks s
+
+ 
+
+[3] A. Flores Konja, “Metodología de gestión para las micro, pequeñas y medianas
+empresas en Lima Metropolitana” [online]. Tesis doctoral, Facultad de Ciencias
+Contables, Unidad de Posgrados, Universidad Nacional Mayor de San Marcos,
+Perú, 2004 Disponible en:
+
+http://sisbib.unmsm.edu.pe/bibvirtualdata/tesis/empre/flores ka/flores ka.paf
+
+[4] D. Fred, (s.f), “La gerencia Estratégica,
+reimpresión, Colombia, 1994.
+
+Ed. Serie Empresarial, Novena
+
+[5] A. Gómez, € R. Suárez, “Sistemas de Información Herramientas prácticas para
+la gestión empresarial,” Ed. RA-MA, 2011: España, 2001.
+
+[6] Kaplan 8 Norton, *The Balanced Scorecard: Translating Strategy and Action,”
+Harvard Business School, Ed. Gestión 2000: España, 1997, pp. 320.
+
+[7] Kaplan 8 Norton, “El cuadro de Mando Integral” Balanced Scorecard
+Collaborative, Ed. Grupo Planeta Spain, 2014.
+
+[8] D. Martinez, € A. Milla, “La Elaboración del Plan Estratégico y su Implantación
+a través del Cuadro de Mando Integral,” Ed. Diaz de Santos, España, 2005.
+
+[9] J. C. Margarida, (s.f), “Master de Investigación en Contabilidad y Gestión
+Financiera” [online]. Universidad de Valladolid, España, pp. 45, disponible en:
+
+https: //www5.uva.es/guia docente/uploads/2012/430/52299/1/Documento1.pdf
+
+[10] F. J. Manso, “Diccionario Enciclopédico de Estrategia Empresarial,” Ed. Diaz de
+Santos. S. A.: España, 2003.
+
+[11] L. Muñiz € E. Monfort, “Aplicación Práctica del Cuadro de Mando Integral,” Ed.
+Ediciones Gestión 2000. Barcelona. España, 2005.
+
+[12] C. Pablos, “Informática y comunicaciones en la empresa” [online]. Universidad
+Rey Juan Carlos, Ed. ESIC, Madrid España, 2004, pp. 316. Disponible en:
+http://books.google.com.co/books?id=U0MXWtgjxtsCáhl=esésource=gbs navii
+
+ 
+
+nks s
+
+ 
+
+79[13]
+
+[14]
+
+[15]
+
+[16]
+
+[17]
+
+[18]
+
+[19]
+
+[20]
+
+K. Schwaber, “Scrum.org Improving the Professional of Software Development”
+[online]. Boston, Massachusetts (USA), 2009 Disponible en:
+
+https://www.scrum.org/Resources/Scrum-Glossary
+
+F. Frezatti, D. De Souza Bido, A. P. Capuano Da Cruz, € M. J. De Camargo
+Machado, “O PAPEL DO BALANCED SCORECARD NA GESTAÁO DA
+INOVACAO.” (Portuguese). RAE: Revista De  Administracáo De
+Empresas, 54(4), 381-392. Doi: 10.1590/50034-759020140404, Sáo Paulo,
+2014.
+
+R. S . González, 8£ D. A. Robaina, “EXPERIENCIAS EN EL DISEÑO E
+IMPLEMENTACIÓN — DEL CUADRO DE MANDO — INTEGRAL.”
+(Spanish). Ingenieria Industrial, 30(2), 1-4. Cuba, 2009.
+
+M. Grasseová, “UTILIZATION OF BALANCED SCORECARD IN PUBLIC
+ADMINISTRATION.” Revista Academiei Fortelor Terestre, 15(1), 49-57. Czech
+Republic, 2010.
+
+P. Petr, J. Wagner, 8 M. Mensík, “Strategic Performance Measurement
+Systems Implemented in the Biggest Czech Companies with Focus on
+Balanced Scorecard - An Empirical Study. Journal Of Competitiveness,” 4(4),
+67-85. doi:10.7441/j0c.2012.04.05, Czech Republic, 2012.
+
+J. Boada-Grau, € C. Gil-Ripoll, “Gestión Estratégica de Recursos Humanos
+como Antecedente del Balanced Scorecard.” (Spanish). Revista De Psicologia
+Del Trabajo Y De Las Organizaciones, 25(2), 123-134. España, 2009.
+
+R. Pan, W. Zhang, S. Yang, € Y. Xiao, “A STATE ENTROPY MODEL
+INTEGRATED WITH BSC AND ANP FOR SUPPLIER EVALUATION AND
+SELECTION.” International Journal Of Simulation Modelling (IJSIMM), 13(3),
+348-363. doi:10.2507/145IMM13(3)C013, China, 2014.
+
+Mohan Rao.J, Informe sobre la Cultura, Profesor especialista en economía y
+desarrollo, Universidad de Massachusetts, Amherst, Estados Unidos, 2014.
+
+80

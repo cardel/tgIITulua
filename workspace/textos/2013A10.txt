@@ -1,0 +1,4108 @@
+SISTEMA DE INFORMACIÓN PARA LA OPTIMIZACIÓN DEL PROCESO DE
+UBICACIÓN DE VEHÍCULOS Y LA GESTIÓN DE INFORMACIÓN DE LA
+INVERSORA LA 21
+
+MANUEL SALVADOR CÁRDENAS HENAO
+cód. 200858796
+
+manuel .cardenasQcorreounivalle.edu.co
+
+JOEL ANDRÉS GIRALDO SOTO
+cód. 200859302
+
+joelandresgsQ gmail.com
+
+UNIVERSIDAD DEL VALLE SEDE TULUÁ
+PROGRAMA ACADÉMICO DE INGENIERÍA DE SISTEMAS
+NOVIEMBRE DE 2014SISTEMA DE INFORMACIÓN PARA LA OPTIMIZACIÓN DEL PROCESO DE
+UBICACIÓN DE VEHÍCULOS Y LA GESTIÓN DE INFORMACIÓN DE LA
+INVERSORA LA 21
+
+MANUEL SALVADOR CÁRDENAS HENAO
+cód. 200858796
+
+manuel .cardenasQOcorreounivalle.edu.co
+
+JOEL ANDRÉS GIRALDO SOTO
+cód. 200859302
+
+joelandresgsOgmail.com
+
+Trabajo de grado para optar al título de
+
+Ingeniero de Sistemas
+
+Director
+LUIS FERNANDO GÓMEZ
+Ingeniero de Sistemas
+
+luigomez80gmail.com
+
+Codirector
+PÁVEL FRANCO MARÍN
+Ingeniero de Sistemas
+
+pavelfm0gmail.com
+
+UNIVERSIDAD DEL VALLE SEDE TULUÁ
+PROGRAMA ACADÉMICO DE INGENIERÍA DE SISTEMAS
+NOVIEMBRE DE 2014Notas de Aceptación
+
+Tuluá, Noviembre del 2014Dedicatoria
+
+Este trabajo de grado va dedicado como primera medida a Dios y a mis padres, quienes
+son ese gran motor que me impulsa a mejorar todos los días tanto personal como
+profesionalmente. También va dedicado a aquellos familiares y amigos quienes me han
+
+brindado su apoyo incondicional durante este largo proceso.
+
+Manuel Salvador Cárdenas Henao
+
+Dedico este trabajo de grado a mi madre, DIOSELINA SOTO. Definitivamente yo si
+
+conozco los héroes y ella es uno de ellos; se ha caído una y otra vez, pero siempre se
+
+levanta para demostrarme que todo es posible en la vida con la ayuda de Dios.
+
+Joel Andrés Giraldo SotoAgradecimientos
+
+Agradezco a Dios, al universo, a los que estuvieron y a los que no, por ser partícipes de
+
+este proceso y que finalmente puedan ver cómo este sueño, aunque difícil se hizo
+
+realidad.
+
+Agradezco a la Universidad del Valle y a todos los docentes que de una u otra manera
+
+con sus conocimientos, ayudaron en mi formación profesional.
+
+Manuel Salvador Cárdenas Henao
+
+Agradezco enormemente a Dios por permitirme tener una familia que me apoyo
+durante mi formación académica. A mi abuela Cecilia Restrepo y a mi madre Dioselina
+Soto, quienes son pilares fundamentales en mi vida y a quienes amo profundamente.
+
+Dios todo lo ha hecho posible y a él le debo cuanto se me ha permitido.
+
+Agradezco a la Universidad del Valle sede Tuluá quien a través de sus docentes me
+
+formó profesionalmente. De manera especial al profesor Pável Franco, quien nos apoyó
+
+durante este proceso.
+
+Joel Andrés Giraldo SotoCONTENIDO
+
+1.INTRODUCCIÓN ccconccnoncnnnnnonanonananananonnonanananenanonanenononnnonanonanonna nana rinernnananannccranennss 12
+1.1 DESCRIPCIÓN GENERAL cccococnnononnnnnnnonnnnnnncnnnnnnonanannonnanonerananonarinoninenass 12
+1.2 PLANTEAMIENTO DEL PROBLEMA ..coccccccccnccncnncnnonconcanononocnoncanonsanonos 13
+1.2.1 Descripción del problema.......occoocnnocniocnnncnononnnonnnonnoncnoncnnnonnncnnnonnncnnnnnnancnancnnncnnnnnnns 13
+1.2.2 Formulación del probleMa......oooccoonnncocnnnocnnoncnnnonnnnnncnonncnoncnnononnoncnnoncnrnnncconnnroninnaness 15
+1.3 OBJETIVOS .o..coccococcncononcononnonncnncncncncroncnroncoronnonsononnrnccnrnccnrorncncrncnccncccroanonoso 15
+1.3.1 Objetivo General ...ooooccooncccconccnnnoccnnnncnnnnonoccnonncnnnonccnnnncnnnnncnnnnnnnnnnnnncnnnnncnnnnncnnnnnncnos 15
+1.3.2 Objetivos ESpecliÍiCOS .......coooccooocnoncnnoncnnnncnnnnncnonnnnononnonrononcnnonnnnnnnnnonnnnonnnnennnnoninnnnoss 15
+1.4 ESTRUCTURA DEL DOCUMENTO ..occccoconcncononconocnccncncnccnccaroncnronconocnonoso 15
+2. MARCO REFERENCIAL ..ococcococcncononnonnonccncnccnoncnnrnnccroncorocnonsononncncrnrncnrnccnrnccunonos 17
+2,1 MARCO CONCEPTUAL .omrrrsrrnrorrtostr nes gor trtoRgENNDEFIA OS INTER RENIVIO ENS VERDORNAR HEEE 17
+2.2.1 Computación Evolutiva......oooccocccoocnononoonnonnnononnnonononononnnonnnnnnnonnnonnnncnnncnnnnnnnrnnncnnnnnns 17
+2.2.2 Tecnologías para la Web ......oocooooncccocnnnocnnoncnnnnccnnnncnnoncnonocnononnoncnnoncnnnoncncnncnonnnnoninnns 20
+2.2.3 Metodología de Desarrollo ...........coooocnoonnnoocnnoonnnnoncnnnncnnnncnononnoncnnoncnnnoncnconcnnncononinnns 22
+2,2 MARCO CONTEXTUAD .s0cicoisnrorrcrssrarrraror sr nrOnr RI AA ETRE RIAAAGA AEREA RARA RIAL ERRAN 23
+2.3 MARCO DE ANTECEDENTES ...occocccconocccnncncnnconcanocncconoanonconcnscncnaronccnonnos 23
+3. SISTEMA DE INFORMACIÓN PARA LA GESTIÓN Y UBICACIÓN DE
+VEDICULOS qenrrvrrrrrstn tant sPPvrata rn IRE PPOINA AN E ERR PIERA RED RI POPERER E SETEPOOIA ERRE POPIEAEN EEN PPIIIAS BEER ES 25
+3.1 SERVICIO WEB .....ooccccocccccncconcnconconononcononncnoncnnrncccronnonornonorocncnscnoncconnononnos 28
+4. ASPECTOS DEL DESARROLLO ..oococcoccccccnnoncnnoncononnononconcnncncrncccrnccoronconcanononononss 29
+NI 29
+4.1.1 Especificación de los Requerimientos ....ooccoocncocncncnnncnnnonnnonnnncnnncnnnonnnonononononnncnnninnns 30
+4.1.2 Prototipación RÁpida ......oocccocncccnnncnnncnnncnnnonnnncnnncnnncnnnrnnnrnnnonnnnnnnnnnencnencnancnnncnninnnns 31
+4.1.3 Modelo de Casos de USO ..oocccccooccccnononoccnnnnnoconononnncconononoccnonnnncnnnnnnncnnnnnnnnrnnnnnniccnnnns 32
+4.1.4 Modelamiento de la Solución......ccooooncccnnnnocccnnnnncccnononnnoccnnnnnnrcnnnnnnrcnnnnnncncnnnnnnccnnnns 33
+4.1.4.1 Dimensionalidad de los espacios .....cooooconoccocnccnoncononcononocnonocuccconos 33
+4.1.4.1.1 Identificación y descripción de los espacioS.......oooooccccncccncnioccnnnns 34
+4.1.4.1.2 Dimensión de los espacios .......ooocccooccnnccnnnocnnncnnnoncnnoncnnnnennnocnnnonononnnos 34
+
+4.1.4.2 Restricciones Del Problema.......oooooccocconccconcononcocononnccrccccocorocasonsos 384.1.4.2.1 Restricciones de ESpacios.......coocccocncocnnocnnncnnncnnoncnoncnnncnnncnononononononanos 38
+
+4.1.4.2.2 Restricciones de Movilidad........ooccccononcccnnnccccnnnnnniocccnnnnnccnnnnnnoccnnnnnos 38
+
+4.1.4.3 APLICACIÓN DEL ALGORITMO GENÉTICO..ccconcccnononnnonnnoso 41
+4.1.4.3.1 Representación Cromosómica ...oocccccconccnccnorconccnncconcnorconccnonocnonos 41
+4.1.4.3.2 Estructura del Algoritmo Genético .....oooocccconccnnooccnnoncnnnonaccncnnonnnonos 43
+4.1.4.3.3 Operadores GenéticoS .....ooccccooccncoccncocnnoncnnnnonnnncnnnncnnnncnnnnonnnnonnnnnnninonos 45
+
+4,2 DISEÑO sesoovriia212 118 00Pv400838TSRRPIAETITERROAAA SELL EVEDRPA EE TTLEDITO SEVERA GER TERRIER ERE 49
+4.2.1 Descripción de Casos de USO ...oocoooccconcncncnnnnccnnncnnnnncnnonccnoncnnoncnnnncnonnnrnnncnnoncnnoninnnns 49
+4.2.2 Diagrama de Entidad Relación........cooocccoocnnoocnononnoncnnnoncnnoncnnnncnnnncnonacnnnnnnnnncnnoninnnns 50
+4.2.3 Diagramas de Secuencia ...coooccconcnconcnnonnnononnononnnoncnnoncnnonnnrnnnnrnnnnonnnnnnnnrnoncnnnnnnraninnnss 59
+4.2.4 Diagrama de Clases ...occcoocccoocncoocnonocnnncnnnnncnnoncnnoncnnoncrrnnrnrnnnnonnnnnonnnnonnrnonnrnnnnnrnnnnonos 97
+
+4.3 DESARROLLDO ...ccccoccccnconcnnonnonccncncnnonccnrnccnrornonornonsononnrnccnnncnnrcrocrcrnoncrncnunnnss 58
+4, PRUEBAS seq911228 0590704892819 PPOPAERTIPOPPUA RNE RLT FOTO A TP REL PPENA RSE ES FOPPPPTAN DERE PPP NTE NES T 63
+5. CONCLUSIONES Y TRABAJOS FUTUROS....occocccconocconocncnnccnnonoccnnnccnrocccroccnnonos 69
+5.1 CONCLUSIONES ..oocccococcnconcononnoncnncnconcnonncnncnronncrocncrnoncrncncrnoncocnrccnorocnonocnos 69
+2 TRABAJOS FUTUROS sssormorscrarorrna tE RIE POIONA TER ELPPPOPNA A VERE PPOPTRA NN REN OPERA VERTER 72
+
+BIBLIOGRAFÍA ..ooocoocnconnonnonononnoonocnnoonocnno nono nro nor nor nn rro nn rn nn ono r nono rn rr nnrnnr nc nnncncnnnons 73ÍNDICE FIGURAS
+
+FIGURA 1 FUNCIONAMIENTO ALGORITMO GENÉTICO SIMPLE ...ooccccnnoccnnnoccnnnanononioniconanicnnnanins 18
+FIGURA 2 AJAX coocccocccoccnnccnnconononnnnnnnonnncnnnnnnnronnnonnronnnrnnnnnnnrrnnrr nr rn nrr nn ren nrnnnnrnnrnnnnrnnnrnnnrenarenannns 20
+FIGURA 3 METODOLODÍA ICONIX oooccocccnnnnccnnnnccnnnnocononnncononnccnnnncnnnnnnononnncnnnnnncenonnranonanoneninens 22
+FIGURA 4 PANTALLA DE BIENVENIDA DE SIGUV ...ooocccccnncnncnnccnccnncnnnonononnconccnncnnrnnnonncnnronnnnnns 25
+FIGURA 5 REPORTE DE INGRESO DE VEHÍCULOS POR TIPO ..ooccccnncccnnnncnnnnncnnnnncnnnnnariconininoninoss 27
+FIGURA 6 REPORTE DE ACTIVIDADES DE USUARIO ..ooccconcccnonocononicononinonononocononacononacinonacononinens 27
+FIGURA 7 REPORTE GRÁFICO DE INGRESO DE VEHÍCULOS ..ooccccnnccnnnnncnnnnncnnnnncnnnonariconaninoninins 27
+FIGURA 8 REPORTE DE ESPACIOS OCUPADOS POR PARQUEADERO ..cooccccnnccnnnnconononononaniccnnninos 27
+FIGURA 9 REQUERIMIENTOS FUNCIONALES — MÓDULO UBICACIÓN ....occccnnccnnnnccnnnnnincnnnccnnnnniss 30
+FIGURA 10 PROTOTIPO - MÓDULO UBICACIÓN ...ccconocccnnnoccnonocnnonononononccnnnnncnnnnacannnarnnnnncnnnnninans 31
+FIGURA 11 PROTOTIPO - MÓDULO UBICACIÓN ...occoncccnnnocononocononononononocnnonocononacannnncnnnnncnnannncóns 31
+FIGURA 12 CASOS DE USO — MÓDULO DE UBICACIÓN ...ooccccnnnccnnnnccnoninonononccononocaconarinonaraconiniss 33
+FIGURA 13 CASO DE UsO EXTENDIDO — MÓDULO UBICACIÓN ...ooccccnnoccnnnoccnnnanononanccnnnnacnonanins 33
+FIGURA 14 PARQUEADERO CARREFOUR DE LA VO ..ooccccnnccnnnnccnnnncononnnonononocononacononacononocinonianinos 30
+FIGURA 15 PARQUEADERO CARREFOUR DE LA TO PASO l...oooccccnnccnnnnccnnnnncnonnnocanonacoconininonanins 36
+FIGURA 16 PARQUEADERO CARREFOUR DE LA TO PASO Z..oonccccnnccnnnnccnnnnncnnnnnonanonacaconininonaniss 36
+FIGURA 17 PARQUEADERO CARREFOUR DE LA 70 PASO Booococcnccnccnccnccnconcnncnncnnccnccnconccnconicnnos 37
+FIGURA 18 ESQUEMATIZACIÓN DISTRIBUCIÓN DE VEHÍCULOS EN UN PARQUEADERO ....ccoo.... 39
+FIGURA 19 DISTRIBUCIÓN DEL PARQUEADERO EN TIRAS ..cccoocccnnnccnnnincnononincnonocaconacaconorononiniss 40
+FIGURA 20 CROMOSOMA DEL PROBLEMA DE UBICACIÓN INDIVIDUAL ..oocccconcccnnniccnnniccononicinos 42
+FIGURA 21 EJEMPLO INDIVIDUOS VÁLIDOS PROBLEMA DE UBICACIÓN INDIVIDUAL ....ooccco..... 42
+FIGURA 22 CROMOSOMA DEL PROBLEMA DE UBICACIÓN TOTAL ..ccooccccnnnccnnnonononionononiniccnnnnons 42
+FIGURA 23 EJEMPLO INDIVIDUOS VÁLIDOS PROBLEMA DE UBICACIÓN TOTAL ..coooccnnnnccncnicin. 43
+FIGURA 24 EJEMPLO CRUCE UN PUNTO PARA UBICACIÓN TOTAL ...ooocccnnnccnnnnccnnnoninoninicinuninos 46
+FIGURA 25 EJEMPLO CRUCE UN PUNTO PARA UBICACIÓN INDIVIDUAL ...occccncccnnnioccnnnicinonincnss 46
+FIGURA 26 EJEMPLO CRUCE DOS PUNTOS PARA UBICACIÓN TOTAL ..0cconcccnnnccnnnnccnnnnocininincóns A7
+FIGURA 27 INCONVENIENTE CRUCE PARA UBICACIÓN TOTAL ...ooccccnncccnnnocnnnnonononaniccnnnccnnnanons 47
+FIGURA 28 EJEMPLO CRUCE CON REPARACIÓN PARA UBICACIÓN TOTAL ..ccooccccnnoccnnnoccnoninons 48
+FIGURA 29 EJEMPLO MUTACIÓN PARA UBICACIÓN TOTAL..oocccconccnnonccnnnnccnnonoconnnnacinonininoninens 48
+FIGURA 30 EJEMPLO MUTACIÓN PARA UBICACIÓN INDIVIDUAL ..occccncccnnnoccnnnononononcnonnniccnnnions 48
+FIGURA 31 DIAGRAMA ER ...ooccoccnccnccnccncnnccnccncnnccnconccnnoncnnnoncnnroncnncnnnnnnonncnnonnnnnnnnoncnncnnncncanicnnas 59
+FIGURA 32 DIAGRAMA DE SECUENCIA — UBICACIÓN TOTAL .0cccoocccnnnocnnnnoccnnnocanananccnnnanoconanins 56
+FIGURA 33 MODELO DEL DOMINIO UBICACIONAG ...occconcccnnnoconnnocnnonanonnnnncncnnnocanonarinonaciconaniss BT
+FIGURA 34 DIAGRAMA FLUJO PROCESO DE UBICACIÓN DE VEHÍCULOS...occcconcccncnioccnnnccononiconos 62
+FIGURA 35 EVOLUCIÓN POBLACIÓN INDIVIDUOS TAMAÑO Bb ..coooccccnnoccnonoccnnnocononnccnonanononaniss 66
+FIGURA 36 EVOLUCIÓN POBLACIÓN INDIVIDUOS TAMAÑO 9) ..cconcccnnnoccnnnoccnnnncnnnnanccnonaninonanins 67
+FIGURA 37 EVOLUCIÓN POBLACIÓN INDIVIDUOS TAMAÑO B4D...oocccnoncconcnccononocononinicnnonicnnnacins 67
+FIGURA 38 EVOLUCIÓN POBLACIÓN INDIVIDUOS TAMAÑO OD ..oocccccncccncnoccnnnococononcccnnnicnonanins 67ÍNDICE TABLAS
+
+TABLA 1 REPRESENTACIÓN CROMOSÓMICA DE LAS SOLUCIONES ..cocccnccnnccnnconoconiccnacnns 41
+TABLA 2 TAMAÑO DE LA POBLACIÓN INICIAL ...cooccnccnnccnnccnnocnnccnncnnnoconocanccnnrnnncnnconacnns 44
+TABLA 3 PENALIZACIONES DERIVADAS DEL PROCESO DE UBICACIÓN ...ccoccnncnnncnnnonanonos 45
+TABLA 4 OPERADORES DE CRUCE PARA EL PROCESO DE REPRODUCCIÓN ..cccocccnocnnnnoss 46
+TABLA 5 PRUEBA FUNCIONAL CREAR REGISTRO DE ENTRADA. .cocccnoccnnncnnnocnnacnnnacananoso 65
+TABLA 6 MEJORAMIENTO PROMEDIO DE LAS POBLACIONES DESPUÉS DE 10
+
+EJECUCIONES PARA EVALUAR LA REPRODUCCIÓN. ..occnccnnccnnccnnccnncnnncnnnccnaconocancnnaconicnns 65
+TABLA 7 MEJORAMIENTO PROMEDIO DE LAS POBLACIONES DESPUÉS DE 10
+
+EJECUCIONES PARA EVALUAR EL CRUCE. cccoccnnccnncnnncnnoconaconaconoonnnocnnocnnocnncnnnrcnnccnaccnacons 66
+TABLA 8 EVOLUCIÓN POBLACIÓN INDIVIDUOS TAMAÑO DBococccccnnccncnnncnnccnccnnconacanicnnonos 66
+TABLA 9 EVOLUCIÓN POBLACIÓN INDIVIDUOS TAMAÑO WD .occcnccnnccnnccnccnnconcnnacnnaconacnns 67
+TABLA 10 EVOLUCIÓN POBLACIÓN INDIVIDUOS TAMAÑO 340 ...cooccnnccnnccnioccnoconoconiccnnonos 67
+
+TABLA 11 EVOLUCIÓN POBLACIÓN INDIVIDUOS TAMAÑO 999 ¿00 occocncncncnnonononconononannanonos 67Resumen
+
+El presente trabajo de grado tiene como objetivo, implementar una herramienta que
+brindará apoyo tanto en el proceso de ubicación de vehículos como en la
+administración de la información de los mismos y de sus propietarios en La
+Inversora La 21, mediante un Sistema de Información Web que trabaja en conjunto
+con un Algoritmo Genético de ubicación. En cumplimiento a este objetivo, se
+realizó una investigación acerca de las técnicas evolutivas para el aprovechamiento
+del espacio disponible, de igual forma se realizaron reuniones y entrevistas con
+especialistas tanto en arquitectura como en el diseño de Algoritmos Genéticos los
+cuales asesoraron de forma correcta el procedimiento que se debía realizar para
+alcanzar esta meta. Igualmente es importante destacar el uso de las “TIC
+(Tecnologías de la información y comunicación) como herramientas de apoyo,
+dando cumplimiento al objetivo del presente trabajo de grado. Por tal motivo se
+realizó un Sistema de Información, manejando principios de diseño web y por ende
+asegurando el cumplimiento de principios básicos de navegabilidad, usabilidad y
+accesibilidad, garantizando que la interacción del usuario con ésta sea lo más
+agradable posible. Todo el proceso de elaboración de la aplicación se basó siguiendo
+una metodología de desarrollo ágil apropiada para asegurar todas las entregas en el
+
+tiempo establecido.
+
+Palabras clave: Algoritmo genético, técnicas evolutivas, TIC, navegabilidad,
+usabilidad, accesibilidad.Abstract
+
+This degree work has as a goal to implement a Web Tool that will support vehicles
+location process and the management of information for Inversora La 21, by using a
+Web Information System (WIS) that works together with a Location Genetic
+Algorithm (GA). In accordance to the goal, evolutionary techniques research was
+made for available space use, similarly meetings and interviews with specialist both
+architecture and designing GA which advised correctly the procedure should be
+performed to achieve this goal. Alike, it's important to emphasize the CIT
+(Communication and Information Technologies) use as a support tool, complying
+the degree work's goal. For this reason, an Information System was developed,
+handling web design rules and recommendations ensuring compliance with basic
+principles of navigability, usability and accessibility, making the users interaction
+as easy as possible with it. All the Information System development process was
+based on following a suitable agile methodology to ensure all deliveries in the set
+
+time.
+
+Key words: Genetic Algorithm, evolutionary techniques, CIT, navigability,
+
+usability, accessibility.1. INTRODUCCIÓN
+
+1.1 DESCRIPCIÓN GENERAL
+
+En la actualidad una adecuada gestión de la información se ha convertido en una pieza
+clave para la gestión empresarial, que va desde el simple hecho de registrar un dato a
+interpretarlo para que se convierta en información. Los sistemas de información han
+cobrado gran importancia al momento de brindar apoyo a los procesos relacionados con la
+administración de la información, ya que permiten realizar transacciones rápidamente y es
+posible configurarlos de acuerdo a la necesidad de cada empresa y aún más importante
+
+pueden brindar apoyo a la toma de decisiones sin importar el tamaño de la misma.
+
+Existen empresas dedicadas a la administración de parqueaderos, como es el caso del
+Consorcio de Servicios Integrados de Tránsito y Transporte de Tuluá Limitada (SITT
+Tuluá), Según la LEY No.099 DE 2008” éstas cuentan con espacios legalmente
+constituidos y autorizados para prestar servicio de estacionamiento de vehículos
+automotores de forma segura, dándole a los propietarios la tranquilidad de regresar y
+recibirlos en la mismas condiciones en que los dejaron, liquidando una tarifa previamente
+establecida por las autoridades competentes de acuerdo a las características tanto técnicas,
+como operativas del establecimiento y al tiempo en minutos que transcurrió desde el
+momento en que el vehículo ingresó al parqueadero. Para este tipo de servicio existen
+diversos productos de software en el mercado, que atienden necesidades para parqueaderos
+de poca capacidad, hasta parqueaderos inteligentes con tecnología de punta. Básicamente
+estos productos permiten registrar el vehículo, la hora de ingreso y hacer el cálculo de la
+
+tarifa al momento de salir del parqueadero, entre otros.
+
+Así, en La Inversora La 21, una empresa dedicada a la administración de parqueaderos en
+la ciudad de Cali, y que actualmente está vinculada con los organismos de tránsito
+municipales además de otros organismos para los cuales es de vital importancia contar con
+la información relacionada de los vehículos, los propietarios y el proceso relacionado con la
+inmovilización resultado de una infracción de tránsito o un accidente, se hace necesario el
+control desde el momento en que un vehículo ingresa a las instalaciones, hasta el momento
+que este sale de allí. Así mismo es importante para que estos organismos puedan
+
+determinar el tiempo que un vehículo debe permanecer inmovilizado e incluso determinar
+
+' Consorcio servicio integrado de tránsito y transporte ltda. SITT Tuluá. [En línea]. www.sitttulua.com/home/
+[Citado en 5de mayo de 2013]
+2 Congreso de Colombia. PROYECTO DE LEY No.099 DE 2008. Bogotá. 2008 [En línea]
+
+www.alonsoacosta.com/pdf/proyecto_099.pdf [Citado en 7de febrero de 2013]
+
+12en qué momento debe darse por terminado el proceso de inmovilización. Procesos que
+generan dificultades para La Inversora La 21 debido a que la mayoría de los vehículos que
+ingresan a sus instalaciones permanecen demasiado tiempo o en el peor de los casos nunca
+
+salen de allí.
+
+Por otra parte, gestionar el espacio disponible se ha convertido en un reto importante para
+prestar un servicio eficaz, sumado a la tarea de administrar la información relacionada con
+los procesos que ello implica, información no sólo de los vehículos sino también de las
+
+personas que son responsables de llevar a cabo estas actividades dentro de La Inversora La
+21.
+
+En este trabajo se estructura el desarrollo de un sistema de información para la gestión de
+la información en La Inversora La 21, así como el desarrollo de una aplicación basada en
+algoritmos genéticos que pueda mejorar el uso del espacio disponible dentro de las
+instalaciones para facilitar el proceso de ubicación y la disposición de una mayor cantidad
+
+de vehículos sin que esto comprometa la integridad física del vehículo.
+
+1.2 PLANTEAMIENTO DEL PROBLEMA
+
+1.2.1 Descripción del problema
+
+La Inversora La 21 es una empresa dedicada a la administración de parqueaderos y a la
+venta de vehículos usados en la ciudad de Cali, donde actualmente únicamente presta el
+servicio para los vehículos inmovilizados por parte del Centro de Diagnóstico Automotor
+del Valle del Cauca (CDAV?, de los organismos Judiciales y de Juzgados. La Inversora La
+21 cuenta con siete (7) parqueaderos que se encuentran ubicados en diferentes sitios de la
+ciudad de forma estratégica para facilitar a los funcionarios de las grúas el traslado de los
+
+vehículos.
+
+Pensando en las cifras, anualmente en Cali son inmovilizados cerca de 52.000 vehículos con
+un promedio mensual de inmovilizaciones de 4.358 vehículos, estadísticas para el año 2012
+según la Secretaría de Tránsito Municipal!, donde se pueden mencionar motocicletas,
+automóviles y autobuses. Por lo anterior, es posible concluir que La Inversora La 21
+maneja una gran cantidad de registros y es responsable de gestionar rápida y efectivamente
+
+información sobre lo mencionado.
+
+* Centro Diagnóstico Automotor del Valle ltda. CDAV. [En línea]. www.diagnosticentrodelvalle.com.co/portal /
+¡Citado en 5de febrero de 2013]
+
+* Conversación telefónica con Gloria Bonilla, Jefe del Departamento de Sistemas del CDAV. Cali, Marzo 4 de
+2013.
+
+13Actualmente La Inversora La 21 maneja diferentes registros manuales y a través de
+archivos Excel, donde se incluye información de los vehículos, propietarios y el motivo de
+la inmovilización, pues como mecanismo de control, es parte de sus responsabilidades
+suministrar los registros de entrada de los vehículos a los funcionarios del CDAV, para que
+
+se registren en su sistema.
+
+Así, la ausencia de mecanismos que corroboren la información suministrada, le representa a
+La Inversora La 21 gran pérdida y manejo inadecuado de esta información. Por ejemplo,
+durante el inventario del año 2012, se presentó un problema relacionado con
+aproximadamente 2000 vehículos registrados en el sistema del CDAV, que no se
+encontraban en las instalaciones de La Inversora La 21, otro escenario es donde los
+
+vehículos que se encuentran en el parqueadero no se encuentran registrados en el sistema
+
+del CDAV?.
+
+Los vehículos que ingresan a los parqueaderos deben tener como máximo 10 registros
+fotográficos, dentro de los cuales es posible destacar vista frontal, vista lateral derecha,
+vista lateral izquierda, vista trasera y vista de interiores, con las cuales se evidencia el
+estado en que se encuentran al momento del ingreso. Estos registros son almacenados en
+diferentes medios de almacenamiento (discos duros externos, memorias USB, CD's y
+DVD's) y su identificación es el número consecutivo generado automáticamente por la
+cámara fotográfica, pues La Inversora La 21 no dispone de mecanismos que permitan
+
+administrar las fotografías ni relacionarlas con los vehículos a los que pertenecen.
+
+El desconocer la importancia de la información histórica de los registros, ha traído a La
+Inversora La 21 problemas de diferente índole, dentro de los cuales se puede mencionar el
+congestionamiento de los parqueaderos debido a diferentes controles repentinos realizados
+por las autoridades de tránsito, así como el incremento de inmovilizaciones durante las
+temporadas de festividad (en temporada navideña los accidentes de tránsito aumentan
+hasta en un 30% en comparación con los meses anteriores, según la Secretaría de Tránsito
+Municipal”) y como resultado de esto, el aumento del personal, horas extra de trabajo y
+dificultad al momento de ubicar los vehículos (los vehículos son ubicados en cualquier
+parte dentro de los parqueaderos, generando problemas de hacinamiento), y como
+
+consecuencia, por ejemplo, para el año 2012 el inventario duró aproximadamente 30 días”.
+
+* Conversación personal con Diego Sánchez Ortiz, Representante La Inversora La 21. Cali, Febrero 2 de 2013.
+0 Accidentalidad Santiago de Cali. Secretaría de Tránsito y Transporte. [En
+línea].www.cali.gov.co/transito/publicaciones.php?id=39589 [Citado en 5 de abril de 2013]
+
+141.2.2 Formulación del problema
+
+¿Cómo administrar y controlar la información de La Inversora La 21 relacionada con los
+
+vehículos que ingresan?
+
+1.3 OBJETIVOS
+
+1.3.1 Objetivo General
+
+Desarrollar un sistema de información que permita administrar y controlar, la información
+
+de La Inversora La 21 relacionada con los vehículos que ingresan.
+
+1.3.2 Objetivos Específicos
+
+e Diseñar una base de datos que permita administrar la información generada en los
+
+procesos de ingreso y salida de vehículos en La Inversora La 21.
+
+e Generar reportes sobre el estado de los procesos de entrada y salida de los
+vehículos, tanto para el personal administrativo de La Inversora La 21, como para
+
+los organismos municipales y de tránsito.
+
+e Desarrollar e implementar un algoritmo genético, para ayudar a la toma de
+decisiones en la optimización de espacio físico del parque automotor de los vehículos
+
+que ingresan en la Inversora La 21, como el de reubicar todos los vehículos.
+
+e Diseñar una interfaz gráfica que refleje los resultados del algoritmo genético bajo un
+
+enfoque humano-computador.
+
+1.4 ESTRUCTURA DEL DOCUMENTO
+
+Con este apartado se finaliza el Capítulo 1 y se da inicio al Capítulo 2, seguido de los
+
+demás capítulos organizados de la siguiente manera:
+
+En el Capítulo2: Marco Referencial, se presenta el marco conceptual y los antecedentes
+sobre herramientas que dan solución a un problema relacionado con el que se propuso para
+este trabajo de grado, y que fueron desarrollados haciendo uso de los algoritmos genéticos
+
+para resolverlos.
+
+15En el Capítulo 3: Sistema de Información para la Gestión y Ubicación de Vehículos
+
+(SIGUV), se presenta los resultados obtenidos en el proceso de desarrollo.
+
+En el Capítulo 4: Aspectos del desarrollo, se muestran las diferentes fases cumplidas en el
+desarrollo y el proceso de ingeniería de software llevado a cabo para cumplir con los
+objetivos propuestos. Además se modelan y ejecutan varios escenarios de pruebas para
+medir la efectividad y pertinencia de la herramienta frente a los objetivos y requerimientos
+propuestos en el proceso de desarrollo. También se presentan los diferentes aspectos que se
+tuvieron en cuenta para dar solución al problema planteado, aspectos que permitieron
+
+modelar dicha solución de forma adecuada.
+
+Este trabajo finaliza con el Capítulo 5: Conclusiones y Trabajos futuros.
+
+162. MARCO REFERENCIAL
+
+2.1 MARCO CONCEPTUAL
+
+2.2.1 Computación Evolutiva
+
+La Teoría de la Evolución [2]
+
+Los algoritmos evolutivos (AE) parten de las ideas del modelo de evolución natural que fue
+propuesto por Charles Darwin. De acuerdo con la teoría de Darwin, la evolución de las
+especies se debe al principio de selección natural, que favorece la supervivencia y
+multiplicación de aquellas especies que están mejor adaptadas a las condiciones de su
+entorno. Otro elemento que Darwin señaló como relevante para la evolución son las
+mutaciones, o pequeñas variaciones que introducen diferencias en las características físicas
+y tipos de respuesta de los padres y los hijos. El mecanismo que fuerza la actuación de la
+selección es la producción de descendencia. Mientras hay abundancia de recursos, la
+población crece exponencialmente. Este proceso lleva a situaciones de escasez de recursos
+en el entorno, en la que los individuos “mejor adaptados” al medio tienen mayor
+
+probabilidad de sobrevivir y de dejar descendencia.
+
+Estas ideas están en la base del diseño de los algoritmos evolutivos. Sin embargo, los
+algoritmos evolutivos no tratan de ser un reflejo fiel de la evolución biológica. Se debe
+tener en cuenta que la naturaleza evoluciona a lo largo de millones de años, mientras que
+para los algoritmos es de interés que estos proporcionen una solución en un tiempo algo
+
+más corto.
+
+Algoritmos Genéticos (AG) [2]
+
+Algoritmos de búsqueda basados en los mecanismos de selección natural y genética natural.
+Combinan la supervivencia de los más compatibles entre las estructuras de cadenas, con
+una estructura de información ya aleatorizada, intercambiada para construir un algoritmo
+
+de búsqueda con algunas de las capacidades de innovación de la búsqueda humana.
+
+Principales Elementos de un AG |2]
+
+La ejecución de un Algoritmo Evolutivo (AE) requiere de una serie de parámetros de
+
+funcionamiento, como por ejemplo el tamaño de la población con la que va a trabajar, que
+
+17definen su comportamiento en promedio. Una vez que el algoritmo dispone de los valores
+para estos parámetros, comienza generando una población de individuos, cada uno de los
+cuales es un candidato a ser solución del problema tratado, o permite llegar a la solución a
+partir de él. A continuación la población de individuos se somete a un bucle de evolución
+cada uno de cuyos ciclos un proceso de selección, que modifica la composición de la
+población, eliminando a ciertos individuos y reforzando la presencia de otros, a un proceso
+de reproducción, que introduce nuevos individuos, y una nueva evaluación, que actualiza
+los datos de evolución, tales como la adaptación media de la población o la posición del
+
+mejor individuo de la población.
+
+Algoritmo Genético Simple [2]
+
+Selection
+-Q
+Recombinatio
+
+   
+
+Insertion O
+Mutation
+
+Figura 1 Funcionamiento Algoritmo Genético Simple
+
+Representación Cromosómica [19]
+
+Los individuos (posibles soluciones del problema), pueden representarse como un conjunto
+
+de parámetros (genes), los cuales agrupan una ristra” de valores (cromosoma).
+
+Existen distintos tipos de  codificaciones de las soluciones: binarias, simbólicas,
+
+permutacional, permutacional con repetición y la real.
+
+Ristra: es un conjunto de elementos de un mismo origen, unos a continuación de los otros, unidos
+
+frecuentemente con una guita o cordel. [En línea]. dic.academic.ru
+
+18Condiciones de Terminación |2]
+
+Es necesario especificar las condiciones en las que el algoritmo deja de evolucionar y se
+presenta la mejor solución encontrada. La condición de terminación más sencilla es
+alcanzar un determinado número de generaciones de evolución. Otras condiciones, que a
+veces se utilizan de forma combinada, son alcanzar una solución de una determinada
+calidad o detectar que la mayor parte de la población ha convergido de una forma similar,
+
+creciendo de la suficiente diversidad para que tenga sentido continuar con la evolución.
+
+Proceso de Selección de un AG [2]
+
+La población del algoritmo genético se somete a un proceso de selección que debe tender a
+
+favorecer la cantidad de copias de los individuos más adaptados.
+
+Proceso de reproducción de un AG |2]
+
+Operador de Cruce
+
+El operador de cruce combina propiedades de dos individuos de la población anterior para
+crear nuevos individuos que aparecen en cada nueva generación. Así el algoritmo genético
+
+va accediendo a nuevas regiones del espacio de búsqueda.
+
+Operador de Mutación
+
+El operador de mutación crea un nuevo individuo realizando algún tipo de alteración,
+
+usualmente pequeña, en un individuo de la población anterior.
+
+En muchos casos la mutación produce individuos con peor adaptación que los individuos
+originales, ya que la mutación puede romper las posibles correlaciones entre genes que se
+hayan formado con la evolución de la población. Sin embargo, contribuyen a mantener la
+
+diversidad de la población, que es fundamental para el buen funcionamiento del algoritmo.
+
+192.2.2 Tecnologías para la Web
+
+AJAX [83]
+
+XMLHttpRequest
+JAWASCRIPT
+
+ 
+
+Figura 2 AJax
+En realidad, el término AJAX es un acrónimo de Asynchronous JavaScript + XML, que se
+
+puede traducir como "JavaScript asíncrono + XML”.
+El artículo define AJAX de la siguiente forma:
+
+Ajax no es una tecnología en sí mismo. En realidad, se trata de varias tecnologías
+
+independientes que se unen de formas nuevas y sorprendentes.
+Las tecnologías que forman AJAX son:
+
+e XHTML y CSS, para crear una presentación basada en estándares.
+e DOM, para la interacción y manipulación dinámica de la presentación.
+e XML, XSLT y JSON, para el intercambio y la manipulación de información.
+
+e XMLHttpRequest, para el intercambio asíncrono de información.
+
+JavaScript, para unir todas las demás tecnologías.
+
+JAVASCRIPT [4]
+
+Es un lenguaje ligero e interpretado, orientado a objetos con funciones de primera clase,
+más conocido como el lenguaje de script para páginas web, pero también usado en muchos
+entornos sin navegador, tales como  node.js o Apache CouchDB. JavaScript es un lenguaje
+orientado a objetos dinámicos; tiene tipos y operadores, objetos básicos y métodos. Su
+sintaxis viene de los lenguajes Java y C, por lo que muchas de las estructuras de esos
+lenguajes se aplican también a JavaScript. Una de las principales diferencias es que
+JavaScript no tiene clases; En cambio, la funcionalidad de clase se consigue mediante
+
+prototipos de objetos. La otra diferencia principal es que las funciones son objetos, dando
+
+20funciones la capacidad para contener código ejecutable y se pasa alrededor como cualquier
+
+otro objeto.
+
+JQUERY [5]
+
+jQuery es una biblioteca rápida, pequeña y tica en funciones JavaScript, que permite
+realizar cosas como: manipulación, manejo de eventos, animación y Ajax mucho más
+simple con un API fácil de usar que funciona a través de una variedad de navegadores para
+documentos HTML. Con una combinación de versatilidad y capacidad de ampliación,
+
+¡Query ha cambiado la forma en que millones de personas escriben JavaScript.
+
+PHP [6]
+
+Acrónimo para "Hypertext Preprocessor'. (Es un acrónimo recurrente.) PHP es un
+lenguaje de programación web HTML incrustado. Esto significa que el código PHP se
+puede insertar en el código HI'ML de una página Web. Cuando una página PHP se accede,
+el código PHP se lee o se "analiza" por el servidor de la página donde reside. La salida de
+las funciones de PHP en la página se devuelven típicamente como código H'PML, que
+puede ser leído por el navegador. Dado que el código PHP se transforma en HT'ML antes
+de que se cargue la página, los usuarios no pueden ver el código PHP en una página. Esto
+hace que las páginas PHP sean lo suficientemente seguras para el acceso a las bases de
+
+datos y a otra información segura.
+
+Gran parte de la sintaxis de PHP es tomado de otros lenguajes como C, Java y Perl. Sin
+embargo, PHP tiene una serie de características únicas y funciones específicas también. El
+objetivo del lenguaje es permitir a los desarrolladores web escribir páginas generadas
+dinámicamente con rapidez y facilidad. PHP también es ideal para la creación de sitios
+
+web con bases de datos.
+
+SERVICIO WEB [7]
+
+Proporcionan un medio estándar de interoperabilidad entre diferentes aplicaciones de
+software, ejecutándose sobre una variedad de plataformas y/o Frameworks. Los Servicios
+Web se caracterizan por su gran interoperabilidad y extensibilidad, asi como tambien de
+sus descripciones procesables por máquina gracias al uso de XML. Éstos pueden
+combinarse de una manera imprecisa con el fin de lograr operaciones complejas. Los
+programas brindan servicios simples donde interactúan con el otro para la entrega
+
+sofisticada de servicios de valor añadido.
+
+21TUFÁAO WEBSERVICE [8]
+
+Tufáo es un Framework Web asíncrono para C++. Tufáo es un proyecto de código abierto
+bajo la licencia LGPL. La documentación, ejemplos y encabezados públicos están bajo la
+licencia MIT, lo que significa que cualquiera puede contribuir al desarrollo y mejoramiento
+
+de Tufáo, pudiéndose usar para cualquier proyecto comercial.
+
+2.2.3 Metodología de Desarrollo
+
+ICONIX [9]
+
+|
+
+AL
+008 |
+000
+J)
+14
+POIAA!
+E
+
+GU Storboard
+
+Model pa Diagram
+y FS
+
+" Robustress Diagrarn
+
+ 
+
+AL ABA
+
+ 
+
++ ode
+coa A
+y Domain Updated : : Tests
+' Model Domain Model Class Model
+
+Figura 3 Metodolodía ICONIX
+
+ICONIX es una metodología de software la cual combina RUP, Programación Extrema
+(XP) y desarrollo ágil de software. Como RUP, los procesos de ICONIX se basan en los
+casos recomendados por UML, pero más ligero que RUP. A diferencia de XP y de los
+acercamientos ágiles, ICONIX provee una documentación con suficientes requerimientos y
+diseño, pero sin dejar de lado el análisis. Los procesos de ICONIX utilizan únicamente
+cuatro diagramas basados en UML en cuatro pasos que transforma los casos de uso en
+código funcional. Los procesos de ICONIX, encajan en el medio de las metodologías RUP y
+
+XP si se considera RUP muy grande y XP muy pequeño.
+
+222.2 MARCO CONTEXTUAL
+
+El trabajo de grado se desarrolló tomando como referencia el caso de La Inversora La 21.
+Una entidad que opera en la ciudad de Santiago de Cali, Valle del Cauca y que tiene como
+finalidad la administración de parqueaderos de tránsito municipal, de organismos judiciales
+
+y de juzgados.
+
+Actualmente La Inversora La 21, cuenta con alrededor de 50 personas distribuidas en los
+diferentes parqueaderos entre los que se encuentran los administradores de patio, los
+digitadores, los jefes de patio, los auxiliares de patio y las personas encargadas del aseo”.
+En la sección 4.1.3 del capítulo que trata sobre los aspectos del desarrollo se especifican,
+quienes de ellos hacen parte de los usuarios del sistema y su participación dentro del
+
+MISMO.
+
+2.3 MARCO DE ANTECEDENTES
+
+COURT-SOFT [10]
+
+Es un producto que ofrece a los clientes beneficios tales como: realizar cálculos en pocos
+segundos que podrían demorar horas si fueran realizados normalmente, analizar el
+desperdicios de material, agilizar presupuestos, verificar con rapidez la cantidad del
+material (telas), necesario para la producción, reducción en los costos de las existencias, ya
+que la mejor administración y el aprovechamiento de los materiales disponibles facilita la
+comunicación entre las personas involucradas con la producción y el corte de las piezas,
+economizando tiempo, reduciendo errores en el corte, el soporte será fácil y rápido, no
+
+exige entrenamiento especial y tiene un costo bajo con relación a productos similares.
+
+Funciones:
+
+e El software señala la cantidad del material necesario para la confección de cierto
+producto, e informa dependiendo de lo elegido en qué puede ser elegido el sobrante
+
+de esta selección.
+
+o Cada vez que se da inicio a la producción de cierto textil el software descuenta
+del STOCK el material retirado del almacén y ofrece alternativas en la toma de
+
+decisiones.
+
+23HERRAMIENTA COMPUTACIONAL QUE PERMITA LA
+APLICACIÓN DE ALGORITMOS GENÉTICOS EN EL PROCESO DE
+DISTRIBUCIÓN AUTOMÁTICA DE USOS Y ESPACIOS EN
+PROYECTOS ARQUITECTÓNICOS PARA LA CONSTRUCCIÓN DE
+APARTAMENTOS [11].
+
+El problema de distribución automática de usos y espacios en proyectos arquitectónicos
+para la construcción de viviendas, apartamentos e inclusive plantas de edificios, se ha
+tratado de resolver desde hace un buen tiempo. Es por esta razón, que es de interés de este
+proyecto el desarrollo de un sistema que permita a través de la lógica proporcionada por
+los algoritmos genéticos, proporcionar diversas soluciones al problema de manera
+automática, para lo cual se deberá determinar los mecanismos y/o métodos apropiados que
+
+puedan ayudar a representarlo de una manera adecuada.
+
+243. SISTEMA DE INFORMACIÓN PARA LA GESTIÓN Y UBICACIÓN
+DE VEHÍCULOS
+
+En el presente capítulo se propone SIGUV para facilitar la ubicación y administración de
+vehículos. SIGUV es una herramienta web que combina las funcionalidades de un
+Algoritmo Genético de ubicación y un sistema de información Web, con la capacidad de
+
+comunicarse mediante los Servicios Web.
+
+Hola, manolo A Simple Admin Dashboard
+
+O Mi Cuenta
+
+ATT BIENVENIDO A SIGUV
+
+Lia)
+
+Módulo de Usuarios
+
+Módulo de Registro
+
+Porcentaje del Número de Inmovilizaciónes
+
+AO te] KM Judiciales
+KM Juzgados
+
+MASAS KM Tránsito
+
+Módulo de Reportes
+
+Mt)
+
+ 
+
+A ES
+
+  
+
+Su Mo Tu We Th Fr Sa
+
+1 2 3 o
+
+5 6 Mi 8 9 10 11
+
+12 14 15 16 17 18
+
+19 20 21 22 23 24 25
+
+Figura 4 Pantalla de Bienvenida de SIGUV
+
+La interfaz principal de SIGUV se compone de seis paneles: (1) Módulo de Perfiles donde
+se visualizan los permisos para los usuarios, (2) Módulo de Usuarios donde se permite
+crear, modificar, consultar, visualizar y deshabilitar los usuarios del sistema, (3) Módulo de
+Registro donde se registra la información tanto del vehículo como la del propietario,
+además de cargar los registros fotográficos para evidenciar el estado de ingreso de dicho
+vehículo. También se permite registrar la salida y la consulta de los registros vehiculares
+(4) Módulo de Ubicación permite tanto la ubicación individual como la Ubicación Total de
+los vehículos dentro de los parqueaderos, además de la consulta de espacios disponibles y la
+ubicación de un vehículo en particular (5) Módulo de Parqueaderos, donde se ingresan la
+ubicación y tamaño de las estructuras que puedan afectar en la disposición de los vehículos
+(Baños, oficinas, bodegas, etc) (6) Módulo de Reportes se generan los reportes estadísticos
+de los procesos de entrada y salida de vehículos, así como también del control de usuarios
+
+(7) Módulo de Inventarios donde se crean los inventarios y se añaden las existencias.
+
+25SIGUV realiza el proceso de ubicación vehicular mediante el uso del Algoritmo Genético
+UbicaciónAG el cual se ejecuta por medio de Tufáo WebService. Para su ejecución es
+necesario proporcionarle el identificador del proceso que desea realizar, siendo O para el
+proceso de Ubicación Total y 1 para el de Ubicación Individual. Para el primer caso es
+necesario enviarle desde el Sistema de información en el Módulo de Ubicación, el
+identificador del parqueadero. Para el segundo caso, el identificador del parqueadero y la
+placa del vehículo que se desea ubicar. De esta forma el algoritmo realiza las consultas
+necesarias sobre el servidor para obtener la información dimensional necesaria y así
+gestionar la ubicación a partir de las técnicas evolutivas, que en este caso se refiere a la de
+los algoritmos genéticos. Este algoritmo se compone de 12 clases: (1) MainAG, (2)
+RepresentacionAG, (3) OperadoresAG, necesarias para codificar los cromosomas, realizar
+las operaciones genéticas y ejecutar el algoritmo genético. (4) TufaoConnectionHandler, (5)
+PreparadorDatosAG, que permiten controlar las peticiones http y obtener los datos
+necesarios para la ejecución. (6) Parqueadero, para representar cada uno de los
+parqueaderos, haciendo uso de las estructuras (7) ItemRestringido, (8) EspacioCirculacion,
+
+(9) EspacioLibre, (10) Vehiculo, que representan los espacios que contiene el parqueadero.
+
+Reportes del sistema
+
+Un objetivo importante es la generación de reportes sobre el estado de los procesos de
+entrada y salida de vehículos. SIGUV contiene un módulo de reportes que permite
+visualizar la información relevante sobre dichos procesos, a través de una lista de opciones
+sobre la cual el usuario escoge si se desea obtener información de los procesos de entrada y
+salida, de la ubicación o de los usuarios del sistema. Esta funcionalidad se encuentra activa
+
+para usuarios administradores y usuarios digitadores.
+
+Los usuarios además de visualizar la información a través de tablas, también pueden
+observar gráficos estadísticos sobre el estado de los procesos. Del mismo modo SIGUV
+
+ofrece la posibilidad de generar los reportes en formato pdf.
+
+A continuación se muestran algunos de los reportes generados.
+
+26REPORTE DE INGRESO DE VEHÍCULOS POR TIPO
+
+Parqueadero : La 21
+
+INVERSORA LA 21
+NIT. 944272722
+
+Fecha: 2014/11/22
+Hora: 2:35:45
+
+Fecha: Desde 2010-09-09 hasta 2010-09-16
+
+ 
+
+Placa
+AGE502
+
+AQI7OO
+
+Tipo Vehiculo
+Automóvil
+Automóvil
+
+Marca
+Alfa Romeo
+Chevrolet
+
+Modelo
+1970
+
+1966
+
+Fecha
+
+2010-09-16
+2010-09-15
+
+Motivo
+Tránsito
+Juzgados
+
+ 
+
+ARH130
+
+Automóvil
+
+BMW
+
+1964
+
+2010-09-16
+
+Juzgados
+
+ 
+
+ARN423
+
+Automóvil
+
+Changhe
+
+1985
+
+2010-09-15
+
+Tránsito
+
+ 
+
+ATB559
+ATD186
+ATE265
+
+Automóvil
+Automóvil
+Automóvil
+
+Citroen
+BMW
+Changhe
+
+1966
+1965
+1954
+
+2010-09-15
+
+2010-09-16
+2010-09-10
+
+Juzgados
+Juzgados
+Judiciales
+
+ 
+
+BBL361
+BEU251
+
+Automóvil
+
+Automóvil
+
+Chery
+
+Alfa Romeo
+
+2006
+1965
+
+2010-09-10
+2010-09-10
+
+ 
+
+BFM319
+
+Automóvil
+
+Alfa Romeo
+
+1978
+
+2010-09-10
+
+Judiciales
+Judiciales
+Judiciales
+
+ 
+
+BFYTT5
+
+Automóvil
+
+Brilliance
+
+1970
+
+2010-09-16
+
+Judiciales
+
+ 
+
+BFZ304
+BGQ908
+BGX690
+
+Automóvil
+Automóvil
+
+Automóvil
+
+Brilliance
+Audi
+Alfa Romeo
+
+1965
+1977
+1980
+
+2010-09-10
+
+2010-09-15
+2010-09-10
+
+ 
+
+BIL509
+
+Automóvil
+
+BYD
+
+1966
+
+2010-09-15
+
+Tránsito
+Juzgados
+Judiciales
+Judiciales
+
+ 
+
+ 
+
+BJB878
+
+Figura 5 Reporte de ingreso de vehículos por tipo
+
+ 
+
+Automóvil
+
+ 
+
+Alfa Romeo
+
+1988
+
+ 
+
+ 
+
+2010-09-10
+
+Judiciales
+
+ 
+
+ 
+
+INVERSORA LA 21
+NIT, 944272722
+
+BITACORA DEL USUARIO
+
+Esta tabla conbene en detalle. Las actadades realizadas por el usuano
+
+ACI
+
+Cos [ns] pee] | et
+EI
+
+SOM? | 22811
+
+EA A
+
+ 
+
+Figura 6 Reporte de actividades de usuario
+
+INVERSORA LA 21
+NIT, 94272722
+
+Fora AMAS
+Hora 173545
+
+REPORTE DE INGRESO DE VEHÍCULOS Fecha 2014111122
+
+Hor TAT2
+Porcentajes de ingreso de vehículos por motivo de Ingreso
+
+REPORTE DE ESPACIOS OCUPADOS POR PARQUEADERO
+
+Dagrera de Torta
+
+Parqueadero: La 21
+
+1.
+A jubceies Y pegados Y rie
+
+Cantidad de vehículos ingresan por Parqueadero
+
+Diagrama de Barras
+
+La 215 La 21 N La 32
+
+200
+
+Las coordenadas 1 y y se expresan en metros a lo anono y largo del parqueadero.
+
+ 
+
+Figura Y Reporte Gráfico de ingreso de vehículos Figura 8 Reporte de espacios ocupados por
+
+parqueadero
+
+273.1 SERVICIO WEB
+
+Si bien el problema de optimización de los espacios disponibles es en sí, lo más
+destacado en este trabajo de grado, no se puede dejar de lado la comunicación del
+Sistema de Información Web con el Algoritmo Genético desarrollado en lenguaje
+nativo. Debido a estos requisitos especiales, se hizo necesario para SIGUV, establecer
+la interfaz donde los sistemas interactúen sin la necesidad de utilizar un mecanismo
+para la activación de dicha interfaz de comunicación únicamente en los momentos en
+
+que la ubicación de un vehículo o la reubicación un parqueadero se hiciera necesario.
+
+Es por esto que se optó por Tufáo webservice, un Framework Web asíncrono para
+C++, facilitando así, primero, el acoplamiento con el back-end (Algoritmo Genético),
+segundo, el mecanismo de enrutamiento el cual se construye tomando dos clases: La
+interface AbstractHttpServerRequestHandler y la clase HttpServerRequestRouter, las
+cuales permiten al usuario la construcción de enrutamientos anidados y el uso de la
+misma ruta para diferentes combinaciones filtrando el Path y pasándole al
+controlador la petición, y por último, Tufao cuenta con un plugin basado en Servidor
+de Aplicaciones, el cual brinda la disponibilidad del servicio del Framework las 24
+horas del día, haciéndose innecesaria la activación previa del servicio por parte del
+
+usuario final.
+
+284. ASPECTOS DEL DESARROLLO
+
+En el presente capítulo se expone el proceso de desarrollo de la aplicación y se
+documenta la misma. Se presentan las diferentes tecnologías utilizadas para la
+
+implementación de la herramienta.
+
+El desarrollo realizado en el presente trabajo de grado, se llevó a cabo siguiendo las
+directrices de la metodología de desarrollo ágil ICONIX. Como metodología que sigue
+el manifiesto ágil, ICONIX define reglas para la gestión de las iteraciones en el
+proceso de desarrollo, estas reglas están definidas como: análisis, diseño, desarrollo y
+
+pruebas.
+
+Se eligió la metodología de desarrollo ICONIX por las características del proyecto de
+software y la necesidad de un prototipado constante. Por otro lado, dicha
+metodología ofrece una documentación suficiente en la fase de análisis y diseño del
+proyecto, ofreciendo trazabilidad y adaptabilidad para equipos de proyecto poco
+experimentados y con estilos de trabajo diferente; sigue un enfoque incremental, por
+lo que es posible modularizar el trabajo con entregas puntuales y funcionales. Á pesar
+de que ICONIX presenta desventaja al necesitar información rápida y puntual de los
+
+requisitos, el diseño y las estimaciones, el equipo de proyecto tiene claridad en los
+
+requisitos de SIGUV.
+
+Una de las ventajas por las que también se escogió ICONIX como metodología de
+desarrollo, es que al permitir la modularización del trabajo, el equipo de desarrollo se
+puede adaptar a la curva de aprendizaje que representa el algoritmo genético y sus
+
+conceptos.
+
+4.1 ANÁLISIS
+
+ICONIX define para el proceso de análisis una planeación iterativa e incremental,
+por lo que tiene como artefactos: la especificación de requerimientos, el modelo del
+
+dominio, prototipación rápida y el modelo de casos de uso.
+
+Con el propósito de dar claridad al desarrollo y dividir el trabajo entre los
+desarrolladores, gracias a la modularización que permite ICONIX, se plantearon
+módulos independientes que dieran solución a uno o varios requerimientos y a su vez,
+para que el desarrollo se diera de forma incremental, se decidió clasificar los módulos
+
+de básicos a complejos. A partir de esta clasificación se jerarquizaron los módulos y
+
+29se implementaron inicialmente los módulos con requerimientos más simples para
+
+soportar las iteraciones con módulos más elaborados.
+
+4.1.1 Especificación de los Requerimientos
+
+Se definió la especificación de requerimientos para establecer el alcance de la
+aplicación. Con las necesidades determinadas por los requerimientos se delimitó el
+alcance de la aplicación y se estimó una aproximación clara de las funcionalidades
+para dar cumplimiento a los objetivos propuestos. En la tabla 1 se muestran los
+
+requerimientos funcionales del módulo de ubicación.
+
+SIGUW Documento: ER-0001
+150-2001 Universidad del Valle
+
+Especificación de Requisitos Funcionales Cliente
+
+Analistas Responsables: Manuel Salvador Cárdenas
+Joel Andrés Giraldo
+
+5. Módulo de Ubicación
+
+El sistema en el módulo de ubicación de
+vehículos, deberá ofrecer al usuario una opción
+mediante la cual pueda calcular la ubicación de
+los vehículos a ingresar.
+
+El sistema en el módulo de ubicación de
+vehículos, deberá ofrecer al usuario una opción
+
+mediante la cual pueda reubicar la totalidad de
+los vehículos dispuestos en un parqueadero.
+
+El sistema en el modulo de ubicación de
+vehículos, deberá ofrecer al usuario una opción
+mediante la cual pueda visualizar la ubicación de
+un vehículo a partir de la placa de éste.
+
+El sistema en el módulo de ubicación de
+vehículos, deberá ofrecer al usuario una opción
+mediante la cual pueda visualizar los espacios
+disponibles para ubicar vehículos en un
+parqueadero.
+
+El sistema en el módulo de ubicación de
+vehículos, deberá ofrecer al usuario una opción
+mediante la cual pueda mostrar en forma gráfica
+la posible ubicación de los vehículos a ingresar.
+
+ 
+
+e La elección de los vehículos a ubicar se realiza mediante un combo box.
+
+*  Elcálculo para la ubicación de cualquier vehículo se realiza mediante el algoritmo
+genético.
+
+* El cálculo para la reubicación de pargueaderos se realiza mediante el algoritmo
+genético.
+
+e.  Elsistema debe almacenar los cálculos del algoritmo genético en la Base de Datos
+previamente establecida.
+
+Figura 9 Requerimientos funcionales — Módulo Ubicación
+
+30El documento completo de especificación de requerimientos está contenido en el
+
+archivo anexo a este documento llamado Anexo C.
+
+4.1.2 Prototipación Rápida
+
+El diseño de prototipos es una técnica popular utilizada para desarrollar modelos a
+escala de un producto o sus componentes. Para SIGUV se utilizó el prototipo de
+diseño, el cual tiene como finalidad simular el diseño del sistema de información en
+
+su versión final, centrándose en la forma y el funcionamiento deseado.
+
+ 
+
+SIGUAY usemame
+
+MODULO DE UBICACIÓN
+
+ 
+
+Consultar Ubicación Consultar Ubicación
+Consultar Espacios Introduzca la placa del vehículo que desea consultar
+Placa
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Buscar | | Salir
+Figura 10 Prototipo - Módulo Ubicación
+SIGUI? usemame >
+MODULO DE UBICACIÓN
+Consultar Ubicación Visualizar Ubicación
+Consultar Espacios Registro
+Pargueadero
+== q |
+| - | |
+Consultar Salir
+
+ 
+
+ 
+
+ 
+
+Figura 11 Prototipo - Módulo Ubicación
+
+31El documento completo de especificación de requerimientos está contenido en el
+
+archivo anexo a este documento llamado Anexo G.
+
+4.1.3 Modelo de Casos de Uso
+
+Los usuarios del sistema se especifican a continuación, así como el perfil asociado y
+
+su interacción con las diferentes funcionalidades que el sistema ofrece.
+
+Usuario Administrador: Persona encargada de planear estratégicamente el
+trabajo que se realiza en los parqueaderos, así como controlar el trabajo realizado por
+
+los empleados que laboran en los parqueaderos.
+
+Los usuarios con el perfil Administrador tendrán todos los privilegios del sistema y
+podrán interactuar con él, llevando a cabo tareas de: administración de perfiles,
+creación y administración de usuarios, registro de entrada y salida de vehículos, así
+como de ubicación. Del mismo modo podrán generar reportes del sistema y hacer
+
+inventarios.
+
+Usuario Digitador: Persona encargada de digitalizar y actualizar la información
+de las inmovilizaciones, así como atender a los usuarios y generar los respectivos
+
+inventarios de inmovilización.
+
+Los usuarios con el perfil Digitador son los usuarios más comunes del sistema y
+tienen en parte los mismos privilegios que los usuarios con perfil administrador, salvo
+
+que los de perfil Digitador no podrán administrar perfiles de usuario.
+
+Usuario Jefe de Patio: Persona encargada de dirigir el trabajo realizado por los
+auxiliares de patio al interior del parqueadero. Un Auxiliar de Patio es la persona
+encargada de recibir y entregar los vehículos automotores inmovilizados además de
+
+disponerlos manualmente en el parqueadero.
+
+El usuario con el perfil Jefe de Patio tendrá privilegios limitados, que se traduce a
+poder visualizar los diferentes espacios dentro de un parqueadero y la ubicación de
+
+vehículos.
+
+Al haberse definido los usuarios del sistema, se presenta el modelo de caso de uso
+para el módulo de ubicación, cuyo diagrama comprende los actores, el sistema y sus
+
+acciones, examinando así las necesidades funcionales para cada actor.
+
+32Ubicar Wehículos
+
+  
+    
+   
+   
+  
+
+Reubicar
+
+Wehiículos SH
+Degitador
+
+Consultar
+Espacios
+
+' Consultar LL
+
+ 
+
+  
+   
+
+Ubicación
+
+ 
+
+Figura 12 Casos de Uso — Módulo de Ubicación
+
+Para entender realmente cuales son las necesidades funcionales de cada actor, se hizo
+necesario realizar el diagrama extendido. Para el módulo de ubicación, el diagrama
+
+extendido se presenta a continuación:
+
+Ubicar Vehículos <<Include>>
+Reubicar Vehículos
+
+ 
+
+ 
+
+   
+
+/
+
+   
+ 
+  
+
+<<Include>>"
+
+/
+/
+/
+/
+
+Consultar
+Espacios
+
+Figura 13 Caso de Uso Extendido — Módulo Ubicación
+
+<<Include>>_ (cas A o
+t —
+
+<<Include>>
+
+ 
+
+ 
+
+El documento completo de los modelos de casos de uso está contenido en el archivo
+
+anexo a este documento llamado Anexo F.
+
+4.1.4 Modelamiento de la Solución
+
+4.1.4.1 Dimensionalidad de los espacios
+
+334.1.4.1.1 Identificación y descripción de los espacios
+
+Los espacios, son los lugares que se distribuyen sobre el parqueadero y que tienen
+como finalidad contener o servir para estacionar algo. Cada espacio está destinado a
+
+un fin específico y cuenta con dimensiones propias de largo y ancho.
+
+A continuación se definen los espacios de acuerdo a lo que para el caso de este
+
+trabajo de grado se refiere:
+
+Parqueadero: Es el área total sobre el que se destinan las demás áreas definidas en
+
+esta sección.
+Espacio Vehicular: Area destinada al estacionamiento de un vehículo.
+
+Espacio Restringido: Área que ocupa un espacio destinado a alguna actividad
+específica dentro del parqueadero; entendiéndose por espacio restringido a un baño,
+oficina, bodega o cualquier otro espacio tangible y que no puede ser ocupado por un
+objeto. Un espacio restringido puede referirse también a las áreas que conforman la
+irregularidad del terreno o lo delimitan y que de igual manera no se pueden ocupar
+
+por aleún objeto.
+
+Espacio de Movilidad: Area destinada a la circulación de vehículos, objetos o
+personas al interior de un parqueadero, las mismas que sirven para dar ingreso y
+
+salida a los automotores.
+Espacio Libre: Area que ocupa un lugar en el parqueadero, pero que aún no se ha
+
+dispuesto para ubicar algo. Estas áreas pueden disponerse para los vehículos o
+
+espacios de movilidad.
+
+4.1.4.1.2 Dimensión de los espacios
+
+Para establecer la dimensionalidad de los espacios previamente definidos para este
+trabajo de grado, se hizo necesario que cada uno de ellos se trabajara como un
+espacio rectangular con el fin de poder realizar un tratamiento más adecuado y que
+
+la solución se modelara de una mejor manera.
+
+Parqueaderos y Espacios Restringidos
+
+34Para tratar los terrenos irregulares que presentan los parqueaderos de La Inversora
+La 21, se obtuvieron los mapas de GoogleMaps [12]. Estos se guardaron como
+archivos de imagen y posteriormente fueron editados en AutoCAD 2014 [13],
+
+aplicando lo que a continuación se describe:
+
+Para este caso, se tomó la imagen original que se guardó del Parqueadero Carrefour
+de la 70.
+
+ 
+
+Figura 14 Parqueadero Carrefour de la 70
+Pasol. Se traza el contorno que delimita el parqueadero. Este contorno se traza
+
+formando un área rectangular, debido a que para este trabajo de grado se usaron
+
+espacios con forma rectangular.
+
+35Figura 15 Parqueadero Carrefour de la 70 Paso 1
+
+7
+a
+Q
+y
+o
+—a
+4
+e
+O
+=
+—
+]
+
+DERIO
+
+Paso2. En seguida, se traza una cuadrícula que cubra el área del parqueadero.
+
+E ATL aldea delo!
+
+TT AS
+
+1] EJ m7
+MALA LELLTLS
+
+aL am
+mr
+
+]
+)
++] mo
+MEL
+
+1
+"TC
+
+en
+EL
+Y
+
+13
+MOTA
+LE
+
+ARMA
+AA LAA AA E
+
+LL
+
+Figura 16 Parqueadero Carrefour de la 70 Paso 2
+
+36
+
+La
+
+NAAA
+
+ 
+
+dlPara determinar la distancia que separa cada cuadrícula, se tuvo en cuenta la
+longitud mínima útil para ubicar un vehículo”; en este caso la que puede ser ocupada
+por una motocicleta, que es de 75 centímetros de ancho. Por lo que se definió 1
+metro como distancia mínima (teniendo en cuenta que se proporciona una holgura a
+
+cada ubicación que permite desplazar el vehículo sin producir daños a otros), y por
+
+consiguiente a los lados de cada cuadro en la cuadrícula se le asigna la misma
+proporción.
+
+Paso3. Con ayuda de las herramientas de sombreado que ofrece AutoCAD, se cubren
+
+las áreas que no hacen parte del parqueadero, así mismo como aquellas áreas que se
+consideran restringidas.
+
+a e e a
+
+AAA A]
+
+=>
+HA
+LA
+
+TN”
+AA
+
+Elda
+MS
+1
+SAS
+113
+ci
+
+ 
+
+Figura 17 Parqueadero Carrefour de la 70 Paso 3
+
+Paso4. Se definen las coordenadas, el alto y ancho de cada una de las áreas del paso
+
+anterior y se almacenan como parte de los datos que son esenciales para que la
+aplicación funcione.
+
+Los diseños de los demás parqueaderos se encuentran incluidos a detalle en el
+
+archivo anexo a este documento llamado Anexo J.
+
+* Para la dimensión de los vehículos, se tuvo en cuenta las dimensiones que se encuentran establecidas
+en el capítulo Automóviles del libro Arte de proyectar en arquitectura de Neufert [14].
+
+37Espacio Vehicular
+
+Es importante destacar que para el presente trabajo de grado se utilizaron sólo
+dimensiones enteras, lo que se acopla a los requerimientos del problema, dado que se
+necesita proporcionar una holgura a las dimensiones de estos espacios que permitan
+ubicar los vehículos sin problemas y sin que causen daños a otros vehículos. De esta
+manera, si la dimensión de un vehículo es de 0.75 metros la dimensión del espacio
+
+vehicular es de 1 metro.
+
+La tabla con la dimensión de los vehículos se encuentran incluidas en el archivo
+
+anexo a este documento llamado Anexo K.
+
+4.1.4.2 Restricciones Del Problema
+
+En el problema de ubicación de vehículos, se encontraron algunos problemas
+adicionales a los de ubicación, y a los que fue necesario tratar adecuadamente para
+dar solución al problema central. Para ello se definieron las diferentes restricciones a
+tener en cuenta a la hora de llevar a cabo el proceso de ubicación de vehículos, unas
+relacionadas con los espacios ya establecidos sobre el parqueadero y otras con la
+
+movilidad al interior de los mismos.
+
+4.1.4.2.1 Restricciones de Espacios
+
+Ítems restringidos
+
+Los ítems restringidos hacen referencia a los espacios restringidos que se encuentran
+ubicados dentro de un parqueadero y que fueron definidos al inicio de este capítulo.
+
+Esto con el fin de acercar la solución al problema real.
+
+4.1.4.2.2 Restricciones de Movilidad
+
+Una variable muy importante a tener en cuenta a la hora ubicar los vehículos en los
+parqueaderos, es la de movilidad. Se debe asegurar que tanto el ingreso como la
+salida de los vehículos puedan llevarse a cabo sin dificultades, así mismo que sea
+
+posible para los funcionarios realizar actividades propias de su labor dentro de los
+
+38parqueaderos, como lo son: las inspecciones y el inventario. A continuación se
+
+precisan detalles de las restricciones de movilidad del problema:
+
+Vía de acceso en el parqueadero
+
+Para garantizar que sea posible tener acceso a los espacios a lo largo de cada
+parqueadero, se define para cada uno de ellos, una configuración en espina de
+pescado [15]. A la cual el nombre se le atribuye por su parecido con el esqueleto de
+un pescado, en donde todas las espinas (tiras) están conectadas con la vértebra
+
+central.
+
+Vías de circulación entre tiras
+
+Es necesario hacer posible que los vehículos cuenten con un espacio apropiado que les
+permita salir del sitio donde se encuentran ubicados y movilizarse hasta la vía central
+(espina de pescado), para que de esta manera pueda movilizarse por el parqueadero y
+acceder o salir de él. Cada espacio que se destine para esta finalidad, se definirá de
+
+acuerdo a los radios de giro especificados en el capítulo de vehículos del libro de
+
+Neufert [14].
+
+Estrategia de distribución en el parqueadero
+
+Para llevar a cabo el proceso de distribución de los vehículos en el parqueadero,
+siendo el caso de Ubicación Total, éstos se ubican de manera que la distribución se
+inicia desde el fondo del parqueadero, hacia la entrada del mismo. Como lo muestra
+
+la siguiente figura.
+
+ies pat]
+
+ 
+
+Figura 18 Esquematización distribución de vehículos en un parqueadero
+
+39Para este trabajo de grado, el esquema de distribución de vehículos en los
+parqueaderos, toma como referencia el introducido por Baker [16] Bottom Left
+heuristics. El cual ordena los objetos de acuerdo a su área. Los objetos son ubicados
+luego sobre las coordenadas posibles inferiores a la izquierda, pero para el caso de
+estudio, los vehículos no se ordenan de acuerdo a su área sino al orden en que van
+
+ingresando al parqueadero, además de situarlos en la parte superior izquierda.
+
+Tiras
+
+La configuración para la disposición de los vehículos se hace formando un ángulo de
+90? con la superficie base de ubicación. Esta disposición se eligió teniendo en cuenta
+que permite aplicar el esquema de los algoritmos de nivel [17] utilizados para resolver
+del problema del Strip Packing Problem 2D propuesto por Baker en [14], y que
+consiste en empaquetar pequeñas piezas que se asumen son rectangulares, sin
+sobreponerlas sobre las tiras rectangulares abiertas, con un acho definido y una
+altura infinita. De esta manera es posible dividir el terreno en tiras (niveles), donde
+su altura la define la altura del rectángulo (vehículo) más alto dispuesto en un nivel
+
+(tira) anterior.
+
+En el momento en que se finaliza una tira y antes de comenzar una nueva, se verifica
+la dimensión de giro que requiere el vehículo de mayor longitud situado en la tira que
+acaba de finalizar, de esta manera, se logra situar una tira vacía justo debajo de la
+tira que se finaliza y encima de la tira que se va a crear, la misma que servirá de
+
+espacio de circulación para los vehículos.
+
+A continuación se visualiza dicho proceso.
+
+00 * Tira de Wehículos
+
+| Tira de Circulación
+
+ 
+
+Figura 19 Distribución del parqueadero en tiras
+
+404.1.4.3 APLICACIÓN DEL ALGORITMO GENÉTICO
+
+Para este trabajo de grado se abordaron dos situaciones relacionadas con la ubicación
+
+de vehículos a las cuales se les buscaba dar solución a partir de algoritmos genéticos.
+
+La primera, la más común y que se experimenta a diario en La Inversora La 21.
+Determinar la ubicación donde se debe disponer uno a uno los vehículos que
+ingresan; para este caso se debe determinar la ubicación adecuada para un solo
+
+vehículo.
+
+La segunda, cuando en determinado momento se requiera trasladar los vehículos que
+están al interior de un parqueadero hacia otro parqueadero de mayor tamaño o
+cuando se requiera reubicar dichos vehículos en el mismo parqueadero. En otras
+palabras, se necesita asignar nueva ubicación a cada uno de los vehículos que ya se
+encuentran ubicados; para este caso se debe determinar la ubicación adecuada para
+
+la totalidad de los vehículos que están dentro de un parqueadero.
+
+De ahora en adelante en el documento. Al modelamiento de la solución de la primera
+situación se le llamará ubicación individual y al de la segunda situación ubicación
+total.
+
+4.1.4.3.1 Representación Cromosómica
+
+ 
+
+ 
+
+Caso Representación Descripción
+Cromosómica
+Ubicación Codificación A cada espacio disponible para ubicar un vehículo, se le
+Individual Binaria asigna un número entero que representa el identificador en
+
+la lista de espacios disponibles, donde el mínimo valor que
+puede tomar en índice es O y máximo valor es el tamaño
+
+de la lista menos 1.
+
+Ubicación Codificación por A cada vehículo se le asigna un número entero y la
+Total Permutaciones” disposición de los números en la lista representa el orden
+en que se van ubicando dentro del parqueadero, donde el
+tamaño de la lista viene dado por el número de vehículos
+a ubicar. Cada individuo representa una posible
+distribución.
+
+ 
+
+ 
+
+Tabla 1 Representación Cromosómica de las Soluciones
+
+” El motivo por el cual se escogió la representación en codificación por permutaciones para el caso de
+ubicación total, es porque el orden de ingreso de los vehículos afecta la solución. Así mismo, no puede
+haber vehículos repetidos en la lista, lo que quiere decir que un vehículo no puede ingresar dos veces al
+parqueadero en una única distribución.
+
+41Ejemplo Representación Cromosómica para la Ubicación Individual
+
+Indice de Espacio Libres
+
+Indice de Espacio Libres
+
+Indice de Espacio Libres
+
+Indice de Espacio Libre,
+
+ 
+
+Figura 20 Cromosoma del Problema de Ubicación Individual
+
+Por ejemplo. Si existen 4 espacios disponibles, algunos individuos válidos se muestran
+
+a continuación:
+
+o |o
+Individuo 1
+o so
+Inclividuo 2
+
+Individuo 3
+
+pst [Ti]
+
+Individuo 4
+
+ 
+
+Figura 21 Ejemplo individuos válidos Problema de Ubicación Individual
+
+El primer individuo hace referencia al índice de espacio 1, el segundo individuo al
+índice de espacio 2, el tercer individuo al índice de espacio 3 y el último individuo al
+índice de espacio 4. Para definir el número de bits necesarios para representar dichos
+
+individuos, se debe tener en cuenta que:
+
+Número de Bits = (log, N)
+
+Donde N representa el tamaño de la lista de espacios disponibles.
+
+Ejemplo Representación Cromosómica para la Ubicación Total
+
+ 
+
+Vehículoz | Vehículos |... | ven
+
+Figura 22 Cromosoma del Problema de Ubicación Total
+
+ 
+
+42Por ejemplo. Si se necesita reubicar 4 vehículos en un parqueadero, algunos
+
+individuos válidos se muestran a continuación:
+
+2 + [| 4 [| 3 |]
+
+Individuo 1
+
+3 (O) 19 092 (4 |
+
+Individuo 2
+
+4 1201) 0)3 [1 |
+
+Individuo 3
+
+ 
+
+ 
+
+ 
+
+Figura 23 Ejemplo individuos válidos problema de Ubicación Total
+
+4.1.4.3.2 Estructura del Algoritmo Genético
+
+Parámetros del AG
+
+e Porcentaje de Cruce
+
+El porcentaje de cruce es del 60%, lo que quiere decir que los individuos nuevos serán
+creados mediante el cruce de los padres de la generación previa, así mismo algunos de
+ellos serán como los padres y sólo serán alterados por la mutación si el caso lo
+
+requiere.
+e Porcentaje de Mutación
+El porcentaje de mutación es del 2%.
+
+e Número de Generaciones
+
+El número máximo de generaciones es de 500. Para los casos en que la cantidad de
+
+vehículos no supere los 100, la población evolucionará un total de 100 generaciones.
+
+e Población Inicial
+
+Los individuos que conforman la población inicial se crean aleatoriamente. El tamaño
+
+de la población varía dependiendo de lo siguiente:
+
+ 
+
+Caso Tamaño población Ejemplo
+
+ 
+
+ 
+
+ 
+
+Ubicación | Tamaño de la Población = 100 Individuos
+
+Individual
+
+ 
+
+43Ubicación | Si la cantidad de vehículos a reubicar | + Cantidad a reubicar = 4
+
+Total es menor a cinco (< 5), el tamaño de
+
+la población será: Tamaño de la Población = 4!
+
+Tamaño de la Población = N!
+Tamaño de la Población = 24
+
+Si es mayor o igual que cinco (25),
+
+entonces el tamaño de la población | * Cantidad a reubicar = 11
+
+será fijo. Y tendrá tamaño de cien
+(100) individuos.
+
+Tamaño de la Población = 100
+
+ 
+
+ 
+
+Tabla 2 Tamaño de la Población Inicial
+
+Condición de Parada
+
+Para el algoritmo de Ubicación Total, se establecieron las siguientes condiciones de
+
+parada:
+
+La primera, cuando se haya iterado 500 veces el algoritmo, ya que con esto se le
+permite evolucionar y explorar una cantidad adecuada de soluciones. La segunda,
+cuando se haya alcanzado un porcentaje de desperdicio considerablemente pequeño,
+establecido inicialmente con base al promedio de los resultados obtenidos, tras iterar
+varias veces el algoritmo. El porcentaje de desperdicio se calcula de la siguiente
+
+manera.
+
+AreaDesperdicio
+
+100)
+AreaTotal :
+
+Desperdicio =
+
+Para el algoritmo de Ubicación Individual, se establece que la condición de parada es
+
+el error mínimo del porcentaje de desperdicio.
+
+AreaDesperdicio
+
+MIN %NDesperdicio = MIN * 100)
+
+AreaTotalEspaciosLibres
+
+En consecuencia, si los resultados son iguales o cercanos a cero “0”, éstos son ideales.
+
+Penalizaciones
+
+En la siguiente tabla se detallan las penalizaciones que son usadas para determinar la
+
+calidad de las soluciones.
+
+44Caso Penalizaciones
+
+Ubicación Individual e  Penalización por colisión.
+e  Penalización por distancia en borde.
+e  Penalización por desperdicio en tiras.
+
+ 
+
+ 
+
+Ubicación Total e  Desperdicio de ancho, con posibilidad de generar un nuevo
+espacio útil para ubicar un vehículo.
+e  Penalización por desperdicio de alto.
+
+e Combinación de las penalizaciones anteriores.
+
+ 
+
+Tabla 3 Penalizaciones derivadas del proceso de ubicación
+
+Las penalizaciones de ambos casos se encuentran detalladas en el archivo anexo a
+
+este documento llamado Anexo K.
+
+4.1.4.3.3 Operadores Genéticos
+
+Selección
+
+Se utilizó la selección por ruleta especificada en el Anexo H. De esta manera se eligen
+
+los individuos de la población que aportan a la nueva generación de individuos.
+
+Reproducción
+
+Los individuos que se escogen en la selección se someten al cruce con el fin de
+producir la nueva generación. Para escoger los individuos padre y madre de cada
+
+cruce se implementaron tres estrategias.
+
+En la primera estrategia, los padres son elegidos al azar de la lista de la población
+seleccionada, lo que quiere decir que tanto los mejores como los peores tienen la
+misma posibilidad de ser padres de los individuos de la siguiente generación. La
+segunda es una estrategia en la cual, de la población seleccionada los mejores
+individuos son cruzados con el individuo más cercano a su puntaje, lo que quiere
+decir que el individuo número 1 se cruza con el número 2, hasta que el individuo (n1) se cruce con el individuo n. En la tercera, los mejores individuos de la población
+seleccionada, son cruzados con el individuo menos cercano a su puntaje (el peor), lo
+que quiere decir que el individuo número 1 se cruza con el número n, el individuo 2
+
+con el número (n-1) y así sucesivamente hasta cubrir toda la población.
+
+45Operador de Cruce
+
+En la tabla se mencionan los operadores de cruce implementados para cada caso. En
+
+el capítulo de pruebas se determina el operador de cruce que finalmente se usó en
+
+cada uno de ellos.
+
+ 
+
+ 
+
+ 
+
+Caso Penalizaciones
+Ubicación Individual Cruce de un punto.
+Ubicación Total e Cruce de un punto con reparación.
+e Cruce de dos puntos con reparación.
+
+ 
+
+ 
+
+Tabla 4 Operadores de cruce para el proceso de reproducción
+
+Las figuras 24 y 25 muestran ejemplos de cruce de un punto para cada caso.
+
+ 
+
+Figura 24 Ejemplo cruce un punto para Ubicación Total
+
+ 
+
+Figura 25 Ejemplo cruce un punto para Ubicación Individual
+
+46En la figura 26 se ejemplifica el cruce de dos puntos para el caso de Ubicación Total.
+
+ 
+
+Figura 26 Ejemplo cruce dos puntos para Ubicación Total
+
+Cruce con Reparación
+
+Al aplicar el operador de cruce para el caso de Ubicación Total, puede ocurrir que
+uno de los símbolos de la lista que representa un vehículo se repita como en el
+
+siguiente caso:
+
+ 
+
+Figura 27 Inconveniente cruce para Ubicación Total
+
+Por lo que los hijos no son válidos. Una opción para corregir este problema, es
+aplicar una operación con el cruce denominada reparación. En la reparación, el
+símbolo que se repite en la parte heredada del padre 1, es reemplazada por algún
+
+símbolo de la parte que no es heredada del padre 2.
+
+De esta manera, para el ejemplo anterior se aplicaría la operación de reparación y un
+
+posible resultado sería:
+
+47hijo 2 con reparación
+
+Figura 28 Ejemplo cruce con reparación para Ubicación Total
+
+Operador de Mutación
+
+Caso Tipo de mutación Descripción
+
+ 
+
+Ubicación Individual Cambio de bit Se elige un bit en el cromosoma
+
+y se cambia su valor, ya sea de
+
+cero a uno o viceversa.
+
+ 
+
+Ubicación Total Intercambio recíproco Se seleccionan aleatoriamente
+dos símbolos (vehículos) y luego
+
+se intercambian sus posiciones en
+
+ 
+
+el cromosoma.
+
+ 
+
+ 
+
+Las figuras 29 y 30 ilustran un ejemplo para cada caso.
+
+O O O
+Individuo 1
+PO O O
+Individuo 1 lMutado
+
+Figura 29 Ejemplo mutación para Ubicación Total
+
+ 
+
+o | o |
+
+Individuo +1
+
+Y | O
+o [||o Jo.
+Individuo 1 Niutado
+
+Figura 30 Ejemplo mutación para Ubicación Individual
+
+ 
+
+484.2 DISEÑO
+
+4.2.1 Descripción de Casos de Uso
+
+A continuación se presenta el flujo principal de acciones. Conteniendo los flujos
+
+alternativos y de excepción para el registro de entrada de vehículos.
+
+ 
+
+SIGUV
+
+Universidad
+del valle
+
+ISO-9001 Universidad del Valle
+
+Documento: ER-0001
+
+ 
+
+Caso de Uso Extendido — Módulo Registro de Vehículos | Página: 1 de 5
+
+ 
+
+Fecha:
+
+ 
+
+Analistas Responsables:
+
+Manuel Salvador Cárdenas
+
+ 
+
+Joel Andrés Giraldo
+
+ 
+
+ 
+
+ 
+
+al parqueadero.
+
+Caso de uso Registro de Entrada
+Actores Administrador — Digitador
+Propósito Este caso de uso permite realizar el registro de un vehículo al momento de ingresar
+
+ 
+
+Resumen Este caso de uso inicia, cuando el administrador — digitador haya ingresado al
+sistema y seleccione “Módulo de Registro”, posteriormente debe dirigirse a la opción
+“Registro de Entrada” para usar el sistema.
+
+ 
+
+ 
+
+ 
+
+Tipo Primario y Esencial
+Referencias R 4.1, R 4,2, R 43, R 5.3, R 5.4
+Cruzadas
+
+ 
+
+Curso normal de los eventos
+
+ 
+
+Acción de los Actores
+
+1. El administrador — digitador
+
+selecciona el “Módulo de Registro.”
+
+Respuesta del Sistema
+
+2. El sistema procesa la petición.
+
+ 
+
+3. El sistema muestra las opciones “Registro de Entrada”,
+“Registro de Salida” y “Consultar Registro.”
+
+ 
+
+4. El administrador — digitador
+ingresa a la opción “Registro de
+Entrada.”
+
+5. El sistema procesa la petición.
+
+ 
+
+6. El sistema muestra los campos: Nombre del parqueadero, fecha
+de ingreso, motivo de ingreso, nombre del propietario, primer
+apellido, segundo apellido, tipo de identificación, número de
+identificación, dirección, teléfono, tipo de vehículo, tipo de
+carrocería, marca del vehículo, color del vehículo, modelo del
+vehículo, placa, número de motor, número del chasis, una opción
+para adjuntar los registros fotográficos, una opción para cargarlos
+
+y una opción para registrar la información.
+
+ 
+
+7. El administrador — digitador
+diligencia los campos, selecciona el
+tipo de vehículo, el tipo de
+
+carrocería, la marca, el color, los
+
+ 
+
+ 
+
+8. El sistema procesa la petición.
+
+49registros fotográficos, los cuales
+procede a cargar y a finalizar el
+registro
+
+ 
+
+9. El sistema almacena la información del vehículo y muestra
+
+ 
+
+éxito al almacenar.
+
+ 
+
+ 
+
+Curso alterno de los eventos
+
+LINEA 7: Si el administrador al momento de almacenar la información del registro, omite al menos un
+campo, el sistema emite un mensaje de error para que el administrador — digitador lo diligencie
+nuevamente.
+
+LINEA 7. Si el administrador no carga los registros fotográficos de los vehículos, el sistema emite un
+mensaje de error para que el administrador — digitador cargue al menos un registro fotográfico.
+
+ 
+
+LINEA 7. Si el administrador excede el límite de la cantidad de registros fotográficos, el sistema emite
+un mensaje de error para que el administrador — digitador ajuste la cantidad de registros a almacenar.
+
+ 
+
+ 
+
+LINEA 7. Si el administrador excede el tamaño de los registros fotográficos, el sistema emite un
+
+mensaje de error.
+
+ 
+
+Tabla 1 Caso de Uso — Módulo de Registro
+
+El documento completo de la descripción de casos de uso está contenido en el archivo
+
+anexo a este documento llamado Anexo A.
+
+4.2.2 Diagrama de Entidad Relación
+
+El adecuado diseño de la base de datos fue fundamental. Hacer que el Sistema de
+Información pueda interactuar con la base de datos, llevar a cabo las transacciones y
+operaciones para que los usuarios puedan hacer uso de la información hace que se
+
+cumplan los objetivos propuestos inicialmente.
+
+Para SIGUV se hizo necesario diseñar la base de datos, para de esta manera poder
+administrar los datos que se generan en La Inversora La 21 producto de los procesos
+de entrada y salida de vehículos que ocurren a diario y que con el tiempo han
+generado un volumen considerable, que no sólo era necesario almacenar de forma
+segura y organizada, sino también permitir recuperar de manera rápida cuando se
+necesitase, modificar cuando fuera necesario y relacionar de manera precisa para que
+
+se convirtiera en información valiosa para la empresa.
+
+Finalidad de la base de datos de SIGUV
+La base de datos de SIGUV contiene:
+
+e La información de los propietarios de los vehículos que son inmovilizados y
+
+dispuestos en los parqueaderos. Esta información es útil para el proceso de salida
+
+50de vehículos, pues permite relacionar al vehículo con su dueño al momento de la
+entrega; también para los organismos de tránsito poder tramitar las respectivas
+sanciones y comparendos a que dan lugar cuando este es el motivo de ingreso.
+Para los organismos judiciales es vital en los procesos que derivan de la
+
+accidentalidad u otras causas de inmovilización de los vehículos.
+
+e La información de los vehículos. Información relacionada con las características
+propias de cada uno. Esta información es útil para los procesos de entrada y
+ubicación de vehículos, pues ayuda a identificar los automotores, determinar si es
+posible disponerlos en determinado parqueadero y además es esencial para
+gestionar el sitio adecuado para hacerlo. La base de datos también contiene
+fotografías de los vehículos que es importante para evidenciar la correcta entrega
+de los automotores en el proceso de salida, así mismo sirve como evidencia para
+los organismos judiciales adelantar los procesos internos que derivan de la
+
+inmovilización.
+
+e La información de los usuarios. ¡Información que permite administrar
+
+adecuadamente el sistema, proporcionar los permisos a cada tipo de usuario y
+
+controlar su actividad en SIGUV.
+
+e Información de los parqueaderos (Coordenadas cartesianas de la ubicación de los
+vehículos. Espacios Restringidos, espacios vacíos, vías de acceso y movilidad).
+Esta información es fundamental para el proceso de entrada, ubicación y salida
+de vehículos, es necesaria en casi que todos los procesos pues a partir de ella se
+aprueba el ingreso de un vehículo a un parqueadero, seguido de gestionar la
+ubicación adecuada disponerlo y finalmente en el proceso de salida para
+determinar dónde se encuentra ubicado y cuál ruta seguir para darle salida del
+
+patio.
+
+El algoritmo genético utiliza la información de los parqueaderos y de los vehículos
+
+almacenada en la base de datos para calcular las coordenadas cartesianas de los
+
+vehículos y así apoyar el proceso de ubicación de vehículos.
+
+Toda la información de la base de datos sirve para generar los distintos reportes del
+
+sistema.
+
+51Almacenamiento y obtención de Información
+
+Los datos serán escritos por los usuarios administradores y digitadores de SIGUV a
+través de los formularios dispuestos para ello. La información podrá ser accedida en
+su totalidad por los usuarios administradores y digitadores y parcialmente por los
+usuarios jefes de patio. Los permisos de modificación y obtención a través de los
+
+reportes, se especifican en los privilegios que se asignan a los usuarios dependiendo de
+
+su tipo.
+
+El algoritmo genético tendrá acceso a la información de los vehículos, los
+
+parqueaderos y los espacios. Así mismo podrá modificarla cuando sea necesario.
+
+Indirectamente los Organismos Municipales y de Tránsito obtendrán la información a
+través de los resultados que deben evidenciar los funcionarios de La Inversora La 21
+
+ante sus dependencias.
+
+A continuación se muestra el diagrama entidad relación de SIGUV, descrito en tres
+
+partes debido a su tamaño.
+
+52tipoidentificación
+
+ 
+
+ 
+
+direccion
+
+ 
+
+Realiza
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+telefono
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+¡perl
+
+Consulta
+
+ 
+
+3
+;
+á
+
+ 
+
+ 
+
+53idmarca descripcion
+tipovehiculo
+
+descripcion
+O |
+
+idtipotehiculo tipovehiculo 1
+
+ 
+
+nombreparq
+
+registro N
+N N
+
+54
+
+fechaingreso
+fechasalida
+O
+
+y to
+
+a
+>
+
+telefono
+
+Cs) dirección
+N
+
+1 propietario
+
+Sa
+
+numerold
+
+1id | (idparqueadero )
+
+ 
+
+ancho
+espacioslibres (idespmovilidad )
+N p
+largo
+( coordenadax ) ( coordenaday )
+lid | (idparqueadero )
+( ancho
+N ! =
+espaciomovilidad
+( largo
+( idparqueadero ) ( nombre )
+( coordenadax (' coordenaday )
+( 2 + ] parqueadero 4 Tiene
+|
+|
+|
+ancho ] largo | direccion | (id ) ('idparqueadero ), N
+A KN y | PO ” ( descripcion |
+itemrestringidos [ancho |
+largo
+( coordenaday ) (' coordenadax )
+
+Figura 31 Diagrama ER
+
+4.2.3 Diagramas de Secuencia
+
+A continuación se muestra el diagrama de secuencia para la ubicación total de los
+vehículos. Con ello se quiere mostrar las interacciones entre objetos, ya que éste es el
+núcleo de nuestro modelo dinámico y muestra todos los cursos alternos que pueden
+
+tomar nuestros casos de usos.
+
+El documento completo de diagramas de secuencia está contenido en el archivo anexo
+
+a este documento llamado Anexo B.
+
+55Diagrama de Secuencia - Reubicar Vehiculos
+
+TufaoConnectionHandler.
+
+ReubicarVehiculos sendRTufao main.cpp
+
+3. Envía Petición
+
+Á
+
+Administradgr - Digitador
+
+         
+
+     
+
+A
+
+          
+
+10. realiza Consulta
+
+8. Procesa Petición
+
+M4. return mysql_query
+
+nético
+
+28. Ejecuta Algoritmo Ge
+
+   
+
+de os es o os eos os os Jer eos eos eos os eos es ls es es es ¡eos as as
+
+12. visualiza Consulta
+
+    
+
+5. Solicite conexión a BD
+
+e
+
+18. Procesa Información
+
+1 )
+| 3 3
+3 | ¿E
+> A E
+| Bos
+E pá]
+a ! "Bd
+A e > ATT
+
+       
+
+ 
+
+2. Procesa Petición
+
+1. Solicita Petición
+
+icación Total
+
+Figura 32 Diagrama de Secuencia — Ub
+
+564.2.4 Diagrama de Clases del Dominio
+
+ 
+
+main.cpp
+
+8090
+
+MainAG.h
+
+Figura 33 Modelo del Dominio UbicacionAG
+
+57
+
+A Parqueadero.h
+RepresentacionAG.h 9.
+
+.. 14.3 DESARROLLO
+
+Durante el desarrollo de SIGUV, se llevaron a cabo las distintas etapas que propone
+la metodología de desarrollo ICONIX. — Análisis, Diseño, Desarrollo y Pruebas.
+Permitiendo obtener, estructurar y modelar la información necesaria para construir
+la herramienta que ayuda a administrar la información de La Inversora La 21 y en el
+
+proceso de ubicación.
+
+Se llevó a cabo la etapa de análisis que permitió determinar con precisión los
+requerimientos del sistema a través de entrevistas con el cliente y con empleados de
+La Inversora La 21 que conocen a fondo los procesos que allí se llevan a cabo. A
+partir de la información, se realizó el modelamiento de los casos de uso y se
+obtuvieron los primeros prototipos del sistema. Así mismo, se realizó todo el análisis
+correspondiente a la solución del problema de Ubicación de Vehículos a partir de las
+técnicas evolutivas de los algoritmos genéticos, determinando la codificación de los
+cromosomas, los operadores genéticos, los parámetros y la estructura del algoritmo
+
+genético.
+
+En la etapa de diseño se analizaron las posibles alternativas de implementación para
+el Sistema, por lo que se determinó que la administración de la información se
+realizaría a través de un Sistema de Información Web y el Algoritmo Genético que
+brindaría apoyo al proceso de ubicación de vehículos en un lenguaje nativo, debido a
+que éstos tienden a ser más rápidos que otros lenguajes compilados en tiempo de
+ejecución, además de sacar el mejor provecho al rendimiento del hardware. Durante
+esta etapa se modelaron, el diseño de la base de datos, la descripción de los casos de
+uso, los diagramas de clases y los diagramas de secuencia que describen el
+
+comportamiento del sistema.
+
+Durante la etapa de implementación del sistema, se eligieron las herramientas y
+
+tecnologías necesarias para la construcción del mismo. De esta manera:
+
+Para el Sistema de Información Web se utilizaron las siguientes tecnologías
+Web: Ajax, JavaScript, ¡Query y PHP.
+
+El complemento de ¡Query Datatables, se utilizó para brindar una mejor presentación
+a las tablas de datos y permitir una administración más simple de la información.
+Como parte esencial del estilo del Sistema, el usuario siempre contará con un
+calendario a la vista. Para esto, se usó FPullcalendar y Datepicker, donde este último
+se utilizó en mayor medida para los campos de fecha en los formularios de registro.
+Para el diseño de las interfaces y los estilos, se utilizó Bootstrap, el cual fue
+
+modificado para las necesidades propias de SIGUV.
+
+58Siguiendo la directriz del diseño de SIGUV, la librería live Validation, se utilizó para
+la validación de los campos de los formularios de registro, la cual fue de gran ayuda
+para evitar los malos manejos de los formularios del sistema por los usuarios.
+Continuando con los diseños de los registros y en especial para el de Entrada de
+Vehículos, la implementación del Gestor fotográfico se realizó mediante el uso de los
+complementos Plupload.htmló5 y Plupload.queve.list, permitiendo así la carga y
+
+administración efectiva de los registros fotográficos.
+
+FPDF es una librería que se utilizó para el diseño y generación de los reportes
+requeridos en La Inversora La 21, brindando la opción de descarga bajo formato
+PDF. Como complemento a FPDF', se utilizó en los reportes JpGraph, esto con el fin
+de personalizar aún más los reportes creando gráficos estadísticos, entre los que se
+
+utilizaron: Diagramas de torta y de barras.
+
+Como mecanismo para la recuperación de contraseñas, se utilizó la librería
+PHPMailer, la cual es una librería de protocolos SMTP para el envío de correos
+
+electrónicos en los que se incluyó la contraseña del usuario.
+
+Si bien el alma de los archivos del Sistema de Información Web, están desarrollados
+en PHP, el envío de los formularios no se realizó bajo el enfoque del método
+tradicional POST, sino que se utilizó la versión de Ajax para ¡Query, ¡QueryAjax, el
+cual permite un envío asíncrono de los datos del formulario de una manera más
+
+transparente para el usuario.
+
+Finalmente, otras de las librerías utilizadas en el desarrollo del Sistema de
+Información Web para mostrar gráficamente la ubicación de los parqueaderos y
+gestionar la búsqueda de espacios al interior de los mismos fue Kinetic. Esta librería
+JavaScript permite crear los lienzos (canvas) requeridos, personalizarlos y en ellos,
+
+mostrar los datos obtenidos de los parqueaderos.
+
+Durante la implementación y el uso de estas herramientas, se presentaron
+inconvenientes que debieron ser tratados adecuadamente para conseguir los
+resultados y objetivos propuestos inicialmente para el sistema de información web.
+Estos inconvenientes se enuncian a continuación y se explica la manera en que se les
+
+dio tratamiento.
+
+Los primeros inconvenientes se presentaron debido a la curva de aprendizaje
+relacionada con el manejo e integración de las tecnologías mencionadas
+anteriormente. Como segunda instancia, se presentaron problemas con el controlador
+de los registros fotográficos, el cual no permitía cargar un registro fotográfico con el
+mismo nombre, ya que este no contaba con un mecanismo que permitiera crear un
+nombre temporal y así generar diferentes nombres temporales para cada registro
+
+fotográfico. Este inconveniente se solucionó mediante la implementación del
+
+59controlador upload.php, el cual borra el nombre de los archivos por motivos de
+seguridad, asegurándose de que el nuevo nombre temporal sea único y posteriormente
+
+almacenar el registro fotográfico en el directorio especificado en el controlador.
+
+Así mismo, fue un inconveniente el hecho de enviar correos electrónicos desde el
+sistema de información, ya que la configuración de los puertos SMTP de la librería
+PHPMailer entraban en conflicto con los puertos y configuración del servidor
+
+utilizado, denegándoles a los correos su envío.
+
+Un inconveniente que se presentó y que afecto la manera en que se implementó el
+sistema, fue el hecho de necesitar un mecanismo que permitiera el envío de datos
+desde el Sistema de Información Web a la aplicación de lenguaje nativo que hiciera
+posible la ejecución del algoritmo genético allí implementado. Para resolverlo, se
+decidió que la aplicación en código nativo, debería obtener la información que
+necesitaba directamente desde la base de datos, esta decisión se tomó pensando en el
+desempeño del sistema de información, así mismo por la autonomía de las
+aplicaciones sobre la información que procesan, también teniendo en cuenta que la
+comunicación de las aplicaciones requiere de un tratamiento adecuado, ya que
+
+poseen arquitecturas diferentes.
+
+Ahora, para el Algoritmo Genético de Ubicación, se eligió como lenguaje de
+programación C++, debido a su potencia y robustez. Así mismo, se eligió QtCreator
+IDE como entorno de desarrollo, primero, porque el equipo de desarrollo tiene
+experiencia en el uso de dicho, segundo, debido a que QtCreator es un potente
+entorno de desarrollo integrado multiplataforma que combina edición, depuración,
+gestión de proyectos, localización y herramientas de compilación. Tercero, como valor
+añadido, todas las herramientas de Qt son gratuitas y está permitido usarlas para
+crear proyectos comerciales. Otras de las ventajas de Qt, es su amplia disponibilidad
+de documentación Online, así como de diferentes librerías que permiten la conexión
+
+con sistemas web.
+
+Durante la implementación del Algoritmo Genético y el uso de esta herramienta, se
+presentaron inconvenientes que debieron ser tratados adecuadamente para conseguir
+los resultados y objetivos. Estos inconvenientes se enuncian a continuación y se
+
+explica la manera en que se les dio tratamiento.
+
+La curva de aprendizaje en cuanto a la compilación y configuración de las librerías
+para (Qt, como es el caso de QtSql, donde los archivos DLLs necesarios para su
+conexión con el servidor no eran generados correctamente y si lograban ser
+generados, éstos no eran reconocidos por dicha clase, denegándole la conexión con la
+Base de datos del servidor. Este error de conexión a la Base de Datos, se solucionó al
+momento de instalar mysql-connector-odbc-3.51.30-win32 garantizando así, la
+
+integridad de los datos pero sacrificando un poco la velocidad de consulta, más no su
+
+60rendimiento. Para la compilación de los módulos de Tufáao Web Service para
+distribuciones GNU/Linux, el proceso no es tan complicado si se compara con
+Windows, debido a que se debe construir sobre Qt y éste a su vez debe estar
+configurado apropiadamente para hacerlo. Así mismo, es necesario contar con CMake
+y MinGW instalados y configurados, ya que en Qt es posible usarlos pero como tal
+estas distribuciones no hacen parte del IDE. En la búsqueda extensa por entender la
+correcta instalación y uso de ésta librería, se remitió al archivo CMakeList, el cual es
+el encargado de crear los plugins para la configuración correcta, donde paso a paso se
+compilaron los diferentes Path de los archivos necesarios para la construcción del
+proyecto, además de presentarse la necesidad de utilizar un MinGW diferente al
+instalado por defecto para Qt, adicionándole características necesarias para la puesta
+
+en marcha del Servicio Web.
+
+Otros de los problemas, está relacionado con el manejo de punteros. Debido a la
+inexperiencia de los desarrolladores y la perdida de costumbre con el manejo de este
+tipo de variables, trajo consigo retrasos en el tiempo de implementación. Como
+problema adicional, se encuentra el manejo de memoria. Al no contar C++ con un
+Garbage Collector, el equipo desarrollador es el encargado de cargar y liberar de
+
+memoria las librerías. Por lo que se incurrió en un manejo inadecuado de la memoria.
+
+La versión de QtCreator utilizada para el desarrollo de este proyecto de grado fue la
+4.8.6, pero inicialmente se trabajó con la versión 4.7, debido a que su rendimiento era
+mucho más aceptable pero su entorno obsoleto. Así mismo, se evidenció en gran
+medida, que las instalaciones de QtCreator pueden verse afectadas por los recursos
+
+limitados de hardware, lo que hace que se haga necesario la reinstalación del entorno.
+
+Un reto importante a la hora de codificar los Algoritmos Genéticos, se relaciona con
+la curva de aprendizaje respecto a la utilización de técnicas evolutivas, puesto que de
+una buena codificación, depende la calidad de las soluciones. Ésta variable, afectó en
+el tiempo de entrega de versiones funcionales, debido a que el modelamiento inicial
+
+del Algoritmo Genético no se acercaba a la solución del problema propuesto.
+Finalmente se codificaron dos algoritmos genéticos para la ubicación de vehículos.
+
+El primero, para el caso de Ubicación Total. Que se refiere a la necesidad de ubicar
+todos los vehículos que se encuentran al interior de un parqueadero, por lo que es
+necesario encontrar la distribución que ayude a un mejor aprovechamiento del
+espacio, teniendo en cuenta la dimensionalidad de los vehículos y cumpliendo con las
+restricciones de movilidad. Para este caso el algoritmo hace uso de los métodos,
+distribuirPoblacion() para distribuir los vehículos y de ubicarConkRestriccion() para
+ubicar a cada uno de ellos, así mismo como de las técnicas evolutivas de los
+
+algoritmos genéticos anteriormente descritas.
+
+61Por otro lado un algoritmo genético para el caso de Ubicación Individual. En este
+caso, el algoritmo genético que se codificó es adaptativo, porque cuando se haga una
+petición en la que se requiera ubicar individualmente, el algoritmo verificará la
+cantidad de espacios disponibles para ubicar en el parqueadero y determinará si usar
+las técnicas evolutivas para encontrar una solución, o si por el contrario evaluar
+todas las posibilidades (espacios posibles) para determinar cual es la más adecuada
+para ubicar el vehículo que se requiere. La razón por la que se codificó de esta
+manera el algoritmo genético que ayuda a ubicar individualmente, es porque cuando
+la cantidad de espacios disponibles para ubicar es pequeña, el costo de evaluar todas
+las posibilidades es considerablemente pequeño en términos de tiempo de respuesta,
+comparado con el que toma hacerlo aplicando las técnicas evolutivas. Pero si por el
+contrario, se tiene una cantidad demasiado grande de espacios disponibles para
+ubicar, como sucede en los problemas combinatorios, las técnicas evolutivas pueden
+
+proporcionar una respuesta más rápida y de calidad aceptable.
+
+  
+   
+
+7 a
+[ Inicio ]
+f f
+Í /
+¿ Leer método P
+¿ ¿
+y '
+E ,
+A AA
+A ., A
+7 A. AT A
+e A A 2” o E Evaluar todas las
+< Método AS Landed espacios tores posibilidades
+A o A A
+
+Aplicar algoritmo genético
+Aplicar algoritmo genético Ubicación Individual
+Ubicación Total
+
+Co Fin J
+
+ 
+
+Figura 34 Diagrama flujo proceso de ubicación de vehículos
+
+62En caso de que se haga uso del algoritmo genético, éste utilizará los métodos
+usarPoblacion() para disponer los espacios y de ubicarVehiculo() para disponer el
+vehículo sobre los mismos, así como también de las técnicas evolutivas de los
+algoritmos genéticos anteriormente descritas. Si en su lugar decide evaluar todas las
+posibilidades de ubicación que existen para el caso, el algoritmo hará uso del método
+ejecutarTodas() ayudándose de los métodos descritos anteriormente pero sin tener en
+
+cuenta las técnicas evolutivas.
+
+4.4 PRUEBAS
+
+Se presentan a continuación algunas de las pruebas para las funciones más
+
+importantes de la aplicación Web.
+
+A continuación se muestra la prueba funcional para crear un registro de entrada.
+
+63SIGUV
+
+ 
+
+Universidad
+
+del valle
+
+ISO-9001 Universidad del Valle
+
+ 
+
+Aplicación Módulo: Registro
+
+Página: 1 de 5
+Fecha:
+
+ 
+
+ 
+
+Nombre: Crear Registro de Entrada
+
+e Asignar un solo número de la secuencia a cada cuadro
+
+ 
+
+Analistas Responsables:
+
+Documento: ER-0001
+
+Manuel Salvador Cárdenas
+
+ 
+
+ 
+
+ 
+
+DOCUMENTOS DE REFERENCIA
+
+Identificador
+
+Título
+
+ 
+
+2
+
+ 
+
+Crear Registro de Entrada
+
+ 
+
+Caso de Uso
+
+ 
+
+Objetivo
+Tipo de Prueba
+
+Probar que el caso de uso funcione correctamente y realice lo que debería hacer.
+
+Pruebas del sistema
+
+ 
+
+Software
+Requerido
+Personal
+
+Requerido
+
+Programa en ejecución
+
+Equipo de desarrollo
+
+ 
+
+ 
+
+Datos de Prueba
+
+Procedimiento de
+
+Prueba
+
+ 
+
+ 
+
+ 
+
+ 
+
+Nombre del parqueadero: La 21 Norte
+Fecha de ingreso: 10/07/2014
+Motivo de ingreso: Juzgados
+Nombre del propietario: Oscar
+Primer Apellido: Ceballos
+Segundo Apellido: Argote
+
+ 
+
+Tipo identificación:
+
+Número identificación:
+
+Cédula de ciudadanía
+11116.782.210
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Dirección: Calle 16a $4 25 — 200
+Teléfono: 310 653 7821
+
+Tipo de vehículo: Automóvil
+
+Tipo de carrocería: Sedan
+
+Marca: Mazda
+
+Color: Gris
+
+Modelo: 2013
+
+Placa: ABC 432
+
+Número de motor: 093HJDLKUH48975
+Número de Chasis: UYGF23U4Y5401
+
+Registro fotográfico:
+
+Paso 1: Ingresar a la aplicación
+
+ 
+
+p193m1823e1kphs80j7q1i3891u4.jpg
+
+Paso 2: Dirigirse a la sección Registro
+
+Paso 3: Ingresar a Registro de Entrada
+
+Paso 4: Diligenciar los datos del propietario
+
+Paso 5: Diligenciar los datos del vehículo
+
+Paso 6: Adjuntar los archivos fotográficos
+
+64
+
+Joel Andrés GiraldoPaso 7: Crear el Registro
+
+ 
+
+ 
+
+Resultado El Registro ha sido almacenado exitosamente
+Esperado
+
+ 
+
+Resultado Prueba Exitosa SI(X) NO()
+Obtenido
+
+ 
+
+Tabla 5 Prueba funcional Crear registro de entrada.
+
+Las demás pruebas funcionales de SIGUV, se encuentran incluidas en el archivo
+
+anexo a este documento llamado Anexo L.
+Estrategia de reproducción
+
+Para determinar cuál estrategia de reproducción usar en el momento en que se
+ejecute el algoritmo genético. Se probaron diferentes poblaciones, en las que se
+incluyeron poblaciones con individuos de tamaño pequeño y otros más grandes. Á
+cada población se le aplicó el algoritmo genético un total de 10 veces, se obtuvieron
+los resultados y se promediaron los porcentajes de mejoramiento de las poblaciones
+
+para cada ejecución:
+
+Las opciones posibles de reproducción que se evaluaron fueron las mencionadas en el
+capítulo 4.1.4.3. Teniendo en cuenta que la selección se llevó a cabo por medio del
+
+método de ruleta en todos los casos.
+
+Los resultados obtenidos se muestran a continuación.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Reproducción
+Aleatoria Mejores con Mejores | Mejores con Peores Elegida
+26 Individuos
+2,29% 0,35% 0% Aleatoria
+95 Individuos
+4,47% 5,37% 2,30% Mejores con Mejores
+340 Individuos
+6,40% 5,23% 3,10% Aleatoria
+992 Individuos
+0,59% 0,55% 0,10% Aleatoria
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 6 Mejoramiento promedio de las poblaciones después de 10 ejecuciones para
+
+evaluar la reproducción.
+
+De los resultados anteriores, se puede evidenciar que para las diferentes poblaciones,
+la mayoría de las veces la estrategia de padres aleatorios tiene mejor porcentaje
+promedio de mejoramiento, por lo que se estableció esta como la estrategia que se
+
+usa al momento de ejecutar el algoritmo.
+
+65Así mismo como se implementaron tanto el cruce de un punto como el de dos
+puntos, se realizó el mismo proceso para escoger cual usar, teniendo en cuenta que
+
+esta vez ya que ya se eligió la forma de reproducción.
+
+Los resultados se muestran a continuación.
+
+Cruce con Reproducción Aleatoria
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cruce 1 Punto Cruce dos Puntos Elegida
+26 Individuos
+0,497% | 0,83% Cruce dos Puntos
+95 Individuos
+3,23% | 5,47% Cruce dos Puntos
+
+ 
+
+340 Individuos
+
+5,45% 6,27% Cruce dos Puntos
+
+992 Individuos
+0,05% | 0,54% Cruce dos Puntos
+
+Tabla 7 Mejoramiento promedio de las poblaciones después de 10 ejecuciones para
+
+ 
+
+ 
+
+ 
+
+ 
+
+evaluar el cruce.
+
+De los resultados anteriores, se puede evidenciar que para las diferentes poblaciones,
+la mayoría de las el cruce de dos puntos tiene mejor porcentaje promedio de
+
+mejoramiento, por lo que se estableció este como cruce que se usa al momento de
+
+reproducir las poblaciones.
+
+Evolución de la Población con individuos de diferente tamaño durante
+
+100 generaciones
+
+A continuación se muestra el resultado de ejecutar el algoritmo genético durante cien
+generaciones. En cada instancia la población es de cien individuos y cada uno de ellos
+
+tiene tamaño fijo según el caso.
+
+Individuos de Tamaño 26
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Generación Promedio
+1 92300
+3 93427
+4 93856
+21 —M= Promedio
+100
+
+ 
+
+ 
+
+ 
+
+Tabla 8 Evolución población
+
+Individuos tamaño 26
+
+ 
+
+Figura 35 Evolución población
+
+Individuos tamaño 26
+
+66Población de Individuos de Tamaño 95
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Generación | Mejor | Promedio | Peor
+1 52000
+3 55400
+4 55200
+21 55800
+24 62200 | 62088 | 61400
+45 62800 | 62416 | 62400
+100 62800 | 62416 | 62400
+
+ 
+
+ 
+
+Tabla 9 Evolución población
+
+Individuos tamaño 95
+
+ 
+
+—%= Mejor
+
+—-_ Promedi
+
+100 150
+
+Figura 36 Evolución población
+
+Población de Individuos de Tamaño 340
+
+Individuos tamaño 95
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Generación | Mejor | Promedio| Peor
+
+1 130300 | 123257 | 119000
+
+5 130500 | 125448 | 123600
+
+8 137600 | 126615 | 124600
+
+10 138800 | 127274 | 125200
+
+20 139600 | 133979 | 129400
+
+23 139800 | 136264 | 124400
+
+39 140200 | 139392 | 139200
+
+100 140200 | 139392 | 139200
+
+ 
+
+Tabla 10 Evolución población
+
+Individuos tamaño 340
+
+ 
+
+145000
+140000
+135000
+130000
+125000
+120000
+115000
+
+ 
+
+fu
+
+INN, 0% Mejor
+0
+/
+
+—- Promedio
+
+Le Peor
+
+Figura 37 Evolución población
+
+Población de Individuos de Tamaño 992
+
+Individuos tamaño 340
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Mejor | Promedio Peor
+879400 875286 870400
+4 880000 877200 875800
+10 880200 879098 878600
+11 881000 879334 878800
+100 881000 879334 878800
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 11 Evolución población
+
+Individuos tamaño 992
+
+67
+
+3882000
+380000
+378000
+376000
+374000
+372000
+3870000
+368000
+
+ 
+
+Vlejor
+
+o Promedio
+
+hp Peor
+
+100
+
+Figura 38 Evolución población
+
+Individuos tamaño 992En base a los gráficos anteriores, se puede concluir que las poblaciones mejoran su
+puntuación a través de las generaciones con porcentajes más grandes o más pequeños
+de mejoramiento de acuerdo al tamaño de los individuos. Así mismo se puede ver que
+el algoritmo llega a una instancia en la que el puntaje de la población se va
+
+estabilizando y este converge a un mismo punto.
+
+685. CONCLUSIONES Y TRABAJOS FUTUROS
+
+5.1 CONCLUSIONES
+
+El planteamiento de este trabajo, trajo consigo muchos propósitos y objetivos que
+necesitaban de una estrategia bien definida para su cumplimiento. Esta a su vez,
+requirió de la adecuada implementación tanto del Algoritmo Genético como del
+
+Sistema de Información.
+
+A continuación se enuncian una a una las conclusiones de acuerdo a los objetivos
+
+planteados:
+
+e Diseñar una base de datos que permita administrar la información generada en
+
+los procesos de ingreso y salida de vehículos en La Inversora La 21.
+
+Para el presente trabajo de grado, diseñar la base de datos para La Inversora La 21
+fue fundamental, ya que se logró centralizar y relacionar la información derivada de
+los procesos de entrada y salida de vehículos en los diferentes parqueaderos, además
+de permitir el trabajo en conjunto tanto del Sistema de Información Web como del
+
+Algoritmo Genético.
+
+e Generar reportes sobre el estado de los procesos de entrada y salida de los
+vehículos, tanto para el personal administrativo de La Inversora La 21, como para los
+
+organismos municipales y de tránsito.
+
+La generación de reportes para una empresa es de vital importancia ya que estos
+incrementan la transparencia sobre sus valores, principios y desempeño en lo que
+respecta al desarrollo sostenible. Esto no es ajeno para La Inversora La 21. A pesar
+de que el sistema no se implantó. El proceso de aceptación se llevó a cabo con su
+representante y algunos empleados; En principio, la versión beta de la aplicación, no
+cumplió con lo esperado por los futuros usuarios de SIGUV, evidenciando la
+inexistencia de información que necesitaba ser incluida en los reportes previamente
+generados, además de la confusión generada por la forma en que se presentaba la
+información, la cual era difícil de interpretar. En la versión final del sistema, se
+
+corrigieron dichos problemas por lo que se le dio aceptación.
+
+69Se logra evidenciar, que la idea de los reportes generó una gran expectativa y
+aceptación entre los futuros usuarios que a diario deberían interactuar con el sistema
+cuando este sea implantado. La información necesaria para presentar ante los
+organismos municipales y de tránsito ahora podrá ser clasificada y generada más
+rápidamente, y mostrada de mejor manera ante dichos organismos. La disponibilidad
+o no de espacios en el lote que se usa para la ubicación, es de vital importancia, pues
+ayuda a determinar a las directivas la viabilidad de permitir ingresar más vehículos y
+el poder hacer un aproximado de que cantidad eventualmente podría disponerse aún,
+con ayuda de los gráficos que muestran la frecuencia de entrada por parqueadero.
+Algo que cabe mencionar es que las bitácoras de usuario recibieron una gran
+aceptación, pues en La Inversora La 21 argumentaron que éstas servirán para
+controlar el problema de las inconsistencias y errores en la digitación que a menudo
+
+se presentan y que antes era casi imposible determinar su responsabilidad.
+
+e Desarrollar e implementar un algoritmo genético, para ayudar a la toma de
+decisiones en la optimización de espacio físico del parque automotor de los vehículos
+
+que ingresan en la Inversora La 21, como el de reubicar todos los vehículos.
+
+Los Algoritmos Genéticos combinan la supervivencia de los individuos más
+compatibles entre las estructuras de cadenas, con una estructura de información ya
+aleatorizada intercambiada para construir un algoritmo de búsqueda que permita
+encontrar soluciones con buena función de aptitud. Las distribuciones de vehículos
+que favorecen el aprovechamiento del espacio disponible en los parqueaderos y
+generan un área de desperdicio menor, permanecen más tiempo a través de las
+generaciones del algoritmo o en su defecto sus características siguen prevaleciendo en
+los hijos que se generan a través de los cruces, aportando a la consecución de una
+
+buena solución.
+
+Al ejecutar el algoritmo genético en ambientes de prueba similares a los de
+producción y con datos reales, los resultados obtenidos en cada instancia de
+ejecución, presentan un puntaje alto y por tanto representan su mejor solución.
+Algunas de estas soluciones no reflejan a simple vista la mejor forma de ubicación
+pero teniendo en cuenta que la cantidad de posibles soluciones depende del tamaño
+de la entrada al problema (cantidad de vehículos), y que es relativamente grande si
+se piensa en la cantidad de vehículos que se deben disponer cuando se intenta
+realizar el proceso de Ubicación Total. Es ahí cuando se puede decir que las
+soluciones son buenas pues han sido el producto de un proceso bien estructurado.
+Aunque es posible que incorporando otras técnicas que para este trabajo de grado
+
+no se tuvieron en cuenta se logren mejorar aún más.
+
+Con base a las pruebas realizadas y los resultados obtenidos, se puede destacar lo
+
+siguiente:
+
+70"= En la mayoría de los casos, el algoritmo genético encuentra una solución
+aceptable traducida en una buena distribución de espacios, con una
+probabilidad proporcional al tamaño de la población.
+
+"= En un problema de distribución de espacios con pocos individuos, un número
+de 50 generaciones aumenta las probabilidades de encontrar un mejor valor
+
+para la aptitud, pues el número de combinaciones posibles es menor.
+
+e Diseñar una interfaz gráfica que refleje los resultados del algoritmo genético bajo
+
+un enfoque humano-computador.
+
+Establecer un canal de comunicación entre una aplicación web y una aplicación de
+escritorio es complejo, más aún si la desarrollada en el back-end está escrita en un
+lenguaje nativo. Es por esto que se optó por un Framework Web asíncrono para
+C++ llamado Tufáo, el cual trajo muchos inconvenientes a la hora de la instalación
+y configuración, ya que dicho Framework está optimizado para distribuciones
+GNU/Linux, por lo que la conexión de los sistemas se vió afectada hasta las últimas
+instancias del desarrollo. Por otro lado, Tufáo cuenta con una guía de instalación no
+muy Clara para las versiones 0.x y 1.x, por lo que no se estaba seguro de su correcto
+funcionamiento. La constante de tiempo para el estudio y entendimiento de las APlIs
+para configurar esta librería se vió afectada, ya que no existen muchos ejemplos para
+
+el uso de la misma como consecuencia de su reciente release.
+
+Algunos de los plugins desarrollados para Qt tienen una gran desventaja y es la
+configuración con alto nivel de dificultad para novatos, por lo que la conexión al
+servidor del Algoritmo Genético de ubicación, en sus inicios también se vio
+comprometida. Ya que los archivos DLLs necesarios para su conexión, no eran
+
+generados correctamente y si lograban ser generados, éstos no eran reconocidos por la
+clase Qt5Sgq]l.
+
+El tener un Algoritmo Genético encargado del proceso de ubicación de los vehículos
+entrantes a los diferentes parqueaderos, no era de gran ayuda si estos no podían
+visualizar la ubicación de dichos a través del Sistema de Información Web. Gracias a
+la sincronización del canal de comunicación existente entre las aplicaciones y la base
+de datos, se implementó un applet utilizando la librería Kinetic, la cual permitió
+reflejar en el Sistema de Información Web los resultados obtenidos por el Algoritmo
+
+Genético de una forma más agradable y simple.
+
+715.2 TRABAJOS FUTUROS
+
+e Investigar e implementar una heurística que permita determinar cuál es la
+mejor configuración para la disposición de los vehículos. Entre las posibles
+
+disposiciones se encuentran: paralela, oblicua, o con un ángulo de inclinación.
+
+e Implementar una aplicación móvil que interactúe con el Sistema de
+Información Web y permita realizar el inventario desde el sitio mismo donde
+están ubicados los vehículos, de tal forma que se obtenga la información
+precisa y que si por alguna razón se presentan inconsistencias en la
+información almacenada en el registro del vehículo, sea posible ser verificada
+
+rápidamente y de esta manera hacer la respectiva corrección en el sistema.
+
+e Desarrollar un mecanismo que permita modelar los parqueaderos a partir de
+una imagen, lo que podría requerir de procesamiento digital de imágenes, otra
+área de aplicación de la Ingeniería de Sistemas y que sería de suma
+importancia, ya que para este trabajo de grado se hizo necesario usar
+herramientas externas de uso privativo para su modelado. El mecanismo
+debería permitir, obtener las coordenadas de los ítems restringidos a partir de
+la imagen, permitir definir la vértebra central que atraviesa el parqueadero,
+
+determinando de alguna manera el sitio adecuado para ubicarla.
+
+e Incorporar en el algoritmo genético la forma de incluir en el cromosoma que
+se codifica, las tiras que contienen vehículos como intrones, y las tiras de
+circulación como exones. Para de alguna forma aprovechar la relación que
+guardan con los genes y las regiones que ocupan dentro de las distribuciones
+
+de Ubicación.
+
+e Mejorar el entorno gráfico del applet que muestra la localización de vehículos
+
+en el parqueadero. Un acercamiento real a las formas de los espacios.
+
+e Implantación del sistema bajo un ambiente real.
+
+72BIBLIOGRAFÍA
+
+11]
+
+S|
+
+19)
+
+Goldberg. David. (1989,01,01). Genetics Algorithms in Search, Optimization and
+Machine Learning. Addison Wesley.
+
+Araujo, Lourdes y  Cervigón, Carlos. Algoritmos Genéticos. Algoritmos
+
+evolutivos: un enfoque práctico, Alfaomega Grupo Editor, México, 2009, 329.
+
+LIBROS WEB.  Capítulol. Introducción a Ajax. [En lineal.
+<librosweb.es/ajax/capitulo_1.html>
+
+MDN Mozilla Developer Network. A re-introduction to JavaScript (JS tutorial).
+[En linea. “Traducido del  inmglés” <developer.mozilla.org/enUS/docs/Web/JavaScript/A_ re-introduction_to_ JavaScript > [citado en 14 de
+julio de 2014]
+
+Jquery write less, do more. [En linea]. <jquery.com/> [citado en 13 de julio de
+2014]
+
+Tech Terms.com. PHP. [En linea]. “Traducido del inglés”
+<www.techterms.com /definition/php > [citado en 13 de julio de 2014]
+
+W3C. Web Services Activity Statement. [En linea]. “Traducido del inglés”
+<librosweb.es/ajax/capitulo_1.html> [citado en 5 de agosto de 2014]
+
+GitHub. Tufao. [En linea]. “Traducido del inglés”
+<github.com/vinipsmaker/tufao> [citado en 12 de mayo de 2014]
+
+ICONIX Process. Definition. [En linea]. “Traducido del ingles”
+
+<iconixprocess.com /iconix-process> [consultado en 06 de noviembre de 2013]
+
+(10M. Moreno Trujillo, “Utilización de un algoritmo genético para representar el
+
+Strip Packing Problem (Problema de Empaquetamiento de Piezas) para la
+
+industria textil”. Trabajo de Grado de pregrado, Facultad de Ingenierías, Unidad
+Central del Valle, Tuluá, V, 2008.
+
+111]J. H. Castro Loaiza, “Desarrollo de una herramienta computacional que permita
+
+la aplicación de algoritmos genéticos en el proceso de distribución automática de
+
+usos y espacios en proyectos arquitectónicos para la construcción de
+
+73apartamentos”. Trabajo de Grado de pregrado, Escuela de Ingeniería de Sistemas
+y Computación, Universidad del Valle sede Tuluá, Tuluá, V, 2012.
+
+112]Google Maps. [en línea]. <www.google.com/maps> [citado en 24 de mayo de
+2014]
+
+113] Autocad. Descripción.[en línea]. <www.autodesk.es/products/autocad /overview>
+[citado en 12 de julio de 2014]
+
+[14] Neufert, Ernest y Beneitez-Heinrich, Lola. Aparcamientos, Garajes, Estaciones de
+Servicio. Arte de proyectar en arquitectura: fundamentos, normas, prescripciones
+sobre recintos, edificios, exigencias de programa y relaciones espaciales,
+dimensiones de edificios, locales, estancias, instalaciones y utensilios con el ser
+
+humano como medida y objetivo, Editorial Gustavo Gili, España 2006, 672.
+
+[115] Jiménez Carabalí, Víctor Javie, Manotas Duque, Diego Fernando, Villota García,
+
+Rosana Marisol. CONFIGURACIÓN DE PASILLOS EN CENTROS DE
+DISTRIBUCIÓN BASADA EN MODELOS NO TRADICIONALES: MODELO
+ESPINA DE PESCADO. Enero - Junio 2013. Vol. 9, no, pp. 214-225. [en línea).
+<http:/ /www.redalyc.org/pdf/2654/265428385014.pdf> [citado en 23 de Agosto
+de 2014]
+
+[16] Baker, B. S., Coffman, E.G. Rivest, R. L.: orthogonal packing in two dimensions.
+SIAM Journal on computing 9, 846-855(1985)
+
+117] Toegepaste Wiskunde. Departement Wiskundige Wetenskappe. 2D Strip Packing
+Problem (SPP) [en línea].
+
+<dip.sun.ac.za/—vuuren /repositories /levelpaper/sppY5B1%5D.htm> [citado en
+01 de agosto de 2014]
+
+118|G. Gerón. Piñón. (No date), Los sistemas de información en el arranque del
+
+negocio. [Online].
+
+[19]0'Brien, J. Aloysius, Sistemas de información gerencial. - 7 ed. Ed. McGraw-Hill
+
+Interamericana: México, 2006.
+
+20] M. Pescador Rojas, “Un algoritmo memético para optimización de espacios
+restringidos”. Tesis de Maestría, Departamento de Computación, Unidad
+Zacatenco, Centro de Investigación y de Estudios Avanzados del Instituto
+
+Politécnico Nacional, México, 2010.
+
+74[21]J. H. Hollands, “Adaptation in Natural and Artificial Systems: An Introductory
+
+Analysis with Applications to Biology, Control and Artificial Intelligence”. Ed.
+Bradford Books, 1992.
+
+[22]G. Ochoa. (No date), Introducción a la Computación Evolutiva y la Morfogénesis
+Artificial.
+
+[23]P. Spicker, S. Alvarez Leguizamón y D. Gordon. AH, hacinamiento. [Online].
+Disponible en:
+
+bibliotecavirtual.clacso.org.ar/ar/libros/clacso/crop /glosario/h.pdf
+
+[24] “¿Qué es Información?”.(Octubre 2008). Ivan Thompson. [Online].Disponible en:
+
+www.promonegocios.net /mercadotecnia /que-es-informacion.html
+
+(25]R. A. Steinhilber, “Utilización de Algoritmos Genéticos en Sistemas Inteligentes
+Autónomos”. Tesis de Grado de pregrado, Facultad de Ciencias Exactas
+
+Químicas y Naturales, Licenciatura en Sistemas de Información, Universidad
+Nacional de Misiones, 2009.
+
+(26]P. M. Institute, “Guía de los fundamentos para la dirección de proyectos (guía
+del PMBOOK)” Ed. Project Management Institute, 2009.
+
+27]M. Monforte, “Sistemas de información para la dirección”. Ed. Pirámide:
+
+Madrid, 1994.
+
+[28] D. P. Moreno Palacio, “El problema de movilidad en campus universitarios. Caso
+aplicado”. Tesis de maestría, Facultad Nacional de Minas Escuela de Ingeniería
+
+Civil, Magíster en Ingeniería - Infraestructura y Sistemas de Transporte,
+Universidad Nacional de Colombia Sede Medellín, Medellín, 2008.
+
+129]J. A. Senn, “Análisis y Diseño de Sistemas de Información”. Ed. McGRAWHILL: Madrid, 1992.
+
+[30] Elena Pérez. Guía para los recién llegados a los algoritmos genéticos. (2010). [en
+línea].
+www.insisoc.org/elena/Elena%20Perez/20Vazquez_archivos/files_ newcomers/ne
+
+wcomers-spanish.pdf
+
+75ANEXOS
+
+ 
+
+ 
+
+Wy SIGUV Documento: ER-0001
+ISO-9001 Universidad del Valle
+
+Universidad
+del valle
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Especificación de Requisitos Funcionales del Cliente Página: 5 de 12
+Fecha:
+Analistas Responsables: Manuel Salvador Cárdenas
+Joel Andrés Giraldo
+4. Módulo de Registro Requisitos
+Asociados:
+Requisitos Descripción Categoría
+Ra4.1 El sistema en el módulo de registro de vehículos, deberá ofrecer una opción
+
+mediante la cual el usuario pueda crear el registro de entrada de un
+vehículo, teniendo en cuenta los campos: Nombre del parqueadero, fecha de
+ingreso, motivo de ingreso, nombre del propietario, primer apellido,
+segundo apellido, tipo de identificación, número de identificación, dirección,
+teléfono, tipo de vehículo, tipo de carrocería, marca del vehículo, color del
+vehículo, modelo del vehículo, placa, número de motor y número del chasis.
+
+ 
+
+R4.2 El sistema en el módulo de registro de vehículos, deberá ofrecer una opción
+mediante la cual el usuario pueda utilizar la totalidad de las funciones del
+Sub Módulo Registro Fotográfico al momento de registrar la entrada de
+un vehículo.
+
+R4.3 El sistema en el módulo de registro de vehículos, deberá ofrecer una opción
+mediante la cual el usuario pueda utilizar las funciones de los requisitos
+5.1, 5.2 y 5.4 del módulo de Ubicación de Vehículos al momento de
+registrar la entrada de un vehículo.
+
+ 
+
+R4.4 El sistema en el módulo de registro de vehículos, deberá ofrecer una opción
+mediante la cual el usuario pueda registrar la salida de un vehículo
+verificando la información del propietario, la tarjeta de propiedad del
+vehículo y la cancelación de la totalidad de la infracción de tránsito,
+
+generando la autorización para retirar el automotor de las instalaciones.
+
+ 
+
+R4.5 El sistema en el módulo de registro de vehículos, deberá ofrecer una opción
+mediante la cual el usuario pueda modificar el registro de entrada de un
+vehículo, teniendo en cuenta los siguientes campos: dirección, teléfono,
+número de chasis, número del motor y nombre del parqueadero.
+
+ 
+
+R4.6 El sistema en el módulo de registro de vehículos, deberá ofrecer una opción
+mediante la cual el usuario administrador pueda modificar el registro de
+entrada de un vehículo, teniendo en cuenta los siguientes campos: Tipo de
+identificación, número de identificación, dirección, teléfono, placa, número
+
+de chasis, número del motor y nombre del parqueadero.
+
+ 
+
+Ra4.7 El sistema en el módulo de registro de vehículos, deberá ofrecer una opción
+mediante la cual el administrador pueda listar registros de vehículos
+existentes.
+
+R4.8 El sistema en el módulo de registro de vehículos, deberá ofrecer una opción
+
+mediante la cual el administrador pueda consultar un registro de vehículo.
+
+ 
+
+R4.9 El sistema en el módulo de registro de vehículos, deberá ofrecer una opción
+
+ 
+
+ 
+
+ 
+
+mediante la cual el administrador pueda visualizar un registro de vehículo.
+
+ 
+
+ 
+
+76R4.10
+
+R4.11
+
+El sistema en el módulo de registro de vehículos, deberá ofrecer una opción
+mediante la cual el administrador pueda modificar un registro de vehículo,
+teniendo en cuenta los siguientes campos: Nombre del parqueadero, tipo de
+vehículo, modelo del vehículo, marca del vehículo, placa, número de motor,
+número del chasis, nombre del propietario, apellidos, dirección y teléfono.
+
+El sistema en el módulo de registro de vehículos, deberá ofrecer una opción
+mediante la cual el administrador pueda modificar un registro de vehículo,
+teniendo en cuenta la funcionalidad del requisito 4.2.2 del sub módulo
+
+Registro Fotográfico.
+
+ 
+
+R4.12
+
+ 
+
+El sistema en el módulo de registro de vehículos, deberá ofrecer una opción
+mediante la cual el administrador pueda modificar un registro de vehículo,
+
+teniendo en cuenta la funcionalidad de los requisitos 5.1, 5.3 y 5.4 del
+módulo de Ubicación de Vehículos.
+
+4. 2 Sub Módulo de Registro Fotográfico
+
+ 
+
+ 
+
+ 
+
+R4.2.1 El sub módulo registro fotográfico deberá permitirle al usuario adjuntar
+registros fotográficos relacionados con el proceso de entrada de vehículos al
+parqueadero.
+
+R4.2.2 El sub módulo registro fotográfico deberá permitirle al usuario adjuntar
+novedades; entendiéndose por novedades: Nuevos registros fotográficos y
+descripciones en un álbum previamente creado.
+
+Restricciones
+
+ 
+
+ 
+
+La elección del tipo de vehículo se hará mediante un combo box generando un despliegue en tiempo real
+
+de los atributos de un vehículo en específico.
+
+La elección del tipo de carrocería se hará mediante un combo box.
+
+Para adjuntar los registros fotográfico se podrá realizar mediante Drag and Drop y mediante la selección
+
+de los archivos.
+
+ 
+
+77Uy SIGUV Documento: ER-0001
+ISO-9001 Universidad del Valle
+
+Universidad
+del valle
+
+ 
+
+ 
+
+ 
+
+ 
+
+Especificación de Requisitos Funcionales del Cliente Página: 8 de 12
+Fecha:
+Analistas Responsables: Manuel Salvador Cárdenas
+
+ 
+
+Joel Andrés Giraldo
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+5. Módulo de Ubicación Requisitos
+Asociados:
+Requisitos Descripción Categoría
+R5.1 El sistema en el módulo de ubicación de vehículos, deberá ofrecer al
+usuario una opción mediante la cual pueda calcular la ubicación de los
+vehículos a ingresar.
+R5.2 El sistema en el módulo de ubicación de vehículos, deberá ofrecer al
+usuario una opción mediante la cual pueda reubicar la totalidad de los
+vehículos dispuestos en un parqueadero.
+R5.3 El sistema en el módulo de ubicación de vehículos, deberá ofrecer al
+usuario una opción mediante la cual pueda visualizar la ubicación de
+un vehículo a partir de la placa de éste.
+R5.4 El sistema en el módulo de ubicación de vehículos, deberá ofrecer al
+usuario una opción mediante la cual pueda visualizar los espacios
+disponibles para ubicar vehículos en un parqueadero.
+R5.5 El sistema en el módulo de ubicación de vehículos, deberá ofrecer al
+usuario una opción mediante la cual pueda mostrar en forma gráfica la
+posible ubicación de los vehículos a ingresar.
+Restricciones
+
+. La elección de los vehículos a ubicar se realiza mediante un combo box.
+
+e El cálculo para la ubicación de cualquier vehículo se realiza mediante el algoritmo genético.
+
+e Elcálculo para la reubicación de parqueaderos se realiza mediante el algoritmo genético.
+
+e El sistema debe almacenar los cálculos del algoritmo genético en la Base de Datos previamente
+
+establecida.
+
+ 
+
+78há SIGUV Documento: ER-0001
+ISO-9001 Universidad del Valle
+
+Universidad
+del valle
+
+ 
+
+Especificación de Requisitos Funcionales del Cliente
+
+Página: 9 de 12
+
+ 
+
+Fecha:
+
+ 
+
+Analistas Responsables:
+
+Manuel Salvador Cárdenas
+
+ 
+
+ 
+
+Joel Andrés Giraldo
+
+ 
+
+ 
+
+ 
+
+ 
+
+6. Módulo de Reportes Requisitos
+Asociados:
+Requisitos Descripción Categoría
+R6.1 El sistema en el módulo de reportes, deberá ofrecer una opción
+
+mediante la cual el administrador pueda generar reportes a
+partir de los vehículos que ingresaron al parqueadero.
+
+R6.2 El sistema en el módulo de reportes, deberá ofrecer una opción
+mediante la cual el administrador pueda generar reportes a
+
+partir de los vehículos que salieron del parqueadero.
+
+ 
+
+R6.3 El sistema en el módulo de reportes, deberá ofrecer una opción
+mediante la cual el administrador pueda generar reportes a
+partir de los vehículos que se encuentran en un parqueadero
+específico.
+
+R6.4 El sistema en el módulo de reportes, deberá ofrecer una opción
+mediante la cual el administrador pueda generar reportes a
+partir de un tipo de vehículo.
+
+R6.5 El sistema en el módulo de reportes, deberá ofrecer una opción
+mediante la cual el administrador pueda generar reportes
+clasificados por fecha.
+
+ 
+
+R6.6 El sistema en el módulo de reportes, deberá ofrecer una opción
+mediante la cual el administrador pueda generar reportes a
+partir del motivo de ingreso de los vehículos.
+
+ 
+
+R6.7 El sistema en el módulo de reportes, deberá ofrecer una opción
+mediante la cual el administrador pueda consultar los accesos
+de usuarios al sistema.
+
+ 
+
+R6.8 El sistema en el módulo de reportes, deberá ofrecer una opción
+mediante la cual el administrador o digitador pueda generar
+
+reportes a partir de un inventario.
+
+ 
+
+ 
+
+R6.9 El sistema en el módulo de reportes, deberá ofrecer una opción
+mediante la cual el administrador pueda exportar los reportes
+
+ 
+
+generados.
+
+Restricciones
+
+La elección del tipo de reporte se realiza mediante un combo box.
+La generación del reporte, se realiza mediante el formato PDF.
+Para el intervalo de las fechas se utiliza la función DatePicker.
+
+ 
+
+ 
+
+79Módulo de Registro - Casos de Uso
+
+ 
+
+Módulo de Registro - Casos de Uso Extendidos
+
+     
+     
+   
+ 
+
+<<Include>>
+
+<<Include>> <<Include>>
+
+   
+
+<<Include>>
+
+80Módulo de Ubicación - Casos de Uso
+
+ 
+
+Modulo de Ubicación - Casos de Uso Extendidos
+
+(EN)
+<<Include>>_ o
+
+A al
+<<Include>>
+
+   
+
+   
+ 
+
+     
+ 
+
+81

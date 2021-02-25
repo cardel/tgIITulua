@@ -1,0 +1,6445 @@
+Plataforma computacional para la administración de
+
+relaciones con los clientes para la compañía de Contact
+Center Alopolis S.A.S.
+
+SÁNCHEZ MEJÍA JUAN MANUEL
+Cód. 200956095
+
+juan.manuel.sanchez O correounivalle.edu.co
+
+UNIVERSIDAD DEL VALLE SEDE TULUÁ
+PROGRAMA DE INGENIERÍA DE SISTEMAS Y CIENCIAS DE LA
+COMPUTACIÓN
+TULUÁ - VALLE
+MAYO,2014Plataforma computacional para la administración de
+
+relaciones con los clientes para la compañía de Contact
+Center Alopolis S.A.S.
+
+SÁNCHEZ MEJÍA JUAN MANUEL
+Cód. 200956095
+
+juan.manuel.sanchez O correounivalle.edu.co
+
+Propuesta de trabajo de grado para optar al titulo de
+
+Ingeniero de Sistemas
+
+Modalidad Pasantía
+
+Directora: Ing. Yuri Mercedes Bermúdez Mazuera
+
+Coordinadora Programa Ingeniería Sistemas Sede Tuluá
+
+Codirector: Ing. Pablo Lopera
+Consultor BI
+
+UNIVERSIDAD DEL VALLE SEDE TULUÁ
+PROGRAMA DE INGENIERÍA DE SISTEMAS Y CIENCIAS DE LA
+COMPUTACIÓN
+TULUÁ - VALLE
+MAYO,2014Nota de Aceptación
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Presidente del jurado
+
+ 
+
+Jurado 1
+
+ 
+
+Jurado 2
+
+Tuluá, Mayo de 2014Resumen
+
+Los sistemas empresariales de negocio brindan grandes oportunidades en la creación
+de ventajas competitivas, que permiten optimizar relaciones y procesos con los clientes
+internos, externos y proveedores, donde se agiliza y se apoya las tareas que se realizan
+en las organizaciones, por lo cual genera un cambio en la forma de competir e innovar en la empresa. Uno de estos sistemas empresariales es el de la Administración de
+relaciones con los clientes CRM (Customer Relationship Manager); término con una
+estrecha perspectiva en la utilización de marketing, enfatizando los aspectos de mercadeo y ventas.
+
+El presente trabajo se llevó a cabo en la compañía de Contact Center Alopolis S.A.S,
+donde poseían un CRM implantado y era la principal herramienta de operación y desempeño en la prestación de servicios a sus Clientes!. Esta compañía había venido
+presentando inconvenientes cuando los empleados o Agentes”, quienes se encargan de
+tener contacto directo con los Usuarios Finales?, utilizaban el CRM y no funcionaba
+como era esperado, generando así que los procesos comerciales no se lograran llevar a
+cabo; debido a la forma en como fue construida la arquitectura inicial de este sistema
+que no responde a las necesidades del modelo de negocio de la actualidad.
+
+Para solucionar la problemática presentada en la compañía, se realizó el diseño de
+la arquitectura del sistema empresarial enfocado en el cliente, donde se cumpla con las
+necesidades del modelo de negocio actual. Después se llevó a cabo la construcción de
+la plataforma CRM con base en la arquitectura ya definida. Por último, se implantó este
+sistema al interior de la compañía, culminando así el proyecto.
+
+Palabras clave: CRM, arquitectura, mercadeo, ventas, desempeño.
+
+ 
+
+Clientes, hace referencia a las empresas que contratan los servicios del Contact Center.
+? Agentes, son personas encargadas de hacer uso del Contact Center.
+¿Usuario finales, son los clientes de las empresas que contratan al contact center.
+
+11Abstract
+
+Enterprise systems provide great business opportunities to create competitive advantages, which helps optimize processes and relationships with internal, external customers and suppliers, where speeds and supports the tasks performed in organizations
+and therefore generates a change in the way to compete and innovate in the business.
+One of these systems is the business of relationship management CRM (Customer Relationship Manager) customers; term with a narrow perspective on the use of marketing,
+emphasizing aspects of marketing and sales.
+
+This work was carried out in the company of Contact Center Alopolis SAS , where
+they owned a CRM implemented and was the main tool operation and performance in
+providing services to its Clients *. This company had been submitting drawbacks when
+employees or agents ?, Who are responsible for direct contact with End Users *, using the CRM and did not work as expected, generating that business processes are not
+achieved conduct, due to the way in which it was built architecture this initial system
+
+that meets the needs of the business model of today.
+
+To solve the problems presented in the company, the architecture design of the business system focused on the client, where 1t meets the needs of the current business model
+was performed. Was then carried out the construction of the CRM platform based on
+already defined architecture. Finally, this system was implemented within the company,
+completing the project.
+
+Keywords: CRM, architecture, marketing, sales, performance.
+
+ 
+
+“Clients refers to companies that hire the services of the Contact Center.
+5 Agents are individuals responsible for use of the Contact Center.
+“end user, are customers of companies engaged in the contact center
+
+111Dedicatoria
+
+A Dios, a mis padres, hermano, novia, familiares y amigos, los cuales siempre me
+han acompañado, apoyado y motivado para seguir adelante, obtener grandes logros y
+sin ellos no hubiera podido alcanzar esta meta.
+
+Juan Manuel Sánchez Mejía
+
+1vAgradecimientos
+
+A los profesores que colaboraron en mi proceso de formación. Gracias por su dedicación y exigencia.
+
+Gracias al Ing. Pablo Lopera, Consultor B1 por ser mi codirector y confiar en mi para
+la realización de este proyecto. A la profesora e Ing. Yuri Mercedes Bermúdez Mazuera
+por ser mi directora y apoyarme en todo el proceso de desarrollo de este proyecto.
+
+A mis amigos y compañeros por todos los momentos vividos.
+
+Y por último gracias a Dios por darme la oportunidad de culminar este trabajo. Y a
+todos los que de alguna forma tuvieron que ver con esto.Tabla de Contenido
+
+1 Introducción 1
+1.1 Planteamiento del Problema ....................... 1
+1.1.1. Descripción del Problema .................... 1
+
+1.1.2 Formulación del Problema .................... 3
+
+12 Justiicación 4
+1. betis .... 5
+1.3.1. Objetivo General ......................... 5
+
+1.3.2 Objetivos ESpecÍfICOS . ....... o... .. . . . . . . . . . .. 5
+
+ld Alcance... 6
+2 Marco Referencial 7
+2.1 Marco de Antecedentes ...... 7
+2.1.1 CRMdepagO ..... o... .... e... 7
+
+2.1.2 CRM Open SQUuICe ......... e... 9
+
+2.1.3 Trabajos de grados .............. . . . . . . . . .. 9
+
+2.2 Marco Teórico... 11
+AI 11
+2.3.1. CRM Operativo (Front Office) ...... o... o... ... 11
+
+2.3.2 CRM Analítico (Back Office). .... o... oo... ... 12
+
+2.3.3 CRM Colaborativo ........... e... 12
+
+2.4 Tecnologías de desarrollo en la Web2.0 ................. 12
+24.1 JQUERY ............................. 13
+A O 13
+
+DD Web Services 14
+AI RPO.......... 14
+IIS 15
+
+BI REST 15
+
+2.6 Marco Conceptual .......... 16
+2.6.1 Call Center... e... 16
+
+2.6.2 Contact Center... e... 16
+
+vl2.6.3 Agente
+2.6.4  JSon .
+
+3 Aspectos del desarrollo de software
+
+3.1 Metodología ..........
+32 Planeación
+3.2.1 Product Backlog ........ o... ...
+3.2.2 Sprint Backl0g ........ o...
+BA ARO
+3.3.1 Arquitectura - Diagrama de CoMponentes ............
+3.3.2 Diagrama Entidad Relación ...................
+3.3.3 Diagrama de Clases. ................ .. . . . ..
+BA Codificación
+A
+3.5.1 Pruebas AUutOMÁtICAS ............. e... o...
+
+4 Conclusiones y trabajos futuros
+
+4.1 Conclusiones .
+4.2 Trabajos futuros
+
+Referencias
+
+vil
+
+17
+17
+18
+18
+20
+21
+21
+21
+23
+25
+25
+27
+
+32
+32
+33
+
+34Listado de Tablas
+
+3.1
+3.2
+3.3
+3.4
+
+4.1
+4.2
+4.3
+4.4
+4.5
+4.6
+4.7
+4.8
+4.9
+4.10
+4.11
+4.12
+4.13
+4.14
+4.15
+4.16
+4.17
+4.18
+4.19
+4.20
+4.21
+
+Historias de Usuario Módulo Empresa .................. 19
+Resumen de Módulos y Clases Elaboradas ................ 23
+Correcciones Iclient .......... e... e... 26
+Correcciones Iclient ......... e... e... 27
+Historias de Usuario Módulo Roles. ................... 37
+Historias de Usuario Módulo Administración .............. 38
+Continuación Historias de Usuario Módulo Administración ........ 39
+Historias de Usuario Módulo Autenticación ............... 39
+Historias de Usuario Módulo Oportunidad ................ 40
+Continuación Historias de Usuario Módulo Oportunidad ........ 41
+Historias de Usuario Módulo Template .................. 41
+Historias de Usuario Módulo Usuari0 .................. 42
+Continuación Historias de Usuario Módulo Usuari0 ........... 43
+Historias de Usuario Módulo Cuenta ................... 43
+Historias de Usuario Módulo Contacto . ................. 44
+Continuación Historias de Usuario Módulo Mercadeo .......... 45
+Historias de Usuario Módulo Preguntas-RespuestaS ........... 46
+Historias de Usuario Módulo Mercadeo ................. 4]
+Historias de Usuario Módulo Interacciones ............... 48
+Continuación Historias de Usuario Módulo Interacciones ......... 40
+Continuación Historias de Usuario Módulo de Producción ....... 40
+Continuación Historias de Usuario Módulo de Precio0S. .......... 50
+Continuación Historias de Usuario Módulo Telesalesfollowup ....... 51
+Historias de Usuario Módulo Script ......... o... ...... 52
+Continuación Historias de Usuario Módulo Seript ............ 53
+
+viilLista de Figuras
+
+3.1
+3.2
+3.3
+3.4
+3.5
+3.6
+3.7
+3.8
+3.9
+3.10
+3.11
+3.12
+
+4.1
+4.2
+4.3
+4.4
+4.5
+
+Proceso de desarrollo metodología ScruM ................ 18
+Planeación de Sprints (Iclient) ...................... 20
+Diagrama de componentes (Iclient). ................... 21
+Diagrama Entidad Relación (Iclient) ................... 22
+Clases Autenticación y USUATIO. +... ........... . .. ... 24
+Ejemplo de estructura prueba Authenticated.java ............ 28
+Llamado de dependencias ............... +... .. 28
+Resultados de prueba .................. . ........ 29
+paso 1 prueba autenticación... 29
+paso 2 prueba autenticación... 30
+paso 3 prueba autenticación... 30
+paso 4 prueba autenticación... 31
+Diagrama de Clases Parte 1 (Iclient) ................... 54
+Diagrama de Clases Parte 2 (Iclient) ................... 55
+Diagrama de Clases Parte 3 (Iclient) ................... 56
+Diagrama de Clases Parte 4 (Iclient) ................... 57
+Diagrama de Clases Parte 5 (Iclient) ................... 58
+
+1xCapítulo 1
+
+Introducción
+
+1.1 Planteamiento del Problema
+
+1.1.1 Descripción del Problema
+
+Los avances en desarrollos tecnológicos han tenido un gran impacto en la forma de dirigir las organizaciones, al posibilitar la implementación de sistemas de información para
+la administración de los datos, personas y actividades. Por su parte, los sistemas empresariales de negocio enfocados al cliente, permiten optimizar la relación de la empresa
+con éste y generan de esta manera un cambio en la forma de competir en el mercado.
+
+Los sistemas empresariales de negocios enfocados en el cliente son un modelo de
+gestión que se implementan para el funcionamiento de una compañía. Por medio de la
+administración de las relaciones con los clientes se propicia el acercamiento y la comprensión a sus necesidades y preferencias, para así lograr oportunidades de negocio.
+Entre sus funcionalidades se tiene: la presentación de productos o servicios, visualizaciones de demos online donde se muestre el producto en ejecución, agendamiento de las
+visitas a realizar con los clientes y seguimiento postventa de estos mismos. Sin embargo,
+lograr el fortalecimiento de las relaciones entre la empresa y el cliente es costoso a nivel
+empresarial cuando ésta no representa la actividad principal de la empresa, esto debido
+a la inyección de capital, tiempo, esfuerzo y personal idóneo requerido para velar por el
+correcto funcionamiento de esta tarea; para la organización es más viable designar esta
+actividad a un tercero especializado, ya que de esta manera reducen sustancialmente los
+costos anteriormente mencionados.
+
+Una de las compañías que ofrece el servicio a las empresas para la administraciónde sus clientes en la ciudad de Cali, es Alopolis S.A.S, la cual tiene implementado un
+sistema de información para la administración de relaciones con los clientes (CRM), y
+es la principal herramienta de operación y desempeño en la prestación de estos servicios
+apoyados de un Contact Center en el cual se gestiona la comunicación de los clientes potenciales, los cuales son gerentes, ejecutivos, presidentes, administradores, entre otros.
+El principal objetivo del Contact Center es identificar las necesidades del cliente para
+generar oportunidades de negocio; dicha comunicación se hace en un solo sentido, es
+decir, las llamadas son solamente salientes. El CRM implementado por Alopolis S.A.S
+fue creado hace ocho (8) años, el cual soporta los procesos en las áreas de mercadeo,
+ventas y servicio. Desde su puesta en marcha, el CRM de la compañía Alopolis se ha
+visto sometido a diversas modificaciones con el objetivo de cubrir necesidades que han
+surgido a partir del crecimiento de la empresa, entre los principales inconvenientes que
+presenta el CRM actual son:
+
+En primer lugar, la forma como fue planteada la arquitectura inicialmente no responde a las necesidades del modelo de negocio, donde el sistema debería permitir
+varias empresas trabajar de forma simultanea e independiente en la plataforma web por
+medio del dominio. En la actualidad existe, pero sin tener la estructura que se requiere,
+esto debido a que en un comienzo el CRM fue pensado para dar respuesta a una sola
+empresa, un solo tipo de producto y mercado, todo esto manejado de forma centralizada;
+pero la globalización de la compañía obligó a tener más de una empresa conectada al sistema. Por ello, el CRM fue modificado para un funcionamiento con acceso remoto, ésta
+última modificación se implementó en un servidor más potente, con mayor capacidad
+de respuesta y procesamiento; sin embargo, estas modificaciones han sido insuficientes
+para cubrir la necesidad de la compañía, por tanto, desde hace un año y medio viene
+presentando deficiencias en su funcionamiento.
+
+En segundo lugar, la filosofía CRM en el software actual no está completa, es decir,
+muchos procesos necesarios para una debida administración de relaciones comerciales
+y con los clientes no están implementados, pero también existen funcionalidades que ya
+no se utilizan y hacen entorpecer el uso diario del sistema.
+
+En tercer lugar, cuando los agentes del Contact Center hacen uso del CRM para
+tener contacto con los usuarios finales, éstos presentan inconvenientes en su labor como
+consecuencia de que el CRM no responde como es esperado. Cuando un agente no completa su labor con el usuario final, se toman medidas poco eficientes como re-agendar
+la llamada, registrar el incidente y se continúa con la siguiente llamada; muchas de
+esas veces se almacena la información en medios físicos como lo es en hojas de papel.
+También, cuando un agente registra la información de un usuario final, ésta información
+en Ocasiones no se guarda en el sistema, por tanto el registro se pierde y se reitera la llamada al usuario provocando la insatisfacción del mismo; otras veces simplemente nadiese percata del problema y se pierde los clientes.
+
+Por último, existe una necesidad de acceso al sistema por diferentes medios, esto
+debido a la tendencia multicanal del Contact Center por medio web y Mobile, donde
+se busca agilizar procesos desde cualquier lugar y en cualquier momento, por medio de
+internet. Esto se requiere porque a corto plazo se piensa implementar en la compañía
+estos medios de acceso como uso diario para los Agentes del Contact Center.
+
+En vista de las problemáticas anteriormente mencionadas, la compañía durante el
+mes de noviembre del año 2012 tuvo la iniciativa de implementar un sistema empresarial de negocios llamado Open ERP (véase sección 6.1.2.3), sin embargo no se pudo
+concretar debido a que no fue posible adaptarlo a los procesos que hay actualmente en
+la empresa y además se concluyó que tendría más costos e inversión de tiempo de los
+proyectados; también, éste sistema era muy robusto y contenía muchas funcionalidades
+que no eran necesarias. Por lo anterior, la compañía determinó que no era viable implantar un sistema de información comercial, sino desarrollar un CRM a la medida que
+cumpla con las necesidades y expectativas actuales, que solucione los inconvenientes
+presentados en la gestión de comunicación con los clientes y los procesos comerciales
+al interior de la compañía.
+
+1.1.2 Formulación del Problema
+
+¿Cómo solucionar los inconvenientes presentados en la arquitectura CRM y la gestión
+
+de comunicación con los clientes y los procesos comerciales de la compañía Alopolis
+S.A.S?1.2 Justificación
+
+Este proyecto tuvo como fin dar solución a una problemática presentada en el sistema
+empresarial de negocio de la empresa Alopolis S.A.S, además se realizaró en unas condiciones reales como es en esta compañía creada hace más de 8 años, con empleados fijos,
+clientes y usuarios finales existentes, además en un contexto de negocio con base tecnológica y problemas palpables que necesitaban ser solucionados para la continuidad de
+la compañía.
+
+Todo lo anterior implicó una curva de aprendizaje, adquisición de nuevos conocimientos sobre procesos comerciales y ampliar los conocimientos que se tenían desde nuevas
+perspectivas, debido a que se debieron estudiar y analizar las reglas de negocio de la
+compañía, la filosofía CRM, saber cómo eran los procesos internos, aprender los nuevos
+conceptos y definiciones que involucraban el presente proyecto, permitiendo además desarrollar competencias investigativas y ejercitando habilidades de autoaprendizaje, para
+así dar la correcta solución al problema existente.
+
+En este sentido, un CRM diseñado a la medida para los procesos que necesita la
+empresa Alopolis S.A.S. para su correcto funcionamiento, era la manera de solucionar
+el problema puesto que corregir el CRM existente era mucho más costoso debido a la
+forma como está construido. Por ello, la compañía al crear uno nuevo se benefició
+notablemente, porque se necesitaba que satisfaga unas necesidades específicas y un
+CRM convencional del mercado no abarca lo requerido en sus procesos como venían
+trabajando, además, este desarrollo se hizo sin la interrupción en el proceso de funcionamiento del Contact Center mientras se desarrolló las configuraciones e integraciones necesarias para corregir los inconvenientes existentes.1.3 Objetivos
+
+1.3.1 Objetivo General
+
+Desarrollar una plataforma computacional que permita la administración de las relaciones con los clientes para la compañía de Contact Center Alopolis S.A.S.
+
+1.3.2 Objetivos Específicos
+
+1. Examinar los procesos que intervienen en la gestión de las áreas de mercadeo y
+ventas en la compañía Alopolis S.A.S.
+
+2. Definir la arquitectura funcional del sistema empresarial CRM que integre los
+procesos comerciales de la compañía, basado en un modelo de 3 capas para la
+aplicación web
+
+3. Construir la plataforma CRM con base al diseño realizado, que soporte los procesos comerciales de la compañía
+
+4. Implantar en la compañía Alopolis S.A.S. en las áreas de mercadeo y ventas, el
+sistema empresarial CRM construido14 Alcance
+
+El presente proyecto se dirigió al desarrollo de una plataforma computacional enfocada en la gestión de las relaciones con los clientes para la compañía de Contact Center Alopolis S.A.S, este incluye solucionar los inconvenientes que se presentaban en
+la gestión de la comunicación con los clientes y en los procesos comerciales de la
+compañía en las áreas de mercadeo y ventas.
+
+Para llevar a cabo lo anterior, se desarrolló una arquitectura de tres niveles, un primer
+nivel es la capa de presentación, la cual contiene las interfaces para usuarios que permiten tener acceso al CRM para realizar los procesos funcionales de la compañía. Un
+segundo nivel, es la capa de negocios, esta funciona a través de peticiones a los web
+services que se realicen desde la capa de presentación. Por último la capa de datos, es
+donde residen los datos y es la encargada de acceder a ellos cuando son solicitados por
+los web services, esta capa está formada por un gestor de bases de datos open source.
+
+Con la arquitectura anteriormente mencionada la aplicación solucionó los problemas
+técnicos existentes y brindo accesibilidad y usabilidad requerida por los usuarios. Es
+importante tener claro que el proyecto está orientado al desarrollo de un CRM Operativo
+(véase sección 2.2.1.1) y no el de un CRM Analítico (véase sección 2.2.1.2), por tanto,
+el análisis de datos y el apoyo para la toma de decisiones se está llevando a cabo de
+manera paralela en otro proyecto.Capítulo 2
+
+Marco Referencial
+
+El contenido de este cápitulo es parte de la evidencia que demuestra el cumplimiento del
+primer objetivo del proyecto, junto con los documentos que se encuentran en la carpeta
+”evidencias_primer_objetivo”, en esta se presentan las actas de reunión realizadas con
+el codirector de la compañía, el contenido de este cápítulo como un estado del arte y
+una presentación que resume el contenido del mismo. El contenido de la carpeta que se
+menciona, se encuentra en el cd que acompaña este documento.
+
+2.1 Marco de Antecedentes
+
+Hoy día muchas empresas están implementando un sistema CRM para tener un mejor
+manejo y administración de las relaciones con los clientes, existen varios sitios y compañías
+que lo ofrecen en modo pago y open source. También en la web se encuentra sitios que
+ya tienen implementado este sistema y ofrecen esta aplicación por un tiempo restringido
+en modo prueba. Á continuación se mencionará varios de estos CRM:
+
+2.1.1 CRM de pago
+
+Zoho CRM
+
+Proporciona una API (Application Programming Interface) para la integración de módulos
+de CRM con aplicaciones de terceros, tales como contabilidad, ERP, e-commerce, portales de autoservicio y otros. Con la API de Zoho CRM, puede extraer datos de CRM en
+formato XML o JSON (véase sección 2.6.7) y desarrollar nuevas aplicaciones o integrar
+con las aplicaciones empresariales existentes. A medida que la API Zoho CRM es independiente de lenguajes de programación, puede desarrollar aplicaciones en cualquierlenguaje de programación (Java, .Net, C, C + +, PHP, etc.) [18].
+
+Siebel CRM
+
+Ayuda a las organizaciones a diferenciar a sus negocios para conseguir máximo crecimiento de los ingresos y resultados. Ofrece una combinación de funciones de transacción,
+análisis y captación para gestionar todas las operaciones con los clientes. Con soluciones adaptadas específicamente a más de 20 sectores, Siebel CRM proporciona:
+
+e Completas soluciones de CRM bajo demanda.
+e Soluciones sectoriales especializadas.
+
+e Información avanzada sobre los clientes basada en funciones e integración preconfigurada.
+
+Microsoft Dynamics CRM
+
+Es un software para la administración de la relación con los clientes creado por Microsoft que proporciona gestión de ventas, servicio al cliente y capacidad de mercado.
+Microsoft Dynamics CRM es vendido como un On-premises software o software como
+servicio llamado Microsoft Dynamics CRM online [12].
+
+SAP CRM
+
+SAP Customer Relationship Management, es la solución de servicio al cliente que le
+proporciona la mayor flexibilidad de la gestión de clientes. Las soluciones de software
+de gestión de los clientes de SAP, están diseñadas para satisfacer las necesidades de la
+Nueva Economía al mismo tiempo que le proporcionan el mayor nivel de control de
+dicha relación. El manejo eficiente de los procesos de servicio al cliente generaran el
+mayor nivel de valor en torno a sus procesos. Para esto, SAP ha desarrollado soluciones
+CRM centradas en la optimización de la realización de procesos sectoriales integrales,
+para dar soporte a los departamentos de atención al cliente, tanto en marketing, como
+en ventas y servicios [3].
+
+Sales Force
+
+Es un modelo de CRM en la nube, donde se alquila un espacio y libera a las empresas
+de la molestia y el costo de la compra de software, implementación y mantenimiento.
+Cumple con la misma función de los CRM tradiciones, pero con la ventaja que no
+necesita de la implementación y mantenimiento que un CRM normalmente requiere en
+la empresa. Es una plataforma multiusuario con una única infraestructura común y un
+código base que se mantiene en el centro permitiendo que este modelo sea posible [5].2.1.2 (CRM open source
+
+Hipergate
+
+Es el CRM 100% Open Source más completo y maduro disponible actualmente en
+plataforma Java con soporte para PostgreSQL, MySQL, Oracle y SQL Server. Está
+concebido y pensado tanto en profesionales independientes como en empresas, de manera que puedan derivar todos sus procesos informáticos hacia la plataforma. La suite
+está orientada a facilitar el trabajo diario, creando así una base de usuarios que utilicen
+el software constantemente [8].
+
+Zurmo CRM
+
+Es una aplicación Open Source de Customer Relationship Management (CRM) móvil,
+social y gamified. Utilizan una metodología basada en pruebas para la construcción de
+cada parte de la aplicación. Esto significa que se puede crear y mantener un sistema de
+CRM a la medida con la seguridad de que los futuros cambios no van a interrumpir la
+instalación [19].
+
+Open ERP
+
+Es un sistema empresarial de negocio que se compone de varios módulos y están completamente de código abierto, liberado bajo la licencia AGPL. Todas las dependencias
+son también de código abierto para evitar cualquier costo oculto. Este sistema contiene
+un módulo CRM, donde se administra los procesos de ventas sin ningún esfuerzo y
+todo lo referente a la comunicación con el cliente. También sirve para atraer clientes
+potenciales, seguimiento de llamadas telefónicas y reuniones; analiza la calidad de sus
+clientes potenciales para tomar decisiones informadas y ahorrar tiempo mediante la integración de mensajes de correo electrónico directamente en la aplicación [4].
+
+2.1.3 Trabajos de grados
+
+Por otro lado, se presentará dos proyectos en los cuales se han solucionado problemas
+similares a la Administración de Relaciones con los Clientes (CRM), utilizando la personalización dependiendo la necesidad existente. Sin embargo, pese a que estos parten
+de una misma base para resolver sus problemas, utilizan distintos enfoques, como lo
+son el desarrollo de diferentes módulos que involucran tanto soluciones parciales como
+totales.
+
+A continuación se muestra los casos de los trabajos de grado investigados:Caso Uno
+
+El estudiante de la Universidad Tecnológica Equinoccial de Ecuador, Jorge Leonardo
+Rosero López, presentó el proyecto de grado denominado ”Análisis, Diseño, Desarrollo e Implementación de un sistema CRM (Customer Relationship Manager) para emprendedores de preincubación empresarial” para optar por el título de Ingeniero en Informática y Ciencias de la Computación de esta Universidad. Este proyecto tenía como
+objetivo desarrollar un Sistema Informático que traslade un plan de Marketing a activ1dades asistidas por tecnología. Para lograr esto, se utilizó un sistema CRM para mantener al emprendedor informado y comunicado de los procesos, para así crear un ambiente de confianza, permanencia y asegurando un óptimo seguimiento de su proyecto
+de empresa. Realizó los siguientes pasos a lo largo del proyecto: Investigar sobre las
+diferentes tecnologías en lo referente a la comunicación con los emprendedores, conocer
+sobre CRM's, diseñar la base de datos y la aplicación, desarrollar la aplicación CRM,
+integrar el sistema con el primer módulo desarrollado, instalación de la aplicación desarrollada y disponer en producción el sistema [10].
+
+Caso Dos
+
+Los estudiantes de la Escuela Superior Politécnica del Litoral de Ecuador, Freddy G.
+Buendía Gallegos, Kelvin V. Ortega Macías y Angel H. Veloz Rodríguez, presentaron
+el proyecto de grado denominado ”Implementación del Módulo de CRM de PEOPLESOFT en el Banco Popular de Colombia” para optar por los títulos de Ingeniero en
+Informática y Ciencias de la Computación de esta universidad. Este proyecto tenía
+como objetivo brindar al Banco una solución integral a sus necesidades en el manejo
+de sus clientes, a través del CRM de PeopleSoft que apoya al control y gestión de todas las áreas de la empresa, implementando el módulo de CRM de PeopleSoft en el
+tiempo pactado con el Banco; haciendo seguimiento y control del módulo puesto en
+marcha para establecer un lazo de confianza con el Banco para la implementación de
+nuevos módulos de PeopleSoft logrando fortalecer el concepto del Banco Popular de
+Colombia, que es Clientes para toda la vida [6].
+
+En ese momento, el Banco Popular de Colombia cuenta con un ERP llamado PeopleSoft, Producto Oracle, que es una solución robusta que apoya la gestión de todas las
+áreas de la empresa, inicialmente no fueron implementados todos los módulos del ERP,
+pero el Banco notó la necesidad de tener a la mano un módulo CRM que le permita tener
+a la mano, de manera rápida y oportuna, toda la información relevante de sus clientes
+
+[6].
+
+Se puede observar variedad de opciones que tiene el mercado para que las empresas
+implementen un sistema CRM, cada día se vuelve más amplio y con mayores ofertas
+en resolver problemas con la administración de clientes.Existen situaciones donde los
+
+10sistemas preestablecidos no solucionan los inconvenientes de la compañía a cauda de
+factores tales como: la adaptación en la empresa, los procesos puntuales que se manejan,
+los costos en tiempo y esfuerzo, hacen que no sea viable usar uno de estos sistemas.
+
+En este trabajo de grado se ofrecerá la solución a medida para la empresa, ya que
+se cuenta con una problemática en particular que necesita ser resuelta teniendo presente
+los detalles en el funcionamiento.
+
+2.2 Marco Teórico
+
+2.3 CRM
+
+La Administración de relaciones con los clientes o en inglés Customer Relationship
+Manager (CRM), trata de comprender la naturaleza de la relación entre el cliente y
+el proveedor para gestionarla adecuadamente. El intercambio contiene consideración
+monetaria entre el proveedor y el cliente, pero también comunicación. El desafío de
+todas las organizaciones de proveedores es optimizar la comunicación entre las partes
+para garantizar relaciones rentables a largo plazo. El CRM, es un enfoque clave para
+muchas organizaciones como un cambio desde la adquisición de clientes hacia la retención de clientes y estrategias en la reducción del Churn (véase sección 2.6.6), dicta
+la necesidad de mejores procesos en la práctica del CRM [15].
+
+En el mercado podemos encontrar infinidad de productos y aplicaciones CRM, pero
+hay al menos tres tipos de divisiones que se deben contemplar:
+
+2.3.1 CRM Operativo (Front Office)
+
+Es el soporte de los procesos de negocios hacia el mundo exterior, que incluye el contacto con los clientes (ventas, marketing y servicios). Integra a través de un call center los datos del centro de atención telefónica o por Internet, además de todo tipo de
+comunicación que se mantenga con los clientes. El CRM Operativo proporciona los
+siguientes beneficios:
+
+e Personaliza y aumenta la eficiencia de los procesos de marketing, ventas y servlcios a través de la colaboración entre las distintas áreas de la empresa.
+
+e Permite tener una visión de 360 grados de los clientes mientras se interactúa con
+ellos.
+
+e El sector de ventas y el de atención al cliente pueden acceder a la historia completa
+de las interacciones del mismo con su empresa, sin importar el punto de contacto
+
+[13].
+
+112.3.2 CRM Analítico (Back Office)
+
+Es un sistema automatizado del SIM (Sistema de Información/Inteligencia de Marketing) con el que se analizan los datos obtenidos con el CRM Operativo o mediante
+otras fuentes externas, para identificar segmentos de los clientes o perfiles concretos
+de clientes. El análisis de clientes es la base para planificar y enfocar adecuadamente
+las campañas de marketing para incrementar las ventas [13]. En un nivel, el CRM
+analítico puede ser utilizado sobre una Base Ad Hoc (véase sección 2.6.5) para ident1ficar oportunidades o potencial Churn en una base de clientes. En otro nivel, los procesos analíticos pueden ser programados para garantizar las comunicaciones adecuadas y
+oportunas [15].
+
+2.3.3 CRM Colaborativo
+
+Es el encargado de facilitar la interacción del cliente con la organización e incorpora los
+nuevos medios (Internet y telefonía móvil), como canales adicionales, debiendo proveer,
+en conjunto el conocimiento de los patrones de comportamiento del cliente, que constituye la base para diseñar la estrategia CRM. Permite la implementación de servicios
+colaborativos como: e-mail, conferencia Web, chat, Voz IP, co-navegación, solicitudes
+de llamada (call me back o call me later), FAQs, etc. para facilitar las interacciones entre clientes y organizaciones, y entre miembros de la organización que trabajan entorno
+a la información del cliente (clientes a ventas, ventas a marketing, constructores de comunidad), debe orientarse a mejorar la comunicación y coordinación para promover la
+disminución de costes del cliente e incrementar su retención [13].
+
+2.4 Tecnologías de desarrollo en la Web 2.0
+
+Web 2.0 se refiere a una segunda generación de servicios basados en Internet que enfatizan la colaboración en línea y el intercambio entre los usuarios. En el área de la
+Web 2.0, servicios para compartir en línea y sitios de redes sociales son muy populares,
+los usuarios suben su contenido y datos personales, ya que proporcionan comodidad y
+atractivo datos mashup [11].
+
+Wu y Cao presentaron cómo la adaptación de las tecnologías Web 2.0, capaz de
+reducir los costos, mejorar la calidad y reducir los riesgos de las implementaciones de
+ERP que implican una amplia colaboración y la comunicación entre el cliente, consul
+toría implementación y proveedor de software [2][7].
+
+Web 2.0 tiene los siguientes características:
+
+12e Web 2.0 permite la construcción de aplicaciones virtuales, diferentes estilos y la
+funcionalidad de un número de diferentes fuentes, según proceda.
+
+e Web 2.0 es participativa
+
+e Las aplicaciones Web 2.0 trabajan para el usuario, y son capaces de localizar y
+reunir contenido que satisface nuestras necesidades como usuarios.
+
+e Las aplicaciones Web 2.0 son modulares, con los desarrolladores y los usuarios
+capaces de escoger y elegir entre un conjunto de componentes interoperar con el
+fin de construir algo que se ajuste a sus necesidades.
+
+e Web 2.0 acerca la comunicación entre la comunidad con facilidad [16].
+
+2.4.1 JQUERY
+
+JQuery es un excelente framework de JavaScript después prototipo, cuyo propósito ES
+ESCRIBIR MENOS, HACER MÁS. En comparación con otro framework de JavaScript,
+]JQuery es más ligero, flexible y fácil de usar. Es un potente selector es casi omnipotente.
+La iteración implícita se ve reflejada en la codificación. El paquete de Ajax es la causa
+de que todas las API sean muy útiles. Es más, como la base de JavaScript, ¡Query es
+excelente en la compatibilidad del navegador, gestor de eventos y documentos [9].
+
+2.4.2 AJAX
+
+Ajax, significa Asynchronous JavaScript y XML, no es una abreviatura. Estrictamente
+hablando, Ajax no es una tecnología o un nuevo lenguaje de programación, es una combinación orgánica de varias tecnologías. Ajax proporciona la capacidad de comunicarse
+con el servidor de forma asincrónica, con el fin de liberar a los usuarios de los círculos de
+solicitud Iresponse. Con la ayuda de Ajax, los usuarios al hacer clic en el hipervínculo,
+JavaScript y DHTML se utilizan para actualizar la interfaz de usuario, el envío de solicItud asincrónica con el servidor, la actualización y el Query a la base de datos al mismo
+tiempo. Cuando la solicitud se envía de vuelta, JavaScript y CSS se pueden utilizar para
+actualizar la página parcial del HTML en lugar de actualizar toda la página web. Más
+importante aún, los usuarios ni siquiera conocen como el navegador se comunica con el
+servidor, al igual que la aplicación local y la respuesta de los sitios web de inmediato
+
+[9].
+
+Aunque XML es la manera estándar de intercambio de datos, la X en AJAX representa XML, no tiene perjuicios generales de rendimiento. Por lo tanto, su sustitución
+por el JSON que es un formato de intercambio de datos ligero que tiene la promesa de
+producir aplicaciones más rápidas. Cambio de formato de datos del uso de XML a JSON
+
+13para aplicaciones AJAX puede mejorar la eficiencia de una aplicación AJAX (hasta cien
+veces más rápido) y mejorar la experiencia del usuario al reducir el tiempo de transferencia de la red y el cliente de tiempo de procesamiento de JavaScript. Nurseitov et al.
+(2009) han demostrado esta posibilidad de forma manual mediante la transformación
+de un pequeño número de aplicaciones AJAX heredados en (técnicamente) aplicaciones
+no-AJAX (XML reemplazado por JSON), donde se conserva la funcionalidad, pero el
+rendimiento ha sido mejorado [16].
+
+2.5 Web Services
+
+El consorcio W3C define los Servicios Web o en inglés Web Services como sistemas
+software diseñados para soportar una interacción interoperable máquina a máquina sobre una red. Los Servicios Web suelen ser APIs Web que pueden ser accedidas dentro
+de una red (principalmente Internet) y son ejecutados en el sistema que los aloja.
+
+La definición de Servicios Web propuesta alberga muchos tipos diferentes de sistemas, pero el caso común de uso de refiere a clientes y servidores que se comunican
+mediante mensajes XML que siguen el estándar SOAP [13]. En los últimos años se
+ha popularizado un estilo de arquitectura Software conocido como REST (Representational State Transfer). Este nuevo estilo ha supuesto una nueva opción de estilo de uso
+de los Servicios Web. A continuación se listan los tres estilos de usos más comunes:
+
+2.5.1 RPC
+
+Los Servicios Web basados en Llamadas a Procedimientos Remotos o en inglés Remote
+Procedure Calls (RPC) presentan una interfaz de llamada a procedimientos y funciones
+distribuidas, lo cual es familiar a muchos desarrolladores. Típicamente, la unidad básica
+de este tipo de servicios es la operación WSDL (WSDL es un descriptor del Servicio
+
+Web, es decir, el homólogo del IDL para COM).
+
+Las primeras herramientas para Servicios Web estaban centradas en esta visión. Algunos lo llaman la primera generación de Servicios Web. Esta es la razón por la que
+este estilo está muy extendido. Sin embargo, ha sido algunas veces criticado por no
+ser débilmente acoplado, ya que suele ser implementado por medio del mapeo de servicios directamente a funciones específicas del lenguaje o llamadas a métodos. Muchos
+
+especialistas creen que este estilo debe desaparecer [16].
+
+142.5.2 SOA
+
+Los Servicios Web pueden también ser implementados siguiendo los conceptos de la
+Arquitectura Orientada a Servicios o en inglés Service-oriented Architecture (SOA),
+donde la unidad básica de comunicación es el mensaje, más que la operación. Esto es
+típicamente referenciado como servicios orientados a mensajes.
+
+Los Servicios Web basados en SOA son soportados por la mayor parte de desarrolladores de software y analistas. Al contrario que los Servicios Web basados en RPC,
+este estilo es débilmente acoplado, lo cual es preferible ya que se centra en el contrato
+proporcionado por el documento WSDL, más que en los detalles de implementación
+subyacentes [17].
+
+2.5.3 REST
+
+En los últimos años se han visto aplicaciones web innovadoras y exitosas como Blogger,
+Flickr y YouTube. Aunque el término de Web 2.0 es considerado como un concepto de
+desarrollo centrado en el usuario de la web, la mayoría de Sitios Web 2.0 ofrecen sus
+propios servicios web que se realizan de manera REST. REST (REpresentational State
+Transfer) es un estilo de arquitectura de software para la distribución de los sistemas
+hipermedia como la World Wide Web. REST define un conjunto de principios arquitectónicos por la que se puede diseñar servicios web que se centran en los recursos del
+sistema, incluyendo cómo se abordan y se transfieren los estados de recursos a través de
+HTTP por una amplia gama de clientes escritos en diferentes lenguajes.
+
+Los principios de REST son: (1) estado de la aplicación y la funcionalidad se abstraen en recursos, (2) cada recurso es únicamente direccionable utilizando una sintaxis
+universal para uso en enlaces hipermedia, (3) los recursos comparten una interfaz uniforme para la transferencia de estado entre un cliente y un recurso, y (4) cada interacción
+con un recurso es apátrida. Los servicios que siguen los principios de REST se denominan ”REST”, o en un servicio RESTful. Servicios RESTful hoy han tenido una gran
+aceptación por parte del público, ya que sus principios de diseño son simples y fáciles de
+seguir, donde particularmente es útil en dispositivos con escasos recursos como PDAs
+o dispositivos móviles, donde la sobrecarga de las cabeceras y capas adicionales de los
+elementos SOAP debe ser restringida [17].
+
+152.6 Marco Conceptual
+
+2.6.1 Call Center
+
+Lugar para llamadas centralizadas (entrante o saliente) o la actividad de recepción de
+llamadas. Integrada por agentes, el centro de llamadas por lo general implica un ACD
+o sistema de distribución automática de llamadas vinculado a bases de datos de clientes
+para la entrada de orden y así sucesivamente [15].
+
+2.6.2 Contact Center
+
+Un contact center es una oficina centralizada utilizada por las empresas para recibir
+solicitudes de servicio y de sus clientes a través de una variedad de los medios de comunicación. En contraste con el call center que se encarga de las llamadas telefónicas, el
+contact center es capaz de atender no sólo las llamadas de voz, sino también e-mail, fax,
+carta, SMS, etc. También están jugando un papel cada vez más importante en el mundo
+del internet, ya que las empresas prefieren un contact center para ofrecer a sus clientes
+la posibilidad de utilizar los canales de comunicación que quieren, no sólo por teléfono
+como lo hace el call center [14].
+
+2.6.3 Agente
+
+Término genérico que se aplica a todas las personas que trabajan en los call center. El
+término se asocia con los call center porque las aerolíneas estaban entre los primeros
+grandes usuarios de ACD; la gente en los teléfonos eran agentes de reservas [15].
+
+2.6.4  JSon
+
+JSON (JavaScript Object Notation), es un formato de intercambio de datos ligero. Es
+fácil para los seres humanos al leer y escribir. Es fácil para las máquinas para analizar y
+generar. Se basa en un subconjunto del lenguaje de programación JavaScript Standard
+ECMA-262 3 * Edición - Diciembre de 1999. JSON es un formato de texto que es completamente independiente del lenguaje pero utiliza convenciones que son familiares para
+los programadores de C-family de lenguajes, incluyendo C, C++, C, Java, JavaScript,
+Perl, Python, y muchos otros. Estas propiedades hacen de JSON un lenguaje ideal de
+intercambio de datos [1].
+
+16Capítulo 3
+
+Aspectos del desarrollo de software
+
+En este capítulo se presenta el proceso de desarrollo de software empleado para la elaboración de este trabajo de grado en modalidad de pasantía. El cual es evidencia del
+cumplimiento del objetivo tercero del proyecto, ya que en el se muestra todo lo que
+fue necesario para su implementación, pasando por todas las etapas de análisis, diseño,
+codificación, pruebas e implementación.
+
+3.1 Metodología
+
+La metodología de desarrollo de software escogida para la implementación de este
+proyecto fue Scrum, ya que al ser una metodología ágil se adapta a las características del
+mismo, teniendo en cuenta que se requerió una entrega continua de avances de software
+funcional en tiempos cortos y de mantener un contacto permanente entre el cliente y
+el equipo de trabajo. Por otra parte en el desarrollo de ciertas actividades se presentan
+inconvenientes que llevan un poco más de tiempo del planeado o ameritan una reestructuración de la funcionalidad o diseño de la parte afectada, para dar lugar a una mejor
+solución o cumplimiento de un objetivo. Scrum permite realizar este tipo de cambios
+sin provocar un gran impacto en la continuidad de la planeación, estableciendo un nuevo
+plazo para terminar la actividad.
+
+Scrum es actualmente una de las metodologías agiles para el desarrollo de software
+de mayor difusión en la industria. Al inicio del proyecto se define el Product Backlog, que contiene los requerimientos funcionales y no funcionales del sistema. Estos
+deberán estar especificados de acuerdo a las convenciones de cada organización, donde
+usualmente se utiliza un artefacto de alto nivel, como lo son las historias de usuario.
+A partir de este, el Product Backlog, se definen las iteraciones, conocidas como Sprint.
+Cada Sprint tendrá su propio Product Backlog que será subconjunto del Product Back
+17log definido inicialmente; la duración recomendada para cada Sprint es de una a cuatro
+semanas.
+
+La Figura 3.1 presenta el proceso de desarrollo de la metodología Scrum:
+
+  
+  
+    
+   
+
+Revisión
+Diaria
+
+  
+
+Sprint
+
+ 
+
+poo la 4semanas
+Ona Reunión de
+Y DO Revisión
+| 208 > 0000 E=>
+2 Product Reunión de Sprint Reuniónde Incremento
+Backlog Planeamiento Backlog Retrospectiva deProducto
+
+ 
+
+Gi)
+
+Figura 3.1: Proceso de desarrollo metodología Scrum
+
+Para facilitar el proceso de desarrollo y definir claramente el alcance de la aplicación,
+se decidió complementar la metodología Scrum haciendo uso de algunos artefactos
+UML ( Unified Modeling Language) facilitando el proceso de desarrollo, como fueron
+los diagramas de componentes (véase sección 3.2 ), entidad relación (véase sección 3.2
+) y clases (véase sección 3.2 ).
+
+3.2 Planeación
+
+3.2.1 Product Backlog
+
+En base a los módulos definidos en el proceso de planeación se realizaron las historias
+de usuario correspondientes, definiendo las funcionalidades requeridas, características
+básicas, algunas excepciones y condiciones para establecer el correcto funcionamiento
+del sistema, por medio de las pruebas de aceptación que se establecen en el Product
+Backlog. La Tabla 3.1 muestra las historias de usuario del módulo Empresa, las otras
+historias de usuario se encuentra en el Anexo A.
+
+18H 01
+
+HOZ
+
+HO53
+
+HO4
+
+HOS
+
+H OB
+
+HO?
+
+ 
+
+trabajar con
+
+Fecha: 028120153
+
+Ccomó Administrador
+
+QUIERO registrar nuevaz
+emprezaz
+
+PARA posibilitar la gestión
+de las empresas que hacen
+uso del CRM.
+
+COomó Administrador
+
+QUIERO modificar loz
+campos de registro de una
+empreza
+
+PARA actualizar dato= y
+
+información
+pertinente.
+
+COmMmoó £dministrador
+
+QUIERO asignar una
+localización a una empresa
+PARA tener un medio de
+comunicación con la
+
+misma.
+
+COMO £dministrador
+QUIERO modificar una
+localización a una empresa
+PARA tener una
+información pertinente de
+la misma “y no cerrar el
+canal de comunicación.
+
+Como Administrador
+OUIERO poder visualizar
+
+las localizaciones de una
+empreza
+
+PARA poder realizar una
+comunicación directa con
+la misma de ser necesario.
+
+COomoO Administrador
+
+QUIERO visualizar la lista
+de empresas registadaz
+que hacen Uso del CR
+PARA poder gestionar la
+intorm ación asociada a laz
+mismaz.
+
+COMóÓ ¿Administrador
+OVIERO tener la opción de
+buscar una empresa
+
+registrada por medio de =u
+identificación, nombre y
+
+número
+PARA poder acceder al
+
+resto de intorm ación
+asociada y gestionarla.
+
+Tabla 3.1: Historias de Usuario Módulo Empresa
+
+Definición de Historias de Lisuario
+
+Documento: HODO?1 Revisión: 0101
+
+Icllent
+
+Módulo: EMPRESA
+
+e
+
+Descripción General El administrador ingresa
+ala aplicación; selecciona "Administración del
+sistema" y "Crear ingresa los datos de la
+nueva empresa, donde unos de esto= =on
+obligatorios y el sistema debe garantizar que
+zean llenados.
+
+Descripción General: El Sdministrador ingresa
+a la aplicación, selecciona la opción
+"Administración del sistema" y escoge una
+empresa de la lista disponible. Edita los campos
+a actualizar. De ser correctamente diligenciados,
+se actualiza la información y de no ser azi ze le
+
+comunica que debe corregidos.
+
+Descripción General: El Sdministrador ingresa
+a la aplicación, selecciona la opción
+"Administración del sistema" y escoge una
+empresa de la lista disponible. Escoge la opción
+"Localización" y "Crear", posteriormente
+
+diligencia el formulario, donde el sistema debe
+garantizar el ingreso de los campos obligatorios.
+
+Descripción General: El 2£dministrador ingreza
+a la aplicación, selecciona la opción
+"Administración del sistema" y escoge una
+empresa de la lista disponible. Escoge la opción
+"Localización" y de las previamente registradaz,
+selecciona la opción "Editar", posteriormente
+actualiza los campos necesarios, donde el
+sistema debe garantizar el ingreso de loz
+campos obligatorios.
+
+Descripción General: El £dministrador ingreza
+a la aplicación, selecciona la opción
+"Administración del sistema" y escoge Una
+empresa de la lista disponible, posteriormente
+selecciona la opción "Localización" donde podrá
+visualizar dicha información.
+
+Descripción General: El £dministrador ingreza
+
+a la aplicación, selecciona la opción
+"Administración del sistema" y podrá visualizar
+la tabla de empresas registradas que hacen uso
+del CRM.
+
+Descripción General: El Sdministrador ingresa
+a la aplicación, selecciona la opción
+"Administración del sistema" y podrá visualizar
+la lista de empresas registradas que hacen uso
+del CRM; si esta lista es demasiado larga podrá
+
+consultar alguna empresa en particular por
+medio de s=u Identificación, Mombre, Muúumero.
+
+Para no tener q navegar por la enorme lista de
+empresas registradas.
+
+19
+
+Pruebas de Aceptación
+
+ 
+
+Realizar el registro
+de una empreza,
+verificando todas laz
+restricciones de
+datos obligatorios y
+correctos
+
+werificación de la
+correcta
+actualización de loz
+datos can laz
+restricciones
+pertinentes de datos
+
+obligatorios y
+
+correctos.
+
+werificación del
+correcto registro de
+la localización con
+laz restricciones
+pertinentes de datos
+
+obligatorios y
+
+correctos.
+
+Werificación de la
+correcta
+actualización de loz
+campos de la
+localización de la
+empresa, con. las
+restricciones
+pertinentes de datos
+
+obligatorios y
+
+correctos.
+
+verificación de la
+
+correcta
+visualización de
+toda la información
+relacionada con la
+localización de una
+empreza.
+
+verificación de la
+correcta
+visualización de
+todas las empresas
+registradas
+
+Correcta
+visualización de loz
+resultados arrojados
+
+por el filtto de
+búsqueda
+
+empleado, ya sea
+por Identificación,
+Nombre, Número.3.2.2 Sprint Backlog
+
+Para el desarrollo de la aplicación que aquí se presenta, llamada Iclient se realizaron
+13 iteraciones. En la Tabla 4.2 se observa la tabla de iteraciones o Sprints que se
+realizaron.
+
+Definición de Spornts
+
+echa: 1612/2013 Pocumento: HODO? Revisión: 001
+
+Iclle nt
+
+5printBacibag
+
+Actividades Duración Responsable Prioridad
+
+Creación del módulo de preguntas-respuestas Del 6 a111 de enero Equipo de Trabajo
+Creación del módulo =cript de la cam paña Dbel14al 16 de enero Equipo de Trabajo
+
+Creación de los filtroz para la segmentación de
+contactos de la campaña
+
+01
+02
+
+0
+
+Qu
+
+Del17 al 24 de enero E quipo de Trabajo
+
+Creación de la visualización y las búsquedas
+
+de las cuentas y contactos Del 25 al 31 de enero Eau aja
+
+Desarrollo de los clientes seqmentados de una
+campaña
+
+is Deló al 16 de E
+Creación módulo tem plate tehirata Equipo de Trabajo
+Creación módulo lista de precios y productos Del17 al 23 de :
+or tebrera E quipo de Trabajo
+
+Creación módulo de interacciones, tanto desde Del 24 de febrero al
+cuentas y de=de contactos T de marzo
+
+Deld al 5 de febrero Equipo de Trabajo
+
+Equipo de Trabajo
+
+Realización de correcciones dadas por parte
+del codirector.
+
+También laz del anexo enviado por correo por
+
+ane de la empresa, llamado GUIA DE
+nas 0 P DelBal 21 de marzo Equipo de Trabajo
+
+se inicia correcciones del anexo GU/|%4 DE
+PRUEBAS — 002 enviado el día viernes 14 de
+marzo
+
+Creación de la pantalla del telezales followup,
+en la cual se reunen todos loz módulos del
+área de mercadeo.
+
+ds ¿ : Del31 de marzo al E E
+Creación módulo de oportunida dez. 43 de abril Equipo de Trabajo
+
+Correcciones de mejora a nivel general del
+CF hi
+
+Del22 al 30 de
+marzo
+
+ia
+ú
+
+Equipo de Trabajo
+
+a
+pro
+
+[e]
+
+Del 14 al 20 de abril Equipo de Trabajo
+
+Realización de pruebas automáticas al sistema
+pormedio de la herramienta Seleniurm
+
+Qu
+
+Del 21 al 30 de abril Equipo de Trabajo
+
+ 
+
+Figura 3.2: Planeación de Sprints (Iclient)
+
+203.3 Diseño
+
+3.3.1 Arquitectura - Diagrama de componentes
+
+La figura 3.3 muestra la arquitectura diseñada para la aplicación Iclient, con ayuda
+del análisis previo realizado con las historias de usuario, que permitieron en gran
+medida oriental la estructuración de la misma; logrando con esta, cumplir el segundo objetivo específico del proyecto.
+
+ 
+
+<<App Server>>
+
+Internet Information Services lIS 6.0 (Microsoft)
+<<=protocol>>
+
+HTTP S | Ss]
+
+controller model
+AJAX (Fs) (*.php)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+<<Web Server>>
+
+ 
+
+Archivo de configuración distribuida,
+
+<<Database Server>>
+
+ 
+
+ 
+
+ 
+
+ 
+
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+; : que permite reescribir URLs largas y [5 MySQL
+view SS ] complejas, en otras más simples y htaccess (Servidor Apache)
+JScript fácilmente recordables. Dependiendo iirf.ini (Servidor Microsoft]
+JQuery ] el servidor, se activa uno u otro
+HTML archivo.
+CSS E A<ÉK<4* A TS RT NARRAN E a
+(*.php)
+Ian framework e po
+Presentation Layer Logic Layer Data Layer
+
+Figura 3.3: Diagrama de componentes (Iclient)
+
+Para el sistema Iclient se diseñó una arquitectura de tres capas, donde la capa
+de presentación se elaboró con el framework bootstrap, permitiendo generar interfaces en código html, javascript y jquery, con la posibilidad de ser responsivas,
+ajustándose a dispositivos con diferentes dimensiones de pantalla. La comunicación entre las capas se realiza por medio de servicios web con ayuda del framework para servicios Rest Slim y la técnica de AJAX a través de HTTP. La capa
+lógica se compone de los diferentes módulos que conforman la aplicación , donde
+se encuentra la lógica del negocio; esta capa se comunica con la capa de datos,
+la cual se compone de una base de datos mysql, usando AdoDB como medio de
+comunicación.
+
+3.3.2 Diagrama Entidad Relación
+
+Para el sistema Iclient se trabajó con una Base de Datos Relacional Mysql, proporcionada por la compañía Contact Center Alopolis S.A.S, donde fue solo fue
+necesario trabajar con algunas de sus tablas, que se presentan en la Figura 3.4,
+mostrando las mismas y sus relaciones, en un diagrama UML de entidad relación.
+
+21Figura 3.4: Diagrama Entidad Relación (Iclient)
+
+223.3.3 Diagrama de Clases
+
+El sistema Iclient se diseñó de tal forma que sea lo más robusto posible, implementando conjuntos de clases y métodos para funcionalidades que no intervienen con
+otras. Generando esto, que al momento de algún fallo en alguna de estas, solo se
+vea afectada la parte donde se ocasiono y no se disperse el error hacia otras funcionalidades. La Tabla 3.2 muestra un resumen de los modelos y clases elaboradas
+
+ 
+
+para este proyecto.
+Modulo Modelo
+
+H
+rolecompanyController,
+
+enterprisemM odel
+a E authenticatemM odel [| authenticateC ontroller,
+
+adminSsystemC ontroller,
+listwaluesController,
+listWaluesCopyController,
+
+param eterC ontroller,
+pbarameterC opyController
+
+userController, userRoleController
+
+Controladores
+
+admintompanyController,
+companyController,
+companyModifyController
+
+Administración
+
+enterprisem odel
+
+ 
+
+Usuarios userModel
+
+     
+
+Vistas
+
+adminCompany, company,
+companyModify
+
+role ompany,
+role odulecom pany
+
+adminsSystem, listyaluez,
+listYaluesCopy, parameter,
+parameterCop y
+
+User, userR ole
+
+ 
+
+      
+ 
+ 
+ 
+
+accountFilteerSegmentController,
+accountController,
+
+ 
+  
+ 
+ 
+
+accountmModel
+
+ 
+ 
+
+A
+
+cuenta
+
+A4ccount,
+accountFiltersegment,
+
+ 
+
+accountsearchController
+
+ 
+
+ 
+
+ 
+
+accountsearch
+
+ 
+
+contactController,
+
+contactSearchC ontroller,
+telesalesContact%4ccountController,
+telesalesContactE ditC ontroller,
+viewinteractionContactT elesaleC ontr
+oller
+
+ 
+   
+   
+ 
+ 
+
+contacti odel
+
+contact, contactsearch,
+telesalesContactA4ccount,
+telesalesContactE dit,
+viewinteractionContactTel
+
+esale
+
+ 
+
+opportunityController,
+opportunityltem Controller,
+opportunityltem SearchController,
+opportunitySearchController,
+viewOpporttunityC ontroller,
+viewOpportunityltem Controller
+
+interactionContactController,
+interactionController,
+interactionCustomertallController,
+interactionCustom erE m ailC ontroller,
+telesalesBodyController,
+telesalesCallController,
+
+telesalesC ontactinteractiontontrolle
+r telesalesController,
+telesalesinteractionC ontroller,
+telesalesListC ontroller,
+telesalesSearchController,
+viewinteractionC ontactC ontroller,
+vievinteractiont ontroller,
+vievinteractionTelesaleC ontroller
+accountFiltersegmentController,
+cam paignController,
+contactFiltersegmentC ontroller,
+custom ertController,
+
+custom erSelectedController,
+filtersegm entC ontroller,
+interactionFiterSegmentController,
+segmentController,
+
+sendAutoE m ailController,
+vienwCamjpaignController
+
+  
+   
+
+    
+ 
+  
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+  
+
+oportunidad opportunityliodel
+
+interacciones interaction odel
+
+campaignM odel,
+custom erM odel,
+segmentationtií o
+del autom aillModel
+
+10
+
+A 
+   
+ 
+
+Pregunta- ansvwerhiModel que answerController, questionC ontro ller
+
+11
+
+ 
+
+   
+ 
+ 
+ 
+ 
+ 
+   
+  
+  
+ 
+
+opportunity,
+opportunityltem,
+opportunityltem Search,
+opportunitySearch,
+viewOpportunity,
+viewóO ppo rtunityltem
+
+Interaction,
+interactionContact,
+interactionCustomertcall,
+interactionCustom erE mail,
+
+telesales, telesalesBody,
+telesalesCall,
+
+telesalesC ontactinteractio
+n, telesalesinteraction,
+telesalesSearch,
+vievdnteraction,
+vievdnteractionC ontact vie
+winteractionT ele sale
+
+  
+ 
+  
+ 
+ 
+ 
+ 
+   
+  
+ 
+
+   
+ 
+   
+    
+
+accountF iltersegment,
+campaign,
+
+contactF iltersegm ent,
+customer,
+customerSelected,
+filtersegm ent,
+interactionFiterSegment,o
+pportunityFiltersegment,
+scriptFiltersegm ent,
+segment, sendAutoE m ail,
+viewCam paign
+Answer question
+
+ 
+
+  
+   
+
+   
+   
+
+  
+  
+
+   
+
+ 
+
+ 
+
+  
+    
+   
+ 
+ 
+
+  
+
+Respuestas stionkModel
+tem platemodel templateController, Template, viewTem plate
+12 Template viewTemplateController
+actionGuestionscriptC ontroller, actionGuestions cript,
+13 Script script odel network QGuestionscriptC ontroller, network GuestionScript,
+
+questionSscriptC ontroller,
+acriptt ontroller
+
+itemListController,
+
+listitemMo del listlitemValuesController,
+
+itemController,
+viewltemController
+
+7
+
+4
+priceListController,
+priceListltem Controller,
+
+viewPriceltem Controller
+
+   
+   
+  
+
+    
+ 
+  
+
+questions cript, script
+
+Item, itemList, viewltem
+
+priceList, priceListitem,
+viewP riceltem
+
+ 
+
+Otros archivos requeridos
+
+Localizaciones
+Home, upload odel
+
+locationM odel locationController location
+
+ 
+
+Tabla 3.2: Resumen de Módulos y Clases Elaboradas
+
+A continuación en la Figura 3.5 se presentan dos fragmentos del diagrama de
+clases, correspondientes a las clases de Autenticación y Usuarios, los otros frag
+23Languagel3_SESSIO
+WNlengusgeT:
+
+Largquagel3_SESSIO
+NlengusgeT.
+
+var Las URL;
+
+var listUaluesiRL.
+var locationi/FL
+yar coda.
+
+var codeB os;
+
+var cocerres
+
+var 000 ole
+
+war sine ist
+
+paticara |
+petuseñtocdity |
+wpaniellser()
+adi!)
+renderLisuidate |
+hliLetdata)
+Mills)
+MiLPrewviowl)
+
+mentos se encuentran en el apartado de Anexos B.
+
+Language(3_SESSIO
+
+De
+
+var 15erRole URL
+var coceÑole
+
+var sicel ist
+
+var cumeniPcctión
+var list;
+
+yar betementiat;
+
+getiraiclal)
+petiiiiole Company;
+adlser ole!)
+podatelIrarRolel
+gotusariolalMoaityl)
+render istidata|
+FilLitidass)
+
+Mi tt
+hliListrrevicust)
+ces icidaMocdión;
+modifyTosSONG
+adiTOJSO dato!
+hiFidacata)
+rengerListádo date)
+
+ 
+
+Saco = now Simi
+
+patirarágent3P_ ENTERPRISE)
+
+petisermtolSiD USER)
+sr re Agent)
+tal tr A
+
+gatáystramicara! Susana ad0lode lar |
+
+e Spasarord.$idiom|
+dre lhernticalel)
+gaLanguage Siciven)
+
+    
+
+Figura 3.5: Clases Autenticación y Usuario.
+
+243.4 Codificación
+
+La codificación de Iclient se basó en generar prototipos de forma constante, de
+tal forma que con ayuda del codirector se fuera ajustando la aplicación hacia el
+resultado esperado.
+
+Para la elaboración de este sistema se uso el entorno de desarrollo Netbeans
+junto con el plugin de php. La plataforma se implementó en la web 2.0, con el uso
+en la parte visual en Javascript, Jquery y HTML. El web service más conveniente
+para dicha plataforma fue RESTful, debido que no tiene tantas restricciones como
+los otros dos tipos SOA y RPC y además cumplió con lo requerido por parte de la
+compañía. Para generar la interfaz de comunicación entre el cliente y el servidor,
+se empleó Slim, un framework para servicios Rest en php . Para la generación de
+las interfaces se empleó bootstrap.
+
+La aplicación se encuentra en el siguiente enlace http://alopolis.com/crmapp,
+donde podrá ingresar con el nombre de usuario y password JSANCHEZ.
+
+3.5 Pruebas
+
+El contenido de este capitulo es evidencia del cumplimiento del objetivo cuarto
+del proyecto, donde se presentan las pruebas del sistema y correcciones realizadas
+por parte de la compañía al momento de poner la aplicación en marcha. La tabla
+3.3 muestra las correciones brindadas por la compañía, las cuales se realizaron
+y se paso a la elaboración de unas pruebas de aceptación automatizadas, que se
+encuentran en la sección siguiente de este capitulo.
+
+25OdUOD3j3 03110) |pyT-1QW-ZT RIO | Opezi¡euly "sauo!99eJajul sej ua usualnaJajul anb saJo¡eA ap sejsI| se esed SaJOjeA JezIeuIoJny
+
+OUOJPALS 0310) |pyT-1QW-ZT Po eIpaÑ | OPezI/euly "sauo199eJ/a]ul sej ueaJo es opuena uolsas ej ap oLensn jap uoI99ajas Jezneuony
+OdUOJDALS 03110) | pyT-1QWY-ZT po efeg| Opezi¡euly uo!Seo1de ey ua souensn ap sajgebajdsap ejsi] ey e sopijede Á “eweujasn ¡ebalby
+£00 - SV8INYA 30 VNO OJuauundog |yT-1e1-TE |] Opezi¡euly “Jemosle ap eqeoe as opueno uo!99eJajul e] ap Ope]sa Jezi]euWony
+
+£00 - Sva3nud 30 vND OJUAUUINdog u0!99eJa]ul ey soausyiaed anb ejuano
+-JE/N- el OpBzi¡pul
+PEA RA ope B| ap sojoe]uo9 so] ap sauoideziesoj se sebalbe Á Jeypa Jepod 'uorpoeJajul e ap uoronoale ej uy
+
+€00 - SY8INYA JA YN IO OJUatundoq |yT-1BIN-TE pepa | opezieuiy | “ejuano ej ap Á 0]9e]uoJ ¡ap sauoi99eJaju! se] ap uorDevwJojul Jebalby
+€00 - SVU83INYA 30 VNO OJUamndoq|yT-1RIN-TE pp efeg | opezieuiy | u0!998J8]u! Bun ap uO!IDeuIoJu! ey ap sauoloisod Jerquies
+
+ 
+
+ 
+
+ 
+
+£00 - Sv83nud 30 YN 9 Ojuaumog |yt-uew-TE [|  eeg |  opezieuig | sauo!93eJa]ul sej e ejuesejdas anb 0u09) Jeiquies
+£00 - SV8INUd 30 VND OJUSUIMOg | e 363 pi ensonu
+
+as opueno Á uor9euwJojul e] eosng as opuena dnmojojsajesaja] jap ejjejued ej ua eLosinip eau!] Jauoy
+Z00 - SY83NYA 30 YN OJUaun2o0g |yT-1/N-pT MES Opez1¡euly “Bao as opueno ou Á ejuano eun eypa es opueno sajeuoroipe soduleo Jeuaj ¡efeg
+700 - SV83nud 30 VND OJUaUUINdog |yT-1e/1A1-pT ll By [| Oopezieuiy | “BI9BA P]s9 PUaJSIS [8p e3s1| eun opueno afesuaw Un 109 JEPILA
+
+700 - Sv83nud 30 YN 9 Ojuauunaog [yT-1enw-pT [| epa Opezieuly “eaJ9 as opueno ou Á 0]9ejuos un eypa es opueno sajeuo.oipe soduwes Jeuaj ¡elag
+
+700 - SVv83nNYd 30 VNS OJUSLUNIOG "OJ9e]Uuoo a epa
+-JRIAJPEE paa | as opuens uadajede ou anb eyeduweo eun ejuawbas as opuen9 so]9e]uo9 so] ap soduieo Jebalby
+
+Z00 - SY8anyd 30 vNO OJUauundoq |yT-1eN-pT po eme [| opezmeulg | "UByipa as opueno so¡nu sodueox so| saJo¡ea ap sejsi] sej ua 1IbaJJoo
+Z00 - SY83NYd 30 VNO OJUaLundoq |yT-1PIN-pT Po Bmw | opezieulg | "pepni9 Á oyuaweyedap 'sied aque seuo!dejal sej sauol9ezieo| ua JibalJos)
+
+100 - SY83NYA 30 YN OJUaUIMdog |yT-1e/N-TT pp efeg | opezieuiy | “sayeuorodo soyelep Á ejuano eun Jea1o ap ojuawou ¡e senjojebigo sodueo solJeA Jeno
+
+100 - SY83INYA 30 VNO OJUaLundoq |yT-1PIN-TT ll Blw | Opezieuiy | “uordeoyde ej ap seuejsad se] ap UO/9ezI¡ensia ej ua UOIDIaJJos)
+TOO - Sv83nud 30 YN 9 Ojuatumdog [yT-1enw-TT |. eleg | opezmeuig | “BuaJsIS Jop Sejqe] Seen ua OBIPO9 BULINIOI JEJND
+100 - SV8anyd 30 VNO OJUaundoq | yT-12N-TT po  efeg | opezieuiy | “esejdwa eun ap ¡os un esed Jibaja e sojnpou so ap uorodiosap Jebalby
+
+100 - SYganyd 30 vNO OJUauunaoq |yT-1eN-TT jp efeg | opezieuiy | “uorDeode ej ap sejsia seun6]e us JeJjoq e Jeypa ap uorodo Jelquies)
+
+100 - SV8INYA JA VNO OJUALUINIOG PTIEN-TT |. Mw | opezieuiy | "BuwaJsis jep esaejdwa eo ap sejojea ap sejsi Á sonewejed soj Jeidoo Japod aqap as
+100 - SY83NYA 30 YN OJUauUnaog |yT-1/N-TT epa | opezyeuiy | "ope]sa ns ap alesuaw un ansenuw “eweajsis ¡e uaSeun eun eqns as opuen>
+
+100 - SY83INYA JA YN O OJuauundog |yT-12/N-TT po efeg| OPezi¡eul y ¡euotado Jas aqap q| oduwes ¡a 'esaldus eun ealo as opueno)
+¡puosiad uolunay [HT-Aen-80 [| efeg| OpezI¡eul y "epeubise euosjad Jod sauo!99eJa]ul Se] ap UOIDIpuos Jebajby
+
+¡puosiad uounay |yT-1e/N-80 pp empal | opezieuiy | “ajejdway¡ ¡rew3 e euedwes> odueo je Jealo sauol99eJaju] U3
+
+¡euosiad uolunay “epeuwej] esJed Á 09110) ejed sauol99eJajul JeaJjo
+bT-IPIN-80 opez1¡euly
+uepand es eyedwes eun ap sepeuordoajas seuosjad sej ap Bjsin ey apsap anb ejed volado ej Jeajo
+
+¡euosiad uounay|yT-1e/A-80 eleg OPezieuly “se]siA seunb¡e ua sopeuoipuaw soduieo soun ap uapio ja Inanu]
+
+; tT-1LIN-80 eleg Opezi¡euly
+un ue oyesajBul ap eJOoUy 8] € AA-NIN-0O 2 CO-NIN-AA Sp eya ap oJeuoj ap oIquieo ¡a Jen¡ea3
+¡euosiad uolunay IS opezneiiy “"nuau ¡e ua uolsas JeJjao “jediouud euejsed ej ue
+pea1eu! opjauod Á 'uorioeoide ej ap Jouadns ayed ej ap onensn ap arquiou ja 'sesaldwa se] ap soBo] so] Jeyno
+¡euosiad uolunay "pepiunyiodo ap ja anb ¡en6i ¡e
+pT-1PN-80 eleg opezieulg |.
+0AN98Uu! eJejsa yul] ase “eueduweo ap ojuawbas un ap soy ap ejsi] ey ua ,sauoIno), qul] 9 JBuoloIpy
+
+¡puosiad uounay|yT-1e/-80 MEA Opezi¡euly "sojuauuBas ejsiA e] ue 0s999e UBIpua] as sejsa “euedueo eun ap sepejuawbas seuosjad JeZIensiA
+
+¡puosjad uolunay |yT-1e/N-80 po eleg| Opez1¡euly "Bueduweo eun ap sepeuoidoajas seuosiad JezIJensiA
+
+¡puosjad uoIunay "soweyuoJua sou apuop o0]9exe Jebn ja ueoIpul ueo1pul sou sajeno
+tT-1LIN-80 opezi¡euly :
+
+se (ued ap se6iw) qunjopeailg Jesn Á JoLajue euibed ej e uaenanasp anb seuojog so] Jeynb Jenjeay
+
+¡euosjad uolunay |yT-1e/N-80 po eeg | opezieuiy | "sa¡Dul euoIp! ja ua sajueye, sejgejed Jesinay
+eya: opeis3 [| opeis3 Es
+¡NY SINOIMDITYLOD
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Iclient
+
+10nes
+
+Correccl
+
+Tabla 3.3
+
+263.5.1 Pruebas Automáticas
+
+Para llevar a cabo las pruebas, se utilizó de la herramienta SeleniumHO?, la cual
+por medio del navegador web Mozilla Firefox ? se agregó un complemento y grabó
+paso por paso la secuencia a evaluar.
+
+La figura 4.0 corresponde a los casos de prueba del módulo de autenticación de
+las historias de usuario HO1, HO2, HO3.
+
+| Authenticated.htmi - Seleriurn IDE 2.5.0
+
+Í [e Edit Actions Options Helg
+| Base URL http://127.0.0.1)
+As PE PS
+
+Test Case | Table | Sowrce
+
+ 
+
+Authenticated = .
+Cormmand Target Walue
+
+lopen emplee Authenticate
+
+¡select id=idiom label= English
+pause 2000
+
+type id=u5erMarneBo BAÁNCHEZ
+type id=paspordÉox BANCHEZ
+elick id=signinButton
+
+watPorElementPres.., id=signQutButton
+
+dhickándWart mz signOutButton
+
+Command
+Target
+
+Rinde 1 Value
+
+Fallunes: a]
+
+| Log | Reference | LUl-Elerment | Rolup Info- Clear |
+
+[info] Executing: Jopen | fcomappview/Authenticate | |
+
+[info] Executing: Jselect | id=idiom | label=English |
+
+[info] Executing: [pause | 2000 | |
+
+[mfo] Execubing: type | id=userdameBox | JSANCHEZ |
+
+[info] Executing: type | id=-passwordBox | JS5SANCHEZ ]
+
+[info] Executing: [check | id=signinButton | |
+
+mnfo] Executing: [walkForElementPresent | d=-sgnCOwtButton | |
+[info] Executing: JeickAndWakrt | id=signChitButton | |
+
+ 
+
+Tabla 3.4: Correcciones Iclient
+
+Selenium guarda un archivo en formato html donde se indicaba los eventos de
+la secuencia. Los archivos fuentes se localizan al interior del proyecto crmappTest
+en la ruta crmappTestisrcimain! javal.
+
+Por otra parte, también existe la opción de exportar la prueba en clases Java
+que son realizadas por medio del framework JUnit. Los archivos que contienen las
+
+pruebas están localizados dentro del proyecto crmappTest en la ruta crmappTest sreltestl java.
+
+Un ejemplo de cómo se estructura la prueba Authenticated.java es:
+
+ 
+
+'http://docs.seleniumhq.org/
+?http://www.mozilla.org/en-US/firefox/new/
+
+27ATest
+
+public void testAuthenticated() throws Exception (
+driver .get (baseUrl + "/crmapp/viem/Authenticate”);
+new Select (driver.findElement (By.id("iídiom”))).selectByVisibleText ("English");
+Thread.sleep(2000) ;
+driver. .findElement (By.1d("userNamebox”)) clear () ;
+dríver.findElement (By.id("userNameBox"”)) .sendKeys ("JSANCHEZ") ;
+dríver.findElement (By.id("passwordBox")). clear ();
+
+driver.findElement (By.id("passwordBox")) .sendKeys ("JSANCHEZ") ;
+driver.findElement (By.id("signInButton”)).click();
+for (int second = 0O;; second++) (
+
+if (second >= 60) fail("timeout”);
+try f if (isElementPresent (By.id("sign0utButton”))) break; ) catch (Exception e) ([()
+Thread.sleep (1000) ;
+
+)
+
+dríver.findElement (By.id("signOoutButton”)).click();
+
+ 
+
+Figura 3.6: Ejemplo de estructura prueba Authenticated.java
+
+Para indicar que un método es una prueba, se declara antes el C'Test, ya al
+interior del método, se ponen todos los sucesos que se quieren evaluar.
+
+Finalmente, para mostrar los resultados de la prueba, se hizo uso del framework
+Gradle? , el cual nos proporciona una interfaz en la donde salen los resultados de
+una prueba ejecutada. Los cuales son mostrados en el archivo index.html localizado al interior del proyecto en la ruta crmappTest.
+
+El proyecto de Gradle fue creado por medio de una extensión de Netbeans*
+
+llamada Gradle Support donde se crea toda la estructura para su funcionamiento,
+incluyendo las librerías de JUnif? y SeleniumHO?*.
+
+Para configurar que las pruebas se ejecuten sin problema, se definen las dependencias en el archivo build.gradle localizado en la raíz del proyecto crmappTest.
+
+Las dependencias llamadas se hacen en el método dependencies, de la siguiente
+manera:
+
+dependencies |
+compile group: 'org.seleniumhg.selenium', name: 'seleniuwon-java', version: '
+
+testCompíle group: 'junít', name: 'junit', version: '4.10'
+
+ 
+
+Figura 3.7: Llamado de dependencias
+
+En la figura 3.12 se ilustra el resultado de la prueba del módulo de Autenticación.
+
+ 
+
+http://www.gradle.org/
+*https://netbeans.org/
+5http://junit.org/
+Shttp://docs.seleniumhq.org/
+
+28Class Authenticated
+
+all > default-package > Authenticated
+
+0 0 16.289s
+
+failures ignored duration
+
+Tests
+
+Test
+testAuthenticated
+
+ 
+
+Figura 3.8: Resultados de prueba
+
+Las pruebas son mostradas paso a paso por medio del navegador Mozilla Firefox.
+
+Ejemplo:
+Pruebas automáticas del módulo de autenticación.
+
+Paso 1: Inicia la ventana de autenticación.
+
+Por favor, inicie sesión
+
+Iniciar
+
+ 
+
+Figura 3.9: paso 1 prueba autenticación
+
+Paso 2: Ingresa los valores del usuario y contraseña, se presiona el botón de
+Iniciar.
+
+Paso 3: Se accede a las opciones de la aplicación y se da clic en Cerrar Sesión.
+
+Paso 4: La aplicación vuelve al paso 1 donde se muestra la ventana de autent1cación.
+
+29Por favor, inicie sesión
+
+; Ae ol
+1 S:slema
+
+DEMLOPOLIS BCS
+
+Usuario: JUAN MANUEL SANCHEZ
+
+ 
+
+Figura 3.11: paso 3 prueba autenticación
+
+Del proceso anterior, se documentan los resultados de la siguiente forma para
+cada módulo.
+
+ 
+
+Módulo: AUTENTICACIÓN
+
+ID Titulo Pruebas de Aceptación Hombre del Test Resultado
+
+COMO Usuario. , erificación del correcto ingreso de un testauthenticated Aprobado
+QUIERO autenticarme el sistem a suario al sistema, con ingreso de los
+
+H 01 PARA acceder a las funcionalidades que kampos obligatorios, nombre de
+
+ofrece el CRM. suario y contraseña.
+
+COMO Usuario erificación del correcto cierre de testauthenticated Aprobado
+H02| QUIERO cerrar sesión sesión del usuario, cuidando el acceso
+PARA salir del sistema. o permitido por enlaceso URLs.
+
+ 
+
+COMO Usuario
+QUIERO seleccionar el idioma en que deseo
+
+verla aplicación
+PARA tener mayor facilidad de uso.
+
+erificación de la correcta traducción testAuthenticated Aprubado
+
+de la aplicación según el idioma
+elegido y que está sea com pleta.
+
+HO03
+
+ 
+
+ 
+
+Figura 3.12: paso 4 prueba autenticación
+
+El resto de tablas de resultados se encuentra en la carpeta Tablas_Pruebas del
+cd que acompaña este documento.
+
+30Capítulo 4
+
+Conclusiones y trabajos futuros
+
+4.1 Conclusiones
+
+Después del proceso para llevar a cabo la aplicación CRM y toda la experiencia
+obtenida se pueden obtener las siguientes conclusiones:
+
+e Para el desarrollo de un trabajo que se lleva a cabo en un ambiente real es indispensable realizar una retroalimentación constante de los procesos y áreas
+que intervienen en la empresa con todas las personas directamente involucradas, ya que al final se obtienen resultados lo más cercanos a lo inicialmente planteado.
+
+e Es indispensable conocer desde un inicio qué factores técnicos que inciden
+en la realización del proyecto y cuales en el entorno final, ya que al hacer uso
+de una tecnología para el despliegue de la aplicación y existir otra diferente
+en el entorno de implantación, se generan conflictos de compatibilidad, tal
+como fue el caso del redireccionamiento de la URL. En un servidor Apache
+se usa el .htaccess, pero en un servidor Internet Information Services 6 (11S)
+es necesario instalar una extensión llamada lonics Isapi Rewrite Filter que
+funciona con archivo 1irf.ini en el directorio raíz.
+
+e La información de los clientes localizada al interior del CRM es crucial para
+el funcionamiento diario del contact center de la empresa Alopolis S.A.S.;
+por lo tanto, el manejo de la información debe ser escalable y flexible sin
+depender de un motor de datos en específico tal como sucedía en el sistema
+anterior; las consultas SQL deben ser estándar para cuando se requiera hacer
+migraciones de un motor de datos a otros, pero manteniendo la misma estructura de la aplicación.
+
+e Hacer uso de frameworks y extensiones open source facilitan el desarrollo de
+la aplicación y genera valor agregado, ya que éstos son creados por grupos
+completos de desarrolladores para casos muy específicos que son complejos.
+Por otro lado, ya han sido probados y minimizan el margen de fallos de
+
+31funcionamiento, junto con el hecho de que periódicamente se liberan nuevas
+versiones, al igual que la documentación de respaldo.
+
+4.2 Trabajos futuros
+
+Del proceso de desarrollo para Iclient se lograron identificar las siguientes líneas
+de trabajos futuros:
+
+e Generación de reportes que permitan visualizar el estado de la información
+y las funcionalides que posee el sistema.
+
+e Creación de un mecanismo de E-Comerce para la venta online de productos.
+
+e Generación de un espacio para la interacción con demos de los productos q
+se puedan ofrecer.
+
+e Por ultimo incluir un módulo de facturación para que se lleve a cabo toda la
+parte financiera de la empresa por medio del sistema.
+
+32Referencias
+
+[1] Xu Chen Yingying Yu Boci Lin, Yan Chen. Comparison between json and
+xml in applications on ajax. in International Conference on Computer Science
+and Service System, 2012.
+
+[2] Chang-Yu Chiang Chuan-Jun Su. Enabling successful collaboration 2.0: A
+rest-based web service and web 2.0 technology oriented information platform
+
+for collaborative product development. in Computers in Industry 63, page
+948959, 2012.
+
+[3] SAP. CRM. Customer relationship management crm.
+http://www.sap.com/latinamerica/solutions/business-process/customerrelationship -management.epx. [Accesado 15-Mayo-2013].
+
+[4] Open ERP. Customer relationship management.
+https: //www.openerp.com/apps/crm/. [Accesado 15-Mayo-2013].
+
+[5] Sales Force. No hardware. no software. no  boundaries.
+http://www.salesforce.com/. [Accesado 15-Mayo-2013].
+
+[6] Kelvin V. Ortega Macías y Angel H. Veloz Rodríguez Freddy G. Buendía Gallegos. Implementación del módulo de crm de peoplesoft en el banco popular
+de colombia, 2010.
+
+[7] L. Cao H. Wu. Community collaboration for erp implementation. in IEEE
+Software 26, 6:48-55, 2009,
+
+[8] Hipergate. El crm libre más completo. http: //wwwnew.hipergate.org/portal/es/index.html. [Accesado 15-Mayo-2013].
+
+[9] Chunlin Peng Jingjing Li. jquery-based ajax general interactive architecture.
+
+in IEEE 3rd International Conference Software Engineering and Service Science (ICSESS), 2012.
+
+[10] Jorge Leonardo Rosero López. Análisis, diseño, desarrollo e implementación
+de un sistema crm (customer relationship manager) para emprendedores de
+preincubación empresarial, 2006.
+
+[11] K. Chirumalla M. Bertoni. Leveraging web 2.0 in new product development:
+
+lessons learned from a cross-company study. in Journal of Universal Computer Science 17, 4:548564, 2011.
+
+33[12] Microsoft. Microsoft dynamics crm. http://www.microsoft.com/eses/dynamics/default.aspx. [Accesado 15-Mayo-2013].
+
+[13] Enrique Valdez Ruiz. Estrategia de marketing digital para pymes. Anetcom,
+2007.
+
+[14] Olga Dudina Sergey Dudin, Chesoong Kim. Mmap——m—n queuelng system
+with impatient heterogeneous customers as a model of a contact center. in
+Computers Operations Research, 40(1ssue 7):1790-1803, July 2013.
+
+[15] Duane Sharp. Call center operation. Digital Press, April 14, 2003.
+
+[16] Liyong Wan. Application of web 2.0 technologies in e-1earning context. in
+International Conference on Networking and Digital Society, 2010.
+
+[17] Jonathan Lee Yu-Yen Peng, Shang-Pin Ma. Rest2soap: a framework to integrate soap services and restful services. in IEEE International Conference
+Service-Oriented Computing and Applications (SOCA), 2009.
+
+[18] Zoho. Zoho crm. http://www.zoho.com. [Accesado 15-Mayo-2013].
+
+[19] Zurmo. The new open source crm:  Gamified, mobile, social.
+http://zurmo.org/. [Accesado 15-Mayo-2013].
+
+34ANEXOSH 01
+
+HOZ
+
+H OS
+
+HO4
+
+HOS
+
+ 
+
+trabajar con
+
+Fecha: 211020153
+
+COomóO Administrador
+
+QUIERO registrar nuevos
+roles
+
+PARA  asociarlos=s a una
+empreza y brindarles
+
+cietas funcionalidades.
+
+COMO Administrador
+QUIERO modificar loz
+campos de registro de un
+ral
+
+PARA actualizar datos y
+
+información
+pertinente.
+
+CcOomoó dam inistra cor
+QUIERO visualizar la lista
+de roles asociados a una
+empreza
+
+PARA poder acceder al
+resto de información de
+dicho rol y editarla de ser
+necesario.
+
+COomMó Administrador
+
+QUIERO la opción de
+activar O desactivar Un
+modulo
+
+PARA mantener
+
+actualizada la intorm ación.
+
+COMO £dm inistra dor
+QUIERO la opción de
+agregar un imóduulo a un rol
+PARA ajustar un rol a laz
+necesidades de una
+empreza.
+
+Tabla 4.1: Historias de Usuario Módulo Roles
+
+ANEXO A: Product Backlog
+
+Definición de Historias de Lisuario
+
+Socumento: HODO?1 Revisión: 001
+
+Iclient
+
+hi ódulo: ROLES
+
+»
+
+Descripción General El administrador ingresa
+ala aplicación; selecciona "Administración del
+sistema", selecciona una empreza Y
+posteriormente roles de la empresa y "Crear";
+ingresa los datos del nuevo role, donde unos de
+esto=z son obligatorios Y el sistema debe
+
+garantizar que sean llenados.
+
+Descripción General El administrador ingresa
+ala aplicación; selecciona "Administración del
+sistema", selecciona una empreza Y
+posteriormente roles de la empresa, escoge uno
+de la lista disponible y "Editar” actualiza loz
+dato= del rol, donde unos de esto= <on
+
+obligatorios y el sistema debe garantizar que
+sean llenados.
+
+Descripción General El administrador ingreza
+ala aplicación; selecciona "Administración del
+sistema”, selecciona una empreza Y
+
+posteriormente roles de la empresa, donde
+podrá visualizar la tabla de roles asociado=.
+
+Descripción General El administrador ingresa
+ala aplicación; selecciona "Administración del
+sistema", selecciona una empreza Y
+posteriormente roles de la empresa, donde
+podrá visualizar la tabla de roles azociadoz.
+Escoge uno de estos= y selecciona la opción
+
+"Módulos" donde podrá activarlo o desactivarlo.
+
+Descripción General: El Sdministrador ingresa
+
+a la aplicación, selecciona la opción
+"Administración del sistema" y escoge una
+empresa de la lista disponible, posteriormente
+
+selecciona la opción "Localización" donde podrá
+visualizar dicha información.
+
+Pruebas de Aceptación
+
+ 
+
+Realizar el registro
+de un role,
+verificando todas laz
+restricciones de
+datos obligatorios y
+correctos.
+
+werificación de la
+correcta
+actualización de loz
+datoz con laz
+restricciones
+pertinentes de datos
+obligatorios y
+correctos.
+
+Werificación de la
+correcta
+
+“visualización de
+todos los roles
+
+asociados a
+empreza en
+aistemoa.
+
+Werificación de la
+
+correcta
+visualización de loz
+módulos asociadoz
+a un rol.
+
+verificación de la
+
+correcta activación
+o desactivación del
+módulo de dicho rol.
+
+Werificación de
+correcta
+módulo al rol.
+
+adición delH 01
+
+HOZ
+
+HO53
+
+H 04
+
+HOS
+
+HOb
+
+HO?
+
+ 
+
+Fecha: 154020153
+
+COmMmoóO £dministrador
+QUIERO registrar nuevaz
+listas de valorez
+
+PARA azociarlas a una
+
+empresa.
+
+COmMmoóO 24dministra dor
+OUIERO buscar ems de
+las listas de valores
+asociadas a una empresa
+PARA acceder a su
+información relacionada de
+forma más rápida.
+
+Cconmoó Administrador
+QUIERO registrar nuevos
+temes a listas de valores
+PARA actualizar la
+información de las listas
+asociadas a una empresa.
+
+Ccomó 4dministra dor
+
+OUIERÓ modificar ltemz a
+listas de valorez
+
+PARA actualizar la
+información de laz listaz
+
+asociadas a una empresa.
+
+COmMó Administra dor
+CIIERO visualizar loz
+temes de una lista de
+
+valores
+PARA acceder al resto de
+
+información asociada.
+
+COmMmoóO £dministra dor
+QUIERO visualizar las
+listas de valores asociadas
+auna empreza
+
+PARA acceder a toda la
+información relacionada.
+
+COmMmó 24dministrador
+OUIERO registrar nuevos
+parámetros PARA
+asociarlas a una empresa.
+
+Tabla 4.2: Historias de Usuario Módulo Administración
+
+Definición de Historias de Lisuario
+
+S ocumento: HODO? Revisión: 001
+
+Icllent
+
+Módulo: ADMINIS TRACIÓN
+
+e
+
+Descripción General: El £dministrador ingreza
+a la aplicación, selecciona la opción
+"Administración del sistema" y escoge una
+empresa de la lista disponible. Posteriormente
+selecciona la opción lista de valores y "Crear";
+ingresa los datos de la nueva lista de valorez,
+
+donde unos de esto=z son obligatorios y el
+sistema debe garantizar que sean llenado=.
+
+Descripción General: El £dministrador ingreza
+a la aplicación, elecciona la opción
+"Administración del sistema" y escoge una
+empresa de la lista disponible. Posteriormente
+selecciona la opción lita de valores Y
+"Elementos".
+
+Descripción General: El Administrador ingresa
+a la aplicación, selecciona la opción
+"Administración del sistema" y escoge una
+empresa de la lista disponible. Posteriormente
+selecciona la opción lita de valores Y
+"Elementos" y "Crear ingresa loz  datoz del
+nuevo tem de la lista de valores, donde unos de
+esto=z son obligatorios Y el sistema debe
+garantizar que sean lenadoz.
+
+Descripción General: El £dministrador ingreza
+a la aplicación, selecciona la opción
+"Administración del sistema" y escoge una
+empresa de la lista disponible. Posteriormente
+selecciona la opción lista de valores Y
+"Elementos" y "Editar", modifica lo= datos del
+ltem de la lista de “valores, donde unos de estoz
+
+son obligatoriosz y el sistema debe garantizar
+que sean llenados.
+
+Descripción General: El Sdministrador ingresa
+a la aplicación, selecciona la opción
+"Administración del sistema" y escoge una
+empresa de la lista disponible. Posteriormente
+selecciona la opción lita de valores Y
+
+"Elementos".
+
+Descripción General: El Sdministrador ingreza
+a la aplicación, selecciona la opción
+"Administración del sistema" y escoge una
+empresa de la lista disponible. Posteriormente
+selecciona la opción lista de valores.
+
+Descripción General: El 2£dministrador ingreza
+
+a la aplicación, elecciona la opción
+"Administración del sistema" y escoge Una
+empresa de la lista disponible. Posteriormente
+selecciona la opción parámetro y "Crear"
+ingreza loz datos del nuevo parámetro, donde
+
+unos de estos son obligatorios y el sistema debe
+
+Pruebas de Aceptación
+
+ 
+
+Realizar el
+de una lista de
+valores, verificando
+todaz laz
+restricciones de
+datos obligatorios y
+correctos.
+
+registro
+
+Werificación de la
+correcta busqueda y
+“visualización de loz
+
+datos.
+
+verificación del
+correcto registro del
+
+ltem de una lista de
+valores.
+
+Werificación de la
+correcta
+actualización del
+ltem de una lista de
+valores.
+
+Werificación de la
+correcta
+
+“visualización de loz
+ltem=s de una lista
+de valores asociada
+
+a una empreza.
+
+Werificación de la
+correcta
+visualización de laz
+de listas de valores
+asociadas a una
+empreza.
+
+Realizar el registro
+de una lista de
+valores, verificando
+todaz laz
+restricciones de
+datos obligatorios y
+
+correctos.H OB
+
+HO9
+
+H10
+
+H11
+
+ 
+
+H 01
+
+HOZ
+
+HO3
+
+ 
+
+COmMmoóO Administrador
+QUIERO modificar
+parámetros
+
+PARA  asociarlas a una
+empreza.
+
+COmoó aministracior
+QUIERO vieualizar la lista
+
+de parámetros  asociadoz
+a una empreza
+
+PARA acceder a toda la
+inform ación relacionada.
+
+CcomMoóO Administra dor
+OUIERO modificar los
+módulos asociadoz a una
+empreza
+
+PARA ajustar los perfiles y
+permisos del sistema.
+
+COMO dam inistra dor
+QUIERO “visualizar lo=
+módulos asociadoz a una
+empreza
+
+PARA acceder a la
+intorm ación relacionada y
+posiblemente editarlos.
+
+Descripción General: El Sdministrador ingresa
+a la aplicación, selecciona la opción
+"Administración del sistema" y escoge una
+empresa de la lista disponible. Posteriormente
+selecciona la opción parámetro, selecciona uno
+de la lista disponible y '*Editar” ingresa loz
+datos, donde unos de estos son obligatorios y el
+sistema debe garantizar que sean llenado=.
+
+Descripción General: El Sdministrador ingresa
+a la aplicación, selecciona la opción
+"Administración del sistema" y escoge una
+
+empresa de la lista disponible. Posteriormente
+selecciona la opción parámetros.
+
+Descripción General: El 2dministrador ingreza
+a la aplicación, elecciona la opción
+"Administración del sistema" y escoge una
+empresa de la lista disponible. Posteriormente
+selecciona la opción roles de la empresa,
+selecciona uno de la lista disponible, "Módulos"
+w "Editar".
+
+Descripción General: El Sdministrador ingresa
+a la aplicación, selecciona la opción
+"Administración del sistema" y escoge una
+empresa de la lista disponible. Posteriormente
+selecciona la opción roles de la empresa,
+selecciona uno de la lista disponible y
+"Módulos".
+
+Werificación de la
+correcta
+actualización de loz
+datos del parámetro
+teniendo en cuenta
+todas laz
+restricciones de
+datos obligatorios y
+correctos.
+
+Werificación de la
+correcta
+visualización de loz
+parámetros
+asociadosz a una
+empreza.
+
+Wwerificación de la
+correcta
+actualización de loz
+módulos asociadoz
+a Una empreza.
+
+Werificación de la
+correcta
+visualización de loz
+módulos asociadoz
+auna empreza.
+
+Tabla 4.3: Continuación Historias de Usuario Módulo Administración
+
+Fecha: 05102013
+
+COMO Usuario
+
+QUIERO  autenticarme el
+sistema
+
+PARA acceder a las
+
+funcionalidades que ofece
+el CRM.
+
+COmoO Denario
+QUIERO cerrar sesión
+PARA salir del sistema.
+
+COmoó Usuario
+
+OUIERO seleccionar el
+idioma en que deseo ver la
+aplicación
+PARA tener
+facilidad de Uso.
+
+mayor
+
+Tabla 4.4: Historias de Usuario Módulo Autenticación
+
+Definición de Historias de Lisuario
+
+Documento: HO001 Revisión: 001
+
+ 
+
+Iclient
+
+hiódulo: AUTENTICACIÓN
+
+Ñ
+
+Descripción General: El usuario se identifica
+con un nombre de usuario y una contraseña
+antes de poder iniciar =u sesión; el sistema
+debe garantizar el ingrezo obligatorio de estos
+
+dos campoz.
+
+Usuario estando
+
+Descripción General: El
+previamente en el sistema, selecciona la opción
+
+cerrar sesión.
+
+Descripción General El Usuario ingreza a la
+aplicación, —selecciona el idioma de su
+preferencia, ya =ea inglés o español.
+
+ 
+
+Pruebas de Aceptación
+
+verificación del
+correcto ingreso de
+un usuario al
+sistema, con
+ingreso de los
+campoz
+obligatorios, nombre
+de usuario Y
+contraseña.
+
+Werificación del
+correcto cierre de
+sesión del Usuario,
+cuidando el accezo
+no permitido por
+enlacezo LURLz.
+
+Werificación de la
+
+correcta traducción
+de la aplicación
+según el idioma
+elegido y que está
+sea completa.H O1
+
+HOZ
+
+HO5
+
+H 04
+
+HOS5
+
+H OB
+
+HO?
+
+ 
+
+Fecha: 241 02015
+
+Como
+
+permisos
+QUIERO registrar
+oportunidades
+PARA a=sociarla=s a una
+
+empresa.
+
+Usuario con
+
+nuevas
+
+Como
+
+permizo=
+QUIERO modificar
+oportunidades asociadas a
+
+una empresa
+PARA actualizar la
+
+inform ación de las mis=maz.
+
+Usuario con
+
+Como
+permisos
+QUIERO buscar
+oportunidades asociadas a
+una empresa en base a
+ciertos datos
+
+PARA acceder a su
+información relacionada de
+forma más rápida.
+
+Usuario con
+
+Como
+permisos
+QUIERO visualizar la lista
+
+de oportunidade=
+asociadas a una empresa
+
+PARA acceder al testo de
+información asociada.
+
+Usuario con
+
+CoMo
+permisos
+QUIERO buscar productos
+
+en el catalogo en baze a
+ciertos datoz
+
+PARA acceder a 3L
+información relacionada de
+forma más rápida.
+
+Usuario con
+
+Como
+
+permisos
+
+QUIERO visualizar el
+catálogo de productos
+PARA acceder 4 su
+información relacionada.
+
+Usuario con
+
+CoMo
+permisos
+QUIERO agregar un
+
+producto del catálogo a la
+lista de productos de la
+
+oportunidad
+PARA asociar laz
+
+productos que intervienen
+en clerta oportunidad.
+
+Usuario con
+
+Tabla 4.5: Historias de Usuario Módulo Oportunidad
+
+Definición de Historias de Lisuario
+
+S ocumento: HODO? Revisión: 001
+
+Iclient
+
+Módulo: OPORTUNIDAD
+
+»
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción
+"Oportunidad", escoge una empresa de la lista
+disponible y "Crear ingresa los datos de la
+nueva oportunidad, donde uno= de estos= son
+obligatorios y el sistema debe garantizar que
+
+sean lenádos.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción
+"Oportunidad", escoge una empresa de la lista
+disponible y "Editar modifica los datos de la
+oportunidad, donde unos de estos son
+obligatorios y el sistema debe garantizar que
+
+sean llenados.
+
+Descripción General: El Usuario con permisoz
+ingresa a la aplicación, selecciona la opción
+"Oportunidad" y escoge una empresa de la lista
+
+disponible. Posteriormente ingresa los datos que
+servirán como filtro para la búsqueda.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción
+"Oportunidad" y escoge una empresa de la lista
+disponible.
+
+Descripción General: El Usuario con permisoz
+ingresa a la aplicación, selecciona la opción
+"rentas" y "Producto" escoge una empresa de la
+lista dizponible e ingresa los datos que servirán
+como filtro para la búsqueda.
+
+Descripción General: El Usuario con permisoz
+ingreza a la aplicación, selecciona la opción
+"entas", "Producto" y escoge una empresa de
+la lista disponible.
+
+Descripción General: El Usuario con permisos
+
+ingreza a la aplicación, selecciona la opción
+"Oportunidad" y escoge una empresa de la lista
+
+disponible. Posteriormente selecciona la opción
+productos y “Agregar”.
+
+Pruebas de Aceptación
+
+ 
+
+Realizar el registro
+de una oportunidad,
+verificando todas las
+restricciones de
+datos obligatorios y
+
+correctos.
+
+Werificación de la
+correcta
+actualización de la
+oportunidad.
+
+Werificación de la
+correcta búsqueda y
+visualización de loz
+
+datos.
+
+verificación de la
+
+correcta
+visualización de laz
+oportunidades
+asociadas a una
+empreza.
+
+Werificación de la
+correcta búsqueda y
+visualización de loz
+datoz.
+
+Werificación de la
+correcta
+visualización de loz
+datoz.
+
+Werificación de la
+
+correcta adición del
+
+producto a la
+oportunidad.
+
+PrioridadHO
+
+HO3
+
+10
+
+ 
+
+H 01
+
+HOZ
+
+H OS
+
+ 
+
+CoMo
+permiso=
+QUIERO eliminar
+productos asociados a Una
+oportunidad
+
+PARA actualizar la
+información — referente a
+productos de la
+oportunidad.
+
+Usuario con
+
+Como
+permisos
+QUIERO visualizar lo =
+productos asociados a una
+oportunidad
+
+PARA acceder a la
+
+inform ación relacionada de
+los productos.
+
+Usuario con
+
+Como
+permisos
+QUIERO visualizar en
+
+detalle un producto
+asociado a una
+
+oportunidad y modificar la
+inform ación de zer
+necesario
+PARA acceder a la
+información relacionada del
+producto.
+
+Usuario con
+
+Descripción General: El Usuario con permisoz
+ingresa a la aplicación, selecciona la opción
+"Oportunidad" y escoge una empresa de la lista
+disponible. Posteriormente selecciona la opción
+productos y "Eliminar".
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción
+"Oportunidad" y escoge una empresa de la lista
+disponible. Posteriormente selecciona la opción
+productos.
+
+Descripción General: El Usuario con permisoz
+ingreza a la aplicación, selecciona la opción
+"Oportunidad" y escoge una empresa de la lista
+disponible. Posteriormente selecciona la opción
+productos y escoge uno de la lista disponible y
+edita los datos silo desea.
+
+Werificación de la
+
+correcta eliminación
+de loz productos
+asociados a una
+oportunidad.
+
+werificación de la
+correcta
+visualización de loz
+productoz=
+asociados a una
+
+oportunidad.
+
+Werificación de la
+correcta
+
+visualización de loz
+datos del producto.
+
+Werificación de la
+correcta
+actualización de loz
+datos del producto,
+sl estos fueran
+modificados.
+
+Tabla 4.6: Continuación Historias de Usuario Módulo Oportunidad
+
+Fecha: 2010102013
+
+Como
+permisos
+QUIERO
+tem platez
+PARA realizar un
+seguimiento de laz
+templates, tanto de
+campañaz, como
+propuestaz.
+
+Usuario con
+
+registrar nuevaz
+
+CoMo
+permiso=
+
+QUIERO modificar loz
+campos de registro de un
+competidor
+PARA actualizar
+trabajar con
+pertinente.
+
+Usuario con
+
+datos y
+información
+
+Como
+permisos
+QUIERO visualizar la lista
+de templates registradas
+
+PARA poder acceder al
+resto de información
+
+asociada.
+
+Usuario con
+
+Tabla 4.7: Historias de Usuario Módulo Template
+
+Definición de Historias de Lisuario
+
+Documento: HO 0071 Revisión: 001
+
+ 
+
+Iclient
+
+bódulo: TEMPLATE
+
+Ñ
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación; selecciona "Mercadeo" y
+"Campañas” posteriormente selecciona la
+
+opción crear campaña e ingresa los  datoz,
+
+donde unos de esto= son obligatorios y el
+sistema debe garantizar que sean llenado=.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación; selecciona "Mercadeo" y
+
+"Campañas" posteriormente selecciona Ln
+lista disponible,
+
+template o campaña de la
+escoge la opción editar, horesa loz cambios
+pertinentes, donde el sistema debe garantizar el
+ingreso de los campos obligatorio=.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción
+"Mercadeo" y "Campañas" y visualiza la tabla de
+tem plates asociados a Una empreza.
+
+Pruebas de Aceptación
+
+ 
+
+Realizar el registro
+de un competidor,
+verificando todas laz
+restricciones de
+datos obligatorios y
+correctoz.
+
+Werificación de la
+correcta asociación
+de un competidor
+con una empreza.
+
+verificación de la
+correcta
+
+actualización de loz
+datos con las
+restricciones
+pertinentes de datos
+obligatorios y
+correctos.
+
+Werificación de la
+correcta
+“visualización de
+
+todos los templates
+
+asociados a una
+empresa registradas
+
+en el sistema.H 01
+
+HO
+
+H OS
+
+HO4
+
+HOS
+
+HOb
+
+HO?
+
+ 
+
+Fecha: 171020153
+
+COmMmoóO £dministrador
+QUIERO registrar nuevoz
+usuarios
+
+PARA azociarlos a una
+
+empresa.
+
+COmMmoóO 24dministra dor
+QUIERO modificar
+usuarios asociados a una
+empresa
+
+PARA actualizar la
+información de la empreza.
+
+CcOomoó dam inistra dor
+QUIERO registrar nuevos
+teme a listas de valores
+PARA actualizar la
+información de laz listas
+asociadas a una empresa.
+
+cOmO am inistra cor
+QUIERO modificar laz
+localizaciones asociadas a
+un usuario de una empreza
+PARA actualizar la
+información de laz listas
+asociadas a una empresa.
+
+COmoóO Administrador
+QUIERO visualizar laz
+localizaciones asociadas a
+un Usuario de una empresa
+PARA acceder al resto de
+inform ación asociada.
+
+COmoó 24dministra dor
+QUIERO visualizar lo=
+usuario asociados a una
+empreza
+
+PARA acceder al testo de
+información asociada.
+
+COmMmóO Administrador
+
+QUIERO activar o
+desactivar Un rol a un
+usuario asociado a una
+
+empreza
+
+Tabla 4.8: Historias de Usuario Módulo Usuario
+
+Definición de Historias de Lisuario
+
+S ocumento: HODO? Revisión: 001
+
+Icllent
+
+Módulo: YSUARIO
+
+e
+
+Descripción General: El £dministrador ingreza
+a la aplicación, selecciona la opción
+"Administración del sistema" y escoge una
+empresa de la lista disponible. Posteriormente
+selecciona la opción Usuario y "Crear" ingresa
+los datos de la nueva lista de valores, donde
+
+unos de estos son obligatorios y el sistema debe
+garantizar que sean llenados.
+
+Descripción General: El Sdministrador ingresa
+a la aplicación, selecciona la opción
+"Administración del sistema" y escoge una
+empresa de la lista disponible. Posteriormente
+selecciona la opción Usuario y "Editar"; modifica
+
+los datos del usuario, donde unos de estos son
+obligatorios y el sistema debe garantizar que
+zean llenados.
+
+Descripción General: El Sdministrador ingresa
+a la aplicación, selecciona la opción
+"Administración del sistema" y escoge una
+empresa de la lista disponible. Posteriormente
+selecciona la opción Usuario, "Localización" y
+"Crear" ingresa loz datos de la nueva
+localización, donde  unoz de estoz son
+obligatorios y el sistema debe garantizar que
+sean llenadozs.
+
+Descripción General: El £dministrador ingreza
+a la aplicación, selecciona la opción
+"Administración del sistema" y escoge una
+empresa de la lista disponible. Posteriormente
+selecciona la opción Usuario, "Localización" y
+"Editar"; ingresa  lo= nuewo= datos de la
+localización, donde  unos= de  estoz son
+obligatorios y el sistema debe garantizar que
+sean llenados.
+
+Descripción General: El Sdministrador ingreza
+a la aplicación, elecciona la opción
+"Administración del sistema" y escoge una
+empresa de la lista disponible. Posteriormente
+selecciona la opción Usuario y "Localización".
+
+Descripción General: El Sdministrador ingreza
+a la aplicación, selecciona la opción
+"Administración del sistema" y escoge una
+empresa de la lista disponible. Posteriormente
+selecciona la opción Usuario.
+
+Descripción General: El 2£dministrador ingreza
+
+a la aplicación, elecciona la opción
+"Sdministración del sistema" y escoge una
+empresa de la lista disponible. Posteriormente
+
+selecciona la opción usuario, "Roles" y "Editar".
+
+Pruebas de Aceptación
+
+ 
+
+Realizar el registro
+de un usuario,
+verificando todas las
+restricciones de
+datos obligatorios y
+correcto=.
+
+Werificación de la
+correcta
+
+actualización del
+Usuario asociado a
+
+la empreza.
+
+werificación del
+
+correcto registro de
+la localización al
+Venario.
+
+Werificación de la
+correcta
+actualización de la
+localización del
+usuario.
+
+Werificación de la
+correcta
+
+visualización de laz
+localizaciones de
+
+un usuario
+asociado a una
+empreza.
+
+verificación de la
+correcta
+visualización de los
+
+vevaros asociados
+a una empresa.
+
+Werificación de la
+correcta
+
+actualización del
+estado del rol al
+
+Usuario.HO
+
+HO3
+
+ 
+
+H 01
+
+HO2
+
+HÓOS
+
+H 04
+
+ 
+
+trabajar con
+
+COmMmoóO Administrador
+QUIERO agregar un rol a
+un Aeuario asociado a una
+empreza
+
+PARA actualizar los
+perfles y permisos
+relacionados.
+
+COmoó £dministra dor
+QUIERO visualizar lo=
+roles asociados a un
+usuario
+
+PARA acceder al resto de
+información relacionada.
+
+Descripción General: El Sdministrador ingresa
+a la aplicación, selecciona la opción
+"Administración del sistema" y escoge una
+empresa de la lista disponible. Posteriormente
+selecciona la opción usuario, "Roles" y
+“Agregar”.
+
+Descripción General: El Sdministrador ingresa
+
+a la aplicación, selecciona la opción
+"Administración del sistema" y escoge una
+
+empresa de la lista disponible. Posteriormente
+selecciona la opción usuario y "Roles".
+
+Werificación de la
+
+correcta asignación
+del rol al usuario.
+
+verificación de la
+correcta
+visualización de loz
+
+roles asignados a
+un Usuario.
+
+Tabla 4.9: Continuación Historias de Usuario Módulo Usuario
+
+Fecha: 11102015
+
+Como
+permisos
+QUIERO
+cuentas
+PARA permitir la gestión
+de cuentas en el sistema
+pertenecientes a una
+empreza.
+
+Usuario con
+
+registrar nuevas
+
+Como
+permiso=
+QUIERO modificar laz
+campos de registro de una
+cuenta
+
+PARA actualizar datos y
+inform ación
+
+Usuario con
+
+pertinente.
+
+Como
+permisos
+OUIEROÓ buscar cuentas
+PARA acceder a la
+información azociada de un
+modo más rápido.
+
+Usuario con
+
+Como
+
+permisos
+QUIERO visualizar la lista
+de cuentas
+PARA poder
+resto de
+
+asociada.
+
+Usuario con
+
+acceder al
+información
+
+Tabla 4.10: Historias de Usuario Módulo Cuenta
+
+Definición de Historias de Lisuario
+
+S ocumento: HODO?1 Revisión: 001
+
+ 
+
+Icllent
+
+hiódulo: CUENTA
+
+Y
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación; selecciona "Wentazs" y
+"Cuenta" posteriormente selecciona la opción
+crear cuenta e ingresa los datos, donde unos de
+estoz son Obligatorios Y el sistema debe
+
+garantizar que sean llenados.
+
+Descripción General: El Usuario con permisoz
+ingreza a la aplicación; selecciona "Wentaz” y
+“Cuenta” posteriormente selecciona una cuenta
+de la lizta disponible, escoge la opción editar,
+ingresa los cambios pertinentes, donde el
+
+sistema debe garantizar el ingreso de loz
+campos obligatorios.
+
+Descripción General: El Usuario con permisoz
+ingresa a la aplicación; selecciona "Yentas",
+"Cuenta" y "Buscar Cuenta” posteriormente
+ingresa todos loz campos que servirán como
+filtro para la consulta.
+
+Descripción General: El Usuario con permisos
+ingreza a la aplicación, selecciona la opción
+"rentas" y "Cuenta", donde podrá visualizar la
+tabla de cuentas con su información asociada.
+
+todas laz
+
+Pruebas de Aceptación
+
+ 
+
+Realizar el registro
+de una cuenta,
+verificando todas laz
+restricciones de
+datos obligatorios y
+
+correctos.
+
+werificación de la
+correcta
+actualización de loz
+datos can laz
+restricciones
+pertinentes de datos
+obligatorios y
+correctos.
+
+Werificación de la
+correcta busqueda
+de la cuenta.
+
+verificación de cada
+uno de los filtros
+para que arroje
+resultados
+pertinentes.
+
+Werificación de la
+correcta
+visualización de
+cuentas
+registradas en el
+sistema.
+
+10H 01
+
+HOZ
+
+H OS
+
+H 04
+
+HOS
+
+HOb
+
+HO?
+
+ 
+
+trabajar con
+
+trabajar con
+
+Fecha: 1418 020153
+
+Como
+
+permisos
+QUIERO
+contactos
+PARA asociados a una
+cuenta registrada en el
+sistem a.
+
+Usuario con
+
+registrar nuevoz
+
+Como
+
+permisos
+QUIERO modificar loz
+campos de registro de un
+
+contacto
+PARA actualizar
+
+Usuario con
+
+datoz y
+
+información
+pertinente.
+
+Como
+permisos
+OUIERO buscar contactos
+PARA acceder a la
+inform ación asociada de un
+modo más rápido.
+
+Usuario con
+
+Como
+
+permisos
+OUIERO visualizar la lista
+de contactoz asociados a
+una cuenta
+PARA poder
+resto de
+
+asociada.
+
+Usuario con
+
+acceder al
+información
+
+Como
+permiszo=
+QUIERO asignar una
+localización aun contacto
+PARA tener un medio de
+comunicación con el
+
+mismo.
+
+Usuario con
+
+Como
+permiso=
+QUIERO modificar una
+localización aun contacto
+PARA actualizar datos y
+
+información
+
+Usuario con
+
+pertinente.
+
+Como
+
+permisos
+OUIERO visualizar la lista
+de localizaciones
+asociadas a un contacto
+
+PARA poder realizar una
+comunicación directa con
+el mismo de ser necezario.
+
+Usuario con
+
+Tabla 4.11: Historias de Usuario Módulo Contacto
+
+Definición de Historias de Lisuario
+
+S ocumento: HODO? Revisión: 001
+
+Iclient
+
+hócdulo: CONTACTO
+
+e
+
+Descripción General: El Usuario con permisos
+
+ingresa a la aplicación; selecciona "wventaz" y
+"Contacto" posteriormente selecciona la opción
+crear contacto e ingresa los datos, donde unos
+de estos son obligatorios y el sistema debe
+
+garantizar que sean lenadoz.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación; selecciona "ventas" y
+"Contacto": posteriormente — selecciona un
+contacto de la lista disponible, escoge la opción
+"Editar", ingresa los cambios pertinentes, donde
+
+el sistema debe garantizar el ingreso de loz
+campos obligatorios
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación; selecciona “ventas”,
+
+"Contacto" y "Buscar Contacto” posteriormente [2.
+
+ingresa todos los campos que servirán como
+filtro para la consulta.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción
+"ventas" y "Contacto", donde podrá visualizar la
+tabla de contactos con =u información asociada.
+
+Descripción General: El Usuario con permisoz
+ingresa a la aplicación, selecciona la opción
+"rentas" y "Contacto", Escoge la opción
+"Localización" y "Crear", posteriormente
+diligencia el formulario, donde el sistema debe
+
+garantizar el ingreso de los campos obligatorios.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción
+"ventas" y "Contacto". Escoge la opción
+"Localización", deloz= contactos en la lista
+disponible, selecciona uno y "Editar", ingreza
+
+los cambios pertinentes, donde el sistema debe
+garantizar el ingreso de los campos obligatorios.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción
+
+"“sentas" y "Contacto", selecciona alguno de la
+
+tabla de contactos y escoge la opción
+localización donde podrá visualizar la tabla de
+
+localizaciones con su información asociada.
+
+Pruebas de Aceptación
+
+ 
+
+Realizar el registro
+de un contacto,
+verificando todas laz
+restricciones de
+datos obligatorios y
+
+correctos.
+
+Werificación de la
+correcta
+actualización de loz
+dato= can laz
+restricciones
+pertinentes de datos
+
+obligatorios y
+
+correctos.
+
+verificación de la
+correcta búsqueda
+del contacto.
+
+Werificación de cada
+uno. de los filtros
+para que arroje
+resultados
+pertinentes.
+
+Werificación de la
+correcta
+
+visualización de
+todos los contactos
+asociados 4 una
+cuenta, registrados
+
+en el sistema.
+
+Werificación del
+correcto registro de
+la localización con
+las restricciones
+pertinentes de datos
+
+obligatorios y
+
+correctas.
+
+Werificación de la
+correcta
+actualización de loz
+datoz con laz
+restricciones
+pertinentes de datos
+
+obligatorios y
+
+correctos.
+
+verificación de la
+correcta
+“visualización de
+
+todas laz
+
+localizaciones
+asociadas a un
+
+contacto.H OS
+
+HO0Y9
+
+H10
+
+H11
+
+H12
+
+H13
+
+Como
+permisos
+ODIERO visualizar la lista
+
+de segmentos asociados a
+una campaña
+
+PARA acceder a su
+intorm ación relacionada.
+
+Usuario con
+
+COmo
+permiso=
+QUIERO visualizar la lista
+de contactos
+pertenecientes a una
+campaña
+
+PARA acceder a su
+información relacionada.
+
+Usuario con
+
+COmó Administrador
+QUIERO modificar los
+
+módulos asociados a Una
+empreza
+
+PARA ajustar los perfiles y
+permisos del sistema.
+
+COmMmo
+permisos
+QUIERO visualizar la lista
+
+de contactos para ejecutar
+auna campaña
+
+PARA acceder a =u
+información relacionada.
+
+Usuario con
+
+Como
+permiszo=
+QUIERO quitar
+de una campaña
+PARA acceder a su
+información relacionada.
+
+Usuario con
+
+contactos
+
+CoMo
+
+permisos
+QUIERO visualizar la lista
+de información de un
+contacto asociado “Y un
+script para ejecutar la
+campaña
+
+PARA acceder a la
+información relacionada de
+las campañas y contactos.
+
+Usuario con
+
+Descripción General: El Usuario con permisos
+
+ingresa a la aplicación, selecciona la opción
+"Mercadeo", "Campañas", "segmentos".
+
+Descripción General: El Usuario con permisos
+
+ingresa a la aplicación, selecciona la opción
+"Mercadeo", "Campañas", "Segmentos", "Filtros"
+y "Contactos".
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción
+"Mercadeo", "Campañas", "Interacción",
+"Campañas" y "Ejecutar", donde seleccionara laz
+campañas que =e ejecutaran.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción
+"Mercadeo", "Campañas", "segmentos",
+"Filtros", "Interacción" y "Contactos".
+
+Descripción General: El Usuario con permisos
+
+ingresa a la aplicación, selecciona la opción
+"Mercadeo", "Campañas", "segmentos",
+"Filtros", "Contactos", selecciona alguno de la
+lista disponible y "E liminar”.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción
+
+"Mercadeo", "Campañas" "Información" 0
+
+“Script”.
+
+Verificación de la
+correcta
+
+visualización de
+los datos.
+
+Werificación de la
+correcta visualización
+de los datoz.
+
+werificación de la
+correcta ejecución
+de las cam pañaz.
+
+Werificación de la
+correcta
+visualización de loz
+dato=.
+
+Werificación de la
+
+correcta
+actualización de loz
+contactos asociados
+a una campaña.
+
+Werificación de la
+correcta
+“visualización de loz
+datos asociados a
+una campaña.
+
+ 
+
+Tabla 4.12: Continuación Historias de Usuario Módulo MercadeoHO1
+
+HO2
+
+H OS
+
+H 04
+
+HOS5
+
+H Ob
+
+ 
+
+trabajar con
+
+trabajar con
+
+Fecha: 154 02015
+
+Como
+
+permizo=
+QUIERO la opción de
+poder registrar nuevas
+preguntas
+PARA que zean
+
+ingresadas en lo =
+
+cuestionarios para lo =
+clientes del sistem a.
+
+Usuario con
+
+CoMo
+permisos
+QUIERO la opción de
+
+poder modificar prequnta=
+PARA actualizar dato= y
+información
+
+Usuario con
+
+pertinente.
+
+Como
+
+permisos
+
+QUIERO visualizar la lista
+de preguntas registradas
+PARA poder realizar un
+
+seguimiento de laz
+mismas.
+
+Usuario con
+
+Como
+
+permizo=
+
+QUIERO la opción de
+poder registrar nuevas
+respuestas —asociadaz a
+una pregunta
+
+PARA que sean
+ingresadas en lo =
+resultados de los
+cuestionarios para lo =
+clientes del sistem a.
+
+Usuario con
+
+Como
+
+permisos
+QUIERO la
+
+Usuario con
+
+opción de
+poder modificar respuestas
+asociadas a una pregunta
+
+PARA actualizar dato= y
+
+información
+pertinente.
+
+Como
+permisos
+QUIERO visualizar la lista
+de respuestas asociadas a
+una pregunta
+
+PARA poder realizar un
+seguimiento de loz
+cuestionarios de loz
+
+Usuario con
+
+Definición de Historias de Lisuario
+
+Socumento: HODO? Revisión: 001
+
+Icllent
+
+Módulo: PREGUNTAS -RESPUESTAS
+
+»
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación; selecciona "Mercadeo" y
+""reguntas-Respuestas"”; posteriormente
+selecciona la opción crear e ingresa loz datos
+de la nueva pregunta, donde unos de estos son
+obligatorios y el sistema debe garantizar que
+sean llenados.
+
+Descripción General: El Usuario con permisos
+ingreza a la aplicación; selecciona "Mercadeo" y
+"Preguntas-Respuestas"; posteriormente
+selecciona alguna de la lista disponible y escoge
+la opción "Editar", actualiza los datos
+necesarios, donde unos de  esto=z  =aon
+obligatorios y el sistema debe garantizar que
+sean llenados.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación; selecciona "Mercadeo" y
+"Preguntas-Respuestas", donde podrá visualizar
+la tabla de preguntas registradas en el sistema.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación; selecciona "Mercadeo" y
+""reguntas-Respuestas"”; posteriormente
+selecciona una pregunta de la lizta dizponible,
+
+donde puede escoger la opción crear respuesta
+e ingresa los datos de la nueva respuesta,
+donde unos de estos son obligatorios y el
+sistema debe garantizar que sean llenados.
+
+Descripción General: El Usuario con permisos
+
+ingreza a la aplicación; selecciona "Mercadeo" y
+"Preguntas-Re=spuestas”; posteriormente
+selecciona alguna de la lista disponible, escoge
+la opción respuestaz Y la opción "Editar",
+actualiza los datos necesarios, donde unos de
+esto=z son obligatorios y el sistema debe
+
+garantizar que sean llenados.
+
+Descripción General: El Usuario con permisos
+ingreza a la aplicación; selecciona "Mercadeo" y
+"Preguntas- Respuestas", donde podrá visualizar
+la tabla de preguntas registradas en el sistema y
+al acceder a alguna de las preguntas en la
+opción respuestas, podrá visualizar la lista de
+respuestas asociadas.
+
+Pruebas de Aceptación
+
+ 
+
+Realizar el registro
+de una pregunta,
+verificando todas laz
+restricciones de
+datos= obligatorios y
+correctos.
+
+Werificación de la
+correcta
+actualización de
+información de una
+pregunta,
+verificando todas laz
+restricciones de
+dato= obligatorios y
+correctos.
+
+Werificación de la
+
+correcta
+visualización de
+todas la= preguntas
+
+registradas en el
+sistema.
+
+Realizar el registro
+de una respuesta,
+verificando todas laz
+restricciones de
+dato= obligatorioz y
+correctoz.
+
+Wwerificación de la
+correcta asociación
+de una respuesta a
+una pregunta.
+
+Werificación de la
+correcta
+actualización de
+información de una
+respuesta,
+verificando todas las
+restricciones de
+datos obligatorios y
+
+correctos.
+
+Werificación de la
+correcta
+“visualización de
+todas las
+respuestas
+registradas en el
+sistem a.
+
+Tabla 4.13: Historias de Usuario Módulo Preguntas-RespuestasH 01
+
+HO2
+
+H OS
+
+HO4
+
+HOS
+
+H OB
+
+HO?
+
+ 
+
+Fecha: 234 02015
+
+Como
+permisos
+QUIERO
+campañas
+PARA establecer laz
+estrategias de mercadeo.
+
+Usuario con
+
+registrar nuevas
+
+COmMmo
+
+permisos
+QUIERO
+campaña
+PARA actualizar la
+información de las mismas.
+
+Usuario con
+
+modificar una
+
+Como
+permisos
+OUIERÓO visualizar la lista
+de campañaz
+
+PARA acceder al resto de
+información asociada.
+
+Usuario con
+
+Como
+permisos
+QUIERO registrar nuevos
+segmentos perfenecientez
+auna campaña
+
+PARA ajustar la z
+estrategias de mercadeo.
+
+Usuario con
+
+Como
+
+permisozs
+
+QUIERO registrar nuevos
+filtroz a un segmento
+perteneciente a una
+campaña
+
+PARA ajustar la =
+estrategias de mercadeo.
+
+Usuario con
+
+Como
+
+permisos
+
+QUIERO modificar loz
+datos de un filtro asociado
+a un segmento
+perteneciente a una
+campaña
+
+PARA ajustar la =
+estrategias de mercadeo.
+
+Usuario con
+
+COMmo
+permisos
+QUIERO visualizar la lista
+de filtros asociados a un
+segmento
+
+PARA acceder a su
+información relacionada.
+
+Usuario con
+
+Tabla 4.14: Historias de Usuario Módulo Mercadeo
+
+Definición de Historias de Lisuario
+
+Socumento: HODO? Revisión: 001
+
+Icllent
+
+Módulo: MERCADEO
+
+»
+
+Descripción General: El Usuario con permisos
+ingreza a la aplicación, selecciona la opción
+"Mercadeo", "Campañas" y "Crear ingresa los
+datos de la nueva campaña, donde unos de
+estoz son obligatorios y el sistema debe
+garantizar que sean llenado=.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción
+"Mercadeo", "Campañas" y "Editar" modifica lo=
+datos de la campaña, donde unos de estos son
+obligatorios y el sistema debe garantizar que
+sean llenados.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción
+"Mercadeo" y "Campañas".
+
+Descripción General: El Usuario con permisos
+
+ingreza a la aplicación, selecciona la opción
+
+"Mercadeo", "Campañas", "Segmentos" y
+Crear” ingresa los datos del nuevo segmento,
+
+donde unos de estos =<on obligatorios y el
+sistema debe garantizar que sean llenados.
+
+Descripción General: El Usuario con permisos
+
+ingreza a la aplicación, selecciona la opción
+"Mercadeo", "Campañas", "Segmentos", "Filtro ="
+v “Crear” ingresa los datos del nuevo filtro al
+segmento.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción
+"Mercadeo", "Campañas", "Segmentos", "Filtros"
+v "Editar"; por ultimo ingresa los nuevos datos
+
+del filtro.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción
+
+"Mercadeo", "Campañas",
+
+"Filtros".
+
+"segmentos" y
+
+Pruebas de Aceptación
+
+ 
+
+Realizar el registro
+de una campaña,
+verificando todas las
+restricciones de
+datos= obligatorios y
+correctos.
+
+werificación de la
+correcta
+actualización de la
+campaña.
+
+verificación de la
+
+correcta
+visualización de las
+campañas.
+
+Realizar el registro
+de un segmento a
+
+una campaña,
+verificando todas laz
+
+restricciones de
+datos obligatorios y
+correctos.
+
+Realizar el registro
+de un filtro a un
+segmento de una
+campaña.
+
+Werificación de la
+correcta
+actualización de loz
+
+datos de un filtro.
+
+Werificación de la
+correcta
+visualización de loz
+
+datos.H 01
+
+HO2
+
+HO3
+
+H 04
+
+HOS
+
+H Ob
+
+ 
+
+Fecha: 0281/2015
+
+Como
+
+permisos
+QUIERO registrar
+interacciones
+PARA  asociarlo 4 un
+
+interacción registrado en el
+sistema.
+
+Usuario con
+
+nuevas
+
+COmo
+permisos
+QUIERO visualizar la
+inform ación de una
+interacción
+
+PARA actualizar
+trabajar con
+pertinente.
+
+Usuario con
+
+datos y
+información
+
+CoMo
+permisos
+QUIERO
+interacciones
+
+PARA acceder a la
+información asociada de un
+modo más rápido.
+
+Usuario con
+
+buscar
+
+COmo
+permiso=
+OUIERO visualizar la lista
+de interacciones asociadas
+aun contacto
+PARA poder
+resto de
+asociada.
+
+Usuario con
+
+acceder al
+información
+
+COmMmo
+permisos
+QUIERO asignar una
+interacción de llamada a un
+contacto
+
+PARA registrar la
+comunicación con el
+mismo.
+
+Usuario con
+
+Como
+permisos
+QUIERO crear máximo doz
+interacciones de llamada a
+un contacto en la
+interacción del mismo
+PARA registrar la
+comunicación
+
+Usuario con
+
+Tabla 4.15: Historias de Usuario Módulo Interacciones
+
+Definición de Historias de Lisuario
+
+Socumnento: HODO? Revisión: 001
+
+Icllent
+
+hi ódulo: INTERACCIONES
+
+»
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación; selecciona "Mercadeo",
+
+"Campaña", "Clientes" e "Interacción", que podrá
+ser de correo electrónico 0 llamada.
+Posteriormente selecciona la opción Crear
+
+interacción e ingresa lo= datos, donde unos de
+
+esto=z son obligatorios y el sistema debe
+garantizar que sean llenados.
+
+Descripción General: El Usuario con permisos
+ingreza a la aplicación; selecciona "Interacción";
+posteriormente ingresa el filtro de visualización y
+selecciona alguna de la lia disponible donde
+podrá observar toda la intorn ación relacionada.
+
+Descripción General: El Usuario con permisos
+ingreza a la aplicación; selecciona "Interacción",
+y "Buscar Interacción” posteriormente ingresa
+
+todos los campos que serdrán como filtro para
+la consulta.
+
+Descripción General: El Usuario con permisos
+
+ingreza a la aplicación, selecciona la opción
+"Interacción" y "Buscar", donde podrá visualizar
+
+la tabla de interacciones obtenida, selecciona
+alguna y se mostrará todos los datos asociados
+v en "Contacto" debera estar la opción
+
+interacciones, para ver todas las que ha
+realizado.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción
+"Interacción", consulta alguna y selecciona una.
+Al ver la lista de intonmnmación asociada del
+
+usuario donde podrá realizar una interacción de
+llanada al contacto que realizo la interacción
+que se consultó.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción
+"Interacción", consulta alguna y selecciona Una.
+Al ver la lista de información asociada del
+usuario donde podrá realizar máximo dos
+interacciones de llamada al contacto que realizo
+la interacción que se consultó.
+
+Pruebas de Aceptación
+
+ 
+
+Realizar el registro
+de una interacción,
+verificando todas las
+restricciones de
+
+datos obligatorios y
+correctos.
+
+verificación de la
+correcta
+“visualización de loz
+
+datoz.
+
+verificación de la
+correcta búsqueda
+de la interacción.
+
+Wwerificación de cada
+uno. de los filtros
+para que arroje
+resultados
+pertinentes.
+
+Werificación de la
+correcta
+visualización de
+todaz loz
+interacciones
+asociadas a un
+contacto registrado
+en el sistema.
+
+Werificación del
+correcto registro de
+la interacción con
+las restricciones
+
+pertinentes de datos
+
+obligatorios Y
+
+correctos.
+
+werificación del
+correcto registro de
+laz interacciones
+con las restricciones
+
+pertinentes de datos
+
+obligatorios y
+
+correctas.
+werlficación de la
+creación máxima de
+
+dos interaccionez.Hor
+
+HÓO5
+
+ 
+
+H 01
+
+HOZ
+
+HOS
+
+H 04
+
+HOS
+
+H Ob
+
+ 
+
+Como
+permisos
+QUIERO visualizar la lista
+de ventas asociadas a una
+cuenta
+PARA poder
+resto de
+asociada.
+
+Usuario con
+
+acceder al
+información
+
+Como
+
+permiso
+OUIERO modificar la lista
+
+de ventas asociadas a una
+cuenta
+PARA poder
+resto de
+
+asociada.
+
+Usuario con
+
+acceder al
+información
+
+Descripción General: El Usuario con permisos
+ingreza a la aplicación, selecciona la opción
+"Interacción" y consulta alguna y selecciona Una
+referente a ventaz y podrá visualizar la lista de
+ventas asociadas a una cuenta.
+
+Descripción General: El Usuario con permisos
+
+ingreza a la aplicación, selecciona la opción
+"Interacción" y consulta alguna y selecciona Una
+referente a ventaz y podrá visualizar la lista de
+ventas asociadas a una cuenta. Posteriormente
+podrá editar loz datos asociados a una venta.
+
+Werificación de la
+correcta
+
+“visualización de
+todas las ventas
+asociadas a una
+cuenta.
+
+Yerificación de la
+correcta
+actualización de laz
+ventas asociadas a
+una cuenta.
+
+Tabla 4.16: Continuación Historias de Usuario Módulo Interacciones
+
+Fecha: 0281/2015
+
+»
+
+Como
+
+permisos
+
+QUIERO registrar
+listas de productos
+PARA azociarlo=z a una
+
+empresa.
+
+Usuario con
+
+nuevas
+
+CoMo
+
+permisos
+QUIERO modificar una
+linea de producto asociada
+
+a una empresa
+PARA actualizar la
+
+información de laz mizmaz.
+
+Usuario con
+
+CoMo
+
+permisos
+QUIERO visualizar la lista
+de productos asociados a
+
+una linea de productos
+PARA acceder al resto de
+
+información relacionada.
+
+Usuario con
+
+Como
+permisos
+QUIERO
+artículos
+PARA  asociarlo=s a una
+
+linea de producto.
+
+Usuario con
+
+registrar nuevos
+
+Como
+permisos
+QUIERO
+articulos
+PARA  azsociarlos a una
+
+línea de producto.
+
+Usuario con
+
+modificar
+
+CoMo
+
+permisos
+QUIERO visualizar la lista
+de productos asociados a
+
+una linea de productos
+PARA acceder al resto de
+
+información relacionada.
+
+Usuario con
+
+Definición de Historias de Lisuario
+
+Socumnmento: HODO? Revisión: 001
+
+ 
+
+Icllent
+
+Módulo: PRODUCTO
+
+Descripción
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción "
+“entas", "Producto" y "Crear" ingresa los datos
+de la nueva linea de producto, donde unos de
+estosz son obligatorios y el sistema debe
+
+garantizar que sean llenado=.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción "
+*entas", "Producto", escoge un producto de la
+lista disponible y "Editar modifica los datos de
+la linea de producto, donde unos de estos son
+obligatorios y el sistema debe garantizar que
+
+sean llenados.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción "
+ventas", "Producto" y "Elementos".
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción "
+“entas", "Producto", "Elementos" y "Erear”;
+ingresa los datos del nuevo producto, donde
+
+unos de estos son obligatoños y el sistema debe
+garantizar que sean llenado=.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción "
+*Yentas", "Producto", "Elementos" y "Editar";
+ingresa los nuevos datos del producto, donde
+unos de estos son obligatoños y el sistema debe
+
+garantizar que sean llenadoz=.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción "
+ventas", "Producto" y "Elementos".
+
+Pruebas de Aceptación
+
+ 
+
+Realizar el
+de una
+producto,
+verificando todas laz
+restricciones de
+datos= obligatorios y
+
+correctos.
+
+registro
+linea de
+
+Werificación de la
+correcta
+actualización de la
+línea de producto.
+
+Werificación de la
+correcta
+visualización de
+productos
+asociados a la línea
+
+de productos.
+
+Realizar el registro
+de un producto,
+verificando todas las
+restricciones de
+
+dato= obligatorios y
+
+correctos.
+
+Werificación de la
+correcta
+
+actualización de loz
+datoz de un
+
+producto.
+
+werificación de la
+correcta
+visualización de
+productos
+asociadoz a la línea
+
+de productos.
+
+Tabla 4.17: Continuación Historias de Usuario Módulo de ProducciónH O1
+
+HOZ
+
+HO53
+
+H 04
+
+HOS
+
+HOb
+
+ 
+
+Fecha: 0281/2015
+
+Como
+
+permisos
+QUIERO registrar
+listas de precios
+PARA a=sociarlo=s a una
+
+empresa.
+
+Usuario con
+
+nuevas
+
+Como
+
+permisos
+QUIERO modificar una
+lista de precios asociada a
+
+una empresa
+PARA actualizar la
+
+inform ación de las mizmaz.
+
+Usuario con
+
+Como
+
+permizo=
+QUIERO visualizar la lista
+de precios asociados a Una
+
+empresa
+PARA acceder al resto de
+
+inform ación relacionada.
+
+Usuario con
+
+Como
+permisos
+QUIERO
+artículos
+PARA  azociarlos a una
+
+Lista de precios.
+
+Usuario con
+
+registrar nuevoz
+
+COmo
+permiso
+QUIERO
+artículos
+PARA azociarlos a una
+
+Lista de precios.
+
+Usuario con
+
+modificar
+
+CoMo
+
+permisos
+QUIERO visualizar la lista
+de productos asociados a
+
+una lista de precios
+PARA acceder al resto de
+
+inform ación relacionada.
+
+Usuario con
+
+Definición de Historias de Lisuario
+
+Socumnmento: HODO? Revisión: 001
+
+Icllent
+
+Módulo: PRECIO
+
+»
+
+Descripción General: El Usuario con permisos
+ingreza a la aplicación, selecciona la opción "
+ventas", "Lista de precios" y Crear” ingresa lo=
+datos de la nueva lista de precios, donde unos
+de esto= son obligatorios y el sistema debe
+
+garantizar que sean llenados.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción "
+ventas", "Lista de precios”, escoge un Lista de
+precios de la lista disponible y 'Editar"; modifica
+los datos de la lista de predos, donde unos de
+estoz son obligatorios y el sistema debe
+
+garantizar que sean llenados.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción "
+“entas", "Lista de precios”.
+
+Descripción General: El Usuario con permisos
+ingreza a la aplicación, =elecciona la opción "
+ventas", "Lista de precios”, 'Productos” Y
+"Crear” ingresa los datos del nuevo producto,
+donde unos de estoz=z son obligatorios y el
+sistema debe garantizar que sean llenados.
+
+Descripción General: El Usuario con permisos
+ingreza a la aplicación, selecciona la opción "
+ventas", "Lista de precios”, 'Productos=" Y
+"Editar"; ingresa los nuevos datos del producto,
+donde unos de estos =on obligatorios y el
+
+sistema debe garantizar que sean llenados.
+
+Descripción General: El Usuario con permisos
+
+ingresa a la aplicación, selecciona la opción
+ventas", "Lista de precios" y "Productos".
+
+Pruebas de Aceptación
+
+ 
+
+Realizar el
+de una lista de
+precios, verificando
+todas laz
+restricciones de
+dato= obligatorios y
+
+correctos.
+
+registro
+
+Werificación de la
+correcta
+actualización de la
+lista de precioz.
+
+Werificación de la
+correcta
+visualización de laz
+listaz asociadas a
+una empresa.
+
+Realizar el registro
+de un producto,
+verificando todas laz
+restricciones de
+
+datos obligatorios y
+
+correctos.
+
+Werificación de la
+correcta
+
+actualización de loz
+datos de un
+
+producto.
+
+Werificación de la
+correcta
+visualización de
+productos
+asociados a la lista
+
+de precioz.
+
+Tabla 4.18: Continuación Historias de Usuario Módulo de PreciosH 01
+
+HOZ
+
+HO53
+
+H 04
+
+HOS
+
+ 
+
+trabajar con
+
+Fecha: 0281/2015
+
+COmMmo
+permisos
+QUIERO
+interacciones
+
+PARA acceder a la
+inform ación asociada de un
+modo más rápido.
+
+Usuario con
+
+buscar
+
+COmo
+permisos
+QUIERO visualizar la lista
+de interacciones
+
+PARA acceder a =L
+información relacionada
+
+Usuario con
+
+Como
+
+permizo=
+QIIERO visualizar la
+
+inform ación de una
+
+interacción
+PARA actualizar
+
+Usuario con
+
+datos y
+información
+pertinente.
+
+COmMmo
+
+permisos
+QUIERO modificar loz
+comentarios asociados a
+una interacción cuando
+esté haciendo una llamada
+PARA poder actualizar
+inform ación relevante.
+
+Usuario con
+
+CoMo
+
+permisos
+QUIERO crear una
+interacción de llamada a un
+contacto
+PARA registrar la
+comunicación can el
+
+mismo.
+
+Usuario con
+
+Definición de Historias de Lisuario
+
+Socumnmento: HODO? Revisión: 001
+
+Iclient
+
+tl óculo: TELESALESFOLLOWUOP
+
+»
+
+Descripción General: El Usuario con permisos
+ingreza a la aplicación; selecciona "Interacción",
+y "Buscar Interacción" posteriormente ingreza
+todos los campos que servirán como filtro para
+
+la consulta.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación; selecciona "|nteracción”;
+posteriormente ingresa el filtro de visualización y
+
+visualizara la lista disponible.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación; selecciona "Interacción";
+
+posteriormente ingresa el filtro de visualización y
+
+selecciona alguna de la lia disponible donde
+podrá observar toda la intormación relacionada.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción
+"Interacción" y consulta alquna y selecciona una
+de ellas. Posteriormente podrá editar los datos
+
+asociados= a una interacción cuando este
+
+realizando el registro de una llamada.
+
+Descripción General: El Usuario con permisos
+
+ingreza a la aplicación, selecciona la opción
+"Interacción", consulta alguna y selecciona una.
+Al ver la lista de información asociada del
+usuario donde podrá realizar una interacción de
+llamada al contacto que realizo la interacción
+
+que se consultó.
+
+Pruebas de Aceptación
+
+ 
+
+Werificación de la
+correcta busqueda
+de la interacción.
+
+Werificación de cada
+uno de los filtros
+para que arroje
+resultados
+pertinentes.
+
+Werificación de la
+correcta visualización
+
+de los datos.
+
+verificación de la
+correcta visualización
+
+de los datoz.
+
+verificación de la
+correcta
+actualización de loz
+comentarios
+asociadas a una
+interacción.
+
+Wwerificación del
+correcto registro de
+la interacción con
+laz restriccion ez
+pertinentes de datos
+
+obligatorios y
+
+correctos.
+
+ 
+
+Tabla 4.19: Continuación Historias de Usuario Módulo TelesalesfollowupH 01
+
+HOZ
+
+HO3
+
+H04
+
+HOS5
+
+H Ob
+
+HO?
+
+ 
+
+Fecha: 154 02015
+
+Como
+permisos
+QUIERO
+=cript=
+PARA azociarloz a una
+
+campaña.
+
+Usuario con
+
+registrar nuevoz
+
+COmo
+permisos
+QUIERO modificar Un
+script asociado a una
+campaña
+
+PARA actualizar la
+información de las mismas.
+
+Usuario con
+
+Como
+
+permizoz=
+QUIERO visualizar la lista
+de scripts de una campaña
+PARA acceder al resto de
+
+información asociada.
+
+Usuario con
+
+Como
+permisos
+OUIERO registrar nuevas
+preguntas a un =cript
+PARA azociarla= a una
+campaña.
+
+Usuario con
+
+Como
+permiszo=
+QUIERO modificar
+preguntas de un =cript
+PARA actualizar la
+información del mismo.
+
+Usuario con
+
+Como
+permisos
+QUIERO visualizar la lista
+de preguntas asociadas a
+una pregunta
+
+PARA acceder a su
+
+inform ación relacionada.
+
+Usuario con
+
+Como
+
+permisos
+QUIERO
+respuestas
+PARA  azociarla= a una
+
+pregunta
+
+Usuario con
+
+registrar
+
+Tabla 4.20: Historias de Usuario Módulo Script
+
+Definición de Historias de Lisuario
+
+Socumento: HODO? Revisión: 001
+
+Iclient
+
+Módulo: SCRIPT
+
+Y
+
+Descripción General: El Usuario con permisos
+ingreza a la aplicación, selecciona la opción
+"Mercadeo", "Campañazs", "Script" y "Crear"
+ingresa los datos del nuevo script, donde unos
+de esto= son obligatorios y el sistema debe
+
+garantizar que sean llenados.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción
+"Mercadeo", "Campañas", "Script" y "Editar";
+modifica loz datos del =cript, donde unos de
+
+esto=z son obligatorios y el sistema debe
+garantizar que sean llenados.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción
+"Mercadeo", "Campañas" y "Script".
+
+Descripción General: El Usuario con permisos
+ingreza a la aplicación, selecciona la opción
+"Mercadeo", "Campañas", "Script", "Preguntas" y
+"Crear" ingresa los datos de la nueva pregunta,
+donde unos de estos son obligatorios y el
+sistema debe garantizar que sean llenados.
+
+Descripción General: El Usuario con permisos
+
+ingreza a la aplicación, selecciona la opción
+"Mercadeo", "Campañas", "Script", "Preguntas" y
+"Editar"; ingresa los nuevos datos de la
+pregunta, donde unos de estos son obligatorio =
+vel sistema debe garantizar que sean llenado=.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción
+"Mercadeo", "Campañas", "script" y
+"Preguntas".
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción
+"Mercadeo", "Preguntas-Respuestas" y "Crear".
+
+Pruebas de Aceptación
+
+ 
+
+Realizar el registro
+de un script
+asociado a una
+campaña,
+
+verificando todas laz
+restricciones de
+
+datos obligatorios y
+correctos.
+
+Werificación de la
+correcta
+actualización del
+
+script.
+
+verificación de la
+correcta
+visualización de las
+
+campañas.
+
+Realizar el registro
+de un script
+asociado a una
+campaña,
+
+verificando todas laz
+restricciones de
+datos obligatorios y
+correctos.
+
+verificación de la
+correcta
+actualización de los
+
+dao= de un =cript
+asociado 4. una
+campaña,
+
+verificando todaz=
+las restricciones de
+datos obligatorio= y
+
+correctos.
+
+Werificación de la
+correcta
+visualización de loz
+datoz=.
+
+Wwerificación del
+correcto registro de
+la respuesta
+asociada a una
+
+pregunta.H Os
+
+HO03
+
+H10
+
+Como
+permisos
+QUIERO visualizar la lista
+
+de respuestas asociadas a
+una pregunta
+
+PARA acceder a =u
+intorm ación relacionada.
+
+Usuario con
+
+Como
+permiso=
+QUIERO enlazar una
+
+pregunta a otra
+PARA formar un
+cuestionario.
+
+Usuario con
+
+CoMo
+permisos
+ODUIERO visualizar la lista
+
+de preguntas que siguen a
+otra
+
+PARA observar el estado
+del cuestionario ya creado.
+
+Usuario con
+
+Descripción General: El Usuario con permisos
+
+ingresa a la aplicación, selecciona la opción
+"Mercadeo", y "Preguntas-Respuestas”
+
+Descripción General: El Usuario con permisos
+
+ingresa a la aplicación, selecciona la opción
+"Mercadeo", "Campañas", "Script", "Preguntas”,
+selecciona una de la lista y*4ñadir siquiente”.
+
+Descripción General: El Usuario con permisos
+ingresa a la aplicación, selecciona la opción
+
+"Mercadeo", "Campañas", "Script", "Preguntas" y
+selecciona una de la lista.
+
+Werificación de la
+correcta
+
+visualización de loz
+datos.
+
+Werificación de la
+correcta adición de
+
+la pregunta para
+formar el
+cuestionario.
+
+Werificación de la
+correcta
+visualización de laz
+
+preguntas
+forman
+cuestionario.
+
+ 
+
+Tabla 4.21: Continuación Historias de Usuario Módulo ScriptANEXO B: Diagrama de Clases
+
+ 
+
+Figura 4.1: Diagrama de Clases Parte 1 (Iclient)A
+
+mw
+
+   
+
+ 
+ 
+
+HA A A A A A A A A A A A A A A A A A A AA A A A A A AA A A A AA A A A A A A A e e
+
+    
+
+ 
+
+e
+
+"RINMANESO] ¡8
+
+Nan es dan
+TENPULJIOD TEN
+28m
+z JOBONUODIICIMOS
+
+mm | | oronuooiemos |
+nm o '
+1 y ;
+ROTO ;
+: WILUDIS 191141981009 '
+* PI, de '
+1 '
+» : y '
+¿bend Dr [bano Labara | Dent [Dan !
+O0I5535 fioSenbue7 015535 $/Sbenbue7 DLINOISS35 pindenbue7 O ola | eeioissas jalea deci A lara A a [ 05 seran '
+mou=oósrbve;s l esu=aómbues rauadernbuns mau adria e msu=odarbues | : "
+4 '
+PO. 3 O O Laa e e |
+
+'
+
+2 (Iclient)
+
+.2: Diagrama de Clases Parte
+
+4
+
+FiguraA
+
+ 
+
+| Dn
+015535 5/abondue7
+wsu=tóderbuns
+MOTO
+; <«<»benbue]>>
+
+A
+
+Figura 4.3: Diagrama de Clases Parte 3 (Iclient)(uoroyadÁ
+
+YVIWWN AO TS3N¡ENSNSB
+Onosro_=yeswo0
+Oyosessuyunpoddoppe
+Oyose=syunpoddoj>6
+
+(PIS/u3yApunjo0d913/3p
+(Quay Ayunpoddg=3epdn
+()ju=y Ayunpoddog=poJppe
+(Quay Ayunpoddoppe
+(Ajunpoddo=poopps
+(Apunpoddog=3spdn
+([Arunpoddgpps
+(OyoresssjegAunpoddoppe
+(p1s)oju¡w=yAuunpoddoj>5
+(way Ayunpoddoj26
+Qoju¡Quunpoddgj26
+(pisjuore=sApunpoddogj=6
+(4 runpoddogj26
+Auedwo4unpoddoj2B
+
+(2213432014425
+
+Quiericou apa (san¡s ysnayepdn
+
+(uopoyadA Jewenppe
+
+V3WWN AO TS3N|8/951Y3B
+(woy)pejuogjab
+(woy)junoooy1=B
+(woy)ys/ 72011426
+
+(woy)psuBissy]3b
+Onosro yeso
+Onosro4upow
+()aye2195p/91418210
+(Osp¡=1458310
+(5/8p)5p1313114
+(snona1 4517114
+Openis114
+
+(nn TUE AS VINNT IO as
+'HINN TIOS IS VINN OS IS INIVNLNN
+000 d$'dayS31WS 95 '1SIM3DIW4 ds
+'"SNLVL
+
+S 3S'ADN3Y8NO IS LVOTYNIY 4S 31
+YOTYLLINO 4S '3SI4dB LN Ss) ApIOj3b
+
+bx95)2111183201118126
+Emvio
+
+091009 4$)118:201118128
+(OUYENLIV3
+
+73 3shunowy11820
+(9151111833213
+
+Omepps
+
+(Emv130 3009$)1118126
+
+us mau = ddes
+
+MaLrS sane usmpps
+
+UsiT 30009$)s3N/8/95/7143438
+(Jay 301490Ju1 ls
+
+()wa]¡=014apogppe
+()wa]¡201 4511436
+
+Old 48)0Ju/1431/2011 438
+
+paubissyapoJ Jen
+SN]Jesapo2 Jen
+
+3Á183/(p09 JEA
+
+ÍYD9POI JEA
+
+2]2139P02 JEA
+Í2U3JINJ3APOI JEA
+yessApunyoddgapos
+
+(4483 1N3 IS /4IPopysan/8/951 428
+('san¡s ys ya6
+
+(apoo0]sno$)san|8/95/7134]8 456
+(Qss0ugayepdn (=poojsrog)san|8 si 7awenjy26 (hdos=pogppe
+
+Disneou apps (apoo¡smog'spogsujs Miduosppe
+
+es UsiT || ¡grsweuro¡sjusp11yosanje sr yaB (diosa
+30d 3S)oyunsi 730114436 (apoojsnos poos)dimsyoessj2b
+
+(souqgsiasl || sueuro¡sjuoneuBissysan|e/usi438 (id1os20
+
+(p1shdLos=3/3p
+
+(isiTa011Japogppe (iduogayspán
+
+ 
+
+Onosro 4upow
+(spi313148=10
+(515P)SP13131114
+
+(snolaa1 8114
+Openisn11
+
+(sep si114
+(syephsiapuas
+(538p)2=195/19puas
+(QueyArunpoddg=3epdn
+()uay4runpoddg=jepdn
+DA4poywsyApunpoddoys6
+(Osuw=y4uunpoddgj8
+
+JUNO) JBA
+
+15 U39MJ9q JBA
+
+]SI JEA
+
+UONISO JJUSJIN3 JEA
+
+TL =]SM8ZIS JEA
+adÁ|2po9 Jen
+
+X0gap02 Jen
+ASUEA2pon Jen
+
+DUbpDE Japo) Jen
+2219/2/9H3P0I J2A
+
+adÁ un apo) Jen
+
+way Qunyoddgapos Jen
+THNSANI2A1S! JEA
+TeHnuwasyAunyuoddo Jen
+
+ 
+
+         
+
+(5/8P)5P13131114
+(Quay Ayunpoddowa!1336
+
+way4munuoddomal19po) Jen
+TynusyApunuoddomala Jen
+
+   
+
+   
+
+(L=BenBue¡.n
+
+Olss3s s)jebenBue7]
+m=u==BenBuE|s
+
+    
+
+JEA
+
+TyWNJ3SN JEA
+THNSANIEAJSI| JEA
+TW8n4tunyoddo Jean
+
+(uopoy=d4)33/415311436
+(uorpyadA)ssonpos4y36
+(uoppyadAjuop=5]20
+(uopoyadA' 3
+
+N AO TUoJe=Ssam/8 195438
+(yore=5NOSTO 133820
+OyoresswsyApunpoddoppe
+Oyoss=sw=yApunpoddoy38
+39/4113]/9P09 JEA
+J39NP0J149P09 JEA
+J0pa53P09 JBA
+
+yo
+JjesguwsyQunpoddgapos
+JEA
+Te8msnasud Jen
+
+TENSANIEAJSI JEA
+SNOJMTU
+
+(sep hsi1114
+
+(ejep hs apuas
+QAyunpoddoppe
+DA4unpoddo=yepdn
+D44poyyquunpoddoj>6
+Oskyunpoddoj26
+
+]5nU3am]aq Jen
+ISI] JEA
+
+¡UONISO JUAJINI JEA
+JSI9ZIS JEA
+Apunyoddgapox Jen
+pejuoyapo.y Jen
+15179911 J9P02 JEA
+UOSL3Y3POI JOA
+SN]E139P09 Jen
+2DEIS3POI JEA
+2U31IND3P0I JBA
+33JNOS3P0I JEA
+paubissyapoJ JeA
+JUNO0IIY3P09 JEA
+THNJUNOIIE JEA
+THNPEeJuO) Jen
+TeHNJ3SN JEA
+THNISNa9ud JeA
+THNSANIE/MSI| JEA
+TeWn44unyuoddo Jean
+
+(518P)SP/313111
+QAyunpoddgaa!13B
+
+Ajunyoddomalp3poJ Jen
+Ty8n4unuoddomala JeA
+
+(5/6P)5P13131114
+(ay 201311330
+
+'1U3]/20144M313P00 JEA
+"TIN WAYSO LAMA IEA
+
+J39/0JUOJUMSYISU AMIA
+
+ 
+
+(uorpyadA
+
+V3IWWN AO TVS3N|EMIS YB
+(nosro 4ipow
+()a383/05p[91 482319
+Ospia! 18210
+(518p)5p1313114
+(snolna1 5114
+Openisi114
+(eyephsi7114
+(ejep)sapuas
+(6/6P)3213I5/5pu=!
+(.uuay=0119=3epdn
+DA4poyyw=y201 438
+()321354431/2014 4326
+(Jsu==011 4420
+
+unos Jen
+
+5 US3M39 JEA
+511 J8A
+
+MUOIJISO JUDO JEA
+JENAZIS JEA
+
+'adÁ | 3p00 JEA
+'XOB3P00 JEA
+¡GRUEASPOO JEA
+'DUNpEJ3APOO SEA
+¡20U3J2J2Y23p00 JEA
+'3dÁ HYUN/DPOO IEA
+14/31/3011 4300 JEA
+18N$3N/8/951| SEA
+“TIN ay =o11d JeA
+
+13/01J40Ju1a]psreoud
+
+     
+
+Onosro_=je=o0
+Onosro4pow
+(3]83:05p|31318310
+Osp¡a1318=2pp
+(e18p)sp1313114
+(snol15198171114
+Op=ns7114
+
+(sr 72011d)48171144
+(eyephysi—9puas
+(hs T20114ppe
+(isn=ougajepdn
+DA poynsi 120119428
+(055172011426
+
+“yUnoo Jer
+
+Js /1USSWJ3Q JEA
+1351] JE
+
+¡UOISO JJUBJNO JE
+1SI3ZIS JEA
+11039300 JEA
+¡QUAN D3POO JEN
+'S21WOJ5ND3POO JEA
+“SI T2O11 BOO JEA
+“TN I2UWOJSNO JEA
+“TIN S2N|EAJS!| SEA
+Hranmisnsond Jen
+
+J9/101J40935M 99d
+
+ 
+
+      
+  
+    
+
+   
+
+:ueis mau = ddes
+
+()¡wo/py=6
+
+(si 12418 420
+(Misrim=6
+Onosro =3e=wo0
+(ay8=:05p/313182(0
+(snolaa1sn114
+
+Openisn111
+(Eyephsn114
+(eyephsiapuas
+(san¡59sppe
+Osan¡e ys ya6
+
+SIUS3M30 SEA
+
+3511 18
+
+'UONISO JUBJNO FEA
+"SI 3715 JEA
+
+SNE SITSWBU JEA
+TENS3N|8/951] JA
+
+| 191104U09S3NJ2 45H 19]101JU09S3M[2 AU13]9SH
+
+[9po[119911 4151 [epoiSan12/451 |
+
+(5/8P)5P13131114
+(an¡sajwoipy3B
+(20/8)951745418 326
+(20/81 )9s1111v426
+Unosro 4upow
+DAJPOYISp/21418=0
+(snolaa/Is1114
+Opensn14
+
+(Sep sn
+(syep)hsiapuas
+O4poyysan¡8 135426
+(san¡e ys 7ayepdn
+(sanje ys 438
+
+“SIUS3WJ30 JBA
+351] JA
+
+*UONISO JPUBINO FEA
+"SI J3BZIS SEA
+'S3M/|EASITSPOO JEA
+'TINS3N8/9511 SEA
+
+ 
+
+Onosro=yeao
+(Onosro14upow
+(a]e2:05p/2131830
+(spa 418310
+(8189)5P1313111
+(snoln31 45114
+Opensn114
+(5yepsn114
+(eyep)syapuas
+(idiospps
+(iduogayepdn
+DApoyadiosj26
+(Osidiosj2B
+
+ENUAS3g JEA
+351] SEA
+
+"UOIISO JUBIUINO JEA
+15173715 JEA
+
+1d 110523p00 JE
+“TaBnydnos sen
+
+ 
+
+190 NUOJIdUIS
+
+Figura 4.4: Diagrama de Clases Parte 4 (Iclient)
+
+  
+
+| santo quo Dura yApungioddo |
+
+ 
+
+«OU
+
+([=bBenBuej]
+NOIss35 sj=benbue7
+
+([=BenBue¡ ln
+
+Olssas sjebenBue7
+m=u==Benbue|s
+
+(L=BenBue¡ Jn
+
+Olss3s sjabenBue7]
+»=u==Benbue|s
+
+([»BenBue¡ Jn
+
+Olssa3s sjabenbus7
+mau==BenDUE|¡S
+
+([=benBuel nm
+
+Olssas sjebenBue7]
+w=u==Benbue|s
+
+(L=aBenBue¡n
+
+Olss3s sjabenBue7
+m=u==BenbUE|S
+
+(L=bBenBue¡n
+
+Olss3s siabenBue7 Olss3s siabenBue7
+w=u==BenDus|s »au==BenbuE|¡s
+
+A AS A A SÓ ÓN A A A A AS A A SD SA AT SR TAS A A A A ES SA E AS NAAA
+
+([=bBenBue¡n ([=bBenBuel ln
+
+Olssas sjabenBue7]
+»=u==Benbue|s
+
+81JNOISS3S s)abenBue7 Olss3s sjabenBue7
+
+»au==Benbue|s
+
+ 
+
+mau==BenDue|s ”=u==Benbue|s<<fepo/puUOgIe13JUL>>
+
+(¡puss| 161
+
+(junowwy] eu
+
+ 
+
+(815P)Sp13131114
+(Juopes4/1311336
+
+UODEeJaJuUIMmal/3po9 JEA
+THWNUONEJAJUIMDIA JEA
+
+1910 JU0JaJESa]
+
+3 JDRJUO DUO IR ISJULMADIA
+
+([=Denbue¡m
+Olss3s sji=benBue7
+
+m=u==B8nbuE|s
+
+ 
+
+([=bBenBue¡ Jn
+
+Olss3s 5)=88nbue7]
+mau==B8nbU8|5
+
+NOD) ypEjUOJS3N|5 95130
+Onosro_ajeao
+
+(jun
+
+CO0DPEJUOONOSTO Apo
+y ()a]e2:95p/314183/9
+
+; (sp¡21483p
+(e
+jep)hjuno0oypEJUODSP|3141114
+(snola1 41517114
+Op=nisi114
+
+(eye phsi7114
+(Syep)si—apuas
+(junocoypesjuoy=3epdn
+041poyyunoooypsjuoJj2b
+('spejuogja6
+
+3p0Id1Z73P0I JEA
+PaLJepapos Jen
+Xx399P09 JEA
+UJOBÁNDIPOI JEA
+uJogÁnuno)3po2 JeA
+29Jyapo9 Jen
+[09909 JEA
+pejuoJapo) JeA
+T38NU0N98J3]U! JEA
+THNUONEI0]| JEA
+
+TENSINIEAJSI JEA
+
+ 
+
+ 
+
+([=BenBue¡ nm
+
+Olss3s sj=bsnBue7
+m=u==B8nbue|5
+
+MITO ¡
+A JP 3)92JUO)SAJESAja) [129S9|esoja]
+
+(uogoyadÁ
+
+YIMIWYN AO TVS3N|5/Ms 36
+(nosro14ipous
+(2120)5p12314114
+(psjuogaepdn
+
+DAupoyypejuogja6
+
+]15nU39MY90 JEA
+JS! JBA
+UONISO PUAJINI JEA
+JUNO) JEA
+15119715 JEA
+aDenbueTapo) JeA
+apoodIZapo3 Jen
+PLE Napo Jen
+x999P09 JEA
+UJOBÁNDAPOI JEA
+uJOgÁnunoJapos9 JeA
+2aJy2p09 JEA
+[09909 JEA
+pejuoJapo) Jea
+THNUODEJa]ul JeA
+THNUOHEIO] JEA
+THEN SANIEAJSI| JEA
+THNMPR]JUO9 JA
+SHO
+
+([=benBue¡m
+
+Olss3s sj=benBue7
+»=u==B8n DUES
+
+(uonowyadAy' 3/1 YN AO Thu
+no YpEJUODSaN|5/95/ 428
+(nosro=3e=0
+
+(un
+
+C0IYPEJUOONOSTO 1 ÁJpow
+()2182195p/213183(0
+Ospia13183p0
+
+(e
+
+yepjunoooypEjuODSp13141114
+(snolna1 8171114
+Op=nsn11Y
+
+(s18P9s171114
+(e18p)sapuas
+(fjunoooypejuoy=spdn
+DAjpoyyunocoypsjuoyj2b
+(=pejuog=b
+
+15 U39maq Jen
+
+151] JBA
+
+UONISO FPUAJINI JEA
+]5179ZIS JEA
+AjunyoddO2apo9 Jen
+ubIedueoapos) JeA
+iduosubieduwegapos
+JEA
+
+a]e/dula 19p09 J2A
+UOSEIYAPOI JEA
+SNJ21S9po9 JeA
+adÁ|3po3 Jen
+JNOH3POI JEA
+AUOUJ3POI JEA
+paubissyapos Jen
+UODEJaJulapon Jen
+
+TeHWNPERJUOS JEA
+
+Tyn4uunyuoddo Je
+TyWnNuUBIeduIeo JeA
+
+THNMIduIS Jen
+THNJ3SN JEA
+T8N9]8 /duIa] JeA
+THNSANI2AJSI JEA
+TWHNUONIEJa]JUl JEA
+
+    
+
+ 
+
+a | 19/101J4031189S53[es3[9]
+
+([=benBue¡m
+
+Olss3s 5)=benBue7
+»=u==B8nbu8/5
+
+  
+
+ 
+
+(uo yadA
+YVIWWN AO TSan|8/9sr 28
+(woy)jnoH3D
+(woy)4yunpoddoj25
+(woykd1osubiedwe33D
+
+(woy)juBied.we26
+(wowy)=38¡dus= 1336
+(woy)psubissy3b
+Onosro4upow
+()ayea/05p/3/4183p0
+(sp2148=p0
+(6189)5P12131114
+(isnola21 18171114
+Openisn14
+(e1ep4s114
+(syephsiapuas
+(Quopes]u¡ajepdn
+DA4poyyuopesuy36
+('suorpss33uy38
+15119715 JEA
+Aiunpoddogapo9 Jen
+ubIeduegapos Jen
+jduosubiedueoapos
+JEA
+
+3]e¡dua 309 JEA
+UO0SE3Y3POI JEA
+SNJ21S9P09 JEA
+adÁ12p03 JEA
+JNOH3P0I JEA
+AUOUJ3POI JEA
+paubissyapo) JeA
+UODEJaJujaposn JeA
+TWnAánunuoddo Jea
+TyWnNubIe dues Jen
+THNIdLIS JA
+THNJ3SN JEA
+TWnajeiduua] Jea
+TINSINIE ASI JA
+THNUOMDEJaJul JeA
+
+   
+
+                     
+ 
+
+(e18p)s2/853/2 11517/2pu2)
+09s759/859/3 1136
+
+]s/7S3/esa/9 [309 JEA
+T141MS9/8S3/9] JEA
+
+13//04U03I15/7593/853/|9]
+
+(518P)SP13131114
+(juorps1U¡m311730
+
+uOpeJaJuimal/9pO9 JEA
+
+TWNUOPDEJSJUIMAJA JLA
+J39/101JUu0
+
+39/2539 [UODIPISJULMDIA
+
+([=DenBue¡ ln
+
+Olss3s sjiabenbue7
+m=u==B8nDuE|S
+
+| uogoesajusajesaja]
+
+ 
+
+  
+
+   
+
+               
+
+JUNDLJUOISAESaJA]
+
+YVINIWWN AO TS3N18/951 1428
+(uwoy)jinoy330
+(woy)4yunpoddog=6
+
+(woy)jd10sgubiedwe3]25
+(woy)uBrisduwe73126
+(woy)=y8/dus= 328
+(wuoy)pubissyj3b
+Onosro4upow
+(aye=s:95p/31 4148310
+(sp¡21358=p
+(6159)5P12131114
+
+(Jsno131 4151711114
+Opensn 114
+
+(ey8pRs114
+(ey8p)siBpuas
+Quopes]u¡=yepdn
+(A4poyyuorper3uy28
+(Jsuorpes3uy30
+15119715 JEA
+Ajunpoddo3p03 Jen
+uUbIedueoapos JeA
+iduosubiedueapos
+JEA
+
+3]e¡dua 3p09 JBA
+UOSL3Y3POI JEA
+SNJEIS3P09 JEA
+adÁ13p02 JEA
+JNOH3POI JEA
+AUOUJ3POI JEA
+paubissyapoJ Je
+UO0NDEJaJUJSpoO9 JBA
+TeWn4uunuoddo JeA
+TWnubiedules Jen
+THNIdLIS JEA
+THNJ3SN JEA
+Tewnajeidula] Jen
+THNSANIEAJSI JEA
+THNUONDEJa]JUl JEA
+
+190 JUO JUO!
+
+ 
+
+ 
+
+J9213]Up9eJuoSsa[esafa]
+
+([=BenBue¡ ln
+Olss3s s5j=benBue7
+
+ 
+
+JUn.JE
+
+  
+
+ 
+
+de Clases Parte 5 (Iclient)
+
+1agrama
+
+D
+
+Figura 4.5

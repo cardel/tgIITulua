@@ -1,0 +1,4711 @@
+Desarrollo de una solución informática a través de un lector biométrico para los
+procesos de control de asistencia docente en la Universidad del Valle sede Tuluá.
+
+Autor:
+
+Felipe Andrés Noguera Ortiz
+0859341
+
+Director:
+Julián Andrés Rodas Laverde Ing.
+
+Universidad del Valle
+Facultad de Ingeniería
+Escuela de Ingeniería de Sistemas y Computación
+Programa Académico de Ingeniería de Sistemas
+
+Tuluá, 2014
+
+ 
+
+Universidad
+del ValleDesarrollo de una solución informática a través de un lector biométrico para los
+procesos de control de asistencia docente en la Universidad del Valle sede Tuluá.
+
+Autor:
+
+Felipe Andrés Noguera Ortiz
+Felipe.noguera Ocorreounivalle.edu.co
+0859341
+
+Trabajo de grado para optar por el título de Ingeniero de sistemas
+
+Director:
+Julián Andrés Rodas Laverde Ing.
+
+Universidad del Valle
+Facultad de Ingeniería
+Escuela de Ingeniería de Sistemas y Computación
+Programa Académico de Ingeniería de Sistemas
+
+Tuluá, 2014
+
+ 
+
+Universidad
+del VallePágina de agradecimientos
+
+Agradezco a mi tutor Julián Rodas Laverde por su amistad y apoyo durante estos largos
+meses de trabajo que hoy culminan satisfactoriamente. A mis compañeros de clases con
+quienes compartimos buenos y malo ratos, buenas y malas notas, pero que siempre daban lo
+mejor de sí. A la Fundación La Otra Esquina en donde nacen y se hacen cosas maravillosas
+y a la que pertenezco actualmente. Al amor que me encontró y me enseño muchas cosas
+bellas. A la música que descubrí y que ahora camina junto a mí.
+
+Infinita gratitud a mi abuela Maria Lyda Useche por su absoluto apoyo todo este tiempo,
+dedico a ella todo mi trabajo.
+
+66
+
+Si vas a intentarlo ve hasta el final.
+
+No hay sensación parecida.
+
+Estarás a solas con los
+
+dioses y las noches arderán en
+
+llamas.
+
+Hazlo, hazlo, hazlo.
+
+Hazlo.
+
+Hasta el final.
+
+Hasta el final.
+
+Llevarás las riendas de la vida hasta
+
+la risa perfecta, es la única lucha digna
+que hay.” —Fragmento de Lanzar los dados, Charles Bukowski [15].Contenido
+
+Página de agradecimientos ....oooooooooooonononononononononnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn nn nnnnnnnnno 3
+CAI 4
+Lista de grÁÍiCOS......occcccccccccnnnnnnnnnnononnnnnnnononnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn nn nnnnnnnnnnnnnas 6
+PRO 8
+RESUMEN cococcccccnnnnnnnononononononononononnno nono RRA RARA RARA OOOO RR OOO nnnnnnnnnnnn nono nn nnnnnnnnnnnnnnnns 9
+IN 10
+1. INTRODUCCION cooccccccncnnnononnnnnnnnnnnnononanonononnnnnnnnnnnnnn nn nnnnnnnnnnnnnn nr nnnnnnnnnnnnnnnnrrnrnnnnnnnnnannss 11
+1.1 Descripción general ...........oooooooononooooooonnnononnnnonnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnss 11
+1.2 Planteamiento del Problema ...............occcccccnnnnonnnonnnananonononnnnnnnnnnnnncncnncnnnnnnnnnanan nn nnnnnnnos 13
+1.2.1 Situación ProblemMátiCa....oooooooooooooccoocccnononccnnononncnnnnnanonnnno nono nn nnnnnnnnnnnnnccccncncnnnnnnnnns 13
+1.2.2. Formulación del Problema ...............ooccccnccnnnncnnnnnnnnnnonnnnnnonnnnnnnnnnonnnnnnncccnccnnnnnnnnos 14
+
+1.3. Objetivos y Resultados ESperadoS ....ooooooooooooooooooconoooooonononnnnnnnnnnnnnnnnnnnnnnnnnnnnononnnnnnnnoss 14
+1.3.1 Objetivo General .........oooooooonoocoooononnonononononononnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnos 14
+1.3.2 Objetivos ESPecÍÍiCOS ......ooooooocooconooooooononnonnnonnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnononnnnnnnnnss 14
+
+2. MARCO DE REFERENCIA ..ccccccccnoconononnnnnnnnnnnnanononnnnnncnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnncnnnnnnnnnnnnnnos 15
+IAS 15
+2.2 Marco TeÓTICO.....oooccccccnnncnnnnnononenononononononononononnnnnnnnnnnnnnnnnnRnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnss 17
+2.2.1 Sistema de InforMaciÓN ..oooooooocooooonoonnncnnnnnccnononononononanonn nono nono nnnnnnnnnnnnncnccnnnncnnnnnnnns 17
+2.2.2 Tipos Principales de Sistemas de Información .......occoccccncncnoncnononinnnnnnnnnnnoninnnnnnnss 18
+2.2.3 Sensores BiOMÉÍTICOsS ..coooooooocococonononononannnonnnnnnnnnnnnnn nr nnnnnnnnnnnnnononnnnnnnnnnonnnnnnnennnnnnnos 19
+2.2.4 Tipos de Sensores Biométricos FisiOlÓgiCOS...........occoocccccccconnnnnnncnnnnnnnnnnnnnononnnnnos 19
+2.2.5 Tipos de Sensores Biométricos de Comportamiento ....ccccnccnncncnnnnnnnnnnnnnnnnnnnenonnnss 23
+2.2.6 Funcionamiento del lector biOIMÉÍIICO....oooonnnnnnccucoconononononanononcccnnnnnnnnnnnannnnn nono nono 25
+
+2.3 Marco Conceptual..........oooccccccncnnnnnncnnnononnnonononononnnonnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnss 26
+2.3.1 BiOMEtTIÍA ...occonnnnnononononononccnnnnnnnnnnnnnnnnnnnonnnnnnnnnnnnn nn n nn nn nn nn nono nnnnnrnnnnrnnnnnnnnnnannn ana nnnnss 26
+2.3.2 Sistemas de COMtrOl o ooonocnnonoconccooooononnnonnnnnncnnncnonononnnnnonnnnnnn no nono nnnnnnnnnnncncccncncnnnannnos 27
+
+3. DESARROLLO DEL PROYECTO coooooooccccccnononoonnnonnnnonononananononnnnnnononannnnnnnnnncncnnnnnnnnnnnnnos 28
+INCISO 28
+3.1.2. Alcance de la Propuesta ..........cccccccccccncnnnnncnnnnnnnnnnnnnnnnonononononnnnnnnnnnnnnnnnnnnnnnnnnnnnnnos 28
+3.1.3 ActividadeS ..oooooonononononoconocnnnnononononnnnnnnnnnononnnnnnn non nn nn nn nnnnnnnnnnnnnnnnnnnnnnnnnnnnnn nana nnnnnnos 303.1.4. Cronograma de actividades..........ccccccccccnnnnnnnnnonnnnnonononononononononannnnnnnnnnnnnnnnnnnnnnnnnnnnoss 32
+
+3.1.5. Presupuesto ....oooocccnncccccnnncnnnnnnnononnnononnnnnnnnnnnnnnnnonnnnnnnonnnnnnnnnn non nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnss 36
+3.1.6 Base de datosS .00oooooooooccocccnnnnnccoconononnnnnanannnn nono nono nnnnnnnnnnnnnnnnnnnnnnnnnnnnnn non nnnnnnnnnnnnnnnnnonss 37
+3.1.6.1 Diagrama Entidad Relación ...........cocooonnnnnnnncnnnnnnnnnnnnnnnnnnnnnonnnnnnnnnnnnnnnnnnccnnnnnnnnss >
+3.1.6.2 Diagrama Relacional..............ccccccccccncnnnnnnnnnnnnnnnononnnnnononononnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnss 38
+3.1.7 Modelo de navegación .....occccccccncnnncnnnnnnnnnnnonnnononnnnnononnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnss 39
+INDI 41
+3.2.1 Historias de USUATIO ......ooococcccncnnnnnnnnnnonnnonnnananannn no non nn nnnnnnnnnnnnnnnnnnnnnnnnnnnnnan narra nnnnnos 41
+
+3.3 Implementación ......oocccccnnncncnonononononnnennnnnnnnnnnnnnnnnnnnnnnononnnnnnnonnnn nan nnnnnnnnnnnnnnnnnnnnnnnnnnnnnss 44
+3.3.1 Lector BIOMÉÍTICO ......oocccccccnnncnnnnnonnnonnnonononononononononnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnrnnnnnnnnnnss 44
+3.3.2 Aplicación Web........ococcccccncnnccnnnnnnnnnnnnnnnnononononononnnonononnnnnnn non nnnnnnnnnnrnnnnnnnnnnnnnnnnss SO
+TUI 54
+5. CONCLUSIONES c.cocccccconononnnnnnnccnnnnonnnnnnnnnnnnnnnnnnnnnnnrnnnnnnnnnnnnnn nn nnnnnnnnnnnnnnrnnnnncnnnnnnnnnnnnnnnss 55
+6. REFERENCIAS BIBLIOGRÁFICAS coooociocinoonioninnoncononnoncononcnnconnn corno cnnnnnnrnnnnnrarnrnrnnsos 57
+INN 60
+7.1 Vista del software del Lector Biométrico dactilar: .................ooooooocccccnnnnnnnnnnnnnnnanannnoss 60
+7.2 Vista aplicación Web para la gestión y control de la asistencia docente: ................... 63
+7.3 Desarrollo del proyecto..........ooooooocooonooooooononooonooonnononnnnnnnnnnnnncnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnos 71
+7.3.1Resultados ESperadoS .....oooooooooooooooocnononononononononnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnonnnnnnnenennnnnss 71
+7.3.2 Pre-Cronograma de Actividades ...oooooooooonooonnnonnonnnonnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnoss TZLista de gráficos
+
+ILUSTRACIÓN 1: SISTEMAS DE INFORMACIÓN ..occcnnnnnnnnnnnnnncnoncnnnnnnn nono nnnnnnrnrnonnnnnnn aran nnnnnnnnnnonernnnnnn nn nora nnnnanonorcnnnnnns 17
+ILUSTRACIÓN 2: HUELLERO DIGITAL ...ooononnnnnnccnnnnnnnnnnnnnnnnnnnnonoronnn nn nono non nn nrn ono r nn nn anar nn nn nn nn nnnnonoronannn nn nn nnnnninrnoronananass 19
+ILUSTRACIÓN 3: LECTOR BIOMETRICO DEL IRIS DEL OJO ....onccccnnnnnnninnnnnnonnonoconnnnnnnnnnnnnnnnnnononoronannn aran nnnnnanonerncnnnnnns 20
+ILUSTRACIÓN 4: LECTOR BIOMETRICO FACIAL ..cccnnnnnnnnnnonnnnncnononnnnnnnnonannnnonononnnnnnnnn nn nn nnnnnnononoronannn nono nn nnnnanncnncnnnass 21
+ILUSTRACIÓN 5: LECTOR BIOMETRICO PALMAR ...omooococonnonnnnocononnnnnnnnnnnonnnnonononnnnn anar nn nro nan nnnnrnnrnnannn nn nn nan nnnananerncnnnnns 22
+ILUSTRACIÓN 6: LECTOR BIOMETRICO DE VOZ ....cooooococonoonnnnnocononnnnnnnnononnnnonononononnnnn nn nn nn nnnnononornnnnnn nn nana nnnnnnoninnonnnnns 23
+ILUSTRACIÓN 7: LECTOR BIOMETRICO DE FIRMA ..coooononnonnnnncncnnnnnnnnnnononnnnnnonornnnnn nan nn nn non nnnnnrnernnnn nn nn nn nana nnanancrnrnnnnns 24
+ILUSTRACIÓN 8: LECTOR BIOMETRICO COMBIANDO .coooconnccccccnnnnnnnnnnnnnnnnnnonncnnnnnnnn anno nnnnannnonnnnnnnnn nono nn nnnnaronccnnnnnnnnns 25
+ILUSTRACIÓN 9: FUNCIONAMIENTO DE UN LECTOR BIOMETRICO ...oococononnnnnnconnnnnnnnnnnnnnnnnnononononannn nono nnnnnnanononrnnnnnss 26
+ILUSTRACIÓN 10: DIAGRAMA ENTIDAD RELACIÓN ...ooooonnnnnncnccnnnnnnnnnannnnnnrnonornnnnnn anar nn non nanrnonnrnnnn nn nn nn nnnnnnanorornnannnnnns 37
+ILUSTRACIÓN 11: DIAGRAMA RELACIONAL ..occcccnnnnnnnnninnnnnnnncnnnnnnnnn nono nono nnonrnrnnrn nana n anar n enn nanenornnnnnnnnnnnnnnnnnnanonrnnanoss 38
+ILUSTRACIÓN 12: MODELO DE NAVEGACIÓN, INICIO DE SESIÓN ...oooocononnnnnnooconnnnnnnnnnnonnnnnnononorornnnn nn nana nnnnnnrcrnrannnnns 39
+ILUSTRACIÓN 13: MODELO DE NAVEGACIÓN, MODULO PERFlL...oooooncononnonnnnococonnnnnnnnnnnnnnononononnran anno nn nn nnnnnrrrrnrnnnnnns 40
+ILUSTRACIÓN 14: LECTOR BIOMÉTRICO DACTILAR ESCOGIDO .cccnnnnnnnininonnnnnocnnnnnnnnnnnnonnnnonononoronnnnnnnnnnannnnnonorocananass 44
+ILUSTRACIÓN 15: INSTALACION SDK coooconnnncnninnnnnnnnnininnnnnonncnonnnnnnn nono nono nononornn nn nn nn nn nn neon nn ononenonnnnn nn nn na naninaneranananass 45
+ILUSTRACIÓN 16: INSTALACION SDK ¿oooooninnnnncninnnnnnninnnnnnnocnononnnnnnnnn nono non nononornnnn nn nn nnnnnnnnnnononornrnnnnnnnnnnnaninororonananons 45
+ILUSTRACIÓN 17: INSTALACION SDK cooooonnnnnnnininnnnnnnininnnnnonnoncrnnnnnnnn nono nnonononon nn nn nn aran nnnnnnnnononoronannnnn nora naninoneronannnnns 46
+ILUSTRACIÓN 18: LIBRERIAS SDK ...oonononnnnnnnnconnnononononononnnannoncnnonnn non n ono nn nono nor nn nn nn anno nn nn nn nnnnoneronnnnnnnnnnnnnninoneronananass 46
+ILUSTRACIÓN 19: LIBRERIAS SDK ...oonononnnnnnnnccnnnnnnnonononannnannononnnnnn nan n ono nn nr nrn rr nn nn anar nn nn neon nano neronannn ono nnnnaninaneranannnnss 47
+ILUSTRACIÓN 20: LIBRERIAS SDK ...oonononnnnnncnccnnnonnnnnononnonononorcrnrnn nono nono nano non or nn nn nn nn nn nn nena nnnonernnnnnnnnnnnnnnnanrnorocananass 47
+III INAINDAERANITAO SI INN 48
+III INA INVIAS ITA IO] IAN 48
+ILUSTRACIÓN 23: HUELLA CAPTURADA USANDO EL SOFTWARE DESARROLLADO....cccccccinnonccccnnninnnncncnnnnnnaoccncnanananos 49
+ILUSTRACIÓN 24: INICIO DE SESIÓN ...ooooonnnncnccnnnnnnnnnnnannnnnannronnno nn nn nono nena n nn o nrr nn nn nn nn nn nn nn nn nnnoneronnnnnnnnnnnnananoncrncnnnnans 50
+ILUSTRACIÓN 25: ADMINISTRADO- PERFIL ...occccnnnnnnnnnnnnonnonoconnnnnnnn nano nnnnnnrnonornnnn nn nn nn nn nn nn nnnnr nero nan nn nn anna nnnnananrnnnnannns 51
+ILUSTRACIÓN 26: MONITOR — PERFIL ..ooocnnnnnnnnnnnnnnnninnnnnnnnnnonnnnnnnnn nono nono nn nnrn rn nn nn anar nn nn nena nnnonornnnnnn nn nana nannrncrnnnnanans 52
+ILUSTRACIÓN 27: COORDINADOR — PERFIL ..ococcnnnnnnnnnnnnonnnnononnnnnnnnnnnonnnnnnononornnnn nn nn non non nn nnrnrnernna nan nn nora nnnnnnononrannnnns 52
+ILUSTRACIÓN 28: FUNDACIÓN - PERFIL ..ooocccccnnnnnnnnnnnnnnnnnncnononnnnn nn nono non nn nnr nor nnn nana n nn nn nena nn rnenornnnnnn nn nora nnnnnrncrnnnnnnass 53
+ILUSTRACIÓN 29: DOCENTE — PERFIL ..ooonocnnnncnnnnnnnnnnnnnnnnnnnncnnnnnnn nn nono non nano r non nnn nana n nn nn nn nn nnnnonoronnnnn nn none nannrnoronananass 53
+ILUSTRACIÓN 30: PANTALLA DE INICIO ....ooonnnnnnonannnnnncoconcnnnnnnnonannnnnnonorn non nn nn non anno nnn rn rr non nn nn nro nana n nano ne rnnnnnnnnannnos 60
+ILUSTRACIÓN 31: HUELLA CAPTURADA ooococnccccncnnnnnnnnnnnnnnnnnnrnnnnnnnnnnn nono non nononornnnn nn nn nn anne nnnnanonernnnnnnnnnnnenanininorocananoss 61
+ILUSTRACIÓN 32: GUARDAR HUELLA ..oooonnnnncccncnnnnnnnnnnnnnnnnnnoncnnnnn nn nn nora non rn rn rr nn nn anar nn nn nn nn nonenornnnnnn nn none nananrncrncnnanans 61
+ILUSTRACIÓN 33: FIRMAR HUELLA ..cococonnnnnnonccnnnnnnnnnononnnnnnononornnnn nn nn nano nn non rn or nn nn nn nn non nn nana nanonoronannnnnnnnnnananereronanannss 62
+ILUSTRACIÓN 34: ADMINISTRADOR - USUARIOS .ccoooocononannnonocononnnnnnnnnnnonnonononoronnnnnnnnnnnnnnnnnnnonoronnnnn nn nn nnnnnnanonennonnnnns 63
+ILUSTRACIÓN 35: ADMINISTRADOR — USUARIOS ..ccoooooconnonnncococononnnnnnnononnnnononornnonnnannnnnnnnnnnononororannnnn nora nnnnannonncnnnnns 63
+ILUSTRACIÓN 36: ADMINISTRADOR - PROGRAMAS .cccoconnnnnncoccnnnnnnnnnnnnnannononornnnnnn nn non nono nnnrnonnrnnnn aran n non nnnnanoneranannnnnns 64
+ILUSTRACIÓN 37: ADMINISTRADOR - PROGRAMAS .cccooononnnccncconnnnnnnnannnnnnrnonornnnnnn anar nnnnnnanononnrnn nn nn nora nn nnnnrnorocnnannnnnns 64
+ILUSTRACIÓN 38: ADMINISTRADOR - DOCENTES .cccoococonononnnococonnnnnnnnnnnonnnnononcnnnnnnn nn nn nn nn nnnnnnonornnnnnn nn nn nn nnnnnnanerncnnnnns 63
+ILUSTRACIÓN 39: ADMINISTRADOR — DOCENTES ..coooooconoonnnnncocnnnnnnnnnnononnnnonononnnnnnnnn nn nn nn nnnnononornnannn nn nana nnnnanononncnnnnns 63
+ILUSTRACIÓN 40: ADMINISTRADOR — ASIGNATURAS .covooonncnccccnnnnnnnnnanonannrnonornnnnnnnn nono nnnnanrnrnnnnnnnnn nora nnnnnnnonornnannnnnns 66
+ILUSTRACIÓN 41: ADMINISTRADOR - PERIODO ACADÉMICO. ..occncnnnnninnninnonononcnnnnnnnnnnnnnnnnnonononoronnnnnnn nono nananonoranananass 66
+ILUSTRACIÓN 42: ADMINISTRADOR - PERIODO ACADÉMICO. ..occccnnnnninnnnnnonnncnonnnnnnnnn nono nnnnnnononoronannn nono nanonanoneronannnnns 67
+ILUSTRACIÓN 43: ADMINISTRADOR - PERIODO ACADÉMICO.....ccccnnnnninnnnnnonnncocnnnnnnnnnnnnnnnnnnnononoronnnnnnn nono nannonornnnnnnass 67
+ILUSTRACIÓN 44: ADMINISTRADOR - PERIODO ACADÉMICO. ..occccnnnnnnnnnnnnonnncncnnnnnnnnnnnnnnnnnnnononoronnnnn nono nnnannonoracnnnnnns 68
+ILUSTRACIÓN 45: ADMINISTRADOR — CRONOGRAMAS .oooooococcccnnnnnnnnnnnonannononoronnnnnnnnnnnnnnnonononnnnnnnnn nn nono nnnnononernnnnnnnons 68ILUSTRACIÓN 46: COORDINADOR — PERFIL
+ILUSTRACIÓN 47: MONITOR - PERFIL .........
+ILUSTRACIÓN 48: MONITOR - PERFIL .........Lista de tablas
+
+TABLA 1: ACTIVIDADES ..ooonnccnnnnnonnnicnnnnnnnnnnonnnn one rn rr nn nn n ner RR RR RR RR RR RR RR RR RR RR RR RR RR RR rn n RR RR nn nn n nn nn nnnnnnnn nn nn nnnnirnnnnnananocoss 31
+TABLA 2: CRONOGRAMA DE ACTIVIDADES SCRUM .ooocononnnnnnninnonnnnnnnnnnnononnnnnnnnnonccnnnnnnnnonocnnnnnnnnrrnnnnnnnnonccnnnnnnnnnoss 35
+TABLA 3: PRESUPUESTO oooocccnnnnnoonnncnnnnnnnonnonnnnnnnnrnornn nro nnr rn nn RR RR nn RR nn RR RR nn RR RR nn RR RR nr nn nn nn nnnnnnnnnnnnnnnnnnnnnnnnnrnnnnnnnaninoss 36
+TABLA 4: HISTORIA DE USUARIO 7, PERIODO ACADÉMICO ..ccnconoccccccnnnnnnccccnnnonnnacnncnnnnnnancnnnnnnonaro cono nonanorcnnnonanininons 41
+TABLA 5: HISTORIA DE USUARIO 8, CRONOGRAMAS occoocooocnccnnnnnnnnonnnnnnnnnononnnnnnnnnonocnnnnnnnnonnnnnnnnnnnrrnnnnnnnnanccnnnannnnnoss 42
+TABLA 6: HISTORIA DE USUARIO 9, CONTROL DE ASISTENCIA DOCENTE ..oocccnnnnnnonnccnnnnnnnnonocnnnnnnnocnnnnnnnnonocnnnnnnnnnoos 43
+TABLA 7: RESULTADOS ESPERADOS ...ooccccoocococncccnnnnonoooconnnnnnnnrnnnnnnnnnoncnnn nn nn nnononnnn nen nnonno nn nn nnnnrnnnnnnnnnnocnnnnnnnnaninoss 71
+TABLA 8: PRE-CRONOGRAMA DE ACTIVIDADES ..coooonncnnnnncnccncnncnnnnanaconnnnnoronnnnarnnnnnnornn nono ro nnnnan rn nn nur cn nnnncrnnnanacinanans 73Resumen
+
+En este documento se detalla el proceso realizado como trabajo de grado consistente en
+la sistematización del control de asistencia docente de la Universidad del Valle sede
+Tuluá, el cual actualmente maneja el registro de los horarios, observaciones,
+cronogramas, reportes y el seguimiento del estado de las asistencias de los docentes de
+manera manual. Esta información se encuentra descentralizada, es difícil de administrar
+y el proceso es lento y dispendioso desperdiciando tiempo y recursos.
+
+Esta propuesta busca dar solución a los problemas anteriormente mencionados en el
+control de asistencia docente que opera en la Universidad', mediante la incorporación
+de un sistema de reconocimiento dactilar que registra y verifica las huellas de los
+docentes y permite su identificación única, garantizando la presencia del profesor a sus
+horas de clase. El sistema de reconocimiento dactilar se sincroniza con la plataforma
+informática encargada de la gestión del control de asistencia docente en la Universidad.
+Se generan reportes desde la aplicación con sus respectivos formatos de calidad para así
+facilitar el seguimiento y cumplimiento del cronograma de los docentes y aprovechar al
+máximo el uso de este aplicativo.
+
+' El término Universidad se refiere a la Universidad del Valle sede TuluáAbstract
+
+In this document is described the process made as final project, it is consistent with the
+systematization of the assistance control for teachers in the Universidad del Valle sede
+Tuluá, which handled the registers for class timetables, comments, schedules and
+teachers reports manually. This information is not centralized, is difficult to manage and
+the process is slowly and wastefully, wasting time and resources.
+
+This proposal seeks to solve the points described above of the systematization of
+assistance control for teachers in the University, through the incorporation of a
+fingerprint recognition system which register and verify the fingerprint of the teachers
+and allows an unique identification, ensuring the presence of teacher to their class
+hours. The fingerprint recognition system is synchronized with the software platform
+for the management of control teaching assistance at the University. Reports are
+generated from the application with their respective formats to facilitate the monitoring
+and fulfillment of the chronogram of the teachers and maximize the usefully of this
+application.
+
+101. INFRODUCCION
+
+1.1 Descripción general
+
+La automatización no solo mejora costes en servicios y procesos de calidad, sino
+también genera ventajas competitivas y optimiza el uso de los recursos de la
+Universidad”.
+
+En alusión a las ciencias de la computación la automatización de procesos fue diseñada
+con el fin de usar la capacidad de las máquinas como apoyo a los procesos realizados
+por los seres humanos PAR
+Esto provee una serie de ventajas y mejoras:
+
+e Laproductividad de la Universidad, reduciendo costos y mejorando la calidad.
+e Eliminando trabajos manuales y mecánicos al personal.
+
+e La confiabilidad y seguridad en el sistema.
+
+e La centralización de la información.
+
+Los monitores deben llenar un formato diario para hacer el respectivo control de
+asistencia docente, requiriendo de la información del profesor y su firma, así como los
+temas vistos en clase, haciendo de este trabajo algo mecánico, propenso a errores y
+
+pérdida de información, además de un déficit en el control de reportes y la gestión de
+calidad.
+
+Los sistemas de reconocimiento como los lectores Biométricos [3] se encargan de
+examinar características únicas de cada individuo que permitan tomar decisiones en un
+sistema, según sea programado. En el control y asistencia docente de la Universidad del
+Valle sede Tuluá se ahorraría gran parte del trabajo de verificación garantizando la
+identificación exclusiva del profesor mediante un sistema biométrico descartando así
+inconsistencias de suplantación de firmas e inasistencias. Esto junto con una
+herramienta tecnológica se presentan como alternativas de sistematización en aras de
+minimizar el tiempo a invertir por parte de los monitores, coordinadores, docentes,
+fundación y secretaría académica, mejorando la calidad y asegurando la información de
+los procesos de control de asistencia docente en la Universidad.
+
+Lo anterior concluye en la construcción de una herramienta que administre y centralice
+la información en el control de asistencia docente que actualmente maneja la
+Universidad del Valle sede Tuluá; se propone la incorporación de un sistema de
+reconocimiento biométrico dactilar que garantice la identificación única del docente
+
+2 El termino Universidad se referirá a la Universidad del Valle sede Tuluá
+
+11eliminando posibles inconsistencias horarias y de inasistencia, con la ayuda de una
+solución informática para el manejo del sistema, llevando a cabo las siguientes
+reformas:
+
+e Mejorar el registro del cronograma de actividades, haciendo un sistema que
+permita al profesor un diligenciamiento a través de una aplicación Web,
+evitando al docente desplazarse hasta la universidad y el trabajo manual.
+
+e Ahorrar tiempo a monitores y profesores, en el control de asistencia de los
+docentes, con la ayuda de la identificación biométrica por huella dactilar,
+evitando errores, perdida de la información y atrasos.
+
+e Llevar los procesos de reportes a un click en la aplicación Web, facilitando su
+elaboración y mejorando los tiempos de entrega.
+
+e Permitir acceder a los datos en un solo sistema que sirva como fuente de
+información para diversos estudios estadísticos que ayuden a analizar los
+resultados para mantener la calidad de los programas ofrecidos por la
+Universidad.
+
+e Brindar eficacia en los procesos internos de la universidad, lo cual promueve la
+gestión de calidad en la institución.
+
+e La solución de esta problemática servirá de base para otros proyectos facilitando
+el acceso a la información gracias a la centralización y automatización de los
+datos.
+
+En suma, el Control de asistencia docente con una solución informática como sistema
+de información y el apoyo de un lector biométrico, no solo mejora la gestión del control
+en la Universidad, sino también aumenta el aprovechamiento académico por parte de
+
+los estudiantes, garantizando el cumplimiento del cronograma de cada asignatura y la
+calidad de la Universidad del Valle en la Sede Tuluá.
+
+121.2 Planteamiento del Problema
+
+1.2.1 Situación Problemática
+
+La Universidad del Valle sede Tuluá actualmente cuenta con un sistema de control
+de asistencia docente el cual no ha sido sistematizado. Se lleva el registro de los
+horarios, observaciones y reportes de los docentes de manera manual. Así mismo,
+al inicio del periodo académico los profesores requieren diligenciar el respectivo
+cronograma de actividades a realizar durante el semestre, posteriormente el
+cronograma es revisado por el coordinador del programa para su seguimiento
+durante el semestre.
+
+Se presentan los siguientes casos en el actual sistema:
+
+e No se puede determinar la hora exacta de ingreso a clase. Esto sucede
+porque los docentes no llegan a tiempo u olvidan firmar la planilla. Así se
+generan inconsistencias a la hora del pago de nómina [1].
+
+e Se generan pérdida de información, uso innecesario de personal, costos en
+papeleo y un atraso de reportes que perjudica los procesos de calidad de la
+universidad.
+
+e No se cuenta con un sistema de información que centralice los datos para su
+posterior consulta, generación de reportes y estadísticas para la evaluación
+interna de la universidad.
+
+e Los profesores deben generar un cronograma de actividades semestral el
+cual es entregado al coordinador quien debe revisar cada uno de los
+cronogramas entregados por los docentes de su Plan y sistematizarlo;
+procesos que están aislados y descentralizados.
+
+e Las planillas de registro de asistencia docente deben ser enviadas al
+coordinador del programa académico según el docente para hacer el
+seguimiento periódico del cronograma, sin embargo el envío de las planillas
+puede no realizarse por falta de datos (en el caso de un docente que no haya
+firmado) o simplemente un atraso.
+
+e No hay manera de hacer un análisis sistémico para generar estadísticas
+acerca del cumplimiento, falta o desfase del calendario académico que
+pueda brindar un apoyo a la planificación del cronograma y control de
+calidad.
+
+e No se cuenta con un sistema informático para que tanto profesores y
+coordinadores puedan ver el progreso de los contenidos de los cursos,
+haciendo un cruce entre lo visto y lo programado que sirva como guía para
+los docentes.
+
+13Los procesos implícitos del registro de asistencia docente se encuentran desligados
+y generan claramente costes de papeleo, tiempo y personal que junto con una
+descentralización de la información puede generar inconsistencias en la gestión del
+control de asistencia docente y por ende en los procesos de calidad ligados a este.
+
+Un aumento de docentes implica un aumento de procesos administrativos, los
+
+cuales acrecientan su complejidad proporcionalmente causando en el peor de los
+casos pérdida de información vital para el control de calidad.
+
+1.2.2. Formulación del Problema
+
+¿Cómo administrar y centralizar la información para mejorar la seguridad y
+confiabilidad de los procesos de control de asistencia docente en la
+
+Universidad del Valle sede Tuluá?
+
+1.3. Objetivos y Resultados Esperados
+
+1.3.1 Objetivo General
+
+Desarrollar una plataforma que permita gestionar el control de asistencia docente
+con la ayuda de un lector biométrico como apoyo a la gestión de calidad en la
+universidad del valle sede Tuluá.
+
+1.3.2 Objetivos Específicos
+
+1.3.2.1 Desarrollar un sistema de información que permita realizar las gestiones de
+Control de asistencia docente en la Universidad del Valle.
+
+1.3.2.2 Permitir un mecanismo de identificación de usuario de una manera segura y
+confiable por medio de un lector biométrico.
+
+1.3.2.3 Generar reportes estadísticos e indicadores de cumplimiento para conocer el
+progreso del cronograma académico de los docentes.
+
+1.3.2.4 Integrar la plataforma tecnológica con el sistema de identificación de
+usuario.
+
+1.3.2.5 Implantar la plataforma tecnológica descrita en este documento en la
+Universidad del Valle sede Tuluá.
+
+142. MARCO DE REFERENCIA
+
+2.1 Estado del Arte
+
+Con el desarrollo de las tecnologías se ha incrementado el número de problemas que
+reciben la colaboración de herramientas informáticas para dar solución a diversas
+dificultades que el hombre enfrenta en la cotidianidad.
+
+Un sistema de control de asistencia consiste en gestionar los horarios de entrada y
+salida de un personal para el posterior seguimiento de observaciones, estadísticas y
+pago de nómina entre otros.
+
+Actualmente los sistemas de control de asistencia han avanzado notoriamente
+gracias a tecnologías como la biometría, las cuales permiten elevar la confiabilidad
+del sistema convirtiéndose en una necesidad para organizaciones competitivas que
+deseen aumentar la calidad de sus procesos y su productividad. Además, también
+aplican esta tecnología biométrica para autenticar usuarios en el acceso a inmuebles,
+viviendas, cajas de seguridad, cuentas de banco, entre otras. Estos sistemas
+presentan una mejora de seguridad y comodidad frente a clásicos sistemas de
+control de accesos, como llaves y tarjetas magnéticas o dispositivos emisores de
+infrarrojos y radiofrecuencia, puesto que el usuario no necesita ningún objeto
+“llave” o dispositivo externo que deba portar para autenticarse y que, además, pueda
+extraviar y ser utilizado por otras personas.
+
+Para comprender esta situación se aborda el estado del arte con proyectos similares
+que respondan algunos interrogantes acerca de esta problemática:
+
+e Sistema Informático para el control de asistencia del personal docente
+del centro de educación básica “Dr. Nestor Mogollon Lopez” [4]:
+
+Es un trabajo de grado realizado por dos estudiantes de las universidades de
+Granma y Técnica de Cotopaxi en Cuba y Ecuador respectivamente, que
+consistió en el desarrollo de un entorno web para el control de asistencia de
+personal con la ayuda de un sensor biométrico dactilar en el centro de
+educación básica “Dr. Nestor Mogollon Lopez”, en donde se implantó y
+funcionó satisfactoriamente.
+
+15Sistema de autenticación biométrica de huella dactilar asistido por
+interfaz de voz para el control de accesos [5]:
+
+La empresa Fermax Electronica S.A.E. , desarrolla un sistema electrónico
+digital de control de acceso de personal basado en la tecnología de
+autenticación biométrica de huella dactilar y reconocimiento de comandos
+de voz.
+
+Verificación de identidad de personas mediante sistemas biométricos
+para el control de acceso a una Universidad [6]:
+
+Un estudiante de la Pontificia Universidad Católica del Perú desarrolló para
+la universidad el diseño de un sistema biométrico basado en el
+reconocimiento de las huellas dactilares (biometría) para controlar el ingreso
+a la institución sólo a personal autorizado, para así también dar solución al
+problema del flujo de entrada de las personas al campus que según la
+investigación era importante resolver.
+
+Desarrollo del sistema control biométrico de docentes de la universidad
+central del Ecuador (SCOBID) [7]:
+
+Estudiantes de la Universidad Central del Ecuador realizaron una
+automatización del control al personal docente para mejorar el
+aprovechamiento académico de los estudiantes de la institución a través del
+cumplimiento de los horarios de los profesores en el aula.
+
+162.2 Marco Teórico
+
+2.2.1 Sistema de Información
+
+El concepto de sistema de información ha sido definido de muchas maneras por
+diferentes autores que han investigado sobre el tema, sin embargo se mencionarán a
+continuación las tesis más acertadas:
+
+“Un sistema de información es un sistema que reúne, almacena, procesa y
+distribuye conjunto de información entre los diferentes elementos que configuran
+una organización misma y su entorno [8]”
+
+“Un conjunto de componentes interrelacionados que reúne (u obtiene), procesa,
+almacena y distribuye información para apoyar la toma de decisiones y el control
+en una organización [9]”.
+
+Funciones intrínsecas de un sistema de Información
+
+Entorno ¿AA Entomo
+Organización «< e
+
+| Recoger | Distribur
+| Procesar
+Almacenar , :
+
+Información
+
+Ilustración I: Sistemas de información
+
+17Los Sistemas de Información desde las perspectivas de los negocios:
+
+“Un sistema de información es una solución organizacional y administrativa,
+basada en tecnología de información, a un reto que representa en el entorno [9]”.
+
+2.2.2 Tipos Principales de Sistemas de Información
+
+Sistemas de Procesamiento de Transacciones (ST'P) [9]
+
+Sirven al nivel operativo en el trabajo diario (p.ej.: impresora fiscal). Se
+pueden identificar 5 categorías: ventas y marketing, producción, finanzas,
+contabilidad, recursos humanos.
+
+Sistemas de Trabajo de Conocimientos y de Automatización de Oficinas [9]
+
+Los sistemas de trabajo de conocimientos (KWS) ayudan a quienes crean nueva
+información, como contadores, ingenieros, etc. Los sistemas de automatización de
+oficinas (OAS), en cambio ayudan a quienes procesan la información como
+secretarias, archivistas, etc.
+
+Sistemas de Información Gerencial (MIS) [9]
+
+Brinda informes a quienes administran una organización. Estos informes son
+resúmenes de las actividades rutinarias e informes de excepción.
+
+Sistemas de Apoyo a Decisiones (DSS) [9]
+
+Ayuda a quienes deben tomar decisiones que son semiestructuradas, únicas o que
+cambian rápidamente. Son más analíticos que otros sistemas. Son interactivos.
+
+Sistemas de Apoyo a Ejecutivos (ESS) [9]
+
+Sirven al nivel superior de administradores, y le brinda información del entorno.
+
+182.2.3 Sensores Biométricos
+
+Los sensores biométricos permiten determinar o verificar automáticamente la
+identidad de un individuo mediante técnicas de reconocimiento de patrones. Es la
+representación tecnológica de la biometría, para saber un poco más se describirán
+los tipos de lectores biométricos a continuación.
+
+2.2.4 Tipos de Sensores Biométricos Fisiológicos
+
+Huella Dactilar
+
+ 
+
+Ilustración 2: huellero digital
+
+Ventajas:
+
+e Los sujetos tiene múltiples huellas
+e Fácil de usar, con algo de entrenamiento
+e Algunos de los sistemas requieren poco espacio
+
+e Grandes cantidades de datos existentes para permitir chequeos de
+antecedentes
+
+e Han probado su efectividad en una gran escala de sistemas a lo largo de los
+años de su uso
+
+e Las huellas digitales son únicas para cada dedo de cada individuo y la
+configuración de surcos se mantiene permanente durante toda una vida
+
+19Desventajas:
+
+Percepciones Públicas:
+
+e Las complicaciones privadas que conciernen a las implicaciones criminales
+
+e Preocupaciones de salud o sociales en relación a tocar un sensor que es
+utilizado por incontables cantidades de personas
+
+e Una colección de imágenes de uña-a-uña requiere de entrenamiento y
+destreza, porque la tecnología de lectura básica actual es muy robusta.
+
+e La edad de un individuo y su ocupación pueden producir algunas
+
+dificultades en el sensor para capturar una imagen dactilar completa y
+correcta
+
+Iris del ojo
+
+ 
+
+Ilustración 3: Lector biometrico del iris del ojo
+
+Ventajas:
+
+e No hay necesidad de tomar contacto
+e Órgano interno y protegido, con menor preponderancia a lesiones
+e Se cree que tiene una alta estabilidad a lo largo del tiempo
+
+20Desventajas:
+
+e La captura en algunos individuos es muy difícil
+
+e Se la puede ocultar fácilmente con pestañas, parpados, lentes y reflejos de la
+córnea
+
+e Mitos y creencias populares relacionadas con el escaneo del ojo desde una
+fuente de luz
+
+e La adquisición de una imagen de iris requiere de un mayor entrenamiento y
+una mayor atención que la mayoría del resto de los sistemas biométricos
+
+e Ausencia de información que desalienta la posibilidad de utilizarlo como
+antecedente
+
+e No puede ser verificado por un humano
+
+Rostro
+
+ 
+
+Ilustración 4: Lector biometrico facial
+
+Ventajas:
+
+e No requiere contacto
+e Sensores disponibles fácilmente (cámaras)
+
+e Grandes cantidades de datos existentes para permitir chequeos de
+antecedentes
+
+21e Chequeo fácil por parte de los humanos para verificar resultados
+
+Desventajas:
+
+e  Elrostro puede ser obstruido por el pelo, anteojos, sombreros, pañuelos, etc.
+e Sensible a los cambios en la luz, la expresión y la pose
+e  Losrostros se modifican conforme pasa el tiempo
+
+e Los usuarios son propensos a capturar imágenes de baja calidad aun
+esperando resultados de buena precisión
+
+Geometría de la Mano
+
+ 
+
+Ilustración 5: Lector biometrico palmar
+
+Ventajas:
+
+e Fácil captura
+e Se tiene la creencia de que es un diseño estable a lo largo de la vida adulta
+
+ZeDesventajas:
+
+e  Suutilización requiere de entrenamiento
+e No es lo suficientemente distintivo para la identificación contra grandes
+bases de datos, usualmente utilizado para la verificación de una identidad
+
+registrada y proclamada
+e El sistema requiere de mucho espacio físico
+
+2.2.5 Tipos de Sensores Biométricos de Comportamiento
+
+Voz
+
+ 
+
+Ilustración 6: Lector biometrico de voz
+
+Ventajas:
+
+e Aceptación pública
+e Sin necesidad de contacto
+e Sensores disponibles habitualmente (teléfonos, micrófonos)
+
+Desventajas:
+
+e Dificultad para controlar las variaciones de sensores y de canales que
+impactan significativamente las capacidades
+e  Insuficientemente distintivo para la identificación en bases de datos grandes
+
+23Firma
+
+ 
+
+Ilustración 7: Lector biometrico de firma
+
+La firma ha sido tradicionalmente usada como medio de autenticación y, en este
+sentido, es el sistema de reconocimiento más aceptado. Su adquisición no resulta
+invasiva aunque requiere de la cooperación del sujeto.
+
+La forma con la que firmamos caracteriza a cada persona; sin embargo, la forma
+presenta variabilidad a corto y largo plazo.
+
+La aparición de dispositivos móviles con interfaz tipo puntero, dio lugar al
+reconocimiento basado en “firma manuscrita dinámica” donde, además de la forma
+de la firma, se utiliza información instantánea (como la duración de la misma, la
+velocidad o la presión) logrando implementar sistemas de reconocimiento con
+elevada tasa de acierto.
+
+24Otros
+
+ 
+
+- Reconocimiento combinado
+
+Ilustración 8: Lector biometrico combiando
+
+Muchos otros dispositivos biométricos existen y están disponibles en distintas
+etapas de investigación y comercialización. Algunos de los ejemplos incluyen: el
+modo de andar, reconocimiento de retino y otros patrones vasculares, estructura de
+la oreja, olor, huellas palmares.
+
+2.2.6 Funcionamiento del lector biométrico
+
+e El primer paso para llevar a cabo la identificación/verificación del sujeto que
+se enfrenta al Sistema biométrico consiste en la adquisición de su rasgo
+biométrico mediante un transductor que digitaliza el rasgo capturado.
+
+e La calidad del mismo será de vital importancia puesto que repercute en todas
+las etapas sucesivas, y por tanto en el rendimiento total del sistema. Por este
+motivo, la captura requiere en algunas ocasiones de la cooperación del
+usuario, e incluso puede estar supervisada.
+
+e Tras un acondicionamiento de la señal, se realiza un “modelo de usuario” a
+
+partir de una serie de características Oo parámetros que el sistema biométrico
+considera discriminante en la señal preprocesada.
+
+25e Este modelo de usuario es comparado con otro proveniente de una base de
+datos, generándose una puntuación que indicará la similitud entre ambos
+modelos. A partir de esta puntuación, se decide (en general mediante un
+umbral que el sistema tiene prefijado) si el modelo almacenado en la base de
+datos coincide o no con el del usuario en cuestión [11]
+
+e i ADQUISICIÓN
+<4 (sensor)
+PREPROCESADO |
+
+EXTRACCIÓN DE A =— se.
+CARACTERÍSTICAS COMPARACIÓN _ Base de datos
+
+ 
+
+nn...
+.. -.
+
+A
+.* .
+
+0 *
+dde
+rr rt?
+
+Ilustración 9: Funcionamiento de un Lector Biometrico
+
+2.3 Marco Conceptual
+
+2.3.1 Biometría
+
+Biometría es un término general utilizado alternativamente para describir una
+característica o un proceso.
+
+Como una característica: la biometría es una característica biológica (anatómica y
+psicológica) y de comportamiento que se puede medir y que puede ser utilizada en
+el reconocimiento autómata.
+
+Como un proceso: la biometría es un método automático de reconocimiento de
+
+individuos, basado en características biológicas (anatómicas y psicológicas) y de
+comportamiento que se pueden medir. [10]
+
+262.3.2 Sistemas de control
+
+Un sistema de control de asistencia consiste en gestionar horarios de entrada y
+salida de un personal para su posterior seguimiento de observaciones, estadísticas y
+
+pago de nómina entre otros.
+
+Un sistema de control ideal debe ser capaz de conseguir su objetivo cumpliendo los
+
+Siguientes requisitos:
+
+Garantizar la estabilidad y, particularmente, ser robusto frente a
+perturbaciones y errores en los modelos.
+
+Ser tan eficiente como sea posible, según un criterio preestablecido.
+Normalmente este criterio consiste en que la acción de control sobre las
+variables de entrada sea realizable, evitando comportamientos bruscos e
+irreales.
+
+Ser fácilmente implementable y cómodo de operar en tiempo real con ayuda
+de un ordenador.
+
+273. DESARROLLO DEL PROYECTO
+
+3.1 Análisis
+
+Scrum es un marco de trabajo de procesos que ha sido usado para gestionar el desarrollo de
+productos complejos desde principios de los años 90. Scrum no es un proceso o una técnica
+para construir productos; en lugar de eso, es un marco de trabajo dentro del cual se pueden
+emplear varias técnicas y procesos. Scrum muestra la eficacia relativa de las prácticas de
+gestión de producto y las prácticas de desarrollo, de modo que podamos mejorar.[17]
+
+El marco de trabajo Scrum consiste en los Equipos Scrum, roles, eventos, artefactos y
+reglas asociadas. Cada componente dentro del marco de trabajo sirve a un propósito
+específico y es esencial para el éxito de Scrum y para su uso.
+
+Beneficios:
+
+Se decidió usar Scrum como metodología de desarrollo, ya que es definida como una
+metodología ágil donde sus principales características son un constante contacto con el
+cliente, en este caso la universidad, dando por hecho la satisfacción esperada y reduciendo
+el tiempo de desarrollo para ser entregado en tiempos muy cortos.
+
+3.1.2. Alcance de la Propuesta
+
+3.1.2.1 En el Software para el lector Biométrico se debería permitir las siguientes
+acciones:
+
+a. Identificación de usuario: deberá permitir al administrador del sistema
+hacer el CRUD? de los docentes para su posterior almacenamiento o
+modificación.
+
+b. Verificación de usuarios: deberá comparar el usuario que intenta
+autenticarse en una base de datos interna y darle o no el acceso según sea el
+caso.
+
+c. Sincronización de usuarios: deberá enviar la información pertinente a la
+herramienta web de control de asistencia docente cuando cumpla con ciertas
+condiciones o el sistema le ordene.
+
+> Crear, visualizar, actualizar y borrar o en sus siglas en ingles Create, Read, Update y Delete (CRUD) es un
+término generalmente usado para manifestar estas operaciones.
+
+283.1.2.2 Se describirán a continuación los módulos de usuarios, perfil, programas,
+docentes, asignaturas, periodo académico, cronogramas, control de asistencia
+docente y reportes de la plataforma para el control de asistencia docente:
+
+a. Usuarios: Módulo que deberá permitir a los administradores del sistema
+gestionar perfiles dentro de la aplicación que luego serán asignados a un
+usuario al momento ser creado.
+
+b. Perfil: Módulo que deberá permitir a los usuarios del sistema, visualizar y
+modificar sus datos.
+
+Cc. Programas: Módulo que deberá permitir a los administradores del
+sistema hacer el CRUD de los programas académicos.
+
+d. Docente: Módulo que deberá permitir a los administradores del sistema
+gestionar los Docentes ingresados al sistema.
+
+e. Asignaturas: Módulo que deberá permitir a los administradores del
+sistema hacer el CRUD de las asignaturas que interactúan con el sistema.
+
+f. Periodo Académico: Módulo que deberá permitir a los administradores
+del sistema hacer el CRUD de los periodos académicos.
+
+g. Cronogramas: Módulo que deberá permitir a los docentes registrados en
+el sistema, hacer el CRUD de sus cronogramas y a los usuarios
+coordinadores hacer una revisión y observaciones de ellos.
+
+h. Control de asistencia docente: Módulo que deberá permitir a los
+monitores hacer el CRUD del control de asistencia docente.
+
+1. Reporte: Módulo que deberá permitir al usuario con permisos de obtener
+información acerca de los actividades registradas de los docentes, así como
+de los avances en las diferentes materias y programas académicos por cada
+profesor para mostrar su progreso de las horas ejecutadas con respecto a las
+horas proyectadas.
+
+293.1.3 Actividades
+
+Objetivo
+
+Desarrollar un sistema de
+información que permita
+realizar las gestiones de
+control de asistencia
+
+docente en la universidad
+del valle.
+
+Permitir un mecanismo de
+identificación de usuario
+de una manera segura y
+confiable por medio de un
+lector biométrico.
+
+Generar reportes
+estadísticos e indicadores
+de cumplimiento para
+conocer el progreso del
+cronograma académico de
+los docentes
+
+Investigar sobre el
+control de asistencia
+docente manejado
+
+actualmente en la
+Universidad del
+Valle sede Tuluá
+
+Establecer los
+parámetros del
+desarrollo del
+software para el
+lector biométrico
+Diseñar la solución
+informática para el
+control de asistencia
+docente
+
+Investigar acerca de
+los lectores
+biométricos que
+mejor se adapten al
+proyecto tanto en
+costos como en
+funcionalidad
+Investigar acerca de
+la construcción de la
+plataforma para el
+uso del sensor
+biométrico
+
+Diseñar el software
+para la comunicación
+con el Sensor
+Biométrico
+
+Establecer los
+reportes necesarios
+para el aplicativo y
+sus respectivos
+formatos
+
+Sistema que permita hacer el
+control de la asistencia
+docente brindando apoyo a
+la gestión de calidad
+
+Herramienta adecuada con
+la capacidad de reconocer
+patrones de un individuo
+
+aplicada a las necesidad de
+la Universidad del Valle
+sede Tuluá
+
+Reportes con información
+de asistencia, observaciones,
+estadísticas que permiten el
+seguimiento adecuado para
+la gestión de calidad
+
+ 
+
+30Integrar la plataforma Investigar acerca de | Un sistema que permita la
+tecnológica con el sistema la sincronización del | identificación, verificación,
+de identificación de sistema de | almacenamiento y control
+usuario identificación y la | de la Asistencia de los
+
+plataforma de | docentes
+
+control de asistencia
+
+docente
+
+Establecer
+comunicación entre
+ambas herramientas
+tecnológicas
+
+Implantar la plataforma Configurar las bases | Configurar el sistema para
+tecnológica descrita en este de datos y el servidor | que funcione y haga la
+documento en la para el | gestión de control de
+Universidad del Valle sede funcionamiento de la | asistencia docente en la
+Tuluá. solución informática | universidad del valle sede
+
+Verificación del | Tuluá
+
+correcto
+funcionamiento de
+las plataforma
+
+ 
+
+Tabla 1: Actividades
+
+313.1.4. Cronograma de actividades
+
+CRONOGRAMA DE ACTIVIDADES
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Sprints Fase Tarea Duración | Fecha Inicio | Fecha Fin Responsable
+(días)
+A
+Sprintl 49d 01/01/2014 | 18/02/2014
+Análisis 5d 01/01/2014 | 05/01/2014
+Historia de usuario 1 0.5d Felipe A Noguera
+Historia de usuario 2 0.5d 01/01/2014 01/01/2014 | Felipe A Noguera
+Historia de usuario 3 0.5d 02/01/2014 02/01/2014 | Felipe A Noguera
+Historia de usuario 4 0.5d 02/01/2014 02/01/2014 | Felipe A Noguera
+Historia de usuario 5 0.5d 03/01/2014 03/01/2014 | Felipe A Noguera
+Historia de usuario 6 0.5d 03/01/2014 03/01/2014 | Felipe A Noguera
+Historia de usuario 7 0.5d 04/01/2014 04/01/2014 | Felipe A Noguera
+Historia de usuario 8 0.5d 04/01/2014 04/01/2014 | Felipe A Noguera
+Historia de usuario 9 0.5d 05/01/2014 05/01/2014 | Felipe A Noguera
+Historia de usuario 0.5d 05/01/2014 05/01/2014 | Felipe A Noguera
+10
+Diseño 10d 06/01/2014 | 15/01/2014
+Diagrama E/R 3d 06/01/2014 08/01/2014 | Felipe A Noguera
+Diagrama Relacional 3d 09/01/2014 11/01/2014 | Felipe A Noguera
+Diagramas de 4d 12/01/2014 | 15/01/2014 | Felipe A Noguera
+navegación
+Desarrollo 31d 16/01/2014 | 15/02/2014
+Codificación de ld 16/01/2014 | 16/01/2014 | Felipe A Noguera
+historia de usuario 1
+Codificación de 3d 17/01/2014 | 19/01/2014 | Felipe A Noguera
+historia de usuario 2
+Codificación de 3d Felipe A Noguera
+historia de usuario 3
+Codificación de 3d 23/01/2014 | 25/01/2014 | Felipe A Noguera
+historia de usuario 4
+Codificación de 3d 26/01/2014 | 28/01/2014 | Felipe A Noguera
+historia de usuario 5
+Codificación de 3d 29/01/2014 | 31/01/2014 | Felipe A Noguera
+
+ 
+
+ 
+
+historia de usuario 6
+
+ 
+
+ 
+
+ 
+
+32Codificación de 3d 01/02/2014 | 03/02/2014 | Felipe A Noguera
+historia de usuario 7
+Codificación de 3d 04/02/2014 | 07/02/2014 | Felipe A Noguera
+historia de usuario 8
+Codificación de 3d 08/02/2014 | 10/02/2014 | Felipe A Noguera
+historia de usuario 9
+Codificación de 3d 11/02/2014 | 13/02/2014 | Felipe A Noguera
+historia de usuario 10
+Pruebas unitarias 2d 14/02/2014 | 15/02/2014 | Felipe A Noguera
+Pruebas 3d 16/02/2014 | 18/02/2014
+Pruebas de ld 16/02/2014 | 16/02/2014 | Felipe A Noguera
+inspección
+Pruebas de 2d 17/02/2014 | 18/02/2014 | Felipe A Noguera
+aceptación
+Sprint2 44d 19/02/2014 | 03/04/2014
+Análisis Sd 19/02/2014 | 23/02/2014
+Historia de usuario Felipe A Noguera
+11 0.5d 19/02/2014 | 19/02/2014
+Historia de usuario Felipe A Noguera
+12 0.5d 19/02/2014 | 19/02/2014
+Historia de usuario Felipe A Noguera
+13 1d 20/02/2014 | 20/02/2014
+Historia de usuario Felipe A Noguera
+14 1d 21/02/2014 | 21/02/2014
+Historia de usuario Felipe A Noguera
+15 0.5d 22/02/2014 | 22/02/2014
+Historia de usuario Felipe A Noguera
+16 0.5d 22/02/2014 | 22/02/2014
+Historia de usuario Felipe A Noguera
+17 ld 23/02/2014 | 23/02/2014
+Diseño 8d 24/02/2014 | 03/03/2014
+Diagrama E/R 3d 24/02/2014 | 26/02/2014 | Felipe A Noguera
+Diagrama Relacional 2d 27/02/2014 | 28/02/2014 | Felipe A Noguera
+Diagramas de
+navegación 3d 01/03/2014 | 03/03/2014 | Felipe A Noguera
+Desarrollo 25d 04/03/2014 | 28/03/2014
+Codificación de
+historia de usuario 11 3d 04/03/2014 | 06/03/2014 | Felipe A Noguera
+Codificación de
+historia de usuario 12 3d 07/03/2014 | 09/03/2014 | Felipe A Noguera
+Codificación de Felipe A Noguera
+historia de usuario 13 3d 10/03/2014 | 12/03/2014
+
+ 
+
+33Codificación de
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+historia de usuario 14 4d 13/03/2014 | 16/03/2014 | Felipe A Noguera
+
+Codificación de
+
+historia de usuario 15 3d 17/03/2014 | 19/03/2014 | Felipe A Noguera
+
+Codificación de Felipe A Noguera
+
+historia de usuario 16 3d 20/03/2014 | 22/03/2014
+
+Codificación de Felipe A Noguera
+
+historia de usuario 17 2d 23/03/2014 | 24/03/2014
+
+Pruebas unitarias 4d 25/03/2014 28/03/2014 | Felipe A Noguera
+Pruebas 3d 29/03/2014 | 31/03/2014
+
+Pruebas de
+
+inspección ld Felipe A Noguera
+
+Pruebas de
+
+aceptación 2d Felipe A Noguera
+Análisis 5d 01/04/2014 | 05/04/2014
+
+Historia de usuario
+
+18 0.5d 01/04/2014 | 01/04/2014 | Felipe A Noguera
+
+Historia de usuario
+
+19 0.5d 01/04/2014 01/04/2014 | Felipe A Noguera
+
+Historia de usuario
+
+20 1d 02/04/2014 02/04/2014 | Felipe A Noguera
+
+Historia de usuario
+
+21 1d 03/04/2014 03/04/2014 | Felipe A Noguera
+
+Historia de usuario
+
+22 1d 04/04/2014 | 04/04/2014 | Felipe A Noguera
+
+Historia de usuario
+
+23 0.5d 05/04/2014 05/04/2014 | Felipe A Noguera
+
+Historia de usuario
+
+24 0.5d 05/04/2014 | 05/04/2014 | Felipe A Noguera
+Diseño 3d 06/04/2014 | 08/04/2014
+
+Diagrama E/R 0.5d 06/04/2014 06/04/2014 | Felipe A Noguera
+
+Diagrama Relacional 0.5d 06/04/2014 | 06/04/2014 | Felipe A Noguera
+
+Diagramas de 2d
+
+navegación 07/04/2014 08/04/2014 | Felipe A Noguera
+Desarrollo 23d 09/04/2014 | 01/05/2014
+
+Codificación de
+
+historia de usuario 18 ld 09/04/2014 | 09/04/2014 | Felipe A Noguera
+
+Codificación de
+
+historia de usuario 19 4d 10/04/2014 | 13/04/2014 | Felipe A Noguera
+
+Codificación de Felipe A Noguera
+
+historia de usuario 20 4d 14/04/2014 | 17/04/2014
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+34Codificación de Felipe A Noguera
+
+historia de usuario 21 4d 18/04/2014 | 21/04/2014
+
+Codificación de Felipe A Noguera
+
+historia de usuario 22 Sd 22/04/2014 | 26/04/2014
+
+Codificación de Felipe A Noguera
+
+historia de usuario 23 1d 27/04/2014 | 27/04/2014
+
+Codificación de Felipe A Noguera
+
+historia de usuario 24 3d 28/04/2014 | 30/04/2014
+
+Pruebas unitarias 1d 01/05/2014 01/05/2014 | Felipe A Noguera
+Pruebas 3d 02/05/2014 | 04/05/2014
+
+Pruebas de
+
+inspección ld 02/05/2014 | 02/05/2014 | Felipe A Noguera
+
+Pruebas de
+
+aceptación 2d 03/05/2014 | 04/05/2014
+
+ 
+
+ 
+
+Tabla 2: Cronograma de actividades SCRUM
+
+353.1.5, Presupuesto
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Concepto Cantidad Valor Cantidad Propios Financiados Total
+Equipos de Computo
+Computador portátil $ 1.200.000 l $ 1.200.000 $ 1.200.000
+Materiales de Oficina
+Papelería Resma $ 10.000 1 $ 10.000 $ 10.000
+Argollados, Empastados $ 40.000 2 $ 40.000 $ 40.000
+Impresiones $ 6.000 $ 6.000 $ 6.000
+Cd-Room $ 1.500 1 $ 1.500 $ 1.500
+Herramientas de Desarrollo
+Hardware
+Lector Biométrico $ 150.000 2 $ 300.000 $ 300.000
+Software Licencia Libre
+Recurso Humano
+Desarrollador Horas $ 10.500 300 $ 3.150.000 $ 3.150.000
+Director Horas $ 20.000 70 $ 1.400.000 $ 1.400.000
+Costo Total del proyecto $ 6.107.500
+Costo Propios $ 4.407.500
+Costo Financiados $ 1.700.000
+
+Tabla 3: Presupuesto
+
+ 
+
+ 
+
+ 
+
+363.1.6 Base de datos
+
+3.1.6.1 Diagrama Entidad Relación
+
+telefono movil
+
+telefono fijo
+tipo usuario
+
+apellidos
+
+password
+
+codigo programa
+
+Usuario pertenece
+(1,N
+
+SS
+
+codigo periodo
+
+semana
+codigo asignatura
+
+contenido tematico
+
+Programas Academicos
+
+(1,10)
+
+cantidad de semestres
+
+1,N) Caño Codigo periodo
+
+(N,N)
+posee Periodo Academico
+1,1) O
+codigo programa Fecha inicio
+1,1
+
+Sho
+nombre >
+creditos
+
+O)
+intensidad horaria semestre
+N)
+1
+
+Cronograma
+
+Observaciones
+material academico de apoyo
+
+cumplimiento del docente
+
+1
+codigo asignatura
+
+numero semanas
+
+senos ll Control Asistencia de Docentes Csazon Y
+
+secuencia de la clase SA)
+
+Crecna >) hora salida /)
+
+Cása observaciones codigo periodo
+
+horas dictadas
+
+Ilustración 10: Diagrama entidad relación
+
+tiempo faltante
+codigo asignatura
+
+fecha de recuperacion
+
+contenido
+
+373.1.6.2 Diagrama Relacional
+
+    
+   
+   
+   
+ 
+
+E
+
+> é codiaoo a tia codigo docente
+“nombre
+
+*facultad
+Peantidad de semestres
+
+“facultad "huella
+
+Firma docente huella
+
+*codiao docente
+Docente programa *fecha registro
+
+    
+
+Coordinardor programa
+
++ e - - codigo docente
+* codigo coordinador *lodgin codigo programa
+- ma = L
+Pcodigo programa contraseña
+“oniversidad Control asistencia docente
+
+*titulo *codidgo asiomatura
+“direccion *codigo periodo
+"apellidos *secuencia
+
+“nombre *fecha
+
+Seorreo "fecha de recuperacion
+telefono fijo *dia
+
+*celefono movil *horas dictadas
+
+“tipo usuario
+
++ = = codigo periodo
+
+codigo prog ig gn
+Periodo academico *codigo asiomatura
+
+*codidao periodo Pcodigo programa "tiempo faltante
+semestre *nombre "semana
+Paño Sintensidad horaria "firma
+
+ 
+
+  
+
+"hora entrada
+"hora salida
+
+* contenido
+“observaciones
+
+   
+  
+
+ 
+
+Pnumero de semanas *creditos
+programa “fecha final Psemestre
+asignatura “fecha inicio Sgrupo
+docente “activo 90cupo
+periodo
+
+ 
+
+Cronograma
+tid
+“hora inicio *codigo asignatura
+o = E Es
+hora final *codigo periodo
+2 amé pr “semana
+a ES = =
+diaz *contenido tematico
+
+  
+
+a Lo - hora inicio 2 “material academico de apoyo
+“hora final 2 *fecha
+
+a 7 Z
+
+am. paa “observaciones
+
+e se | co
+
+semestre asignatura *cumplimiento del docente
+*dia
+
+Ilustración 11: Diagrama relacional
+
+383.1.7 Modelo de navegación
+
+4
+Ver anexo”. O (58)
+lla <<DB acces»
+
+Comprueba Jloguin inicio sesion.php Datos .«db
+
+<redirect>=>
+
+Iniciar sesion.php
+
+4
+
+< build:
+
+  
+  
+
+  
+  
+  
+
+Formulario
+“inputs usuario
+<input» contraseña
+
+<=<link>:=> Recuperar pass.php
+
+<input emadl
+
+ 
+
+ 
+   
+ 
+ 
+
+<<redirect>
+<<submit=> <Link error:
+
+ 
+     
+
+ 
+
+DB acces
+
+ 
+
+Autenticacion. pap
+
+e | y»
+bterfil.php
+
+Ilustración 12: Modelo de navegación, inicio de sesión
+
+* Anexo CD: Diagramas — Artefactos/ diagramas - modelo de navegación
+
+   
+ 
+
+  
+
+39Formulario
+<input> loquin
+<input password
+<input nombre
+<input apellido
+<input> correo
+<input> T. fijo
+<input> T. movil
+<input direccion
+<input tipo usuario
+
+  
+    
+    
+ 
+
+<DB_acces>>
+
+3—
+
+cargar mi perfil.php Datos.db
+
+¿<DB_acces>>
+
+<<redirect>> Ú A
+
+guardar usuario.php
+
+<<redirect>>
+
+   
+
+<<build:>>
+
+  
+ 
+    
+ 
+
+<DB_acces>>
+
+Y
+
+Perfil-ajax.Jjz Ú
+<<build:>=> <<redirect=> ,
+
+cerrar sesion.php
+
+Perfil.php
+
+Y
+
+       
+ 
+
+<<redirect>>
+
+    
+   
+    
+
+Comprueba loguin.php
+
+B<=redirect>>
+
+O A <<D8, acces>> 08) A
+
+config cargas.php : Datos.db
+
+<redirect>>
+
+<<redirect>>
+Iniciar sesion.php
+
+Ilustración 13: Modelo de navegación, modulo perfil
+
+403.2 Diseño
+
+3.2.1 Historias de usuario
+
+5
+Ver anexo”.
+
+ 
+
+Historia de Usuario
+
+Número: 7 Usuario: administrador
+
+Nombre historia: Periodo académico
+
+ 
+
+Prioridad en negocio: Riesgo en desarrollo:
+
+Alta Alta
+
+ 
+
+ 
+
+Programador responsable: Felipe Andrés Noguera Ortiz
+
+ 
+
+Descripción:
+
+El usuario podrá hacer el CRUD y filtrar por año los periodos académicos. También podrá
+asociar programas, asignaturas y docentes a los periodos, eliminar programas y asignaturas
+asociadas; y buscar asignaturas por el código.
+
+Observaciones:
+
+e Los periodos académicos tienen la propiedad de estar activos o no, solo uno puede
+estarlo y esto define el comportamiento de la aplicación
+
+ 
+
+ 
+
+ 
+
+Tabla 4: Historia de usuario 7, Periodo académico
+
+> Anexo CD: Diagramas — Artefactos/ Historias de usuario
+
+41Historia de Usuario
+
+ 
+
+ 
+
+Número: 8 Usuario: administrador, docente, coordinador
+
+Nombre historia: Cronogramas
+
+Prioridad en negocio: Riesgo en desarrollo:
+
+Alta Alta
+
+ 
+
+Programador responsable: Felipe Andrés Noguera Ortiz
+
+ 
+
+Descripción:
+
+Según el perfil, el usuario podrá visualizar los programas activos y las asignaturas
+asociadas a ellos, también visualizar y hacer la edición del cronograma para cada una de las
+asignaturas, observaciones y chequear el cumplimiento del docente.
+
+ 
+
+ 
+
+Observaciones:
+
+e En caso de que no exista un periodo académico activo configurado, no se podrá
+ejecutar esta historia de usuario
+
+ 
+
+ 
+
+Tabla 5: Historia de usuario 8, Cronogramas
+
+42Historia de Usuario
+
+Número: 9 Usuario: administrador, monitor
+
+Nombre historia: Control asistencia docente
+
+ 
+
+Prioridad en negocio: Riesgo en desarrollo:
+
+Alta Alta
+
+ 
+
+Programador responsable: Felipe Andrés Noguera Ortiz
+
+ 
+
+Descripción:
+
+Según el perfil, el usuario deberá ingresar el loguin del docente y podrá visualizar las
+asignaturas asociadas a él. Al seleccionar una asignatura el usuario podrá visualizar y hacer
+la edición del control de asistencia docente para cada día según este configurado
+
+Observaciones:
+
+ 
+
+ 
+
+ 
+
+Tabla 6: Historia de usuario 9, Control de asistencia docente
+
+433.3 Implementación
+
+3.3.1 Lector Biométrico
+
+Producto de la investigación sobre los artefactos biométricos, sus características y
+aplicaciones, factibilidades y costos-beneficios, se decidió optar por el uso de un
+sensor biométrico de tipo dactilar. El U.are.U 4500 Fingerprint Reader, es un
+potente sensor de huellas digital con USB, especial para entornos compartidos, fácil
+de instalar y de usar, de la compañía DigitalPersona reconocida como una de las
+mejores corporaciones del mercado de soluciones biométricas en la actualidad.
+
+ 
+
+Ilustración 14: Lector biométrico dactilar escogido
+
+Este dispositivo es compatible con los sistemas operativos Microsoft Windows 7,
+Vista y XP. Para su uso se deben implementar las funcionalidades disponibles para
+los lenguajes C-C++, .Net, COM-ActiveX y Java, con un SDK (Software
+Development Kit que puede ser descargado desde internet de manera gratuita y
+posteriormente instalado en el computador.
+
+$ El SDK o kit de desarrollo de software es un conjunto de herramientas para el desarrollo de software.
+
+44Observaremos el proceso de instalación del SDK para la implementación del lector
+DigitalPersona en Microsoft Windows 7:
+
+e A continuación, ingresamos a la carpeta donde está el SDK, y seleccionamos el
+directorio “SDK”:
+
+A
+1
+
+)w[), » DigitalPerson » digitalpersonal » + | 49 ][ Buscar digitalpersona 2
+
+Organizar v Incluir en biblioteca w Compartir con w Grabar Nueva carpeta ==
+
+ 
+
+Fecha de modifica... Tipo Tamaño
+
+18/08/2010 16:11 Carpeta de archivos
+BZ Escritorio Mi 18/08/2010 16:11 Carpeta de archivos
+E] Sitios recientes ) Redi 18/08/2010 16:11 Carpeta de archivos
+WA p-RogramasS55 18/08/2010 16:11 Carpeta de archivos
+O Trabajo de Grado 18/08/2010 16:12 Carpeta de archivos
+de Libros de Third-Party Software 18/08/2010 16:12 Carpeta de archivos
+We musica 4] AUTORUN.INF 26/06/2007 17:52 Información sobre...
+Lo TRABAJO DE GRADC [E Readmebd 17/08/2010 12:41 Documento de tex...
+
+Bu
+
+ 
+
+ 
+
+ 
+
+ 
+
+Bibliotecas
+En
+
+ 
+
+ 
+
+Documentos
+
+ 
+
+ 
+
+ 
+
+ 
+
+E=| Imágenes
+A Música
+E Vídeos
+
+ 
+
++9, Grupo en el hogar
+
+A 8 elementos
+
+ 
+
+Ilustración 15: Instalacion SDK
+
+e Luego, ejecutamos el archivo “Setup.exe”:
+
+eL» DigtaPenon > digtapesonal > 50) aro
+
+Organizar v Incluir en biblioteca y Compartir con w Grabar Nueva carpeta E
+
+ 
+
+A
+A
+
+Xx ES 2. Nombre Fecha de modifica... Tipo Tamaño
+
+de Descargas dl Install 18/08/2010 16:12 Carpeta de archivos
+HE Escritorio 8) Setup.exe 30/04/2008 17:57 Aplicación
+
+5) Sitios recientes
+WA p-Rogramas555
+W Trabajo de Grado
+de Libros
+
+WD musica
+
+TRABAJO DE GRADC
+
+Du
+
+Bibliotecas
+
+E Documentos
+[=] Imágenes
+al? Música
+
+EE Vídeos
+
+ 
+
+ 
+
+ 
+
+ 
+
++2 Grupo en el hogar
+
+A 2 elementos
+
+ 
+
+Ilustración 16: Instalacion SDK
+
+45e seguimos el asistente de instalación y al terminar, el dispositivo será compatible con
+
+el ordenador y sus librerías estarán listas para usarse:
+
+Ahora bien, el desarrollo del software para el huellero digital que empleará los SDK
+
+1) DigitalPersona One Touch for Windows SDK - InstallShield Wizard (So
+
+Welcome to the InstallShield Wizard for
+DigitalPersona One Touch for Windows SDK
+
+The InstallShield(R) Wizard will allow you to modify, repair, or
+remove DigitalPersona One Touch for Windows SDK, To
+continue, dick Next.
+
+ 
+
+ 
+
+Ilustración 17: Instalacion SDK
+
+anteriormente instalados, será codificado en el lenguaje Java, y es necesario instalar el JRE
+
+(Java Runtime Environment)” y el JDK (Java Development Kit* para su uso, también
+disponibles en la web de forma gratuita. Procedemos a configurar las librerías del SDK
+para el lenguaje Java, que se encuentran en la carpeta de instalación “DigitalPersona ” e
+ingresamos a la carpeta “Bin”:
+
+ 
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Go o « Disco local (C:) » Archivos de programa » DigitalPersona » w | $9 || Buscar DigitalPersona
+Organizar w Incluir en biblioteca y Compartir con w Grabar Nueva carpeta B==w (M e
+e EatoS Nombre Fecha de modifica... Tipo Tamaño
+le Descargas W Bin 15/04/2014 13:10 Carpeta de archivos
+
+ 
+
+HE Escritorio
+
+E] Sitios recientes
+de p-RogramasS55
+de Trabajo de Grado
+Wd Libros
+
+di musica
+
+Jy TRABAJO DE GRADC|
+
+Du
+
+A Bibliotecas
+ES Documentos
+li] Imágenes
+a) Música
+EE Vídeos
+
++9, Grupo en el hogar
+
+4 2 elementos
+
+ 
+
+d One Touch SDK 15/04/2014 13:10 Carpeta de archivos
+
+m
+
+ 
+
+_
+
+ 
+
+ 
+
+ 
+
+Ilustración 18: librerias SDK
+
+7 Java Runtime Environment o JRE es un conjunto de utilidades que permiten la ejecución de programas Java.
+
+[12]
+
+5 Java Development Kit o JDK, es un software que provee herramientas de desarrollo para la creación de
+
+programas en Java. [13]
+
+46Luego, a la carpeta “Java”:
+
+Xx
+
+Old archives depregrame > DigtaPesona > En > 210)
+
+Organizar w Incluir en biblioteca y Grabar Nueva carpeta Hr
+
+CE] Sitios recientes
+Wi p-RogramasS55
+Le Trabajo de Grado
+e Libros
+
+Compartir con w
+Fecha de modifica... Tipo
+
+15/04/2014 13:10
+15/04/2014 13:10
+17/08/2010 16:44
+17/08/2010 16:44
+17/08/2010 16:44
+17/08/2010 16:44 Extensión de la apl...
+17/08/2010 16:44 Aplicación
+
+17/08/2010 16:44
+17/08/2010 16:44
+17/08/2010 16:44
+17/08/2010 16:44
+17/08/2010 16:44
+
+Carpeta de archivos
+Carpeta de archivos
+
+Extensión de la apl...
+2) DPCrStor.dll
+
+[3] DPDevice2.dll
+[2] DPDevTS.dIl
+
+[57] DpHostW.exe
+23) DPJasPer.dil
+
+DPmsg.dll
+DPMux.dil
+
+3) DpSvInfo2.dil
+23) DPTSCInt.dil
+
+Extensión de la apl...
+
+Extensión de la apl...
+
+Extensión de la apl...
+
+Extensión de la apl...
+
+ 
+
+ 
+
+ 
+
+ 
+
+Extensión de la apl...
+
+Extensión de la apl...
+
+ 
+
+Extensión de la apl...
+
+ 
+
++2) Grupo en el hogar
+
+pl Equipo
+Él, Disco local (C:)
+a Cassete A (D:) ”
+
+hh 12 elementos
+
+ 
+
+Ilustración 19: librerias SDK
+
+Finalmente, copiamos estos 4 archivos:
+
+ela, Xx
+
+(Or * arenosas progama > DigtaPersona > Bn > Je [e
+> me
+
+“E] Sitios recientes 2 Nombre
+p-RogramasS55
+
+Fecha de modifica... Tipo
+
+Le Trabajo de Grado
+
+ 
+
+4) dpotapi.ar
+4) dpotinijjar
+
+(a) dpfpenrollment.jar
+ls) dpfpverification.jar
+
+17/08/2010 16:44
+17/08/2010 16:44
+17/08/2010 16:43
+17/08/2010 16:21
+
+Executable Jar File
+Executable Jar File
+Executable Jar File
+Executable Jar File
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+(Ga Cassete A (D:)
+
+h 4 elementos
+
+Ilustración 20: librerias SDK
+
+ 
+
+4]Y los pegamos en la carpeta del JRE:
+
+— p]
+
+Fecha de modifica...
+
+ 
+
+5 elementos seleccionados Fecha de modifica... 17/08/2010 16:44 - 26/0... Fecha de creación: 26/04/2014 12:09
+
+Ilustración 21: carpeta JRE
+
+Y en la carpeta del JDK:
+
+Tamaño: 426 KB
+
+26/04/2014 12:09
+26/04/2014 12:09
+17/08/2010 16:44
+17/08/2010 16:44
+17/08/2010 16:43
+17/08/2010 16:21
+26/04/2014 12:09
+26/04/2014 12:09
+26/04/2014 12:09
+26/04/2014 12:09
+26/04/2014 12:09
+26/04/2014 12:09
+26/04/2014 12:09
+26/04/2014 12:09
+
+ 
+
+ 
+
+ 
+
++9) Grupo en el hogar
+
+ 
+
+ 
+
+pl Equipo
+£l, Disco local (C:)
+Ga Cassete A (D:) A,
+
+ls) 4 elementos seleccionados Fecha de modifica... 17/08/2010 16:21
+
+Ilustración 22: Carpeta JDK
+
+Tamaño: 417 KB
+
+Fecha de modifica...
+
+23/04/2014 13:17
+23/04/2014 13:17
+17/08/2010 16:44
+17/08/2010 16:44
+17/08/2010 16:43
+17/08/2010 16:21
+23/04/2014 13:17
+23/04/2014 13:18
+23/04/2014 13:17
+23/04/2014 13:17
+23/04/2014 13:17
+23/04/2014 13:17
+23/04/2014 13:17
+23/04/2014 13:17
+
+Fecha de creación: 23/04/2014 16:07
+
+Executable Jar File
+Executable Jar File
+Executable Jar File
+Executable Jar File
+Executable Jar File
+Executable Jar File
+Executable Jar File
+Executable Jar File
+Archivo
+
+Executable Jar File
+Executable Jar File
+Executable Jar File
+Executable Jar File
+Executable Jar File
+
+ 
+
+Executable Jar File
+Executable Jar File
+Executable Jar File
+Executable Jar File
+Executable Jar File
+Executable Jar File
+Executable Jar File
+Executable Jar File
+Archivo
+
+Executable Jar File
+Executable Jar File
+Executable Jar File
+Executable Jar File
+Executable Jar File
+
+ 
+
+48Así, lo anterior instala los driver para la computadora y las librerías SDK para la
+programación en el lenguaje Java, ver anexo”. El paso a seguir es el estudio y la
+compensión de las funciones de las librerías SDK para obtener como resultado un
+desarrollo fluido y sencillo entre el software y el dispositivo Biométrico dactilar U.are.U
+4500 Fingerprint reader de DigitalPersona:
+
+ 
+
+L¿) Sistema de Registro e identificación de Huella Digital LU
+
+AAA
+
+ 
+
+Archivo
+
+ 
+
+Huella Digital
+
+ 
+
+El dedo ha sido colocado sobre el Lector de Huella
+-> La Huella Digital ha sido Capturada ...
+
+-> Huellas Restantes para Guardar el Template [3]
+El dedo ha sido quitado del Lector de Huella
+
+ 
+
+—
+
+ 
+
+Ilustración 23: Huella capturada usando el software desarrollado
+
+? Anexo en CD: Aplicacion Java/ Instalacion SDK/ Instalacion del SDK.docx
+
+493.3.2 Aplicación Web
+
+La plataforma para la gestión y control de la asistencia docente de la Universidad del Valle
+
+sede Tuluá, fue desarrollada usando las tecnologías J Query”, HTML”', PHP?”
+J avaScript'” , AJAX, CSS”, y MySQL”, optimizada para trabajar en los navegadores
+
+FIREFOX, ver anexo. ?.
+
+ 
+
+a (a e > + e TL TA. O e 0
+la localhost t Úl » Google PO” RAR 4 2) Más visitados |) Archivos pa ¿ Inicio de Sesion ;¿, , phpMyAdmin
+
+y A as ola
+A RS
+
+a AS
+
+ 
+
+ 
+
+ 
+
+Ilustración 24: Inicio de sesión
+
+12. Jquery es una librería de JavaScript, ayuda a manipular el árbol DOM, manejar eventos, desarrollar
+animaciones y agregar interacción con la técnica AJAX a páginas web.
+
+!! HyperText Markup Language (HTML) es el lenguaje con el que se escribe la estructura y la semántica del
+contenido de un documento web.[18]
+
+'2 PHP (acrónimo recursivo de PHP: Hypertext Preprocessor) es un lenguaje de código abierto muy popular
+especialmente adecuado para el desarrollo web y que puede ser incrustado en HTML.[19]
+
+15 JavaScript (a veces abreviado como JS) es un lenguaje ligero e interpretado, orientado a objetos, más
+conocido como el lenguaje de script para páginas web.[23]
+
+Y JavaScript Asíncrono y XML (AJAX) no es una tecnología por sí misma, es un término que describe un
+nuevo modo de utilizar conjuntamente varias tecnologías existentes. Esto incluye: HTML o XHTML, CSS,
+JavaScript, DOM, XML, XSLT, y el objeto XMLHttpRequest. [20]
+
+13 Hojas de Estilo en Cascada (Cascading Style Sheets) es el lenguaje utilizado para describir la presentación
+de documentos HTML o XML, esto incluye varios lenguajes basados en XML. [21]
+
+16 MySQL proporciona un servidor de base de datos SQL (Structured Query Language) muy rápido, multi threaded, multi usuario y robusto. [22]
+
+17 Anexo CD: Aplicacion WEB -SGCAD) guia de la aplicacion web.docx
+
+SOe Acceso en la sesión del administrador, modulo perfil, en donde visualizará sus datos
+
+personales. Este módulo (perfil) será la pantalla de bienvenida para todos los
+
+USUArios:
+
+2 pp
+
+Firefox y
+
+   
+
+La] Perfiles
+
+% localhost/admin-template
+
+Menú principal
+Navegación
+
+Información del usuario autenticado, link IS cerrar sesión.
+Links de la página de la Universidad del Valle sede Tuluá y el campus
+
+virtual.
+Aquí se muestra el contenido del módulo.
+
+ 
+
+Perfil/perfil.php e B- Gooale
+
+Más visitados |) Archivos La] Inicio de Sesion ¿¿, phpMyAdmin
+
+ha SISTEMA DE GESTIÓN Y CONTRÓL
+PGE a oa A
+niversidad
+
+ul
+del Valle
+r
+
+ 
+
+| Usuarios | Mi Perfil | Programas || Docentes || Asignaturas || Periodo Academico
+
+ 
+
+da
+
+Usuario: admin
+
+Felipe Andres
+Noguera Ortiz
+
+Univalle Tuluá y
+E a A
+
+a
+
+ 
+
+ 
+
+Mi Perfil 2
+Gestion y control de asistencia docente / Mi Perfil 2
+
+Loguin tester
+
+Password fd1278e8109edd9e1e4197e04873
+
+Nombre Felipe Andres
+
+Apellido Noguera Ortiz
+
+Correo tekiller5000£2 gmail.com
+
+T. fijo 2236296
+
+T. movil 3156661387
+
+Direccion carrera 54 4- 30, bugalagrande
+
+ 
+
+ 
+
+ 
+ 
+
+"
+
+ 
+
+ 
+
+Ilustración 25: Administrado- Perfil
+
+1 s . / .
+* Un link es un hipervínculo que referencia a otro documento.
+
+51e Acceso en la sesión del monitor, modulo perfil, en donde visualizará sus datos
+
+ 
+
+personales:
+AS
+9 localhost/admin-template/Perfil/perfil.php e B- md5 AP Or y RK 2
+Dat
+
+ 
+
+Más visitados |) Archivos ha] Inicio de Sesion ¿¿, phpMyAdmin
+
+hí SA a a]
+A SS a) o =p E OR |
+e Valle Mi Perfil | Control asistencia docente | 1
+
+ 
+
+ 
+
+ 
+
+Mi Perfil
+a Gestion y control de asistencia docente / Mi Perfil
+
+Usuario: monitor Loguin monitorl1
+monitor 1
+
+Password [e4f5691e6481fic3dd048042deda5c6
+
+MA
+
+Apelido [|
+Correo monitor1correo.com
+
+[2] T. fijo 2251816
+
+T. movil 315888888888
+
+Nombre monitor 1
+
+ 
+
+ 
+
+Direccion calle 123
+
+ 
+
+las)
+
+ 
+
+ 
+
+4| m
+
+Ilustración 26: Monitor — Perfil
+
+ 
+
+ 
+
+e Acceso en la sesión del coordinador, modulo perfil, en donde visualizará sus datos
+personales:
+
+ 
+   
+
+Firefox Y a as
+
+ 
+
+ta (SÍ localhost/admin-template/Perfil/perfil.php e a- md5 PO” ,d) KR 2 +
+
+ 
+
+ 
+
+Más visitados |.) Archivos ha] Inicio de Sesion ¿¿, phpMyAdmin
+
+ 
+
+y Td a lali
+ASA a o AE ORO
+niversidad
+
+Ur
+r
+
+ 
+
+ 
+
+Mi Perfil | Cronogramas || Control asistencia docente |
+
+del Valle
+
+ 
+
+ 
+
+ 
+
+“| Mi Perfil
+a A
+Es Loguin
+
+Password | el0adc3949ba59abbe56e05 712088 |
+
+Nombre coordinador 2
+
+Apelido |
+
+[+] T. fijo 234557786
+
+T. movil 6868688444
+
+mm
+
+ 
+
+Direccion calle 123
+
+ 
+
+ 
+
+ 
+
+ 
+
+4 | 5" P
+
+Ilustración 27: Coordinador — Perfil
+
+ 
+
+52e Acceso en la sesión de la fundación, modulo perfil, en donde visualizará sus datos
+
+personales:
+
+> A € 9localhost/SGCAD/Perfil/perfil.php
+
+Más visitados |.) Archivos L Inicio de Sesion ¡| Index ¿¿¿, phpMyAdmin ly expresiones regulares EY YouTube a https://guitarbots.co...
+
+hÍ EIA aa da
+Sn CE oa E AA
+
+Universidad
+del Valle
+
+ 
+
+Mi Perfil | Reportes 1]
+
+PIO Y e -|¡=
+
+ 
+
+c El
+
+Usuario: fundacion
+
+La fundacion
+univalle
+
+MALA
+A)
+
+ 
+
+ 
+
+E Mi Perfil
+(Y
+
+Gestion y control de asistencia docente / Mi Perfil 2]
+
+Login
+Password
+Nombre
+Apellido
+Correo
+T. fijo
+
+T. movil
+
+Direccion
+
+fundacion
+
+La fundacion
+
+univalle
+
+fundacion'2mail.com
+
+22236655
+
+65658975088
+
+direccion
+
+ 
+
+ 
+
+ 
+   
+
+SRC
+
+II
+
+MG
+
+Ilustración 28: Fundación - Perfil
+
+”
+
+ 
+
+ 
+
+dy IAN
+ETA
+
+e Acceso en la sesión del docente, modulo perfil, en donde visualizará sus datos
+
+personales:
+
+ 
+
+la) Perfiles
+
+o fA | 0 localhost/SGCAD/Perfil/perfil.php
+Maó
+
+(2) Más visitados |) Archivos hi Inicio de Sesion hi Index ¿¿, phpMyAdmin y expresiones regulares [EJ YouTube a https://guitarbots.co...
+
+LÍ CEA A Aa da
+DE ASISTENCIA DOCENTE Sede Tuluá
+
+Universidad
+del Valle
+
+Mi Perfil | Cronogramas |
+
+ 
+
+ 
+
+(y
+£ 36l
+
+Usuario: docente
+Julian Andres
+Rodas
+
+MAS
+TE AT!
+
+a
+
+ 
+
+¿YO y * +=
+
+ 
+
+ 
+
+ 
+
+Login
+Password
+Nombre
+Apellido
+Correo
+
+T. fijo
+
+T. movil
+
+Direccion
+
+julrod
+[ecoccncrccrccnccncncccnr...
+Julian Andres
+
+Rodas
+
+julrodEgmail.com
+
+2232425
+
+3157776554
+
+Tulua
+
+El
+
+Mi Perfil E
+Gestion y control de asistencia docente / Mi Perfil
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+EA
+
+ 
+
+Ilustración 29: Docente — Perfil
+
+ITA!
+
+534. PRUEBAS
+
+Se realizaron pruebas de regresión en cada sprint para mejorar la calidad del producto y
+asegurarse de obtener el mínimo de errores. Estas pruebas consisten en la comprobación de
+errores que se pueden producir después de la codificación del software causado por los
+cambios realizados en el programa. [16]
+
+Se identificaron y se ejecutaron según la clasificación de ámbito las pruebas de regresión
+local en donde los cambios introducen nuevos errores y desenmascarada en donde los
+cambios revelan errores previos. Así también, de la clasificación temporal se evidenció la
+Característica preexistente donde los cambios realizados con respecto a nuevas
+funcionalidades introducen errores en funcionalidad existente de previas versiones.
+
+Las pruebas se complementaron con las pruebas de aceptación que fueron de vital
+
+l l l l 19
+importancia para determinar el fin del sprint, ver anexos ”.
+
+12 Anexo CD: Diagramas — Artefactos/Pruebas
+
+545. CONCLUSIONES
+
+La realización de un proyecto de grado es siempre un camino arduo, de investigación, de
+creatividad, lleno de aprendizaje, que no solo hace la trasformación de estudiante a
+profesional, sino también, es un acto de autoconocimiento; revela la capacidad de
+enfrentarse a problemas complejos y de resolverlos fusionando bases teórico-prácticas y
+habilidades para asimilar nuevos conocimientos.
+
+El proyecto final es entonces una profunda reflexión ante la vida, ante el yo: un universo
+vital, como lo es la Universidad.
+
+A continuación se detallan algunos de los factores más representativos del proyecto:
+
+e Los lectores biométricos son herramientas potentes de reconocimiento, de fácil
+instalación y con soporte para múltiples plataformas que tienen una probabilidad de
+fallo evidentemente baja de 1 en cada 100 mil, por esto una solución informática
+con la ayuda de estos dispositivos brinda la seguridad e integridad necesarias para
+un sistema competitivo de calidad.
+
+e Las librerías (SDK) que ofrecen los fabricantes de lectores biométricos para los
+desarrolladores, facilitan indudablemente la implementación del software que
+comunica el sensor con el computador, de no ser así, este trabajo de grado
+posiblemente hubiera tomado otro rumbo debido a la complejidad que hubiese
+tenido la construcción de esas herramientas de desarrollo.
+
+e Se demostró que es importante estar al tanto de las nuevas tecnologías informáticas
+como librerías, pluguins, SDKs, o las nuevas versiones de los lenguajes de
+programación que pueden ahorrar mucho trabajo a los desarrolladores y permitirles
+hacer productos más estables, poco redundantes y con un alto atractivo visual.
+
+e Realizar la instalación del proyecto en un entorno real, revela el comportamiento
+final del sistema y nuevos errores (de configuración), logrando no solo una solución
+funcional sino también una solución real y adaptada al ambiente del cliente.
+
+e Cuando se opta por una metodología como Scrum, en donde cada sprint puede
+cambiar o no los requerimientos del proyecto, las buenas prácticas de programación
+aprendidas, facilitan la edición del código y ahorran tiempos significativos al grupo
+de desarrollo del proyecto.
+
+55En cuanto a la implementación, fue simultáneo el aprendizaje y la codificación; se
+debía investigar profundamente las tecnologías a usar en el desarrollo para tener un
+fuerte control y hacer lo que se quería hacer, asimilarlo e inmediatamente cumplir
+con el sprint. Es por esto que un proyecto de pregrado es en cierta medida
+experimental y su éxito se debe al esfuerzo y persistencia muchas veces por fuera de
+los tiempos del estudiante.
+
+Hubo falencias que se podrían atribuir a la falta de experiencia en cuanto a la
+planificación y cumplimiento de los cronogramas, y en general los tiempos de
+desarrollo del proyecto.
+
+Se evidencia la importancia inexorable de las pruebas en el curso del proyecto, que
+si bien nunca estará libre de errores, se debe reducir al menos a unos pocos
+detectados. Así también, la detección a tiempo de un error puede librar al
+desarrollador de enormes inconsistencias y problemas de compatibilidad a la hora
+de solucionarlo, obteniendo un release consistente y compatible para futuras
+versiones.
+
+S66. REFERENCIAS BIBLIOGRÁFICAS
+
+[1] UAJMS: Universidad Autónoma, “Implementación de un Sistema de Control de
+Asistencia para Docentes y Administrativos en la UAJMS”, 2011. [Online]. Disponible
+en:
+
+http://www.uajms.edu.bo/index.php?option=com_ content view=article4%id=5204I!Item
+
+ 
+
+id=621
+
+ 
+
+[2] Comunidad virtual de conocimiento en gestión de negocios, Ing. Blanca Almazán,
+Lic. Ivonne Cotilla, Ing. Sonia Osuna e Ing. Karina Valdés, ” Automatización, ”Abril
+
+2008. [Online]. Disponible en:  http://www.gestiopolis.com/administracionestrategia/automatizacion-en-procesos-como-mejores-practicas.htm
+
+[3] Desarrolladores de Software,” Sistema Biométrico de Control de Empleados de
+Ingesoft Informática. Control de Empleados por Huella Dactilar,” 2010. [Online].
+
+Disponible en: http://www.ingesoft.com.py/productoS.php
+
+[4] Trabajo de Grado para optar por el Título de Ingeniero en Informática, "Sistema
+informático para el control de asistencia del personal docente del centro de educación
+básica Dr. Nestor Mogollona Lopez”, 2011 [Online] Disponible en:
+
+http://repositorio.utc.edu.ec/bitstream/27000/432/1/T-UTC-1010.pdf
+
+[5] Trabajo de Grado para optar por el Título de Ingeniero Electrónico, “Sistema de
+autenticación biométrica de huella dactilar asistido por interfaz de voz para el control de
+accesos”, [Online] Disponible en:
+
+http://mural.uv.es/juangar2/JJMedia/pfcIE_jjgarcia.pdf
+
+[6] Trabajo de Grado para optar por el Título de Ingeniero Electrónico, “Verificación de
+identidad de personas mediante sistemas biométricos para el control de acceso a una
+
+Universidad >, 2006 [Online] Disponible en:
+
+http://tesis.pucp.edu.pe/repositorio/bitstream/handle/123456789/988/BALMELLI CHU
+QUISENGO_LUIS SISTEMAS BIOMETRICOS UNIVERSIDAD .pdf?sequence=1
+
+[7] Trabajo de Grado para optar por el Título de Ingeniero Informático, “Desarrollo del
+
+sistema control biométrico de docentes de la universidad central del Ecuador (SCOBID)
+., 2012 [Online] Disponible en:
+http://www.dspace.uce.edu.ec/bitstream/25000/220/1/T-UCE-0011-10.pdf
+
+ 
+
+57[8] B. Langefors. Teoría de los Sistemas de información. Buenos Aires: El Ateneo.
+1976.
+
+[9] Laudon y Laudon. Sistemas de Información General. Marzo 2006.
+[10] Biometría, “Preguntas Frecuentes Biometría” 2013 [Online] Disponible en:
+
+http://www .biometrics.gov/Documents/FAQ.pdf
+
+[11] Proyecto de Grado para optar por el Título de Ingeniero de Telecomunicación,
+“Reconocimiento biométrico basado en imágenes de huellas palmares”, Marzo 2012
+[Online] Disponible en:
+
+http://arantxa.ii.uam.es/-¡ms/pfesteleco/lecturas/20120309MariaMeridaA guilera.pdf
+
+[12] JRE, “Programación interactiva: introducción a java”, 2006 [Online]. Disponible
+en:
+
+http://eisc.univalle.edu.co/materias/Programacion_Interactiva/material/l.Introduccion.p
+df
+
+[13] JDK, “Programación interactiva: introducción a java”, 2006 [Online]. Disponible
+en:
+
+http://eisc.univalle.edu.co/materias/Programacion_Interactiva/material/l.Introduccion.p
+df
+
+[14] IDE, “IDE”, abril 2014 [Online]. Disponible en:
+http: //www.oxforddictionaries.com/es/definicion/ingles/ide
+
+[15] H. Charles Bukowski. “What Matters Most is How Well You Walk Through the
+Fire”, HarperCollins Ecco, Junio 2002
+
+[16] Pruebas de regresión, “Niveles de pruebas”, febrero 2014 [Online]. Disponible en:
+http://eisc.univalle.edu.co/materias/TPS/archivos/clases/TPS_2007B_02.pdf
+
+[17] Scrum, “La guía de Scrum”, Julio 2013 [Online]. Disponible en:
+
+https://www.scrum.org/Portals/0/Documents/ScrumYS20Guides/2013/Scrum-GuideES .pdf
+
+[18] HTML, “HTML”, Mayo 2014 [Online]. Disponible en:
+https://developer.mozilla.org/es/docs/Web/HTML
+
+[19] PHP, “¿Qué es PHP?”, 2014 [Online]. Disponible en:
+http://www.php.net//manual/es/intro-whatis.php
+
+58[20] AJAX, “AJAX”, Agosto 2012 [Online]. Disponible en:
+https://developer.mozilla.org/es/docs/AJAX
+
+[21] CSS, “CSS”, Enero 2014 [Online]. Disponible en:
+https://developer.mozilla.org/es/docs/CSS
+
+[22] MySql, “Capítulo 1. Información general”, 2011 [Online]. Disponible en:
+http://dev.mysql.com/doc/refman/5.0/es/introduction.html
+
+[23] JavaScript, “JavaScript”, Febrero 2014 [Online]. Disponible en:
+https: //developer.mozilla.org/es/docs/JavaScript
+
+597. ANEXOS
+
+7.1 Vista del software del Lector Biométrico dactilar:
+
+Esta es la pantalla principal del software a la espera de una huella dactilar:
+
+|[4,) Sistema de Registro e identificación de Huella Digital ela
+
+Archrro
+
+ 
+
+Huella Digital
+
+-> Utilizando el Lector de Huella Dactilar.
+-> El Sensor de Huella Digital esta: [ Activado |]
+-> Huellas Restantes para Guardar el Template [4]
+
+Ilustración 30: Pantalla de inicio
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+60|) Sistema de Registro e identificación de Huella Digital LE y
+
+Procedemos a registrar un nuevo usuario presionando un dedo sobre el lector:
+
+y
+
+ 
+
+ 
+
+El dedo ha sido colocado sobre el Lector de Huella
+-> La Huella Digital ha sido Capturada ...
+-> Huellas Restantes para Guardar el Template [3]
+
+El dedo ha sido quitado del Lector de Huella
+
+ 
+
+ 
+
+ 
+
+Ilustración 31: Huella capturada
+
+mt) TT
+
+ 
+
+El registro de la huella se hace mediante 4 pulsaciones del mismo dedo sobre el sensor
+
+dactilar (esto puede variar a decisión del programador), la huella y el Ilustración ingresados
+
+se guardan en una base de datos:
+
+[£,| Sistema de Registro e identificación de Huella Digital a
+
+Archivo
+
+le)
+
+eS
+
+ 
+
+O Escriba el Login del docente para proceder:
+|
+
+ 
+
+ 
+
+-> Huellas Restantes para Guardar el Template [0]
+-> No se está usando el Lector de Huella Dactilar.
+-> La Plantilla de la Huella ha Sido Creada, ya puede
+
+ 
+
+ 
+
+ 
+
+ 
+
+Ilustración 32: Guardar Huella
+
+Verificarla o Identificarla ! E
+
+ 
+
+61Finalmente, el docente puede firmar a través de su huella, registrando su asistencia en ese
+día. Primero debe presionar el sensor biométrico con el dedo previamente guardado en la
+base de datos y luego dar un click en el botón Firmar:
+
+|4,| Sistema de Registro e identificación de Huella Digital [(S|E| 2]
+
+Archinso
+
+ 
+
+ 
+
+ 
+
+Huella Digital
+
+El dedo ha sido colocado sobre el Lector de Huella
+-> La Huella Digital ha sido Capturada ...
+-> Huellas Restantes para Guardar el Template [3]
+
+El dedo ha sido quitado del Lector de Huella
+
+ 
+
+Ilustración 33: Firmar huella
+
+Para complementar las funcionalidades del sistema de registro e identificación de huella
+
+o 20
+digital, ver anexo”.
+
+2 Anexo CD: Aplicación Java/ videos guía aplicación
+
+627.2 Vista aplicación Web para la gestión y control de la asistencia docente:
+
+21
+Ver anexo”.
+
+   
+
+GS
+
+ 
+
+fe (SH localhost/admin-template/Usuarios/index.php Cc
+
+Más visitados |) Archivos ha J Inicio de Sesion ¿¿, phpMyAdmin
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+v TEA Aa la]
+DE ASISTENCIA DOCENTE — Sede Tuluá
+e oivaa Usuarios | Mi Perfil | | Programas | | Docentes | | Asignaturas | | Periodo Academico | | Cronogramas | | Control asistencia docente | | Reportes |
+Gestion de Usuarios Crear usuario x
+Gestion y control de asistencia docente / Usuarios
+- - - A Alerta: El loguin debe tener ente 6-12
+- Seleccione un tipo de usuario - r rn
+Usuario: admin . a a j 17]
+E AE 2
+A EA 2 coordinador 012345 coc . 233213213 123121332112
+| EZ £ coordinador 123456 coc 34557786 6868688444 a
+| Nombre
+ES docente Hectorgarcia 2827676 3145556667 calle 22 3-4
+COD (02 «-- — ue uv Lamas SITIOS rán
+”» Nuevo Usuario O) | e monitor monitori fÍ Correo 2251816 315888888888 calle 123
+EEE | sg admin tester Fel 7. fijo 2236296 3156661387 carrera 5 £ 4- 30 , bugalagrande
+|
+T. movil
+Direccion
+Tipo Usuario - Seleccione un usuario - v
+
+ 
+
+Cancelar
+
+Crear
+
+ 
+
+ 
+
+Gi
+
+   
+
+[Ey Usuarios
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+£ (SH localhost/admin-template/Usuarios/index.php | Pp E se y RAR $
+Más visitados Archivos hi Inicio de Sesion ¿¿i, phpMyAdmin
+a
+Y SISTEMA DE GESTIÓN Y CONTRÓL
+AAA a Mo a AT 1 1 1 1
+Er Usuarios | = S aademico | | Cronogramas | | Control asistencia docente | | Reportes |
+— Edicion de usuarios x
+Gestion de Usuarios
+Gestion y control de asistencia docente / Usuarios Loguin 012345
+- Seleccione un tipo de usuario - E hs Nombre koordinador 1.
+Usuario: admin Z Apellido = Z z z
+mz || EN E
+AS E22 coordinador 012345 coc Correo mailGc.com 233213213 123121332112 dir
+l
+EZ 2 coordinador 123456 coc  T. fijo 1233213213 34557786 6868688444 calle 123 Ñ
+EZ docente Hector: j - 2827676 3145556667 calle 22 3-4
+2 ES T. movil 123121332112
+CO (+2 eo. 1  .u 50 sz
+: | Direccion dir |
+”» Nuevo Usuario Y) Es monitor monitori r 2251816 315888888888 calle 123
+Tipo usuario coordinador
+EN [E 2 admin tester Fel v ¡2236296 3156661387 carrera 5 $ 4- 30 , bugalagrande
+Coordina Tecnologia en Electronica y
+Titulo coordinador experimentado
+Universidad univalle
+Actualizar Cancelar Y
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+ 
+
+ 
+
+Ilustración 35: Administrador — usuarios
+
+2 Anexo CD: Aplicacion WEB -SGCAD/ Videos guía SGCAD
+63Firefox y
+
+ 
+
+La] Programas Académmicos
+
+A E
+
+f (SÍ localhost/admin-template/Programas/programas.php Cc ¡BJ 6
+
+e
+
+Más visitados |) Archivos la] Inicio de Sesion ¿¿, phpMyAdmin
+
+ 
+
+ 
+
+ha EM Aa Ja E
+FS Gi a Moa a A
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+vale | Usuarios | | Mi Perfil | Programas | Docentes | | Asignaturas | | Periodo Academico | | Cronogramas | | Control asistencia docente | | Reportes |
+Programas Academicos
+Gestion y control de asistencia docente / programas AcadÁGmicos
+- Seleccione una facultad - Y o
+Usuario: admin
+Felipe Andres
+pue Gun 2710 Tecnologia en Electronica Ingenieria 7
+Gua 2711 Tecnologia en Sistemas de Informacion Ingenieria Y 7
+Ca Ea 2712 Tecnologia en Alimentos Ingenieria 7
+CO 0 a EE »
+=> Nuevo Programa O) Ga e 3743 Ingeniería de sistemas Ingenieria 10
+e sun 3841 Contaduria Publica Ciencias de la Administracion 2
+ADE >. A cnc src .
+«* Anterior 1 Siguiente »
+
+ 
+
+ 
+
+ 
+
+ 
+
+4 ” »
+
+ 
+
+ 
+
+ 
+
+llista la] Programas Académmicos
+
+SS (9 localhost/admin-template/Programas/programas.php e EJ - coogie PO” -,> Rk 2 
+ 
+
+ 
+
+Más visitados |) Archivos la] Inicio de Sesion ¿¿, phpMyAdmin
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ha Td A Aa la]
+SA a Moa a a AA
+pre Valle | Usuarios | | Mi Perfil | Programas | Docentes | | Asignaturas | | Periodo Academico | | Cronogramas | | Control asistencia docente | | Reportes |
+MÁ
+Programas Academicos
+Gestion y control de asistencia docente / programas AcadÁGmicos
+- Seleccione una facultad - >
+Usuario: admin Edicion de programas x
+Felipe Andres
+o Da LA Lo am Codigo 3743
+errar Ly =
+Gua 2711 Tec . 7
+Nombre Ingeniería de sistemas
+Ea ES 2712 ener >
+Semestres 10
+CO o Humanidades 1
+=> Nuevo Programa Ú) Ea UU Ea 3743 Facultad Ingenieria y Imirtia 10
+——— SÁ 3841 Ciencias de la Administracion 2
+. Actualizar Cancelar
+Sub  »s corn eat .
+==
+rr inte >
+
+ 
+
+ 
+
+ 
+
+ 
+
+Ilustración 37: Administrador - Programas
+
+64abia z ha] Docentes +]
+
+fa (SH localhost/admin-template/Docentes/docentes.php a
+a
+
+ 
+
+ 
+
+P/E y A 2-7
+Más visitados |) Archivos la] Inicio de Sesion ¿¿, phpMyAdmin
+
+EM Aa Ja E
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+DE ASISTENCIA DOCENTE Sede Tuluá
+me Valle | Usuarios | | Mi Perfil | | Programas | Docentes | Asignaturas | | Periodo Academico | | Cronogramas | | Control asistencia docente | | Reportes |
+Gestion de Docentes
+Gestion y control de asistencia docente / Docentes
+Buscar
+Usuario: admin
+Felipe Andres
+AS Cs Ea Hector Garcia Arana Ing. Electronica univalle
+5 ña Julian Andres Rodas Ing. de Sistemas Univalle A
+CAS A
+=» Nuevo Docente Ó)
+
+ 
+
+Univalle Tuluá
+
+ETE TE
+
+ 
+
+ 
+
+ 
+
+ 
+
+4 ”
+
+ 
+
+ 
+
+SS (Í localhost/admin-template/Docentes/docentes.php e EJ - coogie 2 O” Y Rh *
+
+ 
+
+Más visitados |) Archivos la] Inicio de Sesion ¿¿, phpMyAdmin
+
+ha SISTEMA DE GESTIÓN Y CONTRÓL
+PGE a Moa a A ATA
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+valo | Usuarios | | Mi Perfil | | Programas | Docentes | Asignaturas | | Periodo Academico | | Cronogramas | | Control asistencia docente | | Reportes |
+e y
+Gestion de Docentes
+Gestion y control de asistencia docente / Docentes
+[Ruerar]
+l Asignar Programa x
+
+Usuario: admin
+die añ Hector q a ep pros en donde se encuentre el docente:
+Cerrar Sesion
+
+ 
+
+ 
+
+E Lo
+
+m
+
+ 
+
+ 
+
+- Seleccione un programa - » Univalle
+Tecnologia en Electronica
+
+Tecnologia en Sistemas de Informacion
+
+Tecnologia en Alimentos
+
++ Nuevo Docente (Y) Trabajo social
+
+Ingeniería de sistemas
+
+Contaduria Publica
+
+Administracion de Empresas v
+
+ 
+
+ 
+
+ 
+
+ 
+
+Univalle Tuluá
+
+ 
+
+TER El!
+
++
+y
+
+Crear Cancelar
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+4 "”
+
+ 
+
+Ilustración 39: Administrador — docentes
+
+65Firefox y
+
+la] Asignatura
+
+f (SH localhost/admin-template/Asignaturas/asignaturas.php
+a — e
+
+Más visitados |) Archivos la] Inicio de Sesion ¿¿, phpMyAdmin
+
+=
+
+SISTEMA DE GESTIÓN Y CONTRÓL
+
+ 
+
+ 
+
+ 
+
+2 A 7 Mo a AA
+Me Valle | Usuarios | E
+5
+Asignaturas
+Gestion y control de asistencia docente / Asignaturas
+Usuario: admin
+Felipe Andres (0) Grupo
+Noguera Ortiz
+Cerrar Sesion 7555444 si
+U 111050M 50
+CO
+=> Nueva Asignatura O ll 2 En
+un 750080M 50
+E IES [NS
+. un 700012M 50
+7878787m 2
+ia 204101M 50
+da 750085M 50M
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Crear Asignatura
+
+pa
+
+Nombre
+Intensidad Horas
+Creditos
+
+Grupo
+
+Cupo
+
+Semestre
+
+ 
+
+- Seleccione un semestre 
+Programa Asociado
+- Seleccione un programa 
+Crear
+
+Cancelar
+
+ 
+
+Ap
+
+E
+ 
+
+ 
+
+m
+
+ 
+
+ 
+
+ 
+
+”
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+hi Periodo Academico
+
+SS (SÍ localhost/admin-template/Periodo_academico/periodo_academico.php
+
+ 
+
+Más visitados |) Archivos la] Inicio de Sesion ¿¿, phpMyAdmin
+
+ 
+
+ 
+
+SISTEMA DE GESTIÓN Y CONTRÓL
+
+DE ASISTENCIA DOCENTE
+
+ 
+
+A E
+
+ 
+
+ 
+
+Usuario: admin
+
+Cerrar Sesion
+
+-» Nuevo Periodo Ó
+
+DATA
+
+TER El!
+
+ 
+
+ 
+
+| Usuarios || Mi Perfil || Programas || Docentes || Asignaturas | Periodo Academico | Cronogramas || Control asistencia docente || Reportes |
+
+ 
+
+- Seleccione un año 
+GB UE 2014
+GB UE 2014
+
+Periodo Academico
+Gestion y control de asistencia docente / periodo académico
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+m
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Crear periodo
+Semestre I
+% semanas 18
+Fecha inicio 02/05/2014
+Fecha fin |
+110 May 2014 o
+Cre| lu Ma Mi Ju Vi Sá Do
+| 2||--3||--4
+5 6 7 8 9/| 10|| 11
+12| 13|| 14|| 15|| 16|| 17||.48
+19/|-.20/|-21||-22||-23|| 24/25
+26 27 28 29 30 31
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Ilustración 41: Administrador - periodo académico
+
+66LS | [2% Periodo Academico
+
+ 
+
+( € Y localhost/admin-template/Periodo_academico/periodo_academico.php Y Cc | ¡8- Google AP Or y R£ 2 +
+
+ 
+
+Más visitados |) Archivos ha] Inicio de Sesion ¿¿, phpMyAdmin
+
+ 
+
+LÍ AA a ala
+
+DE ASISTENCIA DOCENTE — Sede Tuluá
+
+"y | Usuarios || Mi Perfil || Programas ][ Docentes || Asignaturas | Periodo Academico | Cronogramas || Control asistencia docente || Reportes |
+G _ Asociar Programa x |
+
+Periodo Academico
+
+Gestion y control de asistencia docente / periodo académico Seleccione el programa en el semestre ' II de
+2014'
+
+ 
+
+ 
+
+r
+
+ 
+
+ 
+
+A
+
+ 
+
+ 
+
+ 
+
+- Seleccione un año - y
+
+- Seleccione un programa - v
+
+Usuario: admin
+Felipe Andres
+Noguera Ortiz
+
+Seleccione el/los semestres a dictar en el
+programa seleccionado:
+
+ 
+
+Cerrar Sesion
+
+     
+
+ 
+
+ 
+
+=» Nuevo Periodo Y)
+
+ 
+
+241003002 yuyNÉA
+
+MATE 0 ”
+
+ 
+
+ 
+
+ 
+
+ATEN Nota: puede seleccionar varios campos manteniendo
+do
+
+presionando "Ctrl"
+
+ 
+
+Asociar Cancelar
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Ilustración 42: Administrador - periodo académico
+
+ 
+
+la] Periodo Academico He 16d jas
+
+€ O localhost/admin-template/Periodo_academico/periodo_academico.php e | ¡[8 - Google P| > Y Rh |
+
+ 
+
+Más visitados |) Archivos ha] Inicio de Sesion ¿¿, phpMyAdmin
+
+ 
+
+SISTEMA DE GESTIÓN Y CONTRÓL
+
+DE ASISTENCIA DOCENTE — Sede Tuluá
+
+ 
+
+ 
+
+ 
+
+| Usuarios ][ Mi Perfil | Programas 1 Docentes 1] Asignaturas |] Periodo Academico | Cronogramas If Control asistencia docente I| Reportes |
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+G de
+Periodo Academico _ Asociar Materias x]
+Gestion y control de asistencia docente / periodo académico
+|- Seleccione un año - + | | Semestre
+E - - Seleccione un semestre- ”
+Usual dmin ;
+a Programas asociados al periodo academico 'II' de '2014":
+Asignatura
+Cerrar Sesion | - Seleccione una asignatura- y
+Docente E
+CE) - Seleccione un docente - v
+=> Nuevo Periodo Y) Atras Horario (dia 1)
+- Seleccione un dia de la semana - v
+pora a
+Lugar
+
+ 
+
+Horario (dia 2) [
+ 
+
+ 
+
+ 
+
+ 
+
+Asociar Cancelar
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Ilustración 43: Administrador - periodo académico
+
+67is
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+EM Aa Ja E
+BA a) Mo a A EA
+| Usuarios || Mi Perfil || Programas || Docentes || Asignaturas | Periodo Academico | Cronogramas || Control asistencia docente || Reportes |
+Gr a
+Periodo Academico
+Gestion y control de asistencia docente / periodo académico
+|- Seleccione un año - y] Buscar
+Usuario: admin 1 pa : 1 : : mr 1 Ne
+Felipe Andres Programa ' Ingeniería de sistemas ', periodo academico 'II' de '2014":
+Noguera Ortiz
+Cerrar Sesion (atole) e Nombre asigantura UF) ET] A Nombre profesor Horario de clase TA
+Lunes 2a6Pm Sede Pincipal - Salon 5 2
+JE 1m0som 50 Cálculo 1 4 3743 1 51 HectorGardaArana — mteoiaspm  SedePindpel-Salons E
+750085M 50M Programacion Interactiva 12 3743 1 50 Julian Andres Rodas Martes 3 a 5Pm sede victoria
+7 Nuevo Periodo O) LA rrerm 2 Pruebas 2 3743 1 12 Julian Andres Rodas PS ; Es se iria (
+Add room 50 Electiva Comp. 1 (Constitucion Politica) 3 3743 1 50 JuliamAndresRodas  Sabado4a6Pm dia
+AE
+750082M 50 Introduccion a la Tecnologia Informatica 2 3743 1 50 Hector Garcia Arana Sabado 7 a 8 Am ASDTFT
+JE  750080M 50 Fundamentos de Programación 4 3743 1 50 Julian Andres Rodas Viernes 5 a 6 Pm sss
+750060M 50 Introduccion a la Ingeniería de Sistemas 2 3743 1 50 Hector Garcia Arana Martes 1a 34Pm AAA
+209101M 50 Lectura Textos Académicos en Inglés 1 a 3743 1 50 Julian Andres Rodas Lunes 3 a 5Pm salon b
+AMES  75008qm 50 Matematicas Discretas II 18 3743 1 21 Julian Andres Rodas Jueves 4a 5Pm sede victoria
+ua 123 50 asignatura2 2 3743 10 55 HectorGarda Arana Lunes 2a 7Pm sede victoriana
+AMES 750102m 50 Trabajo de Grado II 1 3743 10 50 Julian AndresRodas  Domingo8a12Am SedePrincpal salón 2
+Atras
+
+ 
+
+ 
+
+Ilustración 44: Administrador - periodo académico
+
+ 
+
+7 | (7
+A : ac
+
+El- mas 2 E- y ñh 2
+ 
+
+ 
+
+ 
+
+( ta cd localhost/admin-template/Cronograma/cronogramas.php > ye |
+
+ 
+
+[£) Más visitados |.) Archivos la] Inicio de Sesion ¿¿, phpMyAdmin
+
+ 
+
+ 
+
+ 
+
+ 
+
+SISTEMA DE GESTIÓN Y CONTRÓL =
+
+21 E a a a A ORTO
+| Usuarios | | Mi Perfil |] | Programas | | Docentes | | Asignaturas | | Periodo Academico | Cronogramas | Control asistencia docente | | Reportes |
+Ññ AS
+
+Cronogramas
+Gestion y control de asistencia docente / Cronogramas
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+- Seleccione un semestre - v | | Buscar
+Usuario: admin 105 1
+Feline lll Cronograma de contenido de la asignatura 'Cálculo 1':
+Noguera Ortiz
+
+Atras
+
+Cerrar Sesion
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Contenidos Temáticos Y/O actividades Material de apoyo RS
+1
+03/02/2014
+1
+04/02/2014
+ú
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Ilustración 45: Administrador — cronogramas
+
+68Firefox y
+
+ 
+
+ 
+
+[€ 9 localhost/admin-template/Perfil/perfil.php ve | [8- ms P| O- 34 2 +
+(2) Más visitados |) Archivos La] Inicio de Sesion ¿¿¿, phpMyAdmin
+
+ 
+
+ 
+
+EM Aa Ja E
+
+DE ASISTENCIA DOCENTE Sede Tuluá
+Mi Perfil | Cronogramas [| Control asistencia docente
+
+Mi Perfil
+
+Gestion y control de asistencia docente / Mi Perfil
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Loguin 123456
+
+ 
+
+ 
+
+Password el0adc3949ba59abbe56e057120f88
+
+ 
+
+Apalido
+
+ 
+
+ 
+
+Nombre coordinador 2.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cc GATE! a
+coreo (raid
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+T. fijo 234557786
+T. movil 6868688444
+Direccion calle 123
+4 1 »
+
+ 
+
+Ilustración 46: Coordinador — Perfil
+
+ 
+
+ 
+
+lic) ha] Perfiles + | (5) [ess
+¡€ ¿0 localhost/admin-template/Perfil/perfil.php Y ve | [8- md5 Pp! Or y A 2 | ”
+(2) Más visitados |.) Archivos la] Inicio de Sesion ¿¿, phpMyAdmin
+
+ 
+
+ 
+
+ 
+
+SISTEMA DE GESTIÓN Y CONTRÓL
+
+ 
+
+SA a Mo a a E A
+| MiPerfil | Control asistencia docente |
+
+Mi Perfil
+
+Gestion y control de asistencia docente / Mi Perfil
+
+ 
+
+ 
+
+ 
+
+ 
+
+E Loguin monitor1
+monitor 1
+a Password e465691e6481fic3dd048042deda5c6
+
+Nombre monitor 1
+
+A Apellido
+TR El .
+Correo [momoridcoreo com
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+T. fijo 2251816
+T. movil 315888888888
+Direccion calle 123
+(4
+4 " »
+
+Ilustración 47: Monitor - perfil
+
+69La] Control asistencia docente
+
+ 
+
+ 
+
+( € o localhost/admin-template/Control_asistencia_docentes/control_asistencia_docentes.php
+
+ad
+
+ 
+
+(2) Más visitados |) Archivos ly] Inicio de Sesion ¿2 phpMyAdmin
+
+PO ld) A 2 
+ 
+
+EM Aa Ja E
+
+DE ASISTENCIA DOCENTE — Sede Tuluá
+
+ 
+
+ 
+
+| Mi Perfil | Control Asistencia Docente
+
+ 
+
+Pai
+Control Asistencia
+
+Docente
+
+Gestion y control de asistencia docente / Control Asistencia Docente
+
+ 
+
+ 
+
+- Seleccione un semestre 
+Usuario: monitor
+monitor 1
+
+Ingrese el /oguin del docente
+
+”
+
+ 
+
+julrodl
+
+ 
+
+ 
+
+ 
+
+ 
+
+Buscar
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cerrar Sesion
+
+Asignaturas :
+
+ELA
+TE El!
+
+ 
+
+Nombre asignatura
+
+OE)
+
+Nombre Profesor
+
+AS
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+g 204101M 50 Lectura Textos Académicos en Inglés 1 3 3743 1 50 Julian Andres Rodas Lunes 3 a 5Pm salon b
+ag 750080M 50 Fundamentos de Programación 4 3743 i 50 Julian Andres Rodas Viernes 5 a 6Pm sss
+g 700012M 50 Electiva Comp. 1 (Constitucion Politica) 3 3743 E 50 Julian Andres Rodas Sabado 4 a 6 Pm dia
+Lunes 1a 3Pm
+g 7878787m Y2 Pruebas 2 3743 E YX Julian Andres Rodas Sabado 2a 3Pm sede campestre
+ag 750085M 50M Programacion Interactiva 12 3743 1 50 Julian Andres Rodas Martes 3 a 5Pm sede victoria
+ag 750084M 50 Matematicas Discretas II 18 3743 Y 21 Julian Andres Rodas Jueves 4a 5Pm sede victoria
+FP som 50 Trabajo de Grado II 1 3743 10 50 Julian Andres Rodas Domingo 8 a 12 Am Sede Principal salón 2
+4 m »
+
+Ilustración 48: Monitor - perfil
+
+ 
+
+7 Y | Z a lila)
+E | Control asistencia docente - | | (5) [ne
+
+( t 8d localhost/admin-template/Control_asistencia_docentes/control_asistencia_docentes.php
+
+ 
+
+ 
+
+ 
+
+(2) Más visitados |) Archivos ly] Inicio de Sesion ¿¿, phpMyAdmin
+
+ 
+
+ 
+
+ 
+
+SISTEMA DE GESTIÓN Y CONTRÓL
+
+DE ASISTENCIA DOCENTE — Sede Tuluá
+
+| Mi Perfil | Control Asistencia Docente
+
+Control Asistencia Docente )
+
+Gestion y control de asistencia docente / Control Asistencia Docente
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+- Seleccione un semestre - v
+
+ 
+
+ 
+
+ 
+
+ 
+
+Usuario: monitor
+
+monitor 1
+
+Ingrese el /oguin del docente
+
+ 
+
+ 
+
+julrod
+
+ 
+
+ 
+
+ 
+
+Control asistencia docente para la asignatura 'Programacion Interactiva' :
+
+TS
+Al
+
+Atras
+
+1 0)
+faltante
+(CS)
+
+ter]
+
+Fecha recuperacion Contenido
+
+AS
+
+entrada | salida | dictadas | de la clase
+
+ 
+
+ 
+
+ 
+
+3Pm 5Pm 2 horas A
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+GhAtras
+
+ 
+
+ 
+
+ 
+
+Ilustración 49: Monitor - Control de asistencia docente
+
+707.3 Desarrollo del proyecto
+
+7.3,1Resultados Esperados
+
+Objetivos Específicos Productos(s) Esperados
+
+Desarrollar un sistema de información
+que permita realizar las gestiones de
+Control de asistencia docente en la
+universidad del valle
+
+Permitir un mecanismo de identificación
+de usuario de una manera segura y
+confiable por medio de un lector
+biométrico
+
+Generar reportes estadísticos e
+indicadores de cumplimiento para
+conocer el progreso del cronograma
+académico de los docentes
+
+Integrar la plataforma tecnológica con el
+sistema de identificación de usuario
+
+la plataforma tecnológica
+
+Implantar
+
+descrita en este documento en la
+Universidad del Valle Tuluá
+
+Sistema que permita hacer el control de la
+asistencia docente brindando apoyo a la
+gestión de calidad
+
+Herramienta adecuada con la capacidad de
+reconocer patrones de un individuo aplicada
+a las necesidad de la Universidad del Valle
+sede Tuluá
+
+Reportes en digital que brindaran eficacia y
+automatización, evitando errores, perdida de
+la información y atrasos.
+
+Un sistema que permita la identificación,
+verificación, almacenamiento y control de
+la Asistencia de los docentes
+
+Configurar el sistema para que funcione y
+haga la gestión de control de asistencia
+docente en la universidad del valle sede
+Tuluá
+
+ 
+
+Tabla 7: Resultados Esperados
+
+717.3.2 Pre-Cronograma de Actividades
+
+Investigar sobre el control de asistencia
+
+docente manejado actualmente en la
+Universidad del Valle sede Tuluá
+
+  
+       
+       
+     
+
+ 
+
+Establecer los parámetros para el
+desarrollo del software para el lector
+biométrico
+
+Objetivo 1
+
+Diseñar la solución informática para el
+control de asistencia docente
+
+Investigar acerca de los lectores
+biométricos que mejor se adapten al
+proyecto tanto en costos como en
+funcionalidad
+
+nov-13 | dic-13
+
+ 
+
+ 
+
+ 
+
+ 
+
+Investigar acerca de la construcción de la
+plataforma para el uso del sensor
+biométrico
+
+Objetivo 2
+
+ 
+
+ 
+
+Diseñar el software para la comunicación
+con el Sensor Biométrico
+
+ 
+
+ 
+
+ 
+
+72Objetivo 3
+
+ 
+
+Establecer los reportes necesarios para el
+aplicativo y sus respectivos formatos
+
+ 
+
+ 
+
+ 
+
+Objetivo 4
+
+Investigar acerca de la sincronización del
+sistema de identificación y la plataforma
+de control de asistencia docente
+
+Establecer comunicación entre ambas
+herramientas tecnológicas
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 8: Pre-Cronograma de Actividades
+
+73

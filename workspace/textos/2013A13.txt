@@ -1,0 +1,4084 @@
+HERRAMIENTA PARA EL APOYO EN LA TOMA DE DECISIONES PARA LAS
+ÁREAS DE VENTA Y MERCADEO DEL CALL CENTER DE LA EMPRESA BCS
+
+PROYECTO DE PASANTÍA
+
+STEVEN JULIÁN ROJAS VARELA
+
+20095694 - correo: stevenrojasv21(Wgmail.com
+
+"y
+
+Universidad
+del Valle
+
+ 
+
+UNIVERSIDAD DEL VALLE
+ESCUELA DE INGENIERÍA DE SISTEMAS Y COMPUTACIÓN
+TULUÁ- VALLE
+MAYO - 2014HERRAMIENTA PARA EL APOYO EN LA TOMA DE DECISIONES PARA LAS
+ÁREAS DE VENTA Y MERCADEO DEL CALL CENTER DE LA EMPRESA BCS
+
+PROYECTO DE PASANTÍA
+
+STEVEN JULIÁN ROJAS VARELA
+
+20095694 - correo: stevenrojasv21(Wgmail.com
+
+DIRECTORA:
+Ing. Yuri Mercedes Bermúdez.
+
+Coordinadora del programa de Ingeniería de Sistemas Sede Tuluá
+
+CO-DIRECTOR:
+Ing. Pablo Lopera.
+
+Ingeniero de sistemas de BCS.
+
+y
+
+Universidad
+del Valle
+
+ 
+
+UNIVERSIDAD DEL VALLE
+ESCUELA DE INGENIERÍA DE SISTEMAS Y COMPUTACIÓN
+TULUÁ- VALLE
+MAYO - 2014Nota de aceptación
+
+Presidente del jurado.
+
+Jurado 1
+
+Jurado 2Dedicatoria
+
+A todos los que de alguna manera me apoyaron y creyeron en mí, y
+especialmente a Dios, a mi padre Luis y mi madre Luz Stella, mis hermanos, a mi
+novia Solange por animarme a seguir adelante y soportar mis momentos de enojo
+y tristeza; familiares, amigos, compañeros y conocidos, los cuales siempre me han
+apoyado y brindado ánimos para seguir avanzando para culminar esta meta. Para
+todos ellos, les dedico este trabajo de grado.
+
+Steven Julián Rojas VarelaAgradecimientos
+
+Gracias al Pablo Lopera, Ingeniero de sistemas y Consultor Bl, por ser mi codirector y confiarme la realización de este proyecto. A la Profesora e Ingeniera Yuri
+Mercedes Bermúdez Mazuera, por ser mi Directora y apoyarme siempre en todo el
+proceso de desarrollo de este proyecto, guiándome a través de este reto.
+
+Gracias a Dios por darme la oportunidad de culminar este trabajo, dándome
+paciencia y enviándome a las personas indicadas para que guiaran y apoyaran mi
+camino hacia la meta.
+
+Y por último, a mis amigos y compañeros por todos los motivos vividos.Resumen
+
+Actualmente, la mayoría de empresas cuentan con Sistemas de Información
+Transaccionales para apoyar los procesos que ejecutan y gestionan
+cotidianamente. Pero, aunque las empresas posean un Sistema de Información
+Transaccional, sólo una minoría está consciente del valor de la información
+registrada por dichos Sistemas de Información, la cual puede ser utilizada por
+personas con cargos gerenciales para tomar así decisiones concernientes con el
+mejoramiento de procesos internos de la empresa como también determinaciones
+que a futuro dirijan el rumbo de la misma.
+
+Por lo anterior, surgieron los Sistemas de Información para el apoyo a la toma de
+decisiones, también conocidas como Aplicaciones de Inteligencia de Negocios, las
+cuales suplen la necesidad de los gerentes de poseer una herramienta que analice
+la información registrada en las bases de datos de los Sistemas de Información
+Transaccionales, para que las decisiones que tomen dichos gerentes tengan una
+mejor base y no solo sea una simple intuición.
+
+En el desarrollo de este proyecto se realizó un estudio en conjunto con la persona
+encargada de la toma de decisiones de las áreas de venta y mercadeo para elegir
+un conjunto de indicadores de desempeño claves para medir puntos de
+rendimiento que se determinaron como esenciales para su monitoreo. De manera
+paralela se fue desarrollando una aplicación web responsiva, la cual cuenta con
+una interfaz hecha con HTML5, siendo esto una característica que ayuda al
+desarrollo de software más simplificado de dicha interfaz. En conjunto, estos dos
+elementos brindan un apoyo a la toma de decisiones respecto a las áreas de venta
+y mercadeo del Call Center de la empresa BCS.
+
+Palabras claves: Inteligencia de negocios, HTML5, Aplicación Responsiva,
+Indicadores de desempeño, Dispositivo móvil.
+
+IvAbstract
+
+Currently, most companies have Transactional Information Systems to support and
+manage processes running daily. But although firms have Transactional
+Information System, only a minority is aware of the value of the information
+recorded by said Information Systems, which can be used by people with
+management responsibilities ¡in order to make decisions regarding the
+improvement of internal processes Company determinations as to direct the future
+course of the same.
+
+Therefore, arose information systems to support decision making, also known as
+Business Intelligence Applications, which supply the need for managers to have a
+tool to analyze the information recorded in databases Transactional Information
+Systems, for the choices they make these managers have a better basis and not
+just be a simple intuition.
+
+In developing this project, a study was conducted in conjunction with the person
+responsible for making decisions in the areas of sales and marketing to choose a
+set of key performance indicators to measure performance points that were
+identified as essential for monitoring. At the same time was developing a
+responsive web application, which has an interface made with HTML5, this being a
+feature that helps the development of more simplified the interface software.
+Together, these two elements provide support for decision-making regarding the
+areas of sales and marketing company Call Center BCS.
+
+Keywords: Business Intelligence, HTML5, Responsive Application, Performance
+Indicators, Mobile Device.Índice general
+
+1. Planteamiento del problema. .....ccooonncconnnccncccnoncnccncnnnoncnonnnnncnnnnonncnnnnrncnnnncnnnnnnnnnos 1
+1.1 Descripción del problema. .....oocccconnccoccncconcnccncncnnncnnoncnnonnnnonnnnnonannnonncononcncnnncnss 1
+1.2 Formulación del problema. .......cooooncconcncconccccnnnononcncnncnnonacnnnnnnnonnnncnoncnnonnnonancnss 2
+1.3 ODJOtIVOS ....ooocccconcnnccoccncnconcnnononnnnonrononnnnnnonnnnnnnnnnrnnonnnrnnnnannnnnnnrnnrnnnrnrnnanenninaness 3
+
+1.3.1 Objetivo General ...o.ooooccnccocnccccccnnnconoconconononononnnnnnnnnnnnnnncncnnannnonnnrnnonnnnnnnnnns 3
+1.3.2 Objetivos ESPecÍífiCOS .......ooccccoonnnccococoncoooccnononnnnonnncnnononenconanennnnnrnnnnnnnnnonnns 3
+
+2. Marco Referencial......ooooconncconnccconccccncccnoncnnoncnnonarnonnnncnoncncnnnnonnnrnnonrnnnnnnnnnncnnnnnnnnnns 4
+2.1 Marco NiStÓFICO. ...cocoonnccocnncconccconcnccnnnnonncnnonnnnonnnncnnnnnnnnrnnnnnnnnnnnonnnrnrnnnnnnnarncnnanes 4
+2.2 Marco de antecedentes. ...cocccconcnccoccnncncnncnnnnonnnnconnncnnncnonnnnnonnrnrnnnnnnnnnnnnnrnnnnaness 5
+
+Oracle Business Intelligence Standard Edition One ............ooccccoccnccccnncconnncnaninen: 5
+Pentaho Bl Suite: ...oocccooncnncccccncococcncononnnocnncnnnonnnonononnnnonnnnnnnnancnnonannnonnnrinonnnnnnnnnas 5
+SAP Business IntelligenCe:.............ccccoonnnccoccconoconnncnnoncnnonanononnncnnnonnrononannnnonnnonoss 6
+Sistema para el soporte a la toma de decisiones administrativas en la
+ferretería metrópolis 84 LTDA: ...ooocooncccnncccconcnnnncononcnnnnncnncnnnnonannnnnncnnnnrnconannnonens 6
+2.3 MArCO TBÓTICO...ocooccccnccncnncnccnnnncnnnncnnnnnnnnrnonnnnnnnnnrnnnrnnnnrnnrnrnrrnnrnnnnrnnnnnnrnnnnnnnanens 7
+2.3.1 Business Intelligence o Inteligencia de NegocioS.........ccoocccccoccnccocononanncnas 7
+2.3.2 Data Warehl0use. cccconccccoocccconcnccncnnonncononnnnnonnnonnncnnnnrnnnnnrnnnnrnrnnnnnrnnrnnnnnnnnnas 9
+2.3.3 Data Mall ooooconnccconnccnoncnccnnnnonncnconcnnonncnnnnnnnnnnnnnnnnrrnnnrnnnnnrrnnnrnrnnnnnrnnrnnnnnnnenas 9
+2.3.3 Extracción, Transformación y Carga (ETL). coonoccccoooncccccccocccnccnnoncnnnnnnnnoss 10
+2.3.4 ApliCAciones Web.....oooccccocccccoconcnonncnnnncnoncnnoncnnonnnnnnnrnnnnnnnnnnnncnnnnrrnnrnnnnrnnnns 12
+2.3.5 Aplicación web MÓVil. ....ooocooocnccconcconcncnonccconcncnnnnnonnrnnnnnnnnnnnnonnnncnnnrononnnonos 14
+2.3.6 Aplicación web reSponsSiVa. ..occcooccconcnccocccconcnconnnnonncnnnnnnnonnnnonannnnnnrnnonnnnnns 15
+A A 15
+2.3.8 BOOÍSTUAP. .0ccoooocccoccncooccconnnnononononnnnonnnnnnnncnnnnrnrnnnnnnnnrnnnnnnnnnnnnrnnnnrrnnrnnnaninnns 16
+AO 16
+2.3. 10COSS cccoocccnnononoconnnonnnnnnnnonnncnnnnnnnnnnnnn nn nnnnnnnnnrnnnnnnnnrnnnnnnnnrnnronnnneneninnnness 17
+2.3.11 Ingeniería del SOftWare.......ccocooocccccconcococonnnconnnncononnnnononnnnonnnononnnnnnnnnanonos 17
+
+vi2.4 Marco CONCeptual. c.oocccoonnccnccnccncnccnccnnnncnnonnnncnnnncnnnrnnnncnonnncnnnnrnnnnrnnonarnnnnannnnnos 20
+
+3. Desarrollo del proyecto. ....ocooonccconccccocccconcnconcnononcnnnnnnnonnnncnnncnnnnrnnonnrnnnnrnnonnnnonanoss 23
+3.1 Resultados de la fase de ODServaciÓnN. ...oocccoocnccocccconcnccnnononnnononnnnonanncnnanenonos 24
+3.1.1 PHP oooooococcccnnnccnccoonccnnnncnnnonnnnnnnononnnnnnnnnnnonnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnananens 24
+3.1.2 REST FUlocooooccncocococccnnnnccccoonccnnncnnononnnnnnononononnnnnnnnnnnonnnnnnnnnnnnnnnnnnnnnononananess 25
+3.1.3 Comparación de Data Marts tipo MOLAP y tipo ROLAP........................ 25
+
+3.2 Resultados de la fase de investigacióÓn........ooocccconccconcccoocnnonocononcnnonanicnnnnonnnos 26
+3.2.1 Indicadores de desempeño de call center............occcconncconncccncccnoncnconcnnnns 26
+3.2.2 Data MallS .ooooonccconccccocccnoccnonoconononnonnnnnnnncnnnnrnnonnrnnnnrnnnnrnnrnnnnrrnnnrrnnrnnnarinnns 27
+
+3.3 Metodología de desarrollo de software para el proyecto. .....ccccoccccccnnccnnnnnno.. 31
+3.3.1 ANÁÍISIS. cooooocooonncconcncconnconnnnonocononnnncnnnnnnnncnnonrnnonnrnnnnrnnnnrnnnnnnnnnnnnrnnnrnnnnrinnn 32
+3.3.2 DISOÑO. cocooocccooonccononononcconncnonnnnnonnnnnnnnnrnnnrrnrnrnnnnnrnnnnrnnnnrnnrnnnnrnnnnrrnaranennnnnns 35
+3.3.2.1 Diagrama de COMPONENTES. ..oocccocccccncccconcnconcnnnnncononcnnonnnnonannnnnnrnnnnnnnnns 35
+3.3.3 CONSTUCCIÓN. cocccccooccncccncnncnnnconononcncnnnncnnonnnnnnnnnnnnnnnnrrnnnnnnnnonnnrnrnnnnrnrnnanans 38
+3.9.4 PTUBDAS. cooocccccncononocncnnnnnonncncnnnnnnnnrnnnnrnn nn nnn nn nn nn rrrnnrnrrnnnrnnnrnrrnnnnnnnrnrrnnnennnes 43
+4. Conclusiones y trabajo TUtUTO......ccccooncncccccnnncconcncnnanoncnnannnnonoronononnnnononnnnonnnenonnnnos 45
+4.1 CONCIUSIONES ..ccooccccccnncnncnoncnnononencnnanencnnnnnnonnnrnnnnnnrnnnnnnnnnnnnrrnnnnnrnronanrnrenanninonos 45
+4.2 Trabajo FUtUFO ..oocccoonncconcnccncncnoncnnoncnnonacnnnnnnnonnrncnnnnnnnnrnnnnnnnnnnrnnrnrnnsnnnncnnnnnnnnes 46
+Referencias bibliOQráfiCAS...........ooocccconncconnncconnncconnconnnnonnnononanncnnnnnnnnnnnnnnnonancnnnnnnnnns 47
+NN 50
+Anexo A: Historias de USUALSIO ....ccoocccccccnccconnconnncnnnnnnoncnconnnnonnnnnnnnnnnonrnonannnnnnrnnncnnnns 51
+Anexo B: Diagrama de clases de proceso ET L....oooonccccocccccccnconcncconcncnannnnnncononcnonos 58
+Anexo C: Diagrama de indicadores de desempeñÑoO...cccccoccnccccoconcccncnncconnnnononononnnons 59
+Anexo D: PruebaS ..ooocccooccccoccnconcncnnncnnnncnnonnnnonnnnnnnnrnnnnrnnonnrnnnnrnnnnrnnrnnrnrnnnrnnrinnannnnns 66
+
+vilÍndice de figuras
+
+1. Modelo integral de una solución Bl.............ccconnccccccncnccnncncnnonanncnnnnononenonnnnononenonnoos 8
+2. Arquitectura cliente/servidor tipo Todo en Un Servidor. ....oooccconccccncccconcnccncnnonanoss 13
+3. Arquitectura cliente/servidor tipo Servidor de datos separado. ........coccccconcncoo.... 13
+4. Arquitectura cliente/servidor tipo Todo en un servidor, con servicios de
+
+APLICACIONES. c.occcooccccoccnncncononncnnnnnnnonnnnnnnnnnnnnrnnonnnnnnnrnnrnnnnnnnnnnrnnrrnrnrnnrnnrnnnnrnnonnnnenanoss 14
+5. Fases de la metodología del proyecto. ....coooccccccccccccncconcncnoncnnoncncnnnnnonarnnonnnnonanoos 23
+6. Ejemplo de dashboard OperatiVO.. .....coooccccoccnccccnnonanncnnnncnnnnnnnnnnonnnnnnnncnnonannonanoss 29
+7. Ejemplo de dashboard analítiCO..............coooncccconinoconnconcnnonnnnconnncnnnnonnnrnnonnnnonanoss 30
+8. Ejemplo de reporte. ....occccoccccoccncconcnconccononcnconcnnnnncnnnnnnnonanncnnnrnnonnnrnnnrrnnnrnnonnninnnnnss 31
+9. Esquema general de la metodología ScruUM. ...cccoooonccncccnnoccnncnnnanoncnnnncnnnnnnnacinnnos 32
+10. Diagrama de COMPONENTES... coccccccccnnccnncncccnncnnononnnnnnnnononnnnnnonnnnnnonnnnnnonnnenenannnnes 35
+11 Diagrama E-R de BI-APpP.. cocccccccnnccccnconcncnoncnccncnonnncnnnncnnonnnnnnnnnnnnnrnronrnonancnnnaninnns 36
+12. Diagrama de Clases... c.ooccccocccccccncononnconnnonnnnnnnnnncnnncnonnrnnonnnnnnnnnnnnnnnrnnnnenancnnnnnnnnns 37
+13. Diagrama en estrella del indicador Contactos NuevoS.. ..ccooccccccncconcncconcncnannnnos 38
+14. Ejemplo de la interfaz de la aplicación construida con bootstrap.................... 43
+15. Diagrama de clase de proceso ET Ll. .oooooonicccnccccnccnncncononanonnncnnnnanncnnnncnnncnnoncnnnns 58
+16. Diagramas de indicadores de deSsemMpeÑO...oocccooccnccnconccnnncnnnncnnncnonnnnonanennnnnnnnns 59
+
+viiiÍndice de tablas
+
+1. Caracteristicas principales de los DM MOLAP y ROLAP....oocccccccccccncncccccnccccncnos 26
+2. Historia de Usuario - Crear UsSUATIO.. ...ocoooocccccocccccconnnnononnnnonononononnnnonancnnononenonnnnos 33
+3. Sprint backlogs del proyecto. .....occcccooccccccocnncccoccccnononnonnnnnononononnannnonnnnnnonenenonnnnos 34
+4. Prueba de integración — Crear UsuarlO.....cccoooncncccnncncoconnnnonocnconancnnonannnnononenonnnons 43
+5. Historias de UsSUALFIO.....coconcccconncconcnccnncconnnnconnnnnnncnnonnnnnnnnnnnnnrnnonnnrnnnrrnnnrnnnnnnnnnanoss 51
+6. Prueba de IntegraciÓn......occcconnncccnncconcnccnnnconnnnnoncnnonannnnnnnnnonnnnnnnnonnnrrnnnrnnonannnnnnnss 66
+
+IXCapítulo 1
+
+Planteamiento del problema.
+
+1.1 Descripción del problema.
+
+La Inteligencia de Negocio o Business Intelligence (Bl) toma los datos generados
+por una empresa y los transforma en información, supliendo otros métodos de
+extracción y transformación para estos, generados y almacenados por la
+organización, en información para apoyar de manera más objetiva la toma de
+decisiones por parte de los gerentes, y toda las ventajas que conlleva tener
+información en alto nivel de manera actualizada y en tiempo real [1].
+
+Actualmente, la empresa BCS hace parte de las Pymes Colombianas y está
+situada en Cali. Su negocio es la innovación tecnológica y venta de software.
+Además cuenta con un Call Center propio que atiende tanto sus actividades
+internas de venta y mercadeo, como también a las de otras empresas, es decir,
+ofrece Outsourcing de Call Center a empresas que lo requieran. Las actividades
+anteriores dan como resultado el registro de muchos datos valiosos relacionados
+con la atención de sus clientes (propios y de terceros) y procesos con varias
+aplicaciones propias de la empresa. Dichos datos no son aprovechados para
+mejorar la gestión de recursos humanos, de indicadores de desempeño de ventas,
+procesos internos y demás. Según Jessica Torres, Gerente Comercial de Clip
+Consulting*, los problemas de análisis de información, seguimiento de indicadores,
+productividades, entre otros para medir el rendimiento de las actividades de la
+empresa empezaron hace un año, de igual manera, empezaron a crecer las
+aplicaciones que usan, el número de clientes, agentes y productos, provocando
+que hacer el seguimiento no sea fácil”.
+
+* Clip Consulting, compañía asociada a BCS.
+* CORREO ELECTRÓNICO de Jessica Torres, gerente comercial de Clip Consulting, Cali,
+23 de abril de 2013.El Call Center de BCS requiere mejorar la productividad de las actividades
+descritas anteriormente, lo que se puede lograr con varias tácticas, algunas son:
+diseñar un nuevo sistema interactivo de respuesta de voz, rediseñar el proceso del
+manejo de llamadas, crear itinerarios, desarrollar maneras efectivas para
+presentar los datos de los clientes a los agentes para las llamadas [2], como
+también hay tácticas que hacen uso de herramientas tecnológicas para desarrollar
+y medir la efectividad de mejor manera como lo son las herramientas para el
+apoyo a la toma de decisiones.
+
+Por ellos, BCS demanda que el mejoramiento de la productividad cuente con la
+ayuda de una aplicación de Bl que apoye a los cargos gerenciales en la toma de
+decisiones en pro de reducir costos y perdidas propias del Call Center, y mejorar
+la asignación de agentes o empleados que hacen las tareas de las áreas de venta
+y mercadeo, con el fin de que los procesos puedan ser más eficientes y
+consecuentemente aumenten los ingresos debido a la implementación de una
+táctica empresarial como lo es el uso de aplicaciones de Bl. Además, el usar una
+aplicación de Bl es un apoyo muy útil en el momento de tomar decisiones cuyos
+resultados esperados son el mejoramiento de productividad, permitiendo reducir la
+incertidumbre que se genera al tomar este tipo de acciones. Por ahora, el Call
+Center de BCS no cuenta con una aplicación de Bl de esta naturaleza y la
+transformación de los datos se hace de manera manual junto con el uso de
+herramientas ofimáticas como Excel, haciendo que el proceso no sea rápido,
+provocando que la persona que recibe la información generada tome decisiones
+respecto a una información que puede estar desactualizada.
+
+1.2 Formulación del problema.
+
+¿Cómo aprovechar la información existente en el Call Center de BCS, para
+incrementar los niveles de productividad y por ende obtener mejores resultados en
+las áreas de venta y mercadeo de dicho Call Center”?1.3 Objetivos
+
+1.3.1 Objetivo General
+
+Desarrollar una herramienta web que aproveche la información de las áreas de
+
+mercadeo y ventas y permita el mejoramiento de la productividad de dichas áreas
+del Call Center de BCS.
+
+1.3.2 Objetivos Específicos
+
+1. Construir un Data Mart que almacene los datos depurados de las áreas de
+mercadeo y ventas del Call Center de BCS para llevar a cabo un proceso de
+análisis de la información.
+
+2. Aplicar ETL a la base de datos que contiene la información de las áreas de
+ventas y mercadeo del Call Center de la empresa BSC.
+
+3. Implementar una herramienta web que genere reportes y contenga cuadros de
+mando operativos a partir de la información del Data Mart para apoyar el
+mejoramiento de la productividad de mercadeo y ventas.Capítulo 2
+
+Marco Referencial.
+
+2.1 Marco histórico.
+
+Business Customers Solution es una sociedad limitada fundada en mayo de 1999,
+cuyo objetivo es brindar a los clientes soluciones integrales tanto de negocios
+como tecnológicas, para facilitar las operaciones, transacciones y labores diarias
+en una organización, a través de la utilización de aplicaciones de negocios
+sencillas que permitan realizar la toma de decisiones e implementar estrategias de
+valor agregado para la compañía.
+
+Cuentan con un equipo de trabajo conformado por ingenieros de sistemas,
+administradores y distintos profesionales con experiencia en el manejo de
+herramientas de desarrollo, construcción de aplicaciones de negocios en
+arquitectura WEB, cliente/servidor, migración de datos, consultoría, instalaciones,
+seguridad, entre otras.
+
+Además, realizan consultoría para guiar a los clientes en diseñar y ejecutar
+estrategias para la automatización de flujo de procesos de negocios, utilizando
+diversas tecnologías, con el objetivo de mejorar la eficiencia en el servicio y
+cumplir con las normas de estandarización definidas. Este proceso incluye la
+evaluación de los procesos actuales y la propuesta de tecnología que permite
+mejorar la labor de Gestión Documental, Portales de negocio para centralizar la
+publicación de documentos y administración de contenido, workflow de negocios,
+políticas de seguridad, nuevos formatos para la creación de formularios
+electrónicos dinámicos que permitan agilizar los procesos actuales que involucren
+documentación física y en general brindar toda una solución integrada y
+escalonada según las necesidades y presupuesto del cliente.
+
+Además cuentan con un Call Center que presta sus servicios tanto a la misma
+BCS como también ofrece outsourcing [1].2.2 Marco de antecedentes.
+
+La inteligencia de negocios es un conjunto de aplicaciones, metodologías y demás
+elementos que permiten una mejor toma de decisiones. Actualmente hay varias
+soluciones para inteligencia de negocios ofrecidas por empresas reconocidas.
+
+Oracle Business Intelligence Standard Edition One
+
+Oracle Business Intelligence Standard Edition One es una solución de
+inteligencia empresarial completa e integrada, para medianas empresas o
+grupos de trabajo, que posee varios de sus productos, como lo es Bl
+Publisher, Bl Answers, Interactive Dashboards, entre otros. Ofrece cuadros
+de mando operacional interactivos, informes altamente formateados,
+análisis ad hoc, integración de datos y la administración del servidor, como
+también la posibilidad de elegir qué componentes integran la solución
+requerida. Además posee proceso de ETL de diferentes fuentes de datos:
+Bases de datos de Oracle, Microsoft SQL Server, fuentes ODBC, fuentes
+multidimensionales, XML, Excel, archivos planos, entre otros. [2].
+
+Pentaho Bl Suite:
+
+Es uno de los conjuntos de programas libres más reconocidos para generar
+inteligencia empresarial (Business Intelligence). Al ser libre, los usuarios
+pueden integrar nuevas funcionalidades mediante plugins, que son fáciles
+de instalar, y que son desarrollados por la misma comunidad usuaria de
+esta herramienta. Incluye herramientas integradas para generar reportes en
+diferentes formatos (PDF, Excel, HTML, XML), también otras que facilitan el
+proceso de ETL, diseñan cubos multi-dimensionales con el formato
+Mondrian, editor de meta-datos con el cual se puede diseñar los esquemas
+que guardan la información requerida, etc. [3].SAP Business Intelligence:
+
+SAP es una empresa que es pionera en el campo de inteligencia de
+negocio y su suite SAP Business Intelligence es un conjunto de
+aplicaciones que los usuarios pueden elegir para suplir sus necesidades en
+cuanto a herramientas de inteligencia de negocios. Ofrece características
+de almacenamiento de datos, distintas herramientas de cuadros de mando
+operativos, reporte y análisis de acuerdo a la necesidad del usuario,
+compatibilidad con fuentes multidimensionales, modelos de mejores
+prácticas, integración con productos de Microsoft Office, aplicaciones de
+análisis de negocios y recursos administrativos [4].
+
+Sistema para el soporte a la toma de decisiones administrativas
+en la ferretería metrópolis 84 LTDA:
+
+Los estudiantes de ingeniería de sistemas, en su momento, Cesar Augusto
+Orozco Manotas, Sandra Milena Peñaranda Salazar y Mauricio Rodríguez
+Rebolledo de la Universidad Autónoma del Caribe presentaron el proyecto
+de grado denominado “Sistema para el soporte a la toma de decisiones
+administrativas en la ferretería metrópolis 84 LTDA” para optar por el título
+de ingenieros de sistemas de dicha universidad. El proyecto consiste en un
+sistema de soporte a la toma de decisiones administrativas en el área de
+ventas de la Ferretería Metrópolis 84 Ltda. a través de la construcción de un
+Datamart y de un sistema de despliegue que soporten el análisis
+multidimensional, permitiendo la solución de las necesidades estratégicas
+de la empresa con relación a las ventas [5].
+
+Como se ha notado, las soluciones de inteligencia de negocio mencionadas
+anteriormente presentan inconvenientes porque no pueden ser accedidas desde
+dispositivos móviles (son aplicaciones de escritorio), no poseen todas las
+características deseadas en una sola aplicación o por su precio inasequible por
+una Pyme. Cuando se dice que es un inconveniente que una aplicación no puede
+ser accedida desde dispositivos móviles es debido a que últimamente hay una
+fuerte tendencia al uso de dichos dispositivos por parte de las empresas, según
+Gartner, reputada firma de análisis de mercados tecnológicos [6], además de que
+es un requisito que el Call Center de BCS desea para su aplicación, ya que paraellos es conveniente el atributo que poseen dichas aplicaciones, la accesibilidad
+desde cualquier sitio, prácticamente.
+
+También hay un trabajo de grado relacionado con el apoyo a la toma de
+decisiones, pero este sólo fue adecuado para el área de ventas del negocio y
+tampoco posee la característica de acceso por medio de un teléfono móvil.
+
+2.3 Marco teórico.
+
+2.3.1 Business Intelligence o Inteligencia de Negocios
+
+Se entiende por Business Intelligence o inteligencia de negocios al conjunto de
+metodologías, aplicaciones, prácticas y capacidades enfocadas a la creación y
+administración de información que permite tomar mejores decisiones a los
+usuarios de una organización [7], como se puede apreciar en la figura 1.
+Actualmente gran parte de las empresas han adoptado (o lo piensan hacer)
+sistemas de información que apoyan a los procesos de negocio como ventas,
+contabilidad, marketing entre otros, registrando datos que son resultado de dichos
+procesos. Pero a pesar de que se toman registros, la mayoría de empresas no
+cuentan con un sistema dedicado que los recopile y les ayude a examinar esos
+registros para tomar decisiones basadas en información en función de tomar
+medidas correctivas o mejorar cierto proceso de negocio [8]. Algunas empresas
+usan herramientas ofimáticas como Excel o de reporting para apoyar la toma de
+decisiones, pero que debido al creciente registro de datos hace tedioso el proceso
+de generar reportes, ya sea predefinido o a la medida.Modelo integral de una solución Bl
+
+  
+       
+
+Sistemas
+transaccionales
+
+ 
+
+     
+  
+ 
+
+Query € Reporting
+—> ETT, mer]
+t
+¡ |
+. e |
+
+| 4 DataMining |
+
+Indicadores(KPLs——¿+
+AA
+: iefEr"" |
+
+ 
+
+ 
+
+   
+   
+
+uv
+
+| _
+
+a
+
+3
+
+la
+
+o
+
+Y
+
+esos Y Ne vu
+
+£ Exterior ES l e
+uN E E ES DARE
+Pe | Analisis OLAP LO e
+
+Figura 1. Modelo integral de una solución Bl (Fuente: Business Intelligence - lbermatica).
+
+En otras palabras, la mayoría de organizaciones o empresas están en una
+situación donde la toma de decisiones se hace sobre intuiciones o dependen de la
+destreza y confiabilidad de las personas encargadas de hacer los reportes o
+recopilación de información. Para dar solución a lo anterior, se hace necesario
+tener una vista de los datos única, persistente, de calidad y de rápido acceso, y
+por ello una de las posibles soluciones para este problema es implementar una
+aplicación de inteligencia de negocios que recopile y muestre la información con
+las características mencionadas anteriormente para dar un mejor apoyo a los
+cargos que toman decisiones [7].
+
+Una aplicación de inteligencia de negocios se compone básicamente de tres
+elementos: Las fuentes de datos que son provistas por los sistemas de
+información que posee la empresa (CRM, TSP, etc.), repositorios de información
+donde se encuentra información relevante de las fuentes de datos para un
+posterior análisis, y herramientas que analizan, gestionan y despliegan la
+información de los repositorios de información por medio de algoritmos de minería
+de datos, reportes, indicadores de desempeño, dashboards y demás que apoyan
+de mejor manera a los usuarios de la aplicación a tomar decisiones.2.3.2 Data Warehouse.
+
+Una parte importante de las aplicaciones de inteligencia de negocios, es el Data
+Warehouse (DW) [9]. Los DWs son repositorios o bodegas de datos que
+almacenan información de todos los departamentos de la empresa de manera
+seleccionada y adaptada, proveniente de las bases de datos operacionales, los
+cuales son usados para generar reportes ad hoc, análisis estadístico o aplicar
+algoritmos de minería de datos. Está situado en el centro del sistema de apoyo a
+la toma de decisiones de una organización, y contiene datos históricos integrados
+e información detallada y resumida. Los datos pueden ser clasificados en tres
+categorías: Datos de referencia y transacción, derivados y desnormalizados. Los
+datos de referencia y transacción provienen de los sistemas operaciones y
+normalmente se mantienen en las bases de datos de los sistemas convencionales.
+Los derivados provienen de aplicar reglas computacionales a la fuente de los
+datos anteriores. Los datos desnormalizados son preparados periodicamente, pero
+son basados directamente basados en las referencias de los datos
+transaccionales [9].
+
+2.3.3 Data Mart.
+
+Dentro de los DW también existe una subclase de ellos que son los Data Mart
+(DM), los cuales guardan un gran parecido a los DW, con la diferencia que los DM
+son repositorios de información hechos para un departamento determinado de la
+organización.
+
+Hay dos tipos de DM: los Multidimensional Online Analytical Processing (MOLAP)
+y los Relational Online Analytical Processing (ROLAP). Los Data Mart tipo MOLAP
+involucran bases de datos multidimensionales, las cuales almacenan la
+información en celdas de un arreglo multidimensional, permitiendo que dicha
+información sea comprimida para ahorrar espacio y también que sea explorada de
+manera más rápida y eficiente en comparación si estuviera en un DM tipo ROLAP
+(pero esto sólo se cumple para cantidades de información mínima), aunque para
+manejar bases de datos multidimensionales hace falta un gestor de bases de
+datos multidimensional [9], [10]. A pesar de que las bases de datos
+multidimensionales ofrecen las características deseables para una aplicación de
+apoyo a la toma de decisiones, todavía no existe un lenguaje estándar para las
+consultas multidimensionales, como tampoco una teoría de normalización o algoparecido para dichas bases de datos [10]. Los DM tipo ROLAP simulan el
+almacenamiento y exploración de los datos en varias dimensiones con gestores de
+bases de datos relacionales (RDBMS5), haciendo que su uso sea más extendido
+que los MOLAP en cuanto a aplicaciones que brindan apoyo a la toma de
+decisiones, debido a que las consultas se hacen en SQL, siendo este lenguaje
+ampliamente conocido. Además, se puede añadir que los ROLAP son más
+eficientes, en comparación de los MOLAP, a medida que la cantidad de datos
+almacenados en el Data Mart vaya creciendo [9], [10].
+
+2.3.3 Extracción, Transformación y Carga (ETL).
+
+Anteriormente se mencionó que los Data Warehouse y Data Mart almacenan
+información de las bases de datos operacionales de la empresa, pero no siempre
+esta información pasa directamente a dichas bodegas sin aplicarle un tratamiento
+o procedimiento previo. El procedimiento que se le aplica a la información hasta
+ser almacenada en estas bodegas de datos se conoce como ETL, la cual consta
+de tres fases: Extracción, Transformación y carga [10].
+
+2.3.3.1 Extracción.
+
+En este paso se captura la información de las bases de datos operacionales y
+demás fuentes de información que existan. En esta etapa se deben de tener en
+cuenta:
+
+e Fuentes de información: Se debe identificar las bases de datos y demás
+archivos externos que contienen la información que se va a cargar en el
+DW o DM.
+
+e Método de extracción: Se define el proceso de extracción para cada fuente
+de datos, ya sea de forma automática o manual.
+
+e Frecuencia de extracción: Al ser fuentes de información operaciones, son
+propensas a actualizaciones por parte de los usuarios de las mismas. Por lo
+anterior se establece el periodo de tiempo en el cuál la información será
+nuevamente extraída.
+
+10e. Tiempo de ventana: Según SAP?, un tiempo de ventana es donde se
+define un intervalo de tiempo en el cual una tarea puede ejecutarse: por
+ejemplo, el tiempo de apertura de una cola. Teniendo en cuenta esto, para
+cada fuente de información se le define el tiempo de ventana para el
+proceso de extracción.
+
+e Secuencia de trabajo: Se define si el inicio de una tarea en la secuencia
+del proceso de extracción tiene que esperar hasta que la tarea previa haya
+terminado.
+
+e Manejo de excepciones: Se determina cómo se maneja los registros que
+no pueden ser extraídos [11].
+
+2.3.3.2 Transformación.
+
+Al extraer la información de las distintas fuentes, puede que algún campo no
+tendrá en formato que tendrá cuando se guarde en el DW o DM, por ello se debe
+aplicar una transformación de tal manera que los distintos campos que componen
+la información extraída coincidan con los campos del DM. Para este paso existen
+algunas tareas básicas:
+
+e Selección: Tiene lugar al inicio de este paso. Se selecciona parcial o
+totalmente muchos registros de las fuentes de información. Esta tarea
+puede ser parte del paso de Extracción, pero en algunos casos es
+recomendable primero hacer toda la extracción y después hacer la
+selección como parte de la función de transformación.
+
+e Partición/Unión: En esta tarea se incluye los tipos de manipulación de
+datos que se necesita realizar en las partes seleccionadas de la fuente de
+información. Algunas veces, no siempre, se necesitará particionar las partes
+seleccionadas durante la transformación. En cambio, la unión de partes
+seleccionadas de muchas fuentes es más común.
+
+e Conversión: es una tarea que incluye todo, desde una variedad de
+conversiones rudimentarias de campos individuales por dos razones:
+estandarizar la extracción de información de fuentes disparejas y para
+hacer los campos usables y entendibles para los usuarios.
+
+e Resumen: Á veces se encuentra que no es posible mantener la
+información con muchos detalles, como también puede de que los usuarios
+
+3 5 52 xl ; .z :
+SAP es una empresa alemana dedicada a la producción de aplicaciones de gestión empresarial.
+
+11no la necesiten tan específica. Ej: En un supermercado no se necesitaría la
+información de cada venta de un producto, sino más bien las ventas diarias
+de dicho producto.
+
+e Enriquecimiento: Esta tarea reorganiza y simplifica campos individuales
+para que sean más útiles. Se puede usar uno o más campos de la misma
+entrada de registros para crear una mejor vista de la información para el
+DW o DM. Este principio se extiende cuando uno o más campos se originan
+a partir de varios registros, lo que resulta un campo único para almacenar
+[11].
+
+2.3.3.3 Carga.
+
+Después de que se complete la extracción y transformación, se carga la
+información tratada al Data Warehouse o Data Mart de manera periódica, siendo
+estos intervalos de ETL definidos según la necesidad de los usuarios. Hay tres
+tipos de carga: carga inicial, carga incremental y actualización total. La carga
+inicial, como su nombre lo dice, es aquella primera carga que recibirá el DW o DM,
+la carga incremental son cargas que ocurren a lo largo del funcionamiento de
+estas bodegas de información de manera periódica y la actualización total es
+eliminar la información almacenada en dichas bodegas y cargar de nuevo la
+información desde un punto de inicio determinado.
+
+Los tiempos puede ser muy alto y por esto se debe evitar cargar el DW o DM
+cuando los usuarios lo necesitan [11].
+
+2.3.4 Aplicaciones web.
+
+Cuando se menciona una aplicación web, se hace referencia a “un tipo especial de
+aplicación cliente/servidor, donde tanto el cliente (el navegador, explorador o
+visualizador) como el servidor (servidor web) y el protocolo mediante el que se
+comunican (HTTP) están estandarizados y no han de ser creados por el
+programador de aplicaciones.” [12]. Cuando se menciona una aplicación
+cliente/servidor, se refiere a que dicha aplicación fue hecha bajo una arquitectura
+cliente/servidor, la cual consiste en un cliente (normalmente un navegador web
+que puede interpretar HTML, CSS o Cascading Style Sheets, JavaScript, entre
+otros), por medio de peticiones, consigue lo que necesita del servidor, a través del
+
+12protocolo HTTP (normalmente). Este tipo de arquitectura tiene variaciones, siendo
+las más conocidas [13]:
+
+e Todo en un servidor: un único servidor aloja lo que es la lógica del
+negocio, de datos y los datos en sí (ver fig. 2).
+
+e Servidor de datos separado: es igual al anterior, con la diferencia de que
+los datos se encuentran en otro servidor (ver fig. 3).
+
+e Todo en un servidor, con servicio de aplicaciones: Se toma la primera
+
+arquitectura y se separa la lógica del negocio del servicio de HTTP y se
+
+incluye el servicio de aplicaciones para gestionar los procesos que
+implementan la lógica de negocio (ver fig.4).
+
+Cliente Servidor web + BD
+
+Navegador Servicio HTTP Consulta u Base de datos
+
+Petición operación
+
+Respuesta Respuesta UN
+
+Figura 2. Arquitectura cliente/servidor tipo Todo en un servidor (Fuente: Libro Programación de aplicaciones
+web: historia, principios básicos y clientes web).
+
+ 
+
+Cliente Servidor web Servidor BD
+
+Navegador Consulta u | Base de datos
+Petición 1 operación
+
+Respuesta
+
+ 
+
+Figura 3 Arquitectura cliente/servidor tipo Servidor de datos separado (Fuente: Libro Programación de
+aplicaciones web: historia, principios básicos y clientes web).
+
+13Cliente Servidor web + aplicaciones + BD
+
+     
+  
+  
+ 
+ 
+  
+
+    
+ 
+
+Navegador
+
+    
+
+ 
+
+Servicio HTTP Base de datos
+Petición >
+
+  
+
+Consulta u
+operación
+Datos
+
+e Datos
+procesados
+
+Servicio de aplicaciones
+
+  
+
+Respuesta
+
+   
+
+ 
+      
+
+Figura 4 Arquitectura cliente/servidor tipo Todo en un servidor, con servicios de aplicaciones(Fuente: Libro
+Programación de aplicaciones web: historia, principios básicos y clientes web).
+
+También existen combinaciones de las tres arquitecturas mencionadas
+anteriormente, como lo son la de servidor de datos separado con servicio de
+aplicaciones y la de todo separado.
+
+2.3.5 Aplicación web móvil.
+
+Hay un tipo especial de aplicación web y es una aplicación web móvil,
+diferenciándose una de la otra en que la última ofrece un acceso y manejo más
+amigable que la primera, debido a que usa HTML5 y demás componentes que los
+navegadores de los dispositivos móviles son capaces de reconocer y adaptar a la
+pantalla de dichos dispositivos, haciendo la navegación para el usuario más
+sencilla. Además, las aplicaciones web móviles son más fáciles, rápidas y menos
+costosas de crear y mantener que una aplicación nativa, debido a varias razones
+como por ejemplo: si se necesita modificar la interfaz gráfica cliente, se hará
+cambio a un “solo” código, reflejándose este cambio en todos los clientes; no
+habrá problemas de versionamiento con los diferentes usuarios, ya que todos
+tendrán la misma versión; entre otras [13].
+
+142.3.6 Aplicación web responsiva.
+
+Las aplicaciones web responsivas utilizan CSS para disponer de los elementos del
+sitio web de un determinado tamaño y posición de acuerdo al tamaño del
+
+dispositivo detectado al ingresar al sitio.
+
+Con lo anterior, las capas de contenido y presentación se mantienen separadas; la
+aplicación web cambia de diseño y aspecto sin modificar el contenido. No se la
+redirección del sitio; el diseño óptimo aparece automáticamente cuando se carga
+la página web a visualizar [13]. Además, hay frameworks que ayudan en la tarea
+de construir aplicaciones de esta naturaleza, como lo es Bootstrap, el cuál se
+ayuda de CSS y Javascript para ofrecer al desarrollador diferentes opciones para
+la construcción de una aplicación web responsiva [13].
+
+2.3.7 HTML5.
+
+HTML5 nace debido al fracaso que tuvo XHTML 2.0, que es el mismo HTML pero
+expresado como XML válido (cada etiqueta que se abre se debe cerrar), y tuvo
+fracaso debido a que los diseñadores web no acogieron este estándar para
+reemplazar HTML 4.01 y XHTML 1.0 porque los diseñadores debían acomodar el
+código con el fin de hacer compatible sus páginas con los navegadores que no
+soportaban dicha característica, provocando de que no se siguiera el estándar
+recomendado por XHTML 2.0, y esto a su vez hiciera más difícil la tarea de
+depuración. El error de XHTML 2.0 fue no ser retro-compatible con los estándares
+que pretendía reemplazar. Pasado esto, un grupo de varios programadores se
+reunieron bajo el nombre de Web Hypertext Application Working Group
+(WHATWG) para intentar de nuevo renovar el viejo HTML, empezando a
+desarrollar el estándar y características de lo que se conoce ahora como HTML5
+
+[14].
+
+La diferencia que hace HTML5 con su antecesor es que este fue pensado también
+para ser usado como plataforma de desarrollo de aplicaciones, al contrario de su
+antecesor de que sólo fue pensando para ser un lenguaje para mostrar
+documentos de texto. HTML5 posee características como retro-compatibilidad,
+manejo de excepciones, APls, entre otras características que hacen que el
+desarrollo de aplicaciones web sea mejor, como por ejemplo con la característica
+de que la comprobación de campos de formulario ya no se haría por medio de un
+
+15script, sino que al definir los campos se indicaría de una manera fácil que dicha
+comprobación se haga (como por ejemplo un campo de texto que reciba fechas)
+[13], como también estas características puedan ser usadas para hacer más fácil
+la navegación de dichas aplicaciones web por medio de dispositivos móviles[1 4].
+
+2.3.8 Bootstrap.
+
+Es el framework libre más popular para el desarrollo de la capa de presentación de
+aplicaciones web responsivas que existe. Contiene diseño de plantillas basadas
+en HTML y CSS, incluyendo elementos como campos de texto, botones, paneles,
+entre otros componentes, como también elementos y funciones en Javascript,
+como lo son las alertas, formateo para texto, menús desplegables, etc. Además,
+se puede extender su funcionalidad por medio de plugins que elaboran los
+usuarios de este framework. Con soporte para la mayoría de navegadores,
+Bootstrap desde su versión 3.0 se enfoca en el diseño web, dando prioridad al
+diseño responsivo para que cualquier dispositivo que ingrese a un sitio que está
+construido con esta herramienta, visualice correctamente el contenido que posee
+el sitio web mencionado [15].
+
+2.3.9 JSON.
+
+JSON (JavaScript Object Notation - Notación de Objetos de JavaScript) es un
+formato ligero de intercambio de datos. Leerlo y escribirlo es simple para
+humanos, mientras que para las máquinas es simple interpretarlo y generarlo.
+JSON es un formato de texto que es completamente independiente del lenguaje
+pero utiliza convenciones que son ampliamente conocidos por los programadores
+de la familia de lenguajes C, incluyendo C, C++, CA, Java, JavaScript, Perl,
+Python, y muchos otros. Estas propiedades hacen que JSON sea un lenguaje
+ideal para el intercambio de datos [16].
+
+JSON está constituído por dos estructuras:
+
+e Una colección de pares de nombre/valor. En varios lenguajes, esto es
+conocido como un objeto, registro, estructura, diccionario, tabla hash, lista
+de claves o un arreglo asociativo.
+
+16e Una lista ordenada de valores. En la mayoría de los lenguajes, esto se
+implementa como arreglos, vectores, listas o secuencias [16].
+
+2.3.10 CSS3.
+
+CSS3 es la última evolución del lenguaje de hojas de estilo en cascada y tiene
+como objetivo ampliar su versión 2.1. Las hojas de estilo en cascada sirven para
+describir el aspecto y formato de una página web, definiendo estilos generales
+para todo un sitio web, ahorrando a los programadores formatear cada elemento
+por separado. Esta versión trae novedades muy esperadas como lo son: esquinas
+redondeadas, sombras, degradados, transiciones o animaciones, así como nuevos
+diseños, como columnas múltiples, cajas flexibles o diseños de cuadrícula.
+Algunos elementos que hacen parte de este nueva versión son experimentales y
+deben ser evitados, ya sea en entornos de producción, o usarse con precaución,
+ya que tanto su sintaxis y semántica pueden cambiar en el futuro. El CSS Working
+Group de la W3C (consorcio mundial para temas relacionados con la web) tomó la
+decisión de dividir este lenguaje en módulos, con el fin de que alcancen una
+estandarización más rápido, debido a que el CSS 2 tomó 9 años en alcanzar este
+estado [17].
+
+2.3.11 Ingeniería del Software.
+
+La ingeniería del Software es la disciplina que reúne teorías, técnicas, métodos y
+herramientas para el desarrollo y mantenimiento profesional del software. Esta
+ingeniería aborda áreas diversas de la informática y ciencias de la computación
+tales como: sistemas operativos, desarrollo de redes o construcción de
+compiladores para darle solución a problemas tales como: economía, medicina,
+producción, logística, control de tráfico, meteorología, derecho, Internet, etc. [18]
+
+2.3.11.1 Modelos de desarrollo de software.
+
+El modelo de desarrollo es un paradigma de la ingeniería del software, el cual es
+un apoyo o una base para la construcción del software. Por lo general, estos
+
+17modelos no son usados en su estado puro en el desarrollo real del software, sino
+que lo combinan con otros modelos, técnicas y herramientas. Existen varios
+modelos de desarrollo, siendo los más conocidos [18]:
+
+e Modelo de desarrollo en cascada: es un enfoque secuencial para el
+desarrollo del software que comienza con el entendimiento del negocio y
+progresa con el análisis, diseño, codificación, pruebas y mantenimiento.
+
+e Modelo de construcción de prototipos: como su nombre lo indica, este
+modelo busca el desarrollo de un prototipo, con el fin de que el cliente
+pueda tener una mejor idea de lo que quiere y así defina mejor los
+requerimientos. Por lo general, las aplicaciones desarrolladas en este
+modelo son desechadas para ser reemplazadas por una versión construida
+con otro modelo.
+
+e Modelo incremental: El modelo incrernental combina el modelo en
+cascada con el carácter iterativo de construcción de prototipos. El modelo
+incremental aplica secuencias lineales escalonadas para el desarrollo de
+una o algunas funcionalidades del software mientras progresa el tiempo en
+el calendario.
+
+e Modelo de espiral: El modelo en espiral es un modelo de software
+evolutivo que mezcla la naturaleza iterativa del modelo de prototipos con los
+aspectos controlados y sistemáticos del modelo lineal secuencial.
+Proporciona el potencial para el desarrollo rápido de versiones
+incrementales del software [18].
+
+2.3.11.2 Metodologías de desarrollo de software.
+
+Son sistemas de calidad del software que proponen la utilización de
+procedimientos y guías técnicas que establezcan el modo de construcción del
+software. Estas se basan en tres fundamentos bases: qué hay que hacer y en qué
+orden, cómo deben realizarse las tareas y con qué pueden llevarse a cabo [19].
+Existen dos tipos de metodologías, las tradicionales y las ágiles. A continuación se
+definirá cada tipo y se mencionaran algunas metodologías que son clasificadas
+como tradicionales o ágiles.
+
+182.3.11.2.1 Metodologías tradicionales.
+
+Estas metodologías se enfocan principalmente en la descomposición funcional de
+un sistema, dando una definición completa del sistema en términos de funciones,
+estableciendo sus entradas y salidas. Hacen énfasis en la planeación y control del
+proyecto, como también en la documentación del sistema [20]. Algunas de estas
+metodologías son:
+
+e RUP (Rational Unified Process): son un conjunto de procesos de
+ingeniería de software que dan guía para conducir las actividades de
+desarrollo del equipo. Esta metodología permite ajustar fácilmente el
+conjunto de componentes de proceso para necesidades específicas del
+proyecto [21].
+
+e Metodología Cascada: Esta es la única metodología que es a su vez
+modelo. Sugiere un enfoque sistemático y lineal del desarrollo de software,
+al igual que el modelo homónimo.
+
+2.3.11.2.2 Metodologías ágiles.
+
+Las metodologías ágiles son un conjunto de métodos de construcción de software
+para programadores con experiencia, dándole importancia al desarrollo rápido de
+la aplicación y una constante retroalimentación con el cliente. Aunque se diga que
+son metodologías, en realidad son un conjunto de principios sobre cómo el
+software debería desarrollarse [22]. Algunas de las metodologías ágiles son:
+
+e XP (eXtreme Programming): Es la metodología más conocida y usada.
+Esta se enfoca primariamente en el lado de la programación del desarrollo
+del software. Es la única en la que le presta más importancia a las pruebas.
+
+e Scrum: Es una metodología enfocada a la gestión y es relativamente fácil
+de aplicar en una gran variedad de proyectos. Provee la guía necesaria
+para dirigir un proyecto en un ambiente muy cambiante y cuando las
+diferentes partes, cliente y desarrolladores, entran en conflicto [22].
+
+192.3.11.3 Marco de trabajo para proyecto de software.
+
+Aunque existan diferencias marcadas entre las diferentes metodologías, según
+Pressman, todas comparten unas etapas [18], las cuales son:
+
+e Comunicación: Se establece el contacto con el cliente y se dialoga con él
+con el fin de conocer sus necesidades.
+
+e Planeación: Se establece un plan de trabajo para el desarrollo del
+software.
+
+e Modelado: Se traduce a modelos de programación que cumplen con los
+requisitos del cliente.
+
+e Construcción: Se construye los modelos planteados anteriormente.
+
+e Despliegue: Etapa donde se entrega el producto al cliente.
+
+2.4 Marco conceptual.
+
+e Aplicación: Programa informático destinado para ser usado como
+herramienta por el usuario final.
+
+e Aplicación web: Aplicación con arquitectura cliente-servidor, la cual el
+cliente, ya sea un usuario u otra aplicación, hace peticiones al servidor para
+que este le entregue determinada información. Dichas peticiones se hacen
+por medio de comunicación HTTP.
+
+e Aplicación móvil: Es una aplicación la cual fue diseñada para ser
+ejecutada en smartphones, tablets o cualquier otro dispositivo móvil. Se
+debe tener en cuenta que si se diseña una aplicación móvil para una
+plataforma en específico (Android, ¡OS, Windows Phone, Blackberry OS),
+no servirá para otras platafomas.
+
+e Aplicación web móvil: Aplicación web enfocada a la presentación de
+contenido a dispositivos móviles de tal manera que para el usuario le sea
+sencillo navegar por esta.
+
+e Aplicación responsiva: Aplicación web la cual se tiene en cuenta la
+presentación para cualquier dispositivo que la acceda, es decir, se visualiza
+
+20de cierta manera dependiendo del dispositivo: Desktop, Notebook, Tablet o
+Smartphones.
+
+HTML5: Es la nueva especificación de HTML, añadiendo nuevas etiquetas
+y funciones que facilitan el desarrollo de páginas web. Algunas de las
+nuevas etiquetas son las de audio y video, mientras que canvas fue
+mejorado para visualización 3D.
+
+CSS3: Nueva versión de lo que se conoce como hojas de estilos en
+cascada, añadiendo nuevos efectos como lo son las esquinas
+redondeadas, degradado, entre otras.
+
+Bootstrap: Framework de desarrollo de la capa de presentación de una
+aplicación web responsiva. Cuenta con varios elementos como lo son
+menús, elementos interactivos, formateo de contenido, entre otros.
+Sistema: Conjunto de software, hardware, redes, datos y personas
+interrelacionados entre sí, almacenando, recuperando, transformando,
+transfiriendo y comunicación información relativa al entorno donde se
+encuentran.
+
+Reporte ad hoc: Ad hoc quiere decir “para esto”, entonces es un reporte a
+la medida, es decir, personalizado.
+
+Datos necesarios y tratados: Son aquellos datos relevantes para la toma
+de decisiones, a los cuales se les ha aplicado ETL (Extracción,
+Transformación y Carga, en inglés, Extraction, Transform and Load).
+Árboles de decisión: Técnica de minería de datos de clasificación que se
+basa en construir un árbol (grafo) con base en un conjunto de información.
+Clustering: Técnica que agrupa conjuntos de datos con valores parecidos
+de acuerdo a unos criterios, el cual el criterio más utilizado es el de la
+distancia.
+
+Reglas de asociación: Técnica que permite asociar valores de atributos
+con otros. Generalmente se usa la forma causa y efecto (P -> Q).
+
+Redes neuronales: Técnica de inteligencia artificial cuyo funcionamiento
+está basado en el proceso de aprendizaje de los seres vivos.
+
+Cargo gerencial o administrativo: Es aquel cargo el cual posee las
+facultades para tomar decisiones que determinen el rendimiento o el futuro
+de la empresa u organización.
+
+Cuadro de mando: Los Cuadros de Mando (CM) son herramientas de
+control empresarial orientadas a la monitorización de los objetivos de la
+empresa o de las diferentes áreas de negocio a través de indicadores.
+Tablero o cuadro de control integral: También conocidos como
+dashboard, es una herramienta que ofrece a los cargos gerenciales o
+
+21administrativos dar una mirada global a los indicadores de desempeño de la
+organización.
+
+Tablero o cuadro de control operativo: Es parecido al CMI, pero la
+diferencia radica en que este posee indicadores de desempeños operativos
+y no globales. La periodicidad de los CMO puede ser diaria, semanal o
+mensual y además está focalizado en indicadores que generalmente
+representan procesos, por lo que su puesta en funcionamiento es más
+barata y sencilla y suele ser un buen punto de partida para aquellas
+compañías que intentan evaluar la implantación de un cuadro de mando
+integral.
+
+Dispositivo móvil: Se refiere a smartphones o tablets en general.
+
+Soporte: Se refiere a la característica de que una aplicación o sistema
+pueda ser visualizado de manera correcta en dispositivos móviles. Cuando
+se haga referencia a soporte como mantenimiento de un producto se
+indicará, de lo contrario no.
+
+22Capítulo 3
+
+Desarrollo del proyecto.
+
+Para el desarrollo del proyecto se siguió la metodología de proyecto, indicada en
+la figura 5:
+
+Observación:
+
+JN ENS EAR AAARSRNERNSNA NS
+relevantes para el desarrollo del proyecto y se profundiza en ellos de ser necesario.
+
+Investigación:
+
+SNIE TA AR RN ESE E NM NARA
+Jl MA TENNIS E SATA AR LS Etoile
+
+Ai e
+
+NANI IN EEE NE RANA ol
+los aspectos teóricos de las etapas anteriores.
+
+ 
+
+Figura 5 Fases de la metodología del proyecto.
+
+A continuación se explica cada fase de la metodología que ilustra la figura anterior:
+
+e Observación: Esta fase tiene como fin recopilar, analizar y asimilar los
+aspectos teóricos de los cuales se tiene un conocimiento previo, por parte
+del realizador del proyecto, para ampliarlos de ser necesario para su
+
+aplicación en el proyecto. Con lo anterior se obtiene parte del marco de
+referencia para el desarrollo del proyecto.
+
+e Investigación: En esta fase se investiga aspectos teóricos que, aunque
+son de importancia para el desarrollo del proyecto, no son conocidos por
+parte del realizador. Después de esto se relaciona con los aspectos teóricos
+mencionados anteriormente. El resultado es un marco de referencia para
+iniciar la construcción del proyecto.
+
+23e Construcción: En esta fase se construye la herramienta, aplicando los
+conocimientos adquiridos previamente. Con lo anterior se obtiene una
+herramienta web para el apoyo a la toma de decisiones.
+
+La cual, en la fase de observación se ejecutó en paralelo con la elaboración del
+anteproyecto. En la segunda fase, se investigó más a fondo los conceptos de Data
+
+Mart e indicadores de desempeño.
+
+3.1 Resultados de la fase de observación.
+
+3.1.1 PHP
+
+PHP, acrónimo de "PHP: Hypertext Preprocessor", es un lenguaje de 'scripting' de
+propósito general y de código abierto que está especialmente pensado para el
+desarrollo web y que puede ser embebido en páginas HTML. Su sintaxis recurre a
+C, Java y Perl, y es fácil de aprender. La meta principal de este lenguaje es
+permitir a los desarrolladores web escribir dinámica y rápidamente páginas web
+generadas; aunque se puede hacer mucho más con PHP [23].
+
+Lo que distingue a PHP de algo como Javascript del lado del cliente es que el
+código es ejecutado en el servidor, generando HTML y enviándolo al cliente. El
+cliente recibirá el resultado de ejecutar el script, aunque no se sabría el código
+subyacente que era [++].
+
+PHP puede usarse en todos los principales sistemas operativos, incluyendo Linux,
+muchas variantes de Unix (incluyendo HP-UX, Solaris y OpenBSD), Microsoft
+Windows, Mac OS X, RISC OS y probablemente otros más. PHP admite la
+mayoría de servidores web de hoy en día, incluyendo Apache, lIS, y muchos otros
+
+[23].
+
+De modo que con PHP se tiene la libertad de elegir el sistema operativo y el
+servidor web. Además, se tiene la posibilidad de utilizar programación por
+procedimientos o programación orientada a objetos (POO), o una mezcla de
+
+ambas [23].
+
+243.1.2 RESTFul.
+
+REST define un conjunto de principios de la arquitectura por el cual usted puede
+diseñar servicios web que se centran en los recursos del sistema, incluyendo
+cómo se abordan y se transfieren a través de HTTP por una amplia gama de
+clientes escritos en diferentes idiomas estados de recursos. Si se mide por el
+número de servicios web que lo utilizan, REST ha surgido en los últimos años
+solamente como un servicio modelo de diseño Web predominante. De hecho,
+REST ha tenido un impacto tan grande en la Web que se ha desplazado en su
+mayoría con SOAP y diseño de la interfaz basada en WSDL porque es un estilo
+
+mucho más sencillo de usar [24].
+
+Una aplicación concreta de un servicio Web REST sigue cuatro principios básicos
+de diseño:
+
+e Utiliza métodos HTTP.
+e No tiene estado (es decir, no hay persistencia de objetos).
+e Expone los directorios como una URI (identificador de recursos uniforme).
+
+e XML Transfer, JavaScript Object Notation (JSON), o ambos [24].
+
+3.1.3 Comparación de Data Marts tipo MOLAP y tipo ROLAP.
+
+Como se ha mencionado anteriormente, existen dos tipos de Data Marts: los
+Multidimensional Online Analytical Processing (MOLAP) y los Relational Online
+Analytical Processing (ROLAP). Los DM tipo MOLAP involucran bases de datos
+multidimensionales, las cuales guardan la información en estructuras
+multidimensionales, como bien su nombre lo dice, permitiendo que dicha
+información sea guardada de forma comprimida para ahorrar espacio y sea
+explorada de manera más rápida que los DM tipo ROLAP. Para los MOLAP hace
+falta un tipo de gestor de base de datos multidimensional, además de que para
+cada motor el lenguaje puede variar. Los DM tipo ROLAP se basan en motores de
+bases de datos relacionales, los cuales son ampliamente conocidos y usados,
+simulando la multidimensionalidad. Se debe tener en cuenta también que los DM
+tipo ROLAP usan lenguaje SQL, siendo este estandarizado para muchos gestores
+de bases de datos relacionales, dándole una ventaja sobre los DM tipo MOLAP.
+Cabe decir que a medida que se crece en información, los DM tipo ROLAP son
+
+25más eficientes que los tipos MOLAP [9], [10]. En la tabla 1 se resumen las
+principales características.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+MOLAP ROLAP
+
+Comprimen la información. No comprimen la información como los
+tipo MOLAP.
+
+Exploración de la información de |No posee  mutidimensionalidad de
+manera multidimensional. manera natural, la simula.
+Usa un gestor de bases de datos | Usa cualquier tipo de gestor de bases
+especializado. de datos relacional.
+No hay lenguaje estandarizado. Sí hay lenguaje estandarizado.
+A medida que crece es menos eficiente | A medida que crece es más eficiente
+que el ROLAP. que el MOLAP.
+
+ 
+
+Tabla 1. Características principales de los DM MOLAP y ROLAP.
+
+3.2 Resultados de la fase de investigación.
+
+3.2.1 Indicadores de desempeño de call center
+
+Los llamados KPl (Key Performance Indicators) son los indicadores clave de
+desempeño y tienen una importancia fundamental dentro de la gestión de
+cualquier negocio, incluyendo los Call Centers. Son una serie de métricas que
+sirven para cuantificar el rendimiento de una organización y que sirven de guía
+para conocer la evolución de un servicio, para informar a la dirección de la
+empresa y especialmente sirven como un elemento de mejora.
+
+Existen muchísimas KPl que se pueden utilizar, que variarán en función del tipo de
+campaña que se esté gestionando, para campañas de emisión se utilizan todas
+aquellas relacionadas con las ventas (ratio de respuesta, contactos por hora,
+ventas por hora entre otras), en campañas de recepción los niveles de servicio
+(SLA), las llamadas atendidas, el FCR (First Contact Resolution) o el tiempo
+promedio de llamada.
+
+Hay una serie de consejos que los expertos recomiendan a la hora de utilizarlas
+para lograr la máxima efectividad [25]:
+
+261. Definidas: Deben ser definidas claramente para toda la organización, no
+
+puede haber confusión a la hora de hablar de una KPl en concreto. Por
+
+ejemplo si se habla de absentismo todos deben tener claro cómo se
+
+calcula.
+
+Objetivas: La medición debe ser siempre igual con los mismos elementos.
+
+3. Orientadas: Cada parte de la organización debe recibir las KPl sobre las
+que pueda incidir, no se deben transmitir a los teleoperadores métricas que
+no dependen de su gestión. Un ejemplo claro de KPI que no depende de la
+gestión del agente de Call Center es el nivel de servicio, un indicador que
+dependen de los responsables de operaciones.
+
+4. Temporales: Es necesario que permitan un estudio a lo largo del tiempo
+para comparar resultados [25].
+
+po
+
+3.2.2 Data Marts
+
+3.2.2.1 Data Marts dependientes e independientes.
+
+Hay dos tipos básicos de Data Marts: dependientes e independientes. La
+clasificación se basa principalmente en la fuente de datos que se alimenta el Data
+Mart. Los Data Marts dependientes extraen los datos de un Data Warehouse que
+ya se ha creado. Los Data Marts independientes, en cambio, son sistemas
+independientes construidos extrayendo los datos directamente de las fuentes
+operacionales o fuentes externas de datos, o ambas opciones [26].
+
+La principal diferencia entre los Data Marts independientes y dependientes es la
+forma de llenarse, es decir, cómo obtener los datos de las fuentes y en el Data
+Mart. Este paso, llamado el proceso de extracción, transformación y carga (ETL),
+consiste en mover los datos desde los sistemas operativos, filtrarlos, y colocarlos
+en el Data Mart [26].
+
+Con Data Marts dependientes, este proceso es un tanto simplificado, porque los
+datos formateados y resumidos (limpios) ya se han cargado en el Data
+Warehouse. El proceso de ETL para Data Marts dependientes es sobre todo un
+proceso de identificación de un subconjunto adecuado de los datos relevantes
+para el dominio del Data Mart elegido y mover una copia de los mismos, tal vez en
+
+forma resumida [26].
+
+27Con Data Marts independientes, sin embargo, se debe hacer frente a todos los
+aspectos del proceso de ETL, tanto como lo hace con un DataWarehouse.
+Probablemente el número de fuentes y la cantidad de datos asociados con el Data
+Mart es menor que el Data Warehouse, dado su enfoque en un solo tema [26].
+
+Las motivaciones detrás de la creación de estos dos tipos de Data Marts también
+suelen ser diferentes. Los Data Marts dependientes se construyen generalmente
+para lograr un mejor rendimiento y disponibilidad, un mejor control y reducir los
+costes de las telecomunicaciones como consecuencia del acceso local de los
+datos correspondientes a un departamento específico. La creación de Data Marts
+independientes a menudo es impulsada por la necesidad de disponer de una
+solución dentro de un tiempo más corto [26].
+
+3.2.2.2 Enfoques en la construcción de un Data Mart
+
+Las actividades de implementación de un Data Mart incluyen: abastecimiento de
+datos, puesta en escena de los datos (ETL), y el desarrollo de aplicaciones de
+apoyo a la toma de decisiones orientado para el usuario final [27]. Algunos
+expertos dicen que para la construcción de un Data Mart se debe centrar la
+atención en los requisitos analíticos que surgieron de los gerentes de
+negocios/ejecutivos para diseñar el Data Mart dimensional. El enfoque del ciclo de
+vida comienza con la planificación del proyecto y es seguida por la definición de
+requisitos de negocio, modelado dimensional, diseño de la arquitectura, el diseño
+físico, la implementación y otras fases [27].
+
+Ahora, teniendo en cuenta ciertos elementos o etapas para la construcción del
+Data Mart, la construcción del mismo puede hacerse de forma lineal con posibles
+iteraciones en ciertas etapas (como se ha mencionado anteriormente), o puede
+tener otro enfoque parecido al de un modelo o metodología de construcción de un
+proyecto de software, ya que este en sí mismo es un proyecto de esta naturaleza,
+así que a continuación se mencionaran algunos modelos y una metodología de
+desarrollo con sus respectivas ventajas, desventajas y en qué tipos de proyectos
+podrían usarse.
+
+283.2.2.3 Dashboard analítico y operativo, y reporte.
+
+Algo muy importante a la hora de definir el proyecto, fue definir conceptos que a
+menudo se confunden: Balanced Scorecard (dashboard analítico), cuadro de
+mando operativo (dashboard operativo) y reporte:
+
+Dashboard: En los sistemas de gestión de la información, un dashboard (panel de
+control) es "una interfaz de usuario en tiempo real, mostrando una representación
+gráfica de la situación actual (snapshot) y las tendencias históricas de los
+indicadores clave de desempeño (KPlIs) de una organización, permitiendo tomar
+decisiones instantáneas a simple vista " [28]. También son conocidos como
+tableros o cuadros de mando. Principalmente hay dos tipos de dashboard: integral
+y Operativo.
+
+e Dashboard análitico: Es una herramienta que ofrece a los cargos
+gerenciales o administrativos dar una mirada global a los indicadores de
+desempeño de la organización [29]. En la figura 7 se aprecia un ejemplo de
+un dashboard analítico.
+
+ 
+
+ 
+
+Mosprial Mall Lag Category summary O Hosprtal Payer Summary
+
+  
+
+McKescon ATB Aging Summary O .. Mokesson ATB Aging (Ower 360 Days)
+
+(current perod)
+
+  
+
+Figura 6. Ejemplo de dashboard operativo. Fuente: hitp://www.dashboardinsight.com/
+
+e Dashboard operativo: Es parecido al integral, pero la diferencia radica en
+que este posee indicadores de desempeños operativos y no globales. La
+periodicidad de estos puede ser diaria, semanal o mensual y además está
+focalizado en indicadores que generalmente representan procesos, por lo
+que su puesta en funcionamiento es más barata y sencilla y suele ser un
+buen punto de partida para aquellas compañías que intentan evaluar la
+
+29implantación de un dashboard integral [29]. En la figura 6 se ilustra un
+ejemplo de dashboard operativo.
+
+Reporte: “Es un documento, generado por una aplicación, que nos presenta de
+manera Estructurada y/o Resumida, datos relevantes guardados o generados por
+la misma aplicación. Los datos dentro de un reporte no pueden ser manipulados o
+modificados directamente, sino que tienen que ser afectados en alguna otra parte
+de la aplicación para que se reflejen los cambios una vez que el reporte sea
+generado nuevamente.” [30]. Un ejemplo de reporte se visualiza en la figura 8.
+
+February 2010
+
+  
+ 
+
+Sales: $15,200
+
+a 38%
+
+  
+
+5 of Target vs. Prev Mo >%ofTarget | vs. PrevMo | >%ofTarget | vs. Prev Mo
+
+RA01% Y -7% II -5% Y -11%| | Y -4%|
+
+ 
+
+Prev Mo PrewYr Prew Mo Prew'Yr Prew Mo Prew'Yr Prev Mo PrewYr | Prew Mo Prew'Yr
+16,300 7,500 42% 25% 14,300 5,870 269 169 2.58% 2.64%
+Revenue € Margin Registrations by Source
+
+400
+
+     
+  
+ 
+
+300
+
+ 
+
+200 +=. HH
+
+11
+o MAA
+pS £ e E 2 2 >
+
+S
+2 Pe S P o $ ¿
+
+ 
+
+ 
+
+Profit Margin by Segment
+
+ 
+
+50% +
+40% + —w
+
+ 
+
+ 
+
+30% + 20% +
+10% +4
+05%
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+1. Continue SEO work to increase purchases from the Organic Traffic Segment 4 increase margin
+
+%a. Regularly blog new articles on "builds € installs” to increase SEO 8 Conversion
+1b. Identify additional topically related sites to leverage for referral traffic
+4c. Site Redesign on better ecommerce platform that is able to create SEO friendly URLs
+
+2. Continue using Paid Search to supplement non-paid search traffic
+2a. Create and optimize landing pages for Paid Search to increase conversion
+
+Figura 7. Ejemplo de dashboard analítico. Fuente: http://matt-smedley.com/
+
+ 
+
+30Report: Workload Pie Chart Report
+Project: JIRA nssignes;
+
+Chart
+
+ 
+
+Data Table
+
+ 
+
+Figura 8. Ejemplo de reporte. Fuente: https://confluence.atlassian.com/
+
+3.3 Metodología de desarrollo de software para el proyecto.
+
+Para la organización de la realización del proceso de desarrollo del proyecto en
+cuanto al aspecto del software, se eligió la metodología Scrum [31], la cual permite
+
+un desarrollo ágil y el presente proyecto posee características que se acoplan a
+dicha metodología: comunicación constante con el cliente, redefinición de algunos
+
+requerimientos o funcionalidades en etapas intermedias del proyecto, entre otras.
+La figura 9 ilustra las etapas de la metodología.
+
+La definición de las tareas del spring (definición de este elemento más adelante).
+tiene como base las actividades que fueron definidas para el cumplimiento de los
+
+objetivos. Para el evento Scrum Day, se definió el intervalo de cada semana,
+donde el equipo de trabajo, conformado por los roles de:
+
+e Dueño del producto (Product owner). Ing. Pablo Lopera.
+e Scrum Master: Director de trabajo de grado.
+
+e Equipo de desarrollo: Estudiante que presenta este documento.
+
+31Lista tarees Heración
+
+Proceso
+Scrum
+
+ 
+
+Planificación
+iteración ,”
+Selección s
+
+    
+  
+
+    
+
+Sincronizaciones
+diarias
+15
+
+   
+
+ITERACIÓN
+150 30 dias
+
+      
+ 
+  
+
+  
+
+  
+
+A
+Retrospectiva :
+Le Colaboración cliente - equipo
+Demostración Incremento de Colaboración intraequipo
+requisitos producto
+
+Proyectosgiles.org
+E (cc) EXE
+
+Figura 9. Esquema general de la metodología Scrum. Fuente: http://www .proyectosagiles.org/quees-scrum.
+
+Cabe aclarar que en la ejecución de algunas tareas se puede utilizar más tiempo
+de lo planeado, haciendo necesario re-ajustes en el cronograma. La metodología
+escogida, dentro de su filosofía, permite cambios a lo largo del ciclo de desarrollo
+con un impacto relativamente bajo Los resultados de las etapas de análisis,
+diseño, construcción y pruebas se mencionan a continuación:
+
+3.3.1 Análisis.
+
+e Historias de usuario: Elemento que permite definir las funcionalidades que
+desea el cliente, y qué criterios debe cumplir dicha funcionalidad. En la
+tabla 2, se ¡ilustra una historia de usuario, las demás se encuentran en el
+
+Anexo A.
+
+32Historias de Usuario
+
+Título: Crear usuario
+
+ID: 1 | Módulo: | Usuario
+
+ 
+
+Descripción
+
+ 
+
+Como usuario con permiso de crear usuarios, quiero poder crear una cuenta para
+gestionar quienes podrán usar la aplicación.
+
+ 
+
+Criterios de aceptación
+
+Se debe permitir ingresar datos básicos para identificar el usuario como: nombre de
+usuario, nombre, correo, contraseña.
+
+Se debe permitir escoger un perfil para el usuario.
+
+ 
+
+ 
+
+Tabla 2. Historia de Usuario: Crear Usuario.
+
+e Sprint backlog: documento en el cual se elige, de manera priorizada, que
+funcionalidad deben de ser desarrolladas. En la tabla 3 se aprecian los
+spring que tuvieron lugar en el desarrollo del proyecto.
+
+e Artefactos UML: Diagrama de clases, Diagrama de componentes,
+Diagrama Entidad-Relación del proyecto (en cuanto a funcionalidad en la
+gestión de la aplicación), diagrama lógico de los indicadores de
+desempeño.
+
+33Definición de Sprints
+
+ 
+
+Fecha: 14-12-2013
+
+Documento: HUOO1
+
+Revisión: 001
+
+ 
+
+Bl-App
+
+ 
+
+Sprint Backlog
+
+1 Actividades
+
+Duración
+
+Responsable
+
+Prioridad
+
+ 
+
+ 
+
+Creación del indicador | Del 11 al 18 de | Equipo de 1 Alta
+Contactos Nuevos diciembre Trabajo
+
+Creación del proceso | Del 24 al 30 de | Equipo Alta
+ETL del indicador | diciembre Trabajo
+
+Contactos Nuevos
+
+Creación del módulo | Del 2 al 9 de | Equipo Alta
+
+Login
+
+Creación del indicador
+Oportunidades Enviadas
+
+enero
+
+Del 14 al 28 de
+enero
+
+Trabajo
+
+Alta
+
+ 
+
+Creación del
+
+ETL del
+
+proceso
+indicador
+
+Oportunidades Enviadas
+
+Creación del módulo
+
+Perfil
+
+Del 3 al 10 de
+febrero
+
+Del 12 al 21 de
+febrero
+
+Alta
+
+Alta
+
+ 
+
+Creación del indicador
+Número de interacciones
+
+Del 26 de
+febrero al 11 de
+marzo
+
+Alta
+
+ 
+
+ 
+
+ 
+
+Creación del proceso | Del 13 al 24 de Alta
+ETL del indicador | marzo
+Número de interacciones
+Creación del módulo | Del 27 de marzo Alta
+Usuario al 7 de abril
+Creación del módulo | Del 10 al 21 de Alta
+Dashboard abril
+
+11 | Creación del módulo | Del 23 de abril | Equipo de Alta
+Reporte al 2 de mayo Trabajo
+
+ 
+
+ 
+
+ 
+
+Tabla 3. Springs backlogs del proyecto.
+
+343.3.2 Diseño.
+
+3.3.2.1 Diagrama de componentes.
+
+La figura 10 ilustra cómo está conformada la aplicación a nivel de componentes,
+tanto en la parte de la aplicación web como también en la parte de Data Mart y
+proceso ETL. Se observa que es una arquitectura cliente-servidor con servidor de
+datos separados.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+7
+<< App Server >>
+Internet Information Services 1IS 6.0 (Microsoft)
+<< protocol >> a] 3]
+HTTP | | A Model <<Database Server>>
+<<Weh Server>> (js) (*.php) MySQL
+View
+ES Script AJAX 1 e d A
+uery e A Y abodo | Nana po
+HTML y Poco Pena
+(php) a] | RGraph (JavaScript) ia — 2H
+¡ o Slim (REST)
+A Framework Bootstrap (HTML) BD source BD application
+Database (ADODB) Stabarbara_alopoliscrm Stabarbara_alopolisbsc
+JQuery ()
+S
+Presentation Layer Logic Layer Data Layer
+
+Figura 10. Diagrama de Componentes.
+
+353.3.2.2 Diagrama Entidad-Relación.
+
+En la figura 11 se representa las relaciones que hay en la aplicación desarrollada
+sólo a nivel de gestión. En cuanto a los indicadores de desempeño, se usó otro
+diseño, el cual será ilustrado en la figura 13.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+App_Profile
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+App_User
+
+NX Úactive >
+Code 3 N
+N Password»
+
+ 
+
+ 
+
+Figura 11. Diagrama E-R de BI-App.
+
+3.3.2.3 Diagrama de clase.
+
+La figura 12 muestra el diagrama de clase que comprende la sección de la
+aplicación web. Para el proceso de ETL (ver Anexo B), se cree conveniente
+graficarlo en otro diagrama aparte, aunque estos dos tienen clases en común, las
+cuales son las que hacen las conexiones y consultas en la base de datos.
+
+36Dashboard
+
+    
+  
+
+   
+  
+
+     
+     
+ 
+    
+     
+
++ orestedDashboard
++ deletedDashbosrd
+
++ oreatedUser
++ updatedUser
++ deletedUser
+
++ grestedProfile
++ updatedProfile
++ deletedProfile
+
++ title_page + updatedDashboard
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ControllerProfile
+
+ 
+
+ControllerLogin
+
+ControllerUser
+
++ URLServer
+
+ControllerDashboard
+
++ URLServer
+
+ControllerReport
+
++ URLServer
+
+       
+
++ URLServer + URLServer
+
+ 
+
+serverlocation.js
+
++ oresteProfile!) + oresteliser!) + oresteDashbosrd!) + cresteReport!)
++ modifyProfile() + modifyUser() + deleteDashbosrd!) + modifyReport()
++ deleteProfile!) + deletelUser!) + deleteReport!)
++ losdKPI()
++ drawReport()
+
+ 
+
+   
+     
+  
+
+UserMiodel DarshboardModel
+
+   
+
+ProfileModel
+
++ app = new Slim();
+
+ReportModel
+
+LoginModel
+
++ app = new Slim();
+
+         
+    
+  
+
++ app = new Slim); + app = new Slim(); + app = new Slim);
+
+   
+  
+     
+
+   
+  
+ 
+
+  
+  
+
++ oreateProfile() + createUser()
++ modifyProfile() + modifyUser()
+) + deletelser[)
+
++ cresteDashbosrd!)
+
++ login(email,
++ deleteDashboard()
+
+password)
+
+   
+
++ cresteReport!)
++ modifyReport!)
++ deleteReport!)
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+DatabaseController
+
+ 
+
++ dbSelect = new DatsbaseSelectiModel!)
++ dbinsert = new Datsbsselnserthlodel!)
+
++ dbUpdate = new DatabaseUpdatellodel!/)
++ dbDelete = new DsatsbaseDeletelModel()
+
+ 
+
+Métodos para la aplicación
+como también para el proceso
+de carga del Dats Mart
+
+ 
+
+ 
+
+     
+    
+  
+  
+
+Database SelectiModel DatabaselnsertModel DatabaseUpdateModel DatabaseDeleteModel
+
++ dbiModel = new DatsbaseModel!) + dbiModel = new DatsbaselModel() + dbiModel = new DatsbaselModel() + dbidodel = new Datsbaseldodel()
+
+Métodos para la ly, Métodos para la [ES
+
+aplicación aplicación y Data Mart
+
+Métodos para la Métodos para la
+aplicación aplicación y Data Mart
+
+  
+ 
+
+  
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+DatabaseModel
+
+Figura 12. Diagrama de clases.
+
+3.3.2.4 Diagrama Lógico de Indicadores de desempeño.
+
+La figura 13 presenta el diseño del indicador de desempeño contactos nuevos, el
+cual es el que se conoce como diseño en estrella, para los demás, ver el Anexo C.
+
+37eL
+
+=p
+
+ri
+
+al
+e
+y
+mro
+Ln!
+
+Ml
+
+to
+
+- NumNewContact a 1
+
+e enterprise
+z
+
+- name
+
+- type account
+
+- sector
+
+- economic_activity
+3 - country
+
+- state
+
+- city
+Location
+
+ 
+
+ 
+
+Figura 13. Diagrama en estrella del indicador Contactos Nuevos.
+
+3.3.3 Construcción.
+
+3.3.3.1 Descripción general del sistema.
+
+Antes de describir el sistema, se debe aclarar que dashboard se entenderá como
+el dashboard operativo y los filtros de los reportes para los indicadores de
+desempeño vendrán dados por los campos de las dimensiones que conforman la
+estrella o copo de nieve donde se encuentra dicho indicador de desempeño.
+También tener en cuenta que no todas las funcionalidades especificadas podrán
+ser usadas por todos los tipos de usuario, sólo aquellos que tengas los permisos.
+
+38Se entenderá que un usuario con permiso es aquel que puede usar la
+funcionalidad del requerimiento en que se especifica.
+
+El sistema en rasgos generales por módulos, es:
+
+e Módulo autenticación
+
+Este módulo será el responsable de dar el acceso a la aplicación, un usuario
+podrá identificarse con un nombre de usuario y una contraseña, además una vez
+autenticado aparecerá la opción para cerrar sesión.
+
+e Módulo usuario
+
+Este módulo será el responsable de gestionar los usuarios que usarán la
+aplicación. Un usuario con permisos podrá crear una cuenta con la información:
+nombre de usuario, nombre, correo electrónico, contraseña y un perfil de usuario.
+Un usuario podrá modificar la información de una cuenta como nombre, correo
+electrónico y contraseña. Opción para el usuario con permisos de modificar el
+perfil de usuario de una cuenta, de igual forma modificar el nombre de usuario,
+nombre, correo, contraseña de una cuenta seleccionada y por último el usuario
+con permisos podrá cerrar una cuenta.
+
+e Módulo perfil
+
+Este módulo será el responsable de gestionar los permisos que posee cada perfil
+de usuario. Un usuario con permiso podrá crear un nuevo perfil con nombre de
+perfil y permisos de acceso a determinados módulos, también ese usuario podrá
+modificar los permisos de creación, modificación y eliminación de dashboards,
+perfiles y usuarios, finalmente ese mismo usuario con permiso puede modificar el
+nombre de perfil y permisos de creación, modificación y eliminación a los módulos
+de dashboard, perfil y usuario.
+
+39e Módulo dashboard
+
+Este módulo será el responsable de presentar los reportes generados según se
+necesiten. Un usuario con permisos puede crear un darshboard con la información
+nombre del dashboard, y un tipo de privacidad: público o privado. Ese mismo
+usuario puede eliminar un dashboard seleccionado, podrá crear y modificar un
+reporte para la dashboard con nombre del reporte, indicador de desempeño, tipo
+de gráfico: diagrama de barras, diagrama de pastel, histograma, tabulación,
+tacómetro; filtros agrupación y un rango de fechas para el indicador de
+desempeño, también es permitido eliminar un reporte del darshboard. La
+
+aplicación le permitirá a un usuario
+
+e Mostrar a todos los usuarios de una misma empresa los dashboard
+
+marcados como públicos.
+e Mostrar sólo al usuario creador los dashboard marcados como privados.
+
+e Guardar los cambios generados al dashboard.
+
+e Módulo información
+
+Este módulo será el responsable de mantener actualizada cada cierto periodo de
+tiempo la fuente principal de datos que usará la aplicación. Se deberá mantener
+actualizada la fuente principal de datos cada cierto periodo de tiempo. Un usuario
+podrá actualizar la información en el Data Mart por demanda.
+
+e Módulo ayuda
+
+Este módulo será el responsable de ofrecer ayuda al usuario final de cómo usar la
+aplicación. Donde un usuario puede visualizar el manual de usuario de la
+aplicación.
+
+403.3.3.2 Detalles de implementación.
+
+Para el desarrollo del primer objetivo (construir un Data Mart que almacene los
+datos depurados de las áreas de venta y mercadeo del Call Center de BCS para
+llevar a cabo un proceso de análisis de la información) fue necesario investigar en
+la literatura una definición concreta sobre qué es un Data Mart y como se podría
+construir, llegando al punto en que el enfoque de diagrama en estrella es el más
+adecuado para este caso, tanto por su relativa facilidad de diseño, como también
+por el uso que se le puede dar a dicho esquema, como lo es la definición de filtro
+de resultados de manera sencilla. Además de tener una técnica para diseñar los
+indicadores de desempeño, también se debe entender cómo interactúa el
+ambiente al cual se le va extraer información, debido a que hay que darle un
+significado a los datos que se manejan en dicho ambiente. Para realizar lo
+anterior, se tuvo que llevar a cabo una exploración de la aplicación, junto a su
+base de datos, junto con el Ing. Pablo Lopera, para entender dicha base de datos
+y así poder tener una visión general sobre el ambiente de ventas y mercadeo del
+Call Center de la empresa BCS).
+
+Al tener una visión general del sistema de información que posee dicho Call
+Center, se procedió a definir un conjunto básico de indicadores de desempeño, los
+cuales el Ing. Pablo Lopera (persona responsable también de las decisiones
+administrativas sobre el Call Center mencionado) definió como esenciales para ser
+integrados en la aplicación.
+
+Partiendo de la base descrita anteriormente y siguiendo los parámetros
+establecidos para el desarrollo del proyecto, se empieza a trabajar en el segundo
+objetivo (aplicar ETL a la base de datos que contiene la información de las áreas
+de ventas y mercadeo del Call Center de la empresa BSC) el cual está muy
+relacionado con el primero, debido a que ambos comparten un elemento común: la
+base de datos transaccional del Call Center. Cabe mencionar que normalmente
+una base de datos transaccional de una empresa contiene muchas tablas, y
+muchas veces no están documentadas adecuadamente, lo cual hace complicado
+el proceso de comprender qué información se guarda allí y qué uso se le puede
+dar realmente a ésta, inclusive con el acompañamiento de un usuario habitual de
+la aplicación.
+
+41Para el desarrollo del tercer objetivo (implementar una herramienta web que
+genere reportes y contenga cuadros de mando operativos a partir de la
+información del Data Mart para apoyar el mejoramiento de la productividad de
+mercadeo y ventas) se desarrollaron el conjunto de módulos descritos
+anteriormente. En la figura 14 se aprecia un ejemplo de la aplicación en ejecución.
+
+Las tecnologías usadas para el presente proyecto son:
+
+e PHP: lenguaje de programación para el servidor.
+
+e MySQL: es un gestor de bases de datos relacionales. Gracias a su nuevo
+nuevo mecanismo de almacenamiento, InnoDB, se mejora sustancialmente
+la capacidad de leer grandes cantidades de información.
+
+e Javascript: lenguaje interpretado para hacer la conexión entre el cliente y
+el servidor.
+
+e HTML5: lenguaje HTML con funciones añadidas sobre las etiquetas de
+dicho código, facilitando el proceso de desarrollo de una interfaz web, y
+reduciendo el uso de funciones javascript, haciendo más limpio el código.
+
+e Framework Bootstrap: framework utilizado para realizar interfaces
+responsivas, es decir, se adaptan al tamaño del dispositivo, en HTML,
+CSS3 y Javascript.
+
+e Jquery: Framework Javascript que permite el manejo más fácil de la
+modificación de elementos de la vista y comunicación con el servidor.
+
+e Slim: Framework que facilita la construcción de servicios web (web
+services).
+
+e RGraph: Librería bajo la licencia MIT, la cual apoya en la realización de los
+gráficos de los reportes.
+
+e ADODB: Framework para la conexión a las bases de datos MySQL, tanto
+como fuente de información como base de datos para la gestión de la
+aplicación.
+
+e |DE Netbeans: para la codificación de los archivos PHP, javascript y
+HTML.
+
+42€ C 4 | localhost/BI-App/view/dashboard/dashboardTable
+
+Dashboard
+
+ 
+
+Reporte Nuevo
+
+nformación del reporte
+
+Nombre del reporte:
+
+Interacciones - BCS - Marzo :
+
+ndicador:
+
+Numero de interacciones Y
+
+mpresa:
+
+BUSINESS CUSTOMER£ Y
+
+Tipo de gráfico:
+
+Grafico de barras
+
+=iltros
+
+cuenta
+
+Nombre
+
+ACEROS Y ALUMINIOS Cl
+ANALIZAR LABORATORIC v
+
+Dashboard de prueba
+
+Interacciones - BCS - Marzo 2014
+
+ 
+
+MM 2014-3-14
+M 2014-3-18
+MM 2014-3-21
+MM 2014-3-28
+(M 2014-3-31 |
+
+ 
+
+Figura 14. Ejemplo de la interfaz de la aplicación construida con Bootstrap.
+
+3.3.4 Pruebas.
+
+Las pruebas realizadas para el sistema fueron de integración basadas en los
+criterios de aceptación para la verificación del cumplimiento de las funcionalidades
+planeadas durante el desarrollo del proyecto. La tabla 4 expone una prueba de
+integración, las demás estarán en el Anexo D.
+
+Prueba de Integración
+
+ 
+
+Título Crear usuario
+
+Descripción de la | Demostrará que un usuario con permisos puede crear
+prueba una cuenta.
+
+ID 1
+
+ 
+
+Detalles caso de prueba
+
+ 
+
+Acción usuario
+
+Usuario con permiso
+ingresa los datos básicos
+nombre de usuario,
+nombre, correo,
+contraseña.
+
+ 
+
+Resultado esperado
+Creación de la cuenta.
+
+ 
+
+¿Aprobado?
+
+Si
+
+ 
+
+43Usuario con permisos | Asignación de un perfil al Si
+
+ 
+
+selecciona un perfil para usuario.
+
+el usuario.
+
+Usuario sin permiso | No permitir el ingreso ni Si
+ingresa datos básicos y | la selección de un perfil.
+selecciona un perfil.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 4. Prueba de integración — Crear Usuario.
+
+44Capítulo 4
+
+Conclusiones y trabajo futuro.
+
+4.1 Conclusiones
+
+A continuación se exponen las conclusiones que el realizador del presente
+proyecto considera que han sido de mayor valor en este proceso de aprendizaje y
+
+desarrollo:
+
+Es importante asegurar una comunicación clara y constante con todas las
+partes interesadas en el desarrollo de un proyecto, siendo este aspecto
+mucho más importante cuando se lleva este a un escenario o ambiente
+real, debido a que este puede tener variaciones muy riesgosas, como lo es
+un cambio de personal, pudiendo afectar de manera considerable el tiempo
+de desarrollo del proyecto.
+
+El modelamiento de una estructura que permite el análisis de datos
+históricos se facilita si se utiliza un modelo en estrella o cubos ROLAP,
+como también se conocen, para un diseño intuitivo y más fácil de
+comprender para cualquier persona con conocimientos básicos de bases
+de datos a comparación a los cubos MOLAP o tipo HOLAP.
+
+El proceso de comprensión de la fuente de datos, a la cual se debe aplicar
+un proceso de ETL, debe apoyarse en lo posible en los administradores o
+usuarios expertos del Sistema de Información que utiliza dicha base de
+datos transaccional, debido a que es muy probable que a través del paso
+del tiempo, cierta información ya no se almacene en un campo que había
+sido destinado para ello, y se cometa el error de usar datos que finalmente
+no apoyan el proceso de toma de decisiones adecuadamente.
+
+454.2 Trabajo Futuro
+
+Para este proyecto se han identificado características o funcionalidades que
+pueden desarrollarse en un futuro, con el fin de transformar el resultado de este
+proyecto a una herramienta más completa y que suple las actuales necesidades
+de los usuarios de este tipo de aplicaciones:
+
+Un módulo de predicción o modelamiento analítico, con el fin de dar
+todavía un mejor apoyo a la toma de decisiones que involucran resultados
+a largos plazos.
+
+Generación de interfaces nativas para dispositivos móviles que se
+comuniquen con el modelo del presente proyecto, con el fin de aprovechar
+de mejor manera la potencia limitada que algunos de estos dispositivos
+poseen actualmente, teniendo en cuenta que se tiene una solución
+responsiva.
+
+Construir un proceso de extracción, carga, transformación y visualización
+en tiempo real de los indicadores de desempeño que posea la aplicación
+desarrollada en este proyecto.
+
+Generar una serie de pruebas de rendimiento, seguridad, usabilidad y
+accesibilidad que determinen qué se debe mejorar en la aplicación de
+acuerdo a estos cuatro aspectos, y realizar los ajustes correspondientes.
+
+46Referencias bibliográficas
+
+[1] Definición de la empresa Business Costumers Solution. Disponible en:
+http://www.bcsla.net/empresa.html
+
+[2] Oracle Business Intelligence Standard Edition One. Oracle. Disponible en:
+http://www.oracle.com
+
+[3] Pentaho Bl Suite. Pentaho. Disponible en: http://www.pentaho.com
+[4] SAP Business Intelligence. SAP. Disponible en: http: //www.sap.com
+
+[5] Cesar Augusto Orozco Manotas, Sandra Milena Peñaranda Salazar y Mauricio
+Rodríguez Rebolledo. “Sistema para el soporte a la toma de decisiones
+administrativas en la ferretería metrópolis 84 LTDA”. Proyecto de grado para título
+profesional. Universidad Autónoma del Caribe. Barranquilla, Colombia. 2007.
+
+[6] José Luis Peñarredonda. “Móviles en la empresa, la gran tendencia de 2013:
+¿qué implica eso”?”. Marzo 2013 [Online]. Disponible en:
+http: //www.enter.co/enterprise/moviles-en-la-empresa-la-gran-tendencia-de-2013
+ 
+
+que-implica-eso/
+
+[7] Josep Curto Díaz. Introducción al Business Intelligence. Editorial UOC. 2012.
+
+[8] Mauricio Zapata. “Más TIC, mejores pyme”. Septiembre 2012 [Online].
+Disponible: http://www. misionpyme.com/cms/content/view/4712/
+
+[9] C.S.R. Prabhu. Data Warehousing: Concepts, Techniques, Products and
+Application. 2” ed. PHI Learning Pvt. Ltd., 2004.
+
+[10] C. J. Date, Sergio Luis María Ruiz Faudón. Introducción a los sistemas de
+bases de datos. Editorial Pearson Educación, 2001.
+
+[11] Paulraj Ponniah. Data Warehousing Fundamentals: A Comprehensive Guide
+for IT Professionals. Editorial John Wiley 4 Sons, 2004.
+
+[12] Sergio Luján Mora. Programación de aplicaciones web: historia, principios
+básicos y clientes web. Editorial Club Universitario. 2002.
+
+47[13] Jeff McWherter, Scott Gowell. Professional Mobile Application Development.
+Editorial John Wiley 8 Sons, Inc. 2012.
+
+[14] Anselm Bradford, Paul Haine. HTML5 Mastery: Semantics, Standards, and
+Styling. Editorial Apress, 2011.
+
+[15] Framework Bootstrap. Bootstrap. Disponible en: http://getbootstrap.com/
+
+[16] JSON (JavaScript Object Notation). JSON. Disponible en: http://¡son.org/j¡sones.himl
+
+ 
+
+[17] CSS3. Mozilla Developer Network. Disponible en:
+https://developer.mozilla.org/es/docs/Web/CSS/CSS3
+
+[18] Roger Pressman. Ingeniería del Software: Un enfoque práctico. 5* edición.
+Editorial Mc Graw Hill. 2002.
+
+[19] Jesús Barranco de Areba. Metodología del análisis estructurado de sistemas.
+Editorial Univ Pontifica Comillas, 2001.
+
+[20] Alfredo Weitzenfeld. Ingeniería de software orientada a objetos con UML, Java
+e Internet. Editorial Cengage Learning Editores, 2005
+
+[21] IBM. Rational Unified Process Best Practices for Software Development
+Team. Disponible en: http://www.ibm.com/
+
+[22] Peter Schuh. Integrating Agile Development in the Real World. Editorial
+Cengage Learning. 2005.
+
+[23] Definición de PHP. PHP. Disponible en: http://www.php.net/
+
+[24] Alex Rodriguez. RESTful Web services: The basics. Disponible en:
+http://www.ibm.com/developerworks/webservices/library/ws-restful/
+
+[25] Donna Fluss. Contact Center Manager's KPI Survival Guide. Disponible en:
+http://media.techtarget.com/
+
+[26] Oracle. Data Mart Concepts. Disponible en:
+docs.oracle.com/html/E10312 01/dm_concepts.htm
+
+[27] Arun Sen, Atish P. Sinha. A Comparison of Data Warehousing Methodologies:
+Using a common set of attributes to determine which methodology to use in a
+particular data warehousing project. Disponible en: http://student.bus.olemiss.edu/
+
+48[28] Peter McFadden, CEO of ExcelDashboardWidgets “What is Dashboard
+Reporting”.
+
+[29] Steven Rojas. Anteproyecto. Herramienta para el apoyo en la toma de
+decisiones para las áreas de venta y mercadeo del call center de la empresa BCS.
+Documento de anteproyecto. 2013.
+
+[30] Definición de reporte. Tomada de: sipec.sep.gob.mx
+
+[31] Schwaber K. y Sutherland J. La guía de Scrum. USA: Scrum.org; 2011.
+
+49ANEXOS
+
+50Anexo A: Historias de usuario
+
+Módulo de usuario
+
+Historias de Usuario
+Título: Crear usuario
+
+ 
+
+ 
+
+ID: 1 | Módulo: | Usuario
+
+ 
+
+ 
+
+Descripción
+Como usuario con permiso de crear usuarios, quiero poder crear una cuenta para
+gestionar quienes podrán usar la aplicación.
+
+ 
+
+Prioridad:
+Criterios de aceptación
+Se debe permitir ingresar datos básicos para identificar el usuario como: nombre
+de usuario, nombre, correo, contraseña.
+Se debe permitir escoger un perfil para el usuario.
+
+ 
+
+ 
+
+Tabla 5. Historia de Usuario — Crear Usuario
+
+ 
+
+Historias de Usuario
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Título: Modificar usuario
+ID: 2 | Módulo: | Usuario
+Descripción
+
+ 
+
+Como usuario del sistema, quiero poder modificar la información de la cuenta
+para corregir o actualizar algún dato.
+
+ 
+
+Prioridad:
+Criterios de aceptación
+Se debe permitir modificar el nombre, correo electrónico y contraseña.
+
+ 
+
+Se debe permitir a los usuarios del sistema con permiso de modificar las cuentas
+
+de los usuarios, modificar nombre de usuario, nombre, correo, contraseña.
+Tabla 6. Historia de Usuario — Modificar Usuario
+
+ 
+
+ 
+
+Historias de Usuario
+
+ 
+
+Título: Modificar perfil de usuario
+ID: |3 |Módulo: | Usuario
+Descripción
+
+Como usuario con permiso de modificar el perfil de un usuario, quiero poder
+modificar el perfil asignado de una cuenta para modificar los permisos asignados
+a la cuenta.
+
+Criterios de aceptación
+
+ 
+
+Se debe permitir modificar el perfil asignado a una cuenta.
+
+ 
+
+ 
+
+Tabla 7. Historia de Usuario — Modificar Perfil de Usuario
+
+51Historias de Usuario
+
+ 
+
+Título: Cerrar cuenta de usuario
+ID: 4 Módulo: |Usuario
+Descripción
+
+ 
+
+Como usuario con permiso de cerrar cuentas de usuarios, quiero poder cerrar
+cuentas para desactivar un usuario.
+
+Prioridad:
+
+ 
+
+Criterios de aceptación
+
+Se debe permitir cerrar la cuenta de un usuario ya existente.
+Tabla 8. Historia de Usuario — Cerrar Cuenta de Usuario
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Módulo perfil
+
+Historias de Usuario
+Título: Crear un perfil
+ID: 5 | Módulo: | Perfil
+
+ 
+
+ 
+
+ 
+
+Descripción
+Como usuario con permiso de crear perfiles, quiero poder crear un perfil para
+asignar un perfil adecuado a los diferentes usuarios del sistema.
+Prioridad:
+
+ 
+
+ 
+
+ 
+
+ 
+
+Criterios de aceptación
+Se debe permitir ingresar el nombre del perfil.
+
+Se debe permitir asignar permisos a un perfil.
+Tabla 9. Historia de Usuario — Crear un perfil
+
+ 
+
+ 
+
+ 
+  
+   
+ 
+  
+  
+
+   
+
+Historias de Usuario
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Título: Modificar información de un perfil
+ID: 6 | Módulo: | Perfil
+Descripción
+
+ 
+
+Como usuario con permiso de modificar perfiles, quiero poder modificar la
+información referente a un perfil para generar cambios en los permisos.
+
+Prioridad:
+
+ 
+
+ 
+   
+
+Criterios de aceptación
+Se debe permitir modificar el nombre del perfil.
+Se debe permitir modificar los permisos de creación, modificación y eliminación
+del módulo de dashboard
+Se debe permitir modificar los permisos de creación, modificación y eliminación
+del módulo de perfil.
+Se debe permitir modificar los permisos de creación, modificación y eliminación
+
+del módulo de usuario.
+Tabla 10. Historia de Usuario — Modificar información de un perfil
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+52Historias de Usuario
+
+ 
+
+Título: Eliminar un perfil
+ID: 7 | Módulo: | Perfil
+Descripción
+
+ 
+
+Como usuario con permiso de eliminar perfiles, quiero poder eliminar un perfil
+para eliminar un perfil que ya no sea necesario.
+Prioridad:
+
+ 
+
+Criterios de aceptación
+
+ 
+
+Se debe permitir eliminar toda la información de un perfil con sus permisos.
+
+ 
+
+ 
+
+Tabla 11. Historia de Usuario — Eliminar un perfil
+
+Módulo autenticación
+
+Historias de Usuario
+
+ 
+
+Título: Identificarse
+
+ 
+
+ 
+
+ 
+
+ID: 8 | Módulo: | Autenticación
+
+ 
+
+Descripción
+
+ 
+
+Como usuario, quiero poder autenticarme en el sistema para acceder a mi cuenta.
+
+ 
+
+Prioridad:
+Criterios de aceptación
+
+Se debe permitir identificarse con el nombre de usuario y una contraseña.
+Tabla 12. Historia de Usuario — Identificarse
+
+ 
+
+ 
+
+Historias de Usuario
+
+ 
+
+Título: Cerrar sesión
+
+ 
+
+ 
+
+ 
+
+ID: 9 | Módulo: | Autenticación
+
+ 
+
+Descripción
+Como usuario, quiero poder cerrar sesión en el sistema después de autenticarme
+para que nadie pueda acceder a mi información.
+
+ 
+
+Prioridad:
+Criterios de aceptación
+Se debe permitir cerrar sesión.
+
+ 
+
+ 
+
+Tabla 13. Historia de Usuario — Cerrar sesión
+
+53Módulo dashboard
+
+ 
+
+Historias de Usuario
+
+Crear un dashboard
+
+10 | Módulo: | Dashboard
+Descripción
+
+Como usuario, quiero poder crear un dashboard para presentar reportes
+generados según sea necesario en la empresa.
+
+ 
+
+ 
+
+ 
+
+Prioridad:
+
+ 
+
+ 
+
+Criterios de aceptación
+
+Se debe dar una opción que permita crear un dashboard con el nombre del
+dashboard.
+
+Se debe permitir dar el tipo de privacidad: público o privado.
+
+Tabla 14. Historia de Usuario — Crear un dashboard
+
+ 
+
+Historias de Usuario
+Título: Eliminar un dashboard
+ID: 11 | Módulo: | Dashboard
+Descripción
+Como usuario, quiero poder eliminar un dashboard para deshacer algún reporte
+generado.
+Prioridad:
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Criterios de aceptación
+
+Se debe dar una opción de eliminar un dashboard seleccionado.
+
+Tabla 15. Historia de Usuario — Eliminar un dashboard
+
+ 
+
+Historias de Usuario
+Título: Crear reporte
+ID: 12 | Módulo: | Dashboard
+Descripción
+Como usuario, quiero poder crear reportes para el dashboard.
+Prioridad:
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Criterios de aceptación
+Se debe permitir crear un reporte con el nombre del reporte, indicador de
+desempeño, tipo de grafico (diagrama de barras, diagramas de pastel, histograma,
+tabulación, tacómetro), filtros agrupación y rangos de fechas para el indicador de
+desempeño.
+
+ 
+
+ 
+
+Tabla 16. Historia de Usuario — Crear Reporte
+
+54Historias de Usuario
+
+ 
+
+Título: Eliminar reporte
+
+ID: |13|Médulo: Dashboard
+
+Descripción
+
+ 
+
+Como usuario, quiero poder eliminar un reporte del dashboard para deshacer
+algún reporte asignado a este dashboard.
+
+Prioridad:
+
+ 
+
+ 
+
+Criterios de aceptación
+
+Se debe permitir eliminar reportes del dashboard.
+Tabla 17. Historia de Usuario — Eliminar Reporte
+
+ 
+
+ 
+
+ 
+
+Historias de Usuario
+Título: Exportar tablero
+ID: 14 | Módulo: | Dashboard
+Descripción
+Como usuario, quiero poder exportar el tablero generado en el dashboard para
+visualizarlos en cualquier momento y tener un registro digital de este.
+
+Prioridad:
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Criterios de aceptación
+
+Se debe permitir exportar el tablero generado en PDF.
+Tabla 18. Historia de Usuario — Exportar Tablero
+
+Historias de Usuario
+
+Título: Visualizar dashboard públicos
+ID: 15 | Módulo: | Dashboard
+Descripción
+Como usuario, quiero poder visualizar los dashboard para conocer los permisos y
+a partir de estos mostrar los ya generados.
+
+Prioridad:
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Criterios de aceptación
+Para los dashboard privados se permite visualizarlos solo al usuario creador.
+
+Para los dashboard públicos se permite visualizarlos solo a los usuarios
+pertenecientes a una determinada empresa.
+Historias de Usuario
+
+Título: Guardar cambios dashboard
+ID: 16 | Módulo: | Dashboard
+Descripción
+Como usuario, quiero que el sistema guarde en el dashboard para que almacene
+los cambios generados sobre este.
+
+Prioridad:
+
+Criterios de aceptación
+
+Comprobar que se guardé automáticamente cuando se actualiza un reporte.
+Tabla 19. Historia de Usuario — Visualizar dashboard públicos.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+55Módulo Ayuda
+
+ 
+
+Historias de Usuario
+
+Título: Manual de usuario
+
+ 
+
+IDE... [17 |Módulo: |Ayuda OOOO
+Descripción
+Como usuario, quiero poder visualizar una ayuda para guiarme de cómo manejar
+adecuadamente la aplicación.
+
+Prioridad:
+
+ 
+
+ 
+
+ 
+
+ 
+
+Criterios de aceptación
+
+Se debe permitir visualizar el manual de usuarios de la aplicación
+Tabla 20. Historia de Usuario — Manual de usuario.
+
+ 
+
+ 
+
+Módulo de información
+
+Historias de Usuario
+Título: Cargar información Data Mart
+ID: 18 | Módulo: | Información
+Descripción
+Como usuario, quiero poder cargar la información en el Data Mart por demanda
+
+para disponer de una fuente con datos en la realización de los reportes
+Prioridad:
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Criterios de aceptación
+Proporcionar para la sección de indicadores los campos de elección del indicador,
+fecha de inicio y fecha de finalización de la carga de los registros.
+Proporcionar para la sección de dimensiones los campos de elección de las
+dimensiones, fecha de inicio y fecha de finalización.
+Para cargar una tabla de hechos se debe primero cargar todas las dimensiones
+
+relacionadas con dicha tabla de hechos.
+Tabla 21. Historia de Usuario — Cargar información Data Mart.
+
+Historias de Usuario
+
+Título: Limpiar información Data Mart
+ID: 19 | Módulo: | Información
+
+Descripción
+Como usuario, quiero poder limpiar la información en el Data Mart por demanda
+para disponer de una fuente con datos actualizada en la realización de los
+reportes.
+Prioridad:
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Criterios de aceptación
+Proporcionar para la sección de indicadores los campos de elección del indicador,
+fecha de inicio y fecha de finalización de la carga de los registros.
+Proporcionar para la sección de dimensiones los campos de elección de las
+dimensiones, fecha de inicio y fecha de finalización.
+
+ 
+
+ 
+
+56Para limpiar una dimensión primero se limpian todas las tablas de hechos
+relacionadas con dicha dimensión.
+
+ 
+
+Tabla 22. Historia de Usuario — Limpiar información Data Mart.
+
+57Anexo B: Diagrama de clases de proceso ETL.
+
+     
+      
+
+ETL_Controller
+
++ loadOptions()
++ adtionftable, action)
+
+ETL_Model
+
++ app = new Slim);
+
+Métodos para llamara Us
+
+consultas de selección
+
+para la fuente e
+
+inserción para el destino + dbinsert = new
+Catabaselnsertilodel()
+
+Database Controller ETL
+
+new DatebasehlodelETL
+
+Métodos para llamar a
+consultas de selección
+
+para la fuente
+
+Database Model ETL
+
+insertar en los
+
+e a "ml
+desempeno
+
+DatabaseModel
+
++ generalGuen)
+
+  
+
+Figura 15. Diagrama de clase de proceso ETL.
+
+58Anexo C: Diagrama de indicadores de
+desempeño
+
+-1d_time ñ
+-id_ enterprise
+-1d_ascoount
+
+«1d profile employes,
+- 1d interaction A
+
+¿Fact
+- Numinteraction
+
+- type_acoount
+
+- Sector
+
+ 
+
+- economic_activity
+3 - country
+- siste
+- city
+
+  
+
+Figura 16. Diagrama de indicador “Número de Interacciones”.
+
+59n
+
+-1d_time
+-id_ enterprise
+-id_ account
+
+-id_ location
+
+-id_ profile
+
+Fact
+- HumbMerwtContact
+
+- TF E
+
+Mil ll Ti
+
+- code enterprise
+
+ 
+
+sen
+- marital_ststus
+- gender
+
+ 
+
+1]
+
+  
+
+Figura 17. Diagrama de indicador “Contactos Nuevos”.
+
+60n
+-id_time
+-1d_enterprise
+-id_sccount
+-id_ profile employee
+-id_opportunity
+
+¿Fact o
+- HumdOpportunity =
+
+- name
+-type_ account
+
+- sector
+
+- economic_activity
+- country
+
+- state
+
+- city
+
+Figura 18. Diagrama de indicador “Número de Oportunidades”.
+
+61id_time
+-1d_ enterprise n
+
+ld _scoount
+
+-id_ profile
+- 1d_location
+
+Fact
+MumbDeserterCcustormier
+
+- HumaActiveCustomer - id
+
+- code enterprise
+
+z
+-type_ account
+1 - sector
+- economic activity
+- country
+- state
+- city
+
+ 
+
+1
+
+  
+
+Figura 19. Diagrama de indicador “Número de Clientes Desertores”.
+
+62-1d_time
+-1d_ enterprise n
+
+- ld_sccount
+
+-id_ profile
+
+- 1d_location
+
+ 
+
+mn
+Fact
+- NumProspect
+- type account
+1 - sector
+- economic activity
+- country
+1 - state
+
+- ci ty
+
+  
+
+Figura 20. Diagrama de indicador “Número de Prospectos”.
+
+63Profile Employee
+
+Figura 21.
+
+id_tirmme
+id_ enterprise
+- ¡d_sccount
+-id_ profile employees,
+
+id opportunity
+
+¿Fact
+- Hurmiiiuotation
+
+ 
+
+Diagrama de indicador “Número de Cotizaciones”.
+
+64-1d_tirme
+-id_enterprise
+-id_scoount
+-id_profile_employ
+
+- 1d sale
+
+¿ract
+
+Figura 22. Diagrama de indicador “Número de ventas”.
+
+65Anexo D: Pruebas
+
+Prueba de Integración
+
+ 
+
+ 
+
+ 
+
+Título Crear usuario
+
+Descripción de la | Demostrará que un usuario con permisos puede crear
+prueba una cuenta.
+
+ID 1
+
+Detalles caso de prueba
+
+Resultado esperado ¿Aprobado?
+
+Usuario con permiso | Creación de la cuenta.
+ingresa los datos básicos Si
+nombre de usuario,
+nombre, correo,
+contraseña.
+
+ 
+
+Usuario con permisos | Asignación de un perfil al Si
+selecciona un perfil para usuario.
+el usuario.
+
+Usuario sin permiso | No permitir el ingreso ni Si
+ingresa datos básicos y | la selección de un perfil.
+selecciona un perfil.
+
+ 
+
+ 
+
+Tabla 23. Prueba de Integración — Crear Usuario
+
+66Prueba de Integración
+Título Modificar usuario
+
+Descripción de la | Demostrará que un usuario del sistema puede
+prueba modificar la información de la cuenta.
+DA
+
+Detalles caso de prueba
+Acción usuario Resultado esperado ¿Aprobado?
+
+ 
+
+Usuario de la cuenta | Modificación de la cuenta.
+modifica el nombre, Si
+
+correo electrónico y
+contraseña.
+
+ 
+
+Usuario con permiso de | Modificación de la cuenta.
+modificar las cuentas de Si
+otros usuarios cambia
+nombre de usuario,
+nombre, correo,
+contraseña.
+
+ 
+
+ 
+
+ 
+
+Tabla 24. Prueba de Integración — Modificar Usuario
+
+ 
+
+Prueba de Integración
+
+ 
+
+ 
+
+ 
+
+Título Modificar perfil de usuario
+
+Descripción de la | Demostrará que un usuario con permiso de modificar
+
+prueba el perfil de un usuario, puede modificar el perfil
+asignado a la cuenta.
+
+ID 3
+
+ 
+
+Detalles caso de prueba
+
+Resultado esperado ¿Aprobado?
+
+Usuario con permiso | Modificación del perfil.
+
+modifica el perfil asignado Si
+a una cuenta.
+
+ 
+
+Tabla 25. Prueba de Integración — Modificar perfil de usuario
+
+67Título
+
+Prueba de Integración
+Eliminar usuario
+
+Descripción de la | Demostrará que un usuario con permiso puede cerrar
+prueba la cuenta de un usuario.
+
+275
+
+Detalles caso de prueba
+
+ 
+
+Acción usuario Resultado esperado ¿Aprobado?
+Usuario con permiso Desactivar el usuario
+cierra la cuenta de un existente. Si
+
+usuario existente.
+
+ 
+
+Tabla 26. Prueba de Integración — Eliminar usuario
+
+ 
+
+Prueba de Integración
+
+ 
+
+ 
+
+Título Crear un perfil
+
+Descripción de Demostrará que un usuario con permiso puede crear
+prueba perfiles.
+
+ID 5
+
+ 
+
+Detalles caso de prueba
+
+ 
+
+ 
+
+Acción usuario Resultado esperado ¿Aprobado?
+Usuario con permiso Crear un perfil con el
+ingresa el nombre para nombre asignado. Si
+crear un perfil.
+Usuario con permiso Asignar un perfil a un Si
+asigna un perfil a un usuario.
+usuario.
+
+ 
+
+ 
+
+Tabla 27. Prueba de Integración — Crear perfil
+
+68Prueba de Integración
+
+ 
+
+Título Modificar información de un perfil
+
+Descripción de la | Demostrará que un usuario con permiso puede
+prueba modificar perfiles.
+A E
+
+Detalles caso de prueba
+Acción usuario Resultado esperado ¿Aprobado?
+
+ 
+
+Usuario con permiso | Modificar el nombre al
+modifica el nombre de un perfil. Si
+perfil.
+Usuario con permiso | Modificar los permisos de Si
+modifica los permisos de | creación, modificación y
+creación, modificación y | eliminación del módulo
+eliminación del módulo de | darshboard.
+
+dashboard.
+
+Usuario con permiso | Modificar los permisos de Si
+modifica los permisos de | creación, modificación y
+creación, modificación y | eliminación del módulo
+eliminación del módulo de | perfil.
+
+perfil.
+
+ 
+
+ 
+
+Usuario con permiso | Modificar los permisos de Si
+modifica los permisos de | creación, modificación y
+creación, modificación y | eliminación del módulo
+eliminación del módulo de | usuario.
+
+usuario.
+
+ 
+
+ 
+
+ 
+
+Tabla 28. Prueba de Integración — Modificar información de perfil
+
+Prueba de Integración
+Título Eliminar un perfil.
+
+ 
+
+ 
+
+Descripción de la | Demostrará que un usuario con permiso puede
+
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+prueba eliminar un perfil.
+ID 7
+Detalles caso de prueba
+Acción usuario Resultado esperado ¿Aprobado?
+Usuario con permiso Eliminar toda la
+elimina toda la | información perteneciente Si
+información de un perfil. a ese perfil.
+
+ 
+
+ 
+
+ 
+
+Tabla 29. Prueba de Integración — Eliminar un perfil
+
+69Prueba de Integración
+
+ 
+
+ 
+
+Título Identificarse
+
+Descripción de la | Demostrará que un usuario puede autenticarse en el
+prueba sistema.
+
+ID 8
+
+ 
+
+Detalles caso de prueba
+
+Resultado esperado ¿Aprobado?
+
+Usuario se identifica en el Ingresar al sistema.
+
+sistema con un nombre y Si
+contraseña.
+
+ 
+
+Tabla 30. Prueba de Integración — Identificarse.
+
+ 
+
+ 
+
+Prueba de Integración
+
+ 
+
+ 
+
+ 
+
+Título Cerrar sesión
+
+Descripción de la | Demostrará que un usuario identificado puede cerrar
+prueba sesión.
+
+ID 9
+
+ 
+
+Detalles caso de prueba
+
+ 
+
+Resultado esperado ¿Aprobado?
+
+Usuario identificado en el Cerrar sesión
+sistema cierra sesión. Si
+
+ 
+
+ 
+
+Tabla 31. Prueba de Integración — Cerrar sesión.
+
+70Prueba de Integración
+
+ 
+
+ 
+
+ 
+
+ 
+
+Título Crear un dashboard
+Descripción de la | Demostrará que un usuario puede crear un dashboard
+prueba para presentar reportes.
+ID 10
+Detalles caso de prueba
+Resultado esperado ¿Aprobado?
+Usuario selecciona la | Crear un dashboard con
+opción de crear un el nombre dado. Si
+dashboard con un
+nombre.
+Usuario selecciona tipo | Dashboard con privacidad Si
+de privacidad pública pública.
+para el dashboard .
+Usuario selecciona tipo | Dashboard con privacidad Si
+de privacidad privada privada.
+
+ 
+
+para el dashboard.
+
+ 
+
+ 
+
+Tabla 32. Prueba de Integración — Crear un dashboard.
+
+Prueba de Integración
+
+ 
+
+ 
+
+ 
+
+Eliminar un dashboard
+Demostrará que un usuario puede eliminar un
+prueba dashboard.
+ID 11
+Detalles caso de prueba
+Acción usuario Resultado esperado ¿Aprobado?
+Usuario selecciona un Eliminar dashboard
+dashboard para ser seleccionado. Si
+eliminado.
+
+ 
+
+ 
+
+ 
+
+Tabla 33. Prueba de Integración — Eliminar un dashboard.
+
+71Prueba de Integración
+
+ 
+
+Título
+
+Descripción de la
+prueba
+
+Crear reporte
+
+Demostrará que un usuario puede crear reportes para
+un dashboard.
+
+12
+
+Detalles caso de prueba
+
+ 
+
+ 
+
+Acción usuario Resultado esperado ¿Aprobado?
+Usuario crea reporte con | Crear reporte con
+los campos nombre, |nombre, indicador de Si
+indicador de desempeño, | desempeño, — tipo de
+tipo de grafico (diagrama | grafico (diagrama de
+de barras, diagramas de | barras, diagramas de
+pastel, histograma, | pastel, histograma,
+tabulación, tacómetro), | tabulación, — tacómetro),
+filtros agrupación y | filtros agrupación y
+rangos de fechas para el | rangos de fechas para el
+indicador de desempeño. | indicador de desempeño
+seleccionados.
+
+ 
+
+Tabla 34. Prueba de Integración — Crear reporte.
+
+ 
+
+Prueba de Integración
+
+ 
+
+ 
+
+ 
+
+Título Eliminar reporte
+
+Descripción de la | Demostrará que un usuario puede eliminar un reporte
+prueba del dashboard .
+
+ID 13
+
+ 
+
+Detalles caso de prueba
+
+ 
+
+ 
+
+Acción usuario | Resultado esperado ¿Aprobado?
+Usuario elimina un Eliminar reporte del
+reporte del dashboard. dashboard. Si
+
+ 
+
+ 
+
+Tabla 35. Prueba de Integración — Eliminar reporte.
+
+72Prueba de Integración
+
+ 
+
+ 
+
+ 
+
+Título Exportar tablero
+Descripción de la | Demostrará que un usuario puede exportar el tablero
+prueba generado en un darshboard.
+ID 14
+Detalles caso de prueba
+¿Aprobado?
+
+Usuario exporta el tablero Generar en PDF el
+generado en un tablero seleccionado. Si
+
+darshboard.
+
+ 
+
+Tabla 36. Prueba de Integración — Exportar tablero.
+
+ 
+
+Prueba de Integración
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Título Visualizar dashboard públicos
+Descripción de la | Demostrará que un usuario puede visualizar los
+prueba dashboard.
+ID 15
+Detalles caso de prueba
+
+Acción usuario Resultado esperado ¿Aprobado?
+Usuario creador Visualización de los
+selecciona darshboard darshboard privados Si
+privados. seleccionados
+Usuario de determinada Visualización de los
+empresa selecciona darshboard públicos Si
+darshboard públicos. seleccionados
+
+ 
+
+ 
+
+ 
+
+Tabla 37. Prueba de Integración — Visualizar dashboard públicos.
+
+ 
+
+Prueba de Integración
+
+ 
+
+ 
+
+ 
+
+Título Guardar cambios dashboard
+Descripción de la | Demostrará que el sistema guarda en el dashboard.
+prueba
+ID 16
+Detalles caso de prueba
+
+Acción usuario Resultado esperado ¿Aprobado?
+Usuario actualiza un El sistema guarda
+reporte automáticamente los Si
+
+ 
+
+ 
+
+ 
+
+73cambios del dashboard.
+
+ 
+
+ 
+
+Tabla 38. Prueba de Integración — Guardar cambios dashboard.
+
+ 
+
+Prueba de Integración
+
+ 
+
+Título
+
+Manual de usuario
+
+Descripción de la | Demostrará que un usuario puede visualizar una
+prueba icación.
+
+ayuda de la aplicación
+
+17
+Detalles caso de prueba
+
+ 
+
+ 
+
+Acción usuario Resultado esperado ¿Aprobado?
+Usuario selecciona | Visualizar el manual de
+visualizar el manual de usuario. Si
+
+usuarios.
+
+ 
+
+ 
+
+Tabla 39. Prueba de Integración — Manual de usuario.
+
+ 
+
+Prueba de Integración
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Título Cargar información Data Mart
+Descripción de la | Demostrará que un usuario puede cargar la
+prueba información en el Data Mart por demanda.
+ID 18
+Detalles caso de prueba
+Resultado esperado ¿Aprobado?
+Usuario selecciona Carga el indicador
+sección de indicadores un | seleccionado según las Si
+indicador, su fecha de fechas asignadas.
+inicio y fecha de
+finalización.
+Usuario selecciona la Carga la dimensión
+sección de dimensiones | seleccionada según las Si
+una dimensione, su fecha fechas asignadas.
+de inicio y fecha de
+finalización.
+Usuario carga todas las Carga todas las
+dimensiones para cargar | dimensiones relacionadas Si
+
+una tabla de hechos.
+
+con dicha tabla de
+hechos.
+
+ 
+
+ 
+
+Tabla 40. Prueba de Integración — Cargar información Data Mart.
+
+74Prueba de Integración
+
+ 
+
+Título Limpiar información Data Mart
+
+Descripción de la | Demostrará que un usuario puede limpiar la
+prueba información en el Data Mart por demanda.
+IAE
+
+Detalles caso de prueba
+Acción usuario Resultado esperado ¿Aprobado?
+
+ 
+
+Usuario selecciona la Limpia el indicador
+sección de indicadores un | seleccionado según las Si
+indicador, su fecha de fechas asignadas.
+inicio y fecha de
+
+finalización.
+
+Usuario selecciona la Limpia la dimensión
+sección de dimensiones | seleccionada según las Si
+una dimensione, su fecha fechas asignadas.
+de inicio y fecha de
+
+finalización.
+
+ 
+
+Usuario limpia todas las | Limpia todas las tablas de
+tablas de hechos para | hechos relacionadas con Si
+
+limpiar una dimensión. dicha dimensión.
+Tabla 41. Prueba de Integración — Limpiar información Data Mart.
+
+ 
+
+ 
+
+75

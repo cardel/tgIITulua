@@ -1,0 +1,3816 @@
+Desarrollo de una aplicación para el sistema
+de costos ABC implementado al centro de
+costo Hospital Día para el Hospital
+Psiquiátrico Universitario del Valle
+
+Integrantes
+
+Diego Fernando Segura Herrera
+Cód. 201255516
+
+Diana Marcela López Quintero
+Cód. 201113033
+
+Universidad del Valle Sede Tuluá
+
+Programa de Ingeniería de Sistemas
+Mayo de 2014Desarrollo de una aplicación para el sistema
+de costos ABC implementado al centro de
+costo Hospital Día para el Hospital
+Psiquiátrico Universitario del Valle
+
+Integrantes
+
+Diego Fernando Segura Herrera
+Cód. 201255516
+
+Diana Marcela López Quintero
+Cód. 201113033
+
+Trabajo de grado para optar el título de Ingeniero de Sistemas
+
+Director
+Oscar Orlando Ceballos Argote, M.Sc.
+
+Universidad del Valle Sede Tuluá
+
+Programa de Ingeniería de Sistemas
+Mayo de 2014Nota de aceptación
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Presidente del Jurado
+
+ 
+
+Jurado 1
+
+ 
+
+Jurado 2
+
+Tuluá, Mayo de 2014
+
+111Abstract
+
+The Hospital Psiquiátrico Universitario del Valle ESE is a mental health related treatments
+specialized institution. Its public and has the greatest psychiatric complexity in the Colombian
+southwest.
+
+The Hospital has a standard cost system currently implemented, which has failed to show effective results calculating the cost offered services. Since the Hospital is ruled by the Public
+Accounting Technical Council! and the Republics Congress, It resolved to implement the ABC
+cost methodology to comply with the established requirements by the number 100 Congress Law
+of 1993.
+
+Based on those facts, process systematization proves to be necessary (i.e. Social and Community
+Intervention, Ambulatory Attention, Hospitalization, Diagnostic Help, Rehabilitation, Directing
+and Strategy, Support Processes) for the ABC methodology procedure to be developed in addition to increase results achievement agility and statistic data gathering, as an administrative
+and managing tool.
+
+Keywords: ABC cost methodology, Standard Cost Methodology, Information System
+
+ 
+
+Permanent organization of accounting rules's standarization, financial information and information insurance,
+afiliated to the Commerce, Industry and Turism Ministry
+
+lvResumen
+
+El Hospital Psiquiátrico Universitario del Valle ESE es una Institución especializada en la intervención de aspectos relacionados con la salud mental. Es de carácter público y el centro de
+mayor complejidad psiquiátrica del suroccidente del país.
+
+Actualmente, el Hospital tiene implementado un sistema de costos estándar que no ha mostrado
+resultados efectivos al calcular el costo de los servicios ofrecidos, y al regirse por la normatividad
+del Consejo Técnico de la Contaduría Pública?, y del Congreso de la República, decide imple
+mentar la metodología de costos ABC, para cumplir con los requerimientos establecidos por el
+Congreso en la Ley 100 de 1993. [1].
+
+Con base en lo anterior es necesario sistematizar los procesos (e.g. Intervención Social y Comunitaria, Atención Ambulatoria, Hospitalización, Ayudas Diagnosticas, Rehabilitación, Direccionamiento y Estrategia, Procesos de Apoyo), que le permitan realizar el procedimiento de la
+metodología de costos ABC, además de agilizar la consecución de los resultados, y obtención de
+datos estadísticos, como una herramienta de administración y gerenciamiento.
+
+Palabras clave: Metodología de costos ABC, Metodología de costos estándar, Sistema de información
+
+ 
+
+“Organismo permanente de normalización técnica de normas contables, de información financiera y de aseguramiento de la información, adscrito al Ministerio de Comercio, Industria y Turismo.
+
+vVDedicatoria
+
+Dedicado a mi familia que me apoyo siempre en mis esfuerzos por mejorar, y a mi pareja que
+siempre estuvo ahí en los momentos buenos y malos y a los docentes que me instruyeron en este
+sendero y gracias a su gran calidad profesional y humana estoy culminando mi pregrado.
+
+Diego Fernando
+
+Dedicado a mi madre, a mi padre, a mis hermanos y a mi pareja quienes aportaron los granitos de arena que me ayudaron a formar la cima que hoy representa la culminación de mi pregardo.
+
+Diana Marcela
+
+vlAgradecimientos
+
+Gracias primero que todo a Dios por permitirme llegar hasta donde he querido, a mi familia, en
+especial a mi padre que me inculco el amor por aprender, a mi pareja por su apoyo incondicional
+en cada etapa de mi vida, a los docentes que me instruyeron de los cuales aprendí mucho, y
+a mi director de trabajo de grado quien nos exigió siempre para que diéramos lo mejor como
+profesionales, y a la Universidad del Valle por tener siempre las puertas abiertas y de la que
+siempre estaré orgulloso de pertenecer.
+
+Diego Fernando
+
+Gracias doy a Dios que me ha prestado la vida para alcanzar esta meta tan preciada, a mi
+madre que ha sido mi ejemplo de fortaleza y valor para lograr mis objetivos, a mi padre que se
+esforzó por apoyarme en mis estudios, a mi hermana que me ha demostrado que con esfuerzo
+y dedicación se pueden alcanzar las metas, a mi hermano porque me enseñó a ver de forma
+diferente las adversidades, a mi pareja porque siempre ha sido mi apoyo, porque me ha alentado
+a seguir adelante pese las calamidades y ha sido el pilar para construir muchos de mis logros.
+
+Agradezco a nuestro Director, por guiarnos y exigirnos para dar lo mejor en este proceso, a
+los docentes que marcaron por su excelencia nuestra formación académica, y a la Universidad
+del Valle ”la mejor para los mejores”, de la que con orgullo hice parte.
+
+Diana Marcela
+
+vilÍndice general
+
+Índice de tablas
+xi
+Introducción
+
+11
+12
+12
+16
+16
+16
+16
+17
+
+ 
+
+21,2 (Clasificación sistemas de costos
+
+   
+
+ 
+
+O. estión de insumos, recursos, gastos, actividades, inductores y activos fijos . . . 30
+
+ 
+
+o. entros de costo, servicios y actividades . ......... . ............ 3l
+sy urnos laborales personal asistencial . ........................ 92
+3.0 Recolección de la intormación proveniente de otras aplicaciones .......... 34
+O. alculo de Costos primos, absorción y distribució o SÓ
+38
+
+39
+
+41
+
+43
+
+4.1. specificación de requerimientos ....................... 43
+
+viii4.2. AT qutectura A5
+
+42323 Modelo entidad relación 47
+
+4.2. Diagrama de clases ...... 49
+
+4.2.4 Diagrama de Secuencia... 49
+AO 50
+
+E Pre 51
+
+5 onclusiones y trabajos futuros 55
+O AT 55
+
+5. Taba lOs TUBOS 57
+[Referencias 58
+[Anexos 60
+61
+65
+71
+D_ Casos de Uso 74
+
+1xÍndice de tablas
+
+ 
+
+Tabla [. siquiátrico Universitario
+
+Tabla P.1 Verbos usados en REST' y como aplicarlos. "Tomado de (10l|.
+Tabla PP. Representación JSON de cada tipo de data .
+
+rs. Herramientas de software disponibles en el mercado.|15/|16|
+
+ 
+
+Tabla H. print Backlog módulo de costos].
+
+Tabla HU. est de aceptación requerimiento 8.1 Módulo de costos
+Tabla HU. specificación de Kkequerimientos módulo de Costos.
+
+Tabla H.. valuación final test de aceptación requerimiento 8.1 del módulo Costo
+
+Tabla U.! ¡aso de estudio, estructuración información de costos.
+
+Tabla (
+Tabla
+Tabla
+Tabla
+
+Tabla [A. print Backlog módulo personal
+Tabla [A.6 Sprint Backlog módulo turno
+
+Tabla [B. est de aceptación requerimientos Módulo de gastos|. .
+Tabla [B. est de aceptación requerimientos Módulo de insumos.
+
+Tabla [B. est de aceptación requerimientos Módulo de turnos .
+Tabla [B.4 est de aceptación requerimientos Módulo de recurso
+Tabla [B. est de aceptación requerimientos Módulo de personal
+
+ 
+
+de aceptación requerimientos Módulo de centros de costo
+
+ 
+
+Tabla (TC. specificación de Kkequerimientos módulo de Gastos.
+
+Tabla (TC. specificación de Requerimientos módulo de Insumo
+Tabla [C. specificación de Requerimientos módulo de Turnos.
+
+Tabla [C./ specificación de Requerimientos módulo de Kecursos .
+
+Tabla [C.! specificación
+
+Tabla (C.6 specificación de Kequerimientos módulo de Centros de Costal .
+
+ 
+
+15
+
+21
+22
+
+20
+
+41
+43
+44
+ol
+92
+
+61
+62
+62
+62
+63
+63
+
+65
+66
+67
+68
+68
+69
+
+71
+71
+12
+12
+13
+13Índice de figuras
+
+Figura !L_1__a. Proceso básico del sistema de costos ABC, b. Proceso sistema de costos
+siquiátrico Universitario
+
+Figura P.1 Solicitud simple en el modelo de Ajax/respuesta, que implica solamente
+
+n XAML estático, un UN, o un archivo de texto que reside en el mismo dominio
+
+Tomada de |12/)
+
+Figura BT Estructura básica interfaces de ICBA]
+
+Figura B2_ Menú Dashboard sección administran .
+
+Fiera oda
+
+FiguraB.4_ Lista de Centros de Costo creados ............
+
+Figura B.5_ Iconos de opciones ofrecidas sobre los elementos creados
+] . E de opciones tabla o
+
+dl o ERA
+
+Figura EU Tato de astnación de dlenontos un Usada
+
+Figura B.10 Interfaz de programación de turnos.
+
+Figura B-11 Interfaz de gestión de agendag. ........
+
+Figura B.12 Calendario para la programación de eventos.
+
+Figura 8-13 Interfaz de carga de datos .
+
+Figura E12 Informe de Costo Prima .
+
+Figura B. ntertaz de descarga de intorme
+Figura M1_ Caso de uso módulo de Costos
+
+Figura H. Arquitectura funciona BA!
+
+Figura 1.3 Modelo Entidad - Relaciónl
+
+Figura H.4 Diagrama de clases: Módulo Centros de Cotos. .........
+Figura H. Diagrama de secuencia funcionalidad: calcular el costo primo
+Figura 4.6 ecución pruebas unitarias clase Centrocosto.java
+
+Figura [D.1_ Caso de 1so módulo Gastos .
+Figura [D.2 Caso de uso módulo Insumos
+Figura ID.3_ Caso de uso módulo Turnos . .
+Figura [D4_ Caso de 1so módulo Recursos .
+
+Figura [D aso de uso módulo Empleados |. .
+Figura EN e)
+
+ 
+
+ 
+
+ 
+
+ 
+
+xl
+
+14
+
+22
+
+26
+27
+28
+28
+29
+29
+SU
+SU
+32
+33
+34
+0
+31
+39
+40
+
+45
+46
+48
+49
+90
+92
+
+74
+15
+76
+YI
+17
+18Capitulo 1
+
+Introducción
+
+1.1 Descripción general
+
+El Hospital Departamental Psiquiátrico Universitario del Valle, empresa social del estado ESE,
+es una entidad de salud experta en el diagnóstico y tratamiento de enfermedades psiquiátricas. Es
+líder en intervenciones de acuerdo con las investigaciones científicas del momento; es de carácter
+público, con protocolos ceñidos al rigor académico; es centro de educación universitaria donde
+se entrenan los pregrados de medicina, enfermería, psicología y otras disciplinas afines, de cinco
+universidades, y los posgrados de psiquiatría, psicología clínica con énfasis en investigación y
+salud mental para enfermería, de la Universidad del Valle.
+
+La empresa cuenta con una estructura tipo funcional, articulada en tres grandes procesos: El
+proceso de Dirección, conformado por la junta directiva y el gerente. El proceso de Atención
+al usuario representado por las unidades orgánico-funcionales encargadas de todo el proceso de
+producción y prestación de servicios de salud. Y el proceso de Logística, comprendido por las
+unidades funcionales encargadas de ejecutar, en coordinación con las demás áreas, los procesos
+de planeación, adquisición, manejo, utilización, optimización y control de los recursos humanos,
+financieros, físicos y de información para llevar a cabo los objetivos de la organización y, realizar
+el mantenimiento de la planta física y su dotación. Para realizar la gran cantidad de tareas que
+le competen, se divide, en gestión del talento humano, gestión logística y de servicios administrativos, sistemas de información y gestión financiera. Esta última conformada por las áreas de
+Contabilidad, Presupuesto, Cartera, Facturación y Costosl2l.
+
+En particular, el área de Costos del Hospital, es la encargada de aplicar el sistema contable
+de costos a través de Centros de Costo, operativos y generales con base en la clasificación
+de los costos y de la productividad de la empresa social. El Hospital define sus Centros de
+Costos integrados por el conjunto de recursos humanos, físicos y tecnológicos que interactúan
+coordinadamente para la venta o la prestación de los diferentes servicios que ofrece.
+
+Siguiendo las expectativas de la JFACU, se ha analizado la efectividad del modelo de costos
+estándar implementado actualmente en el Hospital, y se ha determinado que no cumple a cabalidad con la normatividad establecida por el Congreso de la República artículo 225 de la Ley
+100 de 1993. Para evitar futuras sanciones citadas en el Decreto 452 de 2000 artículo 29, y con
+el fin de satisfacer los requerimientos de la Ley 100 de 1993, se ha decidido cambiar el sistema
+
+ 
+
+Federación Internacional de Contadores
+
+11de costos estándar utilizado actualmente por el área de costos del Hospital, ya que no permite
+calcular verazmente el costo de los servicios ofrecidos.
+
+Debido al gran volumen de información que involucra el proceso de costos, se ha identificado
+la necesidad de sistematizar este proceso a la par que se realiza el cambio de sistema de costos
+estándar al sistema de costos ABC, desarrollando una aplicación que permita el ingreso de
+información proveniente de las diferentes áreas que gestionan los recursos necesarios para prestar
+los servicios del Hospital, y posteriormente calcular el costo de cada servicio mensualmente.
+
+Dada la disponibilidad que presenta el centro de costo asistencial Hospital Día para brindar
+información acerca de los procesos que realiza para su funcionamiento, se tomará este centro
+de costo como referencia para el desarrollo del presente proyecto, ya que refleja la problemática
+presentada en todas las áreas del Hospital en cuanto al cálculo de los costos, que dificultan la
+estimación del precio de los servicios prestados a la comunidad.
+
+Con base en la siguiente definición se desarrolló la aplicación para el sistema de costos ABC del
+Hospital. “El sistema de costos ABC es una metodología que determina el costo y desempeño
+de actividades, recursos y objetos de costo;... (en el caso del Hospital los objetos de costo son
+los servicios prestados) ...en el cual los recursos son asignados a las actividades. Por lo tanto,
+se costea primero la actividad; luego se asigna el costo de las actividades a los objetos de costo
+(productos, servicios y comercialización de éstos) según su uso.”(Bl
+
+1.2 Problema
+
+1.2.1 Descripción del problema
+
+El Hospital Psiquiátrico Universitario del Valle, posee un portafolio con 84 servicios en salud
+mental integral, algunos de ellos son hospitalización psiquiátrica, psiquiatría itinerante, intervención por psicología, rehabilitación y hospital día. Cada uno de estos servicios representa un
+eran volumen de información para el proceso de costos.
+
+Actualmente en el Hospital se aplica el sistema de costos estándar, conocido también como
+sistema de costos tradicional. Este proceso requiere la recolección de información sobre los costos
+y gastos incurridos en las diferentes áreas del Hospital. Los términos de costos y gastos se aplican
+dependiendo del área donde se originan. Por ejemplo, en las áreas administrativas las salidas de
+dinero destinadas a la cancelación de nómina representan un gasto cuando el personal pertenece
+a las áreas administrativas y representa un costo cuando el personal hace parte de la áreas
+asistenciales quienes están directamente involucrados con la prestación de los servicios.
+
+La centralización de la información necesaria para llevar a cabo el proceso de costos, es una
+labor dispendiosa para el área de costos, ya que debe gestionar personalmente la obtención de
+esta información con cada centro de costo (dependencia involucrada en labores de logística) lo
+cual implica el desplazamiento constante hacia dichas áreas. Algunos de estos centros cuentan
+con la ayuda de herramientas de software contable para generar sus respectivos informes, pero
+la mayoría realizan sus informes y reportes manualmente, ya sea en hojas de cálculo o en papel,
+que posteriormente el área de costos procesa y digitaliza manualmente para realizar los cálculos
+correspondientes al proceso de costos, lo que dificulta y duplica el trabajo para esta área, que
+no cuenta con un software para llevar a cabo este proceso.
+
+12Cada centro de costo que otorga información referente al proceso de costos realiza una labor
+diferente según su área, los siguientes centros de costo, reportan su información en hojas de
+cálculo: Estadística, gestiona la relación del número de pacientes por área de hospitalización,
+por ejemplo estancia general, las 9 salas de hospitalización, terapia ocupacional, terapia familiar
+y trabajo social. Servicio de información y atención al usuario (SIAU) relaciona el
+porcentaje de medicamentos y suministros por área de hospitalización. Sistemas notifica el
+número de terminales de cómputo, y el consumo de extensión telefónica por centro de costo.
+Servicios Administrativos informa el consumo de servicios públicos de las áreas tercerizadas
+(contratistas del Hospital) por ejemplo, laboratorio y cafetería. Los siguientes centros de costo
+disponen del software contable GC-UNOM para realizar sus labores y presentar sus informes.
+Servicio de alimentos reporta el suministro de alimentos en las áreas de hospitalización.
+Talento Humano administra la nómina del Hospital. Almacén relaciona los suministros de
+almacén entregados a los diferentes centros de costo. El centro de costo Fotocopiadora, entrega
+un informe impreso, relacionando el número de fotocopias por centro de costo, y Lavandería,
+reporta la cantidad de kilos de ropa lavada por cada área de hospitalización en un informe
+elaborado a mano.
+
+Una vez recolectada y clasificada la información, se inicia con el cálculo de los costos de cada
+centro de costo, según los consumos registrados. Luego de obtener el costo primario (mano
+de obra, gastos generales y suministros) de cada centro costo, se clasifican los mismos entre
+asistenciales (centros de costo involucrados directamente con la prestación del servicio), de los
+centros de costo logísticos y administrativos (centros de costo que prestan servicios de apoyo a
+los centros de costo asistenciales), para trasladar el gasto de operación de estos últimos a los
+centro asistenciales ya que son los que generan los ingresos al Hospital.
+
+Al no contar con estándares apropiados para la distribución del gasto de los centros de costo
+administrativos a los centros de costo asistenciales, esta distribución no es directamente proporcional respecto al consumo de los recursos (humanos y físicos) por parte de los diferentes centro
+de costo.
+
+Dadas las circunstancias anteriores y teniendo en cuenta la necesidad de contar con un sistema
+de costos que refleje de forma contundente la realidad de la empresa, para la fijación de las
+tarifas por los servicios prestados; el sistema de costos ABC se presenta como una oportunidad
+de mejora para este proceso dentro del Hospital. La metodología de costos ABC "consiste fundamentalmente en asignar costos a los insumos necesarios para ejecutar todas las actividades
+de un proceso productivo - identificadas como las relevantes para obtener un determinado objeto
+de costo - y luego calcula el costo de esas actividades productivas mediante el mecanismo de
+absorción de costos” [A].
+
+Para establecer cuál es el procedimiento a seguir para cambiar el sistema de costos estándar
+empleado originalmente por el Hospital al sistema de costos ABC, veremos a continuación en la
+Figura 1.1 los pasos que se llevan a cabo para calcular los costos en ambos sistemas, detallados
+en cuatro niveles:
+
+ 
+
+“Software ERP, propiedad intelectual compañía Siesa S.A.S.
+
+13Nivel 1 Costos
+indirectos
+
+Costos
+indirectos ¡ + e centro |
+E AS
+
+   
+
+bilidad
+Nivel 2 | | | Factor |
+Factor base y base para y
+para Tiempo $ Producto $ Operación $ p Tiempo $ Producto $ Operación $
+
+asignar
+asignar i ) | costos y ji j
+enstas
+
+Nivel 3 ; Objetos
+
+Objetos Costos Indirectos de Costos Indirectos
+costos
+
+costos Costos Directos Costos Directos
+
+ 
+
+Nivel 4
+
+Mano de obra Materiales e Otros Costos Mano de obra Materiales e Otros
+Costos directa por insumos costos directos directa por insumos costos
+directos  fcada objeto de directos directos cada objeto de directos directos
+
+costo osto O servicio
+
+  
+
+Figura 1.1: a. Proceso básico del sistema de costos ABC. b. Proceso sistema de costos estándar
+del Hospital Psiquiátrico Universitario del Valle. [A]
+
+El proceso realizado por el sistema de costos ABC para calcular los costos mostrado en la
+Figura 1.1(a) es el siguiente:/[A]:
+
+e Identificar el (o los) producto(s), líneas de productos o servicio(s) o resultados final(es)
+del proceso de producción respectivo, su marco de tiempo y las tareas necesarias para su
+realización.
+
+e Calcular el costo de las tareas o actividades necesarias para la consecución de cada objeto
+de costo.
+
+e Seleccionar una base para la asignación de cada uno de los costos, por cada una de las
+actividades detalladas en el paso anterior.
+
+e Con base en tarifas unitarias específicas de cada uno de los factores agrupados homogéneamente y que generan los costos, se calculan y asignan los costos a los diversos objetos
+
+de costo.
+
+Ahora el proceso realizado por el sistema de costos estándar para calcular los costos mostrado
+en la Figura 1.1(b) es el siguiente:
+
+e Identifica los servicios de su proceso productivo.
+e Calcula el costo de los procesos necesarios para la consecución de cada objeto de costo.
+e Selecciona una base para la asignación de cada uno de los procesos.
+
+e Con base en tarifas unitarias específicas de cada uno de los procesos, calcula y asigna los
+costos a los diversos objetos de costo.
+
+14Al comparar ambos procesos, se pueden evidenciar las diferencias que existen entre ellos, permitiendo señalar los problemas que presenta el Hospital al calcular de sus costos bajo el sistema
+estándar:
+
+e El Hospital, no ha logrado identificar cada una de las tareas necesarias para llevar a cabo
+
+los servicios que ofrece, los cuales son los objetos de costo (Figura 1.1, Nivel 3) según la
+metodología ABC.
+
+e Como consecuencia de no poder identificar las tareas, no es posible asignar los costos
+
+respectivos a cada tarea, lo que es de suma importancia, ya que son las actividades la base
+de la metodología ABC.
+
+e En la metodología ABC, se establecen bases específicas, para calcular el costo de las actividades necesarias para realizar un determinado servicio, en el hospital, al no tener las
+tareas definidas, se han establecido las bases de asignación de manera general; como se
+observa en la Tabla 1.1
+
+ 
+
+ 
+
+ 
+
+ 
+
+Base Medida
+
+Alimentos Raciones Alimenticias
+
+Lavandería Kilos de ropa lavada por área
+Vigilancia Metros cuadros
+
+Energía Kilovatios promedio consumo
+Acueducto y alcantarillado Número de personas por área
+Consumo telefónico cargo básico No. de Extensiones telefónicas por área
+Consumo telefónico adicional Cantidad de minutos y destino
+Facturación y Cartera Valor facturado por área
+
+Gerencia
+
+ 
+
+Talento Humano
+
+ 
+
+Salud ocupacional Número de personas por área
+
+Planeación
+
+ 
+
+ 
+
+Presupuesto
+
+Contabilidad
+
+ 
+
+ 
+
+Control interno
+
+ 
+
+Control disciplinario
+
+ 
+
+ 
+
+Costos Costo primo por área
+
+Mantenimiento Equipos de Cómputo Número de terminales por área
+
+Seguro responsabilidad civil profesional Número de personas por área asistencial
+Recolección de basuras- aseo Metros cuadrados
+
+ 
+
+Tabla 1.1: Bases de Asignación Hospital Psiquiátrico Universitario del Valle
+
+15Base Medida
+
+Celular Planta salida celular
+
+Auxilios y servicios funerarios Número de afiliados a servicios funerarios
+
+Póliza vehículos Número de vehículos
+
+Cuota de fiscalización contraloría Sujetos de control (porcentaje de facturación) y por
+centaje de estadística
+
+ 
+
+ 
+
+Cuota de fiscalización superintendencia Sujetos de control
+
+Sindicato Número afiliados sindicato
+
+Fondo de empleados Número afiliados fondo de empleados
+Medicamentos porcentaje de medicamentos suministrados
+Salas l a la 9 Número de pacientes
+
+ 
+
+Tabla 1.1: (Continuación)
+
+e Los costos totales, son la suma de cada uno de los costos generados por las diferentes
+tareas, ya que el Hospital no ha logrado identificar las tareas, costea los procesos de forma
+general, y no logra costear correctamente cada objeto de costo (servicio).
+
+1.2.2 Formulación del problema
+
+¿Cómo sistematizar el proceso de costos ABC para el centro de costo Hospital día en el Hospital
+Psiquiátrico Universitario del Valle”?
+
+1.3 Objetivos
+
+1.3.1 Objetivo general
+
+Desarrollar una aplicación para el sistema de costos ABC implementado al centro de costo
+Hospital día para el Hospital Psiquiátrico Universitario del Valle.
+
+1.3.2 Objetivos específicos
+
+e Permitir el ingreso de la información proveniente de los centros de costo (Estadística,
+Lavandería, SIAU, Servicios Administrativos, Fotocopiadora, Alimentos, Talento Humano,
+Almacén, Sistemas y Gestión de Servicios Hospitalarios) encargados de la administración,
+y de distribuir los recursos e insumos para el centro de costo Hospital día.
+
+e Filtrar la información pertinente al proceso de costeo, generada por los 8 servicios que
+presta (psicoterapia individual por psiquiatra, psicoterapia individual por psicólogo, psicoterapia de grupo por psiquiatra sesión, psicoterapia de grupo por psicólogo sesión, psicoterapia de familia sesión, terapia consulta familiar evaluación, permanencia diurna para
+tratamiento, médico especialista hospital día) y por la información e insumos recibidos por
+el centro de costo Hospital día.
+
+e Realizar el cálculo los costos por actividad de los servicios (psicoterapia individual por psiquiatra, psicoterapia individual por psicólogo, psicoterapia de grupo por psiquiatra sesión,
+16psicoterapia de grupo por psicólogo sesión, psicoterapia de familia sesión, terapia consulta familiar evaluación, permanencia diurna para tratamiento, médico especialista hospital
+día) que presta el Centro de costo Hospital día.
+
+e Generar los reportes (reporte de coste de los servicios contra la tarifa por entidad contratante, distribución porcentual de los costos primos de cada centro de costo, valor facturado
+por áreas, costos con incrementos significativos por periodo, Reporte histórico de costos
+generales (servicios públicos, fotocopias, viáticos, capacitaciones, vigilancia, aseo, etc.),
+Productividad vs costo (personal asistencial)) de los costos ABC calculados que ayudará
+
+al proceso de toma de decisiones para mejorar la productividad del centro de coste Hospital
+día.
+
+1.4 Estructura del documento
+
+En el Capítulo 2, se presenta el marco teórico, la normatividad, las tecnologías para el desarrollo
+web y los antecedentes sobre herramientas de software para la contabilidad de costos. El Capítulo
+3, muestra las características de la aplicación: Indicador de Costos ABC (ICBA), desarrollada
+en este proyecto. El Capítulo 4, presenta los procesos de ingeniaría del software seguidos en
+la implementación de la aplicación ICBA. Finalmente el Capítulo 5 muestra las conclusiones y
+trabajos futuros.
+
+17Capitulo 2
+
+Marco Referencial
+
+2.1 Marco Teórico
+
+Los modelos de costos como Costos por Absorción, Costos Variables, Costos ABC, entre otros [B],
+se han convertido en la herramienta de primera mano de los entes gubernamentales Colombianos,
+y de países como Estados Unidos, Canadá y España, sirviendo como soporte para la toma de
+decisiones y para realizar los planes de desarrollo e inversión de las entidades públicas, facilitando
+el establecimiento de tarifas según el caso, y optimizando el buen uso y adecuada destinación de
+los recursos del Estado.
+
+2.1.1 Normatividad
+
+Para las entidades prestadoras de servicios de salud se ha definido la obligatoriedad de contar
+con sistemas de costos en las empresas tanto públicas como privadas, tal como lo estipula la
+Ley 100 de 1993. El Ministerio de la Protección Social (antes Ministerio de Salud), sobre la
+base de la exigencia explícita de la Ley 100 de 1993 en el sentido de que todas las entidades
+deben manejar costos, en 1999 presentó un manual[(6] para el establecimiento de los costos en
+las entidades del sector Salud, y a través de su plan único de cuentas ha hecho que muchas de
+estas entidades implementen un sistema de costos, pues para la aplicación de dicho plan de
+cuentas es necesario tener el sistema de costos que permita la contabilización adecuada por área
+de servicio (consulta externa, urgencias, quirófano, laboratorio clínico, etc.) [B]. Dicho manual
+
+expresa en su presentación que confía en la metodología de costos ABC para el cumplimiento
+de la Ley 100 de 1993, que lo rige:
+
+El manual de implementación del sistema de costos hospitalarios plantea los
+siguiente: “El Ministerio de Salud, a través del Programa de Mejoramiento
+de los Servicios de Salud, diseñó una nueva metodología para el cálculo de
+costos hospitalarios en donde se mezclaron elementos de costos de absorción
+con metodología ABC buscando entregar a las instituciones hospitalarias
+una herramienta de fácil aplicación en cualquier nivel de atención y que
+cumpla integralmente con los requerimientos de información exigidos por
+los organismos de control, pero que fundamentalmente llene las expectativas
+de la alta gerencia y gerencia media, en relación con la información de costos
+de los servicios de salud que se prestan”. [6
+
+ 
+
+Ministerio del poder ejecutivo de Colombia, encargado de determinar y regular normas, sobre salud pública,
+apoyo a la población en situación de pobreza y asistencia social.
+
+182.1.2 Clasificación sistemas de costos
+
+Un sistema de costos es un "Sistema de información que establece el procedimiento administrativo
+y contable para identificar los datos que permiten determinar el costo de actividades, procesos,
+productos o servicios” |]
+
+De acuerdo a las metodologías de costos, se pueden clasificar los sistemas de costos como [7]:
+
+e Costo total, absorbente o tradicional (Full Costing), el cual asigna al producto los
+materiales o insumos directos, la mano de obra directa, costos indirectos y la contratación
+de terceros. No hace distinción entre costos variables y fijos. Los gastos no tienen nada
+que ver con los inventarios. La utilidad bruta es la diferencia entre las ventas y el costo
+de estas ventas.
+
+Costo total = materiales + mano de obra + costos indirectos + contratación con terceros
+
+e Costeo directo, variable o marginal (Direct Consting), asigna al producto los costos
+variables. No tiene en cuenta los costos y los gastos fijos.
+
+Costo total = materiales + mano de obra variable + costos indirectos variables +
+contratación con terceros
+
+e Costeo en la teoría de las restricciones ( Throughput Accounting), asigna los costos indirectos
+en los puntos débiles del sistema, identifica los cuellos de botella y sincroniza el sistema.
+El throughput es la velocidad a la cual se gasta el dinero
+
+Throughput = precio de venta - costos variables
+
+e Costeo objetivo (Target Costing), determina los costos a partir del precio, buscando el
+costo que le permita lograr la rentabilidad deseada.
+
+e Costeo en el ciclo de vida del producto (Life Cycle Costing), es la acumulación de
+costos de actividades que se realizan a lo largo del ciclo de vida de un producto. Este costo se genera desde la planeación del producto, hasta el desarrollo del soporte logístico.
+
+e El Costeo por Protocolos (Protocols Costing), es una metodología aplicada en el sector
+de la salud, identificando el tratamiento de menor costo, ya sea en procedimientos o
+tratamientos de problemas clínicos.
+
+e Costeo basado en ventas (Sales Based Costing): busca que todas las áreas de una
+institución sean rentables, aunque sus clientes sean internos.
+
+e Costeo basado en actividades (Activity Based Costing), asigna a los productos o servicios
+los materiales directos y el costo de las actividades necesarias para producirlos o prestarlos
+y costea las actividades con base en los recursos necesarios para realizarlas. Los costos y
+
+19gastos agrupados son los recursos del sistema.
+
+Costo total = materiales + sumatoria del costo de cada una de las actividades
+
+Debido a las debilidades e inconsistencias principalmente causadas por las distribuciones de los
+costos indirectos que presentan los sistemas de costos tradicionales, los cuales constan de más
+técnica que de gestión, se da lugar a los sistemas de costos ABC como una nueva forma de
+determinar y administrar los costos, que apoyan la toma de decisiones, y dan respuesta a las
+necesidades planteadas en las organizaciones, optimizan los recursos y mejoran la competitividad.
+
+El cálculo de costos basado en las actividades es un concepto de contabilidad de costos que se
+fundamenta en la premisa de que los productos requieren que una empresa ejecute determinadas
+actividades y que tales actividades requieren a su vez que la empresa incurra en unos costos. [8]
+Este sistema se apoya en los siguientes principios: [|
+
+e Es un modelo gerencial y no un modelo contable
+e Los productos o servicios (objetos de costo) consumen actividades
+e Considera como recursos tanto los costos como los gastos
+
+e Acierta en las relaciones de causalidad entre los recursos y las actividades y entre éstas y
+los objetos de costo (productos o servicios)
+
+e Su enfoque es sistémico; poco interesan las jerarquías departamentales
+e Es la base fundamental para desarrollar la administración basada en actividades
+
+e Si no existe compromiso de grupo, sus objetivos fracasan
+
+La implementación de la metodología de costeo ABC citada en éste proyecto se realiza sobre
+un sistema de información, el cual es un conjunto de componentes que interactúan entre sí
+para lograr un objetivo común: satisfacer las necesidades de información de una organización” [9].
+
+2.1.3 Tecnologías para el desarrollo web
+
+Una aplicación web, es una herramienta de software ejecutada en un navegador, la cual se aloja
+en un servidor y es accedida a través de la web; su ventaja radica en su independencia del sistema
+operativo, y en su facilidad para ser actualizada sin necesidad de instalar nuevo software a cada
+uno de sus usuarios; además, proporciona un acceso interactivo a los datos, que se estructura por
+medio de una arquitectura de software. La arquitectura cliente servidor, ofrece ventajas como
+centralización del control, escalabilidad, fácil mantenimiento, entre otras, y consiste en repartir
+las tareas entre el servidor, que gestiona los recursos y el cliente que los solicita. Esta separación
+permite uso de diferentes tecnologías de cada lado, según las necesidades de la aplicación. REST
+es un estilo de arquitectura de software ideal para aplicaciones de software basadas en servicios
+webl[[0]. Sus principios básicos son:
+
+e Proporcionar todos los recursos con un identificador único, por ejemplo, un URI.
+20e Enlazar recursos entre ellos, para establecer relaciones.
+e Usa métodos estándar (HTTP, media type, XML).
+
+e Los recursos pueden tener múltiples representaciones que reflejan los diferentes estados de
+aplicación.
+
+e La comunicación debe ser apátrida mediante HT'"T'P.
+
+Uno de los elementos claves en la arquitectura REST es el concepto de recurso, y éste puede
+ser cualquier información que pueda ser nombrada, (por ejemplo, un documento, una imagen,
+el clima), y puede tener una representación asociada, un documento puede ser un documento
+HTML, una imagen puede ser datos binarios JPEG, y el clima se puede representar mediante
+un documento XML. Cuando se accede a los recursos con H'T'"T'P, un identificador de recurso es
+especificado junto con la acción a realizar sobre cada recurso, el URI identifica el recurso, la
+acción a realizar es definida usando uno de los verbos H'T"T'P mostrados en la tabla 2.1, cada
+verbo puede tener una semántica asociada que ayuda a identificar la acción que se realizará en
+
+ 
+
+el recurso.
+Verbo Descripción
+GET Recupera un recurso identificado por un URI.
+POST Envía un recurso en el servidor. Actualiza el recurso en el lugar indicado por el URI.
+PUT Envía un recurso al servidor, y lo almacena en el lugar indicado por el URI.
+
+DELETE Eliminar un recurso identificado por un URI.
+HEAD Recupera los metadatos de un recurso identificado por el URI.
+
+ 
+
+Tabla 2.1: Verbos usados en REST y como aplicarlos. Tomado de [10]
+
+Para la implementación del estilo arquitectónico REST, java cuenta la API JAX-RS, la cual
+permite el desarrollo de servicios web en éste lenguaje de programación. Una de las implementaciones más conocidas de esta API es Jersey Y, la cual permite la exposición de los datos en
+una variedad de tipos de medios de representación y abstrae los detalles de bajo nivel de la
+comunicación cliente-servidor([11].
+
+Otra tecnología para el desarrollo web es Ajax, acrónimo de Asynchronous JavaScript And XML,
+con un modelo de flujo ilustrado en la Figura 2.1, es muy útil para el intercambio de información con el servidor, utilizando tecnologías como XML (Extensible Markup Language) y JSON
+(JavaScript Object Notation); y para la representación y visualización de datos usa tecnologías
+como JavaScript y CSS (Cascading Style Sheets). El elemento más importante de Ajax es el
+objeto XMLHttpRequest, que es parte del XML DOM (Document Object Model), el cual define
+un estándar para acceder y manipular documentos XML y le permite a javascript acceder completamente a documentos XML Y XHTML accediendo a los elementos que definen la estructura.
+La accesibilidad se realiza a través de un conjunto de objetos intrínsecos javascript que se centran
+en la manipulación del DOM [112].
+
+ 
+
+“https: / /jersey.java.net
+
+21|
+|
+(OQHTML
+
+|
+JavaScript
+
+y |
+
+Ajax Engine
+
+A
+
+HTTP Request
+GET method
+
+y
+
+XML/JSON
+
+ 
+
+Figura 2.1: Solicitud simple en el modelo de Ajax/respuesta, que implica solamente un XML
+estático, un JSON, o un archivo de texto que reside en el mismo dominio (Tomada de [12])
+
+La JavaScript Object Notation o JSON, es un formato de intercambio de datos, y es esencialmente una matriz asociativa o una tabla hash, lo que significa que los nombres o etiquetas se
+asocian con valores en una estructura de matriz o en una lista delimitada por comas; su sintaxis
+es muy simple e intuitiva, ya que es la representación de un objeto javaScript, la Tabla 2.2
+muestra una lista de tipos de datos con formato JSON [2]:
+
+ 
+
+Tipo de dato Representación JSON
+
+ 
+
+ 
+
+String “icon”: “img/mail.gif”
+
+Number “mynumber”: 100
+
+Boolean “myboolean”: true
+
+Array “items”: [ (£ “action”: “alert("'Grace Hopper”);”, “icon”: “img/
+mail.gif”, “item”: [“Grace Hopper”, “<b>BUG Found</b>”, “2006-0331 09:27:26] |, 4 “action”: “alert(”Pi Sheng”);”, “icon”: “img/mail.gif”,
+“item”: [“Pi Sheng”, “Movable type”, “2006- 01-15 12:32:45] | ]
+
+Object “Categories”: [ “category”: [“From”, “Subject”, “Date”]
+
+ 
+
+Tabla 2.2: Representación JSON de cada tipo de dato
+
+Para ayudar en la construcción de sitios web interactivos, existen librerías de JavaScript, como
+jQuery para automatizar tareas comunes y simplificar procesos. Esta librería proporciona una
+capa de abstracción de propósito general para la programación web común, cubriendo las
+
+2dsiguientes necesidades [[1:3]|:
+
+Acceso a los elementos de un documento. Ahorrando una gran cantidad de líneas de código
+necesarias para recorrer el árbol DOM, y para localizar partes específicas de la estructura
+de un documento HTML. Ofreciendo un robusto y eficiente mecanismo de selección de
+para recuperar la pieza exacta del documento que se va ha inspeccionar o manipular.
+
+Modificar la apariencia de una página web. Brindando un estándar para todos los navegadores que no ha podido ofrecer CSS; además, permite cambiar las propiedades de estilo
+aplicadas a una parte del documento, aunque la página ya haya sido cargada.
+
+Alterar el contenido de un documento. Permitiendo modificar el contenido (texto, imágenes, listas, estructura HTML, etc.) de un documento interactuando con el mismo.
+
+Responder a la interacción del usuario. Permitiendo interactuar con una variedad de controladores de eventos, sin necesidad de recargar todo código HTML
+
+Animar cambios hechos a un documento. Para aplicar comportamientos interactivos, proporcionando información visual al usuario.
+
+Recuperar información de un servidor sin actualizar la página. Por medio de Asynchronous
+JavaScript And XML (AJAX), ayudando en la elaboración de un sitio sensible, rico en
+funciones. La librería ¡Query elimina la complejidad específica de este proceso, lo que
+permite a los desarrolladores centrarse en la funcionalidad del servidor.
+
+Simplifica las tareas comunes de JavaScript.
+
+El método de ¡Query de bajo nivel $.ajax() toma un mapa de opciones que se pueden utilizar
+para personalizar su comportamiento, para obtener mayor flexibilidad. También simplifica el
+manejo del objeto XML HttpRequest, para el intercambio de información, ahorrando cantidad de
+líneas de código. En éste método se debe especificar explícitamente el método de la petición, el
+tipo de datos que serán devueltos, y qué hacer con los datos resultantes, todo para lograr una
+gran flexibilidad. Algunas de las capacidades especiales que vienen con el uso de bajo nivel de
+la llamada $.ajax() incluyen|[[I3]:
+
+2.2
+
+Evitar que el navegador almacene en caché las respuestas del servidor. Esto puede ser útil
+si el servidor produce sus datos dinámicamente.
+
+Registro separado de funciones de respuesta, para cuando la solicitud es realizado con
+éxito, con un error, o para todos los casos.
+
+La eliminación de los controladores globales (como $.AjaxStart ())que son normalmente
+provocados por todas las interacciones AJAX.
+
+Provee un nombre de usuario y una contraseña para la autenticación con el host remoto.
+
+Antecedentes
+
+A continuación se muestra la evolución del proceso de costos y su relación con el avance
+tecnológico y las técnicas de gestión. [14]
+
+23Los procesos de costeo son una necesidad de las empresas industriales, inicialmente se calculaba
+de forma manual, este cálculo era muy sencillo e ignoraba la naturaleza de los costos unitarios
+y los componentes físicos. Con la transformación de la condición de las empresas monoproductoras a poliproductoras, éstas se ven en la necesidad de contabilizar los procesos internos
+de producción por medio de las cuentas y subcuentas de los sistemas contables, estos procesos
+fueron conocidos como costos resultantes y por absorción.
+
+Posteriormente la ingeniería industrial introduce los estudios de tiempos y métodos, los niveles
+de actividad por sector, y el control de procesos; los cuales fueron empleados por los costos
+estándar y por absorción, enfatizando los costos por áreas de responsabilidad.
+
+Con la aparición del costeo directo, el costeo por absorción pierde su fuerza, y las empresas a la
+vanguardia, comienzan a emplear fichas perforadas para controlar sus inventarios y emplear el
+registro directo. En respuesta el costeo por absorción se moderniza empleando nuevas técnicas,
+y el sector contable comienza a emplear sistemas de procesamiento electrónico de datos en vez
+de emplear el registro directo.
+
+Una vez presentado el modelo de costos estándar y de los costos para la toma de decisiones, la
+contabilidad presenta una serie de innovaciones, se intensifica la utilización de los sistemas de
+procesamiento electrónico, nace el software para compras, ventas, costos, etc. Las herramientas
+informáticas toman poder sobre el sector productivo como una ayuda para la operación, para
+el control y registro.
+
+Luego la popularización de las técnicas de gestión, del planeamiento estratégico, de la calidad
+total, etc., nace la necesidad de información inmediata y precisa, que puede proceder de diferentes
+sectores, es decir, manejo de información en tiempo real, una vez registrada o recopilada.
+
+2.2.1 Antecedentes software de costos Hospital Psiquiátrico Universitario del
+Valle
+
+En el año 2002, el Hospital realizó un intento de implantar un software de costeo estándar, esta
+aplicación llamada Synergia-Costos presentó una serie de fallas que hicieron imposible el cálculo
+de los costos deseados, las fallas fueron.
+
+e Variabilidad de los resultados del sistema de costos comparados con los resultados contables
+propios.
+
+e La provisión de prestaciones sociales arroja valores irreales.
+
+e El sistema no retoma la base de asignación para riesgos profesionales para las personas en
+vacaciones, licencias, incapacidades, etc.
+
+e Los gastos generales cuya base de asignación es valor pagado y a pesar de ser digitado en
+su totalidad, no aparece sumado dentro del informe general por cada centro de costos, lo
+cual genera que no pueda conciliarse contabilidad.
+
+e La diferencia para el ejercicio del mes de agosto de 2002 de acuerdo al resultado del
+software, es de $74.864.016.
+
+24e Los resultados arrojados por el software de costos estándar, correspondiente al mes de
+noviembre del año 2002, no guardan una concordancia y realidad con los verdaderos costos
+estándar que se manejan en la institución.
+
+e Presenta problema en el reporte de despensa y cocina, al igual que hay inconsistencias en
+la distribución de los costos administrativos y logísticos en referente a los centros de costos
+que están a través de contrato de outsourcing, al realizarse una corrección en los pasos
+de distribución, una vez se consolida la información, en el reporte se sigue presentando la
+misma inconsistencia
+
+Tras el fracaso que representó la compra del software Synergia-Costos para el Hospital, y en
+vista de que no se encontró otro ningún otro software comercial que se ajustara a las necesidades
+del Hospital expresadas en la Tabla 2.2, se optó por implantar un método de costos estándar
+de forma manual, que representa una gran inversión de tiempo para el área de costos, y que no
+cumple a cabalidad con las exigencias de la Ley 100 de 1993.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Necesidades GaussProfit  AST Costos  ICBA
+ABC
+
+Adaptación a la metodología de costos ABC XxX XxX Xx
+
+Tener excelente capacidad para importar datos Xx Xx
+
+Producir reportes con los resultados que el Hos- Xx Xx
+
+pital necesita mostrar
+
+Fácil de actualizar y modificar Xx
+Versatilidad para trabajar en red Xx
+Medir el desempeño - indicadores de gestión Xx Xx Xx
+Atractivo visualmente XxX XxX
+
+ 
+
+Tabla 2.3: Necesidades software de costos Hospital Psiquiátrico Universitario del Valle: servicios
+ofrecidos Aplicación Indicador de Costos Basados en Actividades (ICBA) Vrs. Herramientas de
+software disponibles en el mercado. [115] [IC6]
+
+Las herramientas de costo comparadas contra la aplicación ICBA en la Tabla 2.3 fueron diseñadas para suplir la necesidad de calcular adecuadamente los costos de una empresa, lo cual es
+un elemento común entre ellas, sin embargo el hecho de ser programas genéricos significa una
+limitante a la hora de emplearlas o tratar de implementarlas en una institución determinada
+ya que cada empresa tiene particularidades que la distinguen de las demás. Por otro lado un
+software hecho a medida significa una adaptación más precisa a las necesidades que posee una
+empresa, en este caso la aplicación ICBA, será especificamente para hospitales públicos, que
+difieren en gran medida por su particularidad de prestadores de servicios.
+
+20Capitulo 3
+
+Aplicación para el sistema de costos
+ABC implementado al centro de
+
+costo Hospital Día para el Hospital
+Psiquiátrico Universitario del Valle
+
+El Indicador de Costos Basados en Actividades (ICBA) es una herramienta Web para realizar el
+proceso de costos ABC del Hospital Psiquiátrico Universitario del Valle. Esta aplicación facilita
+actividades de recolección y filtrado de la información, cálculo del costo de los servicios según
+la metodología de costos ABC y elaboración de reportes según los resultados de los costos
+calculados.
+
+OA ETS) Diana Marcela López I ¡AS
+
+ICBA NS Informes
+
+MANE A ele
+
+   
+
+ole (CT AN
+
+    
+
+4h volver E Cerrar
+«+ Nuevo centro A —————— v Buscar: | a z
+Código Nombre Tipo Estado Creación Distribución Opciones
+202 ALIMENTACIÓN Y DESPENSA SERVICIO HABILITADO 2014-04-13 RACIONES ALIN| Y) || mn! 9
+20101 ALMACÉN SERVICIO HABILITADO 2014-04-13 PEDIDOS DE A! | 4) || mun 19%
+103 AMBULANCIA OPERATIVO HABILITADO 2014-04-13 NO APLICA y im
+20601 ASEO SERVICIO HABILITADO 2014-02-27 METROS CUAD | 4) || mun 19%
+402 ATENCIÓN AL USUARIO APOYO DE o 2) HABILITADO 2014-02-27 PACIENTES | mm
+311 ATENCIÓN DOMICILIARIA OPERATIVO HABILITADO 2014-02-27 NO APLICA y im
+10302 AUDITORÍA MÉDICA ADMINISTRATIVO HABILITADO 2014-02-27 FACTURAS y im
+40903 AUDITORIO CARLOS LEÓN OPERATIVO HABILITADO 2014-02-27 NO APLICA Pm
+40901 AUDITORIO CASONA OPERATIVO HABILITADO 2014-02-27 NO APLICA Pm
+40902 AUDITORIO SEGUNDO PISO OPERATIVO HABILITADO 2014-02-27 NO APLICA Pm
+
+ 
+
+ 
+
+[página 1] 10 de 63 items Pbpl
+
+A ANTTNTANTATTTO, +
+
+Figura 3.1: Estructura básica interfaces de ICBA
+
+4
+
+263.1 Descripción general
+
+Las interfaces gráficas de la aplicación ICBA a nivel general se dividen en tres partes: (1) la
+superior que contiene el logotipo de la aplicación, el menú principal y el usuario registrado; (2)
+la central que contiene la barra de navegación interna que indica el proceso que actualmente se
+está realizando, el área de trabajo y otra barra que ofrece las opciones de atrás y cerrar; (3) la
+inferior que contiene el pie de página con el logotipo del Hospital Psiquiátrico Universitario del
+Valle. La Figura 3.1 muestra la estructura básica que conforma la interfaces de ICBA.
+
+Una vez dentro del área de trabajo se ofrecen menús Dashboard para continuar con la navegación, ofreciendo al usuario una interfaz más amena e intuitiva. La Figura 3.2 muestra el menú
+Dashboard desplegado por la opción administrar.
+
+Diana Marcela López I AA
+
+Je A el Tte E Informes
+
+oleo leo OS
+
+  
+
+NAS
+
+ 
+
+ 
+
+E Cerrar
+Centros de costo Servicios Actividades
+Inductores Gastos Insumos
+> » 4 LJ
+> eo aa.
+Recursos Empleados Activos fijos
+
+ 
+
+Figura 3.2: Menú dashboard sección administrar
+
+Para el ingreso de los datos manualmente, la aplicación ofrece una serie de formularios, que
+cuentan con diversos tipos de campos buscando facilitar el ingreso de la información, por
+ejemplo para el ingreso de las fechas, se ofrecen campos que despliegan pequeños calendarios
+donde el usuario podrá seleccionar la fecha deseada, sin tener que preocuparse por digitar
+el formato de la fecha correctamente. La Figura 3.3 muestra el formulario de creación de un
+Centro de Costo, los formularios de creación del resto de los elementos siguen el mismo formato.
+
+Toda la información suministrada por el usuario es almacenada en una base de datos relacional
+administrada por el DBMS PostgreSQL?. Una vez ingresada la información el usuario podrá
+administrarla directamente en la aplicación, buscando satisfacer la metodología de costos ABC.
+
+ 
+
+IMeú compuesto por iconos distribuidos en forma de cuadricula
+“http: / /www.postgresql.org/
+
+21Fecha
+
+ 
+
+[ DD/MM/ARAA |
+
+Cod. centro de costo
+
+|
+
+Nombre centro de costo
+
+Tipo centro de costo
+
+ 
+
+ 
+
+ 
+
+OPERATIVO ”
+
+Base de distribución del centro de costo
+
+ 
+
+Crear
+
+Figura 3.3: Formulario de creación de un Centro de Costo
+
+La Figura 3.4 muestra la lista de los Centros de Costo creados, de esta manera se visualizarán
+también las actividades, inductores, gastos, insumos, recursos, empleados y activos fijos creados
+en la aplicación.
+
+ 
+
+Código Nombre Tipo Estado Creación Distribución Opciones
+202 ALIMENTACIÓN Y DESPENSA SERVICIO HABILITADO 2014-04-13 || RACIONES AL!| y) || mn Y
+20101 ALMACÉN SERVICIO HABILITADO 2014-04-13 || NO. PEDIDOS|| y) || mu | 9
+103 AMBULANCIA OPERATIVO HABILITADO 2014-04-13 || NOAPLICA | Y) ¡mm Y
+20601 ASEO SERVICIO HABILITADO 2014-02-27 || METROS CUA|| y) || mn Y
+402 ATENCIÓN AL USUARIO APOYO DE OPERACIONES || HABILITADO 2014-02-27 || NO. DEPACIE| y) || ma Y
+311 ATENCIÓN DOMICILIARIA OPERATIVO HABILITADO 2014-02-27 || NOAPLICA | y) | mm (€
+10302 AUDITORÍA MÉDICA ADMINISTRATIVO HABILITADO 2014-02-27 || NO. DEFACTU! > || mun (YE
+40903 AUDITORIO CARLOS LEÓN OPERATIVO HABILITADO 2014-02-27 || NOAPLICA || Y ¡mm Y
+40901 AUDITORIO CASONA OPERATIVO HABILITADO 2014-02-27 || NOAPLICA || Y) ¡mm Y
+40902 AUDITORIO SEGUNDO PISO OPERATIVO HABILITADO 2014-02-27 || NOAPLICA || Y) ¡mm Y
+
+Figura 3.4: Lista de Centros de Costo creados
+
+La tabla de la Figura 3.4, ofrece al usuario un espacio para realizar algunas acciones de
+manipulación de los datos almacenados de cada elemento, dependiendo de las requerimientos
+evaluados para cada uno. En el caso de los Centros de Costo, se pueden realizar acciones de
+edición, eliminación y cambio de estado a habilitar y deshabilitar, estas opciones cambian para
+
+28cada elemento según sus necesidades y se pueden identificar por su nombre gracias a un tooltip?
+que se despliega apuntándolas con el mouse. La Figura 3.5 muestra las diferentes opciones de
+manipulación de datos ofrecidas para los elementos creados.
+
+A 0 / /
+A 7 a
+
+(a) Editar (b) Abreviar (c) Eliminar
+
+/ XK
+
+(d) Habilitar (e) Deshabilitar
+
+Figura 3.5: Iconos de opciones ofrecidas sobre los elementos creados
+
+Sobre cada tabla de elementos creados se encuentra una barra de opciones, que ofrece la
+posibilidad de crear elementos nuevos, ordenar y buscar los que ya existen, con la finalidad de
+
+facilitar la gestión sobre los ítems que la integran. La Figura 3.6, muestra la barra de opciones
+de la tabla de Centros de Costo.
+
+«f- Nuevo centro Ordenar por: | -———-—— y Buscar: a
+
+Figura 3.6: Barra de opciones tabla de Centros de Costo
+
+La primera opción de la barra, ofrece la posibilidad de crear un nuevo Centro de Costo, esta
+opción despliega el formulario ilustrado en la Figura 3.3, la segunda opción permite ordenar los
+elementos de la tabla por medio de una lista desplegable que ofrece varias alternativas según
+sea la información de la que dispone la tabla, y la última opción permite realizar una búsqueda
+por nombre de un elemento particular.
+
+Otro elemento dentro de la aplicación muy útil para visualizar la información de las tablas
+son los paginadores ubicados en parte inferior de cada una, los cuales dividen la información
+de cada tabla en diferentes páginas para no perder de vista el encabezado de la tabla y no
+llenar la interfaz de elementos desplegados hacia abajo. Cada paginador indica el número de
+página en que se encuentra la tabla, y el número de ítems que la componen, a medida que se
+navega con el paginador este indica cuantos elementos ha paginado. Para el caso específico
+de la tabla de asignación de turnos, se creó un paginador horizontal, que divide la tabla
+que representa los días del mes evitando que el usuario tenga que recurrir al scroll horizontal
+que sólo se puede mover con el cursor. La Figura 3.7 muestra los paginadores vertical y horizontal.
+
+En los diferentes procesos realizados en la aplicación se muestran ventanas de confirmación
+independientes de las ventas de alerta que ofrecen los navegadores, debido a que en ocasiones las
+ventanas de alerta no se encuentran habilitadas, por lo cual se buscó crear ventanas emergentes
+
+ 
+
+“Descripción emergente, que funciona al situar el cursor sobre un elemento gráfico
+
+29Hd4 [página 2] 20 de 63 items Pp»
+
+(a) Paginador vertical
+
+del dia 1 aldia15 mm
+
+(b) Paginador horizontal
+
+Figura 3.7: Paginadores tablas
+
+propias de la aplicación que no presenten este tipo de inconvenientes. La Figura 3.8 muestra la
+ventana de confirmación luego de haber creado un centro de costo.
+
+Mensaje de confirmación
+
+ 
+
+El centro de costo se creó exitosamente
+
+Aceptar
+
+Figura 3.8: Ventana emergente de confirmación
+
+3.2 Gestión de insumos, recursos, gastos, actividades, inductores y activos fijos
+
+La contabilidad de costos proporciona información sobre el consumo de recursos necesarios
+para que una organización pueda cumplir con su objeto social. La elaboración de un producto
+o la prestación de un servicio requiere que un ente económico incurra en diversas erogaciones
+que van desde el recurso humano pasando por la materia prima que compone el producto,
+las instalaciones necesarias para la fabricación del mismo, los servicios públicos, los gastos
+de funcionamiento y otros costos. Para gestionar toda esta información la aplicación ICBA
+ofrece una de serie opciones que permiten el ingreso y la administración de cada elemento
+en particular, esto se realiza a través de la opción Administrar en el menú principal el cual
+desplegará el menú que se ilustra en la Figura 3.2 con todos los elementos que componen la
+estructura del sistema de costos, es decir, los insumos, recursos, gastos (gastos de nómina y
+generales), inductores, activos fijos, actividades y centros de costos. Cada uno de los elementos
+podrá ser creado, editado y eliminado según sea necesario, y si estos ya están creados como
+bases de datos en hojas de cálculo podrán ser cargados directamente a la aplicación sin tener
+que crear uno por uno manualmente.
+
+Actualmente el Hospital, maneja una base de datos en hoja de cálculo con más de 5.000 activos
+distribuidos en todas las áreas de la Institución, los cuales deben depreciarse mensualmente.
+Dicha base de datos varía mensualmente dependiendo de la adquisición de nuevos activos, los
+activos dados de baja y los activos que estando en uso quedan completamente depreciados.
+Teniendo en cuenta que esta información tiene diferentes usuarios: Contabilidad, Costos y Servicios Administrativos, es necesario que dicha base de datos esté disponible para dichos usuarios.
+
+SULa base de datos de activos fijos creados e importados a la aplicación ICBA servirá no sólo para el
+proceso de costos, sino también para los procesos de inventariado de activos y de depreciación,
+que son realizados por las áreas de Servicios Administrativos y Contabilidad, la información
+particular que necesita el proceso de Costos es el cálculo del valor que deprecia cada activo
+mensualmente, ya que la depreciación representa un gasto que debe ser tenido en cuenta para el
+cálculo de los costos, anteriormente el cálculo de la depreciación no se realizaba efectivamente,
+sólo se hacía un estimado sobre la depreciación de los activos; por lo cual la aplicación buscando
+aproximarse más a la realidad de la entidad, sistematizó el proceso para calcular la depreciación
+de cada uno de los 5135 activos, donde el usuario no tendrá que preocuparse por ejecutar alguna
+opción para realizar el cálculo ya que la aplicación lo realizará automáticamente cada mes.
+
+3.3 Centros de costo, servicios y actividades
+
+Las empresas prestadoras de servicios como los Hospitales, quienes poseen un amplio portafolio
+de servicios, no son ajenas a la necesidad de costear los mismos, debido a que dicha información
+es relevante no sólo para la fijación de tarifas, sino también para rastrear en detalle en que se
+gastó el dinero y de esta forma tomar decisiones conducentes al mejoramiento de los procesos
+para que los mismos sean más eficientes y competitivos.
+
+La obtención de la información necesaria para establecer la estructura del flujo de costos
+del Hospital Psiquiátrico Universitario del Valle, parte del reconocimiento de las actividades
+necesarias para la prestación de cada uno de los servicios ofrecidos en la Institución, así como los
+recursos consumidos por dichas actividades. Los costos y gastos en los que incurre el Hospital
+se ven reflejados en un informe mensual reportado por el área financiera, llamado Estado de
+Resultados, el cual muestra los ingresos obtenidos por la prestación de los servicios y el costo
+incurrido para obtener dichos ingresos.
+
+Los Centros de Costo representan una unidad operativa o administrativa con relación a la cual
+se busca agrupar los costos, por esto, todos los insumos, recursos y gastos son asignados O
+gestionados para los centros de costo en general, por medio de inductores que permiten hacer
+una distribución de los mismos más equitativa, convirtiendo a los centros en parte fundamental
+de la estructura del proceso de costos, ya que por medios de estos se distribuyen inicialmente
+los elementos necesarios para la prestación de los servicios. Así que la aplicación ICBA tomó
+como base los centros, para constituir la estructura del proceso de calcular los costos, ofreciendo
+una vista en la cual se podrá tomar un Centro de Costo particular y asignarle los servicios,
+los inductores, las participaciones de las actividades en cada servicio, la participación de los
+gastos, insumos, recursos y cargos en cada actividad, y los porcentajes de absorción de otros
+centros que le corresponden a cada actividad. La Figura 3.9 muestra la interfaz para realizar las
+respectivas asignaciones a un centro de tipo operativo, que difiere de la interfaz de asignaciones
+de un centro de tipo administrativo, de apoyo a operaciones, o de servicio ya que éstos sólo
+requieren de bases de asignación.
+
+31Diana Marcela López | AT]
+
+ICBA Administrar INE Costos Informes
+
+alot MONA A ele
+
+     
+
+Si A Electroencefalografía
+
+ 
+
+4 Volver Ej Cerrar
+Asignar Inductores Asignar Servicios Asignar Ext. telefónicas
+Buscar inductores asignados Buscar servicios asignados Buscar ext. telefónicas asignadas
+
+ra ra ra
+7 E 2) Y $ Y
+> Y y
+
+Participación actividades Participación insumos Participación gastos
+
+rá ra, rá
+7) Y Ra 7 z Y "
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figura 3.9: Interfaz de asignación de elementos a un Centro de costo
+
+3.4 Turnos laborales personal asistencial
+
+Uno de los objetivos de un sistema de costos, es conocer el costo de mano de obra por hora
+laborada, especialmente del personal directamente relacionado con la prestación de los servicios.
+Dicha información es de gran utilidad para conocer la productividad de cada empleado vs.
+el costo del mismo. Así, por ejemplo, el sistema de costos permite conocer cuánto cuesta la
+mano de obra por hora de un médico especialista para compararlo con el número de consultas
+realizadas por hora.
+
+El sistema utilizado actualmente por el Hospital para la realización de la nómina mensual,
+no reporta la cantidad de horas efectivamente laboradas por cada funcionario, ya que maneja
+horas contables (30 días de 8 horas para un total de 240 horas mensuales). Con el ánimo
+de proporcionar una solución a este inconveniente la aplicación ICBA contiene una opción
+mediante la cual se podrán ingresar los turnos laborados por el personal asistencial, de tal
+forma que se refleje en el sistema de costos información real sobre el tiempo laborado por cada
+funcionario, lo cual representa no sólo una mejora para el proceso de costos, sino también una
+opción para que los líderes de las áreas asistenciales, como Urgencias y Hospitalización puedan
+administrar los turnos del Hospital de una forma más eficiente.
+
+El módulo de Turnos permite crear una serie de turnos que luego serán asignados entre los
+empleados de los centros de costo operativos por medio de un calendario realizado con la
+subclase java.util. GregorianCalendarA que brinda un sistema de calendario estándar compatible
+
+ 
+
+*http://docs.oracle.com /javase/7/docs/api/java/util/GregorianCalendar.html
+
+32con los sistemas de calendario gregoriano y juliano. La Figura 3.10 muestra la interfaz de
+programación de turnos con la lista de empleados asistenciales.
+
+Diana Marcela López | Cerrar sesión
+
+ICBA Administrar pte E Turnos Costos IS
+
+ate lle To o MO arte le lolis
+
+ 
+
+Turnos
+E Cerrar
+
+ 
+
+()Turnos Año: | 2014 v| Mes: | Abril v |]
+
+del día 1 al dia 15  'm)
+
+Empleado 12 415 (MN 7319
+M[iM¡J(V[¡S MN LÍ(M[ÍM¡J/VÍ¡S
+ACOSTA VALENCIA MARTHA CECILIA
+AGREDO MARTHA
+ALAPE GOMEZ MARYIN ROCIO
+ALDANA ALZATE NATALIA CRISTINA
+ARBOLEDA TRUJILLO MARIA ADELAIDA
+AREVALO LARA JAVIER ENRIQUE
+ARGAEZ VASQUEZ LILIAN BEATRIZ
+
+ARIAS ARIAS ADRIANA
+
+ARTUNDUAGA CUELLAR LUIS CARLOS
+
+0000000000
+
+ASPRILLA ORTIZ MARIANA DE JESUS
+
+[página 1] 10 de 196 items Pp»
+
+e , ,
+
+Figura 3.10: Interfaz de programación de turnos
+
+La vista presenta una tabla paginada verticalmente para mostrar los empleados y paginada
+horizontalmente para mostrar todos los días de cada mes; para asignar un turno a un empleado
+basta con seleccionar una celda de la tabla con la coordenada x correspondiente al empleado, y
+la coordenada y correspondiente al día del mes en que realizará el turno.
+
+3.5 Agenda para la gestión de auditorios
+
+Como elemento adicional al proceso de costos, ICBA ofrece un módulo para crear y gestionar las
+agendas de los tres Auditorios existentes en el Hospital, cuya principal función es la de ofrecer
+espacios propicios para la enseñanza y dar cumplimiento a los convenios docente-asistenciales
+que maneja la institución. La información generada por estas agendas, es tomada para realizar el
+cálculo de los costos de estos Centros. La Figura 3.11 muestra la interfaz de gestión de agendas,
+en la cual el usuario podrá crear, eliminar y habilitar o deshabilitar agendas. Seleccionando
+una agenda de la tabla se desplegará un calendario para programar los eventos a realizar en la
+agenda elegida.
+
+El calendario para programar los eventos mostrado en la Figura 3.12 es provisto por la plugin
+de ¡Query FullCalendarH, este plugin es de código abierto bajo la licencia MITÉ y ha sido
+
+ 
+
+"http: / /arshaw.com/fullcalendar/
+“(Massachusetts Institute of Technology) Licencia de software libre permisiva, es una licencia de software libre
+flexible respecto a su distribución, es decir que el software puede ser redistribuido como libre o propietario
+
+33REE A ST
+
+ICBA Administrar Agenda Turnos ¡AA ES
+
+Indicador de Costos Basados en Actividades
+
+ 
+
+IN E
+E Cerrar
+«+ Nueva agenda Ordenar por: | -———— v| Buscar: [( A
+Cód. Creación Cód. Creación :
+Agenda Centro Estado Opciones
+agenda Agenda centro centro
+4090201 1 AGENDA AUDITORIO SEGUNDO PISO || 40902 a AUDITORIO SEGUNDO PISO HABIL - XX
+4090301 AGENDA CARLOS LEÓN 40903 AUDITORIO CARLOS LEÓN ABILN - |
+4090101 AGENDA CASONA 40901 4-02:: AUDITORIO CASONA HAÉ 
+[página 1] 3 de 3 items >»!
+
+pro
+
+Figura 3.11: Interfaz de gestión de agendas
+
+ligeramente modificado en cuanto a su idioma ya que los elementos están disponibles en Inglés
+y en cuanto a su estilo, para que se integre a la interfaz de la aplicación ICBA.
+
+Para programar un evento basta con seleccionar una o varias celdas del calendario, las cuales
+al ser seleccionadas despliegan un formulario para ingresar los datos correspondientes al evento.
+El calendario ofrece vistas por mes, semana y día, la programación de eventos se realiza de la
+misma manera en todas las vistas. Los eventos ya creados tienen la opción de ser modificados
+y eliminados, al ser seleccionados en el calendario. La suma total de horas de todos los eventos
+agendados en un mes, son la base de asignación (Inductor) con que se calcula el costo de los
+Auditorios del Hospital.
+
+3.6 Recolección de la información proveniente de otras aplicaciones
+
+Los Centros de Costos del Hospital encargados de la administración y la logística, realizan
+diferentes procesos para gestionar los recursos que le competen, algunos cuentan con la ayuda
+de herramientas contables para la gestión de sus procesos, otros los realizan manualmente y
+otros en hojas de cálculo. El área de Talento Humano aporta al proceso de costos el informe de
+nómina exportado de la herramienta contable CG-UNO; para leer este archivo de extensión .xls,
+se realizó un algoritmo que toma este informe y busca los empleados por la cédula ignorando
+la información que no compete a el cálculo de costos, mientras lo recorre acumula y distribuye
+los gastos de nómina por empleado en la cuenta pertinente para cada gasto, una vez hecho
+
+34Diana Marcela López | Cerrar sesión
+
+CBA el les Costos Ios
+
+aleteo MO riel elote lis
+
+  
+
+Te ES NS ml
+
+      
+
+4 Volver
+
+( >». ho Abril 2014 mes | semana dia
+
+E Cerrar
+
+ 
+
+Dom Lun Mar Mie Jue Vie Sab
+
+10 11 12
+
+Ao
+CANTAN
+TRATAMIENTOS
+PSQUIÁTRICOS,
+
+Edo ii) a
+FERNANDO
+HALA
+ANA
+10
+
+ 
+
+17 18 19
+
+pom]
+
+Figura 3.12: Calendario para la programación de eventos
+
+esto, se dispone a realizar las provisiones para el posterior pago de las primas, esta provisión se
+realiza con unas fórmulas establecidas para este fin. Talento Humano también aporta el archivo
+de aportes patronales, que no es generado por otra aplicación pero se encuentra en formato
+de hoja de cálculo. Para recorrer este documento se planteó un algoritmo que va creando los
+empleados y sus cargos al mismo tiempo que calcula los aportes parafiscales de cada empleado
+y los ingresa en las cuentas contables que corresponda.
+
+Otra herramienta participante en el proceso de recolección de información mensual es la
+aplicación TelCel.com, la cual reporta el consumo de teléfono de todos los Centros de Costo,
+por medio de las diferentes extensiones telefónicas que posee cada uno, informando sobre la
+cantidad de minutos consumidos por cada extensión. Para este archivo se diseñó un algoritmo
+que acumula los minutos de cada extensión, calcula el costo por minuto de cada tipo de llamada,
+si es celular, local, o especial y así genera el valor del consumo que luego se distribuye en los
+centros según corresponda, todo esto evitando que el Técnico en Costos tenga que realizar este
+dispendioso proceso manualmente.
+
+Para las áreas que gestionan su información en hojas de cálculo provenientes de Microsoft Excel
+también se realizaron algoritmos para cargar sus reportes, estos son: informe de suministros de
+almacén, e informe de horas extras de empleados administrativos. Los algoritmos que leen estos
+informes buscan y seleccionan la información que se requiere para el cálculo de los costos y los
+distribuyen a los Centros de Costo y cuentas contables que correspondan.
+
+ 
+
+Valores estimados de las prestaciones sociales de los empleados, por el período que se liquida la nómina que
+puede ser semanal, quincenal o mensual.
+
+39Además, se hicieron algoritmos para leer los archivos en hoja de cálculo que parametrizan las
+distribuciones de cada centro de costo, estos archivos son: distribución de actividades por cargo,
+distribución de actividades por servicio, distribución de actividades por gastos, distribución de
+actividades por recursos, distribución de actividades por insumos y distribución de actividades
+por absorción. Estos archivos son de suma importancia para que la aplicación pueda hacer una
+correcta distribución de los costos primos hacia las actividades y finalmente a los servicios que
+presta el hospital.
+
+3.7 Cálculo de costos primos, absorción y distribución
+
+De acuerdo al tipo de información de costos y gastos del Hospital, así como de las fuentes
+que originan dicha información. Se establecieron tres componentes del Costo primo: En primer
+lugar el costo de Mano de Obra, constituye todos aquellos pagos en los que incurre el Hospital
+destinados al pago de nómina de personal relacionado directa e indirectamente con la prestación
+del servicio. Dicha información es proporcionada por el área de Talento Humano a través de
+la nómina mensual, el informe de pago de seguridad social y aportes patronales. Adicional a
+la nómina existen otros gastos derivados de la misma conocidos como prestaciones sociales,
+tales como primas y cesantías, los cuales, aunque no se cancelan mensualmente deben ser
+provisionados, de tal forma que la Institución pueda amortizar mensualmente el costo que
+implica el pago de dichas prestaciones.
+
+Pese a que el Hospital Psiquiátrico cuenta con una herramienta contable que le permite administrar la nómina de personal, ésta no posee un aplicativo para el cálculo de las provisiones, debido
+a la complejidad de las mismas en comparación con las provisiones que se realizan en el sector
+privado. Con el fin de facilitar y complementar el flujo de información hacia el área de costos,
+el aplicativo ICBA realiza el cálculo de los valores a provisionar mensualmente por empleado:
+prima de servicios, prima de navidad y cesantías, teniendo en cuenta el sueldo del funcionario, las
+horas extras y recargos, auxilio de alimentación, auxilio de transporte y otros gastos inherentes
+a la mano de obra, los cuales son tenidos en cuenta como base para el pago de dichas prestaciones.
+
+El segundo elemento del costo primo es el costo de los Insumos, el cual representa todos aquellos
+elementos como papelería, dotación y suministro a trabajadores, loza y cristalería, materiales
+para mantenimiento, lencería, elementos de aseo y cafetería, los cuales son entregados por el
+área de Almacén a cada uno de los Centros de Costo del Hospital (dichos centros de costo están
+definidos de acuerdo a las funciones desempeñadas en las diferentes áreas del Hospital, tales
+como Gerencia, Talento Humano, Control Interno, Urgencias, Hospitalización, Rehabilitaci ón,
+etc.).
+
+La información sobre los insumos entregados es reportada mensualmente por Almacén al área de
+Costos en un archivo de Excel, donde se totalizan los insumos entregados por Centro de Costo.
+El aplicativo ICBA permite cargar dicha información y totalizar el costo de los insumos por área.
+
+El tercer elemento del costo primo son los Costos y Gastos Generales que corresponden
+a aquellas erogaciones en las que incurre el Hospital, relacionadas con servicios públicos,
+fotocopias, aseo y vigilancia, viáticos, transporte, capacitación, mantenimiento de equipos, entre
+otros gastos, cuyo valor es proporcionado por el área Financiera a través de documentos como
+Ordenes de Liquidación, Comprobantes de Egreso y Notas Contables.
+
+36De acuerdo con la forma como se distribuyen dichos costos y gastos generales, éstos se
+clasificaron en dos grupos:
+
+1. Recursos: Utilizan tablas de bases de asignación (Inductores) para ser distribuidos mensualmente. Por ejemplo: el servicio de energía es distribuido por kilovatios promedio de consumo, el
+servicio de aseo y vigilancia por la cantidad de metros cuadrados, el servicio de fotocopiadora,
+por la cantidad de fotocopias, mantenimiento de equipos de cómputo por número de equipos de
+cómputo, etc.
+
+2. Gastos Generales: Son gastos de asignación específica para una o varias áreas, como por
+ejemplo viáticos, transporte, capacitación, servicio de celular, etc.
+
+Dentro de este último grupo se encuentra el gasto de Depreciación el cual requiere un tratamiento especial debido a la complejidad y el volumen de la información utilizada para el cálculo
+de este gasto. La depreciación es el mecanismo mediante el cual se reconoce el desgaste que
+sufre un activo fijo por el uso que se haga de él.
+
+La Figura 3.13 muestra la interfaz de carga de datos con las pasos a seguir para calcular los
+componentes del costo según las fuentes de información que los originan, para iniciar el cálculo
+del costo primo, se debe oprimir el botón “Calcular costo primo” ubicado en la parte inferior
+de la Figura.
+
+MEA ESO el
+
+el NTE) to ¡MAT ES
+
+ 
+
+¡SS
+€) Cerrar
+
+de
+
+2 e 2
+
+O) Importar archivos mano de (Y) Importar archivo horas
+obra extra
+
+E $ e
+
+Ingresar inductores
+Oi O) Ingresar gastos O Ingresar Recursos
+
+$» yy
+
+OQ Calcular costo primo O) Calcular costo ABC
+
+Y]
+
+O Ingresar insumos
+
+Figura 3.13: Interfaz de carga de datos
+
+La Mano de Obra, Insumos y Gastos Generales, agrupan los costos y gastos en los que
+
+31incurre el Hospital Psiquiátrico para la prestación de sus servicios, los cuales son distribuidos
+a todos los centros de costo. Sin embargo, no todos los centros de costo están directamente
+relacionados con la prestación de servicios, razón por la cual los centros de costo se clasificaron
+en diferentes categorías de acuerdo con la naturaleza de sus funciones en: centros de servicios,
+actividades de apoyo de operaciones, actividades administrativas y actividades operativas.
+
+Teniendo en cuenta que el objeto de costo del Hospital Psiquiátrico Universitario del Valle,
+son los servicios prestados por las áreas operativas, los costos deben fluir de los centros
+de servicios, los centros de apoyo de operaciones y los centros administrativos hacia los
+centros operativos, es decir, que los centros operativos absorben los costos de los demás
+centros, para que sean los centros operativos quienes carguen con todos los costos de la Institución reflejados en el Estado de Resultados, ya que son éstos quienes generan ingresos al Hospital.
+
+La distribución de los costos de los centros de servicios, los centros de apoyo de operaciones
+y los centros administrativos está directamente relacionada con las actividades más relevantes
+que se llevan a cabo en los mismos. Así, por ejemplo, los costos de Facturación son distribuidos
+según el número de facturas realizadas por área, los costos de Talento Humano (a quien le
+corresponde la administración del personal) es distribuido por número de empleados por área,
+los costos de caja son distribuidos por número de recibos de caja por área, los costos de
+lavandería son distribuidos por kilos de ropa lavados por área, los costos de alimentación son
+distribuidos por la cantidad de raciones alimenticias entregadas por área, y así sucesivamente,
+hasta que todos los costos del Hospital son cargados a las áreas operativas.
+
+El aplicativo ICBA permite la elaboración de este último proceso, utilizando el método escalonado para la asignación de costos indirectos (costos de aquellas áreas que no están directamente
+relacionadas con la prestación de los servicios), lo cual representa la supresión de una tarea
+dispendiosa para el Técnico en Costos, quien debía realizar la distribución de más de 50 Centros
+de Costos.
+
+3.8 Cálculo de los costos basados en actividades
+
+Previamente definidos los servicios prestados por las áreas operativas del Hospital, así como cada
+una de las actividades requeridas para la prestación de los servicios, se realiza la distribución
+de los costos de cada área operativa hacia los servicios, teniendo en cuenta la mano de obra,
+los insumos, gastos generales y recursos requeridos para prestar el servicio. Esta información es
+obtenida mediante encuestas donde se determina la naturaleza del servicio prestado, así como
+los recursos necesarios para la prestación del mismo.
+
+Para realizar la distribución de los costos en las actividades, se construyen las matrices de
+centros con los costo por cargos del personal operativo que labora en él; actividades con los
+costos de mano de obra, gastos, insumos, recursos y absorción que se le asignan como actividad;
+luego se elabora la matriz de distribución de actividades por servicios y posteriormente se
+elabora la matriz de centros con el costo de sus respectivos servicios, llegando de esta manera
+al cálculos de los costos basados en actividades.
+
+En el cálculo de los costos basados en actividades, se implementaron matrices de dos y tres
+dimensiones para almacenar, operar y generar, la información obtenida hasta el momento, estas
+
+38estructuras contienen los datos resultantes del procesamiento hasta que se generen los informes.
+Cabe aclarar que una vez oprimido el botón “Calcular costo ABC” mostrado en la parte inferior
+de la Figura 3.13 el usuario no tendrá más contacto con la aplicación hasta que ésta hayan
+generado los informes pertinentes.
+
+3.9 Informes
+
+Los informes resultantes del proceso de calcular los costos basados en actividades son generados
+por medio de las librerías Apache POM la cual permite la lectura y escritura de archivos en
+formatos de Microsoft Office, como Word, PowerPoint y Excel y JFreeChartB que permite generar
+eráficos de torta. La Figura 3.14 muestra el formato en que son generados los informes. Los
+informes son:
+
+e Informe de distribución porcentual de los costos primos de cada centro de costo
+
+e Informe de productividad contra el costo (personal asistencial).
+
+e Informe de costo de actividades según mano de obra, insumos, recursos, gastos y absorción.
+e Informe de absorción de costos
+
+e Informe de costo de los servicios por Centro de Costo
+
+e Informe de costo de las actividades por servicio
+
+ 
+
+  
+    
+
+A B Cc D - - 6 - | J K L M N O
+1 ¡Código Centro de Costo Mano de Obra Insumos ¡Sastos Generales
+2 (311 ATENCIÓN DOMICILIARIA 1281858 287912 1925165 . . a . ans
+3 1402 ATENCIÓNAL USUARIO 1218968 "601071 "689824 Costo Primo Hospital Psiquiatrico Universitario del Valle
+4 |(10302 AUDITORÍA MÉDICA "8449626 "56878 252428
+5 110804 GESTIÓN DOCUMENTAL Y VENTANILLA ÚNICA  '2878374 % 2614022 z
+6 (300 GESTIÓN SERVICIOS HOSPITALARIOS "17469546 "101088 1620638 Insumos=
+7 110603 FACTURACIÓN 16854952 "47853 1624227 40.978.014
+8 [204 LAVANDERÍA "6202019 ”1042608  '7136645
+9 P20103 CAFETERÍA % % 1615580
+10 310 INIMPUTABLES 24193418 2123552  '733897 Gastos Generales =
+11 41010201 JURÍDICO "11250828 "387934 "7896069 802.861.031
+12 '1060202 CAJA "13823331 %1053166  '118180
+13 M0701 CALIDAD "8847345 7 26466536 Mano de Obra =
+14 'B0105 CONTRATOS DE LA GOBERNACIÓN % % "439157301 880.027.402
+15 '1060204 COSTOS 2876958 "4841 "31104
+16 '20104  DISPENSACIÓN DE MEDICAMENTOS % 26391 353169
+17 '503 ELECTROENCEFALOGRAFÍA % % "9050
+18 "10801 ESTADÍSTICA Y ARCHIVO 116362942 282538 "317862
+19 '405 SINDICATO % % 23245
+20 '50206 FISIOTERAPIA % 1558532 "432079
+21 P205 MANTENIMIENTO 20523407 "1153852  '6255665
+2210301 SUBGERENCIA CIENTÍFICA 30036687 716662 3753514
+23 M060201 TESORERÍA "2878374 % "121028
+24 "403 FONDO DE EMPLEADOS 7 % "875 6 Mano de Obra = 680.027. 492 € Insumos = 49.978.014
+25 '203 MÉDICO ITINERANTE % % %
+26 "501 TRABAJO SOCIAL "2769342 "16592 331621 O Gastos Generales = 602.661.031
+0 0
+
+ 
+
+27 "20105 FOTOCOPIADORA "37320
+
+Figura 3.14: Informe de Costo Primo
+
+El informe de coste de los servicios contra la tarifa por entidad contratante, el cual consiste en
+comparar el costo de los servicios contra la tarifa que se cobra a las entidades que demandan
+ciertos servicios, no se ha generado completamente debido a que el Hospital no ha proporcionado
+la información necesaria sobre las tarifas de las entidades contratantes, así que sólo se genera
+el coste de los servicios. En el informe de valor facturado por áreas, que muestra el costo primo
+de los centros operativos, comparado con el valor de servicios facturados en el mes, se ha
+
+ 
+
+"http: / /poi.apache.org/
+Shttp: / /www.jfree.org/jfreechart /
+
+39generado el costo primo de los centros operativos, y no se ha realizado la comparación con el
+valor de los servicios facturados, debido a que la dependencia que gestiona este proceso no ha
+suministrado aún la información necesaria para terminar el informe. Para el informe de costos
+con incrementos significativos por periodo, que compara el costo primo de los centros de costo
+en meses diferentes, es necesario generar el cálculo de los costos de varios meses, lo cual no se ha
+realizado debido a que la información estructurada para las pruebas efectuadas en la aplicación
+corresponde sólo al mes de noviembre del año 2013, ya que desde este mes no se ha realizado el
+cálculo de los costos en el Hospital Psiquiátrico Universitario del Valle, por motivos propios de
+la Institución.
+
+Todos los informes estarán disponibles en la opción Informes del menú principal, la cual despliega
+la interfaz ilustrada en la figura 3.15, todos los archivos de los informes son generados con la
+extensión .xls que corresponde a documentos de Microsoft Excel, y podrán ser descargados para
+su consulta y manipulación.
+
+Diana Marcela López | Cerrar sesión
+
+¡es A Administrar Agenda eS
+
+RON ARA
+
+ 
+
+Informes
+E Cerrar
+
+Ordenar por: | ——— v|
+
+Informes Fecha
+
+INFORME CENTROS VS SERVICIOS 2013-11-30
+INFORME COSTO ACTIVIDADES 2013-11-30
+INFORME PRODUCTIVIDAD 2013-11-30
+
+INFORME SERVICIOS VS ACTIVIDADES 2013-11-30
+
+a 4
+
+[página 1] 4 de 4 items Pp»
+
+Po]
+A
+
+Figura 3.15: Interfaz de descarga de informes
+
+40Capitulo 4
+
+Desarrollo del Software
+
+ICBA es una aplicación interactiva construida en el lado del cliente con Javascript con
+colaboración de la librería ¡Query U, usa la tecnología asíncrona Ajax para comunicarse con
+el servidor por medio del protocolo HT"P'P. La parte del servidor está construida con el estilo
+arquitectónico RESTfull mediante la especificación REST para java Jersey Y.
+
+Para el desarrollo del presente trabajo de grado se siguieron los lineamientos de la metodología
+SCRUM, que nos brinda los elementos adecuados para la gestión global del proyecto, acompañada de la técnica TDD de la metodología XP para el desarrollo a nivel de codificación, TDD
+define las iteraciones del desarrollo de software dirigido a las pruebas y los test de aceptación
+para realizar el desarrollo ágil propuesto por XP. La tabla 4.1 muestra el artefacto Sprint
+backlog para el módulo de costos planeado en el primer sprint aplicando la metodología SCRUM:
+
+ 
+
+ 
+
+ID Elemento Prioridad Estimación Criterios de
+aceptación
+
+1 Como usuario quiero calcular el costo por 3 2 Test de acepempleado, el costo por hora laborada, el tación 8.1
+costo de la mano de obra por centro de
+costo.
+
+D Como usuario quiero calcular el costo de 3 2 Test de aceplos insumos por centro de costo. tación 8.2
+
+3 Como usuario quiero calcular los gastos 3 1 Test de aceptotales por centro de costo. tación 8.3
+
+4 Como usuario quiero realizar el informe de 2 1 Test de acepla mano de obra con el detalle del costo, tación 8.4
+
+del servicio prestado, y a la cantidad de
+horas laboradas.
+
+ 
+
+Tabla 4.1: Sprint Backlog módulo de costos
+
+ 
+
+"http: / /jquery.com/
+“https: / /jersey.java.net
+
+41ID Elemento
+
+Como usuario quiero realizar un informe
+con el consolidado de los gastos y los reCUISOS.
+
+Como usuario quiero realizar un informe
+con el valor total de insumos por centro
+de costo.
+
+Como usuario quiero realizar el informe de
+costo primo, con la relación de todos los
+centros de costo con el valor de la mano
+de obra total por cada centro de costo, los
+gastos generales totales, recursos totales e
+insumos totales por centro de costo, y el
+costo primo (es la suma de los anteriores),
+el resultado debe reflejarse en un gráfico
+de torta.
+
+Como usuario quiero realizar el informe de
+relación de precios internos de trasferencia
+por el método escalonado.
+
+Prioridad Estimación
+
+ 
+
+Criterios de
+aceptación
+
+Test de aceptación 8.5
+
+Test de aceptación 8.6
+
+Test de aceptación 8.7
+
+Test de aceptación 8.8
+
+ 
+
+10
+
+Como usuario quiero realizar el Informe
+síntesis de costos, con el detalle del costo
+que tuvo cada centro de costo en cuanto a
+servicios prestados por los centros de servicios administrativos y logísticos, el resultado debe reflejarse en un gráfico de torta.
+
+usuario realizar el Informe consolidado de
+costos versus facturación, con el detalle del
+costo por servicio prestado y valor facturado por dichos servicios, el resultado debe
+reflejarse en un gráfico de torta.
+
+Test de aceptación 8.9
+
+Test de aceptación 8.10
+
+ 
+
+11
+
+Como usuario quiero realizar una comparación entre el valor de facturación de cada
+centro de costo y el costo de éste, mostrando una señal de alerta simbolizada por un
+indicador, donde el verde será asignado a
+los centros de costo donde el valor facturado es mayor al costo, el amarillo asignado
+al centro de costo donde el valor facturado es igual al costo y el rojo asignado al
+centro de costo donde el valor facturado
+es menor al costo.
+
+3 1
+4 1
+2 2
+3 2
+y) 1
+7 2
+d) 3
+
+Tabla 4.1: (Continuación)
+
+42
+
+Test de aceptación 8.11Los demás artefactos backlog del producto se encuentran en el Anexo A.
+
+4.1 Análisis
+
+La técnica TDD indica que para el desarrollo de software, se deben diseñar test de aceptación
+dirigidos a los desarrolladores. Para la aplicación ICBA (Indicador de Costos Basados en Actividades) se diseñaron pruebas de aceptación especificas para la fabricación de los requerimientos
+que componen los módulos de la aplicación. en la "Tabla 4.2 se muestra el test de aceptación
+para el requerimiento 8.1 del módulo Gestión de Costos.
+
+ 
+
+No. Test de aceptación requerimiento 8.1 Respuesta
+
+1 Cargar la nómina de empleados fijos a la Mensaje de confirmación
+aplicación
+2 Cargar un archivo diferente a la nómina Mensaje de error
+
+de empleados fijos a la aplicación
+
+E Cargar archivo de aportes patronales de Mensaje de confirmación
+empleados fijos
+
+ 
+
+4 Cargar archivo diferente al de aportes pa- Mensaje de error
+tronales de empleados fijos
+
+9 Porcentaje de provisiones del sueldo de ca-— Mensaje de confirmación
+da empleado
+
+6 Ingresar gastos de liquidación Mensaje de confirmación
+
+7 Cargar archivo de horas laboradas em- Mensaje de confirmación
+pleados administrativos
+
+ 
+
+8 Calcula las horas efectivas laboradas per- Total horas efectivas laboradas por emsonal asistencial pleado asistencial
+
+9 Calcula las horas efectivas laboradas per- Total horas efectivas laboradas por emsonal administrativo pleado administrativo
+
+ 
+
+10 Gasto total empleado dividido horas efec- costo por hora de cada empleado
+tivas laboradas
+
+ 
+
+Tabla 4.2: "Test de aceptación requerimiento 8.1 Módulo de costos
+
+4.1.1 Especificación de requerimientos
+
+Para la delimitación del alcance de la aplicación se establecen los requerimientos funcionales de
+forma modular y así poder cumplir con los objetivos propuestos. en la Tabla 4.3 se muestra la
+especificación de requerimientos funcionales de el módulo de costos.
+
+43Especificación de requerimientos
+
+ICBA: Indicador de Costos Basados en Actividades
+8. Módulo: Costos
+
+ 
+
+ 
+
+Req. Definicion del requerimiento Caso de uso
+
+8.1 El sistema permitirá al usuario calcular el costo por empleado, el costo (CU_ Calcular
+por hora laborada, el costo de la mano de obra por centro de costo. Costos Personal
+
+8.2 El sistema permitirá al usuario calcular el costo de los insumos por CU_ Calcular
+centro de costo, el costo por tipo de insumo en cada centro de costo. Costos Insumos
+
+8.3 El sistema permitirá al usuario calcular los gastos totales por centro (CU_ Calcular
+de costo, el consumo de cada centro de costo por tipo de gasto. Gastos
+
+8.4 El sistema permitirá al usuario realizar el informe de la mano de obra (CU_ Informe
+con el detalle del costo, del servicio prestado, y a la cantidad de horas Mano Obra
+laboradas.
+
+8.5 El sistema permitirá al usuario realizar un informe con el consolidado CU_ Informe
+de los gastos y los recursos. Gastos_ Recursos
+
+8.6 El sistema permitirá al usuario realizar un informe con el valor total CU_ Informe
+de insumos por centro de costo. Insumos
+
+8.7 El sistema permitirá al usuario realizar el informe de costo primo, con CU_ Informe
+la relación de todos los centros de costo con el valor de la mano de obra Costo Primo
+total por cada centro de costo, los gastos generales totales, recursos
+totales e insumos totales por centro de costo, y el costo primo (es la
+suma de los anteriores), el resultado debe reflejarse en un gráfico de
+torta.
+
+8.8 El sistema permitirá al usuario realizar el informe de relación de pre-  CU_ Informe
+cios internos de trasferencia por el método escalonado. Precios Internos
+
+8.9 El sistema permitirá al usuario realizar el Informe síntesis de costos, (CU_ Informe
+con el detalle del costo que tuvo cada centro de costo en cuanto a servi- Síntesis Costos
+cios prestados por los centros de servicios administrativos y logísticos,
+el resultado debe reflejarse en un gráfico de torta.
+
+8.10 El sistema permitirá al usuario realizar el Informe consolidado de cos- (CU_ Informe
+tos versus facturación, con el detalle del costo por servicio prestado y  Consolidavalor facturado por dichos servicios, el resultado debe reflejarse en un do Costos
+eráfico de torta. Facturación
+
+8.11 El sistema permitirá realizar una comparación entre el valor de factu- CU_ Señal Alerta
+
+ración de cada centro de costo y el costo de éste, mostrando una señal
+de alerta simbolizada por un indicador, donde el verde será asignado
+a los centros de costo donde el valor facturado es mayor al costo, el
+amarillo asignado al centro de costo donde el valor facturado es igual
+al costo y el rojo asignado al centro de costo donde el valor el valor
+facturado es menor al costo.
+
+ 
+
+Tabla 4.3: Especificación de Requerimientos módulo de Costos
+
+444.1.2 Casos de uso
+
+Para la ilustración de los requerimientos en el desarrollo de la aplicación ICBA (Indicador de
+Costos Basados en Actividades) se realizaron los casos de uso con el fin de evidenciar la interacción de los actores involucrados con la aplicación. Estos casos de uso muestran cómo responde
+la aplicación a los eventos generados por el actor. En la Figura 4.1 se muestra el caso de uso de
+la interacción del módulo de Costos, con el actor que afecta el sistema.
+
+ICBA: Indicador de Costos Basados en Actividades
+Gestión de costos
+
+CU_Calcular_Costos
+_Personal
+
+<<incude>>
+
+Ccu_Calcular_Costos CU_Informe_Insumos
+Insumos >
+
+CU_Informe_Gastos dá f “U_Informe_Costo_
+CU_Calcular_Gastos Recursos Primo
+
+Técnico costos
+A
+
+y <<include>>
+
+CU_Informe_Mano_
+
+CU_Calcular_Gastos Obra
+
+CU_Calcular_Precios
+_ Internos
+
+A. <<inciude>>
+,
+”
+
+CU_Informe_Siíntesis
+
+_Costos CU_Señal_Alerta
+
+<zinciude>>
+CU_Informe_Consoll
+
+dado_Costos_Factur
+ación
+
+ 
+
+Figura 4.1: Caso de uso módulo de Costos
+
+Los demás Casos de uso de la aplicación se encuentran el CD adjunto al presente documento en
+la carpeta ANEXOS, con el nombre de ANEXO A.
+
+4.2 Diseño
+
+4.2.1 Arquitectura
+
+En la Figura 4.2 se muestra el diagrama de la arquitectura Cliente-Servidor bajo la cual esta
+soportada la aplicación ICBA.
+
+4591
+
+<<WebBroswer>>
+
+JavaScript
+
+HTML
+155
+
+Presentation Layer
+
+<<Protocol>>
+HTTP
+
+<<WebServer>>
+Apache Tomcat V. 7.0 Java Servlet
+
+Logic Layer
+
+Figura 4.2: Arquitectura funcional ICBA
+
+<<Protocol>>
+TCP/IP
+
+Data LayerLas tres capas ilustradas en la Figura 4.2, en orden de izquierda a derecha se describen así: La
+capa de presentación construida en JavaScript, JQuery, JQueryUlI y HTML, se comunica con
+la siguiente capa por medio del protocolo HT'T'P y la técnica AJAX. Una vez en la capa lógica
+se describe el uso del servidor de aplicaciones Apache Tomcat V 7.0 Java Servlet sobre el cual
+se encuentra la interfaz REST' implementada con la especificación JERSEY para java, que es
+la encargada de parcear y redireccionar las peticiones de servicio. En la tercera capa se muestra
+el motor de bases de datos relacional PosgreSQL el cual interactúa con la capa lógica para la
+gestión de datos.
+
+4.2.2 Modelo entidad relación
+
+Para representar las entidades y sus interrelaciones se propone un esquema de bases de datos
+por medio del modelo entidad relación ilustrado en la Figura 4.3.
+
+47sy
+
+    
+
+EE
+
+Estado_CC
+
+or
+
+Hora_fin_evento
+
+Hora_Ini_evento
+
+E
+
+ 
+ 
+
+Fecha_Cons_centroS
+
+   
+   
+
+Cant_Base_asignaci
+
+% ón_C5 A
+
+Se_carga_a
+
+CA
+
+  
+
+Valor_distrib_cc fecha_distrib_cc
+
+    
+
+(O
+
+ 
+
+ld_centro
+at
+Nombre_cc
+
+a TS
+
+   
+
+N K
+
+ 
+
+ 
+
+ 
+  
+    
+
+Horas
+
+a
+
+Fecha_cargo
+LUCIA +]
+
+ 
+
+Segundo_apellido
+
+Estado_empleado
+
+ 
+
+Fecha_GN Valor GN
+
+e
+
+ 
+
+cc
+
+2 Tipo /
+
+ 
+
+  
+
+    
+   
+
+Estado_asig Fecha_asig_
+
+hy FOIE Y o sem_co y
+
+Nombre_=ct
+
+ 
+     
+
+        
+ 
+
+ld_actividad
+
+tr
+
+Fecha_serv_act Estado_serv_act
+
+Compuesto_por
+Fecha_Cons_ ó +
+
+ValorT_insumo insumo
+
+- ld servicio
+> Valor_dist_serv
+ET MS
+Estado_ext
+KA Cant_insumc
+Fecha ext cc rt
+nn Cod_cuenta_
+
+Unid_medida |
+
+ 
+    
+
+ 
+
+ 
+
+ES
+
+ 
+
+Deprec_mens
+
+Cod cuenta
+
+   
+
+N Unid_medidaR
+
+ES
+
+Consume_R
+
+Nombre_rec
+
+o ci
+
+Saldo_depreciar
+
+ 
+
+ 
+
+Estado distrib
+
+ld_abrev
+
+ 
+
+ 
+
+ 
+
+Figura 4.3: Modelo Entidad - Relación
+
+    
+
+UC
+
+     
+
+ 
+
+Base_dist
+
+<h _actividad _/
+
+centro
+
+fecha_distrib
+
+SA4.2.3 Diagrama de clases
+
+Para el diseño de la aplicación ICBA se elaboraron los diagramas de clases para representar las
+relaciones entre cada conjunto de las mismas que representan una funcionalidad. En la Figura
+4.4 se muestra el diagrama de clases que describe el módulo Centros de Costo.
+
+cresrigenda(String,int,String,int,String):Strinmg
+consultarAg(String):Strinsl[][]
+
+crearServlint,Strinz,String):String crearBA[int,String,Strinz):String
+
+consultarEServ(String,String);String[][ upBaseAsignacion[int,String,String):String
+consultarServ[String):String eliminabalint):String
+
+eliminarEvefint,int,String):String
+crearAct(int,String,String):String consultarEliminar():String[][]
+consultaráct(String);String[[
+
+cocultazAFP(String):String[[)
+verificaBDA():boolean
+
+Centrodecosto
+
+crearCClint,String,String,String,String):String
+arConsumeR(String,int,String,int):String consultaECC[String):String[][)
+sultarCl[int,String,String):Stringl][] verificaUsoCentro[int,String)j:boolean
+
+añadir[int,String,int,String):String
+consultarExt[int,String,String):String[][
+
+ 
+
+Figura 4.4: Diagrama de clases: módulo Centros de Cotos
+
+Cabe aclarar que el diagrama de clases representado en la Figura 4.4, no cuenta con el total de
+métodos realmente definidos en la clases codificadas, ya que por su gran tamaño, no era posible
+plasmarlas en la Figura y que fueran legibles.
+
+4.2.4 Diagrama de secuencia
+
+Dentro del diseño de ICBA se realizaron esquemas para mostrar los pasos a seguir para completar
+las funcionalidades requeridas mediante el uso de diagramas de secuencia que ilustran las acciones
+a tomar en cada evento generado por el usuario. En la Figura 4.5 se muestra el diagrama de
+secuencia para la funcionalidad de calcular el costo primo. Los demás diagramas de secuencia de
+
+la aplicación se encuentran en CD adjunto al presente documento, en la carpeta de ANEXOS,
+con el nombre de ANEXO B.
+
+49Interfaz Servicioscostos ¿Costoprinno
+|
+
+Calcular costo primo :
+, |
+|
+
+—_—_——_——_——_———_—=>
+ATTP Request
+
+String[][] mo
+
+ 
+
+costoPInsumos(f)
+
+Sstring[l[) i
+
+ 
+
+costoPgastos[f] :
+
+string[][] gr ]
+
+asignaCP (mo, ¡gr!
+
+ATTP Response String r .
+
+Figura 4.5: Diagrama de secuencia funcionalidad: calcular el costo primo
+
+4.3 Codificación
+
+En la codificación de ICBA se uso el entorno de desarrollo Eclipse Kepler IDE para la fabricación
+del Back-End (lado del Servidor), usando el gestor de proyectos MA VENÍ para la administración
+de librerías y recursos usados por la aplicación. Además Eclipse permite el uso de Servidores como
+Apache Tomcat para probar el despliegue del servicio y su funcionalidad. Para la comunicación
+web con el Front (lado del Cliente) se uso la implementación para java de la interfaz REST
+conocida como JerseyA que se encarga de parsear las solicitudes enviadas por el cliente por medio
+de HttpRequest a variables en java y devuelve las respuestas del Servidor al Cliente en objetos
+Json2 o en texto plano según se requiera; el Cliente se ha desarrollado usando JavaScript, JQuery
+UIB y Ajax, realizando las peticiones asíncronas por medio del método $.ajax() de JQueryl, El
+
+código fuente de la aplicación se encuentra disponible en el CD de entrega del presente trabajo.
+
+ 
+
+“http: //maven.apache.org/
+“https: / /jersey.java.net /
+"http: //www.json.org/
+Shttp://jqueryui.com/
+"http: / /jquery.com/
+
+904.4 Pruebas
+
+En el desarrollo de la aplicación se realizaron diferentes tipos de pruebas para determinar
+el cumplimiento de los requerimientos establecidos por el cliente, inicialmente se formularon
+los test de aceptación citados en la sección 4.1 del presente capítulo, como parte del análisis,
+ya que el mismo cliente debe validar su veracidad y así tanto el cliente como el equipo de
+desarrollo obtienen una idea concreta de la funcionalidad de la aplicación. En la Tabla 4.4 se registraron los resultados de los test de aceptación finales del requerimiento 8.1 del módulo Costos.
+
+ 
+
+Evaluación Test de aceptación
+
+ICBA: Indicador de Costos Basados en Actividades
+8. Gestión de Costos Req. 8.1
+
+ 
+
+ 
+
+ 
+
+Test No. Fecha Versión Participantes Estado
+
+1 Abril 12 de 2014 8 Técnico costos Aprobado
+Diego Fernando Segura
+
+2 Abril 12 de 2014 3 Técnico costos No aprobado
+Diego Fernando Segura
+
+3 Abril 12 de 2014 15 Técnico costos Aprobado
+Diego Fernando Segura
+
+4 Abril 12 de 2014 2 Técnico costos No aprobado
+Diego Fernando Segura
+
+5 Abril 12 de 2014 6 Técnico costos Aprobado
+Diana Marcela López
+
+6 Abril 12 de 2014 1 Técnico costos No aprobado
+Diana Marcela López
+
+7 Abril 12 de 2014 4 Técnico costos Aprobado
+Diana Marcela López
+
+8 Abril 12 de 2014 4 Técnico costos Aprobado
+Diana Marcela López
+
+9 Abril 13 de 2014 7 Técnico costos Aprobado
+Diego Fernando Segura
+
+10 Abril 13 de 2014 9 Técnico costos Aprobado
+
+Diego Fernando Segura
+
+ 
+
+ 
+
+Tabla 4.4: Evaluación final test de aceptación requerimiento 8.1 del módulo Costos
+
+Luego se realizaron pruebas unitarias en el proceso de desarrollo para garantizar la correcta
+funcionalidad de cada módulo, a medida que éstos se iban codificando se realizaban pruebas
+con el framework JUnit integrado en Eclipse Kepler IDE, mediante JUnit también se realizaron
+pruebas de integración, especialmente con la base datos. La Figura 4.6 muestra el panel de
+ejecución de JUnit en Eclipse Kepler IDE con los test unitarios de la clase Centrocosto.java
+
+Para evaluar la usabilidad de aplicación se realizaron pruebas directas con el usuario final midiendo la capacidad de la aplicación para realizar las actividades requeridas por el
+
+Ol(y Project Explorer fi JUnit E2 = 4
+
+Finished after 0,469 seconds
+Runs 5/5 Errors: O A Failures: 0
+
+d Eje] testabchospital.CentrocostoTest [Runner: JUnit 4] (0,456 s)
+del testModificar (0,144 s)
+del testCrearCC (0,107 s)
+del testHabilitar (0,049 s)
+del testDeshabilitar (0,048 s)
+del testEliminarCC (0,108 s)
+
+= Failure Trace E
+
+Figura 4.6: Ejecución pruebas unitarias clase Centrocosto.java
+
+usuario y su facilidad de uso, las métricas evaluadas fueron la exactitud, contabilizando el
+números de errores cometidos por usuario, el tiempo requerido para concluir la actividad y la
+respuesta emocional. Para esta evaluación se diseñó un caso de estudio mostrado en la Tabla 4.5.
+
+ 
+
+Caso de estudio
+ICBA: Indicador de Costos Basados en Actividades
+
+Estructuración de la información de costos
+
+ 
+
+Paso No. Descripción
+
+ 
+
+1 Abra la aplicación web en su navegador ingresando a la dirección
+http:localhost:8080/vistaABC/Index.html e inicie sesión
+
+2 Diríjase a la opción Administrar del menú principal, ahora cree un nuevo centro
+de costo del tipo “operativo ”.
+
+Cree un servicio y un inductor
+Asigne el servicio creado al centro de costo creado en el paso 2
+
+Asigne el inductor creado al centro de costo creado en el paso 2
+
+O | OtU| 4 ]|o
+
+Asigne una extensión telefónica al centro de costo creado en paso 2
+
+ 
+
+Tabla 4.5: Caso de estudio, estructuración información de costos
+
+92Caso de estudio
+ICBA: Indicador de Costos Basados en Actividades
+Estructuración de la información de costos
+Paso No. Descripción
+
+Y Cargue el archivo de participación actividades ubicado en la ruta D:/Trabajo de
+Grado/archivos para importar al servidor
+
+8 Cargue el archivo de participación insumos ubicado en la ruta D:/Trabajo de
+Grado/archivos para importar al servidor
+
+9 Cargue el archivo de participación gastos ubicado en la ruta D:/Trabajo de Grado/archivos para importar al servidor
+
+ 
+
+10 Cargue el archivo de participación recursos ubicado en la ruta D:/Trabajo de
+Grado/archivos para importar al servidor
+
+11 Cargue el archivo de Absorción otros centros ubicado en la ruta D:/Trabajo de
+Grado/archivos para importar al servidor
+
+10 Cargue el archivo de participación cargos ubicado en la ruta D:/Trabajo de Grado/archivos para importar al servidor
+
+ 
+
+Tabla 4.5: (Continuación)
+
+Luego de realizar el caso de estudio se realizó la siguiente encuesta sobre la experiencia adquirida
+
+por el usuario en su primera interacción con ICBA, para respaldar los datos capturados durante
+la prueba de usabilidad.
+
+1) Seleccione el nivel de dificultad que se le presento al momento de iniciar sesión.
+
+a) Fácil
+b) Medio
+e) Difícil
+
+2) Seleccione el nivel de dificultad presentado al momento de encontrar los elementos de la
+aplicación.
+
+a) Fácil
+b) Medio
+e) Difícil
+
+3) Seleccione el nivel de dificultad presentado para ubicarse dentro de la aplicación.
+
+a) Fácil
+b) Medio
+e) Difícil
+
+4) Seleccione el nivel de dificultad presentado para ingresar los archivos requeridos por la
+aplicación.
+
+93a) Fácil
+b) Medio
+e) Difícil
+
+5) En una escala de 1 1 al 5 donde 1 es muy malo y 5 es excelente, ¿cómo calificaría la navegación
+dentro de la aplicación?.
+
+6) ¿Encontró algún error en esta interacción con la aplicación?
+7) ¿Cómo se siente al terminar de usa la aplicación?
+
+a) Satisfecho
+b) Insatisfecho
+c) Bajo tensión
+d) Molesto
+
+8) ¿Qué tan útil considera usted que es el Indicador de Costos Basados en Actividades?
+
+a) Muy útil
+b) Útil
+e) Inútil
+
+Respuestas de la encuesta: 1) a, 2) b, 3) c, 4) b, 5) 4, 6) Al momento de subir el archivo de
+Participación de insumos la aplicación no arrojó ninguna respuesta, 7) a, 8) a.
+
+Basados en las respuestas de la encuesta y de los datos arrojados en el caso de estudio se inició
+el proceso de corrección del error encontrado, también se dedujo que el nivel de aceptación del
+usuario hacia la aplicación es elevado y que ésta se encuentra en un nivel adecuado para iniciar
+su despliegue en el entorno para el cual fue elaborada. A partir de la instalación la aplicación,
+ésta entrará en un proceso de prueba de seis meses durante los cuales se expondrá la herramienta
+a trabajo continuo para identificar posibles fallas.
+
+94Capitulo 5
+
+Conclusiones y trabajos futuros
+
+A continuación se muestran las conclusiones del trabajo de grado, correspondientes a los objetivos
+planteados y alcanzados en el desarrollo de una aplicación para el sistema de costos ABC,
+implementado al centro de costo Hospital Día para el Hospital Psiquiátrico Universitario del
+Valle. Posteriormente se presentan algunos trabajos futuros.
+
+5.1 Conclusiones
+
+La aplicación Indicador de Costos Basados en Actividades ICBA, es una herramienta para
+la contabilidad de costos, basada en el sistema de costos por actividades. ICBA proporciona
+información que refleja el nivel y la estructura de los costos que se incurren al prestar cada uno
+de los servicios del Centro de Costo Hospital Día. Además, es un instrumento de apoyo para la
+planeación y la toma de decisiones.
+
+El alcance de la propuesta se estimó para calcular los costos de los servicios del Centro de Costo
+Hospital día, sin embargo, la aplicación se encuentra en la capacidad para costear los servicios
+de cualquier centro de costo del Hospital, lo que no pudo ser probado en este documento, por
+que los Centros de Costo deben realizar un proceso de estructuración de su información para
+seguir la metodología ABC, éste proceso corresponde únicamente al Hospital, y requiere de
+un estudio completo sobre la prestación de cada servicio. Por esta razón el presente trabajo
+de grado se centró en los servicios de un Centro de Costo específico, que contó con la disponibilidad y la facilidad para realizar la estructuración de su información en el tiempo estimado.
+
+ICBA permite la recolección de la información proveniente de las áreas (dependencias) administrativas y logísticas del Hospital para estructurar los procesos realizados según los parámetros
+de la metodología de costos ABC. Durante el desarrollo de esta aplicación se pudo establecer
+que el éxito de los sistemas de costos basados en actividades, radica en la veracidad y alto nivel
+de detalle que posea la información con que se alimenta el sistema, con el fin de reflejar la
+situación real de la empresa.
+
+La implementación del sistema de costeo ABC requiere no sólo del máximo aprovechamiento de
+los recursos y las herramientas para la obtención de la información involucrada en el proceso de
+costeo. También es necesario contar en primer lugar, con el respaldo de la gerencia, encargada
+de ejercer influencia sobre todos los funcionarios de la organización y difundir una cultura otganizacional donde cada uno de los actores que participan en este proceso, se concienticen de la
+
+99importancia de su rol dentro del costeo por actividades para alcanzar los objetivos propuestos
+con esta metodología: repartir los costos de un recurso a las distintas actividades que emplean
+este recurso y de éstas a los productos o servicios prestados por una organización.
+
+Costear productos o servicios en una organización constituye un proceso de mejoramiento
+continuo: en la medida en que avanza la tecnología se obtendrán mejores herramientas que
+contribuyen a la mejora de este proceso. El análisis minucioso de las actividades y de los recursos
+involucrados en la elaboración de un producto o la prestación de un servicio, proporciona
+elementos de juicio para la toma de decisiones por parte de la gerencia.
+
+Los reportes generados por las áreas logísticas y administrativas del Hospital, contienen
+información general sobre los procesos de cada Centro de Costo. Esta información que debe
+ser ingresada a la aplicación se encuentra dispersa en diferentes archivos generados por las
+aplicaciones CG-UNO y TelCel.com, algunos de los reportes comparten información específica
+sobre ciertos elementos de costos, y la contribución de cada uno es vital para el desarrollo
+del proceso. La lectura de los archivos representó una gran dificultad debido a que algunos
+informes no se encuentran actualizados y la información que contienen no está estandarizada, por lo cual se tomó como medida capturar de cada reporte porciones de información
+para conformar el total de datos necesarios para alcanzar los objetivos propuestos con la
+metodología de costos por actividades. En vista de lo anterior, se implementaron algoritmos
+especializados en la lectura de archivos específicos para poder filtrar la información que se requería, y cumplir el segundo objetivo específico, de gran importancia para el cálculo de los costos.
+
+Para extraer la información concerniente al proceso de costos de los archivos: nómina, aportes
+patronales, consumo de minutos por extensión telefónica, consumo de insumos, cuentas
+contables de recursos, gastos y costos, horas efectivas laboradas de personal administrativo y
+base de datos de activos se realizaron diferentes algoritmos a la medida de cada tipo de archivo
+para extraer los datos pertinentes para los costos, evitando de esta manera que el Técnico de
+Costos, tenga que depurar manualmente esta información.
+
+El cálculo de costos basado en actividades exige el análisis de los procesos y recursos requeridos
+para la prestación de los servicios del Hospital a un nivel de detalle más minucioso que el
+utilizado anteriormente con el costeo estándar, lo cual permite que la estructura del flujo de
+costos refleje la realidad de la Institución, contribuyendo con el logro de uno de los Principios
+de Contabilidad Generalmente aceptados, establecidos en el Decreto 2649 de 1993: Pertinencia
+y confiabilidad de la información.
+
+Los informes generados por la aplicación ICBA permiten a la gerencia y a los niveles directivos la
+posibilidad de tener una visión global y detallada de la situación real de la Institución en cuanto a
+los costos incurridos en determinado período. La mano de obra, los insumos, los recursos y gastos
+generales, son analizados no solo a nivel de centros de costo, sino también a nivel de actividades,
+de tal forma que los usuarios de la información tengan bases para tomar decisiones en cuanto a
+la reducción de costos y el mejoramiento de la productividad que permita incrementar la brecha
+entre ingresos y costos (margen de rentabilidad).
+
+965.2 Trabajos futuros
+
+En del desarrollo de la aplicación ICBA se identificaron diferentes líneas de trabajo para dar
+continuidad a aspectos presentados en el proceso, y que no se han abarcado por salirse del alcance
+estimado para este Trabajo de grado.
+
+e Extender la aplicación a otros procesos del Hospital. Para generar la información pertinente al proceso de costos se realizan una serie de procesos de administración
+y logística que aún no se encuentran sistematizados, para solucionarlo se podría extender
+la aplicación a estos procesos, generando nuevos módulos que se integren a Indicador de
+Costos Basados en Actividades.
+
+e Bodega de datos. Debido a que la aplicación generará una gran cantidad de información
+mensual, en un futuro se habrá generado suficiente información para implementar una
+bodega de datos y aplicar procesos de análisis, selección y transferencia de datos, generando
+nueva información para respaldar la finalidad de todo sistema de costos, que es apoyar el
+proceso de toma de decisiones.
+
+e Estudio de tiempos y movimientos. Establecer un estándar de tiempo permisible para
+realizar las actividades involucradas en los procesos del Hospital, con base en la medición
+del contenido del trabajo, con la debida consideración de la fatiga y las demoras personales
+y los retrasos inevitables, logrando definir de una manera más precisa los porcentajes de
+participación de los empleados en cada actividad realizada en la prestación de los servicios.
+
+37Referencias
+
+1]
+
+|S|
+
+19)
+
+10]
+11]
+
+12]
+
+ 
+
+ 
+
+13]
+
+14]
+
+Ricardo Vásquez Bernal, and Wilmar Franco Franco. Modelo general
+de contabilidad para empresas prestadoras de servicios públicos  EPSP.
+http: //www.superservicios.gov.co/c/document_ library /get_file?uuid=4d755cf2-db67
+45d4-acc6-5193adle337bégroupid=10122. Super Intendencia de Servicios públicos
+domiciliarios, 2010. consulted: march 2013.
+
+Hospital Psiquiátrico Universitario del Valle Empresa Social del Estado. Estatuto interno.
+Acuerdo No. 008. Diciembre 19 de 2006.
+
+Deysi Berrío Guzmán, and Jaime Castrillón Cifuentes. Costos para gerenciar organizaciones
+manufactureras, comerciales y de servicios. Ediciones Uninorte, Bogotá, D.C., 2008.
+
+Francisco J. Toro López. Costos ABC y Presupuestos: Herramientas para la productividad.
+Ecoe ediciones, 1 edition, Bogotá, D.C., 2010.
+
+Carlos F. Cuevas V. Contabilidad de Costos: Enfoque gerencial y de gestión. Pearson Educación de Colombia Ltda, 2 edition, Bogotá, D.C., 2001.
+
+Ministerio de Protección social. Manual de implementación de sistemas de costos hospitalarios. Cited: Contaduría General de la Nación. Marco de referencia
+para la implantación del sistema de costos en las entidades del sector público.
+http: //portalterritorial.gov.co/documentos.shtml. consulted: march 2013.
+
+Joaquín Cuervo Tafur, and Jair Albeiro Osorio Agudelo. Costeo basado en actividades ABC-: gestión basada en actividades ABM. Ecoe ediciones, 1 edition, Bogotá, D.C., 2006.
+
+Douglas T. Hicks. El Sistema de Costos Basado en las Actividades (ABC): Guía para su
+implementación en pequeñas y medianas empresas. Alfaomega, Bogotá, D.C., 2006.
+
+Vincenc Fernández. Desarrollo de Sistemas de Información: una metodología basada en el
+modelado Ediciones UPC, 1 edition, Cataluña, 2006.
+
+Samisa Abeysinghe. RESTful PHP Web Services. Mithil Kulkarni, 1 edition, 2008.
+Bill Burke. RESTful Java with JAX-RS. OReilly, 1 edition, 2009.
+Kris Hadlock. Ajax for Web Application Developers. DEVELOPERS LIBRARY, 2006.
+
+Jonathan Chaffer, and Karl Swedberg. Learning ¡Query 1.3: Better Interaction Design and
+Web Development with Simple JavaScript Techniques. Packt Publishing Ltd, 2009.
+
+Antonio Lavolpe, Los sistemas de costos y la contabilidad de gestión: pasado, presente y
+futuro. Revista Costos y Gestión, 2005.
+
+98[115] GaussSoft, software GaussProfit. http://www.gausssoft.com/spanish/prod_ga uss.html.
+consulted: march 2013.
+
+116] AST Informática LTDA, software AST costos ABC.
+http: //www.astinformatica.com/ast/apps/gene ral.asp?s=home_ div.services.cabc%Za=2765934.
+
+consulted: march 2013.
+
+99Lista de anexos
+
+60Anexo A
+
+Sprints Backlog
+
+ 
+
+ 
+
+ID Elemento Prioridad Estimación Criterios de
+aceptación
+
+1.1 Como usuario quiero crear centros de cos- 1 1 Test de acepto, que pueda administrar, editar, elimi- tación 1.1
+nar, habilitar o deshabilitar.
+
+1.2 Como usuario quiero crear la lista de ser- 2 1 Test de acepvicios que se prestan en el Hospital. tación 1.2
+
+1.3 Como usuario quiero crear la lista de ac- 2 1 Test de aceptividades que realizan en el Hospital tación 1.3
+
+1.4 Como usuario quiero asignar una lista de 2 1 Test de acepservicios a un centro de costo tación 1.4
+
+1.5 Como usuario quiero asignar una lista de 2 1 Test de acepactividades a un servicio. tación 1.5
+
+1.6 Como usuario quiero crear una lista de ba- 2 1 Test de acepses de asignación (inductores), para distri- tación 1.6
+buir recursos entre los centros de costo.
+
+1.7 Como usuario quiero asignar una lista de 2 1 Test de acep
+ 
+
+bases de asugnación (inductores) a los centros de costo.
+
+tación 1.7
+
+Tabla A.1: Sprint Backlog módulo centros de costo
+
+61ID Elemento Prioridad Estimación Criterios de
+
+ 
+
+ 
+
+ 
+
+ 
+
+aceptación
+
+2.1 Como usuario quiero crear manualmente 2 1 Test de acepuna lista de gastos. tación 2.1
+
+2.2 Como usuario quiero subir un archivo pa- 6 1 Test de acepra generar una lista de gastos automática- tación 2.2
+mente.
+
+2.3 Como usuario quiero consignar en deta- 2 1 Test de aceplle la información sobre los gastos directos tación 2.3
+incurridos por las diferentes dependencias
+del Hospital mensualmente.
+
+Tabla A.2: Sprint Backlog módulo gastos
+
+ID Elemento Prioridad Estimación Criterios de
+
+aceptación
+
+3.1 Como usuario quiero crear una lista de in- 2 1 Test de acepsumos tación 3.1
+
+3.2 (Como usuario quiero consignar en deta- 2 1 Test de aceplle la información sobre los insumos sumi- tación 3.2
+nistrados a las diferentes dependencias del
+Hospital.
+
+3.3 Como usuario quiero cargar en el sistema 2 2 Test de aceplos informes de costos en hoja de cálculo tación 3.3
+sobre insumos consumidos por las diferentes áreas del Hospital
+
+Tabla A.3: Sprint Backlog módulo insumos
+
+ID Elemento Prioridad Estimación Criterios de
+
+aceptación
+
+4.1 Como usuario quiero crear una lista de re- 2 1 Test de acepCUrsos. tación 4.1
+
+4.2 Como usuario quiero consignar en deta- 2 1 Test de aceplle la información sobre los recursos sumi- tación 4.2
+nistrados a las diferentes dependencias del
+Hospital.
+
+ 
+
+Tabla A.4: Sprint Backlog módulo recursos
+
+621D
+
+9.1
+
+9.2
+
+9.3
+
+1D
+
+6.1
+
+6.2
+
+Elemento
+
+Como usuario quiero cargar en el sistema
+la información sobre los empleados proveniente del software contable CG1 y de la
+hoja de cálculo de aportes patronales.
+
+Como usuario quiero cambiar el cargo y
+lugar de trabajo de los empleados.
+
+Como usuario quiero cargar un archivo al
+sistema para crear una lista de cargos que
+serán asignados a los empleados.
+
+Prioridad Estimación
+
+1 2
+3 1
+2 1
+
+Tabla A.5: Sprint Backlog módulo personal
+
+Elemento
+
+Como usuario quiero para crear nuevos
+turnos laborales con sus respectivos rangos de horas.
+
+Como usuario quiero deshabilitar los turnos que ya no correspondan a las necesi
+dades del Hospital.
+
+Prioridad Estimación
+
+ 
+
+Criterios de
+aceptación
+
+Test de aceptación 5.1
+
+Test de aceptación 5.2
+
+Test de aceptación 5.3
+
+ 
+
+ 
+
+Criterios de
+aceptación
+
+Test de aceptación 6.1
+
+Test de aceptación 6.2
+
+ 
+
+6.3
+
+6.4
+
+Como usuario quiero planear y modificar
+la asignación de turnos de los empleados
+en las diferentes áreas del hospital por medio de un calendario (con las siguientes
+convenciones DD): día, T': tarde, N: noche, L:
+libre, DN: día noche, DT: todo el día, C: ,
+PS: permiso sindical, DAI: auditoria interna y mañana, LC: libre por cumpleaños,
+CD: calamidad doméstica, 1: incapacidad,
+V: vacaciones, Al: auditoria interna, SO:
+salud ocupacional, B: brigada toda la tarde), con el fin de distribuir el personal en
+los horarios requeridos por las áreas operativas del Hospital, además podrá agregar
+notas informativas sobre alguna novedad
+a cada asignación de turnos .
+
+Como usuario quiero visualizar los turnos
+programados en el mes actual, y los meses
+anteriores, con el fin de verificar la programación de los turnos.
+
+3 1
+3 1
+3 2
+4 2
+
+Tabla A.6: Sprint Backlog módulo turnos
+
+63
+
+Test de aceptación 6.3
+
+Test de aceptación 6.4ID Elemento Prioridad Estimación
+
+6.5 Como usuario quiero calcular el total de 2 2
+turnos y horas diurnas, dominicales, festivas y nocturnas laboradas por empleado, mediante las horas que representa cada turno, con el fin de determinar la cantidad de horas efectivas laboradas por cada
+empleado.
+
+Tabla A.6: (Continuación)
+
+64
+
+ 
+
+Criterios de
+aceptación
+
+Test de aceptación 6.5Anexo B
+
+Test de aceptación
+
+Para el módulo: 1. Usuarios, no se realizaron test de aceptación, debido a que trata de la gestión
+de logueo y contraseña, y no tiene requerimientos específicos por parte del usuario. Los test de
+aceptación par los demás módulos se muestran a continuación
+
+ 
+
+No. Test de aceptación requerimiento 2.1 Respuesta
+
+1 Crear el gasto de nómina “sueldos de personal”, Mensaje de confirmación
+con la cuenta 51010101, y tipo “gastos de nómina 2)
+
+2 Editar el nombre y/o el tipo del gasto de nómina Mensaje de confirmación
+
+“sueldos de personal”
+
+3 Eliminar el gasto de nómina “sueldos de perso- Mensaje de confirmación
+nal” antes de ser asignado a un centro de costo
+
+ 
+
+4 Eliminar el gasto de nómina “sueldos de per- Mensaje de error
+sonal” después de ser asignado a un centro de
+costo
+9 Crear el gasto general “alimentación”, con la Mensaje de confirmación
+
+cuenta 73240102 y tipo “gastos generales”
+
+6 Editar el nombre y/o el tipo del gasto general Mensaje de confirmación
+“alimentación”
+7 Eliminar el gasto general “alimentación” antes Mensaje de confirmación
+
+de ser asignado a un centro de costo
+
+8 Eliminar el gasto general “alimentación” des- Mensaje de error
+pués de ser asignado a un centro de costo
+
+ 
+
+Tabla B.1: Test de aceptación requerimientos Módulo de gastos
+
+65No. Test de aceptación requerimientos 2.2 y Respuesta
+
+ 
+
+ 
+
+ 
+
+ 
+
+2.3
+
+1 Cargar al programa un archivo de extensión .xls Mensaje de confirmación
+con una lista de gastos generales y de nómina
+para crearlos automáticamente
+
+2 Realizar la asignación del gasto “alimentación” Mensaje de confirmación
+al centro de costo Rehabilitación
+
+Tabla B.1: (Continuación)
+
+No. Test de aceptación requerimiento 3.1 Respuesta
+
+1 Crear el insumo “alcohol glicerinado”, con la Mensaje de confirmación
+cuenta 51115501, referencia 7343 y unidad de
+medida “und”
+
+2 Editar el nombre del insumo “alcohol glicerina- Mensaje de confirmación
+do 2)
+
+3 Eliminar el insumo “alcohol glicerinado” “suel- Mensaje de confirmación
+dos de personal” antes de realizar el cálculo de
+los costos
+
+4 Eliminar el insumo “alcohol glicerinado” des- Mensaje de error
+pués de realizar el cálculo de los costos
+
+9 Crear el gasto general “alimentación”, con la Mensaje de confirmación
+cuenta 73240102 y tipo “gastos generales”
+
+No. Test de aceptación requerimientos 3.2 Respuesta
+
+1 Realizar la asignación de un porcentaje de los Mensaje de confirmación
+insumos a las actividades
+
+2 Cargar al programa un archivo de extensión .xls Mensaje de confirmación
+
+con una lista de insumos para crearlos automáticamente y registrar los consumos de cada centro
+
+ 
+
+Tabla B.2: Test de aceptación requerimientos Módulo de insumos
+
+66No. Test de aceptación requerimiento 4.1 Respuesta
+
+1 Crear el turno “noche”, con la etiqueta N y una Mensaje de confirmación
+duración de 11 horas
+
+2 Editar el nombre, la etiqueta y/o la duración del Modificación representada en la taturno “noche” bla de turnos
+
+No. Test de aceptación requerimientos 4.2 Respuesta
+
+1 Planear los turnos del mes de noviembre del em- Visualización turnos en el calendapleado Acosta Valencia Martha Cecilia en el cen- rio
+tro de costo sala ocho
+
+2 Eliminar los turnos planeados en el mes de no- Visualización campos de turnos vaviembre del empleado Acosta Valencia Martha cios en el calendario
+Cecilia
+
+No. Test de aceptación requerimientos 4.3 Respuesta
+
+1 Visualizar la planeación total de turnos del mes Visualización turnos asignados en el
+de noviembre calendario
+
+No. Test de aceptación requerimientos 4.4 Respuesta
+
+1 Calcular el total de turnos y horas diurnas, do- Tabla con el total de turnos horas
+minicales, festivas y nocturnas laboradas por el diurnas, dominicales, festivas y nocempleado Acosta Valencia Martha Cecilia turnas del empleado Acosta Valen
+cia Martha Cecilia
+No. Test de aceptación requerimientos 4.5 Respuesta
+1 visualizar un mes programado con el total de Tabla con el total de turnos horas
+
+turnos, horas diurnas, dominicales, festivas y
+nocturnas laboradas por todos los empleados
+
+diurnas, dominicales, festivas y nocturnas de todos los empleados
+
+ 
+
+Tabla B.3: Test de aceptación requerimientos Módulo de turnos
+
+67No. Test de aceptación requerimiento 5.1 Respuesta
+
+1 Crear el recurso “energía”, con la cuenta Mensaje de confirmación
+51111702 y unidad de medida “kilovatios promedio consumo”
+
+2 Editar el nombre y/o la unidad de medida del Mensaje de confirmación
+recurso “energía”
+
+3 Eliminar el recurso “energía” Mensaje de confirmación
+
+No. Test de aceptación requerimientos 5.2 Respuesta
+
+1 Realizar la asignación de un recurso a los cen- Mensaje de confirmación
+tros a los centros de costo por medio la bases de
+asignación (inductores)
+
+No. Test de aceptación requerimientos 5.3 Respuesta
+
+1 Visualizar la lista de recursos consumidos por Tabla de recursos consumidos en el
+un centro de costo en el mes de noviembre. mes de noviembre
+
+Tabla B.4: Test de aceptación requerimientos Módulo de recursos
+
+No. Test de aceptación requerimiento 6.1 Respuesta
+
+1 Cargar en el sistema la información sobre los em- Mensaje de confirmación
+pleados proveniente del software contable CGUNO y de la hoja de cálculo de aportes patronales del mes de noviembre.
+
+No. Test de aceptación requerimientos 6.2 Respuesta
+
+1 Crear el empleado Acosta Duque Farnan Eduar- Mensaje de confirmación
+do con el número de cédula 14835859, el cargo
+Auxiliar administrativo y el tipo Administrativo
+
+No. Test de aceptación requerimientos 6.3 Respuesta
+
+1 Cambiar el cargo y lugar de trabajo del emplea- Cambio automático en la base de
+do Acosta Duque Farnan Eduardo al subir la nó- datos
+mina del mes siguiente.
+
+No. Test de aceptación requerimientos 6.4 Respuesta
+
+1 Cargar un archivo al sistema para crear una lista Mensaje de confirmación
+de cargos
+
+No. Test de aceptación requerimientos 6.5 Respuesta
+
+1 Crear el cargo Auxiliar administrativo Mensaje de confirmación
+
+ 
+
+Tabla B.5: Test de aceptación requerimientos Módulo de personal
+
+68No.
+
+1
+
+Test de aceptación requerimiento 7.1
+
+Crear el centro de costo Alimentación y despensa
+con código 202, del tipo “servicio”, con la fecha
+
+de creación 2013-11-30 y la base de distribución
+raciones alimenticias
+
+Editar el nombre, el tipo y/o la base de distribución del centro de costo Alimentación y despensa
+
+Eliminar el centro de costo Alimentación y despensa antes de haberle asignado algún elemento
+de costo
+
+ 
+
+Respuesta
+
+Mensaje de confirmación
+
+Mensaje de confirmación
+
+Mensaje de confirmación
+
+ 
+
+Eliminar el centro de costo Alimentación y despensa después de haberle asignado algún elemento de costo
+
+Cambiar el estado del centro de costo Alimentación y despensa a deshabilitado
+
+Cambiar el estado del centro de costo Alimentación y despensa a habilitado
+
+. Test de aceptación requerimientos 7.2
+
+Crear el servicios Permanencia diurna para tratamiento con código 38235, con la fecha de crea
+ción 2018-11-30
+
+Mensaje de error
+
+Mensaje de confirmación
+
+Mensaje de confirmación
+
+Respuesta
+
+Mensaje de confirmación
+
+ 
+
+Editar el nombre del servicio Permanencia nocturna para tratamiento a Permanencia diurna
+para tratamiento
+
+Eliminar el servicio Permanencia diurna para
+tratamiento antes de haberlo asignado a algún
+centro de costo
+
+Eliminar el servicio Permanencia diurna para
+tratamiento después de haberlo asignado algún
+centro de costo
+
+Mensaje de confirmación
+
+Mensaje de confirmación
+
+Mensaje de error
+
+ 
+
+Cambiar el estado del servicio Permanencia
+diurna para tratamiento a deshabilitado
+
+Mensaje de confirmación
+
+ 
+
+Cambiar el estado del servicio Permanencia
+diurna para tratamiento a habilitado
+
+Tabla B.6: Test de aceptación requerimientos Módulo de centros de costo
+
+69
+
+Mensaje de confirmaciónNo.
+
+1
+
+Test de aceptación requerimientos 7.3
+
+Crear la actividad Capacitar y supervisar estudiantes y residentes con código 309-16 y la fecha
+de creación 2013-11-30
+
+Editar el nombre de la actividad Capacitar y
+supervisar estudiantes a Capacitar y supervisar
+estudiantes y residentes
+
+Eliminar la actividad Capacitar y supervisar estudiantes y residentes antes de haberla asignado
+a algún servicio
+
+ 
+
+Respuesta
+
+Mensaje de confirmación
+
+Mensaje de confirmación
+
+Mensaje de confirmación
+
+ 
+
+Eliminar la actividad Capacitar y supervisar estudiantes y residentes después de haberla asignadoa a algún servicio
+
+Cambiar el estado de la actividad Capacitar y
+
+supervisar estudiantes y residentes a deshabilitado
+
+Cambiar el estado de la actividad Capacitar y
+supervisar estudiantes y residentes a habilitado
+
+. Test de aceptación requerimientos 7.4
+
+Mensaje de error
+
+Mensaje de confirmación
+
+Mensaje de confirmación
+
+Respuesta
+
+ 
+
+Asignar una lista de actividades al servicio Permanencia diurna para tratamiento
+
+Mensaje de confirmación
+
+ 
+
+. Test de aceptación requerimientos 7.5
+
+Asignar una lista de servicios al centro de costo
+Alimentación y despensa
+
+. Test de aceptación requerimientos 7.6
+
+Crear la base de asignación (inductor) kilos de
+ropa lavada del tipo variable
+
+Editar el nombre y/o el tipo de la base de asignación (inductor) kilos de ropa lavada tipo variable
+
+a tipo fija
+
+Respuesta
+
+Mensaje de confirmación
+
+Respuesta
+
+Mensaje de confirmación
+
+Mensaje de confirmación
+
+ 
+
+Eliminar la base de asignación (inductor) kilos
+de ropa lavada antes de haberla asignado a un
+centro de costos
+
+Eliminar la base de asignación (inductor) kilos
+de ropa lavada después de haberla asignado a un
+centro de costos
+
+. Test de aceptación requerimientos 7.7
+
+Asignar una lista de bases de asignación al centro de costo Alimentación y despensa
+
+Mensaje de confirmación
+
+Mensaje de error
+
+Respuesta
+
+Mensaje de confirmación
+
+ 
+
+Tabla B.6: (Continuación)
+
+YOAnexo C
+
+Especificación de requerimientos
+
+ 
+
+Especificación de requerimientos
+
+ICBA: Indicador de Costos Basados en Actividades
+2. Módulo: Gastos
+
+ 
+
+ 
+
+Req. Definición del requerimiento Caso de uso
+2.1 El sistema permitirá al usuario crear un nuevo gasto. CU_ Crear Gasto
+2.2 El sistema permitirá al usuario subir un archivo para crear una lista (CU Cargar
+
+de gastos. Gastos
+2.3 El sistema permitirá que el usuario consigne en detalle la información CU_ AsignarCC_
+
+sobre los gastos directos incurridos por las diferentes dependencias del  GastoD
+
+Hospital mensualmente.
+
+Tabla C.1: Especificación de Requerimientos módulo de Gastos
+Especificación de requerimientos
+ICBA: Indicador de Costos Basados en Actividades
+3. Módulo: Insumos
+
+Req. Definición del requerimiento Caso de uso
+3.1 El sistema permitirá al usuario crear un insumo. CU_ Crear _Insumo
+3.2 El sistema permitirá que el usuario consigne en detalle la informa-.CU_ AsignarCC_
+
+ción sobre los insumos suministrados a las diferentes dependencias Insumos
+
+del Hospital.
+3.3 El sistema permitirá al usuario cargar en el sistema los informes de (CU_Cargar  In
+costos en hoja de cálculo sobre insumos consumidos por las diferentes
+áreas del Hospital.
+
+forme insumos
+
+ 
+
+Tabla C.2: Especificación de Requerimientos módulo de Insumos
+
+71Especificación de requerimientos
+
+ICBA: Indicador de Costos Basados en Actividades
+4. Módulo: Turnos
+
+ 
+
+ 
+
+ 
+
+ 
+
+Req. Definición del requerimiento Caso de uso
+
+4.1 El sistema ofrecerá al usuario una opción para crear nuevos turnos CU_Crear Turcon sus respectivos rangos de horas. nOs
+
+4.2 El sistema deberá permitir al usuario planear y modificar la asigna- CCU Programar
+ción de turnos de los empleados a su disposición en las diferentes Turnos
+áreas del Hospital por medio de un calendario, con el fin de distribuir
+el personal en los horarios requeridos por las áreas operativas del Hospital, además podrá agregar notas informativas sobre alguna novedad
+a cada asignación de turnos .
+
+43 El sistema permitirá al usuario, visualizar los turnos programados (CU_ Visualizar
+en el mes actual, y los meses anteriores, con el fin de verificar la  Programaprogramación de los turnos. ción Turnos
+
+4.4 El sistema permitirá al usuario calcular el total de turnos y horas (CU_ Calcular
+diurnas, dominicales, festivas y nocturnas laboradas por empleado, Homediante las horas que representa cada turno, con el fin de determinar ras Laboradas
+la cantidad de horas efectivas laboradas por cada empleado.
+
+45 El sistema permitirá al usuario visualizar un mes programado, con el CU_ Ver Reporte
+fin conocer las horas laboradas por cada empleado del mes planeado. Turnos
+
+Tabla C.3: Especificación de Requerimientos módulo de Turnos
+Especificación de requerimientos
+ICBA: Indicador de Costos Basados en Actividades
+5. Módulo: Recursos
+
+Req. Definición del requerimiento Caso de uso
+
+5.1 El sistema permitirá al usuario crear un recurso. CU Crear Recurso
+
+5.2 El sistema permitirá al usuario consignar en detalle la información so- CU_ Asignar
+bre los recursos suministrados a las diferentes dependencias del Hos-  RecursosCC
+pital.
+
+5.3 El sistema permitirá al usuario visualizar la lista de recursos consu- (CU. Visualizar
+
+midos un por centro de costo mensualmente.
+
+Asignación Recursos
+
+ 
+
+Tabla C.4: Especificación de Requerimientos módulo de Recursos
+
+12Especificación de requerimientos
+
+ICBA: Indicador de Costos Basados en Actividades
+6. Módulo: Empleados
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Req. Definición del requerimiento Caso de uso
+6.1 El sistema permitirá al usuario cargar en el sistema la información CU_ Cargar
+sobre los empleados proveniente del software contable CG-UNO y de Empleados
+la hoja de cálculo de aportes patronales.
+6.2 El sistema permitirá al usuario crear un nuevo empleado. CU Crear  Empleado
+6.3 El sistema permitirá al usuario cambiar el cargo y lugar de trabajo de (CU Cambiar
+los empleados. Cargo_y_ Centro
+__ Empleado
+6.4  Elsistema permitirá al usuario cargar un archivo al sistema para crear CU_ importar
+una lista de cargos. Cargos
+6.5 El sistema permitirá al usuario crear un nuevo cargo CU_ Crear Cargo
+Tabla C.5: Especificación de Requerimientos módulo de Empleados
+Especificación de requerimientos
+ICBA: Indicador de Costos Basados en Actividades
+7. Módulo: Centros de Costo
+Req. Definición del requerimiento Caso de uso
+1.1 El sistema permitirá al usuario crear un centro de costo. CU Crear CC
+1.2 El sistema permitirá al usuario crear una lista de servicios que se (CU_ Crear Serviprestan por cada centro de costo. cios
+1.3 El sistema permitirá al usuario crear una lista de actividades, que se (CU_ Crear Actirealizan al prestar los diferentes servicios vidades
+1.4 El sistema permitirá al usuario asignar una lista de actividades que (CU_ Añadir Actise realizan para prestar cada servicio en un centro de costo. vidades
+1.5 El sistema permitirá al usuario asignar un servicio a un centro de (CU_ Añadir Servicosto. cio
+7.6 El sistema permitirá al usuario crear una lista de bases de asignación (CU Crear Basespara distribuir recursos entre los centros de costo Asig
+1.7 El sistema permitirá al usuario asignar una lista de bases de asignación .(CU_ Añadir Bases
+a los centros de costo
+
+Asig
+
+ 
+
+Tabla C.6: Especificación de Requerimientos módulo de Centros de Costo
+
+13Anexo D
+
+Casos de Uso
+
+sistema de costos ABC. HPUW
+Gastos
+
+¡<< Include>=
+
+<=Include>>
+
+CU AsignariC
+-GastoD
+
+Técnico costos | Y cu Cargar |
+Gastos o
+
+ 
+
+Figura D.1: Caso de uso módulo Gastos
+
+74sistema de costos ABC HPUW
+insumo
+
+l
+¡=<Include>=>
+
+<<Include=>
+
+CU AsignarCC
+Insumos
+
+Técnico costos Y CU Cargar_
+| Informe Insumos 4
+
+ 
+
+Figura D.2: Caso de uso módulo Insumos
+
+15sistema de costos ABC HPUW
+Turnos
+
+I
+I
+¡==Include>>
+I
+
+CU Programar _ CU Visualizar _
+Turnos Programación Turnos
+
+<<Include>>
+
+Operativo Gestión Y” CU Ver Reporte
+Recursos | — Turnos
+
+CU Calcular
+Horas _Laboradas
+
+Técnico costos
+
+ 
+
+Figura D.3: Caso de uso módulo Turnos
+
+76Sistema de costos ABC HPUW
+Recursos
+
+CU Crear
+Recurso
+
+<=Include-=
+<<Include-=>
+
+CU Asignar
+RecursosC.C
+
+Técnico costos ==Include>>
+
+CU Visualizar
+Asignación Recursos
+
+ 
+
+Figura D.4: Caso de uso módulo Recursos
+
+Sistema de costos ABC HPUV
+Empleados
+
+CU_Crear_
+Empleado
+
+1
+1
+<<Include>>|
+1
+
+Técnico costos
+
+CU_Cambiar_Cargo
+_y Centro Empleado
+
+CU_Cargar_
+Empleados
+
+ 
+
+Figura D.5: Caso de uso módulo Empleados
+
+17Sistema de costos ABC HPUV
+Centros de costo
+
+CU_Añadir_Servi
+cios
+
+CU_Crear_
+Servicios
+
+Técnico costos
+CU_Añadir_
+Actividades
+
+CU Crear_
+BasesAsig
+
+ 
+
+Figura D.6: Caso de uso módulo Centros de Costos
+
+18

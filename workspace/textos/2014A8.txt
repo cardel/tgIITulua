@@ -1,0 +1,5218 @@
+SISTEMA DE APOYO PARA LA TOMA DE DECISIONES Y AGILIZACIÓN DE PROCESOS
+DE LA CURADURÍA URBANA DE TULUÁ
+
+ESPINAL CORREA JULIÁN ANDRÉS
+
+Código: 200956115
+
+UNIVERSIDAD DEL VALLE
+ESCUELA DE INGENIERÍA DE SISTEMAS Y COMPUTACIÓN
+PROGRAMA ACADÉMICO DE INGENIERÍA DE SISTEMAS
+TULUÁ -VALLE
+
+2015SISTEMA DE APOYO PARA LA TOMA DE DECISIONES Y AGILIZACIÓN DE PROCESOS
+DE LA CURADURÍA URBANA DE TULUÁ
+
+ESPINAL CORREA JULIÁN ANDRÉS
+
+Código: 200956115
+
+Trabajo de grado presentado como requisito para obtener el título de
+
+Ingeniero de Sistemas
+
+Director:
+
+PAVEL FRANCO MARÍN, ING
+
+UNIVERSIDAD DEL VALLE
+ESCUELA DE INGENIERÍA DE SISTEMAS Y COMPUTACIÓN
+PROGRAMA ACADÉMICO DE INGENIERÍA DE SISTEMAS
+TULUÁ -VALLE
+
+2015Nota de aceptación
+
+Firma del Jurado
+
+Tuluá, 20 de abril de 2015DEDICATORIA
+
+Este trabajo de grado ha sido el fruto de un proceso que empezó en el año 2009, en el cual muchas
+personas han intervenido para hacer posible mi formación profesional, compañeros de estudio,
+profesores, familia y amigos. Todos y cada uno aportaron de una manera u otra a alcanzar esta
+meta, acompañándome en el proceso, compartiendo sus conocimientos, proveyendo un ambiente
+sano de convivencia y con palabras de ánimo.
+
+IVAGRADECIMIENTOS
+
+Agradezco a ese poder superior que ha elevado mi espíritu y no me ha dejado sucumbir ante la
+adversidad, aun en los momentos más duros de este proceso y en los que he estado más vulnerable.
+
+Gracias madre, por darme la oportunidad de convivir con ella durante todo este tiempo, de lo
+contrario a eso no hubiese podido pasar estos años formándome como profesional.
+
+Gracias a mis leales amigos, Edwin Aranda Zamora, Cesar Augusto Montaño, Julián David Ruiz,
+Julio Hernán Aranda y Juan Pablo Giraldo. Siempre me felicitaron en los buenos y me apoyaron en
+los malos momentos, emocional y económicamente.
+
+Finalmente, agradecimiento especial a mi director, Pavel Franco Marín, quien ha sido mi guía
+durante la realización de este proyecto.ÍNDICE DE CONTENIDOS
+
+¡INIA 1
+1. INTRODUCCION cooocccnoccnnnnconnnnnocnnnnnnnnnnnnnnn nro nrr nn nnnnn rre nnnnrnnnnnnnnnnnnnnnnnnnnnnnnnnnnns! 3
+1.1 PLANTEAMIENTO DEL PROBLEMA ....ooccccccccccncnnnnnnncccccnn cnn nnnn nc rn nr rnnrnn 4
+
+1.1.1 Descripción del problema..........ooooooccococccnnnccccnnnnnnnnncccco non nnnnnnnna nono q
+
+1.1.2 Formulación del problema.............ooooocccccconcconnnnnnnonnncnnnonnncccnn nro 5
+
+1.2 OBJETIVOS c.ooooocccccconnccnnnnccnnnnnnnnnnccnn nor nn rr rre 6
+
+1.2.1 Objetivo general..........oococcccoccccccccnccconnnoncnnccnn nn nn rr r rr rr rra 6
+
+1.2.2 Objetivos eSpecÍÍICOS.......ooooocccccncccnonnnnnnnccnon nn rnnnc nro nr rn nn nr ran nnnass 6
+
+1.2.3 Resultados eSperados........oooocoooooccconnonononnnnnccccccc cnn anno rn nnnnnannnoss 6
+
+2. MARCO REFERENCIAL. .oooccccccccnnnnnnncccononncnnncnn nor rrn rr rr rr rr rr r rr r rr n rar r ranas 7
+2.1 MARCO DE ANTECEDENTES. o0occcccccccccnnnnncnccccccnnnnnnnn nr c rn rnnnnnnr ra nrnnnnnnnoss 7
+
+2.1.1 Productos de software de uso por licencia de pagO.....oooococccccccccccnncccccco. 7
+
+2.1.2 Productos de software de uso libre (Freeware).........o.oooocccooccccnocccncocanonos 9
+
+2.2 MARCO CONTEXTUAL cooooccccccccconnnnnncncccnnnnnnnnnnccnn nn rnnn nr rn n rr nnnn nana n anna 11
+
+2.3 MARCO CONCEPTUAL. 0oooccccccccconnncnncccnnnnnnnnnccnnnn rn nnnnnncn nor rnnn rra rrnnnonss 13
+
+3. METODOLOGÍA ccoooococcccnnnnococonnnnnnnononnnnnnnnnnnnnnnn rn non nnn nn nn nnnnnnnnnnnnnninnnrrnnnnniiis 16
+3.1 DEFINICIÓN DE LA METODOLOGÍA DE TRABAJO. ...ocoocccccnccnccnccnccnccnicnnns 16
+
+3.2 CICLO leonoocccccnccccconcnnnnnnnncnnnnnnrnnn rr rre 17
+
+3.2.1 Análisis y definición de requeriMientoS......oocococcccccnnncccccccccnnnncnnnnnnnns 17
+
+3,3 CICLO Doroocccccccccccccnnnnnnnnn cnn rr rr rr rra nas 32
+
+3.2.1 Modelado del sistema (diseño)........ooooooocccconnccnnocnnnnronono nora ross 32
+
+3.3.2 Diagrama de Clases.........ooooooooccccccccccncnnnnnoncnnnnnnnnnnnr cc n cnn rro 32
+
+3.3.3 Diagrama de COMPONENTES. ..oooooocccoccncccccnnnnccccccnnn nn nan nrnrrnnrrrnnnanan ains 33
+
+3.3.4 Modelo de la base de datoS..........ooooooccoooonoccccnnnnnnononcnnnnnnnnnccccnanoes 34
+
+3.3.5 Diagrama de flujo de datoS.........oooooocccccooccnocccnnnoncnnnncccncnrc rro 35
+
+3.4 CONSTRUCCIÓN. coooccccnoooccccnnnnononccnnnnnnnninennnnnnnnnnnnnnnnnnnnnnnnnnnrnnniiiinnnss 36
+
+3.4.1 Iteración l........oooooooococcoconnnononcnnnnnncnc cnn nr n nn rr rr narrar 36
+
+3.4.2 IteraciÓn Z......ooooooooococccnnnnonnnnnnnnnnnnrn cr cnn rn r nn rar rra 38
+
+3,4,3 IteraciÓón B......ooooocooococcocnnnnnnnnnnnnnnnnnnc rr rr r nr r nn narra nana ones 42
+
+3,4,4 Iteración 4......ooooooooocoonnnnonononnnnnnnnnnn nr r rr rra rra 45
+
+3.4,5 Iteración ÍD.....ooooooccoocccononnnnonnrnnnnnnnnn rn r nr rr rra rra 49
+
+3.4.6 IteraciÓn Ó......ooooocoooooooonononoronornnnnnn nr n rc cnn rn r rn narra nan 51
+
+3.4.7 Diagnostico tecnológico de la Curaduría Urbana de Tuluá...................... 60
+
+3.4.8 Implementación de la SOlUCiÓN.............oooooooccccncnnnnnnoncnnncnnnocccannnnn os 60
+
+4. CONCLUSIONES. ...occcccccccnc ooo ER BURDA AMURIG ASIAR AUDEAE LIA GENES ERAS RUE SUBES AARERO LRRENA SURE AER 61
+5. REFERENCIAS Y BIBLIOGRAFIA. .ooooocccccccccccccnnnnnnnnccnnnn nn nnn nr c rra rnrnnrrn nr rnnnnanss 62ÍNDICE DE TABLAS
+
+Tabla 1. Comparación de los antecedentes de SOÍtWAre........ooocooccccccccccccccccnnnnnnnnnnnnnnnannos 10
+Tabla 2. Historias de USUATIO ....ooococcccoccnnnnnccoccnnnnnnnnn nooo ran nn nn nr ron n nn nn nro on rn nn nn caro nnnnnnns 20
+Tabla 3. Pruebas de caja negra Iteración l.......ooooooocccccccccncnnncnnccccnonnnnnnnnnn nr rnnnnnnrnnn nos 37
+Tabla 4. Pruebas de caja negra Iteración 2.......oooooocccccnccccocnnnnnnccccnnnnnnnnnn nan rnnn nn nrnn rones 39
+Tabla 5. Pruebas de caja negra Iteración B.......ooooocccccccccccononnnnnccccnn non nnnnnnn nr rnnnnnncnnn nro 44
+Tabla 6. Pruebas de caja negra Iteración 4.......oooooooccconocconcnnnnnnccccno nn nnnnnnnn nn rnnnrnnrnnn nro 48
+Tabla 7. Pruebas de caja negra Iteración Í......oooooocccccccccconcnonnnnccccnnn nn nnnnnnn nn rnnn nn nnnn rones S0
+Tabla 8. Pruebas de integración del SISteMa........oooocoocccccccoonnnnncncconnnnnnnncconnnnnnnnnnnn non nnnns 51
+
+VIIÍNDICE DE FIGURAS
+
+Figura 1. Diagrama de clases del SisteMa.....oooonnnncccccnnnonocoooccnnnnncnonononanononnnnoncnnnnnnnnncccnonnnnnn nan nnnnncnnnnns 32
+Figura 2. Diagrama de componentes del SisteMa.......ooooooocccnnncccnnnnnonocononoconnnonannnnnnnnnnnnnnnnnnnnnccncnananess 34
+Figura 3. Modelo de la base de datos del sistema.........cooonoooncccnnncccnnononanannnnnnnnncnnnnnnnncncnnnnannanoncnnncnnnns 34
+Figura 4. Diagrama de flujo de Datos del sistema.........ccconnnnnnncnnccnnnnnnonnononnnnnnnnnnnnonnnnnncnncnonanananancnnnos 35
+Figura 5. Interfaz gráfica de usuario del Landing Page..............coccccccnnccnnnnnononanannnnnnnnnnnnononocnnnncnninanos 36
+Figura 6. Interfaz gráfica de usuario del menú y espacio de trabajo.........cccccnnncconoooonococoononcnononnnnnnnnos 36
+Figura 7. Interfaz gráfica de usuario del Landing Page vV?2.............cccccccncccnnnnnnnnnnnnnnnnnnnnnnnnnnnnnncnnnnninnns 38
+Figura 8. Interfaz gráfica de usuario del menú y espacio de trabajo VZ.....coonncnnccncucoooconoooocanncnnnnonnonos 38
+Figura 9. Modelo de la base de datos del sistema VZ....oooonnoononccncnnnccconcoooaccnonononcnnnnannncccnnnnnnnanoncnnncnnnn 43
+Figura 10. Prueba del cálculo de las eXpensas..........occccccnnnnnonnonnnnonononononcnnononononncnnncnnnnnnnnnn nn nano no nennnos 47
+Figura 11. Resultado de la prueba del cálculo de las expensas......ccccccononnnoooooncoooocnnnnnncnncccnnncnnnnnnnnanns 47
+Figura 12. Modelo de la base de datos del sistema VB...oooonoooocccncnnccnononaooccnnnononnnonanononcncnnnnannanonnnnncnnnns 52
+
+VIIIÍNDICE DE ANEXOS
+
+Anexo A (Artículo 2 del decreto 1469 de 2010).........oocoocccccccccncccnnncccnnccnnonorcnn rn nnnncnnnos 62
+Anexo B (requisitos para la licencia urbanística en sus diferentes modalidades)............0.o.oo...... 63
+Anexo C (Artículos 118 y 119 del decreto 1469 de 2010)..........ooooooococccccnnnnccnnncnnnnconccnnnoo 64
+Anexo D (Datos del USUALIO)......ooooococccccnnnnccnnnnnncco noc cr nr rca 66
+Anexo E (Datos de la SOliCItUO).....oooococcccccccncccncnncccccccccnn nono rnn nn n nn n nn n nc r rr rro 66
+Anexo F (Datos de la Solicitante)...........oooooooocccccconncnnnnnnnnncccccccccn nro rnnnnn nn nn nana nnaaes 66
+
+IXRESUMEN
+
+A lo largo de la historia, el ser humano se ha visto en la necesidad de administrar los recursos de los
+que dispone para la realización de procesos, tareas o actividades, como lo son: datos, información,
+mano de obra, el tiempo, etc. El conocimiento que se tiene para el manejo de la información,
+generalmente forma parte de un proceso minucioso de selección y almacenamiento en oficinas,
+empresas, organizaciones, etc. [1]. Por lo tanto, el manejo eficiente de la información es una
+necesidad primordial del ser humano, y de allí se deriva el uso de los Sistemas de Información.
+
+Los Sistemas de Información (SI), son hoy día una herramienta que permite mejoras en el
+rendimiento de las organizaciones, ya que automatizan procesos operativos, permiten fácil acceso a
+los datos almacenados, presentan la información necesaria de forma ordenada facilitando tomar
+decisiones, y además su implementación logra ventajas competitivas o reduce la superioridad de
+organizaciones rivales que ya los hayan implementado.
+
+El presente trabajo tiene como finalidad, el desarrollo e implementación de un Sistema de
+Información que automatice los procesos de otorgamiento y expedición de licencias urbanísticas,
+los cuales se llevan a cabo en la Curaduría Urbana de Tuluá, y que además suministre información
+sobre el estado de los procesos de solicitud de licencia urbanística al público en general, mediante el
+uso de una solución Web, que sea accesible desde cualquier equipo de cómputo que tenga servicio
+de Internet.ABSTRACT
+
+Through history, human being have seen the need of managing available resources to develop
+processes, tasks, or activities, such as: data, information, labor, time, etc. The knowlegde that is
+held for information handling, normally takes part of a thorough selection process and office
+storing, enterprises, organizations, etc. Thereby, efficient information management is a primary
+need of human being, and 1t”s from there that results the use of Systems Information.
+
+Systems Information (SD), are today a tool that allows improvements at organizations performance,
+because it automates operative processes, allows easy access to stored information, give the
+
+necessary information in an organized way making easier the taking to take decisions, and in
+
+addition its implementation achieves competitive advantages or reduces rival organizations
+superiority that have already implemented them.
+
+This paper has as goal, the development and implementation of and Information System that
+automates the granting and issuing of planning licences, processes that are taking place at the
+planning conservatorship of Tuluá, and besides provides information about the current status of any
+planning licence application to the public, through the use of a web application, that can be
+accessed from any pc having Internet service.1.
+
+INTRODUCCIÓN
+
+En la actualidad la Curaduría Urbana de Tuluá funciona como la única entidad que
+otorga y expide licencias urbanísticas para la construcción y remodelación de inmuebles
+en la ciudad. Debido a la importancia de su función diariamente recibe una importante
+cantidad de información que debe ser almacenada, procesada y devuelta a las personas
+que desean llevar a cabo cualquier proyecto de construcción en el área del municipio.
+
+En ocasiones anteriores los empleados de la Curaduría Urbana de Tuluá han expresado
+que la mayoría de las actividades que ellos deben realizar para el otorgamiento y
+expedición de licencias urbanísticas, son lentas y de difícil ejecución debido a la forma
+en que se están desempeñando actualmente.
+
+A la situación anterior se suma que las personas quienes solicitan una licencia
+urbanística y realizan los trámites requeridos para lograr su otorgamiento y expedición,
+deben hacer un seguimiento regular del estado de los procesos de otorgamiento y
+expedición de la licencia, para poder iniciar sus proyectos de construcción lo antes
+posible. Dado que muchas de estas personas viven en lugares apartados de la ciudad o
+incluso en veredas aledañas, se presentan regularmente casos en los que los solicitantes
+han expresado que por razones de tiempo, ocupación, etc., no pueden acercarse o no les
+es posible comunicarse con la oficina de la Curaduría Urbana de Tuluá para averiguar
+acerca del estado de su trámite.
+
+Haciendo caso de la situación descrita anteriormente, tomando en consideración que las
+instalaciones de la Curaduría Urbana de Tuluá cuentan con equipos de cómputo,
+además de poseer acceso permanente a Internet (lo cual no generaría gastos extras en
+patrimonio al momento de implementar un producto de software), y teniendo en cuenta
+que un Sistema de Información proporcionaría un acceso rápido y centralizado a bases
+de datos de información personal, simplificaría los procesos operativos, y que además
+es adaptable a las necesidades de la organización; se propone entonces el desarrollo e
+implementación de un producto de software de fácil uso y entendimiento, que se ajuste
+a las necesidades de los empleados, automatice los procesos realizados en esta entidad,
+provea información relevante para la toma interna de decisiones, y permita el control de
+actividades por parte del Departamento Administrativo de Planeación Municipal y el
+Ministerio de Vivienda, logrando así, solucionar la problemática actual que se presenta
+en dicha entidad.1.1 PLANTEAMIENTO DEL PROBLEMA
+
+1.1.1
+
+Descripción del problema
+
+La Curaduría Urbana de Tuluá es una entidad privada que sirve de oficina para el Curador
+Urbano, que es la figura administrativa encargada de desempeñar la función de otorgar
+licencias urbanísticas para construcción o remodelación.
+
+Los procesos de otorgamiento y expedición de licencias urbanísticas para construcción y
+remodelaciones comprenden una serie de actividades que son realizadas en la oficina de la
+Curaduría Urbana de Tuluá, por el Curador Urbano de Tuluá y sus empleados, dichas
+actividades son:
+
+e Recepción de requisitos por parte de interesado en llevar a cabo un proyecto de
+construcción en el área municipal de Tuluá.
+
+e Cálculo de expensas, basado en el área de construcción, estrato de la zona en la que se
+va a construir y la modalidad de construcción.
+
+e Generación e impresión de facturas de pago.
+
+e Presentación ordenada de la información necesaria para la aprobación de las licencias
+urbanísticas.
+
+e Expedición de licencias urbanísticas.
+
+e Búsquedas ordenadas de licencias a petición de los funcionarios de la Curaduría
+Urbana de Tuluá.
+
+e Reportes y estadísticas (cantidad de licencias expedidas, licencias en trámite, gráficas,
+etc.).
+
+e Recepción y almacenamiento de documentos de oficio (derechos de petición, tutelas,
+oficios varios).
+
+e Consulta de trámites y licencias expedidas para los interesados.
+
+e Realización de informes de actividades para el Ministerio de Vivienda.
+
+e Realización de informes para el Departamento Administrativo de Planeación
+Municipal.Después de analizar la forma en que se realizan las actividades mencionadas anteriormente, se
+puede concluir que estas no se están llevando a cabo de una manera óptima, ya que:
+
+No se manejan formatos digitales de las licencia, lo que ha ocasionado problemas de
+perdida de información en repetidas ocasiones.
+
+Los cálculos de expensas para la tramitación de las licencias urbanísticas se realizan
+utilizando Microsoft Excel, lo que hace que esta actividad no se integre con el resto del
+proceso de tramitación de la licencia urbanística, además esta información no queda
+almacenada para consultas posteriores, generación de facturas, o informes estadísticos.
+
+Cualquier búsqueda de información que sea requerida por alguna actividad, debe
+hacerse de forma manual y solo está disponible en formatos físicos, lo cual ralentiza los
+procesos de consulta y entrega de la misma. Tales demoras causan un impacto negativo
+en algunas actividades que son realizadas dentro de la entidad como por ejemplo, en la
+generación de informes para la Oficina de Planeación y Estadísticas, o la presentación
+de la información necesaria para la aprobación de licencias urbanísticas por parte del
+Curador Urbano.
+
+Muchos de los usuarios del servicio que presta la Curaduría Urbana de Tuluá, viven en
+veredas adyacentes al casco urbano y deben desplazarse hasta la oficina para consultar
+el estado de su proceso de solicitud de licencia, esto ha sido motivo de quejas por parte
+de los usuarios, convirtiéndose así en un problema de atención a los clientes.
+
+En síntesis la Curaduría Urbana de Tuluá, presenta un problema de eficiencia en la prestación
+
+de su servicio, y dicho problema podría ser solucionado con la implementación de un software
+que automatice e integre las actividades anteriormente mencionadas, logrando que la expedición
+
+de licencias urbanísticas sea un proceso más eficiente.
+
+1.1.2
+
+FORMULACIÓN DEL PROBLEMA
+
+¿Cómo se podrían automatizar los procesos administrativos que permiten el otorgamiento y
+
+expedición de licencias urbanísticas en la Curaduría Urbana de Tuluá?1.2 OBJETIVOS
+
+1.2.1
+
+Objetivo General
+
+Desarrollar e implementar una solución Web, que permita automatizar los procesos
+
+administrativos requeridos en el otorgamiento y expedición de licencias, para apoyar la
+
+toma de decisiones en la Curaduría Urbana de Tuluá.
+
+1.2.2
+
+1.2.3
+
+Objetivos específicos
+
+Realizar un análisis de los recursos tecnológicos con los que cuenta actualmente la
+Curaduría Urbana de Tuluá, para determinar qué adecuaciones tecnológicas deben ser
+realizadas, para asegurar el correcto funcionamiento de la solución Web a desarrollar.
+
+Desarrollar los módulos de usuarios, autenticación, recepción de información, cálculo
+de expensas y facturación, expedición de licencias, generación de reportes y consultas
+de información en línea; con el fin de garantizar un funcionamiento integral del
+producto de software, que se implementará en la Curaduría Urbana de Tuluá.
+
+Instalar en un ambiente real, la solución Web que se desarrollará para la Curaduría
+Urbana de Tuluá.
+
+Resultados esperados
+
+Objetivo específico 1. Diagnóstico del estado tecnológico actual de la Curaduría
+Urbana de Tuluá, y diseño de un plan de acción que permita realizar las adecuaciones
+tecnológicas necesarias para la implementación de la solución Web, con base a los
+resultados obtenidos en el diagnóstico realizado.
+
+Objetivo específico 2. Documentación, código fuente, y ejecutables, de los módulos
+funcionales resultantes del análisis y definición de requerimientos.
+
+Objetivo específico 3. Solución Web instalada en el ambiente real de producción.2.1
+
+MARCO REFERENCIAL
+
+MARCO DE ANTECEDENTES
+
+En la actualidad no existe en el mercado algún software en español totalmente especializado
+para la automatización de curadurías urbanas, no obstante existe una empresa soluciones
+integrales de software que se encuentra desarrollando una aplicación que se ajusta a los
+procesos administrativos que llevan a cabo en las curadurías urbanas.
+
+Dada la naturaleza de la Curaduría Urbana de Tuluá otros tipos de software se podrían utilizar
+para realizar automatizar algunas de las actividades que allí se llevan a cabo.
+
+A continuación, se nombrarán algunos de los productos de software disponibles que ayudarían
+a la automatización de las actividades que son realizadas a diario en la Curaduría Urbana de
+Tuluá:
+
+2.1.1 Productos de software de uso por licencia de pago:
+
+e Microsoft Office, es una suite de oficina es utilizada actualmente para llevar a cabo algunas
+tareas en la Curaduría Urbana de Tuluá.
+
+Las aplicaciones que se están usando actualmente en la Curaduría Urbana de Tuluá son:
+
+o Microsoft Word: este procesador de texto, se utiliza para crear las plantillas de las
+licencias urbanísticas, realizar cartas, comunicados y otros documentos, que se
+generan en el proceso de prestación de los servicios de la Curaduría Urbana de Tuluá.
+
+o Microsoft Excel: esta hoja de cálculo, está configurado con macros que permiten
+hacer los cálculos de las expensas generadas en el proceso de otorgamiento de las
+licencias urbanísticas. Por otra parte se utiliza para generar algunos reportes
+estadísticos y sus correspondientes de gráficos.
+
+La suite de Microsoft office está disponible para su compra en:
+http://office.microsoft.com/es-es/
+
+e  LegisSoft, es la solución de software que permite integrar todas las operaciones y procesos
+de una empresa, brindando un conjunto de herramientas el cual convierte a la
+administración y el control de la compañía en un proceso completo y amigable.LegisSoft proporciona la instalación de módulos que cada empresa requiere ajustándose a la
+actividad O practica de su negocio, especializando las funciones de cada persona que
+intervienen en la organización e integrando las operaciones de: Contabilidad, Compras,
+Inventarios, Facturación, Cartera, Tesorería, Nómina, Activos fijos y Punto de venta.
+
+Cada uno de los módulos puede complementarse, y además con la información legal de
+Legis, es posible integrar esta, en una única solución práctica de tipo laboral, tributaria y
+empresarial con normas, leyes, decretos, jurisprudencia, doctrina y ejemplos prácticos que
+orientan al empresario en el funcionamiento y cumplimiento de las obligaciones legales en
+
+las diferentes áreas de la empresa.
+
+Este producto de software está disponible en, http://www.legissoft.com/
+
+NEXIS E.S.P es un software, diseñado para realizar la gestión comercial en empresas que
+prestan algún servicio público.
+
+El Sistema de Información Integrado Nexis E.S.P para empresas prestadoras de servicios
+públicos, es parametrizable, fácil de administrar, posee una interfaz amigable para el
+usuario, y se ajusta rápidamente a las necesidades de la empresa si se requiere.
+Características:
+
+o Software totalmente parametrizable, modular e integrado al sistema financiero.
+
+o Recepción manual o electrónica de lecturas, validación, críticas del consumo, e
+impresión en sitio o en oficina, individualmente Ó masivamente.
+
+o Administración e histórico de tarifas de consumos, tarifas de carteras, tasas de interés
+corriente y tasas de mora.
+
+o  Financiaciones, refinanciaciones, reliquidaciones, devoluciones, otros ajustes.
+
+o Generación e impresión de órdenes de trabajo (Instalaciones, PQR, Suspensiones,
+Reconexiones, Reinstalaciones, Revisiones, etc.).
+
+o Seguimiento a solicitudes, quejas y reclamos ( P.Q.R ), control a través de informes,
+alertas, días no hábiles, y fecha de vencimiento.
+
+o Sistema de facturación e incluye manejo de código de barras para el recaudo de las
+facturas de consumo y transferencia electrónica de archivos.NEXIS E.S.P está disponible en su página web:
+http://www.neosoftwareingenieria.com/Neosoft/index.php/productos-servicios/nexis-esp
+
+2.1.2 Productos de software de uso libre (Freeware):
+
+e  Logical Concept BusinessAdmin, hace de la administración de negocios una tarea
+sencilla, puesto que utiliza tecnologías de vanguardia a costos accesibles, disponibles
+simplemente utilizando una computadora. Con BusinessAdmin es posible:
+
+Capturar la información general de cada uno de sus clientes y prospectos: nombres,
+direcciones, contactos, expedientes, ventas, descuentos, contactos, comentarios, dirección,
+teléfono, etc. Esta información podrá utilizarse posteriormente desde cualquier otro
+módulo de BusinessAdmin para las facturas, pedidos, etc.
+
+o Generar Notas y remisiones para sus clientes.
+
+o Elaborar facturas con base a sus cotizaciones o a un pedido de un cliente.
+
+o Ver en un reporte las cuentas por cobrar de sus clientes y en qué fecha se deberán
+pagar las facturas existentes.
+
+o Podrá consultar las Cuentas por Cobrar en relación a sus Pedidos y a Facturas.
+
+o Crear reportes y gráficas con los movimientos y crecimientos de su negocio.
+
+o Contar con la capacidad de manejar diferentes divisas facilitando las conversiones del
+tipo de cambio y manteniendo actualizada la información en su sistema. Registre
+todas las divisas que maneje y se mantendrán con el tipo de cambio actualizado vía
+Internet.
+
+o Tener las empresas que usted necesite a través de la utilización de diferentes archivos
+de bases de datos, los cuales representarán cada uno a una empresa con información
+diferente.
+
+BusinessAdmin, está disponible en su página web,
+http://www.logicalconcept.com/sistema-administrativo-para-pyme.asp
+
+e FactuSOL, reúne en un único espacio la gestión de compras y ventas, catálogo de
+productos, facturas, cobros y transferencias. En definitiva, todo lo relacionado con la
+facturación y con el día a día de tu PYME.
+
+FactuSOL permite añadir más de una configuración a la base de datos, así como más de
+un usuario con distintos privilegios de administración.
+
+FactuSOL se organiza en módulos separados por pestañas, aprovechando el espacio de la
+ventana de programa y agilizando las operaciones entre módulos. Además, por mucho
+
+9volumen de datos que manejes, los filtros te permitirán encontrar en todo momento
+aquello que buscas.
+
+Otro elemento destacable de FactuSOL es la generación de informes. Además de guardar
+en su propio formato, permite exportar a otros programas contables, como A3con o
+ContaPlus. Por otro lado, podrás exportar los informes a PDF, XLS y ODS para acceder a
+ellos con cualquier programa compatible.
+
+FactuSOL se encuentra disponible para descarga en:
+http://www.sdelsol.com/es/factusol.php
+
+Todos los productos de Software anteriormente mencionados, han sido desarrollados
+pensando en dar solución a los problemas que presentan la administración y el proceso de
+información en las empresas, no obstante, estas soluciones de software son generalizadas
+para cualquier tipo de empresa, y no constituyen una solución específica para el caso de la
+Curaduría Urbana de Tuluá.
+
+A continuación, en la tabla 1 se presenta una comparación de las características de los
+software mencionados, para dar una idea de que tanto se ajustan a las necesidades de la
+Curaduría Urbana de Tuluá.
+
+SOLA TES
+
+MS LegisSoft NEXIS ESP FactuSOL BusinessAdmin
+OE Office
+Sesión de | No. SÍ. SÍ. SÍ. SÍ.
+usuarios
+
+Base de datos
+Cálculo de SÍ Sí SÍ Sí
+expensas y no a la. Configurable. | Configurable. | Configurable. Configurable.
+
+facturación
+
+documentos
+
+Expedición de No. No. No. No.
+reportes en línea la medida.
+
+estadísticas
+
+ 
+
+Tabla 1. Comparación de los antecedentes de software
+
+102.2 MARCO CONTEXTUAL
+
+La Curaduría Urbana de Tuluá es la oficina donde el Curador Urbano de Tuluá, desempeña las
+funciones administrativas que le corresponden según lo designado en el decreto 992 de 1996
+
+[2].
+
+Actualmente la Curaduría Urbana de Tuluá cuenta con cuatro empleados. Primero está el
+Curador Urbano quien analiza cada uno de los casos y toma la decisión de otorgar o denegar la
+expedición de las licencias urbanísticas. En segunda instancia esta un Ingeniero Civil, que
+revisa los planos de las construcciones y comprueba si estos cumplen con las normas
+requeridas para realizar la solicitud, de no ser así, se solicita al interesado que realice
+correcciones a sus planos. Por ultimo están dos empleados que realizan el proceso de recepción
+de documentos para las solicitudes, y el proceso de expedición de licencias, en el caso de ser
+otorgadas por parte del Curador Urbano.
+
+Con base en lo descrito, se puede afirmar que la Curaduría Urbana de Tuluá básicamente presta
+los servicios de otorgamiento y expedición de licencias para los habitantes del municipio de
+Tuluá. Sin embargo, para tramitar la expedición de una licencia los solicitantes deben cumplir
+con los siguientes requisitos:
+
+e Copia del certificado de libertad y tradición del inmueble o inmuebles objeto de la
+solicitud, cuya fecha de expedición no sea superior a un mes antes de la fecha de la
+solicitud.
+
+e El formulario único nacional para la solicitud de licencias adoptado mediante la
+Resolución 0984 de 2005 del Ministerio de Ambiente [3], Vivienda y Desarrollo
+Territorial o la norma que la adicione, modifique o sustituya, debidamente diligenciado
+por el solicitante.
+
+e  Siel solicitante de la licencia fuera una persona jurídica, deberá acreditarse la existencia y
+representación de la misma mediante el documento legal idóneo, cuya fecha de expedición
+no sea superior a un mes.
+
+e Poder debidamente otorgado, cuando se actúe mediante apoderado.
+
+e Copia del documento que acredite el pago o declaración privada con pago del impuesto
+predial de los últimos cinco años en relación con el inmueble o inmuebles objeto de la
+solicitud, donde figure la nomenclatura alfanumérica o identificación del predio. En los
+casos donde exista un acuerdo de pago, se requerirá constancia de la Secretaría de
+Hacienda o quien haga sus veces, estableciendo que el interesado se encuentra dando
+cumplimiento al mismo.
+
+11e Plano de localización e identificación del predio o predios objeto de la solicitud.
+
+e  Larelación de la dirección de los predios colindantes al proyecto objeto de la solicitud. Se
+entiende por predios colindantes aquellos que tienen un lindero en común con el inmueble
+o inmuebles objeto de solicitud de licencia.
+
+e Enel evento que el proyecto sometido a consideración tenga por objeto el desarrollo de
+programas de vivienda de interés social, el titular de la licencia así lo manifestará bajo la
+gravedad del juramento y de ello se dejará constancia en el acto administrativo que
+resuelva la solicitud de licencia.
+
+Dichos requisitos son almacenados en folios numerados de acuerdo al orden de solicitud en
+formatos físicos.
+
+Después de que un solicitante cumple con todos los requisitos para realizar la solicitud de
+licencia urbanística, la Curaduría Urbana de Tuluá tiene el deber de informar a los solicitantes
+sobre el estado del proceso de su solicitud. Dicha tarea requiere que los solicitantes llamen a la
+oficina o se dirijan a sus instalaciones para informarse sobre el estado de su solicitud.
+
+Si la solicitud de licencia urbanística es otorgada, los empleados a cargo del manejo de la
+información, inician el proceso de generación de la correspondiente factura de pago. Dicha
+
+factura se expide por un valor especificado que se calcula de acuerdo a lo estipulado en el
+Capítulo VIII del decreto 1469 de 2010 [4].
+
+Cuando el solicitante ha realizado el pago y ha proporcionado el comprobante de pago a la
+Curaduría Urbana de Tuluá, se procede a realizar el proceso de expedición de la licencia
+urbanística.
+
+Por último, es deber de la Curaduría Urbana de Tuluá realizar informes mensuales dirigidos a
+la oficina del Departamento Administrativo de Planeación Municipal, acerca de los trámites
+que se han solicitado, especificando:
+
+e Número de solicitudes realizadas.
+
+e Número de licencias otorgadas.
+
+e Número total de licencias expedidas.
+
+e Número de licencias expedidas por cada tipo.
+
+e Valor de las expensas recaudadas discriminado por tipo de licencia.
+e Valor total de las expensas recaudadas.
+
+De ser solicitado, también debe proveer la siguiente información acerca de las licencias
+urbanísticas:
+
+12e Nombre completo del solicitante.
+e Documento de identidad.
+e Número de solicitud.
+e Estado de la solicitud.
+e Fecha de solicitud.
+e Tipo de licencia, si es expedida.
+e Número de la licencia, si es expedida.
+e Fecha de expedición, si es expedida.
+e Valor de las expensas recaudadas por la expedición de la licencia.
+
+2.3 MARCO CONCEPTUAL
+
+Sistema de Información: Un sistema de información (SI), es un conjunto de elementos
+interrelacionados con el propósito de prestar atención a las demandas de información de una
+organización, para elevar el nivel de conocimientos que permitan un mejor apoyo a la toma de
+decisiones y desarrollo de acciones [5].
+
+Los componentes más importantes de un sistema de información son los siguientes:
+
+e Financiero: Es el aspecto económico que permite la adquisición, contratación y
+mantenimiento de los demás recursos que integran un sistema de información.
+
+e Administrativos: Es la estructura orgánica de objetivos, lineamientos, funciones,
+procedimientos, departamentalización, dirección y control de las actividades; que sustenta
+la creación y uso de los sistemas.
+
+e Humano: Está compuesto por dos grupos: El técnico, que posee los conocimientos
+especializados en el desarrollo de sistemas, siendo estos los: Administradores, Líderes de
+Proyecto, Analistas, Programadores, Operadores y Capturistas.
+
+e El usuario: representado por las personas interesadas en el manejo de información vía
+cómputo, como apoyo al mejor desempeño de sus actividades, siendo estos los:
+Funcionarios, Contadores, Ingenieros, Empleados, Público, etc.
+
+e Materiales: Son aquellos elementos físicos que soportan el funcionamiento de un sistema
+de información, por ejemplo: local de trabajo, instalaciones eléctricas y de aire
+acondicionado, medios de comunicación, mobiliario, maquinaria, papelería, etc.
+
+e Tecnológicos: Es el conjunto de conocimientos, experiencias, metodologías y técnicas;
+que orientan la creación, operación y mantenimiento de un sistema.
+
+13Tecnologías Web: Las Tecnologías Web sirven para acceder a los recursos de conocimiento
+disponibles en Internet o en las intranets utilizando un Navegador Web. Están muy extendidas
+por muchas razones: poseen gran versatilidad a la hora de expandir el sistema; son de uso
+sencillo y que imita la forma de relacionarse de las personas, al poner a disposición de todos, el
+conocimiento de los demás, por encima de jerarquías, barreras formales u otras cuestiones.
+
+Curador Urbano: El curador urbano es un particular encargado de estudiar, tramitar y expedir
+las licencias de urbanismo o de construcción, a petición del interesado en adelantar proyectos
+de urbanización o de edificación en las zonas de la ciudad que la administración municipal le
+haya determinado como de su jurisdicción. Igualmente, resolverán las solicitudes de prórroga,
+revalidación y modificación de dichas licencias.
+
+Las solicitudes de licencias de urbanismo y construcción radicadas antes del 6 de junio de 1996
+en las Oficinas de planeación, o en las que haga sus veces, continuarán tramitándose ante las
+mismas hasta su expedición o rechazo.
+
+El curador urbano queda sujeto a lo establecido en el artículo 63 de la Ley 9%, de 1989 y demás
+normas que lo modifiquen.
+
+Los curadores urbanos estudiarán, tramitarán y expedirán o negarán las licencias de urbanismo
+o construcción, parcelación y demolición. A las licencias se asimilan los permisos, los cuales
+se concederán con sujeción a los requisitos actuales.
+
+El otorgamiento de las licencias comprende el suministro de información sobre las normas
+urbanísticas aplicables a los predios objeto del proyecto; el visto bueno a los planos necesarios
+para los reglamentos de propiedad horizontal; la gestión, asignación, rectificación y
+certificación de la nomenclatura de los predios e inmuebles y la notificación a los vecinos de
+conformidad con lo establecido en el artículo 63 de la Ley 9%, de 1989, así como resolver las
+objeciones presentadas por éstos [6].
+
+Curaduría Urbana: Las curadurías urbanas son oficinas privadas donde el Curador Urbano
+desempeña sus funciones administrativas, las cuales comprenden principalmente el estudio,
+tramite y resolución de las solicitudes de licencias de urbanismo y construcción, así como las
+de prórroga, revalidación y modificación de dichas licencias, las otorgadas por el
+Departamento Administrativo de Planeación Distrital.
+
+14Licencia Urbanística: Es una autorización previa para urbanizar, parcelar, subdividir o edificar
+un predio. Para inmuebles existentes se requiere licencia para reforzarlo o modificarlo,
+ampliarlo o adecuarlo a otro uso; igualmente para el cerramiento de cualquier inmueble [7].
+
+Adicionalmente, las licencias urbanísticas se dividen en licencias:
+
+e  Deurbanización.
+
+e De pparcelación.
+
+e De subdivisión y sus modalidades.
+e De construcción y sus modalidades.
+
+e De intervención y ocupación del espacio público (su estudio y trámite corresponde a la
+oficina de planeación municipal o distrital).
+
+Expensas: las expensas son un gasto o costo generado, que resulta de un proceso judicial o un
+trámite legal. El cálculo de las expensas generadas por tramitación de licencias urbanísticas se
+
+lleva a cabo por un Curador Urbano, y se realiza teniendo en cuenta lo estipulado en el capítulo
+VIII del decreto 1469 de 2010 [4].
+
+Reglamentos de propiedad horizontal: La propiedad horizontal es una institución jurídica que
+hace alusión al conjunto de normas que regulan la división y organización de diversos
+inmuebles, como resultado de la segregación de un edificio o de un terreno común.
+
+En sí la propiedad horizontal no es un bien inmueble en particular sino un régimen que
+reglamenta la forma en que se divide un bien inmueble y la relación entre los propietarios de
+los bienes privados y los bienes comunes que han sido segregados de un terreno o edificio. La
+propiedad horizontal permite la organización de los copropietarios y el mantenimiento de los
+
+bienes comunes. Se puede encontrar todo lo relacionado a la reglamentación de propiedad
+horizontal en la Ley 675 de 2001 [8].
+
+Certificado de Tradición y Libertad: Es un documento público en el que constan los datos
+jurídicos de un predio y la posesión actual y anterior del mismo. Toda persona natural o
+jurídica puede solicitar la expedición del certificado de tradición y libertad de un inmueble en
+la Oficina de Registro de Instrumentos Públicos de su municipio.
+
+Persona jurídica: es un sujeto de derechos y obligaciones que existe, pero no como individuo,
+sino como institución y que es creada por una o más personas físicas para cumplir un objetivo
+social que puede ser con o sin ánimo de lucro.
+
+153. METODOLOGÍA
+
+3.1 DEFINICION DE LA METODOLOGÍA DE TRABAJO
+
+Teniendo en cuenta que la solución del proyecto constituye un sistema de información que
+consta de los módulos descritos anteriormente en el segundo objetivo de la sección 1.2.2, para
+el desarrollo del ciclo de vida del proyecto se estableció el uso de la metodología ágil AUP
+(Proceso Unificado Ágil), ya que dada la magnitud del proyecto fue posible determinar desde
+un principio la mayor parte de requerimientos del software y no se requería mucha interacción
+con el cliente y los usuarios finales de la aplicación durante el proceso de desarrollo del
+proyecto.
+
+Agile Unified Process (AUP)
+
+Esta metodología es una versión simplificada de RUP, describe de una manera simple y fácil
+de entender la forma de desarrollar aplicaciones de software usando técnicas ágiles y conceptos
+que aún se mantienen válidos en RUP [9].
+
+Entre sus características están:
+
+e Versión simplificada de la metodología RUP.
+
+e Abarca siete flujos de trabajos, cuatro ingenieriles y tres de apoyo: Modelado,
+Implementación, Prueba, Despliegue, Gestión de configuración, Gestión de Proyectos y
+Ambiente.
+
+e |El modelado agrupa los tres primeros flujos de RUP (Modelamiento del negocio,
+Requerimientos y Análisis y Diseño).
+
+e Dispone de cuatro fases igual que RUP: Incepción o Creación, Elaboración, Construcción
+y Transición.
+
+Descripción de los flujos de trabajo ingenieriles:
+
+e El Modelado es el flujo de trabajo que tiene el objetivo de entender el negocio de la
+organización, el problema de dominio que se aborda en el proyecto y determinar una
+solución viable para resolver el problema de dominio.
+
+16El flujo de trabajo Implementación tiene como objetivo transformar su (s) modelo (s) en
+código ejecutable y realizar un nivel básico de las pruebas, en particular, la unidad de
+pruebas.
+
+El flujo de trabajo de Prueba tiene como objetivo realizar una evaluación objetiva para
+garantizar la calidad. Esto incluye la búsqueda de defectos, validar que el sistema funciona
+tal como está establecido, verificando que se cumplan los requerimientos.
+
+Por último dentro de los flujos de trabajo ingenieriles se tiene el Despliegue, cuyo objetivo
+es el plan para la prestación del sistema y la ejecución de dicho plan, para que el sistema
+quede a disposición de los usuarios finales.
+
+Descripción de las fases del ciclo de desarrollo
+
+Incepción: identificación del alcance y dimensión del proyecto, propuesta de la
+arquitectura y del presupuesto del cliente.
+
+Elaboración: Confirmación de la idoneidad de la arquitectura.
+
+Construcción: Desarrollo incremental del sistema, siguiendo las prioridades funcionales
+de los implicados.
+
+Transición: Validación e implantación del sistema.
+
+¿Por qué se escogió?
+
+Se elige la AUP por adoptar muchas de las técnicas ágiles de la metodología XP y otros
+procesos que mantiene de la metodología RUP.
+
+3.2 CICLO 1
+
+3.2.1
+
+Análisis y definición de requerimientos
+
+Comprende la recolección de la información necesaria para lograr un desarrollo adecuado del
+proyecto.
+
+En primera instancia se realizaron una serie de entrevistas al cliente, en este caso las secretarias
+
+a cargo del proceso administrativo de expedición de las licencias urbanísticas. A partir de la
+
+información recopilada durante estas entrevistas se realizó un análisis pertinente en el cual se
+
+17pudieron determinar las diferentes clases de actores involucrados en los procesos de
+
+otorgamiento y expedición de licencias urbanísticas. A continuación se presentan los resultados
+
+de este análisis:
+
+Actores que participan en los procesos de otorgamiento y expedición de licencias urbanísticas
+
+en la Curaduría Urbana de Tuluá
+
+Al- Solicitante. Este actor es el encargado de iniciar el proceso de otorgamiento de una
+licencia, dicho proceso inicia en el momento que este actor radica una solicitud de
+licencia en la Curaduría Urbana de Tuluá. Interactúa con el sistema a la hora de
+realizar una consulta del estado de algún proceso de otorgamiento de licencia. Tiene un
+bajo impacto en el sistema.
+
+A2 - Secretaria: Es el actor principal del sistema, este usuario hace uso de casi la
+totalidad del sistema por lo tanto tiene gran impacto sobre el este. Tiene como
+responsabilidad el ingreso de la información al sistema, controla el procesamiento de
+datos y la generación de documentos de salida. Tiene un alto impacto en el sistema.
+
+A3 - Curador: Este actor no participa directamente en el uso del sistema, sin embargo
+es el que tiene la autoridad para aprobar o denegar la expedición de una licencia, por lo
+de él depende el la información de salida del sistema. Tiene un bajo impacto en el
+sistema.
+
+A4 - Entidades externas: Este actor participa únicamente en el sistema como receptor
+de información de salida, que se genera a partir del proceso de expedición de licencias.
+Tiene un bajo impacto en el sistema.
+
+El siguiente paso del análisis de la información recopilada llevó al entendimiento del
+
+problema, es decir que se pudo identificar todo el proceso de otorgamiento y expedición
+
+de licencias urbanísticas paso a paso. A continuación se exponen los resultados de este
+
+análisis:
+
+¿Cómo es actualmente el proceso de otorgamiento y expedición de licencias en la Curaduría
+Urbana de Tuluá”
+
+d.
+
+Lo primero es que la persona interesada hace una solicitud de los requisitos conforme a
+lo dispuesto en el art. 2 del decreto 1469 de 2010. (ver anexo A)
+
+De acuerdo al tipo de licencia ya sea de construcción, sub división, urbanismo o
+parcelación, se solicitan al interesado una lista de documentos requeridos. (ver anexo B)
+
+En el momento que el solicitante cumple con toda la documentación requerida, se pasa a
+la revisión de los documentos, y de cumplirse con todos ellos, se procede a almacenar la
+información y generar un número de radicado para el trámite.
+
+18d. Antes de iniciar el trámite, se envía un correo a cada uno de los vecinos colindantes que
+corresponden al proyecto, informando que se ha radicado un proyecto en la curaduría
+urbana.
+
+e. Luego de recibir respuesta afirmativa de los vecinos colindantes, se pasa a revisión
+estructural (planos), a fin de determinar si se cumple la norma NSR-10 de sismo
+resistencia.
+
+f. Si el proyecto pasa la revisión estructural, se pasa a revisión de normativas por parte del
+curador urbano.
+
+g. Si el curador determina que se cumplen todas las normativas aprueba el proyecto, de no
+ser así solicita los cambios pertinentes para cumplir las normativas.
+
+h. Una vez aprobado el proyecto, se realizan el cálculo del valor de las expensas, el cual se
+hace de acuerdo a lo dispuesto en el Artículos 118 y 119 del decreto 1469 de 2010. (ver
+anexo C)
+
+1. Luego se pasa el cobro a los interesados en el proyecto, para que procedan a realizar el
+pago, después de confirmar el pago se entrega una copia de la resolución del proyecto,
+para que sea notificada de manera personal al propietario del predio y a los vecinos
+colindantes.
+
+j. Se recibe la notificación firmada, y se cuentan 5 días hábiles para entregar la licencia
+urbanística y los correspondientes planos aprobados.
+
+k. Semanalmente la curaduría debe entregar un informe de todas las licencias aprobadas a
+la oficina de planeación municipal.
+
+Il. Mensualmente la curaduría urbana debe entregar un informe estadístico de todas las
+
+licencias aprobadas a las siguientes entidades: Centro Aguas, la CVC, Planeación
+Distrital, y el DANE.
+
+Una vez finalizado el entendimiento del problema se pasó a la definición de requerimientos del
+sistema, que en este caso debido a la metodología escogida son reemplazados por las historias de
+usuario. A continuación se presentan el formato de historias de usuario el cual es el resultado del
+análisis de la información recopilada del cliente:
+
+19Historia de Usuario
+
+Número: 1 Usuario: Usuario registrado
+
+ 
+
+Nombre historia: Iniciar sesión
+
+ 
+
+Descripción:
+
+Yo como usuario registrado, deseo ingresar mi nombre de usuario y contraseña, para poder
+iniciar sesión en el sistema.
+
+ 
+
+Criterios de aceptación:
+
+1. Dado que me encuentro en la página de inicio de sesión, y mis datos de usuario están
+registrados en el sistema, cuando ingrese mi nombre de usuario y contraseña de forma
+correcta, entonces al presionar el botón ingreso debería tener acceso al menú de
+funcionalidades del sistema correspondientes a mi usuario.
+
+2. Dado que me encuentro en la página de inicio de sesión, y mis datos de usuario están
+registrados en el sistema, cuando ingrese mi nombre de usuario y contraseña de forma
+incorrecta, entonces al presionar el botón ingreso debería ver un mensaje indicando que
+el nombre de usuario o contraseña no son válidos.
+
+ 
+
+ 
+
+ 
+
+Historia de Usuario
+
+ 
+
+Número: 2 Usuario: Usuario registrado
+
+ 
+
+ 
+
+Nombre historia: Cerrar sesión
+
+ 
+
+Descripción:
+
+Yo como usuario registrado, deseo tener la opción de terminar sesión, para evitar que otras
+personas utilicen mi usuario en el sistema.
+
+ 
+
+Criterios de aceptación:
+
+1. Dado que he iniciado una sesión en el sistema, y me encuentro en la página del menú del
+sistema, cuando presione el botón de cerrar sesión, entonces el sistema debería terminar
+la sesión correspondiente a mi usuario.
+
+ 
+
+ 
+
+20Historia de Usuario
+
+Número: 3 Usuario: Usuario registrado
+
+ 
+
+Nombre historia: Modificar cuenta
+
+ 
+
+Descripción:
+
+Yo como usuario registrado, deseo tener la opción de modificar los datos de mi cuenta de
+usuario, para poder cambiar la información de mi cuenta de usuario.
+
+ 
+
+ 
+
+Criterios de aceptación:
+
+1. Dado que me encuentro en la página del menú del sistema, y el menú ofrece la opción de
+modificar cuenta de usuario, cuando presione el botón modificar cuenta de usuario,
+entonces debería ir a una página que me permita cambiar los datos de mi cuenta de
+usuario (ver anexo D).
+
+2. Dado que me encuentro en la página de modificación de la cuenta de usuario, y he
+modificado cualquiera de los datos de mí cuenta de usuario (ver anexo D), cuando
+presione el botón de modificar cuenta, entonces debería ver un mensaje que me informe
+que se han modificado correctamente los datos de mi cuenta de usuario.
+
+ 
+
+ 
+
+Historia de Usuario
+
+ 
+
+Número: 4 Usuario: Curador
+
+ 
+
+ 
+
+Nombre historia: Crear usuario
+
+ 
+
+Descripción:
+
+Yo como Administrador, deseo poder seleccionar la opción de registrar un usuario, para agregar
+un usuario al sistema.
+
+ 
+
+ 
+
+Criterios de aceptación:
+
+1. Dado que me encuentro en la página del menú del sistema, y el menú ofrece la opción de
+registrar un usuario del sistema, cuando presione el botón registrar, entonces debería ir a
+una página que me permita ingresar el nombre de usuario y la contraseña del nuevo
+usuario.
+
+2. Dado que me encuentro en la página de creación de usuarios, y he digitado el nombre de
+usuario y contraseña del nuevo usuario, cuando presione el botón registrar, entonces esta
+información debería quedar registrada en el sistema.
+
+ 
+
+213.
+
+ 
+
+ 
+
+Dado que me encuentro en la página de creación de usuarios, y no he digitado el nombre
+de usuario y/o contraseña del nuevo usuario, cuando presione el botón registrar, entonces
+debería ver un mensaje que me informe que falta digitar el nombre de usuario o la
+contraseña.
+
+ 
+
+Historia de Usuario
+
+ 
+
+Número: 5 Usuario: Administrador
+
+ 
+
+Nombre historia: Deshabilitar usuario
+
+ 
+
+Descripción:
+
+Yo como Administrador, deseo poder seleccionar la opción de deshabilitar un usuario, para
+convertir a un usuario activo del sistema en usuario inactivo.
+
+ 
+
+1.
+
+ 
+
+Criterios de aceptación:
+
+Dado que me encuentro en la página del menú del sistema, y el menú ofrece la opción de
+deshabilitar a un usuario del sistema, cuando presione el botón deshabilitar usuario,
+entonces debería ir a una página que me permita ingresar el nombre del usuario que
+deseo deshabilitar.
+
+Dado que me encuentro en la página de deshabilitar usuarios, y he seleccionado el
+usuario que deseo deshabilitar, cuando presione el botón deshabilitar usuario, entonces
+debería ver un dialogo de confirmación para deshabilitar el usuario seleccionado.
+
+Dado que me encuentro en el diálogo de confirmación, y estoy seguro de querer
+inhabilitar el usuario seleccionado, cuando presione el botón aceptar, entonces el usuario
+debe pasar a estar inactivo en el sistema.
+
+Dado que me encuentro en la página de deshabilitar usuarios, y no he seleccionado un
+usuario, cuando presione el botón deshabilitar usuario, entonces debería ver un mensaje
+que me informe que debo seleccionar un usuario.
+
+ 
+
+Historia de Usuario
+
+ 
+
+Número: 6 Usuario: Administrador
+
+ 
+
+22Nombre historia: Habilitar usuario
+
+ 
+
+Descripción:
+
+Yo como Administrador, deseo poder seleccionar la opción habilitar un usuario, para convertir a
+un usuario inactivo del sistema, en usuario activo.
+
+ 
+
+Criterios de aceptación:
+
+1. Dado que me encuentro en la página del menú del sistema, y el menú ofrece la opción de
+habilitar a un usuario del sistema, cuando presione el botón habilitar usuario, entonces
+debería ir a una página que me permita ingresar el nombre del usuario que deseo
+habilitar.
+
+2. Dado que me encuentro en la página de habilitar usuarios, y he seleccionado el usuario
+
+que deseo habilitar, cuando presione el botón habilitar usuario, entonces debería ver un
+dialogo de confirmación para habilitar el usuario seleccionado.
+
+3. Dado que me encuentro en el diálogo de confirmación, y estoy seguro de querer habilitar
+el usuario seleccionado, cuando presione el botón aceptar, entonces el usuario debe pasar
+a estar activo en el sistema.
+
+4. Dado que me encuentro en la página de habilitar usuarios, y no he seleccionado un
+usuario, cuando presione el botón habilitar usuario, entonces debería ver un mensaje que
+me informe que debo seleccionar un usuario.
+
+ 
+
+ 
+
+ 
+
+Historia de Usuario
+
+Número: 7 Usuario: Empleado
+
+ 
+
+Nombre historia: Crear solicitante
+Descripción:
+
+Yo como Empleado, deseo poder tener la opción de registrar un solicitante, para agregar un
+solicitante al sistema.
+
+ 
+
+Criterios de aceptación:
+
+1. Dado que me encuentro en la página del menú del sistema, y el menú ofrece la opción de
+administrar solicitantes, cuando presione el botón administrar solicitantes, entonces
+debería ir a una página que me permita seleccionar la opción de nuevo solicitante.
+
+ 
+
+ 
+
+232. Dado que me encuentro en la página de creación de un nuevo solicitante, y he digitado el
+nombre, apellido, cédula, dirección, barrio y teléfono del nuevo solicitante, cuando
+presione el botón crear, entonces esta información debería quedar registrada en el
+sistema.
+
+3. Dado que me encuentro en la página de creación de un nuevo solicitante, y no he
+digitado alguno de los campos del formulario, cuando presione el botón crear, entonces
+debería ver un mensaje que me informe que falta digitar algún campo del formulario.
+
+ 
+
+ 
+
+ 
+
+Historia de Usuario
+
+ 
+
+Número: 8 Usuario: Empleado
+
+ 
+
+ 
+
+Nombre historia: Actualizar solicitante
+
+ 
+
+Descripción:
+
+Yo como Empleado, deseo tener la opción de actualizar los datos de un solicitante.
+
+ 
+
+Criterios de aceptación:
+
+1. Dado que me encuentro en la página del menú del sistema, y el menú ofrece la opción de
+administrar solicitantes, cuando presione el botón administrar solicitantes, entonces
+debería ir a una página que me permita seleccionar la opción de actualizar solicitante.
+
+2. Dado que me encuentro en la página de actualizar solicitante, deseo tener la opción
+ingresar la cedula del solicitante que deseo actualizar.
+
+3. Dado que me encuentro en la página de actualizar solicitante, y he ingresado
+correctamente el número de cédula del solicitante a seleccionar, cuando presione el botón
+de actualizar, entonces debería a una página que me permita modificar el nombre,
+apellido, cédula, dirección, barrio y teléfono del solicitante.
+
+ 
+
+ 
+
+ 
+
+Historia de Usuario
+
+ 
+
+Número: 9 Usuario: Empleado
+
+ 
+
+ 
+
+Nombre historia: Generar solicitud de licencia
+
+ 
+
+ 
+
+24Descripción:
+
+Yo como secretaria, deseo ingresar los requisitos de solicitud de una licencia, para generar una
+solicitud de licencia urbanística.
+
+ 
+
+ 
+
+Criterios de aceptación:
+
+1. Dado que me encuentro en la página de solicitud de licencia, y que haya digitado la
+información completa, cuando presione el botón crear, entonces debería de ver un
+mensaje confirmando que la información de la licencia se ha guardado exitosamente.
+
+2. Dado que me encuentro en la página de solicitud de licencia, y que haya digitado la
+información completa, cuando presione el botón crear, entonces debería ir a una página
+que me permita imprimir las cartas que informan a los vecinos colindantes que se ha
+hecho una solicitud de licencia para el proyecto.
+
+3. Dado que me encuentro en la página de solicitud de licencia, y que no haya digitado la
+información necesaria para la solicitud (ver anexo E), cuando presione el botón generar,
+entonces debería ver un mensaje indicando que la falta algún campo del formulario por
+llenar.
+
+ 
+
+ 
+
+Historia de Usuario
+
+ 
+
+Número: 10 Usuario: Secretaria, Administrador
+
+ 
+
+ 
+
+Nombre historia: Aprobar solicitud de licencia
+
+ 
+
+ 
+
+Descripción:
+
+Yo como secretaria o administrador, deseo tener la opción de aprobar una solicitud de licencia
+urbanística para su expedición.
+
+ 
+
+25Criterios de aceptación:
+
+1. Dado que me encuentro en la página del menú del sistema, y el menú ofrece la opción de
+administrar licencia, cuando presione el botón administrar licencia, entonces debería ir a
+una página que me permita ingresar el número de radicado de la licencia que deseo
+aprobar.
+
+2. Dado que me encuentro en la página de administrar licencia, y he ingresado un número
+de radicado valido, al presionar el botón aprobar el sistema debería cambiar el estado de
+la solicitud y mostrar un mensaje que informe que la solicitud ha sido aprobada.
+
+3. Dado que me encuentro en la página de administrar licencia, y he ingresado un número
+de radicado no valido, al presionar el botón aprobar el sistema debería mostrar un
+mensaje que indique que el número de radicado no está registrado en el sistema.
+
+ 
+
+ 
+
+Historia de Usuario
+
+ 
+
+Número: 11 Usuario: Secretaria, Administrador
+
+ 
+
+Nombre historia: Denegar solicitud de licencia
+
+ 
+
+Descripción:
+
+Yo como secretaria o administrador, deseo tener la opción de denegar la expedición una solicitud
+de licencia urbanística.
+
+ 
+
+ 
+
+26Criterios de aceptación:
+
+1.
+
+Dado que me encuentro en la página del menú del sistema, y el menú ofrece la opción de
+administrar licencia, cuando presione el botón administrar licencia, entonces debería ir a
+una página que me permita ingresar el número de radicado de la licencia que deseo
+denegar.
+
+Dado que me encuentro en la página de administrar licencia, y he ingresado un número
+de radicado valido, al presionar el botón denegar el sistema debería cambiar el estado de
+la solicitud y mostrar un mensaje que informe que la solicitud ha sido denegada.
+
+Dado que me encuentro en la página de administrar licencia, y he ingresado un número
+de radicado no valido, al presionar el botón denegar el sistema debería mostrar un
+mensaje que indique que el número de radicado no está registrado en el sistema.
+
+ 
+
+ 
+
+Historia de Usuario
+
+ 
+
+Número: 12 Usuario: Empleado
+
+ 
+
+ 
+
+Nombre historia: Generar Factura
+
+ 
+
+Descripción:
+
+Yo como secretaria, deseo seleccionar una solicitud aprobada, para generar la factura por el valor
+
+de las expensas generadas por concepto del trámite de la licencia urbanística solicitada.
+
+ 
+
+ 
+
+Criterios de aceptación:
+
+1.
+
+Dado que me encuentro en la página de facturar expensas, y el menú ofrece la opción de
+generar la factura, cuando presione el botón generar factura, entonces debería ir a una
+página que me permita ingresar el número de radicado de la solicitud de licencia.
+
+Dado que me encuentro en la página de ingreso de número de radicado, y he ingresado
+un número de radicado válido, cuando presione el botón seleccionar, entonces debería ir
+a una página que me permita ingresar al área objeto de la solicitud y el salario mínimo
+mensual vigente.
+
+Dado que me encuentro en la página de generar factura, y he ingresado el área objeto de
+la solicitud y el salario mínimo mensual vigente, cuando presione el botón generar,
+
+ 
+
+27entonces debería ver en pantalla, una versión imprimible de la factura de pago por
+concepto de expensas generadas por el trámite de otorgamiento de la licencia urbanística.
+
+4. Dado que me encuentro en la página de ingreso de número de radicado, y he ingresado
+un número de radicado no válido, cuando presione el botón confirmar, entonces debería
+ver un mensaje indicando que el número de radicado no es válido.
+
+ 
+
+ 
+
+Historia de Usuario
+
+ 
+
+Número: 13 Usuario: Empleado
+
+Nombre historia: Consultar Factura
+Descripción:
+
+Yo como secretaria, deseo poder consultar una factura previamente generada.
+
+ 
+
+Criterios de aceptación:
+
+1. Dado que me encuentro en la página de facturar expensas, y el menú ofrece la opción de
+consultar factura, cuando presione el botón consultar factura, entonces debería ir a una
+página que me permita ingresar el número de la factura a consultar.
+
+2. Dado que me encuentro en la página de ingreso de número de factura, y he ingresado un
+número de factura válido, cuando presione el botón consultar, entonces debería ir a una
+página que me permita ver una versión imprimible de la factura seleccionada.
+
+3. Dado que me encuentro en la página de ingreso de número de factura, y he ingresado un
+número de factura no válido, cuando presione el botón consultar, entonces debería ver un
+mensaje indicando que el número de factyura no es válido.
+
+ 
+
+ 
+
+ 
+
+Historia de Usuario
+
+ 
+
+Número: 14 Usuario: Empleado
+
+ 
+
+ 
+
+Nombre historia: Expedir licencia
+
+ 
+
+Descripción:
+
+ 
+
+Yo como secretaria, deseo ingresar la información necesaria para expedir una licencia
+
+ 
+
+28urbanística.
+
+ 
+
+ 
+
+Criterios de aceptación:
+
+1.
+
+Dado que me encuentro en una página con el menú del sistema, y el menú ofrece la
+opción de expedir licencia, cuando presione el botón expedir licencia, entonces debería ir
+a una página que me permita seleccionar la opción de expedir licencia.
+
+Dado que me encuentro en la página de ingreso de número de radicado, y he ingresado
+un número de radicado válido, cuando presione el botón seleccionar, entonces debería ir
+a una página que me permita ingresar la información necesaria para generar una licencia.
+
+Dado que me encuentro en la página de ingreso de número de radicado, y he ingresado
+un número de radicado no válido, cuando presione el botón seleccionar, entonces debería
+ver un mensaje indicando que el número de radicado no está registrado en el sistema.
+
+Dado que me encuentro en la página de generar licencia, y he diligenciado todos los
+datos de la licencia, cuando presione el botón generar, entonces el sistema debería abrir
+una página con la licencia generada.
+
+Dado que me encuentro en la página de la licencia generada, el sistema debería permitir
+la opción de imprimir la licencia al presionar el botón imprimir.
+
+ 
+
+Historia de Usuario
+
+ 
+
+Número: 15 Usuario: Empleado
+
+ 
+
+ 
+
+Nombre historia: Consultar licencia
+
+ 
+
+Descripción:
+
+Yo como secretaria, deseo poder consultar una licencia urbanística que se haya generado
+
+previamente.
+
+ 
+
+ 
+
+Criterios de aceptación:
+
+1.
+
+Dado que me encuentro en una página con el menú del sistema, y el menú ofrece la
+opción de expedir licencia, cuando presione el botón expedir licencia, entonces debería ir
+a una página que me permita seleccionar la opción de consultar licencia.
+
+Dado que me encuentro en la página de ingreso de número de resolución de la licencia
+urbanística, y he ingresado un número de resolución válido, cuando presione el botón
+consultar, entonces debería ir a una página que me permita ver la licencia seleccionada.
+
+293. Dado que me encuentro en la página de ingreso de número de resolución de la licencia
+urbanística, y he ingresado un número de resolución no válido, cuando presione el botón
+consultar, entonces debería ver un mensaje indicando que el número de resolución
+ingresado no está registrado en el sistema.
+
+4. Dado que me encuentro en la página de la licencia consultada, el sistema debería permitir
+la opción de imprimir la licencia al presionar el botón imprimir.
+
+ 
+
+ 
+
+Historia de Usuario
+
+ 
+
+Número: 16 Usuario: Solicitante
+
+ 
+
+ 
+
+Nombre historia: Consultar estado de la solicitud
+
+ 
+
+Descripción:
+
+Yo como solicitante, deseo poder consultar el estado de mi solicitud de licencia, para conocer el
+estado actual de mi solicitud de licencia.
+
+ 
+
+ 
+
+Criterios de aceptación:
+
+1. Dado que me encuentro en la página de consultas de estado, y he digitado correctamente
+el número de radicado de mi solicitud, cuando presione el botón consultar estado,
+entonces debería ver un mensaje que me informe en qué estado se encuentra actualmente
+mi solicitud.
+
+2. Dado que me encuentro en la página de consultas de estado, y he digitado
+incorrectamente el número de radicado de mi solicitud, cuando presione el botón
+consultar estado, entonces debería ver un mensaje que me informe que el número de
+radicado es incorrecto.
+
+3. Dado que me encuentro en la página de consultas de estado, y no he digitado el número
+de radicado de mi solicitud, cuando presione el botón consultar estado, entonces debería
+ver un mensaje que me informe que debo digitar el número de radicado de mi solicitud.
+
+ 
+
+ 
+
+Historia de Usuario
+
+ 
+
+Número: 17 Usuario: Usuario registrado.
+
+ 
+
+ 
+
+Nombre historia: Generar reporte
+
+ 
+
+30Descripción:
+
+Yo como usuario registrado en el sistema, deseo poder obtener un reporte de licencias aprobadas,
+para conocer la lista de licencias aprobadas en un periodo solicitado.
+
+ 
+
+ 
+
+Criterios de aceptación:
+
+1. Dado que me encuentro en la página de reportes, deseo poder seleccionar un periodo de
+tiempo para ver las licencias que han sido aprobadas durante ese tiempo.
+
+2. Dado que me encuentro en la página de reportes, y he seleccionado un periodo de
+tiempo, cuando presione el botón generar, entonces debería ver un reporte indicando que
+licencias han sido aprobadas en el periodo solicitado.
+
+3. Dado que me encuentro en la página de reportes, y he seleccionado un periodo de tiempo
+en cual no se aprobaron licencias, cuando presione el botón generar, entonces debería ver
+un mensaje informando que no se encontraron licencias en ese periodo.
+
+ 
+
+ 
+
+Historia de Usuario
+
+ 
+
+Número: 18 Usuario: Usuario registrado.
+
+ 
+
+Nombre historia: Imprimir reporte
+
+ 
+
+Descripción:
+
+Yo como usuario registrado en el sistema, deseo poder imprimir un reporte de licencias generado,
+para tener una copia física de la información contenida en el reporte generado.
+
+ 
+
+ 
+
+Criterios de aceptación:
+
+1. Dado que me encuentro en la página de reportes, y he generado un reporte, cuando
+presione el botón imprimir, entonces debería abrir el dialogo de impresión del navegador
+para recibir una copia impresa del informe generado.
+
+ 
+
+Tabla 2. Historias de usuario
+
+313.3 CICLO 2
+
+3.3.1
+
+Modelado del s
+
+ 
+
+stema (diseño)
+
+En la parte del modelado del sistema, se diseñó la arquitectura inicial del sistema y del
+
+producto de software que se implementó en la Curaduría Urbana de Tuluá, tomando como base
+los resultados del análisis previamente hecho en el ciclo 1.
+
+3.3.2
+
+Diagrama de clases
+
+DIAGRAMA DE CLASES
+
+ 
+
+ 
+
+ 
+
+ 
+
+- descrip
+
++ leer_p
+
+- id_perfil
+- nombre_perfil
+- nivel_seguridad : int
+
+ 
+
+   
+
+int
+string
+
+  
+
+cion :string
+
+ 
+
+erfil()
+
+solicita
+
+ 
+
+ 
+
+ 
+
+  
+
+- id_usuario : int
+
+- perfil
+
+- nombres : string
+
+- apellid
+
+- nombre_usuario
+
+- clave
+
+- direccion : string
+
+- telefon
+- ciudad
+
++ leer_u
+
+ 
+
+   
+  
+ 
+
+perfil
+
+os : string
+
+  
+   
+     
+ 
+   
+
+string
+string
+
+ 
+
+o : string
+string
+
+ 
+
+solicita
+
+suario()
+
+ 
+
+ 
+
+solicita
+
+solicita
+
+Controlador_perfil
+
++ oresr_perfil()
++ modificar_perfil()
+
+     
+
+Controlador_usuario
+
++ crear_usuario()
++ habilitar_usuario()
++ inhabilitar_usuario()
++ modificar_cuenta()
+
+    
+ 
+        
+      
+  
+ 
+   
+   
+
+ 
+
+ 
+
+consulta
+
+solicita
+
+ 
+   
+   
+      
+      
+
+- nombre_usuario
+- clave
+- estado
+
++ leer_sesion()
+
+ 
+
+ 
+
+  
+
+modifica
+
+ 
+
+ 
+ 
+
++ iniciar_sesion(
++ cerrar_sesion()
+
+ 
+
+solicita
+
+Controlador_sesion
+
+   
+
+ 
+
+   
+
+ 
+
+   
+
+inicia
+
+ 
+
+ 
+
+ 
+
+modifica
+
+ 
+
+  
+ 
+    
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
++ cuenta_usuario()
+
++ perfiles[)
+
++ solicitud_licencia()
++ expedir_licencia()
++ reporte:
++ finalizar_sesion()
+
+ 
+
+ 
+
+Controlador_menu
+
+ 
+
+genera
+
+———> + ingresar_datos!)
+
+- sesion : sesion
+- usuario
+
++ oresr_menul)
+
+solicita
+
+ 
+
+ 
+
+ 
+
+   
+
+Controlador_solicitud
+
+Solicitud
+
+ 
+
+   
+  
+
++ iniciar_solicitud()
++ canoelar_solicitu:
++ generar_radica:
++ imprimir_requisit
+
+ 
+
+ 
+ 
+ 
+   
+  
+  
+   
+
++ ingresar_documentos()
++ notificar_vecinos[)
+
++ imprimir_resolucion()
++ calcular_expensas[)
+
++ generar_recibo()
++ consultar_estado()
+
+ 
+
+- numero_solicitud : int
+-fecha : string
+-tipo_licencia : string
+
+- estado : int
+
+- numero_radicado : int
+- solicitante : solicitante
+- email_veci string
+- email_veci string
+
+ 
+
++ leer_solicitud() |
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+   
+
+genera
+
+ 
+
+ 
+
+Menu
+
+ 
+
+ 
+
+ 
+ 
+
+ 
+
+ 
+
+usuario
+
+ 
+
+ 
+
+ 
+
+ 
+
+expide
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+- numero_licencia : int
+-tipo_licencia
+-fecha_exped
+- lugar_expedicio
+- curador : string
+
+- solicitante : solicitante
+- numero_radicado : int
+
++ leer_licencial)
+
+    
+ 
+
+Licencia
+
+  
+
+ 
+
+   
+ 
+  
+ 
+
+string
+string
+n :string
+
+ 
+
+  
+
+ 
+
+ 
+
+Controlador_licencia
+
+Dosenerar tienes... E
+
++ generar_lioencia()
++ imprimir_licencia()
+
+ 
+
+ 
+
+  
+   
+
+consulta
+
+ 
+
+ 
+
+ 
+
+Controlador_reportes
+
+ 
+
+solicita
+
++ generar_reporte()
++ imprimir_reporte()
+
+ 
+
+ 
+
+ 
+
+crea
+
+ 
+
+ 
+
+ 
+
+Reportes
+
+- numero_reporte : int
+
+- fecha : string
+
+- mumero_solicitudes : int
+- numero_licencias : int
+- usuario : usuario
+
+ 
+
++ leer_reporte()
+
+ 
+
+2
+
+Controlador_solicitante
+
+ 
+
++ goreasr_solicitante()
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
++ conectar()
++ desconectar()
+
+ 
+
+ 
+
+ 
+
+ 
+
+- sesion : sesion
+-tipo_sesion : int
+
++ base_datos[)
+
+Seguridad
+
+ 
+   
+ 
+
+ 
+
+ 
+
+ 
+
+    
+  
+
+Controlador_seguridad
+
++ conectar()
++ desconectar!)
+
+ 
+
+ 
+
+Controlador_conexion
+
+ 
+
+solicita
+
+solicita
+
+solicita
+Controlador_recibo
++ generar_reci
++ imprimir_recibo()
+solicita
+
+Recibo
+
+- mumero_recibo : int
+
+- fecha : date
+
+- numero_cuenta : string
+- titular_cuenta : string
+
+- solicitante : solicitante
+-tipo_licencia : string
+
+- valor_expensas :double
+
++ leer_recibol)
+
+ 
+
+ 
+
+Solicitante
+
+ 
+
+ 
+
+- id_solicitante : int
+- nombres : string
+
+- apellidos : string
+- direccion : string
+- telefono : string
+
+- ciudad : string
+
+- email : string
+
+- tipo_solicitud : string
+
+ 
+
++ leer_solicitante() |
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+Conexion
+- servidor : string
+- usuario : string
+
+ 
+
+- password : string
+- database : string
+
++ base_datos[)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Validacion
+
+- sesion : int
+
+- perfil : imt
+
+- usuario : int
+
+- solicitante : int
+- solicitud : int
+
+ 
+
+ 
+
++ confirmar_validacion()
+
+ 
+
+ 
+
+ 
+
+ 
+
+Controlador_validacion
+
+ 
+
++ validar_sesio
++ validar_perfi
++ validar_usuario()
+
++ valida: licitante()
++ validar_solicitud()
+
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figura 1.Diagrama de clases del sistema
+
+323.3.3
+
+Diagrama de componentes
+
+Esta aplicación se diseñó con un enfoque de aplicación web donde se divide en 2 grandes
+
+componentes básicos los cuales comprenden: el nodo cliente, que corresponde a cualquier
+
+dispositivo con acceso a internet desde el cual un usuario puede operar el software utilizando la
+
+interfaz gráfica de usuario a través de un navegador web; por otro lado está el servidor web, el
+cual aloja la aplicación web, los servidores PHP, MySql y además contiene la base de datos
+
+del sistema.
+
+La aplicación web internamente se divide en los siguientes módulos:
+
+Módulo de sesión: se encarga de la conexión a la base datos haciendo uso de MySql y
+de permitir el ingreso al sistema de los usuarios debidamente registrados.
+
+Módulo de perfil: almacena la información de los perfiles de usuario, la cual define a
+que funcionalidades de la aplicación tiene acceso cada usuario.
+
+Módulo de usuario: almacena la información personal de los usuarios registrados y
+permite a los usuarios con perfil de administrador, la creación, habilitación y des
+habilitación de usuarios, además permite a cualquier usuario registrado modificar la
+información personal de su cuenta de usuario. (ver anexo D)
+
+Módulo de solicitante: almacena la información personal de los solicitantes. Permite a
+los usuarios con perfil de administrador y empleado, registrar nuevos de solicitantes, y
+modificar la información personal de los solicitantes registrados. (ver anexo F)
+
+Módulo de solicitud: almacena la información necesaria para llevar a cabo una
+solicitud de licencia. (ver anexo E)
+
+Módulo de factura: almacena la información de los facturas de pago, y genera una
+factura imprimible.
+
+Módulo de licencia: permite generar una licencia urbanística imprimible para entregar
+al solicitante.
+
+Módulo de reporte: permite generar reportes imprimibles para entregar por escrito a
+cualquiera de las siguientes entidades: Centro Aguas, la CVC, Planeación Distrital, y el
+DANE cuando se solicite.
+
+33Servidor Web
+
+ 
+
+ 
+
+Nodo Cliente
+
+ 
+
+Módulo Sesión
+
+   
+  
+
+   
+  
+
+E |
+
+Navegador Web
+
+ 
+
+       
+
+  
+ 
+
+Comunicación Internet
+
+ 
+
+Módulo solciRs
+
+Módulo Factura
+
+Módulo Usuario
+
+Módulo solici
+
+ 
+
+  
+ 
+
+    
+        
+
+ 
+
+E |
+
+ 
+
+JavaScript
+
+ 
+
+ 
+
+ 
+
+Ss]
+
+Módulo Reportes
+
+ 
+
+Módulo Licencia
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figura 2. Diagrama de componentes del sistema
+
+3.34 Modelo de la base de datos
+
+-id_liocencia : int(10)
+
+-id_vecino: int(10)
+
+- nombre: varchar(50)
+- direccion: varchar(50)
+
+- correspondecia: varchar(50)
+- numero_licencias: int(10)
+
+- telefono: varchar[20)
+-id_solicitud: int(10)
+
+ 
+
+<= tiene >>
+
+<= expide =>
+
+-fecha_expedicion : date
+- solicitante varchar(50)
+- cedula_solicitante :varchar(20)
+
+-fecha_sprobacion : date
+
+- radicado: varchar(20)
+-fecha_solicitud : date
+-tipo_obra: varchar(200)
+
+- direccion_predio : varchar(200)
+
+ 
+
+ 
+
+<= tiene =>
+
+ 
+
+clase_licencia
+
+- id_perfil: int (10)
+- nombre_perfil: varchar(50)
+
+4
+
+<< tiene =>
+
+- id_usuario: varchar (20)
+-id_perfil: int(10)
+
+- nombres: varchar(50)
+
+- apellidos: varchar(50)
+
+- direccion varchar(50)
+
+   
+   
+
+<< Crea >> n
+
+- id_solicitud : int(10)
+
+- propistario: varchar(100)
+- direccion: varchar (50)
+
+- barrio: varchar (50)
+
+- cedula: varchar (50)
+
+<< pertenece >>
+
+-id_clase: int(2)
+- nombre: varchar(100)
+
+- descripcion: varchar(1000)
+
+ 
+
+ 
+
+- E pe 5 A q
+descripcion_perfil: varchar(50) -telefono: varchar(20) ¿ ds e
+- ciudad: varchar(50) - sucias : int(2)
+- nombre_usuario: varchar(20) -id sollcitaníe: varchar(20) 1
+
+- clave: varchari20)
+
+<= pertenece >>
+
+  
+   
+     
+
+<= tiene >>
+n
+
+subclase_licencia
+
+- id_subclase: int[2)
+- id_clase: int(2)
+
+<< genera >> <= registra >>
+
+- id_factura : imt(10)
+- fecha : date
+
+- nombre : varchar(100)
+
+- direccion : varchar(50)
+
+- descoripcion : varchar[100)
+- codigo varchar(10)
+
+- cantidad : double(10,2)
+
+- id_solicitante : varchar(20)
+- nombres : varchar(50)
+- apellidos : varchar(50)
+
+- direccion : varchar(50)
+- telefono : varchar(20)
+- barrio : varchar(50)
+
+ 
+
+- nombre: varchar(100)
+- descripcion: varchar(1000)
+
+ 
+
+- variable : double(10,2)
+
+ 
+
+Figura 3.Modelo de la base de datos del sistema
+
+343.3.5 Diagrama de flujo de datos
+
+Solicitud de Solicitud de Revisión de Cumplimiento
+
+licencia requisitos requisitos de requisitos
+
+Llega ¡
+solicitante
+
+Confirmar A : Calcular Almacén
+Generar recibo requisitos
+pago expensas
+
+si Generar
+Notificar inici radicado
+otificar inicio UN
+del proyecto ema:
+normativas
+
+No
+
+Enwi ar
+Respuesta e notificaciones a
+notificación Revisión de vecinos colidantes
+normativas
+
+No
+
+Confirmación E
+Entrega planos vecinos
+
+aprobados Modificar
+¡ planos
+
+estructurales
+
+Revisión
+(dl estructural
+
+Cumpliento
+
+Entrega de : : :
+sismo resistencia
+
+licencia
+urbanística
+
+ 
+
+Figura 4. Diagrama de flujo de Datos del sistema
+
+353.4 CONSTRUCCIÓN
+
+3.4.1  Iteración 1
+
+Diseño: Se diseñan el primer prototipo de la interfaz de usuario del landing page o página
+inicial, el menú y el espacio de trabajo de la aplicación.
+
+CURADURÍA URBANA DE TULUÁ
+
+ 
+
+CONSULTA DE PROCESO INICIO DE SESIÓN
+NOMBRE DE USUARIO
+An:
+2. AI
+AS
+Iniciar
+Figura 5. Interfaz gráfica de usuario del Landing Page Figura 6. Interfaz gráfica de usuario del menú y espacio
+de trabajo
+
+Desarrollo (Codificación):
+
+e  Secrea la base de datos curaduria.
+
+e Se crea la tabla usuario, la cual está compuesta por los campos: id_usuario, id_perfil,
+nombre, apellido, dirección, teléfono, ciudad, nombre_usuario, clave y estado.
+
+e Se crea la tabla perfil, la cual está compuesta por los campos: id_perfil_ nombre_perfil
+y descripcion.
+
+e Se crea el archivo que permite la conexión a la base de datos en lenguaje PHP y se
+utiliza el gestor de base de datos MySQL para realizar la conexión a la base de datos.
+
+e  Secreael archivo que permite el inicio de sesión, en lenguaje PHP y MySQL.
+e  Secreael archivo que permite el cierre de sesión, en lenguaje PHP y MySQL.
+
+e Se crea la interfaz gráfica de usuario para el landing page utilizando lenguaje PHP,
+HTML y HTMLS5.
+
+36e Se crea la interfaz gráfica de usuario para crear usuarios.
+
+e Se crea la interfaz gráfica de usuario para modificar cuentas de usuario.
+
+Pruebas Unitarias: (Caja negra):
+
+Sistema operativo: Windows 8.
+
+Navegador web: Google Chrome.
+
+Lenguajes: PHP v3.4.1.6 - MySQL v3.6.17
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+37
+
+ 
+
+1d Descripción Resultado Recomendación
+Prueba
+
+Situado en la página de inicio
+de sesión, se digita un nombre | El sistema redirige al usuario
+de usuario y contraseña | a la página de creación de
+
+Pul registrados en el sistema con | solicitud en la misma | Ninguna.
+perfil de empleado, en sus | pestaña. No se presentan
+respectivos campos y se | comportamientos indeseados.
+presiona el botón iniciar.
+Situado en la página de inicio
+de sesión, se digita un nombre | El sistema redirige al usuario
+de usuario y contraseña | a la página de creación de
+
+Pu2 registrados en el sistema con | usuario en la misma pestaña. | Ninguna.
+perfil de administrador, en sus | No se presentan
+respectivos campos y se | comportamientos indeseados.
+presiona el botón iniciar.
+Situado en la página de inicio
+de sesión, se digita un nombre | El sistema redirige al usuario
+de usuario y contraseña | a la página de generar
+
+Pu3 registrados en el sistema con | reportes en la misma pestaña. | Ninguna.
+perfil de entidad, en sus | No se presentan
+respectivos campos y se | comportamientos indeseados.
+presiona el botón iniciar.
+
+El sistema muestra el
+
+Situado en la página de inicio | mensaje:
+de sesión, se digita un nombre | Usuario o contraseña no
+
+Pus de usuario o contraseña no | válidos, por favor verifique Ninguna
+registrados en el sistema, en | que sus datos de ingreso
+sus respectivos campos y se | estén escritos correctamente.
+presiona el botón iniciar. No se presentan
+
+comportamientos indeseados.
+Pu5 Situados en la página de El sistema redirige al usuario | Ninguna.creación se presiona el botón a la página de inicio de
+cerrar sesión. sesión. No se presentan
+comportamientos indeseados.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 3. Pruebas de caja negra Iteración 1
+
+3.4.2  Iteración 2
+
+Diseño: Se rediseñan las interfaces gráficas de usuario del landing page o página inicial, el
+
+menú y el espacio de trabajo de la aplicación, para acomodarse más a las tendencias actuales y
+aprovechar mejor el espacio en pantalla.
+
+E Curaduría Urbana de Tuluá
+
+ 
+
+CONSULTA DE PROCESO INICIO DE SESIÓN
+
+ 
+
+Figura 7. Interfaz gráfica de usuario del Landing Page
+
+CUENTA DE USUARIO
+
+NOMBRES Lina
+APELLIDOS Corrales
+DOCUMENTO IDENTIDAD pose
+DIRECCIÓN 0002
+TELÉFONO 000%
+CIUDAD Tuleá
+CONTRASEÑA curaduna
+
+VERIFICAR CONTRASEÑA curadura
+
+ 
+
+Figura 8. Interfaz gráfica de usuario del menú y espacio de trabajo
+
+38Desarrollo (Codificación):
+
+Se crea la tabla solicitante, la cual está compuesta por los campos: id_solicitante,
+nombre, apellido, dirección, barrio y telefono.
+
+Se crea la tabla solicitud, la cual está compuesta por los campos: id_solicitud,
+propietario, dirección, barrio, cedula, fecha, id_solicitante, smlmv y estrato.
+
+Se crea el archivo que permite el ingreso de los datos de nuevos solicitantes al sistema.
+
+Se crea el archivo que permite la modificación de los datos de los solicitantes
+registrados en el sistema.
+
+Se crea el archivo que permite el ingreso de los datos de nuevas solicitudes al sistema.
+Se crea la interfaz gráfica para registrar nuevos solicitantes.
+Se crea la interfaz gráfica para modificar los datos de los solicitantes registrados.
+
+Se crea la interfaz gráfica para registrar nuevas solicitudes.
+
+Pruebas Unitarias: (Caja negra):
+
+Sistema operativo: Windows 8.
+
+Navegador web: Google Chrome.
+
+Lenguajes: PHP v3.4.1.6 - MySQL v3.6.17
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Id . . 4 .
+Descripción Resultado Recomendación
+Prueba
+l po El sistema redirige al usuario a
+Situado en la página de hos 22
+o la página de creación de nuevo
+solicitantes, se presiona o
+Pu6 > solicitante en la misma | Ninguna.
+el botón nuevo o pestaña. No se presentan
+solicitante.
+comportamientos indeseados.
+Situado en la página de | El sistema muestra el mensaje:
+creación de un nuevo | “Solicitante registrado con
+solicitante, se digitan los | éxito”, el sistema redirige al | ,..
+Pu? o Ninguna.
+datos en cada uno de los | usuario a la página de
+campos disponibles y se | solicitantes. No se presentan
+presiona el botón crear. | comportamientos indeseados.
+Pus Situado en la página de | El sistema muestra el mensaje: | Crear las
+
+ 
+
+39creación de un nuevo
+solicitante, no se digitan
+los datos en cada uno de
+los campos disponibles
+y se presiona el botón
+crear.
+
+“Solicitante registrado con
+éxito”, el sistema redirige al
+usuario a la página de
+solicitantes. Se presenta un
+comportamiento no deseado,
+ya que el software debió
+impedir la creación del
+solicitante debido a que no se
+llenaron todos los campos del
+formulario.
+
+restricciones
+
+necesarias para que
+al faltar 1 o más
+campos del
+formulario por
+diligenciar, el
+
+software no permita
+el ingreso de los
+datos del solicitante
+al sistema, y muestre
+un aviso indicando el
+
+ 
+
+ 
+
+ 
+
+o los campos no
+diligenciado.
+Situado en la página de
+creación de un nuevo | El sistema muestra el mensaje:
+solicitante, se digitan los | “¡Error! La cedula que se está
+datos en cada uno de los | ingresando ya se encuentra
+campos disponibles, | registrada en el sistema”, el |...
+Pu9 - o Ninguna.
+además en el campo | sistema redirige al usuario a la
+cedula se digita dato que | página de nuevo solicitante.
+ya existe en el sistema y | No se presentan
+se presiona el botón | comportamientos indeseados.
+crear.
+El sistema redirige al usuario a
+la página de solicitantes,
+mostrando una tabla con la
+Situado en la página de | lista de los solicitantes
+solicitantes, se ingresa almacenados en la base de
+una cadena de caracteres | datos, que coinciden parcial o .
+Pul0 | Ninguna.
+en el campo de totalmente en sus campos:
+búsqueda y se presiona | id_solicitante, nombre oO
+el botón buscar. apellido, con la cadena de
+caracteres digitada. No se
+presentan comportamientos
+indeseados.
+Situado en la página de
+solicitantes, se ingresa El sistema redirige al usuario a
+Pull una cedula registrada en |la página de actualizar Ninguna.
+el campo de actualizar solicitante. No se registran
+solicitante y se presiona | comportamientos indeseados.
+el botón actualizar.
+Situado en la página de | El sistema redirige al usuario a | Se debe colocar una
+solicitantes, se ingresa la página de actualizar | restricción para que
+Puro | Una cedula no registrada | solicitante. Se presentan | el sistema no permita
+en el campo de comportamientos indeseados, ¡ir a la página de
+actualizar solicitante y ya que el sistema debió | actualización de
+
+ 
+
+se presiona el botón
+
+ 
+
+impedir el ingreso a la página
+
+ 
+
+solicitante, si se
+
+ 
+
+40actualizar.
+
+de actualización de solicitante.
+
+digita una cedula no
+registrada.
+
+ 
+
+Situado en la página de
+actualización de
+solicitante, se cambian
+
+El sistema muestra el mensaje:
+“Solicitante actualizado con
+éxito”, el sistema redirige al
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Pul3 ] e Ninguna.
+los datos deseados por el | usuario a la página de e
+usuario y se presiona el | solicitantes. No se presentan
+botón actualizar. comportamientos indeseados.
+Situado en la página de l
+9er er0S El sistema muestra el mensaje:
+actualización de e ,
+o ¡Error! La cedula que se está
+solicitante, se cambian
+ingresando ya se encuentra
+los datos deseados por el . . >
+registrada en el sistema”, el |,..
+Pul4 | usuario, pero en el o Ninguna.
+o sistema redirige al usuario a la
+campo cedula se digita ho
+página de actualizar
+dato que ya existe en el e
+solicitante. No se presentan
+sistema y se presiona el
+a comportamientos indeseados.
+botón actualizar.
+El sistema redirige al usuario a
+la página de solicitudes,
+mostrando una tabla con la
+Situado en la página de |lista de los solicitudes
+solicitudes, se ingresa almacenadas en la base de
+Pus | Una cadena de caracteres | datos, que coinciden parcial o Ninsuna
+en el campo de totalmente en sus campos: sauna:
+búsqueda y se presiona | id_solicitante, nombre oO
+el botón buscar. apellido, con la cadena de
+caracteres digitada. No se
+presentan comportamientos
+indeseados.
+Situado en la página de
+solicitudes, se ingresa El sistema redirige al usuario a
+una cedula registrada en | la página de crear nueva|,..
+Pul6 e Ninguna.
+el campo de seleccionar | solicitud. No se presentan
+solicitante y se presiona | comportamientos indeseados.
+el botón seleccionar.
+eo El sistema redirige al usuario a | Se debe colocar una
+Situado en la página de as y o
+o la página de creación de una | restricción para que
+solicitudes, se ingresa e
+nueva solicitud. Se registran | el sistema no permita
+una cedula no registrada e
+comportamientos indeseados, |ir a la página de
+Pul7 | enel campo de > ua
+o ya que el sistema debió | creación de una
+seleccionar solicitante y |: ho: o ]
+y impedir el ingreso a la página | nueva solicitud, si se
+se presiona el botón > o
+de creación de una nueva | digita una cedula no
+seleccionar. o
+solicitud. registrada.
+Situado en la página de | El sistema muestra el mensaje:
+creación de un nueva “Solicitud registrada  con|,..
+Puls Ninguna.
+
+ 
+
+solicitud, se digitan los
+datos en cada uno de los
+
+ 
+
+éxito”, el sistema redirige al
+usuario a la página de
+
+ 
+
+ 
+
+41campos disponibles y se | solicitudes. No se presentan
+presiona el botón crear. | comportamientos indeseados.
+
+ 
+
+Crear las
+restricciones
+
+necesarias para que
+al faltar 1 o más
+
+El sistema muestra el mensaje:
+“Solicitud registrada con
+Situado en la página de | éxito”, el sistema redirige al
+
+. do campos del
+creación de una nueva usuario a la página de
+o o o formulario por
+solicitud, no se digitan solicitudes. Se presenta un | ,...
+diligenciar, el
+
+Pul9 | los datos en cada uno de | comportamiento no deseado,
+
+. | Software no permita
+los campos disponibles | ya que el software debió E
+
+el ingreso de los
+
+se presiona el botón impedir la creación de la o.
+y Sep P . . datos de la solicitud
+crear. solicitud debido a que no se
+al sistema, y muestre
+llenaron todos los campos del o
+. un aviso indicando el
+formulario.
+
+o los campos no
+diligenciado.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 4. Pruebas de caja negra Iteración 2
+
+3.4.3  Iteración 3
+
+Análisis: Se realiza una entrevista con el cliente para verificar el estado actual del software, en
+esta se descubre que se había omitido información necesaria para la creación de las solicitudes
+
+de licencia urbanística, dicha información señala el cliente se encuentra disponible en los
+artículos 3 al 7 del decreto 1469 de 2010. (Ver anexo A)
+
+Con base a esta información es necesario realizar modificaciones al diseño inicial para incluir la
+nueva información suministrada, dichas modificaciones consisten en agregar al modelo de la
+base de datos 2 nuevas tablas, primero clase_licencia y segundo subclase_licencia.
+
+En la entrevista el cliente también sugiere que se guarde la información de los vecinos
+colindantes al proyecto, o cual implica que se debe generar una nueva tabla en el modelo de la
+base de datos llamada vecino.
+
+Diseño: Se rediseña la interfaz gráfica de creación de solicitud agregando un campo a la
+interfaz gráfica de usuario para seleccionar la clase de licencia, y otro campo para seleccionar
+una subclase de licencia, si dicha clase de licencia la posee.
+
+Se agregan los campos: nombre, dirección, dirección de correspondencia y teléfono a la interfaz
+gráfica de creación de solicitud, de manera que la información de los vecinos colindantes se
+pueda ingresar al sistema.
+
+42Se rediseña el modelo de datos para incluir las tablas: vecino, clase_licencia y
+subclase licencia.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+    
+    
+  
+   
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+<< tiene >>
+"A - - vecino
+licencia
+- id_vecino: int(10)
+a - numero_licencia : int(10)
+z tas ol - tipo_licencis : varchar(100)
+- fe eneracion e e
+na ENE ss 2 7 ñ -fecha_expedicion :date n ondecia: varchar(50)
+5 pe O - lugar_expedicion :varchar(50) licencias: int(10)
+OO E Os or : varchar(100) no: varchar(20)
+licencias: int(10) ante varchaaaD) iii da (20)
+Sta io cchicóN a v 1d) -id_solicitud: int(10)
+- apellidos_ususrio: varchar(50)
+E <= crea >> << expide >> n
+<< tiene >>
+n 4 n
+caia solicitud
+amo «char (20) - numero_solicitud : int(10)
+OS -fecha_solicitud «date . '
+-id_perfil: int(10) dipo” licencia verhiat100) clase_licencia
+g -no res: var ED) < >> E 1 1 se
+- id_perfil: int (10) 1 << tiene >> n panires aruner(50) 1 == Crea >> n - estado : int(10) << pertenece >>
+
+- apellidos: varchar(50)
+
+- direccion varchar(50)
+
+- telefono: varchar(20)
+
+- ciudad: varchar(S50)
+
+- nombre_usuario: varchar(20)
+- clave: varchar(20)
+
+O A!
+n 4 - nombre: varchar(100)
+- descripcion: varchar(1000)
+
+- nombre_perfil: varchar(50)
+- descripcion_perfil: varchar(50)
+- nivel_seguridad: int (10)
+
+- numero_radicado : int(10)
+-id_solicitante: varchar(20)
+
+   
+ 
+    
+   
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+      
+
+<< pertenece >>
+
+. << tiene >>
+<< tiene >>
+
+    
+ 
+  
+ 
+ 
+  
+ 
+    
+
+subclase_licencia
+
+<< genera >> << registra >>
+
+  
+    
+ 
+
+- ¡d_subclase: int(2)
+- id_clase: int(2)
+
+- nombre: varchar(100)
+
+- descripcion: varchar(1000)
+
+solicitante
+
+   
+
+- numero_recibo : int(10)
+-fecha_recibo: date
+
+- numerco_cuenta : varchar(30)
+
+- titular_cuenta : varchar(100)
+
+- nombre_solicitante : varchar(50)
+- apellido_solicitante: varchar(50)
+-tipo_licencia : varchar(50)
+
+- valor_expensas : decimal(10,2)
+
+-id_solicitante : varchar(20)
+- nombres : varchar(50)
+
+- apellidos : varchar(50)
+
+- direccion : varchar(50)
+
+- telefono : varchar(20)
+
+- ciudad : varchar(50)
+
+- email : varchar!50)
+
+- tipo_solicitud : varchar[100)
+
+    
+  
+  
+ 
+ 
+   
+
+ 
+
+ 
+
+ 
+
+ 
+
+<< tiene >>
+
+ 
+
+Figura 9. Modelo de la base de datos del sistema v2
+
+Desarrollo (Codificación):
+
+e Se crea la tabla clase_licencia, la cual está compuesta por los campos: id_clase, nombre
+y descripcion.
+
+e Se crea la tabla subclase_licencia, la cual está compuesta por los campos: id_subclase,
+id_clase nombre y descripcion.
+
+e Se crea la tabla vecino, la cual está compuesta por los campos: id_vecino, nombre,
+dirección, correspondencia, telefono e id_solicitud.
+
+e Se modifica la interfaz gráfica de creación de solicitudes para agregar la información de
+los vecinos colindantes y las clases de licencia, según lo especificado anteriormente en
+la fase de diseño de esta iteración.
+
+43e Se modifica el archivo que permite el ingreso de los datos de nuevas solicitudes al
+sistema, para incluir los cambios mencionados en el análisis de esta iteración.
+
+e Se agregan las restricciones que obligan a diligenciar todos los campos del formulario,
+al archivo que permite el ingreso de los datos de nuevos solicitantes al sistema.
+
+e Se agregan las restricciones que obligan a diligenciar todos los campos del formulario,
+al archivo que permite el ingreso de los datos de nuevas solicitudes al sistema.
+
+e Se crea el archivo que restringe el acceso a la página de modificación de los datos de
+los solicitantes, si se digita una cedula de solicitante no registrada en el sistema.
+
+e Se crea el archivo que restringe el acceso a la página de creación de una solicitud de
+licencia, si se digita una cedula de solicitante no registrada en el sistema.
+
+Pruebas Unitarias: (Caja negra):
+Sistema operativo: Windows 8.
+
+Navegador web: Google Chrome.
+
+Lenguajes: PHP v3.4.1.6 - MySQL v3.6.17
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Id e . .
+Descripción Resultado Recomendación
+Prueba
+El sistema muestra el mensaje:
+A “¡ERROR! No se puede
+Situado en la página de| ' Pp
+o encontrar la cedula digitada,
+solicitudes, se ingresa una e
+cedula no registrada en el por favor verifique que la
+Pu20 cedula del solicitante este | Ninguna.
+campo de seleccionar . . »
+o registrada en el sistema”. Se
+solicitante y se presiona el o
+z corrigió el comportamiento
+botón seleccionar.
+indeseado que se presentaba en
+la iteración anterior.
+Situado en la página de
+creación de un nueva | El sistema muestra el mensaje:
+solicitud, se digitan los datos | “Solicitud registrada con
+en cada uno de los campos | éxito”, el sistema redirige al |,..
+Pu2l aa Ninguna.
+disponibles (incluyendo los | usuario .a la página de
+nuevos campos para | solicitudes. No se presentan
+seleccionar la clase de | comportamientos indeseados.
+licencia y la información de
+
+ 
+
+44los vecinos colindantes) y se
+presiona el botón crear.
+El sistema muestra el mensaje:
+Situado en la página de | “Debe completar este campo”,
+creación de una nueva | en cada uno de los campos que
+solicitud, no se diligencian | no se diligencio. Se l
+Pu22 o Ninguna.
+todos los campos disponibles | corrigieron los
+en el formulario y se | comportamientos indeseados
+presiona el botón crear. que se presentaban en la
+iteración anterior.
+El sistema muestra el mensaje:
+l ho “¡ERROR! No se puede
+Situado en la página de| ' Pp
+oo encontrar la cedula digitada,
+solicitantes, se ingresa una q
+l por favor verifique que la
+cedula no registrada en el a :
+Pu23 cedula del solicitante este | Ninguna.
+campo de actualizar . »
+o registrada en el sistema”. Se
+solicitante y se presiona el o ]
+, l corrigió el comportamiento
+botón actualizar.
+indeseado que se presentaba en
+la iteración anterior.
+El sistema muestra el mensaje:
+Situado en la página de | “Debe completar este campo”,
+creación de un nuevo | en cada uno de los campos que
+solicitante, no se diligencian | no se diligencio. Se l
+Pu24 o Ninguna.
+todos los campos disponibles | corrigieron los
+en el formulario y se | comportamientos indeseados
+presiona el botón crear. que se presentaban en la
+iteración anterior
+Tabla 5. Pruebas de caja negra Iteración 3
+3.44  Iteración 4
+
+Diseño: Se diseña la interfaz gráfica para administrar las solicitudes de licencia, la cual está
+compuesta por una tabla que permite ver las solicitudes que actualmente están en trámite, un
+campo de búsqueda para ubicar un trámite en específico, un campo para aprobar la solicitud de
+
+licencia y un campo para denegar la solicitud de licencia.
+
+Se diseña la interfaz gráfica para calcular las expensas generadas por el trámite de expedición
+
+de la licencia.
+
+Se diseña la interfaz gráfica para generar las licencias urbanísticas y el documento imprimible
+de estás.
+
+45Desarrollo (Codificación):
+
+e Se crea la tabla factura, la cual está compuesta por los campos: id_factura, fecha,
+nombre, direccion, descripción, código, cantidad, variable.
+
+e Se crea el archivo que permite el ingreso de los datos de las facturas generadas.
+
+e Se crea el archivo que restringe el acceso a la página de cálculo de expensas, si se digita
+un número de radicado no registrado en el sistema.
+
+e Se crea el archivo que restringe el acceso a la página de generar licencia, si se digita un
+número de radicado no registrado en el sistema.
+
+e Se crea el archivo que permite calcular las expensas generadas por el trámite de
+licencias.
+
+e Se crea la interfaz gráfica para calcular las expensas generadas por el trámite de
+licencias.
+
+e Se crea el archivo que genera la factura imprimible con los detalles de las expensas
+calculadas.
+
+e Se crea la interfaz gráfica para generar las licencias urbanísticas.
+
+e Se crea el documento imprimible de la licencia urbanística generada.
+
+Pruebas Unitarias: (Caja blanca):
+Sistema operativo: Windows 8.
+
+Aplicativo de desarrollo: Eclipse
+
+Plugin de Pruebas: PHPUnit - PEAR
+
+Lenguajes: PHP v3.4.1.6 - MySQL v3.6.17
+
+Se diseña esta prueba para corroborar si el cálculo de las expensas es correcto.
+
+461 Pruebas. php E8 [AA
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+1 <?php A
+2 class primeraprueba extends PHPUnit_Framework_TestCasej
+3
+4
+5 public function testCalcularExpensas() (
+6
+3d $smimv=644350;
+3 festrato=2;
+9 $i=0.5;
+10 Sarea=400.56;
+11. $m=0.510;
+12
+13 $Cv=0.8*$smlmv;
+14
+15
+16 $Cf=0.4*$smlmv;
+17
+18
+19 $j-=3.8/(0.12+(800/$area));
+20
+21 $E=($CF*$1*9m)+($Cv*$i*$3*5m);
+22
+23 $this->assertEquals(301648.13, $E);
+24
+25 )
+26 >»
+Figura 10. Prueba del cálculo de las expensas
+Resultado:
+[E Problems E Console £% PHPUNIt $3 Lor" alaQE- ”2n
+Finished after 0,251 seconds
+Runs: 1/1 E Errors: 0 E Failures: 1 EE ———
+4 Bl primeraprueba (0,040 s) = Failure Trace 35 2
+d+] testCalcularExpensas (0,040 s) 1 Failed asserting that 301648.12682278 matches expected 301648.13.
+
+Figura 11. Resultado de la prueba del cálculo de las expensas
+
+Se produce un fallo debido a el software de prueba muestra el resultado sin redondear cifra,
+mientras que la aplicación desarrollada para la Curaduría Urbana de Tuluá, está configurada
+para redondear cualquier cifra a 2 decimales.
+
+Pruebas Unitarias: (Caja negra):
+Sistema operativo: Windows 8.
+
+Navegador web: Google Chrome.
+
+47Lenguajes: PHP v3.4.1.6 - MySQL v3.6.17
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Id e. . . Y,
+Descripción Resultado Recomendación
+Prueba
+El sistema muestra el
+Situado en la página de | mensaje: “¡ERROR! No se
+expedir licencia, se ingresa | encuentra registrada
+un número de radicado no | ninguna solicitud con el|,..
+Pu25 3 Ninguna.
+registrado, en el campo de | número de radicado
+calcular expensas y se |digitado”. No se presenta
+presiona el botón calcular. ningún comportamiento
+indeseado.
+Situado en la página de l o
+a 2 pa El sistema se redirige a la
+expedir licencia, se ingresa|__ . »
+, : página de cálculo de
+un número de radicado
+Pu26 expensas. No se presenta | Ninguna.
+registrado, en el campo de | .*_,
+ningún comportamiento
+calcular expensas y sel.
+, indeseado.
+presiona el botón calcular.
+Situado en la página de
+cálculo de expensas, se ]
+z Revisar las
+presiona el botón calcular sin | Se genera la factura
+y o o consultas SQL para
+Pu27 | modificar ningún dato de los | imprimible con los datos en
+Ly poner en orden los
+que automáticamente | un orden incorrecto.
+datos de la factura.
+aparecen en los campos del
+formulario.
+Aplicar
+restricciones de
+l eo tipo de datos a los
+Situado en la página de P
+, campos, salario
+cálculo de expensas, se E
+o Zo mínimo legal
+insertan datos no numéricos | Se da un error de lógica al | _. a
+vigente y area
+en los campos salario | tratar de realizar
+Pu28 Po. » de: objeto de la
+mínimo legal vigente y área | operaciones matemáticas E
+s. ds solicitud del
+objeto de la solicitud, | con datos no numéricos.
+, formulario, para
+entonces se presiona el botón as
+que la aplicación no
+calcular.
+permita el ingreso
+de datos no
+numéricos.
+El sistema muestra el
+Situado en la página de | mensaje: “¡ERROR! No se
+expedir licencia, se ingresa | encuentra registrada
+un número de radicado no | ninguna solicitud con el|,..
+Pu29 z Ninguna.
+registrado, en el campo de | número de radicado
+expedir licencia y se presiona | digitado”. No se presenta
+el botón expedir. ningún comportamiento
+indeseado.
+Pu30 | Situado en la página de | El sistema se redirige a la | Ninguna.
+
+ 
+
+48expedir licencia, se ingresa | página de generar licencia.
+un número de radicado | No se presenta ningún
+registrado, en el campo de | comportamiento indeseado
+expedir licencia y se presiona
+
+el botón expedir.
+
+ 
+
+Situado en la página de | Se genera el documento de
+
+ 
+
+generar licencia, se | licencia imprimible. No se
+Pu3l qe | Ninguna.
+diligencian los campos del | presenta ningún
+formulario que están vacíos. | comportamiento indeseado.
+Se genera el documento de
+licencia imprimible. No se
+eo resenta ningún
+Situado en la página de p l : E
+comportamiento indeseado,
+generar licencia, se
+q debido a que queda al,..
+Pu32 | diligencian solo algunos de Ninguna.
+
+consideración del usuario
+que campos se deben llenar
+y cuales pueden quedar
+vacíos, según la clase de
+licencia lo requiera o no.
+
+los campos del formulario
+que están vacíos.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 6. Pruebas de caja negra Iteración 4
+
+3.4.5  Iteración 5
+
+Diseño: Se diseña la interfaz gráfica para generar los reportes correspondientes a las solicitudes
+de licencia expedidas, la cual contiene 4 campos para selección de fechas y 2 botones para
+generar reportes. El primer campo de fecha permite seleccionar la fecha inicial y el segundo la
+fecha final del reporte escrito, el tercer y cuarto campo permiten hacer lo mismo que los dos
+primeros, pero en este caso es para el reporte gráfico.
+
+Desarrollo (Codificación):
+
+e Se crea el archivo que permite generar el reporte escrito de las licencias expedidas en
+un periodo de tiempo determinado por el usuario.
+
+e Se crea el archivo que permite generar el reporte gráfico de las licencias expedidas en
+un periodo de tiempo determinado por el usuario.
+
+e Se crea el archivo que permite consultar el estado de una solicitud desde la página de
+inicio de sesión.
+
+e Se crea la interfaz gráfica que permite seleccionar el periodo de tiempo, para el cual se
+va a generar el reporte escrito de las licencias expedidas.
+
+49e Se crea la interfaz gráfica que muestra el reporte escrito con los detalles de las licencias
+expedidas.
+
+e Se crea la interfaz gráfica que muestra el reporte gráfico de las licencias expedidas.
+
+e  Serealizan cambios en las consultas SQL del archivo que genera la factura imprimible
+con los detalles de las expensas calculadas, a fin de resolver el problema del orden de
+los datos en la factura imprimible.
+
+e Se crean las restricciones de tipo de datos a los campos, salario mínimo legal vigente y
+área objeto de la solicitud del formulario, para que la aplicación no permita el ingreso
+de datos no numéricos.
+
+Pruebas Unitarias: (Caja negra):
+Sistema operativo: Windows 8.
+
+Navegador web: Google Chrome.
+
+Lenguajes: PHP v3.4.1.6 - MySQL v3.6.17
+
+ 
+
+ 
+
+ 
+
+50
+
+ 
+
+Id A y
+Descripción Resultado Recomendación
+Prueba
+Situado en la página de inicio
+de sesión, se digita una l
+o El sistema muestra un mensaje
+cedula del solicitante os aa
+2 que indica el estado del trámite
+registrada, y el número de o
+Pu33 de la solicitud. No se presenta | Ninguna.
+radicado correspondiente ala | .
+o : ningún comportamiento
+solicitud tramitada por el|.
+o : indeseado.
+solicitante, y se presiona el
+botón consultar.
+El sistema muestra el mensaje:
+Situado en la página de inicio | “¡ERROR! La cédula del
+de sesión, se digita una | solicitante hno se escribió
+cedula del solicitante no | correctamente, 0 no se
+Pu34 , e Ninguna.
+registrada, o un número de | encuentra una solicitud con el
+radicado ¡inexistente y se | número de radicado digitado.”.
+presiona el botón consultar. No se presenta ningún
+comportamiento indeseado.
+Situado en la página de |Se genera el reporte
+reportes, se selecciona la | imprimible correctamente, l
+Pu3s5 a l Ninguna.
+fecha inicial y la fecha final | para el periodo de tiempo
+de periodo que se desea | seleccionado. No se presentareportar, y se presiona el
+botón generar.
+
+ningún
+indeseado.
+
+comportamiento
+
+ 
+
+Situado en la página de
+
+ 
+
+ 
+
+ 
+
+formulario.
+
+Situado en la página de
+
+cálculo de expensas, se
+
+reportes, se selecciona la Revisar el
+Puz6 fecha inicial y la fecha final | No se muestran gráficos en la | código PHP y
+de periodo que se desea | página. las consultas
+graficar, y se presiona el SQL.
+botón graficar.
+Situado en la página de
+z pas Se genera la factura
+cálculo de expensas, se|.__. “
+a . | imprimible con los datos en el
+presiona el botón calcular sin o
+q 22 orden correcto. Se corrigieron | ,..
+Pu37 | modificar ningún dato de los : Ninguna.
+ds los comportamientos
+que automáticamente |.
+indeseados que se estaban
+aparecen en los campos del
+presentando.
+
+ 
+
+El sistema muestra el mensaje:
+“debes introducir un número”,
+
+ 
+
+ 
+
+ 
+
+insertan datos no numéricos [| en los campos de tipo
+en los campos salario | numérico ue osean
+Pu3s8 mm p z a o P Ninguna.
+
+mínimo legal vigente y área | caracteres no numéricos. Se
+
+objeto de la solicitud, | corrigieron los
+
+entonces se presiona el botón | comportamientos indeseados
+
+calcular. que se estaban presentando.
+
+Tabla 7. Pruebas de caja negra Iteración 5
+3.4.6  Iteración 6
+
+Análisis: Se realiza una nueva entrevista con el cliente para mostrar el prototipo del software
+
+unificado, en esta entrevista el cliente señala que los documentos requeridos para el inicio del
+proceso solicitud de licencia (ver anexo E), solo tienen validez en su forma física mas no en su
+
+forma digital y que el ingreso de dichos documentos al sistema, no aporta ninguna ventaja sino
+
+que por el contrario ralentiza el proceso de creación de una nueva solicitud. Por tanto se toma
+la decisión de suprimir del proceso de creación de nueva solicitud, el ingreso digital de
+documentos escaneados al sistema.
+
+El cliente insiste en que el software debe ser lo más sencillo posible y no contener
+
+funcionalidades que no sean estrictamente necesarias para el correcto funcionamiento del
+
+sistema, a modo de simplificar los procesos de otorgamiento y expedición de licencias
+
+urbanísticas.
+
+Se determina que la tabla de reporte es totalmente innecesaria dado que se puede generar un
+reporte en cualquier momento y no se lleva cuenta de esta operación en el sistema de datos.
+
+51Diseño: Se actualiza el modelo de la base de datos realizando para incluir los cambios que se
+ha ido realizando en cada iteración y que hasta el momento no se habían registrado en este
+modelo.
+
+licencia
+
+- id_liocencia : int(10)
+-fecha_expedicion : date
+
+   
+ 
+    
+   
+  
+    
+ 
+
+- id_vecino: int(10)
+- nombre: varchar(50)
+
+- direccion: varchar(50) n - solicitante varchar(50) << tiene >>
+- correspondecia: varchar(50)
+- numero_licencias: int(10)
+
+- telefono: varchar(20)
+
+- id_solicitud: int(10)
+
+- cedula_solicitante :varchar(20)
+-fecha_aprobacion : date
+- radicado: varchar(20)
+-fecha_solicitud : date
+-tipo_obra: varchar(200)
+
+<< expide >> - direccion_predio : varchar(200)
+
+<< tiene >>
+
+ 
+
+ 
+
+n
+
+ 
+
+    
+
+solicitud
+
+clase_licencia
+
+- id_solicitud : int(10) -id_clase: int(2)
+- propietario: varchar(100) - nombre: varchar(100)
+- descripcion: varchar(1000)
+
+  
+ 
+         
+       
+ 
+   
+ 
+   
+   
+ 
+   
+      
+     
+   
+ 
+ 
+ 
+  
+
+usuario
+
+  
+   
+ 
+ 
+ 
+  
+ 
+
+- id_usuario: varchar (20)
+-id_perfil: int(10)
+
+: - direccion: varchar (50)
+- nombres: varchar(50)
+
+- barrio: varchar (50)
+
+- cedula: varchar (50)
+
+- fecha :date
+
+- clase : int(2)
+
+-suclase : int(2)
+
+- id_solicitante: varchar(20)
+
+- id_perfil: int (10) 3 << tiene >> n == crea >> == pertenece >>
+- nombre_perfil: varchar(50)
+
+- descripcion_perfil: varchar[50)
+
+- apellidos: varchar(50)
+
+- direccion varchar(50)
+
+- telefono: varchar(20)
+
+- ciudad: varchar(50)
+
+- nombre_usuario: varchar(30)
+- clave: varchar(30)
+
+4
+
+ 
+
+   
+  
+
+ 
+
+ 
+
+<< pertenece >>
+
+<< tiene >>
+
+subclase_licencia
+
+<= genera >> << registra >>
+
+   
+  
+
+- id_subclase: int(2)
+
+- id_clase: int(2)
+
+- nombre: varchar(100)
+
+- descripcion: varchar[1000)
+
+   
+  
+
+- id_factura : int(10) solicitante
+
+- fecha : date
+- nombre : varchar(100)
+- direccion : varchar(50)
+
+  
+
+- id_solicitante : varchar(20)
+- nombres : varchar(50)
+- apellidos : varchar(50)
+- direccion : varchar(50)
+- telefono : varchar(20)
+- barrio : varchar(50)
+
+ 
+
+- descripcion : varchar(100)
+- codigo varchar(10)
+
+- cantidad : double(10,2)
+
+- variable : double(10,2)
+
+ 
+
+ 
+
+ 
+
+<< tiene >>
+
+ 
+
+Figura 12. Modelo de la base de datos del sistema v3
+
+Pruebas de Integración: (Depuración):
+Sistema operativo: Windows 8.
+
+Navegador web: Google Chrome.
+Lenguajes: PHP v5.4.1.6 - MySQL v3.6.17
+
+Las pruebas que se realizan en este apartado corresponden a las pruebas unitarias de caja negra
+siguiendo un flujo de datos que sería típico en la Curaduría Urbana de Tuluá. Por ello no se
+especificará con detalle cada prueba funcional, sino que se indicará el flujo de datos y el
+resultado de la interacción entre los módulos del software.
+
+Dado que anteriormente en las pruebas unitarias de caja negra, se habían explorado de forma
+individual todos los casos que causan excepciones, solo se evalúa la ruta crítica (como se
+indica en las tablas a continuación) que debería completar correctamente cada una de las
+funcionalidades del sistema.
+
+52Funcionalidad 1: Crear un usuario
+
+Procedimiento
+
+Usuarios: administrador.
+
+Resultado
+
+ 
+
+En la página de inicio de sesión el
+usuario con perfil de administrador,
+digita correctamente sus datos de ingreso
+al sistema.
+
+El sistema verifica los datos y redirige al
+usuario a la página de cuentas de usuario.
+
+ 
+
+ 
+
+El usuario presiona el botón nuevo
+usuario.
+
+El usuario diligencia correctamente
+todos los campos disponibles en la
+página de creación de usuario.
+
+ 
+
+El sistema redirige al usuario a la página de
+creación de usuario.
+
+El sistema muestra el mensaje “Se ha creado
+el usuario exitosamente”, y redirige al usuario
+a la página de cuentas de usuario. Aquí se
+puede comprobar la existencia del nuevo
+usuario, buscándolo en la lista de usuarios que
+se encuentra en esta página.
+
+ 
+
+ 
+
+Se presenta un error en el menú de la interfaz gráfica que impide ver el botón solicitantes, se
+cambia inmediatamente el índice del botón solicitantes para hacerlo visible en el menú. Salvo
+este pequeño error el proceso se completa correctamente.
+
+ 
+
+Funcionalidad 2: Activar usuario
+
+ 
+
+Procedimiento
+
+Usuario: administrador
+
+Resultado
+
+ 
+
+En la página de inicio de sesión el
+usuario con perfil de administrador,
+digita correctamente sus datos de ingreso
+al sistema.
+
+El sistema verifica los datos y redirige al
+usuario a la página de cuentas de usuario.
+
+ 
+
+ 
+
+El usuario ingresa uno de los nombres de
+usuario listados en el campo activar
+usuario, y presiona el botón activar.
+
+El sistema actualiza la lista de usuarios y
+cambia el estado del usuario seleccionado a
+activo.
+
+ 
+
+ 
+
+El proceso se completa sin ningún error.
+
+ 
+
+Funcionalidad 3: Desactivar usuario
+
+53
+
+Usuario: administradorProcedimiento
+
+Resultado
+
+ 
+
+1. En la página de inicio de sesión el
+usuario con perfil de administrador,
+digita correctamente sus datos de ingreso
+al sistema.
+
+El sistema verifica los datos y redirige al
+usuario a la página de cuentas de usuario.
+
+ 
+
+ 
+
+2. El usuario ingresa uno de los nombres de
+usuario listados en el campo desactivar
+usuario, y presiona el botón desactivar.
+
+El sistema actualiza la lista de usuarios y
+cambia el estado del usuario seleccionado a
+desactivado.
+
+ 
+
+ 
+
+El proceso se completa sin ningún error.
+
+ 
+
+Funcionalidad 4: Crear un solicitante
+
+Usuarios: empleado.
+
+ 
+
+Procedimiento
+
+Resultado
+
+ 
+
+l. En la página de inicio de sesión el
+usuario con perfil de empleado, digita
+correctamente sus datos de ingreso al
+sistema.
+
+El sistema verifica los datos y redirige al
+usuario a la página de solicitud de licencia.
+
+ 
+
+2. El usuario presiona el botón solicitantes.
+
+3. El usuario presiona el botón nuevo
+solicitante.
+
+El sistema redirige al usuario a la página de
+solicitantes.
+
+El sistema redirige al usuario a la página de
+creación de solicitantes.
+
+ 
+
+ 
+
+4. El usuario diligencia correctamente
+todos los campos disponibles en la
+página de creación de solicitantes.
+
+El proceso se completa sin ningún error.
+
+ 
+
+El sistema muestra el mensaje “Se ha creado
+el solicitante exitosamente”, y redirige al
+usuario a la página de solicitantes. Se puede
+comprobar la existencia del nuevo solicitante,
+buscándolo en la lista de solicitantes que se
+encuentra en esta página.
+
+ 
+
+ 
+
+ 
+
+Funcionalidad 5: Actualizar un solicitante
+
+ 
+
+Procedimiento
+
+Usuarios: empleado.
+
+Resultado
+
+ 
+
+ 
+
+54l. En la página de inicio de sesión el
+usuario con perfil de empleado, digita
+correctamente sus datos de ingreso al
+sistema.
+
+El sistema verifica los datos y redirige al
+usuario a la página de solicitud de licencia.
+
+ 
+
+2. El usuario presiona el botón solicitantes.
+
+El sistema redirige al usuario a la página de
+solicitantes.
+
+ 
+
+3. El usuario digita un numero de cedula de
+un solicitante que se haya registrado en
+el sistema, en el campo de actualizar
+solicitante y presiona el botón actualizar.
+
+El sistema redirige al usuario a la página de
+actualización de solicitantes.
+
+ 
+
+ 
+
+4, El sistema carga los datos registrados del
+solicitante seleccionado en cada uno de
+sus campos correspondientes, el usuario
+modifica la información que desee
+actualizar, y presiona el botón actualizar.
+
+El proceso se completa sin ningún error.
+
+Funcionalidad 6: Crear una solicitud de
+licencia
+
+El sistema muestra el mensaje “Se ha
+
+actualizado el solicitante exitosamente”, y
+redirige al usuario a la página de solicitantes.
+Si desea corroborar los cambios hechos puede
+repetir los pasos 2 y 3, sin necesidad de
+completar el paso 4.
+
+ 
+
+Usuarios: empleado.
+
+ 
+
+ 
+
+Procedimiento
+
+l. En la página de inicio de sesión el
+
+usuario con perfil de empleado, digita
+correctamente sus datos de ingreso al
+
+sistema.
+2. El usuario digita la cedula de un
+solicitante registrado en el campo
+
+seleccionar solicitante, y presiona el
+botón seleccionar.
+
+3. El usuario diligencia correctamente
+todos los campos del formulario
+disponibles en la página de creación de
+solicitud de licencia, y presiona el botón
+crear.
+
+Resultado
+
+El sistema verifica los datos y redirige al
+usuario a la página de solicitud de licencia.
+
+El sistema redirige al usuario a la página de
+creación de solicitud de licencia.
+
+El sistema muestra el mensaje “Solicitud
+registrada correctamente”, y  redirige al
+usuario a la página de solicitud de licencia. Se
+puede comprobar la existencia de la nueva
+solicitud, buscándola en la lista de solicitudes
+que se encuentra en la página de administrar
+solicitudes.
+
+ 
+
+El proceso se completa sin ningún error.
+
+55Funcionalidad 7: Aprobar una solicitud de
+
+l Usuarios: administrador, empleado.
+licencia
+
+Procedimiento Resultado
+
+ 
+
+l. En la página de inicio de sesión el
+usuario con perfil de administrador o
+empleado, digita correctamente sus datos
+de ingreso al sistema.
+
+El sistema verifica los datos y redirige al
+usuario a la página correspondiente a su perfil.
+
+ 
+
+2. El usuario presiona el botón administrar
+solicitud.
+
+El sistema redirige al usuario a la página de
+administrar solicitudes.
+
+ 
+
+El sistema muestra el mensaje: “La solicitud
+se ha aprobado”, cambia el estado de la
+solicitud a aprobada y actualiza el estado de la
+solicitud en la tabla que se muestra en esta
+página.
+
+3. El usuario digita el número de radicado
+de una solicitud registrada en el sistema,
+en el campo aprobar solicitud y presiona
+el botón aprobar.
+
+ 
+
+ 
+
+ 
+
+El proceso se completa sin ningún error.
+
+ 
+
+Funcionalidad 8: Denegar una solicitud de
+
+l Usuarios: administrador, empleado.
+licencia
+
+ 
+
+Procedimiento Resultado
+
+ 
+
+l. En la página de inicio de sesión el
+usuario con perfil de administrador o | El sistema verifica los datos y redirige al
+
+empleado, digita correctamente sus datos | usuario a la página correspondiente a su perfil.
+de ingreso al sistema.
+
+ 
+
+2. El usuario presiona el botón administrar | El sistema redirige al usuario a la página de
+solicitud. administrar solicitudes.
+
+ 
+
+El sistema muestra el mensaje: “La solicitud
+se ha denegado”, cambia el estado de la
+solicitud a denegada y actualiza el estado de la
+solicitud en la tabla que se muestra en esta
+página.
+
+3. El usuario digita el número de radicado
+de una solicitud registrada en el sistema,
+en el campo denegar solicitud y presiona
+el botón denegar.
+
+ 
+
+ 
+
+ 
+
+El proceso se completa sin ningún error.
+
+ 
+
+ 
+
+ 
+
+Funcionalidad 9: Generar factura Usuarios: empleado.
+
+ 
+
+56Procedimiento
+
+ 
+
+Resultado
+
+ 
+
+l. En la página de inicio de sesión el
+usuario con perfil de empleado, digita
+correctamente sus datos de ingreso al
+sistema.
+
+El sistema verifica los datos y redirige al
+usuario a la página de solicitud de licencia.
+
+ 
+
+2. El usuario presiona el botón expedir
+licencia.
+
+El sistema redirige al usuario a la página de
+expedir licencias.
+
+ 
+
+3. El usuario presiona el botón calcular
+expensas.
+
+El sistema redirige al usuario a la página de
+calcular expensas.
+
+ 
+
+4. El usuario digita el número de radicado
+de una solicitud registrada en el sistema,
+en el campo calcular expensas y presiona
+el botón seleccionar.
+
+El sistema redirige al usuario a la página de
+generar factura y automáticamente llena los
+campos del formulario, con los datos de la
+solicitud seleccionada.
+
+ 
+
+ 
+
+5. El usuario verifica que los datos del
+formulario son correctos, o los modifica
+de haber inconsistencias, y presiona el
+botón generar.
+
+El sistema muestra el mensaje “Factura
+generada correctamente”, y abre una nueva
+ventana con la factura imprimible generada.
+
+ 
+
+El proceso se completa sin ningún error.
+
+ 
+
+Funcionalidad 10: Generar Licencia
+
+Procedimiento
+
+Usuarios: empleado.
+
+Resultado
+
+ 
+
+l. En la página de inicio de sesión el usuario
+
+con perfil de empleado, digita
+correctamente sus datos de ingreso al
+sistema.
+
+El sistema verifica los datos y redirige al
+usuario a la página de solicitud de licencia.
+
+ 
+
+2. El usuario presiona el botón expedir
+licencia.
+
+3. El usuario presiona el botón generar
+licencia.
+
+El sistema redirige al usuario a la página de
+expedir licencias.
+
+El sistema redirige al usuario a la página de
+generar licencia.
+
+ 
+
+4. El usuario digita el número de radicado
+de una solicitud registrada en el sistema,
+en el campo generar licencia y presiona
+el botón seleccionar.
+
+El sistema redirige al usuario a la página de
+generar licencia y automáticamente llena los
+campos del formulario, con los datos de la
+solicitud seleccionada.
+
+ 
+
+ 
+
+5. El usuario diligencia la información
+faltante en los campos vacíos del
+formulario y presiona el botón generar.
+
+57
+
+El sistema muestra el mensaje “Licencia
+generada correctamente”, y abre una nueva
+ventana con la licencia imprimible generada.El proceso se completa sin ningún error.
+
+Funcionalidad 11: Generar reporte escrito
+
+Usuarios: empleado.
+
+ 
+
+Procedimiento
+
+l. En la página de inicio de sesión el
+usuario registrado, digita correctamente
+sus datos de ingreso al sistema.
+
+2. El usuario presiona el botón reportes.
+
+Resultado
+
+El sistema verifica los datos y redirige al
+usuario a la página correspondiente a su perfil.
+
+El sistema redirige al usuario a la página de
+reportes.
+
+ 
+
+ 
+
+3. El usuario selecciona la fecha inicial y la
+fecha final correspondientes al reporte
+escrito, y presiona el botón generar.
+
+El sistema abre una nueva ventana con el
+reporte escrito imprimible de las solicitudes
+aprobadas, correspondiente al periodo
+seleccionado por el usuario.
+
+ 
+
+El proceso se completa sin ningún error.
+
+ 
+
+Funcionalidad 12: Generar reporte gráfico
+
+Procedimiento
+
+Usuarios: empleado.
+
+Resultado
+
+ 
+
+l. En la página de inicio de sesión el
+usuario registrado, digita correctamente
+sus datos de ingreso al sistema.
+
+2. El usuario presiona el botón reportes.
+
+ 
+
+El sistema verifica los datos y redirige al
+usuario a la página correspondiente a su perfil.
+
+El sistema redirige al usuario a la página de
+reportes.
+
+ 
+
+ 
+
+3. El usuario selecciona la fecha inicial y la
+fecha final correspondientes al reporte
+gráfico, y presiona el botón graficar.
+
+El sistema abre una nueva ventana con el
+reporte gráfico imprimible de las solicitudes
+aprobadas, correspondiente al periodo
+seleccionado por el usuario.
+
+ 
+
+El proceso se completa sin ningún error.
+
+ 
+
+ 
+
+Funcionalidad 13: Modificar cuenta de
+usuario
+
+Usuarios: todos.
+
+ 
+
+58Procedimiento Resultado
+
+ 
+
+1. En la página de inicio de sesión el
+usuario registrado digita, correctamente
+sus datos de ingreso al sistema.
+
+El sistema verifica los datos y redirige al
+usuario a la página correspondiente a su perfil.
+
+ 
+
+El sistema redirige al usuario a la página de
+
+2. El usuario presiona el botón mi cuenta.
+cuenta de usuario.
+
+ 
+
+3. El sistema carga los datos registrados del
+usuario en cada uno de sus campos
+correspondientes, el usuario modifica la
+información que desee actualizar, y
+presiona el botón actualizar.
+
+El sistema muestra el mensaje “Información
+del usuario actualizada con éxito”, el sistema
+carga los datos actualizados del usuario en
+cada uno de sus campos correspondientes.
+
+ 
+
+ 
+
+ 
+
+El proceso se completa sin ningún error.
+
+ 
+
+Funcionalidad 14: Consultar estado de
+solicitud
+
+Usuarios: todos.
+
+ 
+
+Procedimiento Resultado
+
+ 
+
+1. En la página de inicio de sesión el
+usuario, digita correctamente la cedula
+de un solicitante registrado, el número de
+radicado correspondiente a la solicitud
+hecha por dicho solicitante y presiona el
+botón consultar.
+
+El sistema verifica los datos y muestra un
+mensaje que indica el estado actual de la
+solicitud.
+
+ 
+
+ 
+
+ 
+
+Tabla 8. Pruebas de integración del sistema
+
+El proceso se completa sin ningún error.
+
+593.4.7 Diagnostico tecnológico de la Curaduría Urbana de Tuluá
+
+Se realizó la evaluación de los recursos tecnológicos con los que cuenta actualmente la
+Curaduría Urbana de Tuluá, en la cual se encontró que actualmente la oficina cuenta con:
+
+e Un equipo de cómputo para escritorio, con las siguiente características: procesador
+
+Intel dual core de 2.4 GHZ, disco duro de 250 GB, memoria ram de 2 GB, adaptador
+de red Ethernet, adaptador de red wifi, S.O. Microsoft Windows 7.
+
+e Un equipo de cómputo para escritorio, con las siguiente características: procesador
+
+Intel core 2 duo de 2.0 GHZ, disco duro de 300 GB, memoria ram de 2 GB, adaptador
+de red Ethernet, adaptador de red wifi, S.O. Microsoft Windows 7.
+
+e Un equipo de cómputo portátil, con las siguiente características: procesador Intel core
+
+iS core de 3.0 GHZ, disco duro de 1 TB, memoria ram de 4 GB, adaptador de red
+Ethernet, adaptador de red wifi, S.O. Microsoft Windows $8.
+
+e Una impresora Multifuncional EPSON L333 con capacidad para impresión wifi y
+tecnología eco tank.
+
+e Servicio de internet de 5 Mbps, con wifi.
+
+Según el análisis de los recursos tecnológicos realizado a la Curaduría Urbana de Tuluá, se
+determinó, que solo se requiere adquirir un servicio de hosting y dominio para la correcta
+instalación del software.
+
+3.4.8 Implementación de la solución
+
+Se realiza la implementación del Sistema de apoyo para la toma de decisiones y agilización de
+procesos de la Curaduría Urbana de Tuluá, en su respectivo ambiente de trabajo. (Ver anexo G)
+
+La aplicación se instala en el servidor web, al cual se puede acceder en la dirección web:
+
+http://www.sactulua.com
+
+604. CONCLUSIONES
+
+En la actualidad existen muchas aplicaciones de software para la administración de negocios,
+no obstante algunas empresas requieren de herramientas especializadas con funcionalidades
+únicas para su negocio, tal es el caso de las curadurías urbanas que si bien manejan procesos
+estándares de almacenamiento de datos, también requieren de la generación de documentos
+especiales para este negocio.
+
+La interfaz gráfica cobra mucha importancia a la hora de entregar un software de calidad, ya
+que el cliente hizo mucho énfasis en que la aplicación debía de ser fácil entendimiento y uso,
+además de no contener funcionalidades extras a las que el cliente básicamente necesita para
+completar los procesos realizados en la Curaduría Urbana de Tuluá. Si bien agregar
+funcionalidades opcionales al sistema para ofrecer más control y personalización de la
+aplicación es lo recomendado para mejorar la calidad del software, no siempre esto es bueno
+para el cliente, ya que desde su punto de vista esto hace la aplicación más complicada y menos
+eficiente para el trabajo.
+
+Quedó evidenciado que a través de todo el proceso de desarrollo siempre es necesario hacer
+cambios en el diseño tanto de la interfaz gráfica como de la lógica de la aplicación, dado que en
+cada entrevista con el cliente siempre surgía nueva información o el cliente solicitaba cambios
+para su facilitar su entendimiento y uso de la aplicación.
+
+Se pudo llevar a cabo el desarrollo de las funcionalidades determinadas en la fase de análisis y
+definición de requerimientos, sin embargo fue necesario agregar algunas funcionalidades para
+asegurar el correcto funcionamiento de la aplicación y retirar otras para facilitar el
+entendimiento y la usabilidad de la aplicación para el cliente.
+
+Finalmente, el diagnostico de los recursos tecnológicos con los que contaba la Curaduría
+Urbana de Tuluá, permitió hacer una correcta implementación de la aplicación en el ambiente
+real de trabajo, queda evidenciado que fue un proceso importante para poder completar la
+totalidad del proyecto.
+
+615. REFERENCIAS Y BIBLIOGRAFÍA
+
+[1] César Hernández, David Lyon, Ariana Pérez, Giancarlo Nebiolo, Juan García, Luis Sosa,
+“Tipos de Sistemas de Información TPS, MIS, DSS y ESS”, Universidad Simón Bolívar,
+
+República Bolivariana de Venezuela, 2012.
+
+Disponible: http://www .slideshare.net/GiancarloNebioloNavidad/tipos-sistemas-de
+informacion-tpsmisdssess
+
+[2] Decreto Nacional 992, 1906.
+
+Disponible: http://www.alcaldiabogota.gov.co/sisjur/normas/Normal .¡sp?i=14133
+
+[3] Resolución 0984, Ministerio de Ambiente, Vivienda y Desarrollo Territorial, 2005.
+
+Disponible: http://www.alcaldiabogota.gov.co/sisjur/normas/Normal .¡sp?i=17159
+
+[4] Capítulo VII, en “Decreto Nacional 1469, 2010”.
+
+Disponible: http://www.alcaldiabogota.gov.co/sisjur/normas/Normal .j¡sp?i=39477
+
+[S] Alejandro Peña Ayala, “Sistemas de Información”, en Ingeniería de Software: una guía para
+
+crear sistemas de información, lera Edición, México D.F., México, 2006.
+
+[6] Art. 65, Ley Nacional 9, 1989,
+
+Disponible: http://www.alcaldiabogota.gov.co/sisjur/normas/Normal .jsp?i=1175
+
+[7] Juan David Castaño. (2012, Mayo.). Licencia de construcción, base para comenzar una
+
+Obra. LA PATRIA [En Línea].
+
+Disponible: http://www.lapatria.com/tenga-en-cuenta/licencia-de-construccion-base-para
+comenzar-una-obra-5287
+
+[8] Ley Nacional 675, 2001.
+
+Disponible: http://www.alcaldiabogota.gov.co/sisjur/normas/Normal .¡sp?i=4162
+[9] Proceso Unificado Ágil AUP. Universidad Unión Bolivariana, Ingeniería de Software.
+
+Disponible: http://ingenieriadesoftware.mex.tl/637538_AUP.html
+
+626. ANEXOS
+
+Anexo A.
+
+DECRETO 1469 DE 2010
+
+ 
+
+ 
+
+Artículo 2”. Clases de licencias. Las licencias urbanísticas serán de:
+1. Urbanización.
+
+2. Parcelación.
+
+3. Subdivisión.
+
+4. Construcción.
+
+5. Intervención y ocupación del espacio público.
+
+Parágrafo. La expedición de las licencias de urbanización, parcelación y construcción conlleva
+la autorización para el cerramiento temporal del predio durante la ejecución de las obras
+autorizadas. En estos casos, el cerramiento no dará lugar al cobro de expensa.
+
+ 
+
+63Anexo B.
+
+CURADURÍA URBANA DE TULUÁ
+
+Carrera e na 24-43 Centro camaras “La 23” Oficina 105 Telefax: 2248731
+
+ 
+
+FORMULARIO UNICO DE RADICACION - SE ENTREGA EN CURADURIA
+
+LINEA DE PARAMENTO EXPEDIDA POR LA OFICINA DE PLANEACION MUNICIPAL.
+
+CERTIFICADO DE PROPIEDAD O COPIA DEL IMPUESTO PREDIAL (Es gratuito en la Alcaldía - Impuestos)
+CERTIFICADO DE TRADICIÓN EXPEDIDO POR OFICINA DE REGISTRO -Vigencia 1 mes -Original
+
+COPIA CÉDULA DE CIUDADANIA DEL PROPIETARIO (S)
+
+PLANOS ESCALA 1:50 - FIRMADOS (ARQUITECTONICO - ESTRUCTURALES- HIDRÁULICOS...)
+
+TRES (3) COPIAS REDUCIDAS DE CADA PLANO FIRMADAS - TAMAÑO OFICIO
+
+PLANOS EN MEDIO MAGNETICO (CD) (OPCIONAL)
+
+NOTIFICACIONES A LOS VECINOS COLINDANTES (TRAER NOMBRE Y DIRECCION DE LOS VECINOS, para enviar por
+
+correo certificado las notificación a costa del solicitante, al momento de radicarse el proyecto, con la documentación
+completa)) Valor del envió $2.000 por Notificación en el área urbana
+
+.. .. 0... UL..0£0P...R.Á—.O.
+
+COPIA DEL CARNET DEL MAESTRO DE CONSTRUCCION EXPEDIDO POR EL COPNIA
+
+COPIA DE LA TARJETA PROFESIONAL DEL INGENIERO Y/O ARQUITECTO
+
+PERITAJE TECNICO ELABORADO POR ING. CIVIL (Reconocimiento de la Vivienda)
+
+CERTIFICADO DE ANTIGUEDAD DE LA VIVIENDA (Reconocimiento de la Vivienda)
+
+CALCULO ESTRUCTURAL ELABORADO POR ING. CIVIL Y ESTUDIO DE SUELOS (PARA MÁS DE DOS PISOS)
+CARTA DEL INGENIERO CERTIFICANDO LA LOSA SI EXISTE
+
+COPIA DE LA LICENCIA DE CONSTRUCCIÓN DEL 1ER PISO SI EXISTE
+
+ 
+
+CURADURÍA URBANA DE TULUÁ
+
+Carrera 23 N2 24-43 Centro Comercial “La 23” Oficina 105 Telefax: 2248731
+ISIT ARA L IA DE VISI IAL == al - Su na
+LINEA DE PARAMENTO EXPEDIDA POR LA OFICINA DE PLANEACION. (Urbana - Suburbana)
+CERTIFICADO DE PROPIEDAD O COPIA DEL IMPUESTO PREDIAL (Es gratuito en la Alcaldía - Impuestos)
+CERTIFICADO DE TRADICIÓN EXPEDIDO POR OFICINA DE REGISTRO -Vigencia 1 mes -Original
+
+COPIA CÉDULA DE CIUDADANIA DEL PROPIETARIO (S)
+PLANOS ESCALA 1:50 - FIRMADOS (cómo está el Lote y como va a quedar dividido, con sus diferente medidas)
+
+TRES (3) COPIAS REDUCIDAS DE CADA PLANO FIRMADAS - TAMAÑO OFICIO
+PLANOS EN MEDIO MAGNETICO (CD) (OPCIONAL)
+
+FORMULARIO UNICO DE RADICACION - SE ENTREGA EN CURADURIA
+
+COPIA DE LA TARJETA PROFESIONAL DEL INGENIERO Y/O ARQUITECTO
+
+CERTIFICACION POR PLANEACIÓN MUNICIPAL PARA LOS PREDIOS UBICADOS EN LA ZONA SUBURBANA, DE QUE SE
+
+ENCUENTRA EN EL CENTRO POBLADO.
+*NOTA: — Área mínima para dividir en la zona urbana 90M2 = 6mts de frente x 15 de fondo S
+
+Área mínima para dividir en la zona Suburbana 240M2 = 10mts de frente x 24 de fondo
+Área mínima para dividir en la zona Rural Plana 4hectareas
+Área mínima za dividir en la zona Rural Montañosa dependiendo a la altura sobre el nivel del mar
+Todos lo objeto ivisió r con fr ía princi
+ER TODO DOCU N UN $0 ILA TA
+
+ 
+
+Ps PX
+
+ 
+
+CURADURIA URBANA DE TULUA TEL. 2248731 CARRERA 23 No. 24 - 43
+
+Centro Comercial “La23” Oficina105 __
+RE
+
+    
+
+ 
+
+WWw,.cura aduriatulua,com
+
+UISITOS PARA LA LICENCIA VISTO BU ENO DE PROPIEDAD HORIZONTAL
+CERTIFICADO DE PROPIEDAD O COPIA DEL IMPUESTO PREDIAL (Es gratuito en la Alcaldía - Impuestos)
+
+ 
+
+ 
+
+. CERTIFICADO DE TRADICIÓN EXPEDIDO POR OFICINA DE REGISTRO -Vigencia 1 mes Original
+
+COPIA CÉDULA DE CIUDADANIA DEL PROPIETARIO (S)
+PLANOS ESCALA 1:50 - FIRMADOS (ÁREAS COMUNES, AREAS PRIVADAS)
+TRES (31 COPIAS REDUCIDAS DE CADA PLANO FIRMADAS - TAMANO OFICIO
+FORMULARIO UNICO DE RADICACION - SE ENTREGA EN CURADURIA
+COPIA DE LA LICENCIA DE IER PISO Y 2DO PISO SI EXISTE
+REGLAMENTO DE PROPIEDAD HORIZONTAL - .
+TRAER TODOS LOS DOCUMENTOS EN UN SOBRE DE MANILA TAMAÑO OFICIO
+
+64Anexo C.
+
+DECRETO 1469 DE 2010
+
+ 
+
+ 
+
+Artículo 118. Fórmula para el cobro de las expensas por licencias y modalidades de las
+licencias. Los curadores urbanos cobrarán el valor de las expensas por las licencias y
+modalidades de las licencias urbanísticas de acuerdo con la siguiente ecuación:
+
+ES IIA A CATA Aa)
+
+Donde E expresa el valor total de la expensa; Cf corresponde al cargo fijo; Cv corresponde al
+cargo variable; i expresa el uso y estrato o categoría en cualquier clase de suelo, m expresa el
+factor de municipio en función del tamaño del mercado y la categorización presupuestal de los
+municipios y distritos, y jes el factor que regula la relación entre el valor de las expensas y la
+cantidad de metros cuadrados objeto de la solicitud, de acuerdo con los índices que a
+continuación se expresan:
+
+1. La tarifa única nacional para licencias de parcelación, urbanización y construcción y sus
+modalidades, correspondiente al cargo fijo (Cf) será igual al cuarenta por ciento (40%) de un
+salario mínimo legal mensual vigente.
+
+2. La tarifa única nacional para licencias de parcelación, urbanización y construcción y sus
+modalidades, correspondiente al cargo variable (Cv) será igual al ochenta por ciento (80%) de
+un salario mínimo legal mensual vigente.
+
+3. Factor 1 por estrato de vivienda y categoría de usos:
+
+Otros Usos
+OQ Institucional Comercio Industrial
+l a 300 2.9 2.9 2.9
+301 a 1000 3.2 3.2 3.2
+Más de 1001 4 4 4
+
+Donde Q expresa el número de metros cuadrados objeto de la solicitud.
+
+ 
+
+65Vivienda
+
+1 2 3 4 5 6
+
+0.5 0.5 1.0 1.5 2.0 2.5
+
+4, Factor j para licencias de parcelación, urbanización y construcción y sus modalidades:
+4.1.3 de construcción para proyectos iguales o menores a 100 m2:
+
+J=0,45
+4.2. J de construcción para proyectos superiores a 100 m2 e inferiores a 11.000 m2:
+
+3.0
+
+j=0.12+ 1500200
+
+Donde Q expresa el número de metros cuadrados objeto de la solicitud.
+
+4.3.j de construcción para proyectos superiores a 11.000 m2:
+
+E
+
+j=0.01s + 1500 FE
+
+Donde Q expresa el número de metros cuadrados objeto de la solicitud.
+
+4.4. J de urbanismo y parcelación:
+
+4
+
+j=
+0.029+12000fE 1
+
+Donde Q expresa el número de metros cuadrados objeto de la solicitud.
+
+Artículo 119. Asignación del factor municipal.
+
+Tuluá 0,510
+
+ 
+
+66Parágrafo. De conformidad con lo establecido en el artículo 79 del presente decreto, el
+Ministerio de Ambiente, Vivienda y Desarrollo Territorial determinará mediante resolución el
+factor municipal para la liquidación de las expensas de los municipios que decidan designar
+curadores urbanos por primera vez.
+
+ 
+
+Anexo D.
+
+ 
+
+ 
+
+DATOS DEL USUARIO
+
+Nombres
+
+Apellidos
+
+Documento de identidad
+Dirección
+
+Teléfono
+
+Ciudad
+Contraseña
+
+Anexo E.
+
+ 
+
+DATOS DE LA SOLICITUD
+
+ 
+
+ 
+
+Nombre del propietario
+Dirección del predio
+Barrio del predio
+
+Cédula catastral
+
+Uso de vivienda
+
+Objeto del trámite
+
+Tipo de licencia
+
+Área objeto de la solicitud
+Estrato del predio
+Nombre del vecino
+Dirección del vecino
+Dirección de correspondencia del vecino
+Teléfono del vecino
+
+ 
+
+67Anexo F.
+
+DATOS DEL SOLICITANTE
+
+ 
+
+ 
+
+Nombres
+
+Apellidos
+Cédula
+Dirección
+Barrio
+Teléfono
+
+68Anexo G.
+
+ 
+
+;oN CURADURÍA URBANA DE TULUÁ 5
+Je
+
+ll No ARQ. CARLOS ARTURO ESCOBAR GARCIA NA!
+E= EN
+
+CARRERA 23 N* 24-43 CENTRO COMERCIAL “LA 23” OFICINA 105 TELEFAX: 2248731
+
+CARLOS ARTURO ESCOBAR GARCÍA, identificado con la cédula de ciudadanía
+número 16.344.691 de Tuluá, en calidad de Curador Urbano de la ciudad de
+Tuluá.
+
+A quien le corresponda:
+
+Por medio de la presente informo que el estudiante Julián Andrés Espinal
+Correa ha implementado con éxito el SISTEMA DE APOYO PARA LA TOMA
+DE DECISIONES Y AGILIZACIÓN DE PROCESOS DE LA CURADURÍA
+URBANA DE TULUÁ, en la infraestructura provista por la Curaduría Urbana
+de Tuluá para su utilización y que está ha cumplido satisfactoriamente con las
+expectativas planteadas inicialmente.
+
+Para constancia se firma en Tuluá Valle a los veintiocho (28) días del mes de
+Mayo de 2015.
+
+Atentamente,
+
+ 
+
+ART.
+CURADOR URBANO
+
+ESCOBAR
+
+ 
+
+ 
+
+ 
+
+69

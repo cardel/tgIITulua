@@ -1,0 +1,4332 @@
+Wrapper para recuperar información de
+imágenes DICOM anotadas con una
+ontología de dominio médico
+
+Judy Susana Cabanzo Ramírez
+Cód. 200859237
+
+Universidad del Valle Sede Tuluá
+
+Programa de Ingeniería de Sistemas
+Noviembre de 2013Wrapper para recuperar información de
+imágenes DICOM anotadas con una
+ontología de dominio médico
+
+Judy Susana Cabanzo Ramírez
+Cód. 200859237.
+
+Trabajo de grado para optar el título de Ingeniero de Sistemas
+
+Directora
+Marta Millán
+
+Codirectora
+María Constanza Pabón
+
+Universidad del Valle Sede Tuluá
+
+Programa de Ingeniería de Sistemas
+Noviembre de 2013Nota de aceptación
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Presidente del Jurado
+
+ 
+
+Jurado 1
+
+ 
+
+Jurado 2
+
+Tuluá, Noviembre de 2013
+
+111Resumen
+
+Las empresas y organizaciones manejan grandes volúmenes de información que se encuentran
+en diferentes fuentes de datos. Cuando se hace una consulta que involucra diferentes fuentes de
+datos, se requiere recuperar información relevante y completa, por lo que hacerlo representa un
+problema que se soluciona con la integración de datos siendo ésta una de las principales áreas de
+desarrollo, tanto en la investigación como en los negocios. Particularmente, en el dominio médico
+se genera un alto volumen de datos e información digital, producto de los procesos clínicos, que
+se almacena en fuentes y formatos de datos heterogéneos. Una de estas fuentes son las imágenes
+médicas, que en este trabajo, son de interés las que se almacenan en el estándar DICOM (Digital
+Imaging and Communication in Medicine).
+
+El trabajo hace parte de un proyecto de tesis doctoral que se propone desarrollar una arquitectura de integración de datos que sirva para implementar un lenguaje conceptual de recuperación
+de datos médicos [1]. Como parte de la arquitectura de integración, se requiere implementar un
+wrapper que permita acceder a algunos de los atributos especificados en el estándar, para con
+base en ellos recuperar las imágenes y dar respuestas a consultas de usuario.
+
+Palabras clave: anotación semántica, DICOM, wrapper .
+
+lvAbstract
+
+Companies and organizations handling large volumes of information which are stored in different
+and heterogeneus data sources. When a query involving different data sources is required to
+recover complete and relevant information, so that it poses a problem that is solved with data
+integration, which is one of the main development areas, both in research and in business.
+Particularly, in the medical domain a high volume information is generated, product of clinical
+processes, and is stored sources and heterogeneous data formats. One of these sources are the
+medical images. This paper assumes that the images of interest are stored under the DICOM
+standar (Digital Imaging and Communications in Medicine).
+
+The work is part of a doctoral proposed, which aims to develop an integration architecture of
+data that serves to implement a conceptual medical query language [1]. As part of integration
+architecture a wrapper required, based on them recover images and provide answers to user
+queries.Dedicatoria
+
+A mi familia por su apoyo y comprensión. Sin ustedes no hubiera sido posible.
+A Julian Diaz por no permitir que me derrumbara.
+
+Judy
+
+Agradecimientos
+
+(Juiero agradecer a todas aquellas personas que de alguna manera hicieron que ahora me encuentre
+
+en este momento.
+A mis profesores por sus valiosas enseñanzas y a mis compañeros por sus valiosos consejos.
+
+Un especial agradecimiento a las profesoras María Constanza Pabón y Martha Millán por
+brindarme su colaboración en este proyecto y mas por permitir que participara en él.
+Gracias a los ingenieros Nestór Diaz, Federico Lopéz y Oscar Ceballos por su tiempo, colaboración
+
+y enseñanzas brindadas.
+Y por último pero no menos importante, a mi familia y amigos por compartir esta experiencia
+
+con amor, paciencia y tolerancia.
+
+vlÍndice general
+
+1 Introducción
+
+1.1 Descripción general
+1.2 Problema
+
+1.2.1 Descripción del problema ...........
+1.2.2 Justificación . ........ . .. . . . . ...
+1,3 Objetivos ......... . . . . e...
+1.3.1 Objetivo general ................
+1.3.2 Objetivos específiCOS . . ..............
+1.4 Estructura del documento ...............
+
+2 Marco Referencial
+
+2.1 Marco Conceptual...
+2.1.1 La integración de datos de fuentes hetérogeneas ...............
+2.1.2 Arquitectura de Integración basada en Mediación .............
+O SN
+2.1.4 La recuperación de las iIMágenes .......... . . +... o...
+DAD RDE......
+2.1.6 Integración de la historia clínica electrónica . ................
+2.1.7 Imágenes digitales en el campo MédiCO ....................
+2.1.8 El estándar DICOM ........
+2.1.9 Repositorios DICOM: Demáchee ........... . ... . .. o...
+2.1.10 Herramientas de anotación de Imágenes ...................
+
+2.1.11 SmiTag: red social para la anotación semántica de imágenes médicas
+
+3 Estado del Arte
+
+3.1 Trabajos Relacionados . ..................
+3.1.1 La integración de datos en el dominio médico
+3.2 Consultas en PACS ..................
+3.3 La arquitectura de mediación .............
+3.4 Modelo de datos global. . ..................
+34.1 GDM ......................
+3.5 Wrapper de la arquitectura de mediación . ........
+3.5.1 Sintaxis para patrones de tripleta de SPARQL
+4 Aspectos del desarrollo de software
+4.1 Metodología . . ......... . . . . . +... . . +...
+4.2 Comunicación...
+43 Planeación...
+
+13
+13
+14
+14
+15
+15
+15
+15
+15
+
+16
+16
+16
+17
+18
+19
+19
+21
+21
+21
+26
+28
+28
+
+30
+SU
+31
+33
+31
+31
+38
+38
+394.3.1 Especificación de requerimientos ...... e... 43
+
+4.3.2 Product backlog . .......o.o o... 45
+SS 46
+SS AY
+4.4.1 Modelo de datos del WwTapper ........ 47
+
+4.4.2 Datos de entrada -..... 48
+
+44.3 Datos de salida . .......- 49
+
+4.44 Diagrama de actividades . .......... . . . +... 50
+
+4.4.5 Procesamiento de patrones ...... 9%
+
+4.5 Arquitectura del prototipo del WIapper ............ o... 56
+4.5.1 Módulos del sistema .....- 58
+
+A Evaluación 60
+A Pruebas... 60
+AT Pruebas XML... 61
+
+4.7.2 Error de archivo entrada... 66
+
+5 Discusión de resultados y trabajos futuros 67
+Bl Resultados... 67
+2 Trabajos futuros... 70
+Referencias 71
+A Herramientas e instructivo instalación del wrapper 75
+A.1 Manual de Usuario... 75
+
+B Historias de Usuario 77
+C Planificación de las iteraciones 78
+
+viiiÍndice de tablas
+
+Tabla 4.1
+Tabla 4.2
+Tabla 4.3
+Tabla 4.4
+Tabla 4.5
+
+Tabla B.1
+Tabla B.2
+
+Tabla C.1
+Tabla C.2
+Tabla C.3
+Tabla C.4
+Tabla C.5
+
+Requerimientos funcionales, módulo de traducción de consultas ...... 44
+Requerimientos funcionales, módulo de integración ............. 44
+Requerimientos funcionales, módulo de conexión ............... 45
+Product Backlog, módulo de traducción de consultas ............ 46
+Cuadro de Casos de prueba ......... 61
+Historias de usuario, módulo de integración . .......... .... . ... Y]
+Historias de usuario, módulo de CONexiÓN. ............. ... .. 1]
+Revisión de sporintl..... 78
+Revisión de sprint 2... 78
+Revisión de sprint 3... 719
+Revisión de sprint... 719
+Revisión de sprint. 80
+
+1xÍndice de figuras
+
+Figura 1.1
+
+Figura 2.1
+Figura 2.2
+Figura 2.3
+Figura 2.4
+Figura 2.5
+Figura 2.6
+Figura 2.7
+Figura 2.8
+
+Figura 3.1
+Figura 3.2
+Figura 3.3
+Figura 3.4
+
+Figura 4.1
+Figura 4.2
+Figura 4.3
+Figura 4.4
+Figura 4.5
+Figura 4.6
+Figura 4.7
+Figura 4.8
+Figura 4.9
+Figura 4.10
+Figura 4.11
+Figura 4.12
+Figura 4.13
+Figura 4.14
+
+Figura A.1
+
+Arquitectura de Integración Basada en Mediación ............. 14
+Arquitectura de UN WIapper. 18
+Ejemplo RDE ............. 20
+Ejemplo RDP triplas . ................ . e... 20
+Modelo de información del estándar DICOM ................ 23
+Modelo DICOM del mundo real. ............... . ... . . ... 24
+Estructura de un archivo DICOM .............. e... .. 25
+Arquitetura 3-tier demáchee. ......... e... 27
+Ontología MUTO extedida ........... e... 29
+Infraestructura del acceso de datos de ACGT ........ o... .... 32
+Arquitectura de mediación de ACGT ..................... 33
+Arquitectura edi... 31
+Diágrama de actividades: Arquitectura de mediación ............ 39
+Modelo incremental ....... 42
+Metodología ágil SOCROM ....... 43
+Grafo de la información 48
+Diágrama de actividades: Traducción de subconsulta ............ 51
+Diágrama de actividades: Traducción de subconsulta ............ 93
+Tuplas respuesta para cada patrón... 54
+Resultado R1 left outer joón R2............ . .. . . . . . . . . .. 54
+Resultados aplicando FILTER ........................ 99
+Arquitectura Wrapper 97
+Tablal .... 99
+Tabla 2... 99
+Tabla con resultados ......... 59
+Pruebas... 63
+Error en el parseo ...... 66
+Interfaz de USUArIO 76
+
+xlLista de anexos
+
+Anexo A: Manual de instalación y de usuario
+Anexo B: Historias de usuario.
+Anexo C: Iteraciones.
+
+x1lCapitulo 1
+
+Introducción
+
+1.1 Descripción general
+
+En el dominio médico se genera un alto volumen de datos e información digital, producto de
+los procesos clínicos, que se almacena en fuentes y formatos de datos heterogéneos. Una de
+estas fuentes son las imágenes médicas que pueden estar en diferentes formatos como el DICOM
+(Digital Imaging and Communication in Medicine)?.
+
+En las actividades asociadas a los servicios de radiología por ejemplo, se realizan e interpretan
+las imágenes obtenidas mediante distintas pruebas diagnósticas. La descripción y análisis de
+las imágenes da origen al informe clínico correspondiente que debe de pasar a formar parte de
+la historia clínica del paciente. Por otra parte, ya no es posible imaginar una historia clínica
+electrónica que no incorpore las imágenes generadas en los exámenes médicos. Las imágenes
+médicas son parte fundamental de la historia clínica [18].
+
+Para incorporar estas imágenes al historial de los pacientes se cuenta con sistemas eficientes
+para su adquisición, donde éstas se almacenan de manera correcta y segura, se pueden recuperar en
+un tiempo mínimo y, posteriormente, se puedan visualizar con una calidad suficiente y adecuada.
+
+Una consulta que involucra diferentes fuentes de datos requiere recuperar información relevante y completa, por lo que hacerlo representa un problema que se soluciona con la integración
+de datos, siendo ésta una de las principales áreas de desarrollo, tanto en la investigación como en
+los negocios. Así, una de las estrategias de integración y de comunicación en el dominio médico
+es usar sistemas que permitan un intercambio eficiente de todos los datos clínicos del paciente,
+incluyendo las imágenes. Para la recuperación de estas imágenes se han propuesto sistemas de
+información en radiodiagnóstico: RIS y sistemas de archivo y comunicaciones de imágenes PACS
+(Picture Archiving and Communication Systems). En este sentido, un repositorio de datos clínicos
+puede ser la solución que ofrezca un mecanismo para acceder a toda la información del paciente
+desde una única estación de trabajo. Usando estándares como HL7 y DICOM, se pueden definir
+y desarrollar sistemas que contengan datos demográficos, de radiología, de cardiología, anatomía,
+etc. Aunque los PACS controlan la información relacionada con las imágenes y se ocupan de su
+seguimiento, desde la adquisición de imágenes hasta su almacenamiento para su posterior envío a
+las estaciones que lo soliciten, no disponen de un mecanismo para consultar toda la información,
+en especial las anotaciones hechas con conceptos de una ontología de dominio médico, para
+enriquecerlas.
+
+ 
+
+http: //medical.nema.org/standard.html
+
+131.2 Problema
+
+1.2.1 Descripción del problema
+
+En el campo médico se manejan grandes volúmenes de información producto de los procesos
+clínicos almacenados en diferentes fuentes que, generalmente, son heterogéneas. Normalmente, la
+información relacionada con un paciente se encuentra en diversas fuentes de datos (Ej. historias
+clínicas, reportes de diagnóstico, datos del paciente, atributos asociados con la imagen(DICOM),
+ontologías) cuyos mecanismos de almacenamiento son diferentes (bases de datos relacionales,
+documentos RDF, DICOM, XML, etc.). Recuperar la información de fuentes heterogéneas, que
+supla diversas necesidades y propósitos, entre otros, entrenamiento y enseñanza, diagnóstico
+o investigación, representa un problema, si se tiene en cuenta que, generalmente, se requiere
+integrar información [2].
+
+Existen varias arquitecturas que suplen esta necesidad de integración de datos e información
+como las bases de datos federadas, los almacenes de datos (Data Warehouse) o las basadas en
+mediación [3]. En este trabajo se usa un modelo de integración basado en mediación.
+
+En particular, esta propuesta forma parte de una tesis doctoral [1] en la que se requiere
+desarrollar una arquitectura de integración basada en mediación que sirva para implementar un
+lenguaje conceptual de recuperación de datos médicos.
+
+La arquitectura de mediación (figura 1.1) tiene como componentes: la interfaz de usuario, un
+mediador, los wrappers y las fuentes de datos.
+
+   
+ 
+ 
+ 
+ 
+ 
+   
+
+1. Interfaz de usuario
+
+2, Mediador: Procesa la consulta
+Global, realiza el mapeo de datos
+
+y envía las subconsultas a las fuentes
+MEDIADOR de datos pertinentes. Recibe las
+respuestas integradas y las envía
+
+al usuario
+
+   
+
+  
+    
+
+3, Wrapper: Traducción entre
+la consulta y las fuente de datos.
+
+4. Fuentes de datos
+
+Figura 1.1: Arquitectura de Integración Basada en Mediación. Fuente: [1]
+
+Una de las fuentes de datos de interés son los archivos DICOM. Esta fuente podría estar
+implicada en una consulta de usuario, expresada en un lenguaje conceptual cercano. La consulta
+se procesa para descomponerla en subconsultas que se direccionan a la fuente respectiva. Teniendo
+en cuenta que este lenguaje conceptual es diferente de los mecanismos de acceso a datos propios
+
+14de cada fuente, se requiere contar con una forma de traducir la consulta.
+
+Por lo tanto, para resolver el problema de traducción de la consulta se propone desarrollar
+un wrapper para acceder a imágenes médicas almacenadas bajo el estándar DICOM.
+
+Por otra parte, las imágenes médicas o parte de la imagen puede estar anotada semánticamente
+con conceptos de una ontología. Una ontología es la representación de un dominio particular
+de conocimiento con base en conceptos y en las relaciones entre estos [4]. Estas anotaciones se
+podrían usar también como mecanismo de acceso a las imágenes. En este caso, una consulta estaría
+relacionada no solamente con los atributos asociados al DICOM sino también con anotaciones
+(metadatos).
+
+1.2.2 Justificación
+
+En el campo médico, una consulta de usuario puede requerir acceder a imágenes médicas. La
+arquitectura que propone la tesis doctoral en la que se enmarca esta propuesta, ofrece soporte
+para implementar un lenguaje conceptual de recuperación de diversos tipos y fuentes de datos en
+el dominio médico incluyendo las fuentes DICOM. Se desea aportar la implementación de un
+prototipo funcional de un wrapper requerido en un proyecto de tesis doctoral. Un wrapper para
+recuperar atributos e imágenes DICOM y/o imágenes anotadas con una ontología de dominio.
+Esta implementación proporcionará información útil para un médico cuando desea hacer un
+diagnóstico o para algún propósito de investigación o enseñanza.
+
+1.3 Objetivos
+
+1.3.1 Objetivo general
+
+Desarrollar un prototipo de wrapper que permita traducir y ejecutar una subconsulta generada
+por un mediador para recuperar datos de una fuente de imágenes DICOM.
+
+1.3.2 Objetivos específicos
+
+1. Diseñar un mecanismo que permita relacionar cada componente de la subconsulta con los
+atributos disponibles en una fuente de imágenes DICOM. Sección 4.4.1
+
+2. Implementar un mecanismo para traducir la subconsulta. Sección 4.4.5
+
+3. Definir las transformaciones para representar la respuesta en un formato dado. Sección
+4.5.1
+
+1.4 Estructura del documento
+
+Este trabajo está estructurado en cinco capítulos. En el Capítulo 2 se presentan los conceptos
+relacionados con recuperación de imágenes, herramientas de anotación manual de imágenes,
+repositorios de archivos DICOM, estructura interna de un archivo DICOM, entre otros. Se
+describen también en este capítulo algunas herramientas existentes para la visualización de
+archivos DICOM, modelos ontológicos para la anotacion semántica y arquitecturas de integración.
+En el Capítulo 3 se describen trabajos relacionados con el tema en el área de recuperación y
+anotación de imágenes médicas . En los Capítulo 4 se presenta el análisis del sistema , el diseño
+de la aplicación , la implementación,las pruebas y los resultados. Finalmente, en el Capítulo 5
+se presentan las conclusiones del trabajo y algunas líneas de trabajo futuro.
+
+15Capitulo 2
+
+Marco Referencial
+
+En este capítulo se presentan los conceptos relacionados con este proyecto, como integración de
+datos en el dominio médico y el estándar DICOM, entre otros. Además se incluye una revisión de
+algunos de los trabajos que investigadores han realizado de la anotación semántica de imágenes
+médicas en formato DICOM y a la integración de los repositorios PACS en el dominio médico.
+
+2.1 Marco Conceptual
+
+Antes de describir los conceptos que enmarcan el proyecto se presentan algunas definiciones que
+se usan de aqui en adelante :
+
+Atributo: propiedad de un objeto de información en el estándar DICOM [7]. Consiste de
+un nombre y un valor. Por ejemplo, Patient ID (0010,0020), Accession Number (0008,0050),
+Photometric Interpretation (0028,0004), Procedure Code Sequence (0008,1032)[7].
+XML (eXtensible Markup Language): es un lenguaje universal, extensible, que permite la compatibilidad entre tipos de dispositivos y programas. Se dice que es extensible ya que en XML se
+pueden definir etiquetas que demarcan, por su nombre, la semántica de los datos que encapsulan.
+De esta manera, cualquier aplicación que conozca las etiquetas usadas en un documento XML
+concreto, puede entender el contenido del mismo. El lenguaje de marcas que emplea, le da a los
+datos descritos un significado semi-semántico, pero las marcas en sí mismas sólo tienen carácter
+sintáctico [5, 6).
+HL7: (health level seven) es un protocolo para facilitar el intercambio electrónico de información
+clínica. Utiliza una notación formal de modelado (UML) y un metalenguaje extensible de marcado
+con etiquetas (XML). [15]
+Sistema PAC: (Picture Archiving and Communication System) son los sistemas para la búsqueda,
+obtención y visualización de imágenes médicas. La arquitectura de estos sistemas involucra
+modelos de tipo cliente servidor [11].
+THE: (Integrating the Healthcare Enterprise) es una iniciativa de empresas y profesionales de la
+sanidad cuya finalidad es mejorar la comunicación entre los distintos sistemas de información
+sanitarios. Promueve el uso coordinado de estándares ya existentes, como DICOM, XML y HL7.
+
+2.1.1 La integración de datos de fuentes hetérogeneas
+
+La integración de datos es una de las principales áreas tanto de investigación como en los negocios.
+Mediante la integración de datos se puede acceder a datos almacenados en fuentes de datos
+
+16heterogéneas a través de una única vista unificada de esos datos, de forma que el usuario no
+llegue a percibir esa heterogeneidad [6].
+
+El problema de la integración de datos se puede ver a partir de su implementación y se puede
+resolver desde diferentes enfoques como el data traslation, query traduction y el information
+linkage. En el data traslation se usa una vista materalizada, es decir que los datos de las fuentes se
+copian a un repositorio central modificándolos para encajarlos en un esquema unificado. El query
+traduction usa una vista virtual en la cual los datos permanecen en las bases de datos, la consulta
+se debe traducir para que cada una de las fuentes de datos la procese y las correspondientes
+respuestas se integran . En el information linkage se crean referencias entre los datos de las
+diferentes fuentes que corresponde a un mismo objeto del mundo real.
+
+La heterogeneidad semántica es uno de los retos clave en la integración de datos provenientes
+de distintas fuentes. La semántica trata el significado de los datos, en contraste con la sintaxis,
+que sólo tiene en cuenta la adecuación de los datos a la estructura en la que se encuentran
+guardados. La semántica es la interpretación que las personas atribuyen a los datos, de acuerdo
+con su entendimiento del mundo real. En el área de las bases de datos, la semántica se refiere a
+la interpretación que las personas dan a los datos y a los atributos que referencian esos datos
+dependiendo del contexto. Esta área de investigación se centra en contrastar y decidir sobre
+la similitud de los datos provenientes de distintas fuentes, usando herramientas basadas en la
+semántica como las ontologías.
+
+2.1.2 Arquitectura de Integración basada en Mediación
+
+Bajo esta arquitectura las fuentes de datos están virtualmente integradas, es decir, los datos
+permanecen en las fuentes locales, las consultas operan directamente sobre ellas y la integración
+de los datos se produce sin “mover” los datos de sus fuentes, durante el procesamiento de la
+consulta. En este tipo de arquitectura los enfoques utilizados son los basados en mediación y los
+modelos de integración semántica de datos, que se caracterizan por construir el modelo global
+considerando aquellos elementos que son necesarios para representar la semántica del dominio
+sin incluir detalles de implementación [1].
+
+La arquitectura de mediación tiene como componentes una interfaz de usuario, un mediador,
+wrappers y las fuentes de los datos. A continuación se describe con más detalle cada uno de los
+componentes de la arquitectura.
+
+La interfaz de usuario: Recibe las consultas del usuario y las entrega al mediador.
+
+El mediador: El mediador es un componente de software que muestra una interfaz única de
+las diversas fuentes de datos. Contiene el modelo de datos global y los mapeos entre éste y los
+esquemas de datos locales de las fuentes que integra. Con estos modelos, global y locales, se
+divide la consulta en subconsultas que acceden a las respectivas fuentes de datos [2].
+
+Wrapper: Se encarga de hacer la interfaz entre el mediador y una fuente de datos. El wrapper
+traduce la subconsulta enviada por el mediador al lenguaje que la fuente de datos es capaz de
+procesar. Principalmente, su función es extraer información relevante a partir de una fuente de
+datos y presentarla en un formato especificado, dejando al mediador consultarle a la fuente de
+datos sin importar que formato use. Si las subconsultas enviadas por el mediador se generan en
+un lenguaje diferente al de la fuente de datos, el wrapper se encargará de hacer la traducción
+para que la consulta sea entendida en las diferentes fuentes locales. Finalmente, después de que
+las consultas se ejecutan en cada fuente local, el mediador recibe los resultados, los integra y se
+los entrega al usuario.
+
+172.1.3 Wrapper
+
+En la arquitectura de mediación, los wrappers son los encargados de traducir las subconsultas en
+fuentes individuales. El mediador reescribe una consulta y determina en cual fuente se encuentra
+la información.
+
+El wrapper, por lo general, tiene dos subsistemas principales: subsistema de extracción de
+datos, que carga los datos al mediador y el subsistema ejecutor de consultas, encargado de
+responder a las consultas del mediador.
+
+El wrapper está orientado a las fuentes de datos y su tarea incluye el procesamiento de la
+consulta enviada por el mediador. Esta consulta se transmite a la fuente de datos y se extraen
+los datos desde la fuente para enviarlos al mediador. Detecta también cambios en el esquema de
+la fuente para que el mediador mantenga las reglas de conversión de los datos desde el esquema
+global al esquema local en la fuente de datos.
+
+El wrapper envía la consulta a la fuente de datos, traduce los datos devueltos de la fuente de
+datos y los envía al mediador para que integre toda la información devuelta de las diferentes
+fuentes de datos en un solo conjunto de resultados. El proceso para un wrapper en la web es
+diferente, ya que se basa en palabras claves de las páginas web. Las entradas son consultas válidas
+para la forma de la página web y devuelve los link o páginas web retornados por el componente
+que realice la función de traducir la consulta. Una arquitectura de un wrapper puede ser la de la
+figura 2.1.
+
+Communication interface and traffic cope
+
+: 1
+query Encoded answei]
+Query translater XML wrapper
+
+Query fit view ]
+Cleaned data
+
+View manager
+
+Answer cleaner
+
+SOL generator 1
+Data answer fH ma
+
+Schema
+change
+detector
+
+ 
+
+Figura 2.1: Arquitectura de un wrapper. Fuente [3]
+
+Para describir cada uno de los componentes de esta arquitectura se supone que la conversión se
+hace desde una vista global a una vista local en el mediador y la constitución de la relación entre
+el esquema global y el esquema local es transparente para el wrapper. Tiene 3 subsistemas: sistema
+
+18extractor de datos Data extract, Sistema ejecutor de consultas (Query executor) y el detector de
+cambio del esquema (Schema change detector). Las vistas son una importante representación
+de la información en el wrapper. Se construyen sobre el esquema de datos y se encuentran en
+la parte de los esquemas locales relacionados con el esquema global. Puesto que la consulta
+desde el mediador es para todo el esquema local de la fuente de datos, el objetivo de construir
+una vista, es reescribir la consulta para todo el esquema local dentro de una consulta óptima
+para la fuente de datos. Otro objetivo de construir una vista es materializarla y almacenarla
+en el XML warehouse. La vista mantenida en el wrapper se define como vista local. El wrapper
+tiene una interfaz de comunicación encargada de enviar y recibir información de intercambio de
+datos. La función del detector de cambios en el esquema, es controlar y recordar el cambio de
+los metadatos relacionados con el esquema de la fuente de datos. Cuando se produce un cambio
+en el esquema de la fuente de datos y el esquema se cambia en relación con el esquema global,
+el detector de cambio de esquema recuperará el cambio en el mediador. El subsistema ejecutor
+de consultas sirve para consultar directamente desde el mediador. La consulta generada por el
+mediador se traduce a una consulta para una vista local en el traductor de consultas (query
+translator). Basándose en información del administrador de vistas, la consulta se optimiza, y
+luego, en el generador SQL, con el lenguaje de consulta que corresponda con la forma de los
+datos de la fuente consultada, se genera la consulta y se envía a la fuente de datos. Los datos
+recuperados en la fuente de datos se separan y se deben reescribir. Algunos datos repetitivos
+se deben eliminar en el limpiador de respuesta. Los datos que se envían al mediador se deben
+traducir al formato XML y se comprimen cuando sea necesario. El subsistema de extracción de
+datos extrae los datos de la vista que se materializó para el almacén XML. Una vista que se
+materializa se fusiona y optimiza en el mezclador de consultas y la consulta para la fuente de
+datos se genera en el generador de consultas. El resultado retornado se traduce en el wrapper
+de datos. El wrapper se construye para una fuente de datos[3|, por lo tanto los detalles de la
+implementación de diferentes wrapper son diferentes, pero la arquitectura y los algoritmos básicos
+son los mismos. La construcción del wrapper puede ser totalmente manual, semi-automática o
+automático para analizar metadatos y el comportamiento de la fuente de datos. Dado que para
+una pocas fuentes de datos no es económico implementar el generador automático de wrapper, se
+implementa el wrapper de forma manual para diferentes tipos de fuentes de datos con la misma
+arquitectura y algoritmos básicos.
+
+2.1.4 La recuperación de las imágenes
+
+Con la rápida proliferación de las imágenes digitales, la necesidad para buscar y recuperarlas
+es cada vez más relevante en los últimos años. Existen diferentes enfoques para la recuperación
+de imágenes: basada en texto, basada en las características de la imagen y basada en contenido
+semántico. La basada en texto, asocia las imágenes con palabras, lo que facilita la recuperación
+de las imagenés, pero requiere gran cantidad de trabajo manual para etiquetar las imágenes y
+sufre de la subjetividad humana. El enfoque basado en el contenido de las imágenes, recupera
+imágenes de acuerdo a las características visuales de una imagen de consulta de ejemplo, pero
+tiene el problema de la brecha semántica ( semantic gap) y la recuperación basada en contenido
+semántico recupera imágenes y permite al usuario usar texto para recuperarlas[22].
+
+2.1.5 RDPF
+
+RDF es uno de los componentes principales en la web semántica, cuyos términos se referencian
+compartiendo conceptos y significados que son capturados mediante ontologías. Con este modelo
+
+19de datos, todos los objetos de interés se consideran recursos que tienen propiedades. Esas
+propiedades pueden ser valores ó pueden ser a su vez referencias a otros recursos. La información
+de los recursos se representa por triplas. Cada tripla representa una propiedad simple de un
+recurso. Las triplas se pueden comparar con frases simples ya que cada tripla consta de un sujeto,
+un predicado y un objeto. Las triplas se pueden representar como diagramas de nodos y arcos. En
+el ejemplo de la figura 2.2 el sujeto y el objeto son los dos nodos, unidos por el arco- predicado.
+
+ 
+
+ps author
+
+e bo pan . . . Mas
+( Documentl 325 a Chris Bizer )
+
+Subject Predicate Object
+
+Figura 2.2: Esta tripla representa la información que el Document1325 tiene como autor a Chris
+Bizer.Fuente [32]
+
+Un conjunto de triplas forma un gráfico con etiquetas que comparte sujetos y objetos. Como
+
+se observa en la figura 2.3
+title Named Graphs
+( _ Document1325 4
+author (7 Chris Bizer »
+
+e
+
+ 
+
+ 
+
+ 
+
+ 
+
+| mbox
+
+ 
+
+CO chrisUbizerde >
+
+)
+A
+
+Figura 2.3: El document1325 tiene como título “Named Graphs”, su autor es Chris Bizer y Chris
+Bizer tiene como mail chrisQbizer.de. Fuente|32]
+
+Las referencias URI son nodos que que tienen un identificador global único seguido de la
+sintaxis URI. Esto facilita la integración de la información. Por tanto, un recurso que se puede
+describir por varias fuentes de información puede ser identificado por una referencia URI. Un
+propietario URI que asigna una referencia URI a un recurso, puede proporcionar representaciones
+del recurso.
+
+La comunidad RDF ha creado distintos tipos de recursos tales como personas ó documentos,
+por ejemplo the Dublín Core Element Set se usa para expresar meta-información de documentos
+y el vocabulario FOAF (Friend-of-a-Friend) se usa para describir personas. Muchos lenguajes
+de consulta se han desarrolla para el modelo de datos RDF. Con estos lenguajes las consultas
+se expresan como un conjunto de soluciones de triplas que contienen variables. El conjunto de
+soluciones se puede restringir a medida que se vaya estableciendo condiciones en los valores de
+las variables. SPARQL es un ejemplo de lenguaje estándar de consulta de RDF desarrollado por
+
+W3C [23].
+
+20SPARQL
+
+SPARQL (SPARQL Protocol and RDF Query Language) *, es un lenguaje estandarizado para la
+consulta de grafos RDF', normalizado por la W3C. Se usa para realizar consultas sobre diversas
+fuentes de datos, sin importar si los datos están almacenados nativamente como RDF' o son vistos
+como RDF a través de un middleware. SPARQL consulta patrones, obligatorios u opcionales, de
+grafos con sus conjunciones y disyunciones. Los resultados de las consultas SPARQL pueden ser
+conjuntos de resultados o grafos RDF' [17].
+
+Por ejemplo una consulta en SPARQL puede ser:
+
+SELECT ?title
+WHERE
+¿<http://example.org/book/book1> <http://purl.org/dc/elements/1.1/title> ?title.)
+
+Esta consulta busca el título de un libro de un grafo de datos determinado: (<http://example.org/book/book1
+
+Tutorial”).
+La consulta consta de dos partes: la cláusula SELECT identifica las variables que aparecen en
+
+los resultados de la consulta, y la cláusula WHERE proporciona el patrón del grafo básico para
+coincidir con el grafo de datos. El patrón del grafo básico en este ejemplo consta de una sola
+tripla con una sola variable (?title) en la posición del objeto.
+
+El resultado de esta consulta es :
+
+ 
+
+ 
+
+title
+SPARQL tutorial
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+2.1.6 Integración de la historia clínica electrónica
+
+En el caso de los sistemas de información clínicos que contiene información clínica sobre los
+pacientes, la integración tiene, generalmente, como propósito facilitar a los usuarios (ya sea
+personal clínico, administrativo, de investigación o el propio paciente) una vista unificada de la
+información clínica recogida durante el proceso de atención de los pacientes. Esta información no
+se limita únicamente a la recogida en un departamento sino que incluye la información aportada
+por la institución o el conjunto de instituciones donde el paciente ha sido atendido alguna vez.
+Esta situación da lugar al concepto de historia clínica (de salud) electrónica [19].
+
+2.1.7 Imágenes digitales en el campo médico
+
+Las fuentes clásicas que generan imágenes digitales en medicina son : - La Ultrasonografía.
+- La Resonancia Magnética Nuclear.
+- La Tomografía Axial Computarizada.
+
+Para la gestión de este tipo de imagen se ha generalizado un formato que ha venido a ser un
+estándar entre los profesionales del campo: el DICOM. Existen otros formatos utilizados como el
+Analize, pero el formato DICOM ha llegando a ser un estándar [20].
+
+2.1.8 El estándar DICOM
+
+DICOM (Digital Imaging and Communication in Medicine) es un estándar industrial para el
+manejo, almacenamiento y transmisión de la información de imágenes médicas [7]. Fue desarrollado
+
+ 
+
+http: //www.w3.org/TR /rdf-sparql-query
+21por la NEMA (National Electrical Manufacturers Association) y el ACR (American College Of
+Radiology) para facilitar la interoperabilidad entre dispositivos médicos de diferentes fabricantes
+resultando así útil en la distribución de imágenes médicas. DICOM proporciona una estructura
+de datos o formato para el intercambio de imágenes médicas y datos relacionados, es decir que
+incluye un formato de archivo y un protocolo de comunicaciones de red (TCP/IP). El formato de
+archivo consta de una cabecera y un cuerpo. La cabecera contiene campos establecidos como el
+nombre del paciente, el tipo de escáner y las dimensiones de la imagen, entre otros y el cuerpo
+que contiene el conjunto de imágenes médicas.
+
+El estándar DICOM se utiliza en el intercambio eficiente de información entre los diferentes
+elementos de un PACS y sistemas remotos, para poder establecer comunicación viable entre
+sistemas heterogéneos.
+
+Alcance de DICOM
+
+El alcance del estándar DICOM es más amplio que el de la definición del formato de intercambio
+de imágenes [7]. El contenido del estándar DICOM tiene como alcance:
+
+e Estructuras de datos (formatos) para imágenes médicas y datos relacionados.
+e Servicios orientados a red, como: Transmisión de imágenes, búsqueda de imágenes, impresión y
+modalidades de integración entre un sistema PACS y un sistema general de información de un
+hospital (HIS o RIS).
+
+e Formatos para intercambio entre medios de almacenamiento.
+
+El modelo de información del estándar DICOM
+
+El manejo electrónico de la información requiere de un modelo para representar la forma en
+que ésta se estructura, ya que es necesaria para tener instancias uniformes y hacer posible la
+descripción de las relaciones entre las instancias. En DICOM, el modelo de información se deriva
+de la forma como las imágenes se manejan en los departamentos de radiología de los hospitales.
+Las imágenes se coleccionan a partir de una o más modalidades en el archivo del paciente y
+se ordenan de acuerdo al tipo de examen médico. Los datos de una imagen que proviene de
+diferentes fuentes se deben juntar en un solo ambiente, esto es posible únicamente cuando todos
+los datos de la imagen están estructurados de acuerdo al mismo modelo de información. DICOM
+proporciona un modelo de información conocido como PatientRoot, que organiza la información
+de pacientes, estudios, series e imágenes de forma jerárquica. En la figura 2.5 se observan cuatro
+niveles correspondientes. Se infiere que la información de los pacientes está primeramente dividida
+en estudios, estos a su vez se dividen en series (por ejemplo TAC, RMN, US) y por último, las
+series se dividen en imágenes.
+
+22Figura 2.4: Modelo de información del estándar DICOM. Fuente [11]
+
+ 
+
+El modelo de comunicación de DICOM
+
+La comunicación entre los diferentes dispositivos que utilizan DICOM para el intercambio de
+imágenes, se hace mediante un modelo Cliente/Servidor, donde el cliente se llama Service Class
+User y el servidor Service Class Provider
+
+Dos dispositivos en una red se pueden comunicar sólo si los dos usan la misma clase de servicio.
+Por ejemplo, una comunicación exitosa entre dos dispositivos se puede dar con una modalidad
+y una estación de trabajo cuando ambos utilizan la clase de servicio DICOM “Storage”. Las
+clases de servicio tienen la información de las operaciones que se realizarán con ellas, esto se
+llama Clase de Servicio de par objeto (Service Object Pair Class) o Clase SOP (SOP Class).
+En cada definición de clase SOP una única definición de objeto de información (Information
+Object Definition) o IOD se combina con uno o más servicios. Hay un proceso de validación el
+
+cual se debe seguir para que la interoperabilidad tome lugar entre dos dispositivos y ésta es la
+declaración de conformidad DICOM (DICOM Conformance Statement).
+
+Estructura de un archivo DICOM
+
+DICOM interpreta los datos físicos o descriptivos, como por ejemplo, el nombre del paciente,
+el tipo de estudio médico, el dispositivo médico, los parámetros de la adquisición, la imagen
+digital, etc., como elementos con sus respectivos atributos y propiedades. De esta forma, establece
+una jerarquía entre los datos que permite realizar una clasificación según el contenido de la
+información por grupos, facilitando la identificación, el acceso a las variables y los parámetros de
+interés dentro de un mismo archivo. Se puede observar en la figura 2.5 el modelo que representan
+el punto de vista de DICOM del mundo real, que identifica los correspondientes objetos del
+
+mundo y sus relaciones. Así, proporciona un marco común para garantizar la coherencia entre los
+distintos objetos de información definidos por el estándar DICOM [parte 3 estándar DICOM).
+
+23Modality Performed
+
+Procedure Steps
+
+        
+
+$ 0-n 0-n
+Encapsulated Stereometric al '
+Document Relationship easurements
+? e e. 0-n
+
+-n 0-n n 0-n
+Radiotherapy| |Presentation Real World
+
+   
+  
+
+     
+
+n
+Registration
+
+Figura 2.5: Modelo DICOM del mundo real. Fuente|7]
+
+La estructura de los archivos DICOM consiste en dos partes diferenciadas: Una cabecera con
+campos que especifican tanto datos administrativos (datos del paciente, datos del médico y de la
+máquina que toma las imagen entre otros) como datos sobre la imagen y el cuerpo con la imagen,
+que puede estar comprimida con distintos estándares.
+
+El formato del archivo DICOM básicamente se puede dividir en el preámbulo y prefijo,
+meta-cabecera, cabecera y la imagen. El preámbulo puede estar en blanco o contener información
+sobre la aplicación principal con la que se debe ejecutar o acceder directamente a la imagen
+almacenada. El prefijo permite identificar si se trata de un archivo DICOM .
+
+La cabecera y la metacabecera contienen campos de información de la imagen conocidos como
+elementos de datos (data element) útiles al momento de la implementación para la visualización
+y la imagen como tal. Una secuencia de data sets representa objetos del mundo real y a su vez
+está constituido por elementos de datos (Data elements) clasificados por un data element tag
+
+24o etiqueta. Cada etiqueta es un identificador único para cada data element compuesto de dos
+partes: un número de Grupo (Group number) y un número de elemento (Element number) .
+Además del tag, los data elements están compuestos por otros tres valores: el valor de
+representación (VR), el cual indica el tipo de dato que se tiene almacenado, la longitud que
+especifica el tamaño ocupado por el data element y el valor o el dato almacenado (Value field),
+codificado según el campo VR y con la longitud que indica el campo longitud del valor [16)].
+En la figura 2.6 se puede observar un archivo DICOM reconocible por su extensión *.dcm.
+Sin embargo, de acuerdo con el estándar, los archivos DICOM se diferencian por medio de la
+cabecera que consta de 128 bytes de archivos de preámbulo y 4 bytes de prefijo “DICM”.
+
+First 128 bytes: unused by DICOM format
+Followed by the characters 'D'/1''C''M' DICOMHeader
+This preamble ¡is followed by extra information e. g.:
+
+Frames: 2
+0002,0000,File Meta Elements Group Len: 132 Rows: 109
+0002,0001 File Meta Info Version: 256 .
+0002 0010 Transfer Syntax UID: 1.2.840.10008.1.2.1. Columns: 91
+
+0008,0000.Identifping Group Lenath: 152 Bits stored: 8
+0008,0060,_Modality: MA —>
+0008,0070,Manufacturer: MAlcro
+0018,0000,4cquisition Group Length: 28
+0018,0050,Slice Thickness: 2.00
+
+0018,1020 Software Versior: 46164137
+0028,0000.Image Presentation Group Length: 148
+0028,0002,5 amples Per Pixel: 1
+
+0028,0004 Photometric Interpretation: MONOCHROME2.
+0028,0008,Number of Frames: 2
+
+0028,0010,Rows: 109
+
+0028,0011 Columns: 91
+
+0028,0030 Pixel Spacing: 2.0012.00
+
+0028,0100, Bits Allocated: 8
+
+0028,0101 Bits Stored: 8
+
+0028,0102.High Bit: 7
+
+0028,0103 Pixel Representation: O
+
+0028,1052_Rescale Intercept: 0.00
+
+0028,1053,Rescale Slope: 0.00392157
+
+7FE0,0000 Pixel Data Group Length: 19850
+7FE0,0010.Pixel Data: 19838
+
+Hh— 2x109x91=19838 bytes ——794 bytes —
+
+ 
+
+Figura 2.6: Estructura de un archivo DICOM. Fuente http: //ww.ercim.eu/publication/
+Ercim_News/enw58/acuna.html
+
+Campos DICOM
+
+Los campos de cabecera y meta-cabecera DICOM contienen, respectivamente, toda la información
+necesaria para que una implementación del estándar sea capaz de procesar y visualizar correctamente la imagen o imágenes almacenadas en un archivo DICOM y todos los datos asociados a
+éstas que el personal médico necesita para interpretar correctamente las imágenes en cuestión.
+En el documento 3 del estándar se detallan todos los campos, especificando, para cada uno de
+ellos, su función, la forma como se debe codificar su valor y su obligatoriedad de uso.
+
+DICOM divide la obligatoriedad de uso de los campos según la siguiente nomenclatura:
+
+Tipo 1, indica que el elemento de datos se debe incluir obligatoriamente.El Tipo 1C se debe
+incluir obligatoriamente si se cumplen ciertas condiciones especificadas. Tipo 2, es un elemento
+de datos que se debe incluir obligatoriamente. Sin embargo su valor puede ser cero. Tipo 3, éste
+puede ser incluido opcionalmente, y la ausencia de un elemento de datos de este tipo no supone
+una violación del protocolo.
+
+Entre los distintos campos existentes está la información relacionada con el paciente (nombre,
+sexo, identificación), la de los aparatos y procedimiento para obtener la imagen (parámetros de
+dispositivo, calibración, dosis de radiación, medios de comunicación de contraste) y la imagen
+(resolución, ancho).
+
+252.1.9 Repositorios DICOM: Dcm4chee
+
+Debido a la complejidad involucrada en el manejo de la información de un paciente en la industria
+médica, las tecnologías de la información se han fragmentado. Sin embargo, recientemente, el
+acceso y la distribución de la información del paciente se ha hecho más eficiente gracias a los
+estándares para el intercambio , manejo y visualización de la información, como DICOM y HL7.
+Aun con estos estándares existe la necesidad de saber dónde estos estándares son aplicables así
+que la organización de la IHE (integrating the healthcare enterprise) provee perfiles que describen
+los flujos de trabajo y los estándares apropiados. Dem4chee proporciona una variedad de servicios
+que soportan los requerimientos de flujo de trabajo cuando se requieren el uso de imagenes como
+se describe en los perfiles IHE. Se han creado diferentes estándares en el campo médico para
+ayudar a gestionar la comunicación entre los diferentes dispositivos de imágenes médicas. El
+demá4che es un conjunto de herramientas para ayudar a los programadores a acceder y utilizar
+los diferentes estándares, es una colección de aplicaciones open source que consiste en dos partes:
+
+1. Dem4che2 toolkit, que es una implementación open source del estándar DICOM. Provee
+toda la fundamentación que se requiere para una aplicación que realice intercambio de imágenes
+médicas.
+
+2. Decm4chee, que es un gestor de archivos e imágenes médicas usado como un PAC. Cuando
+las entidades de las aplicaciones van a interactuar, un archivo de imagen DICOM service class
+Provider (SCP) actúa como un proveedor de servicios y el DICOM class user como un usuario.
+
+Dem4chee está diseñado para guardar imágenes y para recuperarlas o enviarlas. El gestor
+de archivos Dcm4chee cumple los requisitos mínimos de interoperabilidad en un entorno de
+visualización de imagen mediante el apoyo de los servicios DICOM y HL7. Contiene un servidor
+DICOM que envía solicitudes de servicio entrantes a los servicios registrados DICOM [9]. Algunos
+servicios DICOM que soporta son: 1. Storage commited: Este servicio se utiliza para confirmar
+que una imagen ha sido almacenada permanentemente en un dispositivo.
+
+2. Modality Worklist (MWL): Un servicio que puede proporcionar datos demográficos del paciente,
+detalles del estudio, las series y la modalidad de las imagénes.
+
+3. Modality Performed Procedure Step (MPPS) : Servicio que acepta información sobre las
+modalidades de la proyección de imagen que están realizando|10|. Además varios visores de
+imágenes DICOM pueden trabajar con el archivo dem4chee como OsirixX (Objective-C), KPACS (Microsoft Visual Studio idioma), ImageJ (Java), entre otros.
+
+Algunos de los servicios HL7 es ADT HL7 el cual recibe y procesa los mensajes entrantes
+ADT, es decir que admite mensajes que contienen información demográfica del paciente[12]|. Otro
+perfil de interporabilidad del gestor de archivo Dem4chee es el repositorio del perfil XDS/XDS-I,
+que especifica la gestión del intercambio de documentos entre las empresas de salud. Un gestor
+de archivo dem4chee tiene un medio para ver los datos de pixeles asociados a una imagen, carga
+los datos de los pixeles de un archivo, por lo general en un formato jpg o mapa de bits en un
+navegador web. Sin embargo, no hay credenciales para enviar imágenes, así que cada suceso se
+registra en el ARR (repositorio de registros de auditoría) con la imagen y la operación que se
+hizo con ella.
+
+Arquitectura de Dcm4chee
+
+Tiene una arquitectura orientada a servicios (SOA) de diseño modular que soporta servicios
+como: Interfaz de usuario web, Interfaz DICOM, Interfaz HL7, Interfaz WADO ARR, Creación
+de medios XDS/XDS-I. Los archivos se muestran como una arquitectura 3-tier como se muestra
+
+en la figura 4.9:
+
+263 Tier Model
+
+Presentation Tier
+
+WADO (Client)
+WEB
+
+ 
+
+ 
+
+ 
+
+Figura 2.7: Arquitetura Dcm4chee. Fuente [21]
+
+La arquitectura de implementación física sigue un modelo Cliente - Servidor. El gestor de
+
+archivo dem4chee actúa como un servidor de aplicaciones, mientras que las herramientas que
+hacen uso del Dem4che2 toolkit actúan como clientes, junto con los visualizadores DICOM y sus
+modalidades. El gestor de archivo Dcm4chee se implementa en el servidor de aplicaciones JBOSS
+y puede trabajar con varias bases de datos relacionales como MySQL y Oracle. Las imágenes se
+pueden almacenar en el archivo, en línea o no. El archivo tiene los siguientes módulos:
+
+e arr: controla el acceso de los usuarios. Este módulo solo depende de la librería DICOM, la
+
+cual se incluye en este toolkit.
+
+Ejb: contiene el DAO(data access object) que encapsula el acceso a los datos de la base de
+datos. Esto mejora la eficiencia y el rendimiento del acceso a la capa de datos.
+
+Sar : el módulo contiene todos los servicios MBeans especificados en DICOM.
+
+Wado: este servicio provee un mecanismo simple para acceder a objetos persistentes DICOM,
+por ejemplo la imagen, reportes médicos entre otros, desde archivos html o xml usando
+
+http /https.
+Core: contiene la librería y herramientas DICOM.
+Imageio-rle: se usa para decodificar imagénes. Extiende de la clase java imageReader.
+
+Image: se usa para obtener información de los archivos de las imágenes. Esto incluye el
+nivel de la ventana e información sobrepuesta que proporciona información en diversas
+capas que se activan cuando el lector realiza alguna operación. lod: usa el modelo de los
+IOD (information object model).
+
+Net: contiene las clases usadas para enviar y recibir mensajes usando el protocolo de
+comunicación como TCP / IP.
+
+¿mageio: este módulo se usa para escribir y leer datos de la imagen.
+27Diccionario de datos de Dcm4chee
+
+Un diccionario de datos es una herramienta de importancia para el administrador de la base de
+datos, es un catálogo accesible para el usuario de datos relacionados con la base de datos|26],
+contiene los nombres de las tablas en el sistema así como los metadatos de la base de datos [27]. En
+la http: //www.dcm4che.org/confluence/display/ee2/Database+Schema+Diagram se puede
+observar la base de datos relacional de dem4chee que muestra las tablas con los atributos que el
+estándar especifica Se generó el diccionario de datos usando un plugin para MySql Workbench ?
+de la anterior base de datos Con el diccionario de datos, se puede obtener mayor información de
+las tablas y los atributos de la base de datos de Decm4chee y por lo tanto descartar muchos de
+estos que no se consultan. El wrapper traduce, consulta y recupera información de esta base de
+datos de Dem4chee, sin embargo, SQL no es eficiente porque esta base de datos es el resultado
+de la implementación del estándar DICOM. Por lo tanto, el PAC se puede consultar a través de
+objetos DICOM como consultas, utilizando la implementación del toolkit Dem4chee.
+
+2.1.10 Herramientas de anotación de Imágenes
+
+Los archivos DICOM se almacenan en repositorios de imágenes digitales llamados PACS. A estos
+se acceden a través de un protocolo de comunicaciones soportado sobre TCP/IP y cuenta con
+un servidor WADO para obtener vía web archivos DICOM. Estos se visualizan con aplicaciones
+llamadas DICOM viewer como ORS visual y Osiris. Algunas herramientas para la anotación de
+imágenes son:
+
+e Osiris, es un DICOM viewer que cuenta con iPad, un plug-in de código abierto para facilitar
+el proceso de anotación semántica de imágenes DICOM, usando la ontología RadLex.
+
+e RadSem, es una herramienta de anotación manual de imágenes médicas , creada bajo el
+proyecto MEDICO que utiliza las ontologías FMA, ICD-10 y RadLex. RadSem está enfocado en
+la recuperación de metadatos contenidos en el formato DICOM, usándolos para simplificar la
+anotación manual de imágenes.
+
+e Semia, creado bajo un entorno web para la anotación de imágenes, hace uso de las ontologías
+FMA e ICD-10. Semia está orientado a la búsqueda de las imágenes a través de etiquetas
+publicadas en una nube de etiquetas.
+
+En iPad, RadSem y Semia la anotación se hace con conceptos de ontologías con conceptos
+médicos previamente establecidos como FMA y ICD-10.
+
+2.1.11 SmiTag: red social para la anotación semántica de imágenes médicas
+
+Las imágenes tienen información que no es legible para la máquina que solo la puede interpretar
+un experto. Smitag combina funcionalidades de un DICOM viewer y una red social para llegar a
+un consenso del conocimiento colectivo. Uno de los métodos para explorar esa información en las
+imágenes médicas es la anotación semántica que asocia una imagen o parte de la imagen con
+un concepto de una antología. Smitag es una herramienta de sofware para la visualización de
+imágenesDICOM desde un servidor WADO. La manera como funciona se puede resumir en que
+carga las imágenes médicas almacenadas en un PAC, mediante peticiones HT'TP enviadas a un
+servidor WADO, estas se despliegan sobre un visualizador con funcionalidades para seleccionar
+regiones de interés y agregar anotaciones semánticas con conceptos de múltiples ontologías, por
+múltiples expertos. Los conceptos de las ontologías de SMITAG provienen de ICD-10 , RadLex y
+FMA y del repositorio de ontologías Bioportal o de sus propias ontologías en formato OWL.
+
+ 
+
+“http: //csrlima.wordpress.com/2012/04/28/generar-diccionario-de-datos-desde-mysql-workbench/
+
+28Arquitectura de Smigtag
+
+Se basa en una arquitectura MVC que usa MAVEN para la generación del proyecto y dependencias,
+GWT para la comunicaciones cliente servidor y la libreria raphael que usa javascript para la
+creación gráficos y visualización imagénes. Para la representación de las imágenes médicas, se
+extiende de la ontología MUTO (figura 2.8) con algunas nuevas clases con el prefijo smitag.
+
+AAA e
+il
+
+milaResource
+
+lll”
+
+smilag specially
+
+  
+
+amitag Eolleague
+toatagcount
+
+aloccUseráccount
+
+rita hasta
+
+      
+
+   
+
+ 
+
+'
+
+muslo nexTag /
+A
+
+   
+     
+     
+  
+
+ 
+
+: mulotagMeaning mute tagLabel
+smitaghasPoint —_— -— = MLZITTM
+smitaghas/R0l LrdtsResourca | mfscliteral |
+asltimteger E |  smitageDicomobject rmitlasinstanccilD
+smitagr ¿mitag: mitagpabentulo
+hask has Á —,
+
+a rafa literal
+mn Bucyil ligseriell
+amitagstudyUID smtdgseneuio
+mu ' rdfiscLiteral rdfs:Literal
+
+    
+
+Figura 2.8: Ontología MUTO extedida. Fuente: [17]
+
+La propiedad muto:taggedResource por ejemplo, permite relacionar una acción de etiquetado
+con una región de interés de la imagen DICOM, representada con la clase smitag:DicomObject, y
+se relaciona con las regiones de interés con la propiedad smitag:hasRoi. Para realizar la acción de
+etiquetado un usuario selecciona, de la interfaz principal del panel WADO, una imagen médica que
+se visualizará en el panel dicom viewer. Para etiquetarla el usuario carga en el panel loadOntology
+las ontologías que contienen los conceptos que utilizará como etiquetas. El usuario entonces
+dibuja una ROI que se relaciona semánticamente con los conceptos de la ontología. Así, este
+usuario puede compartir su acción de etiquetado con sus colegas para que estos opinen acerca de
+su diágnostico en la imagen. Todo este proceso se almacena y representa en un motor de tripletas
+RDF de fuseki como una instancia de la ontologia MU'TO extendida. Un usuario se representa
+por medio de la instancia de la clase smitag:physician identificado con una URI y se relaciona a
+traves de la propiedad foaf:account en su cuenta de usuario en smitag.
+
+29Capitulo 3
+
+Estado del Arte
+
+En este capitulo se describen algunos trabajos centrados en las arquitecturas de mediación
+identificando las características de los wrappers en cada uno de ellos. Se describe la manera como
+se consulta a repositorios DICOM. Y por ultimo se describe la arquitectura de la que hace parte
+el prototipo del wrapper y se describe el mismo.
+
+3.1 Trabajos Relacionados
+
+En particular en el campo médico, la información requerida para procesos de ayuda diagnóstica,
+enseñanza e investigación, supone integrar datos de diversas fuentes y formatos, como imágenes
+médicas y datos clínicos del paciente. Los trabajos relacionados con la recuperación de imágenes
+médicas que son diferentes a los de recuperación de texto y de anotación de imágenes muestran
+que para mejorar la anotación y la recuperación de las imágenes se han usado ontologías y
+tesauros. En la recuperación de imágenes se han usado ontologías de conocimiento del dominio de
+la aplicación, ontologías para anotación (incluyen atributos usados para anotar la imagen, como
+relaciones espaciales) y ontologías para análisis (ontologías de objetos u ontologías visuales, que
+facilitan asociar los conceptos del dominio de la aplicación con propiedades visuales y relaciones
+espaciales que se pueden detectar con base en características visuales de bajo nivel)[2].
+
+Algunos de los trabajos de integración de datos basados en una arquitectura de mediación son
+el de Wang [3], que se centra en los sistemas de la integración de datos de fuentes heterogéneas.
+Presenta la construcción de un wrapper y describe el modelo y pautas que se deben tener en
+cuenta en su construcción. Los wrappers que se describen usan como lenguaje de intercambio
+de datos XML y su arquitectura está basada en dos principales subsistemas: uno de extracción
+de datos y otro encargado de ejecutar la consulta. La arquitectura se adapta a los datos, a la
+consulta directa del mediador y al cambio del esquema del origen de dato.
+
+En [9] se muestra a BACIIS, un sistema de integración de información biológica y química que
+utiliza el método de wrapper y mediador para recuperar información de varias bases de datos web
+remotas. BACIIS usa un enfoque semi-automático para generar y mantener wrappers con el fin
+de proporcionar un sistema escalable con una sobrecarga de mantenimiento limitado. Tratan la
+integración de bases de datos web de ciencias de la vida, un reto para los sistemas de integración
+en curso, principalmente debido a la gran cantidad de estas bases de datos, su heterogeneidad
+y al hecho de que sus interfaces pueden cambiar a menudo. El wrapper de BACIIS se basa en
+un conocimiento del dominio aunque no se limita a este. Describen cómo funciona el sistema la
+inducción del wrapper facilita su actualización de este y ayuda en la extracción de la información.
+
+En [10] presentan trabajos sobre recuperación e integración de datos para proporcionar
+
+SUinformación ya que han venido tomando importancia en los últimos tiempos. Algunos aspectos
+que se discuten son los wrappers sobre fuentes web, de acuerdo a la creciente información en
+internet y la necesidad de extraerla, es decir extraer la información contenida en páginas web de
+forma automática y con la mayor precisión posible. Este tipo de wrappers acepta consultas de
+usuarios de datos en la web y luego de extraer la información relevante retorna los resultados. Se
+encarga también de detectar posibles cambios en los datos y reportarlo al módulo de integración,
+que es finalmente quien integra los datos. Este tipo de wrappers es ineficiente cuando el número
+de fuentes de interés es muy grande o nuevas fuentes se adicionan frecuentemente.
+
+En [15] se describe la estándarización del mapeo y el envio de un documento clínico bajo el
+estándar DICOM almacenado en un PACS, bajo el estándar HL”. Se logra gracias al uso XDR
+(Cross-Enterprise Document Reliable Interchange), un protocolo que permite transferencia de
+documentos y metadatos. Se integran informes DICOM SR con enlaces WADO a imágenes, a
+una base de datos relacional. El mapeo se realiza bajo el estándar DICOM SR a un CDA R2, en
+el se tiene la relación con las imagénes relativas al diagnóstico. Se genera un documento bajo HL”7
+y su envio y recepción se realiza bajo el pérfil de integración XDR. Después de la integración
+se guarda un documento con las imágenes y otro con la historia clínica que están vinculadas
+mutuamente [15].
+
+En [36] se muestra un motor de búsqueda dicomSE que permite consultar el diccionario de
+datos del estándar DICOM para campos de datos definidos y visualiza la topología de los datos
+presentes en el datasets de DICOM. Facilita la interpretación de los datos DICOM y funciona
+para visualizar la información de un archivo DICOM cuando no existe un visor. Sin embargo
+esta herramienta sólo permite recuperar información contenida en el estándar DICOM, pero no
+hacer búsquedas a anotaciones que una imagen pueda, tener.
+
+3.1.1 La integración de datos en el dominio médico
+
+Algunas soluciones que integran semánticamente las fuentes de datos heterogéneas en el dominio
+médico son: MEDICO, NIF, ACGT. MÉDICO es un motor de recuperación de imágenes que
+permite realizar la consulta de acuerdo al contenido semántico que la imagen tenga como las anotaciones de una ontología. Incluye una jerarquía de ontologías cuyos conceptos sirven para anotar las
+imágenes. Su arquitectura consta de cuatro capas: de aplicación, de consulta /inferencia /análisis,
+de acceso a los datos, y de datos externos. Cuenta con tres mediadores y wrappers donde se
+ejecuta la consulta enviada de la capa de aplicación y se recuperan imágenes de un paciente |1,
+12]. NIF, es otra solución que ofrece un servicio de consulta de recursos de neurociencia. En NIF
+un usuario formula consultas basadas en conceptos de una ontología de dominio (NIFSTD: NIF
+Standard), para recuperar datos de sitios web, bases de datos relacionales, documentos XML y
+documentos en texto. La arquitectura de NIF consta de cinco capas: de aplicación, búsqueda,
+estructura de datos, computación y consultas, y de datos [1, 13].
+
+ACGT es un proyecto fundado por la comision europea, que permite el acceso integrado a
+bases de datos clínicos, genéticos e imágenes (DICOM server), a través de una infraestructura grid,
+con el fin de dar soporte a estudios sobre cáncer. ACGT incluye una ontología sobre el cáncer,
+herramientas para el manejo de las heterogeneidades sintácticas y semánticas y un mediador
+para la integración de las bases de datos. Las heterogeneidades sintácticas son las que se refieren
+a diferentes plataformas, diferentes sistemas de bases de datos y los lenguajes de consulta de las
+fuentes. Mientras que las heterogéneidades semánticas son que diferentes recursos se refieran a
+lo mismo [40]. Dentro de la infraestructura del acceso de datos de ACGT se ofrece un acceso
+integrado a bases de datos clínicos, genéticos e imágenes. Su arquitectura (Ver figura 3.1 ) cuenta
+con una ontología AGCT-MO (master Ontology), con un mediador (ACGT-SM) y un wrapper
+
+31CS SS A
+
+Rh 4 op
+N » 0
+
+ 
+
+(ACGT-DAWs) que tiene acceso a las bases de datos. Las consultas son expresadas en SPARQL
+11, 14].
+
+Mediator
+
+A AA A A
+
+Data Wire ri
+
+a A A
+
+AA
+
+ 
+
+Figura 3.1: Infraestructura del acceso de datos de ACGT. Fuente [14]
+
+Esta infraestructura se compone de capas, las cuales tienen servicios diferentes y cada una está
+implementado en OGSA-DATI, una arquitectura para el acceso y la gestión de datos distribuidos
+1. la arquitectura de mediación que utiliza ACGT para brindar el acceso de datos, utiliza
+componentes de la infraestructura y se observa en la figura 3.2, en la arquitectura hay un servicio
+de acceso de datos, un mediador y wrapper para las fuentes de datos. Además utilizan una
+ontología y usan SPARQL como lenguaje de consulta.
+
+El wrapper de ACGT usa servicios OGSA-DAI, para dos tipos de fuentes de datos: bases
+de datos relacionales y bases de datos de imágenes médicas. Este wrapper exporta el modelo de
+datos al mediador, ya que lo necesitan para construir consultas, audita el cumplimiento de las
+politicas de acceso de origen de datos clínicas (requisitos legales y éticos).
+
+Un ejemplo de una consulta DICOM en SPARQL del mediador de ACGT al wrapper, la cual
+retorna todas las imágenes de los estudios del paciente 'Smith”, es
+
+PREFIX dicom:
+<http://gridnode.ehv.campus. philips .com/
+
+dicom/>
+SELECT ?studyld ?seriesNum ?instanceNum
+WHERE (
+?patient dicom: PatientsName Smith
+
+?study dicom: Patient patient;
+dicom:StudyID ?studyld.
+
+?series dicom:Study study;
+
+dicom: SeriesNumber ?seriesNum.
+?image dicom: Series series;
+dicom:InstanceNumber ?instanceNum.)
+
+ 
+
+http: / /www.ogsadai.org.uk/
+32Master Ontolo:
+
+S5PARCGIL
+
+SPARGQL/ SPARGLA
+OGSA-DAI O6SA-DAI
+
+      
+
+Figura 3.2: Arquitectura de mediación de ACGT. Fuente [42]
+
+Varios proyectos utilizan la tecnologías grid y ACGT como en el proyecto MamoGRID
+European federated mammogram database implemented on a GRID structure, utilizan herramientas
+para la integración de informes de diágnostico a través de las tecnologías semánticas. Realizan
+búsquedas basadas en el contexto y esta información esta localizada en repositorios centrales que
+guardan anotaciones extraídas de reportes médicos [39].
+
+Se pueden identificar algunos puntos en común entre todos los proyectos que se ha encontrado
+para la integración de datos. Algunos de ellos son: datos especificados en XML, uso de ontologías
+como esquema global sobre el que el usuario realiza las consultas y como herramienta semántica
+para integrar la información [8].
+
+3.2 Consultas en PACS
+
+La manera de consultar repositorios PACS de imágenes médicas en formato DICOM se soluciona
+usando los servicios Query / Retrieve. Este es el servicio especificado en el estándar DICOM para
+la búsqueda de imágenes en el PACS y para obtener una copia de los mismos a la estación de
+trabajo en la que se puedan visualizar.
+
+Para buscar en el PACS se utiliza el comando DICOM C-FIND. Este comando toma como
+argumento un objeto DICOM que representa una consulta. El PACS transforma el objeto
+
+33XAO 0» 0yuNnR
+
+O. 0. Jl Odd 00 >» 0 NA
+
+.
+o
+
+ 
+
+ 
+
+enviado como una consulta, en SQL como sucede en los repositorios dem4chee, lo ejecuta y luego
+transforma cada registro de resultado en un objeto DICOM y enviar de nuevo una respuesta ?.
+Por ejemplo el siguiente seudocódigo crea una consulta para buscar los pacientes:
+
+elemento. Init(tagsDicom.QueryRetrieveLevel);
+elemento. Value = 'PATIENT";
+
+elemento. Value = 'Rx”;
+
+objetodicom .insertElement (elemento);
+elemento. Init(tagsDicom.PatientsSex);
+objetodicom .insertElement (elemento);
+elemento. Init(tagsdicom.PatientsBirthDate);
+
+Este código crea un objeto DICOM que en SQL es equivalente a :
+
+SELECT [PATIENT NAME] , [PATIENT 1D], [PATIENT SEX], [PATIENT BIRTH DATA]
+FROM PATIENT
+WHERE [PATIENT NAME] like "R%'
+
+Como el estándar indica, el modelo de información DICOM se debe consultar de la misma
+manera jerárquica en que este se encuentra, y cada uno de sus niveles tiene una clave para ser
+consultado. Estas están en el estándar DICOM en su declaración de conformidad, por ejemplo:
+
+elemento. Init(tagsdicom .studyInstanceUID);
+elemento. Init(tagsdicom.StudyDate);
+elemento. Init(tagsdicom.StudyDescription);
+elemento. Init(tagsdicom.ModalitiesInStudy);
+elemento. Init(tagsdicom.QueryRetrieveLevel);
+elemento. Value = '"STUDY”;
+
+elemento. Init(tagsdicom.patientName);
+
+Value = "REIMOND"GOLDA"”;
+Init(tagsdicom.patientlD);
+
+elemento. Value = '1234567809";
+
+Este código crea un objeto DICOM que en sql es equivalente a :
+
+SELECT [PATIENT NAME] , [PATIENT ID], [STUDY INSTANCE UID], [STUDY DATE], [STUDY DESCRIPTION],
+[MODALITIES IN STUDY] FROM STUDY WHERE [PATIENT NAME] = REIMOND”GOLDA AND [PATIENT ID] =
+123456789”
+
+En general las reglas que se deben seguir para consultar información en PACS conociendo de
+antemano que el modelo de información DICOM es por niveles, son:
+
+El SELECT son todos los elementos agregados al objeto de la consulta. En el FROM se
+encuentra el elemento (0008,0052) o Query Retreive Level y puede ser una de las siguientes
+cadenas : paciente, estudio, serie o imagen. Query retrieve level indica entonces la tabla donde se
+va a seleccionar. La cláusula WHERE se compone de los registros que se quieren consultar y se
+hace uso de criterios o condiciones.
+
+Las implementaciones del estándar DICOM se han creado para que las consultas no sean
+relacionales, sino mas bien para aprovechar el modelo de datos adémas de que las bases de datos
+relacionales de PACS como el de dem4chee son demasiado complicadas y hacer consultas sql sobre
+
+ellas no es eficiente. Dcm4chee implementa un servidor WADO para acceso vía web de objetos
+DICOM. El acceso al PACS se lleva a cabo de dos formas una es a través de un WADO y a través
+
+ 
+
+“http: / /dicomiseasy.blogspot.com/2012/01/dicom-queryretrieve-part-i.html
+34CS SS A
+
+CE SN A A
+
+Y W WNNNy.NyNNNNDNNnNNyN ep G924)+ A GUS pop op pop
+VN RO OOIO dq QQ uqwuw.N »4Oo0o.0m Soda oNoNR*R O
+
+de librerías como DUEMQUERY. Como se ha mencionado anteriormente las consultas pueden
+ser pueden hacer en los diferentes niveles jerárquicos definidos en el modelo de información del
+estándar DICOM (patienroot), por ejemplo:
+
+DcmQR
+
+dcmar .
+dcmar .
+dcmar .
+dcmar .
+dcmar .
+
+dcmqr = new DcmQR("object");
+setCalledAET("DCM4CHEE", true);
+setRemoteHost("127.0.0.1");
+
+setRemotePort (11112);
+setQueryLevel(DcmQR.QueryRetrieveLevel.PATIENT);
+configureTransferCapability(true);
+
+En el anterior fragmento de código java se consulta a nivel de paciente y en el siguiente código
+se consulta los estudios de un paciente determinado y se retornan como un List de objetos de la
+
+clase DicomObject. La clase DicomObject permite la obtención de los diferentes atributos de los
+objetos DICOM obtenidos por la consulta [17].
+
+DcmQR
+
+dcmar .
+
+dcmqr new DcmQR("object");
+setCalledAET("DCM4CHEE", true);
+
+char ll] pass = 14, de, 'm*, 12, "1,
+
+dcmar .
+dcmar .
+dcmar .
+dcmar .
+
+setUserldentity(new Userldentity.UsernamePasscode("admin", pass));
+
+setRemoteHost("127.0.0.1");
+setRemotePort (11112);
+configureTransferCapability(true);
+
+public List<DicomObject> getStudies(String patientlID)
+
+1
+
+dcmqr .setQueryLevel (DcmQR.QueryRetrieveLevel.STUDY);
+
+dcmqr . addDefReturnKeys();
+
+intl] tagPath=1Tag.PatientIDy;
+
+dcmqr .addMatchingKey(tagPath, patientID);
+
+dcmqr .addReturnKey (new intlliíTag.StudyDescription));
+
+dcmqr .addReturnKey(new intlliíTag.ReferringPhysicianName));
+dcmqr .addReturnKey (new intl]liíTag.PerformingPhysicianName));
+ArrayList<Study> studies= new ArrayList<Study>();
+
+Ley AL
+
+dcmqr.start();
+
+dcmqr .open();
+
+List<Dicom0bject> result = dcmqr.query();
+
+dcmqr.close();
+
+dcmqr .stop();
+
+J
+
+catch (Exception e) 4
+
+System.out.println(e.getMessage());
+
+)
+
+return result;
+
+)
+
+Algunas de las herramientas libres aplicadas a la salud, son Charrua DICOM Toolkit, dicom4;
+3. Básicamente son frameworks que permiten la creación de herramientas basadas en el estándar
+
+ 
+
+“http: //dicom4j.sourceforge.net /
+
+30DICOM. Dcm4chee * es también una de ellas. Aunque existen otras librerías como DCMTK DICOM Toolkit *, que también permite el manejo de la información de un PAC [37].
+
+Aunque existen esas diferentes implementaciones DICOM la que en este trabajo se utiliza
+es el toolkit Decm4chee porque ofrece las librerias necesarias para consultar al PAC y al modelo
+DICOM en sus diferentes niveles jerárquicos, además es una herramienta open source. La mayoría
+de los sistemas de recuperación de imágenes médicas se centran en los atributos del formato
+DICOM, por ejemplo, DicomSE [36|. y otras herramientas como MediSeek tiene un modelo de
+metádatos que permiten describir la información visual [38]. Mediseek considera que el contenido
+visual no es suficiente para la interpretación de la imagen, por ello utiliza la información textual.
+Utiliza un manejador de una base de datos que guarda las descripciones de las imagénes. Su
+arquitectura es cliente-servidor para el intercambio de las imagénes. Además usan tecnologías
+como RDF, XSL, sockets, páginas dinamicas HI'ML, archivos JPEG y un motor de base de
+datos relacionales mySQL. Otras herramientas ofrecen nuevas formas para acceder a los PACS,
+utilizando tecnologías semánticas como SPARQL y RDF. Una de estas herramientas se llamada
+SEDI (Interfaz dinámica semántica).
+
+SEDI en lugar de convertir un PAC completo en RDF y cargarlo en un almacén RDF,
+transforma los resultados de la consulta DICOM en datos RDF' en ejecución y hace inferencias
+sobre ellos. La inferencia se logra mediante el uso de una ontología que amplia la semántica
+de DICOM y la consulta SPARQL se transforma en una consulta DICOM. Las principales
+características de la SEDI son:
+
+e endPoint SPARQL para un conjunto de PACS basado en DICOM
+
+e Conversión de consultas SPARQL a consultas DICOM controlado por una ontología codificada
+en OWL
+
+e las triplas RDF se construyen a partir de los resultados de DICOM con una ontología
+
+e Combinación de recursos de los pacientes a un paciente se puede lograr con owl: declaraciones
+Haskey y de inferencia.
+
+e Selección automática del nivel de consulta DICOM basado en los triplas en la consulta SPARQL
+y las entradas de la ontología.
+
+En la figura 3.3 se puede observar la arquitectura de SEDI. Para la implementación técnica de
+SEDI se utiliza Jena de manera que se ejecute como una aplicación independiente o dentro del
+contexto de un servidor de aplicaciones JEE. En la actualidad, la SEDI utiliza GlassFish y se
+implementa como una aplicación empresarial con varios Enterprise Java Beans, en este caso la
+SEDI se basa únicamente en el modelo de subprocesos de servidor de aplicaciones [24].
+
+ 
+
+“http: / /www.dcm4che.org/confluence /display/ee2/Home
+"http: //dicom.os.de/
+
+36<. Web Browser >
+
+Y
+
+Desktop Application
+
+SeDi Java
+
+Standalone
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figura 3.3: Arquitectura Sedi. Fuente [24]
+
+3.3 La arquitectura de mediación
+
+La integración de datos busca proveer a los usuarios una vista unificada, integrada y global de
+datos que se encuentra en fuentes diversas, heterogéneas e independientes. Entre los diferentes
+enfoques y arquitecturas que se han propuesto para resolver el problema de integración de datos,
+en la arquitectura de mediación propuesta en [1] se usa la traducción de consultas. En el enfoque
+de traducción de consultas la integración es virtual, de tal forma que las consultas se procesan en
+cada una de las fuentes de datos. La arquitectura de mediación incluye la interfaz de usuario, un
+mediador, wrappers, y las fuentes de datos (Ver sección 2.2). La interfaz de usuario captura la
+consulta y la entrega al mediador. El mediador se encarga del procesamiento global de la consulta,
+con base en un modelo de datos global y en los mapeos entre este y los esquemas de datos locales
+de las fuentes que integra. En el procesamiento global el mediador divide la consulta y genera
+subconsultas que posteriormente se procesan en las respectivas fuentes de datos. El lenguaje o
+la representación de las subconsultas en el mediador puede ser diferente del lenguaje o de la
+representación usada para acceder a las fuentes de datos. Cuando el lenguaje de las subconsultas
+es diferente al lenguaje de consulta de la fuente de datos, se necesita un wrapper que haga la
+traducción entre los dos lenguajes. Finalmente, después de que las subconsultas se ejecutan en
+cada fuente de datos, el mediador recibe los resultados, los integra y los entrega al usuario.
+
+En la propuesta descrita en [1] se propone una arquitectura de integración bajo el enfoque de
+traducción de consultas, basada en un mediador, en cuyo modelo global subyace un modelo de
+datos basado en grafos.
+
+3.4 Modelo de datos global
+
+El modelo global es un modelo conceptual de dominio de la aplicación. Esto con el fin de ofrecerle
+al usuario final un lenguaje de consulta de alto nivel, fácil de usar, con una sintaxis simple, y
+con un poder expresivo que le permita formular consultas útiles en el campo médico. El modelo
+
+31de datos global está formado por un conjunto de subgrafos que se intersectan. Cada subgrafo
+representa la información almacenada en una fuente de datos. De esta forma se facilita identificar
+las fuentes de datos que tienen información requerida en una consulta. Las fuentes de datos se
+representan también con un modelo de grafos, y los mapeos entre el modelo global y las fuentes
+locales con patrones de consulta sobre los grafos locales. El modelo de datos de la arquitectura
+propuesta [1] esta representado en grafos en GDM (Graph Data Model).
+
+3.4.1 GDM
+
+GDM permite representar el esquema y la instancia de una base de datos con grafos[33]. Para
+el esquema de la base de datos con GDM se puede representar mediante un grafo esquema y
+para la instancia de la base de datos mediante un grafo instancia. Los modelos en GDM son
+independientes de la implementación, son fáciles de evaluar y tienen un alto poder expresivo [30]
+GDM define tres tipos de clases: clases objeto, clases de valor compuesto y clases de valor básico.
+Los nodos del grafo esquema representan estas clases, mientras que los nodos del grafo instancia
+representan entidades (objetos de las clases) y los arcos representan atributos en ambos casos.
+Los nodos se etiquetan con el nombre de la clase y los arcos con el valor de la clase. En el grafo
+instancia se asigna un valor básico a cada nodo de tipo valor básico.
+
+3.5 Wrapper de la arquitectura de mediación
+
+El wrapper de este proyecto que hace parte de la arquitectura de mediación propuesta en
+[1] se muestra en la figura 3.4. Los wrappers de esta arquitectura traducen las subconsultas
+generadas por el mediador, expresadas con patrones, al lenguaje o mecanismo de consulta propio
+de cada fuente. Los wrappers acceden a dos fuentes de información, una es la propia fuente de
+datos y la otra es un repositorio de metadatos (anotaciones para los atributos con información
+no estructurada, tales como imágenes y campos de texto). La implementación actual de la
+arquitectura incluye el proceso de generación de subconsultas del mediador, un wrapper para
+acceder a datos almacenados en bases de datos relacionales y un wrapper para acceder a datos e
+imágenes en un repositorio de imágenes DICOM [44] que podemos observar en la parte derecha de
+la figura. Dentro del wrapper se encuentra el esquema de la base de datos que esta representada
+con un modelo de grafos junto con los atributos anotados.
+
+383
+
+ 
+
+Interfaz de Usuario |
+
+Mediador
+
+Grafo Global Mapeos GAV p,
+
+./
+
+Integración
+Fuentes
+
+ 
+
+ 
+
+Grafo Local
+
+»
+e
+
+ 
+
+ 
+
+ 
+
+ 
+
+e
+
+ 
+
+ 
+
+»
+Y
+1
+A
+»s
+£
+/
+
+/
+e
+E
+
+Wrapper Wrapper
+Esquema BD Esquema BD
+
+Atributos Anotados
+
+ 
+
+    
+    
+   
+ 
+     
+
+    
+ 
+
+ 
+ 
+
+Registro de Registro de
+anotaciones anotaciones
+
+Repositorio
+DICOM
+
+ 
+
+     
+ 
+     
+     
+
+ 
+
+ 
+
+ 
+
+Atributos Anotados
+
+Fuente
+Relacional
+
+Figura 3.4: Arquitectura de mediación. Fuente [45]
+
+El mediador de la arquitectura propuesta en [1], recibe la consulta en formato XML, identifica
+esta consulta para generar las subconsultas que enviara a los wrapper. El wrapper convierte
+la subconsulta en una consulta que la fuente de datos es capaz de procesar. Para ello usa los
+metadatos, el modelo de datos lógico de la fuente y el grafo local de la fuente. El wrapper de este
+proyecto se encarga de tres tareas: la primera, identificar y procesar las consultas expresadas
+con patrones, cuando incluyen atributos que tiene anotaciones y cuando incluye atributos del
+repositorio DICOM; la segunda, traducir la consulta al lenguaje o mecanismo de acceso propio de
+la fuente de datos; y la tercera, integrar los resultados recuperados del repositorio de anotaciones
+con los recuperados del repositorio DICOM.
+
+3.5.1 Sintaxis para patrones de tripleta de SPARQL
+
+Esta sintaxis es la utilizada por el mediador para construir la subconsulta que envia al wrapper.
+Los patrones de tripleta denominadas patrón de grafo básico se escriben como una lista, separada
+por espacios, de sujeto, predicado y objeto [30]; Los patrones de tripleta son similares a las
+tripletas RDF, excepto que cada sujeto, predicado y objeto puede ser una variable [31]. Las
+variables son solo nombres que se representan anteponiendo un signo de interrogación, asi:
+?variable [43]. Un patrón de grafo básico concuerda con un subgrafo de datos RDF [30].
+
+Un ejemplo de un patrón de tripletas es: ?person foaf:name name
+
+Los patrones de tripleta? con un sujeto común se escriben de la forma como se muestra
+continuación. En esta consulta hay un patrón compuesto por dos triplas y se pregunta por la
+edad y el nombre de un paciente.
+
+SELECT ?PatientAge ?PatientName
+WHERE
+
+jd
+
+ 
+
+Shttp: / /www.w3.org/TR/2008/REC-rd£sparql-query-20080115/
+
+39D 0 »ae. ownNnNnR
+
+SN A
+
+ 
+
+?Patient PatientAge 7?PatienAge.
+TPatient PatientName ?PatienName.
+
+)
+
+El wrapper está implementado para utilizar patrones de tripletas expresados de esta forma.
+También se aceptan patrones opcionales ”, los cuales indican un patrón alternativo, es decir que
+si no se cumple, el resultado de la consulta son los valores del patrón antecedido de este. Para
+esto se realizan entre el patrón que lo antecede, el de la izquierda y el patrón opcional un left
+outer join, para asegurar que los valores del patrón de la izquierda sean quienes aparezcan en la
+respuesta y si hay valores en el patrón opcional aparezacan junto con los de la izquierda de lo
+contrario aparecia un valor 'null”
+
+La forma general como se puede ver un patrón con un patrón opcional es:
+
+patron OPTIONAL + patron +
+
+Por ejemplo la siguiente consulta tiene un patrón conformado por dos triplas y un patrón
+opcional conformado por una tripla. En esta consulta se pregunta por la edad y el nombre de un
+paciente, y si este paciente tiene un estudio.
+
+SELECT ?PatientAge ?PatientName
+WHERE
+
+t
+?Patient PatientAge 7?PatienAge.
+
+TPatient PatientName “PatienName.
+OPTIONAL (?Patient HasStudy ?Study))
+
+El wrapper recibe subconsultas que aplican un filtro a todos los patrones. Un filtro es una
+restricción, de soluciones sobre todo el grupo en el que aparece el filtroó. Por ejemplo la siguiente
+consulta pregunta por el nombre de los paciente con edades mayores de 15 y si tienen algun
+estudio.
+
+SELECT ?PatientAge ?PatientName
+WHERE
+
+1
+?Patient PatientAge ?PatienAge.
+
+Patient PatientName “PatienNane.
+OPTIONAL (?Patient HasStudy ?Study))
+FILTER (?PatientAge>15)
+
+ 
+
+"http: //www.w3.org/TR/2008/REC-rd£sparql-query-20080115/optionals
+Shttp://www.w3.org/TR/2008/REC-rd£sparql-query-20080115/evaluation
+
+40Capitulo 4
+
+Aspectos del desarrollo de software
+
+En el presente capítulo se describe el proceso de desarrollo del wrapper. En la primera sección, se
+presenta la metodología escogida para el desarrollo y se describe la misma. La segunda sección
+se describe la comunicación llevada a cabo con el equipo de trabajo y se definen los objetivos
+generales y los conceptos teóricos necesarios para el desarrollo, se describe la arquitectura de
+mediación de la cual es parte el wrapper. En la tercera sección se muestra la planeación, dentro
+de la planeación se definen los requerimientos, los módulos del sistema, los casos de uso y los
+Product backlog expresados como historias de usuario. En la cuarta sección se describe los Sprints
+durante el desarrollo del proyecto. En la quinta sección se detalla el diseño de la arquitectura del
+wrapper propuesto, el modelo de datos local y el flujo de las actividades del sistema.
+
+4.1 Metodología
+
+La metodología es un conjunto de procedimientos, técnicas, herramientas y un soporte documental
+que ayuda a los desarrolladores a realizar nuevo software. Puede seguir uno o varios modelos de
+ciclo de vida para indicar qué se debe obtener a lo largo del desarrollo del proyecto pero no cómo
+hacerlo.
+
+Cada uno de los modelos de ciclo de vida describe las diferentes actividades, acciones y
+tareas organizadas cronológicamente, y en general en cada una, se desarrollan cinco principales
+actividades: comunicación, planeación, modelamiento, construcción y entrega. Se sigue un flujo
+de trabajo que describe cómo las actividades, tareas y acciones dentro de cada modelo ocurren.
+Estos flujos de trabajo son el lineal, que ejecuta cada una de las cinco actividades en secuencia,
+el flujo iterativo que repite una o más actividades antes de seguir con la siguiente actividad,
+el flujo evolutivo, que ejecuta las actividades de una manera circular, el flujo paralelo que
+ejecuta una o mas actividades junto con otras. Por ejemplo, tanto el modelo de ciclo de vida
+como el modelo incremental son iterativos y buscan incrementos del software, con algunas
+funcionalidades conocidas y por lo tanto el primer incremento es un producto esencial, donde
+se puede tener requisitos básicos. Los complementarios pueden no estar. Este producto esencial
+queda a evaluación del cliente, de acuerdo con esa evaluación se planea el siguiente incremento [25].
+Este proceso se repite después de la entrega de cada incremento mientras no se haya desarrollado
+el producto completo. En la figura 4.1 se muestra el modelo incremental [25].
+
+41Modelo Incremental
+
+MÍ Comunicación
+
+MM Planeación
+
+EX Modelado (Análisis, diseño)
+
+Ml Construcción (Código, Prueba)
+
+MM Despliege (entrega, retroalimentación)
+
+Incremento +n
+
+_o o O
+
+e n-ésimo incremento
+Incremento 41 Entrega del
+e segundo incremento
+
+Entrega del
+primer incremento
+
+Funcionalidad y características del Software
+
+ 
+
+Tiempo del Calendario del Proyecto
+
+Figura 4.1: Modelo Incremental. Fuente [25]
+
+Las metodologías tradicionales se centran especialmente en el control del proceso y establecen
+rigurosamente las actividades involucradas, los artefactos que se deben producir, y las herramientas
+y notaciones que se usarán [28|. Otras metodologías se centran en el factor humano o en el
+producto de software, como las metodologías ágiles, las cuales dan mayor valor al individuo, a la
+colaboración con el cliente y entregas incrementales tempranas de software. Las metodologías
+ágiles se utilizan en proyectos con requerimientos que no están definidos totalmente, abiertos al
+cambio y con tiempos reducidos de desarrollo pero manteniendo una alta calidad. Los equipos de
+desarrollo en estas metodologías ágiles son equipos con autogestión capaces de hacer entregas
+exitosas y rápidas. Se enmarcan en las cinco actividades principales: comunicación, planeación,
+modelamiento, construcción y entrega.
+
+Para el desarrollo de este proyecto se escogió una metodología ágil debido a la naturaleza
+del proyecto donde las tecnologías son desconocidas para el equipo del proyecto es que los
+requerimientos pueden cambiar, los tiempos son cortos y existen pocos roles que incluye al cliente
+del equipo de desarrollo.
+
+Entre los principios de la agilidad (tomados del manifiesto ágil 1) se destacan las entregas de
+trabajos de software entre dos semanas y dos meses, la comunicación constante con los interesados,
+las conversaciones cara a cara con el equipo y la autogestión El software funcionando es la medida
+principal del progreso del proyecto.
+
+Como metodología ágil se escogió SCRUM ?, la cual se trata de carreras cortas llamadas
+Sprints que buscan entregar un incremento del software.
+
+La metodología SCRUM se muestra en la figura 4.2, como entrada a un Sprint tiene un
+product backlog. Un product backlog es una lista priorizada de objetivos, los cuales se listan en un
+Sprint Backlog. Un Sprint Backlog son tareas que el equipo elabora como plan para completar
+los objetivos seleccionados para la iteración o Sprint y finalmente la salida de una iteración es un
+entregable o deliverable.
+
+ 
+
+"http: / /www.agilemanifesto.org/iso/es/principles.html
+“http: //www.controlchaos.com/
+
+42ELLE
+
+Product Backlog Sprint Backlog Sprint Deliverable
+
+Figura 4.2: Metodología ágil SCRUM. Fuente [25]
+
+4.2 Comunicación
+
+La metodología SCRUM propone como una de las actividades constantes las Scrum meeting,
+reuniones cortas de 15 minutos, para descubrir tanto problemas potenciales y corregirlos tan rápido
+como sea posible como aclarar conceptos para el desarrollo. En esta actividad se conocieron los
+requerimientos generales y se investigó la arquitectura de mediación para relacionar el desarrollo
+que se desea realizar del wrapper con la arquitectura. La debida documentación de la arquitectura
+de mediación se encuentra en la sección 3.3.
+
+4.3 Planeación
+
+La metodología SCRUM propone un plan rápido que permite indentificar los requisitos básicos
+para empezar un desarrollo de una primera iteración o sprint. Es decir que se hace el ánalisis de
+lo que el usuario desea, ya que los requerimientos no son detallados, sino generales. Se elaboran
+entonces las funcionalidades principales de la aplicación de forma modular. Para que el desarrollo
+sea incremental se clasifican los módulos como básicos o complejos, y se construyen primero los
+módulos básicos formando así un primer prototipo. Los módulos definidos son para el sistema
+son el de traducción de consultas, de integración y de conexión. El módulo de consultas, es el
+encargado de la traducción de las subconsultas que llegan al wrapper. El módulo de conexión es
+el encargado de comunicarse con las fuentes de información. Y el módulo de integración es el
+encargado de construir una respuesta que se envia al mediador. La descripción completa de los
+módulos del sistema se encuentran en la subsección 4.5.1.
+
+4.3.1 Especificación de requerimientos
+
+Como parte del proceso de la planeación se construye una especificación de los requerimientos
+que ayuda a determinar el alcance del prototipo del wrapper. En la tabla 4.1 se muestran los
+requerimientos funcionales del módulo de traducción de consultas.
+
+43ha
+
+Universidad . o o, Documento: Revisión:
+delvale_ | Especificación de Requerimientos 001
+
+ 
+
+ 
+
+ 
+
+Fecha:21
+Wrapper para recuperar imágenes DICOM anotadas con
+ape” Y E E 03-2013
+
+una ontología de dominio médico
+
+ 
+
+ 
+
+Módulo de traducción de consultas
+
+ 
+
+Req. Descripción
+
+ 
+
+R11 El sistema en el módulo de traducción deberá recibir una subconsulta SPARQL en formato
+XML.
+
+ 
+
+El sistema deberá ofrecer un mecanismo mediante el cual se envie a las fuentes de información
+
+1.2
+sl la subconsulta para ser ejecutada.
+
+ 
+
+R 1.3 | El sistema deberá expresar la consulta recibida en una consulta que puede procesar el PAC
+
+ 
+
+R14 El sistema deberá identificar las consultas de anotaciones y ejecutar la consulta en el
+triplestore
+
+ 
+
+ 
+
+R 1.5 | El sistema deberá procesar los resultados para enviar la respuesta al mediador
+
+ 
+
+ 
+
+Tabla 4.1: Requerimientos funcionales, módulo de traducción de consultas
+
+ 
+
+ha
+
+Universa . o o Documento: Revisión:
+delvale_ | Especificación de Requerimientos 001
+
+ 
+
+ 
+
+ 
+
+Wrapper para recuperar imágenes DICOM anotadas con | Fecha:
+una ontología de dominio médico
+
+ 
+
+ 
+
+Módulo de Integracion
+
+ 
+
+Req. Descripción
+
+ 
+
+R91 El sistema realizara las operaciones necesarias para integrar los datos del PAC con los del
+triplestore.
+
+ 
+
+R 2.2 | El sistema de acuerdo a los resultados obtenidos creara un xml que enviara al mediador.
+
+ 
+
+R 93 Si existen una clausula FILTER, el sistema debera mostrar en el xml solo los resultados
+que cumplan con esa condicion
+
+ 
+
+ 
+
+ 
+
+Tabla 4.2: Requerimientos funcionales, módulo de integración
+
+44ha
+
+Universidad . o o, Documento: Revisión:
+delvale_ | Especificación de Requerimientos 001
+
+ 
+
+ 
+
+ 
+
+Wrapper para recuperar imágenes DICOM anotadas con | Fecha:
+una ontología de dominio médico
+
+ 
+
+ 
+
+Módulo de conexión
+
+ 
+
+Req. Descripción
+
+ 
+
+El sistema en el módulo de conexión deberá crear una conexión accesible al PAC y al
+
+.1
+ma triplestore.
+
+ 
+
+R 3.2 | El sistema debera ofrecer un mecanismo con el cual se consulte los datos en el triplestore
+
+ 
+
+R 3.3 | El sistema debera ofrecer un mecanismo con el cual se consulte los datos en el PAC
+
+ 
+
+R34 El sistema debera enviar los resultados obtenidos de las fuentes a una estructura definida
+en el modulo de traduccion
+
+ 
+
+ 
+
+ 
+
+Tabla 4.3: Requerimientos funcionales, módulo de conexión
+
+4.3.2 Product backlog
+
+El Product backlog es una lista de objetivos priorizados que representa la visión y expectativas
+del proyecto. Se expresan en forma de historias de usuario y para cada objetivo se indica un valor
+de prioridad que aporta al proyecto. En la lista se indican las posibles iteraciones y las entregas
+(releases) esperadas, en función de la velocidad de desarrollo en el proyecto. En la tabla 4.4 se
+muestra el product backlog para el módulo de traducción de consultas. Para cada historia de
+usuario se muestra la descripción, la prueba de aceptación y la prioridad que tiene. La prioridad
+que aporta esta historia de usuario se mide en una escala del 1 al 10. Donde 10 es la prioridad
+mas alta. Por ejemplo las historias de usuario que representan una actividad de la cual otras
+dependen como la H'T'C03, es fundamental para poder traducir e identificar las partes de la
+consult para luego poder realizar la consulta de esas partes.
+
+45hal
+
+Universidad
+del Valle
+
+ 
+
+ 
+
+Product Backlog
+
+Documento: Revisión:
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+001
+Wrapper para recuperar imágenes DICOM anotadas con Fecha:21una ontología de dominio médico 035-2013
+Módulo de traducción de consultas
+Titulo Descripción Prueba de aceptación Prioridad
+HTCO1.COMO usuario | Al sistema llega un archi- a l
+Recibir un archiquiero que el sistema | vo en formato XML vo XML 16
+permita ingresar un | con una subconsulta en Y 4
+la subconsulta en 9
+archivo XML con | SPARQL para consultar SPARQL la pueda
+una subconsulta en | las fuentes de informa- p
+SPARQL. ción. Procesos.
+Al sistema llega
+ETC02.COMO usuario El sistema identifica los | una subconsulta
+patrones y las triplas | en un archivo
+quiero que el sistema
+que cada uno tiene. Si | XML, parsea el 9
+identifique los patrones
+de la consulta son patrones opcionales | documento para
+O nO. identificar los
+patrones.
+
+ 
+
+HTCO3.COMO usuario
+
+quiero que el sistema otganize la subconsulta en
+una estructura de árbol
+
+Al sistema llega un archivo XML el cual debe
+contener la subconsulta
+con sintaxis SPARQL, se
+parsea y se organizan la
+subconsulta en un árbol.
+
+Al sistema llega
+
+una subconsulta
+
+en un archivo xml,
+
+a partir del parseo 10
+del mismo organi
+za la subconsulta
+
+en un árbol.
+
+ 
+
+HTC04.COMO usuario
+quiero que el sistema
+
+recorra el árbol para
+identificar las partes de
+la consulta que van al
+
+PAC y al triplestore
+
+ 
+
+El sistema crea un árbol,
+y en cada nodo se encuentra un patrón con
+sus respectivas triplas.
+Cada patrón se identifica para conocer las
+partes que se consultan,
+y enviar esta consulta a
+la fuente respectiva.
+
+El sistema recorre
+
+el árbol, en ca
+da patrón identifi
+ca que atributo se 9
+consulta y en qué
+
+fuente ejecutar la
+consulta.
+
+ 
+
+Tabla 4.4: Product Backlog, módulo de traducción de consultas
+
+Las demás historias de usuario para el módulo de integración se encuentran en el anexo B.
+
+4.3.3 Sprint
+
+Un Sprint es un ciclo de trabajo repetible regular, conocido también como iteración en la cual se
+busca entregar un producto. En desarrollo de software comunmente se conoce como una carrera
+
+46corta de 30 días, pero el equipo de trabajo decide su duración que puede ser mas larga o corta. *
+
+A partir de los requerimientos, se realizó la planificación para dar inicio a cada iteración y su
+evolución se describe en la sección 4.6. Para dar inicio se realizan sprint, donde se muestra el
+análisis y revisión del incremento generado. La planificación de las iteraciones se describe en el
+anexo C. Dentro del sprint, se requieren ciertas actividades que en una semana se pueden realizar.
+Para que estas tareas sean llevadas a cabo se utiliza un board. Este board se compone de tres
+columnas, una donde se muestra lo que se tiene por hacer, otra donde se tiene lo que se ha hecho
+y Otra en donde muestra lo que se está haciendo en el momento. Se utilizó la herramienta libre
+trello* que facilita la organización de las tareas.
+
+4.4 Diseño
+
+En esta etapa el modelado es rápido, de acuerdo a los requerimientos se hace un diseño donde se
+muestran el modelo de datos y se definen los datos de entrada y de salida.
+
+4.4.1 Modelo de datos del wrapper
+
+El modelo de datos del wrapper se representa con un grafo local en GDM. El modelo representa
+la información de los repositorios DICOM y de anotaciones. El modelo del wrapper representa
+cada nivel de la jerarquía de datos DICOM como un nodo clase objeto (rectangulos del grafo)
+que caracteriza a las entidades de la jerarquía como son patient, study, serie e image. Para este
+prototipo se eligió un conjunto pequeño de atributos de cada nivel de la jerarquía de datos
+DICOM y se observa en la figura 4.3. Los datos disponibles en cada nivel de la jerarquía se
+representan con nodos clase valor básico (circulos grandes), y son los diferentes atributos de cada
+nivel o de cada entidad del grafo, como el nombre del paciente o la parte del cuerpo examinada.
+Las anotaciones del triplestore se representan con el nodo clase objeto Tag y sus atributos tagLabel
+y tagMeaning con clases de valor básico.
+
+ 
+
+“http: //scrummethodology.com/scrum-sprint /
+“https: / /trello.com /board /wrapper/513b3e5e82ada2cc4200035d
+
+47Dodo
+hasSerie
+studyDate Study
+XV ¿puol
+pese
+
+Tag
+
+== e ¿3
+Z yr
+. an
+a, yo oe 400
+“ Ss
+o, cesiesos
+
+a,
+2
+y
+J
+Ó
+m
+<
+o
+3
+0
+Mm Í
+9
+z
+de
+>
+w
+Mn
+mo]
+Ñ
+0
+e
+o
+e
+o
+Y
+2
+2
+fa
++
+m
+0
+_
+M
+
+Figura 4.3: Grafo de la información que se puede consultar.
+
+4.4.2 Datos de entrada
+
+Los datos de entrada del wrapper son subconsultas en una sintaxis de SPARQL restringida a las
+formas que se mostraron en la seccion 3.5.1, almacenada en un archivo XML que el mediador
+envia. XML es un metalenguaje extensible de etiquetas que permite representar la estructura de
+lenguajes específicos como SPARQL. Las subconsultas generadas por el mediador se expresan con
+una sintaxis similar a la de SPARQL y constan de una cláusula SELECT, que incluye la lista de
+variables a retornar, y una cláusula WHERE, con el patrón de la consulta para la concordancia
+con el grafo de datos. Los patrones opcionales pueden estar anidados y son útiles para poder
+disponer de las consultas que permitan añadir información a la solución donde la información
+esté disponible, pero sin rechazar la solución debido a que una parte del patrón de consulta
+no concuerde. Una concordancia opcional proporciona esta posibilidad: si la parte opcional no
+
+concuerda, no se crea ningún vínculo pero no se elimina la solución ? .
+
+Estructura Archivo XML
+
+Las subconsultas que llegan al wrapper deben estar almacenada en un archivo XML. El documento
+XML debe empezar con el elemento <consulta>. Debe tener el elemento <select>con uno o
+más elementos <variable>, cada uno con una <etiqueta>que es la variable que quiere que se
+retorne. El elemento <where>tiene el patrón de la consulta. Utiliza los elementos <patron>y
+<optional>para definir el patrón de la consulta. Se pueden tener uno o más elementos <patron>y
+<optional>dentro del <where>.
+
+ 
+
+"http: //skos.um.es/TR/rdf-sparql-query/
+
+48CE SS A A
+
+N NN NN NN NN NN NN NN ph Rh Rh Ra a po pa op pap
+a SD A FC A SS A O)
+
+NM B»+|94oODoNDNRE
+
+ 
+
+Dentro del elemento <patron>se encuentra la tripla, representada con <clase>,<relacion>y
+<objeto>. Si se quiere representar un patron compuesto de triplas se crean varios elementos
+<patron>. Dentro del elemento <optional>se puede tener mas elementos <patron>y <optional>.
+Y la consulta puede tener un elemento <filter>representando el filtro que quiere que se aplique
+al patrón descrito dentro de la clausula WHERE. El elemento <filtro>debe tener la variable a
+la cual se le aplica el filtro en la etiqueta <filtro>, y dentro de <comparacion>va el elemento
+de comparación y dentro del <valorfiltro>va el valor que quiere filtrarse en la consulta. Los
+elementos <clase>,<relacion>, <objeto>deben corresponder a los objetos de las clases y los
+arcos atributos del modelo de datos. En general esta estructura puede representarse como se
+muestra a continuación
+
+<consulta >
+<select >
+<variable>
+<etiqueta>< /etiqueta>
+< /variable>
+< /select >
+
+<where >
+
+<patron>
+<clase></clase> <relacion>< /relacion> <objeto>< /objeto>
+< /patron>
+< /optional>
+<optional>
+<patron>
+<clase></clase> <relacion>< /relacion> <objeto>< /objeto>
+< /patron>
+< /optional>
+< /optional>
+< /where>
+<filter>
+<filtrovariable>
+<filtro>
+<comparacion></comparacion> <valorfiltro>< /valorfiltro>
+
+< /filtro>
+< /filtrovariable >
+
+< /filter>
+< /consulta>
+
+4.4.3 Datos de salida
+
+Los datos de salida que el wrapper genera, es un archivo XML que contiene el resultado de la
+subconsulta. Se define como un conjunto de elementos <Registro_n>, donde n es el número del
+registro y dentro un conjunto de elementos con el nombre de la variable y el valor del registro.
+
+<Results>
+
+<Registro_n>
+
+<nombreVariable>valor resultado< /nombreVariable>
+</Registro_n>
+
+< /Results>
+
+494.4.4 Diagrama de actividades
+
+En el sistema un flujo general comienza cuando se ingresa una subconsulta. Esta subconsulta
+debe estar escrita en un lenguaje similar a SPARQL y los campos deben corresponder a los
+términos del grafo local, si estós no corresponden entonces retorna un mensaje de error y se
+debera ingresar nuevamente un archivo xml. Además se verifica que el XML tenga las etiquetas
+cerradas correspondientemente y cumpla con todas las reglas de validación * entre ellas las del
+diseño de documentos XML. Cuando el documento esté bien formado, se parsea de manera que
+se identifiquen las etiquetas y según la estructura del archivo anterior, se identifican los patrones
+de la consulta. Estos patrones se guardan en una lista de objetos java junto con las triplas
+correspondientes al patrón. Los opcionales corresponden a un nuevo patrón. Estos patrones
+se Organizan en un árbol n-ario , siendo nodos hijos aquellos patrones opcionales. El árbol se
+recorre de hijo izquierdo a hermano derecho, para resolver el patrón de cada nodo del árbol. Una
+vez resuelto el patrón de cada nodo, sus resultados se guardan en una tabla y se procesan los
+resultados, este procesamiento se describe en la sección 4.4.5. Finalmente se retorna un archivo
+XML con los resultados como se describio en la sección 4.4.3. ”. El flujo general de este proceso
+se representa en una diagrama de actividades que se muestra en la figura 4.4
+
+ 
+
+http: //es.wikipedia.org/wiki/ValidaciónXML
+"http: / /www.w3schools.com /dtd/dtdintro.asp
+
+90Recibe subconsulta en SPARQL
+
+estrudura incorrecta o estrudura correcta
+
+  
+   
+
+Retorna mensaje de error Parseo de Documento
+
+Identificación patrones
+
+en subconsulta
+
+ 
+
+Consulta anotaciones Consulta campos DICOM
+
+Consulta motor de tripletas Consulta PAC
+
+ 
+  
+   
+
+Integración Datos
+
+Llenado de árbol
+de sintaxis
+
+Procesamiento
+Resultados
+
+ 
+
+Despliega información
+
+Figura 4.4: Diagrama de actividades: Traducción de subconsulta
+
+914.4.5 Procesamiento de patrones
+
+El procesamiento de los patrones esta definido en el documento: funcionamiento del wrapper
+
+de DICOM descrito en [34]. Para el procesamiento de los patrones de una subconsulta hay tres
+
+casos a considerar: sencillo sin la clausula FILTER ni OPTIONAL, los que tienen FILTER y los
+que tienen OPTIONAL.
+
+Los patrones están compuestos por triplas, y cada una se forma con un sujeto, predicado y
+objeto. Para las triplas de las subconsultas que llegan al wrapper, el sujeto de cada tripla es una
+clase objeto del modelo local. El predicado es una atributo de la clase objeto, pueden ser un
+atributo del PAC o del triplestore en donde se encuentran las anotaciones de las imagénes. Y el
+objeto es una clase valor básico del grafo local.
+
+Se clasifican las triplas en tres tipos [34]:
+de tipo A, en donde el sujeto es una clase objeto del grafo local, el predicado es un atributo del
+PAC y el objeto es una clase valor básico del grafo local, como por ejemplo la siguiente tripla,
+donde la posición del objeto es una variable “Patient, en la posición del predicado es un atributo
+del *Patient en el PAC y en la posición del objeto esta la clase valor básico perteneciente al
+“Patient en el grafo local:
+
+(?Patient PatientName ?PatientName )
+
+Triplas de tipo tipo B, en donde el sujeto es una clase objeto del grafo local, el predicado es
+un atributo del triplestore y el objeto es una clase valor básico del grafo local, como por ejemplo
+la siguiente tripla:
+
+(?7Tag Taglabel ?TagLabel)
+
+y triplas de tipo C, donde el sujeto es una clase objeto, el predicado es un atributo del PAC o
+del triplestore y el objeto es una clase objeto.
+
+Por ejemplo en la siguiente tripla, tanto en la posición del sujeto como del objeto, hay clases
+objeto del grafo local y en la posición del predicado hay un atributo que relaciona las clases
+objeto del grafo local.
+
+(?Patient HasStudy ?Study)
+
+Cada patrón de una consulta puede incluir patrones anidados, y solo el primer patrón tiene
+cláusula FILTER. Un patrón se puede ver de manera general como:
+
+patrón-sencillo. OPTIONAL patrón-sencillo. [| OPTIONAL patrón-sencillo . |. | OPTIONAL patrón-sencillo . [| OPTIONAL patrón-sencillo . | |
+
+([] indica una repetición de O o más veces). Un patrón sencillo es aquel que no tiene patrones
+anidados, solo se forma por una lista de triplas. Esta estructura se puede representar con un
+árbol de sintaxis en la figura 4.5
+
+92Patrón
+
+Patrón-sencillo OPTIONAL... OPTIONAL — FILTER
+
+Patrón 6 Patrón Expresión
+
+VYNAN SÁ
+
+Patrón-sencillo OPTIONAL ... OPTIONAL  Patrón-sencillo OPTIONAL ... OPTIONAL
+
+Figura 4.5: Árbol de sintaxis. Fuente [34]
+
+Todas las variables utilizadas en el patrón sencillo deben estar vinculadas a una solución $.
+
+En SPARQL un patrón concuerda con un subgrafo de datos RDF cuando los términos RDF de
+dicho subgrafo pueden ser sustituidos por las variables y el resultado es un grafo RDF equivalente
+al subgrafo en cuestión. Un patrón opcional puede cumplirse o no, la cláusula OPTIONAL es
+asociativa por la izquierda ?. La subconsulta consta de dos partes: la cláusula SELECT identifica
+las variables que aparecen en los resultados de la consulta, y la cláusula WHERE proporciona el
+patrón de grafo básico para la concordancia con el gráfo de datos. Para procesar los patrones, se
+guardan cada patrón en una estructura de árbol con sus respectivas triplas. Cuando hay patrones
+opcionales, estos se guardan en un nodo del árbol como un hijo del nodo que representa un patrón
+sencillo anterior. Cuando este patrón es opcional y tiene patrones anidados, estos se guardan
+como un nodo hijo del respectivo nodo en el árbol que guarda el patrón opcional. Por ejemplo el
+siguiente patrón constituido por una tripla, retorna tuplas en las cuales existan pacientes con un
+nombre. Si algún paciente no tiene un nombre este no aparece como una tupla respuesta.
+
+?Patient PatientName ?PatienName.
+
+Según la clase objeto de cada tripla de un patrón se realiza una consulta a las fuentes de
+datos. Para las clase objetos del grafo local que son Patient, Study, Serie e Image se genera una
+consulta en el PAC, y para la clase objeto Tag una consulta al triplestore con los identificadores
+únicos de las imagénes extraidas del PAC. Para cada patrón se guardan los identificadores únicos
+de cada clase objeto. Esto se repite en cada nodo del árbol. Para la clase objeto Image se consulta
+el PAC para extraer su identificador único. Cuando un patrón consulta atributos que representan
+anotaciones sobre una imagen, se consulta el triplestore con el identificador único de esa imagen.
+Para el procesamiento de los patrones, el wrapper primero consulta los Patients con fin de
+obtener los identificadores únicos, y con estos poder consultar los Studies. Una vez obtenidos los
+identificadores de los Studies se puede consultar sus respectivas Series. Con los identificadores de
+la series se consulta las clase objeto Image. Por último con los identificadores de la imagénes se
+genera una consulta en lenguaje SPARQL al triplestore para retornar las etiquetas Tag.
+
+La siguiente consulta retorna el apellido y el id de un paciente y retornara si existe la fecha
+de nacimiento.
+
+ 
+
+Shttp://www.w3.org/TR/2008/REC-rd£sparql-query-20080115/GraphPattern
+“http: //skos.um.es/TR/rdf-sparql-query/
+
+93Boo NA
+
+SELECT ?paLastName,”?paBirthDate,”?palD.
+
+WHERE
+[?Patient palID ?palID. ?Patient paLastName ?paLastName.
+
+OPTIONAL 4 ?Patient paBirthDate ?paBirthDate ) +
+
+Las variables del SELECT se guardan en una lista. En este caso el patrón de consulta, tiene
+un patrón opcional y un patrón sencillo. El patrón sencillo en este caso: ?Patient palD ?palD.
+“Patient paLastName ?paLastName. trae como respuesta un conjunto de tuplas R1 y el patrón
+opcional trae como respuesta un conjunto de tuplas R2. Podemos observar en la figura 4.6 este
+
+paso.
+
+     
+ 
+
+1116 Diaz
+1117 Romero
+
+R1
+
+ 
+    
+
+R2
+
+PaBirthDate
+
+1116 04-may-2013
+
+    
+
+Figura 4.6: Tuplas respuesta para cada patrón
+
+Como hay un patrón opcional se debe calcular el left outer jon entre las tuplas resultado
+de cada patrón, es decir: R1 left outer join R2. En el ejemplo las tuplas R2 el paciente con
+identificación 1117, no tiene registrado una fecha de nacimiento, sin embargo el paciente con
+identificación 1116 tiene registrado una fecha de nacimiento. Cuando se realiza en left outer join
+entre estas tuplas se asegura que todos los pacientes con un apellido registrado aparezcan en los
+resultados sin importar que tengan o no una fecha de nacimiento, ya que este dato es opcional en
+la consulta. El resultado de este cálculo es una sola tabla, como se ve en la figura 4.7
+
+  
+
+palastName PaBitrhDate O]
+
+Diaz 04-may-2013 1116
+Romero 1117
+
+Figura 4.7: Resultado R1 left outer join R2
+
+Como se observa estos resultados pueden tener valores nulos, debido al resultado del left outer
+joín entre los resultados del patron sencillo y el opcional. Pero todos los datos de la tabla del
+lado izquierdo van ha ser parte del conjunto de respuesta final. Estas tuplas deben retornarse en
+un archivo XML, descrito en la sección 4.4.3. Y se observa de la siguiente manera
+
+94CE SS A A
+
+Rh Rh Ra op
+WN Oo
+
+NM B»+p4aq—«<QoqQqo.nNn:R
+
+SN
+
+ 
+
+ 
+
+< Results >
+
+<Registrol >
+<paLlastName> Diaz </paLastName>
+<palD>1116</palD>
+<paBirthDate>04-mayo-2013< /paBirthDate>
+</Registrol >
+<Registro2>
+<paLlastName> Romero </paLastName>
+<palD>1117</palD>
+<paBirthDate>< /paBirthDate>
+</Registro2>
+< /Results>
+
+En la siguiente consulta se pregunta por el identificador de los pacientes y su apellido. Y de
+manera opcional por la fecha de nacimiento de dichos pacientes. Además se acota el conjunto de
+resultados preguntando por aquellos pacientes con apellido igual a *Romero”.
+
+SELECT ?paLastName,”?paBirthDate,”?palD.
+WHERE
+[?Patient palID ?palID. ?Patient paLastName ?paLastName.
+
+OPTIONAL 4 ?Patient paBirthDate ?paBirthDate )
+FILTER ?paLastName='Romero” y;
+
+Del conjunto de resultados mostrados en la tabla 4.7 se eliminan las tupla que no cumplen la
+condición del FILTER. Los resultados se muestran en la figura 4.8.
+
+palastName PaBitrhDate
+
+ 
+
+Figura 4.8: Resultados aplicando FILTER
+
+El XML generado con las respuestas es
+
+< Results >
+<Registrol >
+<paLastName> Romero </paLastName>
+<palD>1117</palD>
+<paBirthDate></paBirthDate>
+</Registrol>
+< /Results>
+
+Si se quisiera mostrar los pacientes con fecha de nacimiento igual a 22-jul-1991, esta condición
+se agrega en el FILTER, y retornaria ninguna tupla y el archivo xml generado no tendria ningun
+resultado.
+
+3134.5 Arquitectura del prototipo del wrapper
+
+El sistema se basa en una arquitectura multicapa cliente-servidor. En la figura 4.9 se muestra la
+arquitectura mediante el uso de un diagrama de despliegue en UML (Unified Modeling Language).
+El repositorio de imágenes DICOM se implementó en Dcm4chee, un PACS (Picture Archiving
+and communication system) de licencia libre. En la arquitectura implementada las imágenes
+pueden tener asociadas anotaciones semánticas. Estas anotaciones se crean en el repositorio de
+tripletas con SMITag [17]. Las anotaciones se almacenan como tripletas RDF en un triplestore
+Jena. Las consultas al triplestore se especifican en SPARQL. El wrapper es el encargado de recibir
+el archivo XML con la representación de la subconsulta, y es el encargado de traducirla, buscar
+en la fuente lo que se solicita y devolver la información en un lenguaje que el mediador reciba. Se
+observan tres módulos y las fuentes de información a las cuales se va a consultar. La interfaz
+de comunicación con el mediador no se implementó debido a que no se consideró dentro de los
+alcances del proyecto, y al momento de la implemetación no existia un primer prototipo del
+mediador con el cual se hiciera dicha comunicación, pero se hace uso de una interfaz en la cual se
+ingresa un archivo XML.
+
+96Interfaz de comunicacion
+
+ 
+
+Traducción
+
+La, | Procesador .
+consulta
+
+Creación
+Arbol
+
+Integración
+
+Procesador |
+Resultados
+
+XAML
+convertidor
+
+Figura 4.9: Arquitectura Wrapper
+
+ 
+
+<<Protocol>->
+TCP/IP
+
+<< Pmtocol>>
+HTTP
+
+<< Web Server>>
+JBOSS 4.2.3 GA Java Servlet
+
+B
+
+DOM4CHEE
+
+<< Web Server>>
+Jetty Java Servlet
+
+FUSEKI SERVER4.5.1 Módulos del sistema
+
+Los módulos de traducción de consultas, de conexión y de integración se describen a continuación
+y como interactúan entre si, además de las tecnologías y librerias utilizadas en cada uno de ellos.
+
+Módulo de traducción de consultas
+
+El módulo de traducción de consultas es el encargado de recibir un archivo XML que contiene una
+subconsulta en una sintaxis similar a la usada en un SPARQL, parsear el documento, crear un
+árbol n-ario con los patrones de la subconsulta y resolver los patrones con la información del PAC
+o del repositorio de anotaciones. Cada patrón de la consulta se representa en un nodo del árbol, y
+los nodos del árbol se crean en tablas sql con la ayuda de SQLite *? para almacenar la información
+que se resuelve del patrón. Y estas tablas se guardan en la base de datos creada previamente.
+lecturaX ML.java es la clase principal, encargada de recibir el archivo XML y parsearlo. Para
+el parseo de este archivo en java se utiliza la librería JDOM. El archivo XML se convierte en un
+objeto totalmente manipulable desde java. Los variables de las etiquetas <select>se guardan en
+una lista de variables. En el elemento <where>se encuentra las etiquetas <optional>y <patron>.
+Las etiquetas <patron>que no están dentro de la etiqueta <optional>haran parte de la raíz
+en el árbol n-ario. Las etiquetas <patron>que se encuentren en la etiqueta <optional>seran
+los nodos hijos. Los elementos de la etiqueta <filter>, tanto variable, operador de comparación
+y valor, se guardan en un objeto de tipo filter definido para este wrapper. SQLite.java es la
+clase que tiene todos los métodos necesarios para la creación de las tablas sql. Para la creación
+de las tablas recibe los nombres de los atributos relación del patrón para crear las columnas
+de la tabla. LecturaXML.java es la encargada de decirle a SQLite.java cuales son los patrones
+para que esta clase cree las tablas de cada patrón con sus respectivas columnas. Las tablas se
+llaman en la base de datos como 'tabla* y un ID que identifica su posición en el árbol. Para la
+visualización de estas tablas se usó un editor para este tipo de base de datos conocido como
+“sqliteman” 1!. Para consultar la información en el PAC se tiene en cuenta el nivel de la jerarquía
+de DICOM. $e identifica en un patrón el nivel mas alto y mas bajo para consultarlos en el PAC.
+Por ejemplo si el nivel mas bajo es el de Study en la fuente se consultan los id de los estudios
+junto con los identificadores del nivel Paciente. Para el caso de las etiquetas del triplestore se usa
+el módulo conexión, para establecer una conexión con el servidor fuseki, y consultar en SPARQL
+a este. Para integrar los atributos del triplestore con los con los resultados del PAC, se envía al
+triplestore los ID de las imágenes recuperadas del PAC.
+
+Módulo Conexión
+
+Este módulo permite el accesos al PAC y al triplestore. Permite consultar la información de
+los repositorios de datos, creando una conexión con los servicios de Dcm4chee y el servidor de
+SPARQL PFuseki. Y crea la conexión con la base de datos SQlite. Se crea una conexión con el
+PAC por medio de la clase PACAcces.java (clase tomada de SMITag [17]) cuyos métodos se
+modificaron, y se crea un objeto de este tipo el cual tiene una lista de objetos paciente, cada uno
+con sus estudios, series e imagénes consultados en el PAC. El módulo proporciona objetos java de
+la información contenida en el PAC, siendo estos más fáciles de manipular. Utiliza las librerías
+de dem4chee explicadas en la sección 2.1.9 para consultar y hace conexión con el PAC. La clase
+tripleStoreConnection.java tomada como referencia de SMItag [17] establece la conexión con
+
+ 
+
+http: / /¡www.sqlite.org/
+1 http: //sqliteman.com/
+
+98Fuseki Server para esto usa la librería jena-fuseki 0.2.3 *. Usa también la librería ARQ jena-arq
+2.9.2 1% para enviar la consulta en SPARQL al triplestore y retornar los resultados, que pueden
+ser tratados como conjuntos de resultados o ResultSet. La clase conexionSql.java hace la
+conexión por medio del jdbc de sqglite a la base de datos con las relaciones que se crean al realizar
+las consultas.
+
+Módulo Integración
+
+El módulo de integración es el encargado de procesar los resultados tanto del PAC como del
+triplestore. Recorre el árbol con el fin de hacer los left outer jon entre los patrones, descrito en
+la sección 3.5.1. Una vez recorrido el árbol y hechos los left outer joín, en una única tabla SQL
+se tendrán todos los datos de la consulta. Los left outer join entre los nodos se hacen con los
+valores de los identificadores únicos guardados en cada tabla sq].
+
+En la consulta de la sección 4.4.5 se agrega una tripleta al patrón sencillo, en el cual se
+pregunte por las etiquetas de las imagénes de los pacientes, estas etiquetas se encuentran en el
+triplestore y deben ser buscadas en esa fuente. Por cada patrón sencillo y los opcionales, se crea
+una tabla. La figura 4.10 representa el patrón sencillo con los resultados correspondientes. Y la
+figura 4.11 representa el patrón opcional.
+
+PalastName Pald TagLabel TaglD IdSerie IdStudy Idlmage
+Romero 1117 pressure bdc93 1.3.46.7 218 1.3.46
+Romero 1117 abnormal  523df 1.3.46.7 218 1.3.47
+
+Figura 4.10: Tabla 1.
+
+PaBirthDate Pald
+Diaz 1116
+
+Figura 4.11: Tabla 2.
+
+Se puede observar que las columnas de las tablas tienen además de las variables de las tripletas,
+los identificadores únicos de los niveles del estándar DICOM y de la etiqueta. Se guardan estos
+identificadores, para asegurar que entre las tablas existan valores comunes entre nodo padre y
+nodos hijos al momento de hacer los left outer join. El resultado del left outer join entre la tabla
+1 y tabla 2 se observa en la figura 4.12 y en este caso los valores comunes entre nodo padre y
+nodo hijo es el identificador del paciente. Pero como esta tabla 2 es opcional, sus resultados
+pueden o no aparecer. Se observa que en la tabla 1 no hay ningun paciente con id 1116 y por lo
+tanto no aparece este registro en 4.12.
+
+PalastName Pald TagLabel TaglD IdSerie IdStudy Idimage  PaBirthDate
+Romero 1117 pressure bdc93 1.3.46.7 218 1.3.46
+Romero 1117 abnormal —523df 1.3.46.7 218 1.3.47
+
+Figura 4.12: Tabla resultado de left Outer Join
+
+ 
+
+2http:/ /jena.apache.org/documentation /servingdata/
+IShttp: / /¡ena.apache.org/documentation /query/
+
+99Con la tabla resultado de este recorrido, se crea un archivo XML que es el que se enviará al
+mediador. Este archivo XML debe tener como etiquetas las variables que en la clausula SELECT
+se piden. Además a estos resultados antes de mostrarse como XML, se debe aplicar el filtro si lo
+hay, esto se realiza con la ayuda de una consulta sql a esta tabla. El archivo XML de salida se
+describe en la sección 4.4.3
+
+4.6 Evolución
+
+La evolución se mide de acuerdo a la aceptación de los sprints y de los incrementos que se
+generen. El primer sprint empieza cuando se definieron los requerimientos de la conexion con
+las fuentes de datos. Se crearon las clases necesarias para esta conexiónes tanto con el PAC en
+dem4chee y con un triplestore originado del proyecto SMltag [17]. El entregable de este sprints,
+fue el paquete conexión con las clases pertinentes para la conexión de cada una de estas fuentes,
+además de implementarlas en el proyecto, junto con las librerias necesarias para ello. El segundo
+sprint se logra cuando se define una estructura para el archivo XML que tendrá la consulta. Este
+archivo se logra parsear, obteniendo así los patrones de la consulta y se tiene conocimiento de
+que atributos se deben consultar en las fuentes de datos. El entregable de este sprints es la clase
+con el método que recibe y parsea el XML y arma el árbol de acuerdo a la estructura en que
+estan los elementos en el XML. El tercer sprint empieza cuando se requiere que la clase que lee
+el archivo XML, ademas de eso guarde los patrones en un árbol n-ario de manera que cada uno
+de los nodos representa un patrón. Se crean todos los métodos necesarios para el recorrido del
+arbol, con la ventaja que es una estructura recursiva y nos facilita el uso de ella. El algoritmo
+utilizado para recorrer el árbol es hijo izquierdo a hermano derecho. Como entregable se entrega
+el paquete de lectura. El cuarto sprint tenia como meta, recorrer el árbol que guarda los patrones
+en sus nodos. Identificar las partes de los atributos que se consultan en cada patrón. Ejecutar
+la consulta de cada patrón. Guardar los resultados de cada patrón en alguna estructura. Para
+lograr esos objetivos se usan objetos de java representando la consulta de cada patrón en cada
+fuente. Se utiliza una base de datos embebida para guardar las tablas con los resultados de cada
+patrón. El entregable de este sprint es la base de datos con las tablas y su respectivos resultados.
+
+El quinto sprint tenia como meta realizar el algoritmo necesario para hacer los left outer join
+entre los resultados de las tablas. Y entregar al usuario un archivo XML con los resultados de la
+subconsulta. Es un entregable del prototipo. Entrega al usuario y muestra al usuario el XML con
+los resultados.
+
+4.7 Pruebas
+
+Esta sección muestra el proceso de pruebas. Se hicieron casos de prueba para demostrar el
+funcionamiento del sistema en situaciones normales. Se definen casos de pruebas en la tabla 4.5
+para demostrar el curso correcto del sistema. En la columna componente va la acción que se
+desea realizar. En la columna caso, se describe la situación que se espera de la acción. En la
+columna Descripción se encuentra la respuesta que el sistema dará ante la acción.
+
+60tad
+
+Universidad
+
+Documento: Revisión:
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+del Valle C d b
+asos de prueba 001
+Fecha:16Wrapper para recuperar imágenes DICOM anotadas con | Octubreuna ontología de dominio médico 2013
+Casos de prueba para el wrapper
+Componente Caso Descripción Sección
+Falta definición de
+Lectura ,
+algún  ele- | El sistema muestra un
+de archivo 4.7.2
+mento en | mensaje de error.
+XML.
+el archivo
+XML.
+El sistema debe formar
+Consulta de ,
+Procesamient , un árbol de un solo nodo,
+un patrón 4.7.1
+
+de consultas
+
+sencillo.
+
+y arrojar el resultado en
+un archivo XML.
+
+ 
+
+Consulta de
+
+El sistema debe formar
+un árbol con un nodo
+
+D 0 »a. uN RA
+
+raiz con el patron sen
+cillo y los respectivos no- 4.7.1
+dos opcionales, y arrojar
+
+el resultado en un archi
+vo XML.
+
+El sistema debe formar
+
+un árbol con un nodo
+
+Procesamient4 un patrón
+
+de consultas | sencillo y
+
+opcionales
+
+ 
+
+Consulta de
+un patrón
+sencillo con
+anotación
+
+raiz con el patrón sencillo, buscar en el triple
+store e integrar los datos
+con el PAC.
+
+Procesamient
+
+de consultas 4.7.1
+
+ 
+
+ 
+
+ 
+
+Tabla 4.5: Cuadro de casos de prueba
+
+4.7.1 Pruebas XML
+
+Se hacen pruebas con diferentes estructuras de árbol representadas en un archivo XML.
+
+Patrón sencillo sin opcionales ni filtro
+
+El XML correspondiente para esta consulta es el siguiente donde se observa un patrón formado
+por una tripla, no hay opcionales ni filtros.
+
+<consulta >
+
+<select>
+<variable> <etiqueta>?PatientName< /etiqueta> </variable>
+<variable> <etiqueta>?PatientAge< /etiqueta> </variable>
+
+< /select >
+
+6110
+11
+
+CE SN A
+
+NV Rh hp pa ppp a pop
+OOOO JOCO0O Ct —a4oNyNy RO
+
+ 
+
+ 
+
+<where >
+
+<patron> <clase>?Patient</clase> <relacion>PatientName< /relacion>
+
+<objeto>?PatientName< /objeto> </patron>
+
+<patron> <clase>?Patient</clase> <relacion>PatientAge< /relacion>
+
+<objeto>?PatientAge</objeto> </patron>
+
+< /where>
+< /consulta>
+
+El árbol que se genera en este caso, es de un solo nodo, por lo tanto solo cuando el sistema
+realiza la traducción, genera una sola tabla sql donde estarán los resultados del patrón. Y el
+
+XML generado es el siguiente
+
+<Results>
+<Registrol >
+
+<PatientName>
+
+</Registrol>
+<Registro2>
+
+<PatientName>
+
+</Registro2>
+<Registro3>
+
+<PatientName>
+
+</Registro3>
+<Registro4>
+
+<PatientName>
+
+</Registro4>
+<Registro5>
+
+<PatientName>
+
+</Registro5>
+<Registro6 >
+
+<PatientName>
+
+</Registro6>
+< /Results>
+
+ANONYMIZE£tt0; </PatientName>
+
+BRAINIXStt0; </PatientName>
+
+KNIX </PatientName>
+
+MERGE%*0; </PatientName>
+
+VOLUMEMERGEtt0; </PatientName>
+
+WRIX </PatientName>
+
+Patrón sencillo con opcionales sin filtro
+
+Se realiza una consulta en la cual hay dos patrónes opcional y uno de ellos con otro patrón
+
+opcional anidado.
+
+En un árbol se puede representar la consulta así de una raíz con dos hijos. Así 4.13:
+
+620. 0. JD 09M >ap4O0NnN RR
+
+10
+
+11
+
+12
+13
+
+14
+15
+
+16
+
+17
+18
+19
+20
+
+21
+22
+23
+
+ 
+
+?Patient PatientName ?PatientName
+?Patient PatientiD ?PatientlD
+
+?Patient HasStudy ?Study
+
+?Study StudyID ?StudylD ?Study StudyDate ?StudyDate
+
+ 
+
+ 
+
+ 
+
+?Serie SerieUlD ?SerieUlD
+
+Figura 4.13: Arbol0
+
+En el archivo XML estará contenida la siguiente consulta
+
+<consulta >
+
+<select>
+<variable> <etiqueta>?PatientName< /etiqueta> </variable>
+<variable> <etiqueta>?PatientId< /etiqueta> </variable>
+<variable> <etiqueta>?StudyDescription< /etiqueta> </variable>
+
+< /select >
+
+<where>
+
+<patron> <clase>?Patient</clase> <relacion>PatientName< /relacion>
+<objeto>?PatientName< /objeto> </patron>
+
+<patron> <clase>?Patient</clase> <relacion>PatientId< /relacion>
+<objeto>?Patientld</objeto> </patron>
+
+<patron> <clase>?Patient</clase> <relacion>HasStudy< /relacion>
+<objeto>?Study< /objeto> </patron>
+
+<optional >
+
+<patron> <clase>?Study</clase> <relacion>StudyId< /relacion>
+<objeto>?Studyld< /objeto> </patron>
+<optional >
+
+<patron> <clase>?Study< /clase> <relacion>StudyDescription< /relacion>
+
+<objeto>?StudyDescription</objeto> </patron>
+
+<patron> <clase>?Serie</clase> <relacion>SerieUID< /relacion>
+
+<objeto>?SerieUID< /objeto> </patron>
+< /optional>
+< /optional>
+<optional >
+
+<patron> <clase>?Study</clase> <relacion>StudyDate< /relacion>
+
+<objeto>?StudyDate< /objeto> </patron>
+< /optional>
+< /where>
+< /consulta>
+
+El archivo XML de respuestas es
+
+<Results>
+<Registrol >
+<PatientName> ANONYMIZE%*t0; </PatientName>
+
+63O. 0 JJ O 0 6
+
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+
+A SD
+
+10
+11
+
+12
+13
+
+14
+15
+16
+17
+
+18
+19
+20
+21
+22
+23
+
+ 
+
+ 
+
+<PatientId >ANONYMIZE< /PatientId>
+
+<StudyDescription>BRAIN< /StudyDescription>
+
+</Registrol>
+<Registro2>
+
+<PatientName> BRAINIX4t0; </PatientName>
+
+<PatientId >5Yp0E< /PatientId>
+
+<StudyDescription>IRM cerebrale< /StudyDescription>
+
+</Registro2>
+
+<Registro3>
+<PatientName> KNIX </PatientName>
+<PatientId >o0zp00SjY2xG< /PatientId>
+
+<StudyDescription>Knee< /StudyDescription>
+
+</Registro3>
+<Registro4>
+
+<PatientName> MERGE%+t0; </PatientName>
+
+<PatientId>Va.adSkT< /PatientId >
+
+<StudyDescription >COLONNE< /StudyDescription>
+
+</Registro4>
+<Registro5>
+
+<PatientName> VOLUMEMERGE%*t0; </PatientName>
+
+<PatientId >9987< /PatientId>
+
+<StudyDescription>null</StudyDescription>
+
+</Registro5>
+< /Results>
+
+Patrón sencillo con opcionales y filtro
+
+En la siguiente consulta hay tres patrones opcionales y uno de ellos con un patrón anidado
+
+opcional, y un filtro al patrón.
+
+<consulta >
+<select >
+
+<variable> <etiqueta>?PatientName< /etiqueta> </variable>
+< /variable>
+
+<variable> <etiqueta>?Patientld< /etiqueta>
+< /select >
+
+<where >
+
+<patron> <clase>?Study</clase> <relacion>StudyId< /relacion>
+
+<objeto>?StudyId< /objeto> </patron>
+
+<optional >
+
+<patron> <clase>?Patient</clase> <relacion>PatientName< /relacion>
+
+<objeto>?PatientName< /objeto> </patron>
+
+<optional >
+
+<patron> <clase>?Serie</clase> <relacion>SerieUID< /relacion>
+<objeto>?SerieUID</objeto> </patron>
+
+< /optional>
+< /optional>
+<optional>
+
+<patron> <clase>?Study</clase> <relacion>StudyDate< /relacion>
+
+<objeto>?StudyDate< /objeto> </patron>
+
+< /optional>
+<optional>
+
+<patron><clase>?Patient</clase><relacion>PatientlId< /relacion><objeto>?PatientId< /objeto>
+
+< /patron>
+< /optional>
+< /where>
+
+6424 | <filter>
+
+25 <filtrovariable>
+
+26 <filtro>?Patientld< /filtro>
+
+27 <comparacion>=< /comparacion>
+28 <valorfiltro>5Yp0E< /valorfiltro >
+29 < /filtrovariable>
+
+30 < /filter>
+
+ 
+
+El XML generado con las respuestas de la anterior subconsulta es
+
+<Results>
+<Registrol >
+<PatientName> BRAINIX4+t0; </PatientName>
+<PatientId >5Yp0E< /PatientId>
+</Registrol>
+< /Results>
+
+¡CD A A
+
+Patrón sencillo con anotación
+
+La consulta tiene un solo patrón en el cual se pide que retorne la ontología y la etiqueta con la
+que un estudio fue anotado.
+
+<consulta>
+
+<select >
+<variable> <etiqueta>?StudyDescription< /etiqueta> </variable>
+<variable> <etiqueta>?TagOntology</etiqueta> </variable>
+<variable> <etiqueta>?SerieUID</etiqueta> </variable>
+<variable> <etiqueta>?TagLabel</etiqueta> </variable>
+
+< /select >
+
+CS SS A
+
+<where>
+<patron> <clase>?Study< /clase><relacion>StudyDescription< /relacion>
+<objeto>?StudyDescription</objeto> </patron>
+<patron> <clase>?Serie</clase> <relacion>SerieUID< /relacion>
+<objeto>?SerieUID< /objeto> </patron>
+13 <patron> <clase>?Tag</clase> <relacion>TagUri</relacion> <objeto>?TagUri< /objeto>
+< /patron>
+14 <patron> <clase>?Tag</clase> <relacion>TagLabel< /relacion>
+<objeto>?TagLabel< /objeto> </patron>
+15 <patron> <clase>?Tag</clase> <relacion>TagOntology< /relacion>
+<objeto>?TagOntology</objeto> </patron>
+16| </where>
+17 | </consulta>
+
+Rh Rh
+N PpoO
+
+ 
+
+Genera un árbol de un solo nodo. El XML generado es
+
+<Results>
+<Registrol >
+<StudyDescription>IRM cerebrale< /StudyDescription>
+<TagOntology>http://www.smitag.com/ontologies/RadLex< /TagOntology>
+</Registrol >
+< /Results>
+
+Dd 09M pao NR
+
+65O 0. JN DO 0 .»4hoOo0o NR
+
+10
+
+11
+
+12
+
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+
+ 
+
+Patrón sencillo con anotación y filtro
+
+<consulta>
+
+<select >
+<variable> <etiqueta>?StudyDescription< /etiqueta> </variable>
+<variable> <etiqueta>?SerieUID</etiqueta> </variable>
+<variable> <etiqueta>?TagLabel</etiqueta> </variable>
+
+< /select >
+
+<where>
+
+<patron> <clase>?Study</clase> <relacion>StudyDescription< /relacion>
+<objeto>?StudyDescription</objeto> </patron>
+
+<patron> <clase>?Serie</clase> <relacion>SerieUID< /relacion>
+<objeto>?SerieUID</objeto> </patron>
+
+<patron> <clase>?Tag</clase> <relacion>TagUri</relacion> <objeto>?TagUri< /objeto>
+< /patron>
+
+<patron> <clase>?Tag</clase> <relacion>TagLabel< /relacion>
+<objeto>?TagLabel</objeto> </patron>
+
+< /where>
+
+<filter>
+
+<filtrovariable>
+<filtro>TagLabel< /filtro>
+<comparacion>=< /comparacion>
+<valorfiltro >5Yp0E< /valorfiltro >
+< /filtrovariable >
+
+< /filter>
+
+< /consulta>
+
+El resultado en este caso es un archivo XML vacio, porque no encontró ninguna etiqueta con
+el nombre 5Yp0E. sin embargo generó la tabla correspondiente al nodo raíz con los resultados del
+patrón.
+
+4.7.2 Error de archivo entrada
+
+Cuando un documento XML está sin etiquetas cerradas o no está bien formado entonces mostrara
+un mensaje de error como se muestra en la figura 4.14
+
+PARSING ERROR o [cnc
+
+A Error en linea 28 del XML
+
+Aceptar
+
+ 
+
+Figura 4.14: Error en el parseo
+
+66Capitulo 5
+
+Discusión de resultados y trabajos
+futuros
+
+En este capítulo se discuten los resultados del trabajo de grado con respecto a los objetivos
+propuestos y en general al proceso de desarrollo de la herramienta. Se presentan, al final del
+capítulo, algunas líneas de trabajo futuro.
+
+5.1 Resultados
+
+El propósito de este trabajo era desarrollar un prototipo de un vwrapper que permitiera traducir
+y ejecutar una subconsulta generada por un mediador para recuperar datos de una fuente de
+imágenes DICOM anotadas con una ontología de dominio médico. El prototipo desarrollado
+utiliza archivos XML para el intercambio de las subconsultas entre el mediador y el wrapper.
+
+Este proyecto hace parte de una tesis doctoral: Una Arquitectura de Integración de Datos como
+Base de un Lenguaje Conceptual de Recuperación de Datos médicos [1], que tiene como objetivo
+integrar la información generada en los procesos clínicos, almacenados en fuentes heterogéneas.
+Por ejemplo, para analizar y proponer un tratamiento para tratar un tumor, se requiere integrar
+información de fuentes como la historia clínica, datos ambientales e imágenes.
+
+La arquitectura [1] representa la información de las fuentes mediante un modelo de datos
+basado en grafos. Este, es un modelo conceptual del dominio de la aplicación y está formado por
+un conjunto de nodos que representan clases y los arcos atributos entre ellas.
+
+El wrapper ejecuta una subconsulta en una fuente de imágenes DICOM, denominado PAC.
+Los PAC tienen atributos que se pueden enriquecer utilizando mecanismos que permitan darle
+semántica basados en anotación semántica. Los resultados de los procesos de anotación semántica
+se encuentran los triplestore.
+
+Este prototipo ofrece las siguientes características requeridas por el wrapper de la arquitectura,
+que pueden ser de interés para el proyecto descrito [1]:
+
+Se accede a los datos del triplestore y el PAC por medio de subconsultas SPARQL.
+
+Integra la información de un PAC junto con la de un triplestore.
+
+Se representa una subconsulta en SPARQL que un mediador genera y retorna resultados de
+acuerdo a esa subconsulta.
+
+Traduce y ejecuta una subconsulta generada por un mediador para recuperar datos de una
+fuente de imágenes DICOM que pueden estar anotadas con alguna ontología de dominio médico.
+
+Algunos de estos trabajos incluyen, entre otros, el funcionamiento del wrapper descrito en
+[3], para cualquier tipo de fuente de información y los propuestos en [9] y [10]. A pesar de que
+
+67estos trabajos no se desarrollaron para el dominio médico, si fueron una importante fuente de
+información sobre el diseño de wrappers para recuperar información desde fuentes heterogéneas.
+En [10],(11],(12],(13],(14] y [15] se revisó el tema de integración de la información médica de
+diferentes fuentes. Fue imprescindible la revisión de la literatura de la arquitectura de mediación
+para comprenderla, ya que el wrapper es un componente de esta arquitectura.
+
+El wrapper se construyó con la especificación de los requerimientos definidos en [8], y se utilizó
+un modelo conceptual para visualizar las clases y los atributos que el mediador puede consultar.
+
+El proyecto SEDI [29] es el mas similar al prototipo desarrollado en este proyecto, porque:
+
+a. SEDI utiliza un repositorio de anotaciones de imagénes DICOM, generadas en el proyecto
+DFKI's MEDICO Semantic Search Demonstrator |, así como lo hace el prototipo que
+utiliza un repositorio de anotaciones generadas en el proyecto SMITag.
+
+b. El prototipo usa el mismo enfoque para la comunicación con las fuentes de datos, pero no
+usa Joseki, como lo hace SEDI, sino Jena Fuseki para la comunicación con el triplestore.
+
+c. El prototipo al igual que SEDI utiliza herramientas de la web semántica para agregar
+expresividad semántica a las consultas.
+
+d. El prototipo al igual que SEDI traduce las consultas semánticas en consultas DICOM.
+
+e. El prototipo al igual que SEDI utilizan el toolkit dem4chee, para la comunicación con el
+
+PAC.
+
+Las diferencias entre el prototipo desarrollado y el proyecto SEDI[29], son entre otras:
+
+a. SEDI utiliza una ontología de dominio para DICOM de la Universidad de Standford para la
+conversión de las consultas SPARQL, pero esta ontología es privada. Por lo cual no se pudo
+dar uso a esta herramienta. Sedi utiliza esta ontologia para agregar semántica al resultado
+de la consulta.
+
+b. SEDI proporciona un endpoint ? SPARQL para un PACS implementado en Joseki, en
+cambio el prototipo recibe una consulta en un archivo XML.
+
+Cc. A diferencia del prototipo, SEDI usa toda la sintaxis de SPARQL, mientras que el prototipo
+usa un subconjunto de la sintaxis.
+
+d. A diferencia del prototipo, SEDI retorna resultados en SPARQL, y no en un archivo XML.
+En el proyecto de ACGT [14|[41] se encuentran también similitudes con el prototipo:
+
+a. Al igual que el prototipo desarrollado, el wrapper de ACGT traduce una subconsulta de
+SPARQL a una consulta DICOM.
+
+b. Al igual que el prototipo desarrollado, el wrapper de ACGT recibe una consulta de un
+mediador para ser ejecutada en la fuente de datos.
+
+Cc. Al igual que el prototipo desarrollado, el wrapper de ACGT entrega unos resultados de una
+consulta en XML.
+
+ 
+
+http: //www.manuelm.org/blog/?tag=dicom
+“http: //en.wikipedia.org/wiki/Communication _ endpoint
+
+68d. El wrapper de ACGT como el prototipo desarrollado, integra los resultados del PAC con
+los de otra fuente para agregar caracteristicas a los resultados.
+
+También se encuentran diferencias con el wrapper de ACGT como:
+
+a. ACGT utiliza ontologías para realizar las consultas al PAC. Por lo tanto se buscó una
+
+ontologia de DICOM, pero las encontradas hasta el momento son de uso privado como el
+caso de DICOM Ontology DO [35].
+
+b. A diferencia del prototipo que integra tanto el PAC como el triplestore, integran una base
+de datos relacional con un PAC.
+
+Cc. A diferencia del prototipo, el wrapper de ACGT retorna resultados en formato XML
+SPARQL ?, y en el prototipo del wrapper se retorna los resultados en un formato definido
+en el desarrollo.
+
+Al momento de la implementación del wrapper, el proyecto SEDI tenia un prototipo en la página
+http: //shsedidemo.fue.sohard.de:8090/browser/ que aún estaba en sus primeras etapas y
+la información acerca de este * no estaba disponible. SEDI actualmente se está desarrollando y
+tiene como colaboradores la clinica MASTROO ? especializada en el tratamiento, investigación y
+lucha contra el cáncer, y la casa desarrolladora alemana Sohard Software.
+
+El estándar DICOM tiene 20 partes. En este trabajo se utilizaron la 1, introducción al
+estándar, la 3 donde se describen los atributos DICOM y la 18 que describe la forma de retornar
+objetos DICOM y la comunicación con el servidor.
+
+Hay varias implementaciones del estándar DICOM como demtk * y Dem4chee open source.
+Para este proyecto se utilizó Dem4chee porque tiene la ventaja de que permite agregar funcionalidades.
+
+En este proyecto el prototipo implementa la funcionalidad de un wrapper para acceder a un
+PAC y en un triplestore Fuseki y funciona como una interfaz entre el mediador y las fuentes de
+datos, retornando resultados al mediador en un formato XML.
+
+Se implementó un subconjunto de la sintaxis SPARQL para la subconsulta, que incluye
+solamente el SELECT, WHERE, OPTIONAL Y FILTER. Dentro del SELECT van las variables
+que se quieren retornar y en el WHERE el patrón de la consulta que puede incluir elementos
+OPTIONAL y un FILTER. Esa subconsulta se representa dentro del wrapper como un árbol
+n-ario, en el cual cada nodo representa un patrón. Cada nodo se consulta en el PAC o en triplestore
+y el resultado de cada nodo se almacena en una relacion, para luego hacer los joins entre estas
+
+tablas. Se usó una base de datos embebida SQLite. El resultado de la consulta se escribe en un
+archivo XML.
+
+Algunas conclusiones derivadas de este trabajo son:
+
+1. Se desarrolló el prototipo de un wrapper que recibe un un archivo XML, el cual contiene
+una subconsulta expresada en SPARQL. Esta consulta se tradujo para recuperar datos de un
+PAC y de un triplestore.
+
+2. Los servicios web para el PAC y para el triplestore proporcionan la comunicación con
+repositorios que pueden ser locales o estar en algún servidor, ya que los estándares de cada uno
+permiten el acceso a la información de las fuentes.
+
+ 
+
+http: //www.w3.org/TR/rdf-sparql-XMLres/
+“http: / /www.sohard.de/de/hardware /arcnet-produkte.html
+
+http: //www.maastro.nl/
+http: //dicom.offis.de/demtk.php.en
+
+693. Se usaron tecnologias de la web semántica, para enriquecer semánticamente los datos del
+repositorio DICOM.
+
+5. Una desventaja de la arquitectura implementada, es que esta solución depende del tipo
+controlador JDBC y de las librerias de Dem4chee que se utilicen para comunicarse con las fuentes
+de datos. Esto significa que el cliente tiene que tener instalados los controladores necesarios.
+
+6. Para probar la funcionalidad del prototipo se usaron imagenes DICOM públicas” de ejemplo.
+Estas imagenes no tienen todos los atributos que ofrece DICOM porque muchos de ellos estan
+restringidos al público para garantizar la privacidad de los pacientes.
+
+7. El uso de las tecnologias de la web semántica permite dar mayor semántica a los datos y
+aumenta la expresividad de las consultas de usuario.
+
+8. De manera personal, el reto de este proyecto permitió adquirir nuevos conocimientos,
+afrontar las dudas y problemas y darles una solución viable y rápida.
+
+5.2 Trabajos futuros
+
+De acuerdo a los resultados obtenidos se proponen como trabajos futuros:
+
+1. Incluir en la implementación del wrapper el módulo de comunicación con el mediador.
+
+2. Utilizar una ontología para el estándar DICOM de licencia libre para hacer las consultas al
+PAC como lo propone [29], con el fin de agregar información semántica al resultado.
+
+3. Crear un endpoint de SPARQL para evitar el envió de archivos XML, recibir la consulta
+en SPARQL como lo propone [29].
+
+4. A pesar de que la arquitectura de integración requiere solamente el subconjunto de SPARQL
+que se implementó en este wrapper, se puede construir un wrapper más genérico si se incluyen
+más elementos de la sintaxis de SPARQL.
+
+5. Incluir heurísticas o reglas de optimización para las consultas que se realizan a las tablas
+SQL que contienen las respuestas de cada patrón.
+
+7. Hacer pruebas sobre un PAC real, de datos reales producto de los procesos clínicos.
+
+8. Crear un subsistema al wrapper que permita detectar el cambio de los metadatos relacionados
+con el esquema del origen de datos y se lo informe al mediador, como lo propone [3].
+
+9. Incluir caracteristicas de seguridad tal como auditar el acceso a las fuentes de datos, como
+lo proponen en [3] y [40].
+
+ 
+
+"http: / /www.osirix-viewer.com/datasets/
+
+YOReferencias
+
+1]
+
+19)
+
+110]
+
+PABÓN MARÍA CONSTANZA, MILLAN MARTHA. Una Arquitectura de Integración de Datos
+
+como Base de un Lenguaje Conceptual de Recuperación de Datos médicos. CLEI. Quito,
+Ecuador. (2011).
+
+BOTELLO C. A. Explotación de bases de datos heterogéneas mediante su integración parcial.
+Centro de Investigación en Computación. Instituto Politécnico nacional, Mexico. (2004).
+
+HONGZHI WANG, JIANZHONG LI AND ZHENYING HE. An Effective Wrapper Architecture to
+
+Heterogeneous Data Source. Proceedings of the 17th International Conference on Advanced
+Information Networking and Applications (AINA03). (2003).
+
+M. GRCAR, E. KLIEN, Y B. NOVAK. Using Term-Matching Algorithms for the Annotation
+
+of Geo-services in Knowledge Discovery Enhanced with Semantic and Social Information.
+Springer-Berlin Heidelberg (2009).
+
+PALACIOS ESCALONA, JUAN PABLO Y COSTILLA RODRÍGUEZ, CARMEN. Modelo de Unificación Semántica de Ontologías, aplicado al dominio de los archivos digitales. Tesis Doctoral
+UPM-Departamento de ingeniería de sistemas telemáticos. (2005).
+
+BATINI, C., SCANNAPIECO, M.. Data Quality: Concepts, Methodologies and Techniques.
+Springer-VerlagBerlinHeidelberg. Berlin, Alemania.(2006).
+
+NATIONAL ELECTRICAL MANUFACTURES ASSOCIATION. Digital Imaging and Communication
+in Medicine (DICOM). Rssylin, VA: NEMA.
+
+PABÓN MARÍA CONSTANZA. Recuperación Semántica de Imágenes y Datos de Fuentes Heterogéneas. Departamento de Ciencias e Ingeniería de la Computación. Pontificia Universidad
+
+Javeriana. Cali, Colombia. (2010).
+
+ZINA BEN MILEN, MALIKAMAHOUI, MINDIDIPPOLD. Wrapper Induction Application with
+
+Knowledge Base Support: A Use Case for Initiation and Maintenance of Wrappers. IEEE
+(2005).
+
+DUQUE MÉNDEZ NÉSTOR DARÍO, CHAVARRO PORRAS JULIO CESAR, MORENO LAVERDE
+RICARDO. Integrando información de Fuentes heterogéneas enfoques y tendencias. Scientia
+ET Technica. Universidad Tecnológica de Pereira. Pereira, Colombia. (2007).
+
+111] H. BLANCO, D. RONDA. Consideraciones en la arquitectura de los sistemas de búsqueda y
+
+visualización de imágenes médicas. Centro de Biofísica Médica, UO Calle Patricio Lumumba.
+Santiago de Cuba, Cuba. (2004).
+
+71[12] SONNTAG, D., MOLLER, M. Unifying Semantic Annotation and Querying in Biomedical
+Images Repositories. Proceedings of the International Conference on Knowledge Management
+and Information Sharing. Madeira, España. (2009).
+
+113] GUPTA, A., BuG, W., MARENCO, L., QIAN, X., CONDIT, C., RANGARAJAN, A.,
+MULLER,H.M., MILLER, P.L., SANDERS, B., GRETHE, J.S., ASTAKHOV, V., SHEPHERD,
+G., STERNBERG,P.W., MARTONE, M.E. Federated Access to Heterogeneous Information
+Resourcesin the Neuroscience Information Framework (NIF). Neuroinformatics. California,
+
+United States. (2008).
+
+[14] MARTIN, L., ANGUITA, A., MAOJO, V., BonsMaA, E., BUCUR. Ontology Based Integration
+of Distributed and Heterogeneous Data Sources in ACGT. In: Proc. of the First Intl. Conf. on
+Health Informatics HEALTHINF. Madrid, España. (2008).
+
+[15] SCOTTI SEBASTIAN. Integracion de los informes radiologicos DICOM dentro de la historia
+clínica. 11Th international HL7 interoperability conference IHIC. Viena, Austria (2012).
+
+[16] DEL Ri0 MEDINA RAUL. La cabecera del estandar DICOM. RevistaSalud.com . volumen 4.
+número 16. (2008).
+
+[17] LóPeEz FEDERICO, DIAz NÉSTOR, CEBALLOS OSCAR, M.Sc . SMITag: red social para la
+
+anotación semántica de imágenes médicas. Programa de ingeniería de sistemas. Universidad
+del valle. Tulua, Colombia. (2012)
+
+[18] CHAVARRIA DIAZ MIGUEL, Diagnostico por la imagen, Escuela Técnica Superior de Ingeniería.
+Universidad de Valencia. Valencia, España. (2012)
+
+[19] CHAVARRIA DIAz MIGUEL. Tecnologías de la información al servicio de la historia clínica
+electronica. Hospital la Fe. Departamento de Informática. Valencia, España. (2012)
+
+20| UNED. Tecnologías de los contenidos multimedia. Edición y compresión de imágenes
+estáticas. Madrid, España (2012)
+
+[21] DANIELSON, JASON. GARLAND, ERIC. HOLDER, ANDREW . Dem4che Architecture and
+Implementation. University of Illinois. Computer Science. Illinois, United States. (2010)
+
+[22] GONG TIANXIA , LI SHIMIAO , Lim TAN CHEW . A Semantic Similarity Language Model to
+Improve Automatic Image Annotation. School of Computing National University of Singapore.
+Singapore, Singapore. (2010)
+
+[23] W3C. SPARQL Query Language for RDF. http://www.w3.org/TR /rdfsparql-query/ 21
+W3C Candidate. (2007)
+
+[24] SOHARD SOFTWARE. SeDI (Semantic Dynamic Interface).
+http: //www.sohard.de /software /semantics-in-healthcare/sedi.html. (2012)
+
+[25] PRESSMAN ROGER S. PH.D. Software engineering. McGrawhill. Séptima edición. páginas
+30-96. (2010)
+
+[26] KROENKE DAviD M. Database Processing. Pearson. (2010)
+
+[27] CORONEL CARLOS, ROB PETER. Sistemas de bases de datos: diseño, implementación y
+administración. Cengage learning. Novena edición. páginas 76-78. (2003)
+
+12[28] Canós JosÉ, LETELIER PATRICIO, PENADÉS MARÍA CARMEN. Metodologías ágiles en el
+Desarrollo de software. DSIC - Universidad Politécnica de Valencia. Valencia, España. (2003)
+
+[29] RENZO ANGLES, CLAUDIO GUTIERREZ. Survey of graph database models. Journal ACM
+Computing Surveys (CSUR). Santiago de Chile, Chile. ( 2008)
+
+[30] RENZO ANGLES A Comparison of Current Graph Database Models 3rd Int. Workshop on
+
+Graph Data Management: Techniques and applications. Universidad de Talca. Talca, Chile. (
+2012)
+
+[31] E. PRUD'HOMMEAUX AND Á. SEABORNE. SPARQL Query Language for RDF - W3C
+Working Draft. http: //ww.w3.org/TR/2005/WD-rdf-sparql-query-20050721/. (2005)
+
+[32] CABRERA HUNGRÍA, ROSA MARÍA . Aspectos semánticos de la integración de fuentes de
+datos. UCLM Universidad de Castilla de la Mancha. Escuela superior de informatica. Castilla,
+
+España. (2009)
+
+[33] SANKHAYAN, CHOUDHURY. NABENDU CHAKI. SWAPAN, BHATTACHARYA . GDM: A new
+graph based data model using functional abstractionr . Departament of computer science and
+engineering, University of Calcutta. India. (2006)
+
+[34] PABÓN, MARÍA CONSTANZA. Funcionamiento del wrapper a repositorios DICOM . Universidad del Valle. Cali, Colombia (2013)
+
+[35] RUBIN, DANIEL. CHANNIN, DAVID S. LANGLOTZ, CURTIS P. KAHN, CHARLES E. DICOM
+Ontology (DO) Update. Building a cathedral, one grain of sand at a time . caBIG. Stanford
+University. Stanford, United States. (2009)
+
+[36] MICHAEL PRINZ, GEORG FISCHER, ERNST SCHUSTER. The JAVA-based DICOM query
+interface DicomSE . Department of Medical Computer Sciences, Medical University Vienna.
+
+Vienna, Austria. (2009)
+
+[37] MILLAN, MARTHA. CABANZO, JUDY SUSANA. Práctica investigativa: Visualizador DICOM.
+Universidad del Valle. Tulúa, Colombia. (2013)
+
+[38] CARRO,SILVIO ANTONIO, SCHARCANSKI, JACOB. A framework for medical visual information exchange on the WEB. Universidade do Oeste Paulista (UNOESTE). SP, Brasil.
+(2013).
+
+[39] SALAVERT TORRES,JOSÉ. SEGRELLES QUILIS, J. DAMIAN . BLANQUER ESPERT, IGNACIO.
+HERNANDEZ GARCÍA, VICENTE . Improving knowledge management through the support of
+image examination and data annotation using DICOM struc- tured reporting. Institute for
+Molecular Imaging Technologies (13M), Universitat Politécnica de Valencia (UPV), Camino
+
+de Vera. Valencia, España. (2012).
+
+[40] BONSMA, ERWIN. ANGUITA, ALBERTO. VRIJNSEN, JEROEN. GARCÍA, MIGUEL. TSIKNAKIS,
+MANOLIS. MAOJO, VÍCTOR. Data Access and Management in ACGT: Tools to Solve Syntactic
+and Semantic Heterogeneities Between Clinical and Image Databases. Biomedical Informatics
+
+Group, Artificial Intelligence Laboratory, School of Computer Science, Universidad Politécnica
+de Madrid. Madrid, España. (2004).
+
+[41] MARTIN, Luis. The ACGT Data Access Infrastructure. ACGT Workshop. (2007).
+73[42] STELIOS SFAKIANAKIS. 4 Semantically-Enabled Infrastructure in support of Clinical Trials
+and Post-Genomic Research. ACGT Workshop. (2005).
+
+[43] CYGANIAK, RICHARD . A relational algebra for SPARQL . Digital Media Systems Laboratory,
+HP Laboratories Bristol. (2005)
+
+[44] CABANZO RAMÍREZ, JUDY SUSANA. MONTOYA GARCÍA, GUILLERMO ANDRÉS. RUÍZ
+BURITICÁ, ISABEL CRISTINA. Integración de datos médicos basados en mediación y modelo de grafos . Universidad del Valle. Semillero de investigación WEBSUV. Il encuentro
+departamental de semilleros de investigación. Tulúa, Colombia (2013)
+
+[45] PABÓN, MARÍA CONSTANZA. La arquitectura de mediación que se propone. Universidad del
+Valle. Cali, Colombia (2013)
+
+74Anexos A
+
+Herramientas e instructivo
+instalación del wrapper
+
+En esté anexo se explica cómo instalar el wrapper y las herramientas necesarias poner en marcha
+con el correcto funcionamiento del prótotipo .
+
+Para la instalación del wrapper es necesario:
+1. Descargar e instalar Eclipse Juno desde la dirección http: //www.eclipse.org/juno/
+2. Instalar a través de Eclipse Marketplace, ubicado en el menú Help de la barra de herramientas,
+instalar “Maven Integration for Eclipse” para la gestión y construcción de proyectos Java con
+Maven. Maven se encarga de descargar las dependencias descritas en el archivo pom.xml, como
+las de SQLite y las librerías para DCM4CHEE.
+3. Para el servicio WADO descargue DCM4CHEE y la distribución binaria del servidor JBoss
+Application Server 4.3.2GA. Para la instalación siga los pasos en http: //www.dcm4che.org/
+confluence/display/ee2/Installation.
+4. Para poner en marcha el triplestore Fuseki Server es necesario seguir los siguientes pasos:
+
+4.1 Descargar la últma versión de FUSEKIE*VER* distribution.zip en la página oficial de
+Apache http: / /www.apache.org/dist /¡ena /binaries/
+
+4.2. Descomprima el archivo y ejecute el archivo de comandos dependiendo del sistema
+operativo. Para windows 7 el comando es : fuseki-server “update —mem /ds
+
+Para especificar la locación del dataset, en este caso es el TBD * resultado de SMITag [17], se
+creará precedido de un */”. Así: fuseki-server —update —loc= rutaTDB /tdb.
+
+5. Si el servicio WADO o el servidor de SPARQL Fuseki se está ejecutando en un puerto o URL
+diferente cambie la dirección en las clases PACAccess.java en el paquete edu.univalle.wrapper.lectura
+y TripleStoreConnection.java en el paquete edu.univalle.wrapper.conexion.
+
+6. Y se ejecuta la clase principal principal.java como aplicación java.
+
+A.1l Manual de Usuario
+
+La interfaz es sencilla, y tiene un menu en el cual se busca el archivo XML con la consulta. Esta
+consulta debe estar con la sintaxis que se describe en la sección 4.4.2. Una vez el usuario abre un
+archivo XML, en la opción 'consultas”, el sistema realiza el proceso de la traducción y cuando
+ha terminado de ejecutar la consulta se muestra al lado izquierdo el XML con resultados y al
+
+ 
+
+"http: / /jena.apache.org/documentation /tdb/
+
+15lado derecho la representación del árbol que se genero al parsear el archivo XML. Este proceso se
+muestra en la figura A.1
+
+Consultas
+
+<2xml version="1.0” encoding="UTF-8” standz arbol
+
+<Results> Nodo Papa: 1
+
+<Registro1> Nodo Papa: 2
+<PatientName> BRAINIXE +0; </PatientName= Nodo Papa: 3
+<Patientld>5Yp0E=</Patientld> Nodo Papa: 2— Nodo hijo: 3
+<StudyDescription>IRM cerebrale=/StudyDesc Nodo Papa: 1—Nodo hijo: 2
+</Registro1> Nodo Papa: 4
+
+</Results> Nodo Papa: 1-—Nodo hijo: 4
+
+ 
+
+Figura A.1: Interfaz de usuario.
+
+76Anexos B
+
+Historias de Usuario
+
+A continuación se describen los product backlog expresados en historias de usuario
+
+ 
+
+Universidad
+del Valle
+
+ 
+
+Product Backlog
+
+Documento: Revisión:
+001
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+la ejecución de las consultas y las
+entregue para su visualización.
+
+ 
+
+debe integrar las respuestas para en
+z : resultado de la ejecución de las subtregárselas al mediador.
+
+consulta en las fuentes
+
+Wrapper para recuperar imágenes DICOM anotadas con Fecha:01una ontología de dominio médico 10-2015
+Módulo de integración
+Titulo Descripción Prueba de aceptación Prioridad
+HINO1. COMO usuario quiero que | El sistema después de la ejecución pla pelle ercer
+el sistema integre las respuestas de de las subconsultas en las fuentes unificada en un archivo XML como 9
+
+ 
+
+Tabla B.1: Historias de usuario, módulo de integración
+
+ 
+
+Universidad
+del Valle
+
+ 
+
+Product Backlog
+
+Documento: Revisión:
+001
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+con las fuentes de datos para enviar
+las consultas de usuario
+
+ 
+
+Wrapper para recuperar imágenes DICOM anotadas con Fecha:
+una ontología de dominio médico 03-04-2015
+Módulo de comunicación
+Titulo Descripción Prueba de aceptación Prioridad
+el sistema eetablezes comunicación | El sistema se conecta pon sl PAG | e aoniacada, sl pistoma ,
+
+la envía a la fuente de
+
+dores para cada una de las fuentes. :
+datos respectiva.
+
+ 
+
+ 
+
+Tabla B.2: Historias de usuario, módulo de conexión.
+
+17Anexos C
+
+Planificación de las iteraciones
+
+A continuación se describen los Sprints del proyecto.
+
+ 
+
+Universidad
+
+ 
+
+Documento: Revisión:
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+del Valle Pila de sprint
+P 001
+Inicio:04/02/13
+Sprint 1. Fin:03/03/13
+ID Tarea Duración Responsable
+Crear una conexión con el triplestore de Smitag[17]. Crear un reposHCMO1 itorio de imágenes DICOM. Conec- 4 semanas equipo de desarrollo
+tarse al PAC por medio de la librería decm4chee.
+Tabla C.1: Revisión de sprint 1.
+Universinsd Documento: Revisión:
+_del valle _ Pila de sprint
+001
+Inicio:03/03/13
+Sprint 2. Fin:30/04/13
+ID Tarea Duración Responsable
+
+ 
+
+H'TCO1 , HTCO2
+
+ 
+
+Parsear un documento XML. Verificar la estructura XML. Guardar
+los patrones en alguna estructura.
+Guardar las triplas de los patrones.
+
+9 semanas
+
+equipo de desarrollo
+
+ 
+
+Tabla C.2: Revisión de sprint 2.
+
+18Universidad
+del Valle
+
+ 
+
+Pila de sprint
+
+Documento: Revisión:
+001
+
+ 
+
+Sprint 3.
+
+ 
+
+Inicio:01/05/13
+Fin:30/06/13
+
+ 
+
+ID
+
+Tarea Duración
+
+Responsable
+
+ 
+
+ 
+
+H'TCO3
+
+Crear árbol n-ario con los patrones
+identificados en la consulta. Definir
+las reglas para la creación del árbol.
+Guardar los patrones opcionales como nodos hijos en el árbol. Guargar la raiz como el patrón sencillo. Y semanas
+Guardar las triplas de cada patrón.
+Guardar una lista con las variables
+que se encuentren en la claúsula SELECT. Guardar un objeto con los
+parametros de la claúsula FILTER.
+
+equipo de desarrollo
+
+ 
+
+Tabla C.3: Revisión de sprint 3.
+
+ 
+
+Universidad
+del Valle
+
+ 
+
+Pila de sprint
+
+Documento: Revisión:
+001
+
+ 
+
+Sprint 4.
+
+ 
+
+Inicio:01/07/13
+Fin:30/08/13
+
+ 
+
+ID
+
+Tarea Duración
+
+Responsable
+
+ 
+
+ 
+
+H'TCO4 , HINO1
+
+Resolver el patrón. Identificar en
+cada patrón los atributos para ejecutar su búsqueda en la fuente de
+datos. Utilizar objetos java para
+representar objetos de las consultas a DICOM. Crear una base de
+datos embebida. Crear tablas en la
+base de datos, cuyas columnas son
+el nombre de la variable del patrón. Identificar cuando se preguntan por atributos que se deben consultar al triplestore. Utilizar objetos java para representar objetos
+de las consultas al triplestore. Identificar la clase objeto de un patrón (ver sección 4.4.1). Guardar
+en las tablas los identificadores unicos de las clases objetos anteriores.
+Guardar los resultados de un patrón
+en una tabla de la base de datos.
+
+9 semanas
+
+equipo de desarrollo
+
+ 
+
+Tabla C.4: Revisión de sprint 4.
+
+19Universidad
+del Valle
+
+ 
+
+ 
+
+Pila de sprint
+
+Documento: Revisión:
+001
+
+ 
+
+Sprint 5.
+
+ 
+
+Inicio:01/09/13
+Fin:25/10/13
+
+ 
+
+ID
+
+Tarea Duración
+
+Responsable
+
+ 
+
+ 
+
+HINO1
+
+crear algoritmo para realizar los left
+outer join entre los patrones sencillos y opcionales. Crear un archivo XML con la tabla resultado final del calculo del left outer join.
+Mostrar los resultados en un archivo XML definido con una estructura
+(ver sección 4.4.3). Mostrar las variables que se piden en el select. Realizar el filtro en los resultados.
+
+9 semanas
+
+equipo de desarrollo
+
+ 
+
+Tabla C.5: Revisión de sprint 5.
+
+SU

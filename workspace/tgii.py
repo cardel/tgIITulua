@@ -28,19 +28,19 @@ import gensim.corpora as corpora
 from wordcloud import WordCloud
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.decomposition import NMF
-!pip install pyLDAvis
+#!pip install pyLDAvis
 import pyLDAvis
 from pyLDAvis import sklearn as sklearn_lda
 import re
 
-!wget https://github.com/cardel/tgIITulua/raw/main/datosTG.xlsx
+#!wget https://github.com/cardel/tgIITulua/raw/main/datosTG.xlsx
 
 data = pd.read_excel("datosTG.xlsx")
 
 data.head()
 
-!wget https://github.com/cardel/tgIITulua/raw/main/textos.zip
-!unzip textos.zip
+#!wget https://github.com/cardel/tgIITulua/raw/main/textos.zip
+#!unzip textos.zip
 
 #Remove the unecessary columns
 dataset = data.drop(columns=['CATEGORÍA', 'CATEGORIA REVISA', 'PALABRAS CLAVE'], axis=1)

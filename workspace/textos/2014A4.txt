@@ -1,0 +1,5237 @@
+ESTIMACIÓN DE MOVIMIENTO CON CODIFICACIÓN
+LOOK-AHEAD EN HEVC USANDO PROGRAMACIÓN
+PARALELA
+
+AUGUSTO GÓMEZ VINASCO
+
+JHON EDINSON PEREA
+
+ 
+
+Universidad
+del Valle
+
+ 
+
+Escuela de Ingeniería de Sistemas y Computación
+Facultad de Ingeniería
+
+Universidad del Valle
+
+Septiembre 2015Augusto Gómez Vinasco, Jhon Edinson Perea: Estimación de Movimiento con codificación Lookahead en HEVC usando Programación Paralela, (C) Septiembre 2015
+
+Directora: María Patricia Trujillo, Ph.D.ABSTRACT
+
+ 
+
+In efforts to maximise video compression, the groups of standardisation ITU-T Video Coding
+Experts Group (VCEG) and the ISO/IEC Moving Picture Experts Group (MPEG) developed the
+recommendation H.265 also known as High Efficiency Video Coding (HEVC). They have
+managed to increase coding efficiency, while preserving video quality with lower bit rate
+compared previous standards such as the H.264/AVC. Motion estimation is the most time
+consuming task in a video coder. In the HEVC case, the motion estimation requires between
+77%-81 % of the total encoding time. Moreover, the use of CU neighbours generates data
+dependency; and the selection process for predicting motion vectors involves flow control
+statements (if, for, while), which cause divergence problems (different execution paths). A
+motion estimation model using parallel programming with OpenCL framework is presented
+in this final career project. The model is based on three main processes: 1) calculate distortion
+measurement using 4X4 blocks; 2) acumulate distortion measurement; 3) compare and obtain
+minimum distortion measurement; The construction of the motion vectors is based on the
+minimum distortion measure. Distortion measurements and motion vectors obtained are
+stored in 3 dimensional array to use them in the encoder process. This model is able to reduce
+the computational time in 52.5 % regarding to the HM, increasing the bit-rate in 2.044 % and
+PSNR -0.062 %, using Bjentegaard Delta as a metric.
+
+111“S1 he visto más lejos
+es porque estoy sentado
+
+sobre los hombros de gigantes.”
+- Isaac Newton
+
+AGRADECIMIENTOS
+
+ 
+
+Queremos agradecer a todos los gigantes que nos han servido de apoyo para que cada vez
+podamos ver aún más lejos, hacia ese gran horizonte que es el conocimiento.
+
+A nuestros padres y hermanos que nos han acompañado en este trayecto y nos han servido
+refugio en momentos díficiles.
+
+También queremos agradecer a nuestra directora de trabajo de grado, la profe María Patricia
+Trujillo, que nos recibió en su laboratorio y gracias a sus aportes y conocimiento obtuvimos
+las herramientas necesarias para realizar este proyecto.
+
+Agradecemos a nuestros compañeros del MMV-Lab, ya que sus consejos fueron de gran
+ayuda.
+
+1vÍNDICE GENERAL
+
+ 
+
+1. INTRODUCCIÓN 1
+1.1. Descripción General ..........o ooo... 1
+1.2. Problema ......... 2
+
+1.2.1. Descripción del Problema ............. o... o... ....... 2
+1.2.2. Formulación del Problema ............ o... ... e... ... 4
+Ls OIBJELIVOS <<< «0... .<<000 muaa sas ss 4
+1.3.1. Objetivo General .......... o... o... ... . . . . . 0. e... .o. 4
+1.3.2. Objetivos ESpecÍficOS .................... .......... 4
+DA. Justificación ...... 5
+LD Alcance 6
+
+2. MARCO CONCEPTUAL 7
+2.1. Conceptos Básicos de video digital .................... o... ... 7
+2.2. Codificación de Video ........... e... 8
+2.3. Compensación de MOVIMiento ........ e... 8
+2.4. Programación Paralela ............... o... o. e... e... .... 12
+
+3. HIGH EFFICIENCY VIDEO CODING (HEVC) 43
+3.1. Coding Tree Unit .............. 14
+3.2. Predicción Inter-Frame ........ 14
+
+3.2.1. Predición Avanzada del Vector de Movimiento .............. 15
+3.2.2. Refinamiento del Vector de MovimientO ........ o... ...... 16
+3.2.3. Modo Merge .......... 17
+3.3. Estimación de movimientoenel HM........... o... e... ... .... 17
+
+4. ESTADO DEL ARTE 19
+4.1. Paralelización en estimación de movimientoen H.264............... 19
+4.2. Paralelización de estimación de movimiento en HEVC .............. 20
+
+5. EVALUACIÓN DE LA CODIFICACIÓN DE VIDEO EN X264 CON CODIFICACIÓN
+LOOK-AHEAD sa
+5.1. Rate-Distortion OptiMizZati0D .......................... e. 23
+5.2. Macroblock-tree algorithm en el Codificador x264 ................. 24
+5.3. Metodología de prueba y configuración experimental ............... 25
+
+5.3.1. Configuración del codificador X264 ....... o... o... ...... 25
+5.3.2. Bjentegaard Delta. .......... o... oo... .. e... . ..... 25
+5.3.3. Reducción del tieMpO ..................... e... 27
+5.4. Resultados Experimentales ........... o... o... .... e... . .. 27
+
+6. ESTIMACIÓN DE MOVIMIENTO EN HEVC USANDO PROGRAMACIÓN PARALELA 31
+6.1. Modelo de Estimación de movimiento con Programación Paralela ....... 32
+6.2. Estimación de movimiento con Programación Paralela en OpenCL ....... 33
+
+6.2.1. Cálculo de las medidas de distorsión .......... o... ....... 34ÍNDICE GENERAL
+
+6.2.2. Acumulación de las medidas de distorsión ................. 35
+
+6.2.3. Cálculo de las medidas de distorsión MíniMaS ............... 37
+
+6.3. Implementación del modelo de programación paralela enel HIM ........ 38
+
+7. PRUEBAS 41
+7.1. Metodolgía de Pruebas... ................... e... 41
+7.1.1. Secuencias de Video ............ e... 41
+
+7.1.2. Métricas de evaluación . ................ e... 41
+
+7.1.3. Configuración del codificad0r ......... o... o... ....... 42
+
+7.2. Resultados Experimentales .......... o... .. e... . . +... e... 43
+
+$. CONCLUSIONES A5
+BI. Conclusiones... 45
+8.2. Sugerencias para Trabajo Futuro ........ o... oo... o... e... ... 45
+
+A. RESULTADOS DE LA EVALUACIÓN DEL MÓDULO LOOK-AHEAD EN X264 46
+B. RESULTADOS DE LA EVALUACIÓN DEL HEVC MODEL (HM) CON OPENCL 54
+BIBLIOGRAFÍA 56
+
+viÍNDICE DE FIGURAS
+
+ 
+
+NY PI DY P2YNA
+
+HOR ja
+N -Po
+
+hARARpRAA
+Sl A
+
+RH A
+2 N
+
+NH,
+O 0
+
+NN
+N Pp
+
+N NN
+e
+
+26.
+27.
+28.
+29.
+30.
+
+31.
+
+Posiciones de candidatos espaciales y temporales en el AMVP......
+Tiempo de ejecución de cada herramienta en HEVC ...........
+Crecimiento del tráfico de video en internet. ...............
+Submuestreo de Color ......... o... oo... e... e... ...
+Diagrama de bloques de un codificador .......... oo... ...
+Estimación de movimiento con block-matching. .............
+Algoritmos de búsqueda de block-matching_ ...............
+Diagrama de bloques del HEVE .........o.o.. o... oo oo...
+Ejemplo de partición del Coding Tree Unit ..........o o... o...
+Diagrama de bloques de la predicción inter-frame en HEVC ......
+Predictor del vector de MOViMientO ........o.o.o ooo... o...
+Ejemplo de la aplicación del modo Merge .........o ooo ooo.
+Diagrama de Clases Simplificado del HEVC ...............
+Proceso de evaluación del modo de codificación en el HEVC......
+Herramientas de paralelización incluidas en el HEVC ..........
+Patrón de búsqueda de diamante desgastadO ...............
+Codificación con módulo look-ahead . .........o.o.o oo ooo coo.
+Curvas de Rate-Distortion de algunas secuencia de vide0........
+Cálculo de la SAD recursivamente ....... o... oo... o... ..
+Work-item agrupados en Work-gr0UpS . ......o.o.o.o.o ooo oo...
+Cálculo de SAD para bloques de 4x4enunCTU .............
+Cálculo de SAD para bloques de mayor tamañO .............
+Cálculo de SAD para bloques de 4x4enunCTU .............
+Diagrama de flujo de trabajo del modelo propuesto ...........
+Arreglo 3D para almacenar los vectores de movimiento y las medidas
+dle distorsión ........
+Diagrama de clases del HM con OpenCL .....o.o.. ooo ooo...
+Estructura del grupo de imágenes para el HEVC Test Model (HM)
+
+Curvas de Rate-Distortion de los videos PeopleOnStreet y Kimono . .
+Curvas de Rate-Distortion de las secuencias de video codificadas con
+AMD A1o-5750M Dual Graphics 8650G+8670M .......o...o.o..
+Curvas de Rate-Distortion de las secuencias de video codificadas con
+Intel Core 17 and GeForce 840M o... o... o... e... e...
+Curvas de Rate-Distortion de las secuencias de video codificadas con
+Intel Core 17 and GeForce 840M o... o... o... .. .... ..
+
+vii
+
+O 0NI UY 0
+
+11
+
+40
+40
+42
+43ÍNDICE DE CUADROS
+
+ 
+
+N
+
+NY PRI AU PY
+
+10.
+11.
+12.
+13.
+14.
+15.
+16.
+
+17.
+
+18.
+
+19.
+
+Ahorro promedio de tasa de bits para PSNR iguales para aplicaciones
+IMÉELACINOS » . . .<.....«.... «0... ... a. 2.6622 soso
+Coeficientes del filtro de interpolación luma y del filtro de interpolaÓN Chroma .....
+Configuración del x264 ....... o... oo... o... e... ....
+Secuencias de video de prueba ........ o... oo... ......
+Características de los equipoOS ......... o... o... .. .....
+Resultados del Bjentegaard Delta PSNR representados en porcentaje .
+Reducción de tiempo para todas las configuraciones. ..........
+Tamaños de los CUenunCTÚU ........o.ooooooocooo oo...
+Índices de las SADS en el arreglo de resultados . .............
+Buffers para la estimación de movimiento con OpenCL .........
+Secuencias de video de prueba ........ o... o... o... ....
+Configuración del software HIM. ......... o... ooo... ...
+Características del equipo para Pruebas conel HIM... .........
+Reducción de tiempo para todas las configuraciones. ..........
+Tiempo de codificación en Segundos ...... o... ooo... ...
+Resultados de PSNR y tasa de bits para secuencias de video codificadas con AMD A1o-5750M Dual Graphics 8650G+8670M ........
+Resultados de PSNR y tasa de bits para secuencias de video codificadas con Intel Core i7 and GeForce 840M ......o.. o... o... ...
+Resultados de PSNR y tasa de bits para secuencias de video codificadas con Intel Core i7 and GeForce 840M .......o.. oo... o...
+Tiempos de codificación en Segundos .......o.o.o ooo... o...
+
+viilACRÓNIMOS
+
+ 
+
+AMVP Predicción Avanzada del Vector de Movimiento
+CTB_ Coding Tree Block
+
+CTU Coding Tree Unit
+
+CU Coding Unit
+
+IME Estimación de Movimiento Entera
+
+FME Estimación de Movimiento Fraccional
+
+FS Full Search
+
+GOP Grupo de Imagenes
+
+GPU Graphics Processing Unit
+
+HEVC High Efficiency Video Coding
+
+HM  HEVC Test Model
+
+MBTA Macroblock-Tree Algorithm
+
+MC Compensación de Movimiento
+
+ME Estimación de Movimiento
+
+MSE Mean Squared Error
+
+MVP Predictor del vector de movimiento
+
+PU  Prediction Unit
+
+PSNR Peak Signal-to-Noise Ratio
+
+RDO Rate-Distortion Optimisation
+
+RSAD Suma de Diferencias Absolutas Recursivas
+SAD Suma de Diferencias Absolutas
+
+SATD Suma Absoluta de Diferencias Transformadas
+
+TR Reducción de Tiempo
+
+1XxINTRODUCCIÓN
+
+ 
+
+1.1 DESCRIPCIÓN GENERAL
+
+Actualmente los dispositivos de video capturan una gran cantidad de información de alguna escena del mundo real para procesarlos en sistemas de cómputo. A medida que aumenta
+la cantidad de información, se desarrollan técnicas de compresión para representar la información del video en la menor cantidad de bits posibles y facilitar su almacenamiento y
+transmisión. En los esfuerzos para maximizar la compresión de video, los grupos de estanzadización ITU-T Video Coding Experts Group (VCEG)' en conjunto con la ISO/IEC Moving
+Picture Experts Group (MPEG)* desarrollaron la recomendación H.265, conocida como High
+Efficiency Video Coding (HEVC) 3, que ha permitido incrementar la eficiencia de codificación,
+
+conservando la calidad de video con una menor tasa de bits, en comparación con estándares
+anteriores [1] como el H.264/AVC, el H.263/CHC, el MPEG-4 ASP y el MPEG-2 H.262 MP,
+como lo indica el cuadro 1.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+e Ahorro de Tasa de Bits en relación a:
+Codificador
+H.264/MPEG-4 AVC | H.263/CHC | MPEG-4 ASP | MPEG-2/H.262 MP
+HEVC/H.265 40.3 % 67.9 % 72.3 % 80.1%
+H.264/MPEG-4 AVC HP - 46.8 % 54.1% 67.0 %
+H.263 CHC - - 13.2% 37.4 %
+MPEG-4 ASP - - - 27.8%
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cuadro 1: Ahorro promedio de tasa de bits para PSNR iguales para aplicaciones interactivas. Fuente:
+Comparison of the Coding Efficiency of Video Coding Standards [1] - (Cuadro V)
+
+Uno de los enfoques del estándar HEVC es incrementar el uso de la arquitectura de procesamiento en paralelo [2] para optimizar el proceso de codificación, ya que los procesos
+utilizados en el estándar aumentan el costo computacional. Para facilitar el uso de programación paralela, el HEVC cuenta con herramientas de codificación como Wavefronts Parallel
+Processing, Tiles y Slices.
+
+Por otra parte, las arquitecturas de procesamiento en paralelo se han convertido en una
+herramienta importante para la solución de problemas computacionales. El avance de la in
+ 
+
+1 ITU-T: — International Telecommunication Union  -  Telecommunication  Stamdardization Sector
+(http: / /www.itu.int/en /TTU-T /studygroups/com16/video / Pages /default.aspx)
+
+2 ISO/IEC: International Organization for Standardization/International Electrotechnical Commission
+(http: / /www.mpeg.org/)
+
+3 http: / /hevc.hhi.fraunhofer.de1.2 PROBLEMA
+
+dustria de procesadores, con el desarrollo de Graphics Processing Unit (GPU)s y procesadores
+multicores, ha permitido usar hardware de arquitectura paralela en campos diferentes a la generación de gráficos por computador, como la codificación de video.
+
+En esta propuesta se aborda el problema del alto tiempo computacional que requiere el
+estándar de codificación de video HEVC y se propone una solución utilizando programación
+paralela. Para llevar a cabo esta propuesta se utilizó una metodología de investigación cuantitativa, donde se realizaron pruebas para verificar si la solución propuesta cumple con los
+objetivos planteados.
+
+1.2 PROBLEMA
+1.2.1 Descripción del Problema
+
+La variedad de servicios de video (e.g., video conferencia, streaming, transmisión de videos, broadcasting) y los formatos de video en alta definición (e.g., HD video, 4k, Ultra HD,
+8k) se han incrementado; con estos nuevos desarrollos aumentan las demandas en el procesamiento de video - principalmente en la codificación de video - para reducir la tasa de bits
+que se necesitan para presentar el contenido de un video con un buen nivel de calidad y
+poder transmitirlo o almacenarlo con mayor facilidad.
+
+Como respuesta a las actuales demandas en la codificación de video, se desarrolló el estándar H.265/HEVC, que ha logrado incrementar la eficiencia de codificación en comparación
+con estándares anteriores [1]. Con este estándar se ha logrado aumentar significativemente la
+capacidad de compresión de video mediante el uso de estrategias y técnicas de codificación
+(e.g., predicción intra-frame, Coding Tree Unit (CTU), codificación bipredictiva, entre otras).
+Una de las técnicas usadas por el estándar HEVC es la predicción inter-frame, la cual brinda
+un aporte sustancial a la compresión de video aprovechando la redundancia temporal entre
+frames consecutivos.
+
+La predicción inter-frame en el estándar HEVC se basa en la técnica de estimación de movimiento, donde cada frame se divide en bloques y por cada bloque en el frame actual se
+realiza una búsqueda en un frame de referencia para encontrar el bloque que mejor coincida
+(best match) basado en una medida de distorsión. La diferencia de la posición del bloque en
+el frame actual y el de referencia se representa mediante un vector de movimiento [3]. A
+diferencia de los estándares de codificación de video anteriores, el estándar HEVC ofrece la
+opción de dividir un frame en particiones de diferentes tamaños, llamados CTU. Los CTUs
+pueden ser divididos en Coding Unit (CU) y estos a su vez pueden ser divididos en Prediction
+Unit (PU) basados en una estructura quad-tree[4].
+
+El estándar HEVC usa el concepto de Rate-Distortion Optimisation (RDO) para la estimación
+de movimiento (RDO ME) [5] donde se tienen en cuenta la tasa de bits y la distorsión para
+calcular el best match. En la RDO ME se utiliza la técnica de la Predicción Avanzada del Vector1.2 PROBLEMA
+
+de Movimiento (AMVP), en la cual se construye una lista de vectores candidatos mediante la
+información de los vectores de movimiento de los PUs vecinos en el frame actual (candidatos
+espaciales) y en frames anteriores (candidatos temporales). La evaluación de los PUs vecinos
+se realiza en el orden Ay, A1,Bo,B1,B2,C€ y H como se ilustra en la figura 1. Para seleccionar
+cual será la predicción del vector de movimiento, se hace un chequeo de redundancia para
+eliminar candidatos repetidos y basado en el costo del Rate-Distortion se escoge el candidato
+de menor costo en la lista construída en el AMVP [6].
+
+Current PL
+
+ 
+
+Figura 1: Posiciones de candidatos espaciales y temporales en el AMVP. Fuente: Low-complexity merge
+candidate decision for fast HEVC encoding [7] - (figura 1)
+
+Los procesos realizados en la estimación de movimiento como la búsqueda de bloques
+coincidentes, el cálculo de las medidas de distorsión y la flexibilidad en el tamaño de los
+bloques, requieren un mayor ancho de banda de memoria y se deben realizar una gran cantidad de operaciones de multiplicación-acumulación, tomando alrededor de más de la mitad
+del tiempo de codificación [8, 9] y aumentando dramáticamente el tiempo computacional
+del codificador. En la figura 2 se observa que para realizar la estimación de movimiento se
+requiere entre un 77% y 81% del tiempo total de codificación en comparación con otras herramientas de codificación como la prediccion intraframe que consume entre un 1% y 2% y
+la codificacion de entropía que consume un 2% y 4% del tiempo total de codificación, entre
+otros.
+
+Además del alto consumo de tiempo en la codificación de la estimación de movimiento, el
+uso de de los CUs vecinos genera una fuerte dependencia de datos y el proceso de selección
+en la predicción de los vectores de movimiento involucra sentencias de control de flujo (if, for,
+while), las cuales causan problemas de divergencia (diferentes rutas de ejecución). Estas características dificultan el uso de hardware paralelo para mejorar el rendimiento en la estimación
+de movimiento [11].1.3 OBJETIVOS
+
+s Inter Prediction
+
+Transform (TNO)
+Quantization
+
+Entropy
+Coding (EC)
+
+a intra prediction
+sz Loop filter (LF)
+
+ 
+
+Figura 2: Tiempo de ejecución de cada herramienta en el estándar HEVC. Fuente: A novel fast and lowcomplexity Motion Estimation for UHD HEVC [10] - (figura 1)
+
+1.2.2 Formulación del Problema
+
+¿Cómo incrementar el rendimiento computacional de la estimación de movimiento en el
+estándar HEVC?
+
+1.3. OBJETIVOS
+1.3.1 Objetivo General
+
+Incrementar el rendimiento computacional en la estimación de movimiento en el estándar
+HEVC usando codificación look-ahead con programación paralela.
+
+1.3.2 Objetivos Específicos
+
+1. Modelar el proceso de estimación de movimiento con codificación look-ahead en un
+framework de programación paralela.
+
+2. Determinar el nivel, estructura y arquitectura de paralelización.
+
+3. Implementar el modelo de estimación de movimiento con codificación look-ahead con
+programación paralela basado el software de referencia del HEVC(HM).
+
+4. Probar el modelo implementado con secuencia de videos y criterios de evaluación establecidos.1.4 JUSTIFICACIÓN
+
+1.4 JUSTIFICACIÓN
+
+Con el paso del tiempo se ha mejorado la calidad de video gracias al avance en las tecnologías de captura y visualización de imágenes. Con estas mejoras se ha aumentado el uso de
+plataformas multimedias que han motivado el desarrollo de una gran cantidad de servicios,
+formatos y dispositivos que utilizan video tales como Streaming, Video Conferencia, alojamiento de video, tablets PC, dispositivos móviles entre otros. En la figura 3 se puede observar
+que el crecimiento del tráfico de video será el doble en 4 años. Además las tecnologías de
+video de próxima generación están apuntando a aumentar la resolución de video con formatos de Ultra High Definition(UHD) [12] como el 4k (3840 x 2160px) y el 8k (7680 x 4320 px).
+Debido a estos avances en las tecnologías de video, también aumentan los requerimientos en
+los codificadores de video, con el fin de que en el momento de transmitir o almacenar un
+video se utilicen pocos bits y se conserve un buena calidad de la imagen.
+
+EB
+
+42
+E
+
+2014 2015 2016 2017
+Ml Video - Customer | Video - Business
+
+84
+
+ 
+
+Figura 3: Crecimiento del tráfico de video en internet en Exabytes (EB). Fuente: http://ciscovni.com/forecastwidget/wizard.html
+
+El estándar HEVC surge para atender las necesidades en la codificación de video, ofreciendo grandes beneficios de compresión de video con la reducción significativa en las tasa de bits
+[1] pero con un aumento significativo del costo computacional. El alto costo computacional
+del codificador puede hacer que la industria adopte el estándar con lentitud, especialmente
+en aplicaciones que requieren codificación de video en tiempo real [8]. Debido al alto costo
+computacional, el uso de arquitecturas paralelas no es una opción sino una necesidad [13],
+pero se debe usar programación paralela para aprovechar el hardware al máximo, ya que
+el hardware no puede decidir cuando es mejor paralelizar un algoritmo. Con la mezcla de
+hardware y software se puede reducir el tiempo computacional del codificador para que pueda ser usado en aplicaciones de alto rendimiento como video en tiempo-real y se pueda ir
+adaptando a las tecnologías futuras de visualización en altas resoluciones.1.5 ALCANCE
+
+1.5 ALCANCE
+
+La elaboración del proyecto se centra en la reducción del tiempo computacional en el proceso de estimación de movimiento del codificador de video HEVC mediante programación
+paralela haciendo uso de GPU como hardware de arquitectura paralela. El codificador de
+video consta de dos aplicaciones principales: una encargada de codificar (encoder) y otra encargada de decodificar (decoder). El proyecto se enfoca solamente en el proceso de estimación
+de movimiento en la parte del codificador.
+
+El objetivo principal del proyecto es desarrollar una estrategia para reducir el tiempo
+computacional del codificador usando programación paralela, por esta razón el resultado
+final del proyecto no es un producto de software, sino un módulo integrado al modelo de
+referencia del HEVC, conocido como HEVC Test Model (HM). El HM contiene todas las características y herramientas del estándar H.265 y está implementado en C++, por lo tanto
+el módulo también esta implementado en C++, acompañado del framework OpenCL que se
+encarga de conectar el lenguaje de programación y las instrucciones de la GPU. El prototipo
+tiene como entrada el video a codificar y un archivo de configuración y como salida el video
+codificado.
+
+En la fase de pruebas se evaluarán tres criterios principales: el tiempo de ejecución del
+proceso de codificación del video, la calidad objetiva del video con respecto al proceso de
+codificación y la tasa de bits necesaria para representar el video codificado.MARCO CONCEPTUAL
+
+ 
+
+2.1 CONCEPTOS BÁSICOS DE VIDEO DIGITAL
+
+El video es una señal generada por un dispositivo que escanea una escena en movimiento
+de dos dimensiones y la convierte en señal eléctrica uni-dimensional [14]. Una escena en movimiento es una colección de imágenes o frames individuales y cada imagen está representada
+por una matriz compuesta de pixeles o muestras (samples). El tamaño de la matriz indica la
+resolución de la imagen. El espacio de color RGB es el modelo usado para la representación
+de imágenes en computador, donde cada píxel esta formado por la adición de intensidades
+de un componente rojo, un componente verde y un componente azul. La intensidad de cada
+componente está dada por la cantidad de bits que se usan para representar cada componente.
+Generalmente se usan 8 bits de profundidad (256 valores de intensidad) por componente y
+24 bits para representar un píxel. Sin embargo, el sistema visual humano es más sensible a la
+luz (componente de luminancia (luma)) que al color (componente de crominancia (chroma)),
+debido a esto los estándares de codificación utilizan modelos con los componentes de luminancia y color separados, como es el caso del espacio de color YC C, donde cada píxel o
+sample se forma por un componente de luminancia Y, un componente de color azul Cy y uno
+de color rojo C,. La gran ventaja del modelo YC; C, es separar la luminancia del color para
+utilizar submuestreo del color, que consiste en reducir la cantidad de bits que representan
+los componentes de color respecto a los componentes de luminancia como lo indica la figura
+
+4.
+
+0000 JdRoDO
+eo e. $ $18 Y) € FO OOO
+o 01... ae Je OOOO
+o. 08)/V80e A005O0
+
+(a) 4:4:4 (b) 4:2:2 (c) 4:2:0
+
+  
+  
+  
+ 
+
+  
+  
+  
+ 
+
+Figura 4: Submuestro de color - los circulos blancos indican el componente luma y los negros el
+componente chroma Fuente: http://lea.hamradio.si/ s51kq/subsample.gif2.2 CODIFICACIÓN DE VIDEO
+
+2.2 CODIFICACIÓN DE VIDEO
+
+Uno de los grandes problemas de los archivos de video sin modificación (formato RAW)
+ha sido el almacenamiento y la transmisión debido a la gran cantidad de bits que contienen,
+por esto se requiere la utilización de técnicas de compresión para reducir la cantidad de bits
+para representar un video. La codificación de video aprovecha la eliminación de tres tipos
+de redundancia que contiene una señal de video: la estadística, la psicovisual y la redundancia en el código [3]. La redundancia estadística se refiere a correlación espacial (predicción
+intra-frame) y temporal (predicción inter-frame) de los pixeles vecinos en una imagen. La redundancia psicovisual se debe a las limitaciones y características del sistema visual humano
+que no distingue cierta información. La redundancia de código se produce por la repetición
+de los símbolos que representan la información del video.
+
+Los codificadores de video generalmente cuentan con tres elementos principales, que por
+medio de técnicas y herramientas como la estimación de movimiento, pueden explorar las
+redundancias anteriormente mencionadas. El predictor se encarga de transformar la representación de la información para reducir las redundancias estadísticas. El cuantizador reduce
+la exactitud de las representaciones del predictor mediante un criterio de fidelidad para reducir la redundancia psicovisual. Por último, un codificador de entropía se encarga de reducir
+la cantidad de símbolos que se usan para representar el video. La figura 5 muestra los elementos que componen un codificador de video.
+
+entrada codificador
+—> de entropía
+EN
+
+  
+
+predictor
+
+  
+
+Figura 5: Diagrama de bloques de un codificador. Fuente: Standard Codecs: Image compression to advanced
+video coding [] - figura 3.1
+
+2.3 COMPENSACIÓN DE MOVIMIENTO
+
+La Compensación de Movimiento (MC) es una técnica usada para reducir la cantidad de
+bits necesarios para representar un video por medio de la eliminación de la redundancia
+estadística temporal entre imágenes o frames consecutivos. Los cambios en las imágenes que
+se producen por el movimiento pueden ser estimados, y esta diferencia es tomada para construir una imagen con compensación de movimiento.2.3 COMPENSACIÓN DE MOVIMIENTO
+
+Para poder realizar la compensación, primero se debe estimar el movimiento que existe
+entre un frame de referencia y un frame actual, este proceso es llamado Estimación de Movimiento (ME). Para la búsqueda de movimiento, el enfoque más usado es la estimación de
+movimiento basada en bloques y es conocido como algoritmo block-matching (BMA). En
+este método, cada frame de tamaño W x H se divide en bloques de tamaño cuadrados b x
+b sin superponerlos. Para cada bloque del frame actual a codificar, se realiza una búsqueda
+sobre un área o ventana definida para encontrar el bloque que mejor coincide (best match)
+en un frame de referencia, basados en una medida de distorsión (BMD). El desplazamiento
+entre el bloque actual y el best match en el frame de referencia es representado por medio de
+un vector de movimiento (MV). Todos los píxeles dentro del bloque tendrán el mismo MV.
+En la figura 6 se puede ver el funcionamiento del algoritmo block-matching.
+
+Retenence Ireme
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
++= — q = y " y a
+
+Currert frame di
+
+ 
+
+Time
+
+ 
+
+Figura 6: Estimación de movimiento con block-matching. Fuente: Motion Estimation Techniques for Digital
+Video Coding - (figura 2.1)
+
+En el BMA se debe tener en cuenta el tamaño del bloque, el máximo desplazamiento
+permitido y la medida de distorsión, dado que estos parámetros afectan la exactitud y el rendimiento del BMA. Respecto al tamaño del bloque, en un bloque pequeño es menos probable
+que existan varios elementos con diferentes direcciones de movimiento mejorando la exactitud, pero habrá una mayor cantidad de bloques por frame afectando el rendimiento. El rango
+de búsqueda “w” determina el desplazamiento permitido, con un w pequeño la compensación
+de movimiento será de baja calidad ya que no tiene en cuenta movimientos rápidos. Con un
+w grande mejora la calidad de predicción pero se aumenta el costo computacional ya que
+hay más bloques candidatos para encontrar el best match.2.3 COMPENSACIÓN DE MOVIMIENTO
+
+Para calcular el MV óptimo (u,v), se buscan los valores que minimizan la función BMD.
+Para esto se asume que F¿ es el frame actual, Fr es el frame de referencia y que F(x,y) es
+la función que indica la intensidad del píxel en la posición (x,y). Cada bloque candidato se
+encuentra en la posición (x + Wwx,y + Wy) dentro de la ventana de búsqueda. Existen varios
+criterios de coincidencia de bloques, entre los más populares están:
+
+Mean Square Error (MSE)
+
+El desplazamiento (wx,wy) de un bloque respecto a un frame de referencias es dado por:
+
+ 
+
+M-— _
+MSE(w,,wy) = yy En r(1+wx,] | + wy)]?. (1)
+
+Esta medida usa operaciones de resta, multiplicación y suma lo que la hace una medida
+compleja computacionalmente principalmente por las operaciones de elevar al cuadrado.
+
+Sum of Absolut Diference (SAD)
+
+El desplazamiento (wx,wy) de un bloque respecto a un frame de referencias es dado por:
+
+x+M-1y+N-—1
+SAD(wx,Wy) 22 2" F(1 4 wx,] + wy)!. (2)
+
+La ausencia de operaciones de multiplicación hacen que esta medida tenga un menor costo
+computacional a diferencia de la MSE.
+
+En base a estas medidas, el vector de movimiento es determinado por:
+
+(u, v) = min BMD(wx,wy). (3)
+
+—WS<Wx,Wy <+W
+
+Para la búsqueda en el BMA, uno de los algoritmos usados es el Full Search (FS), que
+examina todas las posiciones para asegurar que se obtendrá la posición del mejor bloque
+coincidente. El FS tiene altos requerimientos computacionales debido a la búsqueda intensiva que realiza, por eso se han revisado otras estrategias que reduzcan el costo computacional
+de la búsqueda. Las estrategias para reducir el costo se basan en el principio que indica que
+la función de dispersión se incrementa monotónicamente cuando se aleja del best-match [15].
+Con este principio se pueden reducir la cantidad de puntos de búsqueda. Entre los algoritmos de búsqueda más populares están: Three-Step Search (I'SS), Four-Step Search (455),
+
+102.3 COMPENSACIÓN DE MOVIMIENTO
+
+Diamond Search (DS), Hexagonal Block Search (HexBS), Multi-Directional Gradient Descent
+Search (MDGDS), descritos brevemente en [16], y Orthogonal Logarithmic Search (OLS) descrito en [17].
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+E)
+E)
+E)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+(d) Hexagonal Block Search (e) Multi-directional Gradient Des-  (f) Orthogonal Logarithmic Search
+cent Search
+
+Figura 7: Algoritmos de búsqueda de block-matching. El círculo con el número (0), indica la posición
+del bloque central inicial, el número en cada círculo, indica la etapa de la búsqueda, el círculo
+con contorno resaltado, indican el mejor bloque en esa etapa y el círculo con relleno, indica
+el best match del algoritmo. Fuente: A Comparison of Block-Matching Motion Estimation Algorithms
+
+En el TSS se evalúa la distorsión en el bloque central y los ocho bloques alrededor a una
+distancia inicial en píxeles. El mejor candidato es tomado como el nuevo centro de búsqueda
+y se evalúa con los ocho bloques alrededor, a la mitad de la distancia inicial. Se repite hasta
+que la distancia sea igual a uno, como se observa en la figura 7(a). EL 458 evalúa la distorsión
+en el bloque central y los ocho bloques alrededor a una distancia de dos píxeles. Se selecciona el mejor candidato como nuevo bloque central y se repite el paso anterior. Finalmente el
+nuevo mejor candidato y los ocho bloques alrededor con una distancia de un píxel se usan
+para entrar el mejor bloque, como se observa en la figura 7(b). El DS sigue los mismos pasos
+que en el 4SS pero los ocho bloques alrededor se toman en forma de diamante y al final
+
+112.4 PROGRAMACIÓN PARALELA
+
+solo se evalúan cuatro bloques en lugar de ocho, como indica la figura 7(c). El HexBS usa la
+misma estrategia que el 4SS con la diferencia que selecciona seis bloques en forma hexagonal
+alrededor del bloque central. Al final se evalúan cuatro bloques alrededor en forma de cruz
+a una distancia de un píxel, como se observa en la figura 7(d). El MDGDS comienza con la
+evaluación de la distosión en un bloque central y luego revisa todas las direcciones alrededor,
+haciendo un recorrido recto sólo si en esa dirección se reduce la distorsión, de lo contrario
+se detiene y busca otra dirección. El algoritmo se detiene cuando no hay reducción de la
+distorsión en ninguna dirección, como muestra la figura 7(d). En el OLS se elige el bloque
+central y se evalúa la distorsión en dos bloques en dirección horizontal al bloque central y
+que se encuentren a una distancia inicial. Se escoge el mejor candidato y este será el nuevo
+bloque central y se evaluarán dos bloques en dirección vertical al nuevo bloque central que
+se encuentren a la misma distancia inicial. Después se repiten estos pasos reduciendo la distancia a la mitad y cuando la distancia sea uno, se evalúan los cuatro bloques, este proceso
+se muetra en la figura 7(e).
+
+2.4 PROGRAMACIÓN PARALELA [18]
+
+La programación paralela consiste en el uso de varias unidades de procesamiento trabajando sincronizadas en la ejecución de procesos o tareas concurrentemente para optimizar
+el rendimiento y mejorar el tiempo computacional. Para diseñar un algoritmo paralelo se
+debe dividir la aplicación en muchas partes llamadas tareas para que puedan ser procesadas
+por unidades de procesamiento (cores) de un hardware paralelo multi-core (entre 2 - 8 cores)
+o many-core (decenas y cientos de cores). El tamaño de una tarea cuando se descompone es
+llamado granuralidad y se tiene la opción de dividir una tarea en varios tamaños. Al momento de codificar una tarea en un lenguaje de programación o un sistema operativo son
+asignadas a un proceso o un thread, este proceso es conocido como scheduling(programación)
+y allí se fijá el orden de ejecución de las tareas. Los procesos y threads se encargan de asignar
+las tareas a unidades de computación física (procesadores o cores) para que sean procesadas,
+este proceso es llamado mapping(mapeo). Por lo general las tareas tienen dependencias entre
+ellas, debido a esto en la programación paralela debe haber sincronización de procesos y
+threads para que puedan intercambiar información entre ellos y funcione correctamente el
+algoritmo. La sincronización depende de la organización de la memoria del hardware. Los
+dispositivos paralelos usan una memoria llamada shared memory(memoria compartida) o global memory(memoria global). Los accesos a la memoria son un factor clave para el rendimiento
+de una aplicación, por esto se usan cachés y registros entre la unidad de procesamiento y la
+memoria global. Las cachés son memorias pequeñas y rápidas y guardan información que
+usa el procesador con mayor frecuencia. Algunos frameworks de programación paralela como Computed Unified Device Architecture(CUDA) y Open Computing Lenguage(OpenCL) usan
+kernels que son un flujo de instrucciones que se ejecutan en un hardware paralelo. Cuando el
+kernel se ejecuta, cada instancia se llama work-item y pueden ser organizados en work-groups,
+esto proporciona una granuralidad más gruesa.
+
+12HIGH EFFICIENCY VIDEO CODING (HEVC)
+
+ 
+
+El HEVC, también conocido como recomendación H.265, es un estándar de codificación
+de video que ha sido desarrollado por las organizaciones ITU-T Video Coding Experts Group
+(VCEG) y el ISO/IEC Moving Picture Experts Group (MPEG). El HEVC recoge cuatro décadas
+de investigación en codificación de video [19] y se desarrolló para manejar todas las aplicaciones del estándar anterior, el H.264/AVC, prestando una atención especial a dos aspectos
+fundamentales: el aumento de la resolución de video y el uso de arquitecturas de procesamiento paralelas. El HEVC sigue el principio de codificador híbrido basado en bloques,
+donde se divide cada frame en bloques y se aplica predicción inter o intra-frame a cada blo
+que. En el diagrama bloques del HEVC - fig. 8 - se pueden observar los tres componentes de
+un codificador: los predictores, el cuantizador y el codificador de entropía.
+
+Mode-, Quadtree
+A A A A »| Encoder Control P----=-=  Motion- and
+
+   
+     
+  
+
+r
+Coding Quadtree | Residual Quadtree ¡Filter Information
+with with ata aaa | NY
+Transtorm Blocks  ! na sl is ;
+” t É
+1041
+
+Coding Blocks
+
+rm
+-..
+
+   
+
+      
+        
+ 
+  
+
+     
+    
+   
+
+Transtorm, Output
+Scaling 4 010110...
+Quantization | Bitstrsam
+pod
+pon a
+Quantized
+Subdivision into Scalino E Transform
+Coding Tree Blocks | pd Inverse Transtorm Coefficients
+A 3
+A ANA j
+! NL/
+intra-Picture i
+Prediction E !
+( in-Loop Filter
+Inter-Picture i
+Bn Prediction Blocks Video Signal
+Video Signal
+
+Motion Estimation
+
+A A O o o A o e a
+
+Decoded Picture Buffer
+
+Figura 8: Diagrama de bloques del HEVC. Fuente: High Efficiency Video Coding (HEVC) - Algorithms and Architectures [19] - figura 3.1
+
+133.1 CODING TREE UNIT
+
+3.1 CODING TREE UNIT
+
+Una de las nuevas características que incluye el HEVC es la capacidad de dividir la imagen
+en Coding Tree Unit CTU. Los CTU reemplazan a los macrobloques del estándar H.264, y son
+la estructura básica de procesamiento para especificar el proceso de codificación. Cada CTU
+contiene un luma Coding Tree Block (CTB) y dos chroma CTBs y gracias a que posee una
+sintaxis quadtree, cada CTU puede tomarse como un CU o puede dividirse recursivamente
+en varios CUs. Los CU son las unidades básicas de codificación interframe e intraframe y
+pueden tener un tamaño máximo de 64x64, para manejar altas resoluciones de video, y
+un tamaño mínimo de 8x8. A su vez, cada CU puede dividirse en PU que forman la base
+de la predicción y a diferencia de los CUs no pueden ser divididos nuevamente. Para la
+predición interframe, cada CU puede divirse en PUs simétricos de las formas 2Nx2N, 2NxN y
+Nx2N, donde N= 1/2(tamaño del CU) y PUs asimétricos de las formas 2NxnUp,2NxnDown,
+nLeftx2N, y nRightx2N, donde n= 1/4(tamaño del CU). La figura 9 indica como es la división
+de un CTU en CUs y PUSs.
+
+Coding Unit Prediction Unit
+(8x8-64x64, only Sqaure type) (2Nx2N - NxN Sgaure, Retangular)
+
+cu | cu
+(16x16) | (16x16)
+
+ 
+
+(a) Particiones de un CTU en CUs (b) Partición de CUs en PUs
+
+Figura 9: Ejemplo de partición de un Coding Tree Unit(CTU) en Coding Units (CU) y partición de un
+Coding Unit en Prediction Unit (PU) (uN indica 1/4 del tamaño del CU). Fuente: A Novel Fast
+and Low-complexity Motion Estimation for UHD HEVC [10] - figura 2
+
+3.2 PREDICCIÓN INTER-FRAME
+
+El estándar HEVC usa la predicción inter-frame para aprovechar la corelación temporal
+entre frames del video por medio de la técnicas de compensación de movimiento, además
+utiliza dos clases de predicción: uni-predicción cuando se seleccionan imágenes de referencia
+pasadas y bi-predicción cuando se seleccionan imágenes de referencia pasadas y futuras.
+Dentro de las nuevas características, el estándar HEVC mejora la predicción y refinamiento
+
+143.2 PREDICCIÓN INTER-FRAME
+
+del vector de movimiento e incluye un modo Merge que permite fusionar bloques. La figura
+10 se presenta el diagrama de bloques del proceso de predicción inter-frame en HEVC.
+
+Indice Merge
+s
+a
+
+  
+ 
+   
+
+Compensación
+Predicción de movimiento
+
+inter-frame list O —
+block merging Refinamiento Compensación
+del vector de de movimiento
+
+movimiento final
+
+Compensación
+de movimiento
+
+Predicción
+avanzada del
+vector de
+
+  
+   
+
+  
+
+”” movimiento Vector movimiento hist 1
+>
+imi RefldX
+Indice MVP 0.1 datos de movimiento
+MVP
+Refldx
+
+Figura 10: Diagrama de bloques de la predicción inter-frame en HEVC. Fuente: High Efficiency Video
+Coding (HEVC) - Algorithms and Architectures [19] - figura 5.2
+
+Los datos del movimiento están altamente correlacionados con la información de los bloques vecinos debido a la posibilidad de que los bloques vecinos pertenezcan a un mismo
+objeto de la imagen y tengan un movimiento similar. Esta característica la explotan el AMVP
+y el block merging. Una vez calculada la información del movimiento se procede a refinarla
+para tener vectores de movimiento con mayor exactitud para realizar uni-predicción o bipredicción de acuerdo a la cantidad de imágenes de referencia que se usen. Por último se
+obtiene la información final de la compensación.
+
+3.2.1 Predición Avanzada del Vector de Movimiento
+
+La predicción del vector de movimiento es usada para ubicar la posible posición del vector
+de movimiento y marcar el punto de inicio del algoritmo de estimación de movimiento. El
+propósito del AMVP es codificar el Predictor del vector de movimiento (MVP) utilizando un
+esquema basado en la competencia de un conjunto de predictores, obtenidos de los PU vecinos [20] que ya se encuentren codificados. La lista de MVPs candidatos esta compuesta de dos
+MVPs espaciales obtenidos de cinco bloques espaciales vecinos y un MVP temporal obtenido
+de dos bloques co-localizados. Como lo indica la figura 11, los cinco bloques espaciales son
+el bloque izquierdo y el inferior-izquierdo (para hallar el MvP A) y el superior-derecho, el
+superior y superior-izquierdo (para hallar el MvP B). El MvP C, se obtiene de los bloques
+temporales co-localizados en la misma posición del bloque actual y el inferior-derecho. Si no
+están disponibles los bloques vecinos espaciales y temporales se usa el vector de movimiento
+cero.
+
+153.2 PREDICCIÓN INTER-FRAME
+
+Bloque Co-localizado
+
+  
+
+(a) Candidatos Temporales (b) Candidatos Espaciales
+
+Figura 11: Predictor del Vector de Movimiento Fuente: High Efficiency Video Coding (HEVC) - Algorithms and
+Architectures [19] - figura 5.4
+
+3.2.2 Refinamiento del Vector de Movimiento
+
+Al momento de capturar un video, el desplazamiento real de los objetos entre imágenes
+es independiente respecto a las cuadrículas de las cámaras. El refinamiento del vector de
+movimiento se usa para obtener una mayor precisión en la captura de movimientos continuos.
+Aplicando un filtro de interpolación, se puede obtener una precisión fraccional de la muestra
+o pixel, basado en la posición entera de la muestra, por esta razón primero se debe realizar
+el proceso de estimación de movimiento. El estándar HEVC soporta vectores de movimiento
+con una precisión un cuarto de pixel para el componente luma y un octavo de pixel para los
+componentes chroma [21], cuando se tiene un submuestreo del color 4:2:0. La interpolación
+para los samples luma se realiza con un filtro 8-tap simétrico para representar un medio
+de pixel y un filtro 7-tap asimétrico para representar un cuarto de pixel, mientras que la
+interpolación para los samples chroma se realiza con un filtro 4-tap. El cuadro 2 indica los
+coeficientes de los filtros luma y los coeficientes de los cuatro filtros 4-tap para los samples
+chroma.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+8-tap y 7-tap 4-tap
+Indexi|-3|-2|-1,0|1]|2 1314 Indexi|-1,|0|1 |2
+1/2 | hfilter | -1| 4 |-11|40|40|-11|4|-1 1/8 | filter1 |-2|58 | 10 | -2
+1/4 | qfilter |-1 4 1-10 58|17 | -5 |1 1/4 | filter2 |-4|54|16 | -2
+
+ 
+
+ 
+
+ 
+
+3/8 | filterz | -6 | 46|28 | -4
+1/2 | filter4 |-4 36 |36 | -4
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cuadro 2: Coeficientes del filtro de interpolación luma y del filtro de interpolación chroma
+
+163.3 ESTIMACIÓN DE MOVIMIENTO EN EL HM
+
+3.2.3 Modo Merge
+
+El Modo Merge o la fusión de bloques, es otra herramienta del estándar HEVC para explotar información de los bloques vecinos. También construye una región de bloques fusionados
+que contienen información de movimiento idéntica [22]. El modo Merge construye una lista
+de candidatos espaciales y temporales como se observa en la figura 11. Aunque la fusión
+de bloques es similar a la AMVP, la AMVP solo contiene la información de los vectores de
+movimiento mientras que la fusión de bloques contiene toda la información de movimiento,
+además incluye candidatos combinados cuando se tiene bi-predicción. Una vez construida
+la lista, el codificador señala cual candidato será usado para copiar la información de movimiento en el bloque actual. Al final se obtienen varios bloques con una sola información de
+movimiento. La figura 12 presenta una imagen con fusión de bloques.
+
+nn,
+
+Ll Ey E ET E A
+
+ 
+
+(a) Región de una ima- (b) Imagen dividida (c) Regiones con inforgen en la secuencia en CU mación de movide video cactus miento idénticas
+
+Figura 12: Ejemplo de la aplicación del modo Merge Fuente: Block Merging for Quadtree-Based Partitioning in
+HEVC [22] - figura 1
+
+3.3 ESTIMACIÓN DE MOVIMIENTO EN EL HM
+
+El HM está implementado en C++ y utiliza un paradigma orientado a objetos. La figura
+13 presenta el diagrama de clases del HM, elaborado durante el desarrollo de este proyecto
+y donde se presentan únicamente las clases que involucra la predicción inter-frame. La clase
+TEncTop contiene las variables de configuración del codificador. Mediante la función encode se
+invoca la función compressGOP de la clase TEncGOP que se encarga de comprimir un Grupo
+de Imagenes (GOP). Para codificar un GOP, se procede a comprimir cada slice de cada una de
+las imágenes; si las imágenes no se encuentran divididas en slices, se toma cada imagen como
+un slice. Para codificar los slices se usa la función compressSlice de la clase TEncSlice. Un slice
+esta compuesto por una secuencia de CTUSs, por esta razón se deben codificar todos los CTU de
+cada slice. La función xCompressCU de la clase TEncCu es la encargada de codificar cada CTU.
+En la codificación de los CTU se selecciona como se debe particionar cada CTU en CUs y que
+modo de codificación es el óptimo, debido a esto se hace un llamado recursivo a la función
+xCompressCU para evaluar todos los modos y todos los tamaños de CUs posibles usando
+las funciones xCheckRDCostInter y xCheckRDCostIntra. Para almacenar toda la información
+
+173.3 ESTIMACIÓN DE MOVIMIENTO EN EL HM
+
+<<enumeration>> : <<struct>>
+PIC_YUV_T *comPicSym IntTZSearchStruct | |*comPatternParam
+
+PIC_YUV_ORG -m_pictureCtuArray A -m_cPatternY
+
+PIC_YUV_REC : :
+TComPattern
+
+ 
+ 
+
+   
+ 
+    
+     
+  
+
+    
+ 
+
+PIC_YUV_TRUE_ORG
+NUM_PIC_YUV nn. - TEncSearch < TComDataCu |
+
+m_CtuLeft
+_pCtuAbove
+
+m_pCtuAboveLeft
+m_pCtuAboveRight
+
+m_pcPicYuvResi
+m_apcPicYuv
+
+m_cDistParam
+
+m_pcYuvPred _pcListPic
+
+m_pcListPic
+
+m_cGOPEncoder
+
+-m_pcEncTop io
+m_pc os
+
+'
+ma]
+m
+E]
+An
+o
+e
+!
+
++DistFunc
+-mi afpDistortFunc
+<<Typedef>>
+TComRdCost yP
+FpDistFunc
+carr A TEncSlice | - -" pcRdCost__*;
+m_apcPicYuvResi -m_cRdCost
+
+m_pcCuEncoder
+m_pcGOPEncdder _
+
+1
+1
+'
+!
+1
+(
+. TEncTop
+1
+1
+(
+!
+1!
+1
+
+Figura 13: Diagrama de Clases Simplificado del HEVC (Solo clases de predicción inter-frame)
+
+relacionada con cada CU se dispone con la clase TComDataCu. La figura 14 muestra el proceso
+de partición de los CTUs. La estimación de movimiento se realiza en el proceso de evaluación
+del modo inter-frame en cada uno de los bloques. La clase TEncSearch realiza la predicción
+inter-frame con la función predInterSearch invocada desde la función xCheckRDCostInter. El
+proceso de estimación de movimiento es realizado por la función xMotionEstimation de la
+clase TEncSearch, que mediante las clases TComRdCost y DistParam calcula las medidas de
+distorsión (Suma de Diferencias Absolutas (SAD), SSE). Las clases TComPicYuv y TComPic se
+encargan de manejar el buffer de píxeles de cada imagen mientras que la clase TComPattern
+se encarga de acceder a los píxeles vecinos respecto al tipo de búsqueda que se vaya a realizar
+(full-search o fast search).
+
+TEncCu::xCompressCU
+Inter Nx2N
+
+Inter 2NxnD
+Intra NxN Intra PCM
+
+xCompressCU xCompressCU xCompressCU xCompressCU
+
+Figura 14: Proceso de evaluación del modo de codificación en el HEVC
+
+ 
+    
+   
+  
+
+   
+  
+    
+     
+  
+
+     
+  
+ 
+
+Inter 2Nx2N
+
+Inter 2NxN
+Inter 2NxnU
+
+   
+
+Inter nRx2N Inter nLx2N
+
+ 
+
+ 
+  
+
+  
+
+18ESTADO DEL ARTE
+
+ 
+
+El incremento del costo computacional en los procesos de codificación y decodificación
+generalmente se presentan debido a las operaciones en los algoritmos y en los accesos que
+se deben hacer a la memoria para obtener y guardar los datos que se van a operar. Las
+estrategias usadas para la estimación de movimiento generalmente reducen el impacto de
+estos problemas calculando las operaciones en un menor tiempo (programación paralela)
+y usando memorias más rápidas (memorias on-chip). A continuación se revisan algunas
+estrategias que usan programación paralela en los estándares H.264 y el HEVC.
+
+4.1 PARALELIZACIÓN EN ESTIMACIÓN DE MOVIMIENTO EN H.264
+
+Algunos trabajos sobre estimación de movimiento con arquitecturas paralelas buscan optimizar el algoritmo de full-search, un algoritmo que es costoso computacionalmente ya que
+compara todos los bloques dentro de la ventana de búsqueda. En [23] proponen un algoritmo full-search paralelo con bloques de tamaño variable implementado en CUDA *, usando
+bloques de threads que trabajan agrupados en grids para mapear los macrobloques en un modelo de computación paralelo. Los macrobloques son divididos en bloques variables 4x4, 4x8,
+8x4, 8x8, 8x16, 16x8, y 16x16 para calcular el valor de la SAD concurrentemente. Mediante la
+técnica de reducción paralela [24] se calcula la menor SAD. En [25] utiliza el enfoque de [23]
+aprovechando la alta velocidad de transferencia de datos de las memorias on-chip (registros,
+memoria compartida y memoria de texturas) en lugar de la DRAM, para reducir la latencia
+de accesos a memoria mejorando el tiempo computacional.
+
+Uno de los problemas en la paralelización es la dependencia de datos entre los bloques
+vecinos para predecir el vector de movimiento, es decir que la información de los bloques
+vecinos haya sido procesada al momento de procesar el bloque actual. Para reducir este problema se han utilizado estrategias en el orden de procesamiento paralelo de los bloques. En
+[26] dividen el macrobloque(MB) en sub-bloques de 4x4 y se codifican en diagonal garantizando que la información de los MBs vecinos (superior, superior-derecho e izquierdo) este
+disponible al procesar el MB actual. Para mejorar el paralelismo, en [27] proponen un método que utiliza el MB superior-izquierdo en lugar del MB izquierdo. De esta forma todos los
+MB en una fila se pueden procesar en paralelo.
+
+Algunas alternativas de paralelización en estimación de movimiento usan OpenCL, ya
+que puede ser ejecutado en plataformas heterogéneas que consisten de CPUs, GPUs y otros
+tipos de procesadores, permitiendo portabilidad entre dispositivos de diferentes fabricantes
+
+ 
+
+1 https: / /developer.nvidia.com/cuda-zone
+
+194.2 PARALELIZACIÓN DE ESTIMACIÓN DE MOVIMIENTO EN HEVC
+
+de procesadores. En [28] implementan el algoritmo full-search con paralelización a nivel de
+datos en sistemas heterogéneos usando OpenCL. Se asigna a cada work-item la computación
+de un SAD y un kernel se encargara de computar los SAD en el área de búsqueda, luego se
+calcula el menor valor de la SAD en el work-group utilizando la técnica de reducción paralela
+para evitar problemas en la sincronización. Un segundo kernel se encargará de encontrar el
+mejor match entre los mínimos valores de las SAD calculados por el primer kernel para obtener
+el vector de movimiento. En [29] utilizan dos kernels uno para calcular la SAD en el área de
+búsqueda y otro para comparar las SAD y obtener el mejor candidato usando la técnica de
+reducción paralela. Entre estas dos propuestas se presenta una diferencia en el uso de la
+memorias, en [29] se almacenan las SADs calculadas en la memoria global y luego son traídas
+nuevamente a la memoria local para la comparacion mientras que en [28] se comparan en
+memoria local y luego son llevadas a la memoria global.
+
+4.2 PARALELIZACIÓN DE ESTIMACIÓN DE MOVIMIENTO EN HEVC
+
+En el HEVC se incluyeron herramientas con la función específica de facilitar el proceso de
+paralelización: Wavefront Parallel processing, slices y tiles permiten dividir la imagen en segmentos que pueden ser procesadas en paralelo.
+
+Los slices son una secuencia de CTUs que son librementes agrupados para ser procesados
+de acuerdo a un orden de escaneo [4] como se observa en la figura 15(a). Una variación de
+los slices son los entropy slices [30] que a diferencia de los slices regulares permite utilizar
+información de los bloques vecinos manteniendo la independencia entre los diferentes slices.
+
+Con los Wavefront Parallel Processing (WPP) se divide la imagen en filas de CTUs. La primera
+fila se procesa normalmente y cada fila siguiente puede empezar a ser procesada después
+de que hayan sido procesados dos CTUSs de la fila anterior [31] como se muestra en la figura
+15(c).Chi Ching Chi et al. presentan el enfoque Overlapped Wavefronts (OWF)[13] que se basa
+en los wavefronts. En el OWF cuando finaliza la ejecución de una fila en la imagen actual y
+no hay más filas disponibles para procesar, el thread pasa a procesar la siguiente imagen en
+lugar de esperar a que termine la imagen actual.
+
+Los tiles dividen la imagen en segmentos rectangulares que contienen filas y columnas de
+CTUs que pueden ser procesados en paralelo [32] como se observa en la figura 15(b). Los tiles
+logran conseguir mejores resultados en comparación con los slices (entre 2,2% y 5.5% de
+ahorro con respecto al tiempo computacional) gracias a la ruptura de dependencias dentro
+de la imagen [33, 34].
+
+En la estimación de movimiento se han presentado algunas propuestas para reducir el
+tiempo computacional usando programación paralela sobre GPU. En [36, 37] implementan un
+framework para la estimación de movimiento de bloques variables en el HEVC usando CPU
+y GPU. El framework divide la imagen en CTUs de 8x8, se establece un rango de búsqueda de
+32x32 y mediante el algoritmo de full search se calcula la medida de distorsión SAD. Cada
+
+204.2 PARALELIZACIÓN DE ESTIMACIÓN DE MOVIMIENTO EN HEVC
+
+... Slice 2 ... Tile 1
+
+Tile N
+
+(a) Slices (b) Tiles
+
+ 
+
+ 
+
+Thread 1 crulctulcTu|cTU cru [cru
+
+ 
+
+Thread 2 cTUICTULCTU|CTU
+
+Thread 3
+
+   
+
+(c) Wavefronts Parallel Processing
+
+Figura 15: Herramientas de paralelización incluidas en el HEVC. Fuente: Overview of the High Efficiency
+Video Coding - (figura 5)
+
+ 
+
+Figura 16: Patrón de búsqueda de diamante desgastado. Fuente: A Highly-Parallel Approach on Motion Estimation for High Efficiency Video Coding (HEVC) [35] - figura 2(b)
+
+thread calculá una SAD y se utilizan WPP para el procesamiento de los CTUs . Los bloques de
+8x8 se combinan para calcular la medida SAD de bloques variables (8x16, 16x8,..., 64X64) y
+al final se escogeran los tres menores valores calculados de la SAD y se construye el vector
+de movimiento con estos valores. Otra propuesta consiste en cargar cada CTU en una unidad
+de procesamiento de la GPU y para calcular las medidas de las SAD se usa un patrón de
+búsqueda de diamante desgastado [35] como se muestra en la figura 16. En [38] se revisa el
+
+214.2 PARALELIZACIÓN DE ESTIMACIÓN DE MOVIMIENTO EN HEVC
+
+problema de la dependencia de datos entre CTUs vecinos en la paralelización, para procesar
+un CTU generalmente se usa información de los vecinos superior, izquierdo, superior- derecho
+y superior-izquierdo, debido a esta dependencia los CTUs deben ser procesados con dos CTUs
+de desface en cada fila para garantizar que se disponga de la información de los vecinos al
+momento de procesar los CTUs actuales. En [39] presentan una implementación en OpenCL
+del algoritmo full-search para el codificador x265, el cual es basado en el HEVC. En esta
+propuesta utilizan la GPU para realizar la búsqueda del vector de movimiento calculando
+las SADs de manera jerárquica, acumulando el cálculo de bloques de 4x4 para obtener la
+distorsión de los bloques de mayor tamaño. Una vez calculado los vectores de movimiento
+se transfiere la información a la CPU para aplicar el filtro de interpolación. En [40] proponen
+un algoritmo de estimación de movimiento rápido con una área de búsqueda adaptativa
+usando una GPU. La CPU calcula el tamaño del área de búsqueda y la transfiere a la GPU para
+calcular la medida de distorsión usando calculos jerárquicos. El problema de la dependencia
+de datos vecinos en el MVP se resuelve utilizando solamente los candidatos temporales.
+
+22EVALUACIÓN DE LA CODIFICACIÓN DE VIDEO EN X264 CON
+CODIFICACIÓN LOOK-AHEAD
+
+ 
+
+El estándar de codificación HEVC está basado en el estándar de codificación H.264/MPEG-4
+AVC, del cual toma características (e.g. el refinamiento del vector de movimiento, predicción
+del vector de movimiento) para mejoraralas, por esta razón ambos codificadores conservan
+similitudes. El x264 es un codificador de código abierto basado en el estándar H.264 y cuenta
+con módulo look-ahead implementado en OpenCL. A continuación se hace del modulo lookahead del x264 con el objetivo de revisar si esta herramienta reduce el tiempo computacional
+de la codificación, y analizar la implementación del módulo en el HEVC.
+
+El codificador x264 cuenta con un módulo de preanálisis (look-ahead) diseñado para estimar el costo de los frames que aún no se han analizado por el codificador principal. El
+módulo look-ahead funciona como un codificador que se encarga de realizar un pre-análisis
+del video de entrada. En el pre-análisis se lleva acabo el proceso de estimación de movimiento
+para recolectar y procesar información útil, que luego será usada por el codificador principal.
+
+Por lo general, el codificador construye un plan de codificación basado en la información
+del frame actual y los frames anteriores. Con el módulo look-ahead, el codificador además
+del frame actual y los frames anteriores, tendrá información de los frames futuros. Con esta
+información podrá construir un mejor plan de codificación. La figura 17 muestra un esquema
+de un codificador con un módulo look-ahead.
+
+Input » "| Codificador
+Frames Principal
+
+   
+
+Módulo
+
+Look-ahead Información
+recolectada
+
+Figura 17: Codificación con módulo look-ahead.
+
+5.11  RATE-DISTORTION OPTIMIZATION
+
+La eficiencia entre la tasa de bits y la distorsión (Rate-Distortion) ha sido un aspecto importante en la codificación de video. En la compresión con pérdida, el codificador de video
+
+235.2 MACROBLOCK-TREE ALGORITHM EN EL CODIFICADOR x264
+
+determina la mínima cantidad de bits, medidos por una tasa R, para representar un video
+comprimido con una pérdida de calidad aceptable medida por una distorsión D. El RateDistortion presenta dos casos: dada una tasa, el codificador minimiza la distorsión y dada
+una distorsión, el codificador minimiza la tasa de bits. La restricción en la tasa de bits es
+conocido como control de la tasa y es frecuentemente usado debido a restricciones en el
+ancho de banda de los canales de transmisión y en los buffers. La asignación de bits es un
+problema clave para el control de la tasa. Ya que los bits se distribuyen entre cada frames,
+GOP o la región de la imagen en la secuencia de vídeo, minimizando la distorsión y usando
+diferentes cuantificadores. Debido a este problema, el punto clave en la asignación de la tasa
+de bits es de estimar o modelar el comportamiento entre la tasa de bits y la distorsión en el
+vídeo caracterizado por sus funciones de cuantificación [41].
+
+El RDO [42] es un enfoque para modelar la compensación entre la tasa de bits y la distorsión
+mediante el método de multiplicadores de Lagrange que se presenta en la siguiente fórmula:
+
+Min(J), where J =D +AR, (4)
+
+donde D representa la distorsión, R representa la tasa de bits, J es la función de Lagrange
+entre tasa de bits y la distorsión y A es un valor del multiplicador de Lagrange que controla
+la compesación entre la tasa de bits y la distorsión. El método del multiplicador de Lagrange
+permite calcular vectores de movimiento óptimos y el modo de codificación óptimo para
+operaciones de la unidad de control de tasa de bits.
+
+No obstante la técnica RDO es efectiva y conceptualmente simple, el codificador prueba
+con un conjunto de diferentes parámetros de cuantificación para seleccionar los vectores de
+movimiento y los modos de codificación que requieren un gran tiempo en el cálculo. Adicionalmente, la decisión del modo de codificación no puede ser modelada de forma independientemente debido a la existencia de dependencias temporales, espaciales y las decisiones
+tomadas pueden afectar los frames futuros.
+
+5.2 MACROBLOCK-TREE ALGORITHM EN EL CODIFICADOR x264
+
+El propósito de Macroblock-Tree Algorithm (MBTA) es de estimar la cantidad de información que cada Macroblock contribuye a la predicción de futuros frames y determinar cuales
+son los más importantes con respecto a su contribución. [43]
+
+Para esta estimación, el algoritmo necesita conocer la información aproximada de los tipos
+de frames y de los futuros frames, los vectores de movimiento de los futuros frames y cuánta
+información se propaga en cada uno de estos pasos. La tarea de recopilar información es
+realizada por el módulo look-ahead que a su vez también calcula el costo inter e intra de
+cada frames en unidades de la Suma Absoluta de Diferencias Transformadas (SATD). La
+
+245.3 METODOLOGÍA DE PRUEBA Y CONFIGURACIÓN EXPERIMENTAL
+
+propagación del costo será la cantidad futura residual que depende de cada Macroblock.
+MBTA adquiere los cuantificadores Deltas (AQP) y se dan por la siguiente fórmula:
+
+ 
+
+(5)
+
+intra_cost + propagate_cost
+intra_cost "
+
+AQP = —s x log, (
+
+donde s es un factor arbitrario derivado de la experimentación. Por motivos de rendimiento,
+el módulo look-ahead utiliza frames con la mitad de la resolución, además tiene una implementación en OpenCL que principalmente carga las tareas a la GPU [44] con el fin de reducir
+el tiempo de cálculo en las tareas del look-ahead, cuando OpenCL está activado, la GPU calcula el costo de la predicción intra, la estimación de movimiento y el costo de la predicción
+bidireccional.
+
+5.3 METODOLOGÍA DE PRUEBA Y CONFIGURACIÓN EXPERIMENTAL
+
+El objetivo de las pruebas es evaluar cuanto tiempo de ejecución se reduce usando el
+módulo look-ahead implementado con OpenCL en el codificador x264, teniendo en cuenta la
+pérdida de calidad que se pueda tener al utilizar la GPU. Para la evaluación del desempeño
+del codificador x264, se utilizan tres configuraciones. A continuación se explica con detalle
+cada una de estas configuraciones.
+
+5.3.1 Configuración del codificador x264
+
+La primera configuración, prueba el codificador sin utilizar el algoritmo MBTA, la segunda
+configuración prueba el codificador utilizando el algoritmo MBTA y la tercera configuración
+prueba el codificador utilizando MBTA y OpenCL.
+
+El modulo look-ahead utiliza 60 frames futuros con respecto al frame actual para realizar
+el análisis de la información. El periodo para insertar Iframes es de un segundo, por esta
+razón el valor para un frame clave es igual a la tasa de frames del vídeo. El ajuste ”preset
+placebo” corresponde a la configuración por defecto indicada en [45]. Para realizar la prueba
+se utilizo el codificador de vídeo x264 en la versión 0.142.x, r2479 de agosto 26, 2014.
+
+5.3.2 Bjentegaard Delta
+
+El método de medida Bjenteggard calcula la diferencia media entre dos curvas de tasa de
+bits versus distorsión [46]. En las curvas, la tasa de bits esta dada en Kbits por segundo y la
+distorsión en Peak Signal-to-Noise Ratio (PSNR) . Para cada curva, los componentes de entrada
+son cuatro valores de PSNRyuv y tasa de bits, obtenidos de los valores QP de 22, 28, 32 y 37.
+
+255.3 METODOLOGÍA DE PRUEBA Y CONFIGURACIÓN EXPERIMENTAL
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Opción Configuración 1 | Configuración 2 | Configuración 3
+Macroblock-tree no yes yes
+Preset placebo placebo placebo
+Profile high high high
+Frames for look-ahead O 60 60
+Tune psnr psnr psnr
+OpenCL no no yes
+Open GOP yes yes yes
+Insert key frame 1 sec 1 sec 1 sec
+Constant rate-factor QP QP OP
+Level default default default
+Buffer for look-ahead O O 4
+Min insert key frame 1 sec 1 sec 1 sec
+
+ 
+
+Cuadro 3: Configuración del x264
+
+ 
+
+El valor PSNRyuv se calcula como una suma ponderada de cada uno de los componentes
+individuales PSNRy, PSNRyu and PSNRy [1] como lo indica la fórmula 6:
+
+PSNRyuv = (6 x PSNRy + PSNRuy + PSNRy)/8, (6)
+
+donde PSNRy, PSNRu y PSNRy son promedios de los valores de PSNR por imagen. Para
+cada imagen el PSNR se calcula mediante la fórmula 7:
+
+(7)
+
+2
+PSNR = 10 x log; , A) ,
+
+donde MAX; es la intensidad maxima, usando 8 bits de profundidad (29 — 1) = 255 y MSE
+representa Mean Squared Error (MSE) y se calcula mediante la siguiente fórmula 8:
+
+ 
+
+y MAIN
+Y 2
+MSE === 2 2 X(1,j)-YG,p)11, (8)
+
+donde M x N es el tamaño de la imagen de referencia X y la imagen distorsionada Y. El
+método Bjentegaard Delta PSNR (BD-PSNR) es utilizado para calcular la diferencia entre la
+curvas R-D y realiza el cálculo de la diferencia de calidad objetiva entre dos videos. BD-PSNR
+está representado por 0.05 dB = 1%.
+
+265.4 RESULTADOS EXPERIMENTALES
+
+5.3.3 Reducción del tiempo
+
+El tiempo de codificación de cada configuración es cronometrada para evaluar el rendimiento del codificador. Cuando se evalúa el rendimiento, se observa cuanto tiempo redujo
+una configuración comparada con la otra. La Reducción de Tiempo (TR) es calculado por o:
+
+Tí —Te
+TR= =2— x 100, (9)
+K
+donde T;¡ es el tiempo obtenido con la configuración inicial y T. es el tiempo obtenido con la
+configuración a comparar. TR es un porcentaje y es utilizado para comparar los tiempos de
+
+codificación de la configuración propuesta.
+
+54 RESULTADOS EXPERIMENTALES
+
+Para realizar las pruebas al codificador x264 fueron seleccionadas secuencias de vídeos
+clase A, B, C y E. Todas las secuencias de video tienen formato YUV con submuestreo 4:2:0
+y 8 bits de profundidad. En la clase A se incluyeron secuencias de video de 2160p y 1600p.
+El cuadro 4 presenta una breve descripción de las sequencias de video usadas en las pruebas.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Clase | Nombre Secuencia | Resolución | Tasa Frames | Frames
+A CrowdRun 3840x2160p 5ofps 499
+A ParkJoy 3840x2160p 5ofps 500
+A Traffic 2560X1600p 3ofps 150
+A PeopleOnStreet 2560X1600p 3ofps 97
+B Kimono 1920X1080p 24fps 240
+B ParkScene 1920X1080p 24fps 240
+B Cactus 1920x1080p 5ofps 500
+B BOTerrace 1920x1080p 6ofps 601
+B BasketballDrive 1920x1080p 5ofps 97
+C BOQMall 832x480 6ofps 600
+C PartyScene 832x480 5ofps 500
+C BasketballDrill 832x480 50 500
+E City 1280x720 6ofps 600
+E ParkRun 1280X720 5ofps 500
+E CrowdRun 1280X720 5ofps 500
+E MobileCalendar 1280X720 5ofps 500
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cuadro 4: Secuencias de video de prueba https://media.xiph.org/video/derf/ - ftp.tnt.uni-hannover.de
+
+Las pruebas se han realizado en dos equipos de cómputo donde la CPU y la GPU pertenecen a diferentes fabricantes, mientras un equipo tiene una CPU y GPU AMD, el otro equipo
+utiliza una combinación de CPU Intel con GPU Nvidia. El cuadro 5 muestra cada una de
+
+275.4 RESULTADOS EXPERIMENTALES
+
+las configuraciones con que cuenta cada uno de los equipos en los que se han realizado las
+pruebas al codificador.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Característica Equipo 1 Equipo 2
+Procesador AMD A10-5750M APU | Intel Core i7 4500 CPU
+Reloj CPU 2,50G Hz 1,80GHz
+
+NúcleosCPU 4 2
+
+GPU AMD 8650G+8670M Nvidia GeForce 840M
+Sistema Operativo | Ubuntu 14.04 64 bits Ubuntu 14.04 64 bits
+Memoria RAM 8GB DDR3 8GB DDR3
+
+Memoria GPU 2GB DDR3 2GB DDR3
+
+Núcleos GPU 384 384
+Reloj GPU 975 MHz 1032 MHz
+Driver GPU AMD Catalyst 14.12 Nvidia 340.46
+
+ 
+
+Cuadro 5: Características de los equipos
+
+Una vez realizado el proceso de codificación de cada uno de los videos se toma el valor de
+la tasa de bits y el PSNR de cada una de las componentes Y, U y V para calcular el PSNRyuv.
+Con estos valores se construyen las curvas de Rate-Distortion. "Todos los resultados de la tasa
+de bits y los valores de PSNRyuv, así como las curvas de Rate-Distortion de todas las seceuncias de video se encuentran el apéndice A. La figura 18 presenta las curvas Rate-Distortion
+de algunas pruebas hechas en ambos equipos de cómputo. En las gráficas se puede observar
+que el MBTA ofrece un aumento en la eficiencia de codificación ya que la curva que representa
+el video codificado con MBTA esta por encima en comparación a la curva de la configuración
+que no usa. También se puede observar que la pérdida de calidad entre el MBTA y el MBTA
+con OpenCL es insignificante. Las gráficas fueron construidas usando GNUplot ”.
+
+El cuadro 6 presenta los resultados de las medidas de Bjentegaard Delta PSNR para todas
+las secuencias de prueba de video. La columna no-MBTA vs MBTA compara las curvas de
+Rate-Distortion correspondientes a no usar el MBTA y al uso del MBTA en cada uno de los
+equipos donde se llevaron acabo las pruebas. Como se puede observar en esta columna, el
+MBTA mejora la calidad objetiva expresada por el PSNR en un promedio de 6.3 %, en comparación con el resultado de la codificación sin utilizar el MBTA. Por otra parte, la columna MBTA
+vs OpenCL compara las curvas de Rate-Distortion resultantes al usar el MBTA y el MBTA con
+el módulo look-ahead implementado en OpenCL. En esta columna se observa que la pérdida
+de calidad cuando se usa el módulo look-ahead con OpenCL es de un 0.62 %, en promedio
+esta pérdida de calidad es mínima, casi insignificante.
+
+Por otra parte, los tiempos de codificación se han obtenido mediante el comando time de
+Ubuntu. Todos los tiempos de codificación obtenidos se encuentran en el cuadro 15 del apén
+ 
+
+1 http:/ /www.gnuplot.info/
+
+285.4 RESULTADOS EXPERIMENTALES
+
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+MobileCalendar, 1280x720, 50fps ParkScene, 1920x1080, 24fps
+AMD A10-5750M + HD Radeon 8670M AMD A10-5750M + HD Radeon 8670M
+39 T T T T T T T T T 41
+38 | 40 p
+37 | 39 |
+o 36) o 38)?
+2 a,
+= 35 t a 37 |
+> >
+rn 34t ar 36th
+Z Z
+DS 3 PD 35 +
+32 t 34 |
+mbtree —x— mbtree —x—
+31 + mbtree-openc! —m— |7 33 P mbtree-opencl —— 7
+30 ] L l L ] I no-mbtree 1 32 L L L ] ] I no-mbtree I
+0 500 1000 1500 2000 2500 3000 3500 4000 4500 5000 0 1000 2000 3000 4000 5000 6000 7000 8000 9000
+Bit-rate (Kb/s) Bit-rate (Kb/s)
+Kimono1, 1920x1080, 24fps PeopleOnStreet, 2560x1600, 30fps
+Intel Core ¡7-4500U + Nvidia GeForce 840M Intel Core i7-4500U + Nvidia GeForce 840M
+42 T T T T T 41
+40 +
+41 tp
+39 |
+_ 40 + pa 38 |
+co co
+o 2. yl
+> 39th 3
+> > 36
+£ 38 | ES 35 |
+Y Y
+o 87 L a 34 |
+33 |
+36 L mbtree —x*x— |] mbtree —x—
+mbtree-opencl —m— 32 + mbtree-opencl —— y
+5 ] no-mbtree —s— ai no-mbtree_—+—
+0 1000 2000 3000 4000 5000 6000 0 5000 10000 15000 20000 25000 30000 35000
+Bit-rate (Kb/s) Bit-rate (Kb/s)
+
+Figura 18: Curvas de Rate-Distortion de algunas secuencia de video
+
+dice A. El cuadro 7 presenta la redución de tiempo de las configuraciones del codificador. La
+columna no-MBTA vs MBTA compara la configuración que no usa el MBTA con la configuración
+que lo usa; en la columna se puede observar que los valores son negativos lo que indica que
+en vez de una reducción, hubo un aumento en el tiempo de codificación en un promedio de
+75.44 %. La columna MBTA vs OpenCL compara la configuración que usa el MBTA con la configuración que usa el MBTA con OpenCL. En esta columna se puede observar una reducción
+en el tiempo de codificación de 9.07 % para AMD y 17.88 % para Intel + Nvidia.
+
+295.4 RESULTADOS EXPERIMENTALES
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Nombre Secuencia no-MBTA vs MBTA MBTA vs OpenCL
+
+AMD  Intel+Nvidia | AMD  Intel+Nvidia
+CrowdRun 2.76 2.80 -0.02 -0.14
+ParkJoy 1.24 2.12 -0.22 -2.52
+Traffic 7.14 7.20 -0.42 -0.96
+PeopleOnStreet 3.62 3.52 -0.48 -1.26
+Kimono1 1.82 1.72 0.08 -0.20
+ParkScene 5.86 5-72 -0.30 -0.62
+Cactus 7.04, 6.94 -0.44 -0.5
+BOTerrace 3.30 3.46 -1.04 -1.04
+BasketballDrive -0.36 -0.08 -1.68 -1.85
+BOMall 8.56 7.68 -0.28 -0.26
+PartyScene 15.80 15.38 -1.52 -1.10
+BasketballDrill 15.86 15.9 0.00 -0.02
+City 8.50 8.08 -0.24 0.22
+ParkRun 7.96 8.00 -0.140 -1.4
+CrowdRun 6.12 5-54 -0.38 -0,10
+MobileCalendar 6.04 6.2 -0.52 -0.58
+Average 6.33 6,26 -0.47 -0.77
+
+ 
+
+ 
+
+Cuadro 6: Resultados del Bjentegaard Delta PSNR representados en porcentaje
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Nombre Secuencia no-MBTA vs MBTA MBTA vs OpenCL
+
+AMD  Intel+Nvidia | AMD  Intel+Nvidia
+CrowdRun -75.57 -88,70 3.86 6.03
+ParkJoy -84.55 -82,01 8.52 6,80
+Traffic -73.96 -87,64 20.72 33,11
+PeopleOnStreet -72.27 -83,76 13.44 33,24
+Kimono1 -78.58 -84,10 20.26 24,99
+ParkScene -88.59 -94,42 11.29 27,40
+Cactus -63.18 -66,10 16.70 29,64
+BOTerrace -72.93 -78,26 10.44 23,44
+BasketballDrive -53.26 -59,04 4.85 28,75
+BOMall -65.45 -67,95 -3.41 12,25
+PartyScene -94.72 -76,53 9.31 10,97
+BasketballDrill -59.35 -52,43 -4.10 12,96
+City -66.75 -68,29 8.85 12,11
+ParkRun -91.54 -93,67 5.86 4,20
+CrowdRun -71.89 -70,62 8.45 6,80
+MobileCalendar | -72.11 -75,38 10.10 13,47
+Average -74.07 -76.81 9.07 17.88
+
+ 
+
+Cuadro 7: Reducción de tiempo para todas las configuraciones
+
+30ESTIMACIÓN DE MOVIMIENTO EN HEVC USANDO
+PROGRAMACIÓN PARALELA
+
+ 
+
+Los resultados de la evaluación del módulo look-ahead en el codificador x264 indican un
+aumento en el tiempo computacional debido a que el codificador principal realiza el proceso
+de estimación de movimiento después de que el módulo look-ahead ya lo ha realizado. El
+recálculo de la información se hace para mejorar la eficiencia de codificación, pero incrementa el tiempo computacional. Debido a esto, el módulo look-ahead no es una opción para
+reducir el tiempo computacional. Para resolver este problema, el proceso de estimación de
+movimiento se ejecuta en la GPU y la información de movimiento se envía directamente al
+codificador sin recalcular información.
+
+Cada nueva generación de estándares de codificación proporcionan un conjunto de diferentes modos para codificar un bloque y determinar si cada bloque se codifica con predición
+inter-frame o predición intra-frame. En el proceso de codificación del HEVC, se revisan todos los modos posibles (e.g. inter, intra, skip, merge) con cada uno de los tamaños de bloque
+posible, para poder seleccionar la forma óptima de partición de un CTU. Por otro lado, el
+HEVC incorpora un tamaño de bloque más grande respecto a los codificadores anteriores
+(64x64) y una mayor flexibilidad al momento de dividir un CTU. Con estas características,
+se incrementa el número de bloques a los cuales se les aplica el proceso de estimación de
+movimiento. El cuadro 8 indica la cantidad de bloques y los tamaños de los bloques en los
+cuales el codificador del HEVC aplica el proceso de estimación de movimiento.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Modo Tamaños de CU/Cantidad en un CTU
+MxM 64X64 | 1 | 32x32 | 4 | 16x16 | 16 | 8x8 | 64
+M/2xM 32x64 | 2 | 16x32 | 8 | 8x16 | 32 | 4x8* | 128
+MxM 7/2 64x32 | 2 | 32x16 | 8 | 16x8 | 32 | 8x4* | 128
+M/4xM (Left-Right) 16x64 | 2 | 8x32 | 8 | 4x16 | 32 - 48X64 | 2 | 24x32 | 8 | 12x16 | 32 - MxM/4 (Up-Down) 64x16 | 2 | 32x8 | 8 | 16x4 | 32 - 64X48 | 2 | 32x24| 8 | 16x12 | 32 - Sub-Total 13 52 208 320
+Total 593
+
+ 
+
+ 
+
+Cuadro 8: Tamaños de los CU en un CTU (* Solo para uni-predicción)
+
+316.1 MODELO DE ESTIMACIÓN DE MOVIMIENTO CON PROGRAMACIÓN PARALELA
+
+El proceso de estimación de movimiento en HEVC está compuesto de dos subprocesos
+principales: la Estimación de Movimiento Entera (IME) y la Estimación de Movimiento Fraccional (EME). En la IME se calculan los vectores de movimiento de cada PU en el área de
+búsqueda de la imagen de referencia, después de esto, la FME refina la búsqueda alrededor
+del resultado de la IME para tener un vector de movimiento con una mayor precisión. El
+modelo propuesto solo tiene en cuenta la estimación de movimiento entera.
+
+6.1 MODELO DE ESTIMACIÓN DE MOVIMIENTO CON PROGRAMACIÓN PARALELA
+
+El HEVC realiza la IME usando un tipo de búsqueda exhaustiva con el algoritmo FS o un
+tipo de búsqueda rápida con el algoritmo Test Zone Search (IZSearch) [47]. Aunque los algoritmos de búsqueda rápida reducen considerablemente el costo computacional, introducen
+problemas de mínimos locales, al no evaluar todas las posiciones del área de búsqueda, generando pérdida de calidad. Implementar algoritmos de búsqueda rápida con programación
+paralela resulta complicado debido a sentencias condicionales para la terminación del algoritmo que producen problemas de divergencia, ya que algunos hilos ejecutarán más sentencias
+que otros. Por otro lado, el algoritmo de búsqueda FS tiene alto costo computacional debido a
+que evalúa píxel a píxel todas las posiciones del área de búsqueda para garantizar la posición
+óptima del bloque. En el algoritmo 1 se presenta el paso a paso del FS.
+
+Algorithm 1 Full-Search
+
+currentBlock : Block
+searchArea : Area
+minDistortion == MAX
+for each pixel in searchArea:Pixel do
+distortion - 0
+for each pixel í in currentBlock:Pixel do
+distortion — distortion + (abs(currentBlock.pixelli] —searchArea.pixelli)))
+end for
+if distortion < minDistortion then
+minDistortion — distortion
+end if
+end for
+return minDistortion
+
+ 
+
+ 
+
+El FS no presenta condicionales para detener el algoritmo, lo cual permite que pueda ser
+modelado con procesamiento paralelo. Por está razón se seleccionó como algoritmo de búsqueda para la propuesta. Para modelar con programación paralela el proceso de estimación
+de movimento el algoritmo divide cada CTU de 64x64 en 256 bloques de 4x4, una vez dividido el CTU se calcula el valor de la medida de distorsión SAD de cada bloque de 4x4. Las
+medidas de distorsión de cada uno de las PU que conforman el CTU se calculan recursivamente acumulando la SAD de los PU de menor tamaño, por ejemplo la SAD de una PU de 4x8
+equivale a la suma de 2 bloques de 4x4, la SAD de una PU de 8x8 equivale a la suma de 2 PU
+
+326.2 ESTIMACIÓN DE MOVIMIENTO CON PROGRAMACIÓN PARALELA EN OPENCL
+
+de 4x8, y así sucevamente hasta completar el CTU de 64x64. La figura 19 describe el cálculo
+de la SAD de forma recursiva en los bloques de 4x8, 8x4 y 8x8. Cada cálculo de un CTU se
+realiza en todas las posiciones del área de búsqueda y cada vez que se calcula se compara si
+el resultado de la medida de distorsión de cada PU es menor a la medida que se tenga como
+distorsión mínima para la PU en ese momento. Este modelo se basa en propuestas realizadas
+para el codificador x264 [39] y para el HM con la plataforma cuda [48].
+
+O O O
+
+SO DADOS DONOSO A pas
+ls e
+
+Sa lg RX a, Md
+
+|
+/
+
+A
+
+Figura 19: Cálculo de la SAD recursivamente
+
+Cuando finaliza el cálculo en todo la área de búsqueda se tienen los valores mínimos de
+distorsión para cada PU y la posición donde se encuentra la minima distorsión de cada unos
+de los PUs, con esta información se construyen los vectores de movimiento. En el HEVC, los
+vectores de movimiento corresponden a la diferencia de la distancia de la componente horizontal (x) y vertical (y) respecto a las componentes respectivas del MVP, como lo indican
+las fórmulas 10. Los predictores son tomados de los PU vecinos, pero cuando se están procesando los PUs concurremente, no se puede contar con la información del movimiento. Por
+lo mencionado anteriormente, la AMVP no cuenta con los candidatos espaciales; el único PU
+que tiene predictores es el de tamaño 64x64 y se usa el AMVP de este PU para definir el punto
+(0,0) del área de búsqueda y el valor del predictor para todos los PUs es o.
+
+MVD, = Ax-— MVP, ; MVD, = Ax-— MVP. (10)
+
+Una vez se calculan los vectores de movimiento, se transfieren al codificador para que
+siga realizando el proceso de codificación. El modelo descrito anteriormente responde al
+objetivo 1 del proyecto de modelar el proceso de estimación de movimiento con codificación
+look-ahead usando programación paralela. Como se menciono al inicio de este capítulo se
+descartó el uso del módulo look-ahead.
+
+6.2 ESTIMACIÓN DE MOVIMIENTO CON PROGRAMACIÓN PARALELA EN OPENCL
+
+Para el objetivo 2 del proyecto, se describe a continuación la arquitectura paralela del modelo en el framework OpenCL. El modelo propuesto usa como estructura de paralelización
+
+336.2 ESTIMACIÓN DE MOVIMIENTO CON PROGRAMACIÓN PARALELA EN OPENCL
+
+un CTU, esto indica que el proceso de paralelización se llevará acabo en cada CTU. Este proceso de paralelización se realiza a nivel de granuralidad de bloques de 4x4, que ofrecen una
+granularidad fina permitiendo que se puedan aprovechar una mayor cantidad de unidades
+de procesamiento de la GPU.
+
+Para la implementación del modelo propuesto en OpenCL, se realizan tres procesos principales, el primer proceso se encarga del cálculo de las medidas de distorsión de los bloques de
+4X4, el segundo proceso se encarga de realizar la acumulación de las medidas de distorsión y
+el último se encarga de comparar y obtener las medidas de distorsión mínimas. Para realizar
+los procesos de cálculo y acumulación de medidas de distorsión, se implementa un kernel
+que se ejecuta en 256 work-items organizados en un arreglo de dos dimensiones de 16x16 en
+un work-group.
+
+La figura 20 muestra como están organizados los work-items en un work-group. En el proceso de comparación se implementa un kernel que se ejecuta en 593 work-items, organizados
+en un arreglo de una dimensión, para comparar cada uno de los PU que componen el CTU.
+Un ciclo se encargá de ejecutar los tres procesos para evaluar todas las posiciones del área
+de búsqueda.
+
+Work-items (16,16)
+
+OpenCL Device (GPU)
+
+Figura 20: Work-item agrupados en Work-groups
+
+ 
+
+6.2.1 Cálculo de las medidas de distorsión
+
+Para el cálculo de la distorsión, el HEVC usa como atributo de comparación la componente
+de luminancia Y de los píxeles que componen el PU y el área de búsqueda. El HM maneja los
+píxeles de las imágenes usando un buffer que trabaja mediante un puntero a una posición
+de la imagen. Para implementar el cálculo de la medida de distorsión en OpenCL son usados dos buffers de píxeles para transferir la información a la memoria global de la GPU, uno
+transfiere los píxeles del área de búsqueda y otro transfiere los píxeles del CTU. Generalmente
+los CTU tienen un tamaño de 64x64, por lo tanto se deben transmitir 4096 píxeles. Una vez se
+transfiere la información a la memoria de la GPU, cada work-item se encarga de calcular la
+
+346.2 ESTIMACIÓN DE MOVIMIENTO CON PROGRAMACIÓN PARALELA EN OPENCL
+
+SAD de un bloque de 4x4.
+
+Los resultados de la SAD quedan almacenados en un buffer en la memoria local. Cuando
+se transfieren los datos a la memoria local se tiene la ventaja de la velocidad de transferencia,
+ya que esta memoria es más rápida que la memoria global. La figura 21 presenta un esquema
+de la arquitectura para el cálculo de las SAD para los bloques de 4x4.
+
+Area Search Buffer
+
+ 
+
+SAD of 4x4 blocks
+
+      
+
+Local Memory,
+
+ 
+
+Figura 21: Cálculo de SAD para bloques de 4x4 en un CTU
+
+6.2.2 Acumulación de las medidas de distorsión
+
+Una vez se tienen los resultados de la SAD en los buffers de la memoria local, cada workitem suma un par de resultados para obtener la medida de distorsión de las PU de mayor
+tamaño. La suma es realizada usando la técnica de redución paralela [49], que consiste en
+tomar un vector de datos y reducirlo a un solo elemento. Para la acumulación de medidas
+de distorsión se usan tres buffers para alamacenar temporalmente la información que se va
+calculando; el primer buffer se usa para el cálculo recursivo de las SADs de forma horizontal,
+
+356.2 ESTIMACIÓN DE MOVIMIENTO CON PROGRAMACIÓN PARALELA EN OPENCL
+
+el segundo para el cálculo recursivo de las SADs de forma vertical y el tercero para el cáclculo
+recursivo de las SADs de los bloques asimétricos; por cada buffer se usan tres índices, uno
+se encarga de recorrer el arreglo para las sumas horizontales, otro para las sumas verticales
+y otro para recorrer los arreglos para las sumas asimétricas. Estos índices están basados en
+los índices espaciales en x y en y de los work-items localizados en el work-group. La figura
+22 muestra un ejemplo de la suma de los arreglos para obtener las medidas de distorsión de
+algunos bloques.
+
+   
+
+ 
+
+temp SAD
+Vertical 16x16
+-—á y
+Buffer
+
+Figura 22: Cálculo de SAD para bloques de mayor tamaño
+
+Las SADs calculadas son almacenadas nuevamente en los buffers locales para los próximos
+cálculos y son también son almacenados en un buffer de la memoria global de la GPU que
+contiene las medidas de distorsión de los PU de todos los tamaños que se deben calcular. La
+figura 23 presenta un esquema de la transferencia de datos en general para el proceso de
+acumulación de la medida de distorsión. Los valores almacenados en el buffer de resultados
+están organizados como lo indica el cuadro o.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+índices PU índices PU índices PU índices PU
+0-127 8X4 368-383 | 12x16(R) | 532-535 | 8x32(R) 579 64x48(D)
+128-255 4X8 384-447 8x8 536-539 | 24x32(L) 580 16x64(L)
+256-271 | 16x4(U) | 448-479 16x8 540-543 | 24x32(R) 581 16x64(R)
+272-287 | 16x4(D) | 480-511 8X16 544-559 16x16 582 48x64(L)
+288-303 | 16x12(U) | 512-515 | 32x8(U) | 560-567 | 32x16 583 48x64(R)
+304-319 | 16x12(D) | 516-519 | 32x8(D) | 568-575 16x32 | 584-587 | 32X32
+320-335 | 4X16(L) | 520-523 | 32x24(U) 576 64x16(U) | 588-589 | 64x32
+336-351 | 4X16(R) | 524-527 | 32x24(D) 577 | 64x16(D) | 590-591 | 32x64
+352-367 | 12x16(L) | 528-531 | 8x32(L) 578 64x48(U) 592 64X64
+
+ 
+
+Cuadro 9: Índices de las SADs en el arreglo de resultados (U= Up, D= Down, L= Left, R= Right)6.2 ESTIMACIÓN DE MOVIMIENTO CON PROGRAMACIÓN PARALELA EN OPENCL
+
+temp Horizontal
+
+2... 2... 3 ” SAD
+
+OI
+
+y = «. . . « [254 [255 [SAD
+
+dj] + ]5]5]
+
+de] 75 TE 2. o. 2. kE SAD
+
+ds >]
+nm
+
+[oo ]]a,
+pS
+' EJEJE-?
+
+ 
+
+a Global Memory
+
+Figura 23: Cálculo de SAD para bloques de 4x4 en un CTU
+
+En el cuadro se observan una reducción en los números de índices respecto al tamaño de
+cada PU debido a esto se reduce el número de work-items que trabajan mientras se realiza
+el proceso de acumulación. A pesar de este problema, el tener los arreglos el memoria local
+del work-group permite altas tasas de transferencia entre los arreglos temporales para la
+acumulación de las medidas de distorsión ya que esta memoria maneja menores tiempos de
+respuesta que la memoria global.
+
+6.2.3 Cálculo de las medidas de distorsión mínimas
+
+Este proceso consiste en comparar si los valores calculados son menores a los valores
+de distorsión mínimos actuales, y si lo son, reemplazarlos. Con los valores de distorsión
+almacenados en el buffer de resultados en la memoria global, se procede a calcular los valores
+mínimos de distorsión y almacenarlos en otro buffer de medidas de distorsión mínimas
+ubicado en la memoria global. Para el cálculo de los valores mínimos, se le adiciona a cada
+medida de distorsión, el costo de los bits que se deben usar para representar el vector de
+movimiento, basados en las coordenadas x y y que se están evaluando. Una vez calculado
+se almacena la información de la posición en dos buffers de la memoria global, uno para la
+posición x y otro para la posición y. El diagrama 24 presenta el flujo de trabajo del modelo
+propuesto para la estimación de movimiento.
+
+376.3 IMPLEMENTACIÓN DEL MODELO DE PROGRAMACIÓN PARALELA EN EL HM
+
+CcPU
+Inicializa los buffers
+
+Transfiere la información del los
+píxeles del CTU y el área de búsqueda
+Ejecuta el kernel que calcula la SAD
+
+GPU
+
+Ciclo del área de busqueda
+
+Kernel calc_SAD
+
+Calcula las SAD de los bloques de
+4x4
+área de
+búsqueda
+Acumula la SAD de los bloques de (-64,-64)
+
+a (64, 64)
+
+Kernel compare_SAD Ejecuta el kernel que compara la SAD
+Calcula costo de bits para
+representar el vector de movimiento
+
+Compara la SAD calculadas con
+las SAD mínimas
+
+ 
+
+Transfiere la información de los
+| buffers a los arreglos
+
+Figura 24: Diagrama de flujo de trabajo del modelo propuesto
+
+6.3 IMPLEMENTACIÓN DEL MODELO DE PROGRAMACIÓN PARALELA EN EL HM
+
+En base al objetivo 3 del proyecto, en esta sección se presentan algunos detalles de la implementación del modelo de estimación de movimiento usando programación paralela.
+
+La clase TEncOpenCL fue implementada para integrar el proceso de estimación de movimiento con OpenCL en el Hm. Esta clase se encarga de dos procesos principales: Revisar que el sistema cumpla las condiciones para ejecutar OpenCL y realizar la estimación
+de movimiento en la GPU. Para la verificación del sistema se usan las funciones TEncOpenCL::findDevices, que verifica si el equipo cuenta con una GPU que soporte OpenCL, y TEncOpenCL::compileKernelSource que inicializa las variables necesarias para ejecutar OpenCL y
+compila los kernels descritos en la sección anterior. El proceso de estimación de movimiento
+es realizado por medio de la función TEncOpenCL::calcCMotionVectors.
+
+Para la integración de la clase TEncOpenCL con las clases del HM se utiliza una bandera
+denominada OpenCL, que activa o desactiva la estimación de movimiento con OpenCL, además una varible de tipo entero llamada OpenCLDevice que indica el id de la GPU que se va
+a usar, en caso de que el equipo tenga varios dispositivos que soporten OpenCL. Estas variables están implementadas en la clase TAppEncCfg. En la clase TEncTop se hace el llamado
+a las funciones que realizan proceso de verificación del sistema mediante la función TEncTop::xInitOpenCL. Si el equipo cuenta con un dispositivo que soporta OpenCL se procede6.3 IMPLEMENTACIÓN DEL MODELO DE PROGRAMACIÓN PARALELA EN EL HM
+
+a crear los buffers mediante la función TEncOpenCL::createBuffers. El cuadro 10 muestra los
+buffers que son creados por la función. Los Buffers que utiliza OpenCL están mapeados a la
+memoria del equipo mediante punteros.
+
+ 
+
+Buffer Puntero Tipo Tamaño | Función
+
+ 
+
+Almacena los valores de las componentes de lumi
+pelCtuBuffer | srchAreaPtr Pel 4096
+nancia (Y) de los píxeles que componen el CTU
+
+ 
+
+Almacena los valores de las componentes de lumipelAreaBuffer pelCtu Pel 36864 | nancia (Y) de los píxeles que componen el área de
+búsqueda
+
+ 
+
+Almacena las SADs mínimas de todos los PU de disad Buffer minSad | Distortion | 593 | ferentes tamaños que son calculados, a la SAD se le
+
+adiciona el costo de bits del vector de movimiento
+
+ 
+
+Almacena la posición en x del área de búsqueda, don
+ 
+
+ 
+
+Xarray Buffer Yarray Short 593
+de se encuentra la menor SAD de cada PU calculado
+YarrayButffer Xarray Short 593 Almacena la posición en y del área de búsqueda, donde se encuentra la menor SAD de cada PU calculado
+iCostButter muiCosts Distortion 593 Almacena las SADs mínimas de todos los PU de dife
+rentes tamaños que son calculados
+
+ 
+
+Almacena las SADs temporales de todos los PU de
+tempSadBuffer Distortion | 593 diferentes tamaños que se están calculando en la posición actual
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cuadro 10: Buffers para la estimación de movimiento con OpenCL
+
+Para el cáculo de los vectores de movimiento, la función TEncOpenCL::calcCMotion Vectors es
+llamada desde la función TEncSearch::xMotionEstimation y solo es invocada si el tamaño del
+PU que se está evaluando es de 64x64. Una vez calculadas las medidas de distorsión y construidos los vectores de movimiento, son retornados por las funciones TEncOpenCL::getRuiCost
+y TEncOpenCL::getMotion Vectors para construir dos arreglos de 3 dimensiones para almacenar
+esta información, que luego será usada por el codificador; la primera dimensión corresponde
+a la lista de imágenes de referencia que se esta evaluando (eRefPicList), la segunda dimensión
+corresponde al índice de la imagen de referencia (¡RefldxPred) y la tercera dimensión corresponde al PU que se esta evaluando (CUindex), como se muestra en la figura 25.
+
+La variable Cllindex es obtenida mediante la función TComDataCU::getIndexBLock usando
+la información del ancho, alto, tipo de partición, la profundidad del quadtree, el id del PU en
+la partición del CU y el orden de escaneo en Z. Mientras se codifica cada PU, se solicita la
+información a estos dos arreglos. La figura 26 muestra el diagrama de clases para el proceso
+de estimación de movimiento con OpenCL.
+
+396.3 IMPLEMENTACIÓN DEL MODELO DE PROGRAMACIÓN PARALELA EN EL HM
+
+ 
+
+Refldx0 Refldxl1 Refldx2 Refldx3 Refldx4 Refldx5 Refldx6 Refldx7
+
+Block392
+
+Figura 25: Arreglo 3D para almacenar los vectores de movimiento y las medidas de distorsión
+
+TAppEncCíg
+
+$ OpenCL : Bool
+
+$ OpenCLDevice : Int
+
++ parseCíg (argc : Int, argv :
+Chax* ) : Bool
+
+ 
+
+ 
+
+TEncTop
+
+ 
+
++ m_CLMotion : TEncOpenCL
+$ m_cGOPEncoder : TEncGOP
+
++ xInitOpenCL(OpenCLDevice : Int) :
+
+Void
++ getCLIMotion() : TEncOpenCL
+
++ encode(flush : Bool, pcPicYuvOrg :
+
+TComPicYuv, pcPicYuvTrueOrg:
+TComPicYuv, snrCSC :
+InputColourSpaceConversion,
+rclistPicYuvRecQut :
+TComList<TComPicYuv>,
+accessUnitsOut : list<AccessUnit>,
+iNumEncoded : Int
+
+) : Void
+
+ 
+
+TEncGOP
+
+A
+
+ 
+
++ compressGOP(¡POCLast : Int,
+iNumPicRevd : Int, rcListPic :
+TCombist<TComPic>,
+rcListPicYuvRecQut :
+TComList<TComPicYuv>,
+
+accessUnitsInGOP : list<AccessUnit>,
+
+isPield : Bool, isTff: Bool,
+snr_conversion :
+InputColourSpaceConversion ,
+printFrameMSE : Bool) : Void
+
+ 
+
+TEncSlice
+
+ 
+
+TEncOpenCL
+
+- kernelCalc : cl_kernel
+
+- kernelCompare : cl_kernel
+
+- pelCTUBuffer : cl_mem
+
+- pelAreaBufter : cl_mem
+
+- sadBuffer : cl_ mem
+
+- XarrayBuffer : cl_mem
+
+- YarrayBuffer : cl_mem
+
+- posXBuffer : cl_mem
+
+- posXBuffer : cl_mem
+
+- muiCostBuffer : cl_mem
+
+- tempSadBuffer : cl_mem
+
+- motionVectors[] : TComMv
+
+- ruiCosts[] : Distortion
+
++ compileKernelSource(fileName : Char,
+kernelNameCompare : Char,
+kernelNameCalc : Char) : Bool
+
++ findDevice(device : Int) : Bool
++ createBuffers(CTUWidth : Ulnt,
+
+areaSearchSize : Int,i searchRange-Int ) :
+
+Bool
+
++ calcMotionvectors(pelCtuPel,
+pelSearch:Pel, i_¡RefStride-Int,
+
+1 ¡CtuStride:Int, 1 areaSize Int,
+pcMvSrchRngLT-TComMv) : Void
+- xFINSADBuífer() Void
+
+- xResetArrays(): Void
+
+ 
+
+ 
+
+ 
+
+TEncSearch
+
+% m_pcRdCost: TComRdCost
+F%+ m_pcOpenCIMotion : TEncOpenCL
+
++ predInterSearch( pcCU : TComDataCU,
+pcOrgYuv : TComYuv, pcPredYuv: TComYuv,
+pcResiYuv : TComYuv, pcRecoYuv: TComYuv,
+DEBUG_STRING_FN_DECLARE(sDebug),
+bUseRes : Bool, bUseopenCL : Bool,
+
+bUseMRG : Bool)) : Void
+
+H xMotionEstimationí pcCCU-TComDataCU,
+pcYuvOrg:TComYuv, iPartldx Int, eRefPiclist:
+RefPicList, pcMvPred:TComMv, iRefldxPred:Int,
+rcMv-TComMv, ruiBits-Ulnt, ruiCost Distortion,
+rcMvOpenCL[]1][]TComMv,
+ruiCostOpenCL[][][] Distortion, isOpenCL'Bool,
+bBi-Bool ) : Void
+
+H xPatternRefine ment( pcPattemKey :
+TComPattem, baseRefMv: TComMv, iFrac : Int,
+rcMvFrac : TComMv, bAllowUseOfHadamard :
+Bool) : Void
+
+TComRdCost
+
++ calcRdCost(uiBits : Ulnt,
+
+uiDistortion : Distortion , bFlag
+_Bool, eDFunc : DFunc) :
+Double
+
++ getBits( x : Int, y : Int) : Ulnt
++ getCost( x : Int, y : Int) :
+Distortion
+
+ 
+
+ 
+
+  
+
++ compressSlice( pcPic :
+TCombPic) : Void
+
+   
+
++ m_pcPredSearch : TEncSearch
++ m_openCIMotion : Bool
+
++ compressCtu(pCtu : TComDataCU) : Void
+
++ compressCU(rpcBestCU: TComDataCU, rpcTempCU :
+TComDataCU, uiDepth : Ulnt)
+
++ xCheckRDCostinter( rpcBestCU : TComDataCU,
+rpcTempCU : TComDataCU, ePartSize : PartSize,
+DEBUG_STRING_FN_DECLARE(sDebug), bUseMRG :Bool )
+
+: Void
+
+ 
+
+ 
+
+40
+
+Figura 26: Diagrama de clases del HM con OpenCLPRUEBAS
+
+ 
+
+El modelo propuesto debe ser evaluado para comprobar si reduce el tiempo computacional del proceso de codificación y revisar si afecta la eficiencia de codificación del video. El
+proceso de evaluación se realiza en base al objetivo 4 del proyecto.
+
+7.1 METODOLGÍA DE PRUEBAS
+7.1.1 Secuencias de video
+
+Para evaluar el modelo propuesto de estimación de movimiento con OpenCL se usan las
+secuencias de video presentadas en el cuadro 11
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Clase | Nombre Secuencia | Resolución | Tasa Frames | Frames
+A PeopleOnStreet 2560x1600p 3ofps 97
+B Kimono 1920x1080p 24fps 150
+B ParkScene 1920x1080p 24fps 150
+B PedestrianArea 1920X1080p 25fps 150
+
+ 
+
+Cuadro 11: Secuencias de video de prueba
+
+Debido a limitaciones de tiempo, se evaluán solo 150 frames de cada video (5 segundos
+aproxidamente). Todos los videos se encuentran en formato 4:2:0 con 8 bits de profundidad.
+Por otra parte, las secuencias de prueba son agrupadas en clases de acuerdo a la resolución; en las pruebas no se incluyeron secuencias de video clase C (832x480), D (416x240) y
+E(1280x720), debido a que tienen baja resolución.
+
+7.1.2 Métricas de evaluación
+
+Se deben evaluar dos métricas principales que son la reducción del tiempo (TR) y la eficiencia de codificación. Para la reducción se usa la fórmula o, de la sección 5.3.3. Los tiempos
+de codificación se obtienen con el comando time del sistema operativo Ubuntu. La eficiencia
+de codificación se compara usando la métrica del Bjentegaard delta, la cual fue explicada en
+la sección 5.3.2. Los valores de PSNR-YUV son obtenidos del resumen de los resultados que
+arroja el codificador al terminar el proceso de codificación.
+
+417.1 METODOLGÍA DE PRUEBAS
+
+7.1.3. Configuración del codificador
+
+El proceso de estimación se evaluó con dos configuraciones, una para evaluar el proceso
+con OpenCL y la otra para evaluarlo sin OpenCL, para esto solo se cambia en el archivo de
+configuración la opción que activa la bandera OpenCL. En las pruebas se usa el archivo de
+configuración encoder_randomaccess_main.cfg que trae por defecto el codificador. En la configuración se usan 4 valores del parámetro de cuantización, 22, 27, 32 y 37 para construir las
+curvas de tasa de bits - distorsión. Además de las configuraciones por defecto, se modificó
+la opción AMP_ENC_SEEDUP para que evalúe todas las particiones asimétricas. El cuadro 12
+presenta las opciones del codificador, estas opciones son tomadas del manual del software
+HM [50]. En las pruebas, se usó la versión 16.4 + RExt del HM revisión 4433 y el compilador
+de linux gcc 4.8.4 64 bits.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Opción valor Opción valor
+MaxCUWidth 64 MaxCUHeight 64
+MaxPartitionDepth 4 IntraPeriod 32
+DecodingkRefresh Type CRA GOPSize 2
+Search Full SearchRange 64
+BipredSearchRange 4 HadamardME true
+Fast Enc Desicion true Fast Merge RD true
+SAO true AMP true
+TransformSkip true TransformSkipFast | true
+OP 22,27,32,37 RateControl false
+
+ 
+
+Cuadro 12: Configuración del software HM
+
+En la configuración por defecto se cambió la estructura del grupo de imágenes, con el fin
+de incluir la evaluación de frames tipo P para simplificar las pruebas. La figura 27 muestra
+la estructura del grupo de imágenes.
+
+ 
+
+ 
+
+GOP 1 GOP 2
+| | |
+| 7 MN | << Ml |
+|P] |P]
+POC 50 1 2 3 4
+Decode Order 0 2 1 4
+
+Figura 27: Estructura del grupo de imágenes para el HM
+
+427.2 RESULTADOS EXPERIMENTALES
+
+7.2 RESULTADOS EXPERIMENTALES
+
+Las pruebas se realizaron en un equipo que cuenta con una combinación de Intel como
+fabricante del procesador y de Nvidia como fabricante de la GPU. El cuadro 13 presenta las
+características del equipo donde se realizaron las pruebas.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Características
+Procesador Intel Core i7 4500 GPU Nvidia GeForce 840M
+Memoria CPU 8 GB DDR3 Memoria GPU 2GB DDR3
+Reloj CPU 1,80GHz Reloj GPU 1032 MHz
+Núcleos CPU 2 Núcleos GPU 384
+S.O. Ubuntu 14.04 Driver GPU Nvidia 352.30
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cuadro 13: Características del equipo para Pruebas con el HM
+
+Después de realizar el proceso de codificación de cada uno de los videos, se tomaron los
+valores de la tasa de bits y del PSNR-YUV otorgados por el codificador para cada uno de los
+parámetros de cuantización y se construyeron las curvas de tasa de bits - distorsión. Todos los
+resultados del proceso de codificación se encuentran en el apéndice B. La figura 28 muestra
+las curvas asociadas a las secuencias de video PeopleOnStreet y Kimono, codificadas usando
+el HM y el HM con OpenCL. Las gráficas fueron construidas usando GNUplot *, y en ellas se
+puede observar que la pérdida de la eficiencia de codificación usando OpenCL es bastante
+baja.
+
+PeopleOnStreet, 2560x1600, 30fps Kimono, 1920x1080, 24fps
+Intel Core ¡7 + Nvidia 840M Intel Core ¡7 + Nvidia 840M
+
+43 T T T T T T T T 43
+
+ 
+
+ 
+
+42 +
+42?
+41 tp
+40 + 41 tp
+39 +
+40 +
+38 +
+
+PSNR-YUV (dB)
+PSNR-YUV (dB)
+
+37 + 39 |
+
+36 |
+
+  
+
+38 |
+35 F HM =— ]7 HM —==
+HM-OpenCL EW HM-OpenCL E
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+34 L L L 1 1 37 L 1 1 1
+5000 10000 15000 20000 25000 30000 35000 40000 45000 50000 1000 2000 3000 4000 5000 6000 7000 8000
+
+Bit-rate (Kb/s) Bit-rate (Kb/s)
+
+ 
+
+ 
+
+Figura 28: Curvas de Rate-Distortion de los videos PeopleOnStreet y Kimono
+
+El cuadro 14 presenta los resultados del Bjentegaard delta respecto a la tasa de bits (BDBR), el Bjentegaard Delta con respecto al PSNR-YUV (BD-PSNR) y la redución del tiempo
+(TR) del HM con OpenCL. Los resultados indican un aumento en la tasa de bits de 2.044
+basado en la métrica de Bjentegaard Delta, cuando se realiza el proceso de estimación de
+
+ 
+
+1 http:/ /www.gnuplot.info/
+
+437.2 RESULTADOS EXPERIMENTALES
+
+movimiento con OpenCL.
+
+También, una vez realizada la evaluación que compara la calidad, mediante la métrica de
+Bjentegaard Delta para el PSNR, se obtuvo una pérdida de 0.062 en promedio. En cuanto al
+tiempo computacional, se puede observar una reducción del 52.5% en el tiempo de codificación cuando se realiza la estimación de movimiento con OpenCL.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Nombre Secuencia | Bjonteggard Delta-BR | Bjontegaard Delta-PSNR | Reducción de Tiempo
+PeopleOnStreet 2.483 -0.089 51.2%
+PedestrianArea 2.805 -0.084 52.9 %
+
+ParkScene 2.096 -0.056 53.0 %
+Kimono 0.793 -0.020 53.0 %
+Promedio 2.044 -0.062 52.5 %
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cuadro 14: Reducción de tiempo para todas las configuraciones
+
+Con los resultados obtenidos de la evaluación podemos afirmar que el modelo propuesto
+para el proceso de estimación de movimiento usando OpenCL logra reducir a la mitad el
+tiempo de codificación sin afectar considerablemente la calidad del video y sin afectar en
+gran magnitud la tasa de bits requerida para representar el video.
+
+44CONCLUSIONES
+
+ 
+
+8.1 CONCLUSIONES
+
+En esta investigacion se propone un modelo para realizar el proceso de estimación de
+movimiento usando programación paralela con el framework OpenCL.
+
+= EL hardware de arquitectura paralela permite mejorar el rendimiento computacional
+del codificador al momento de realizar la estimación de movimiento usando programación paralela
+
+= El módulo look-ahead permite que el codificador mejore la eficiencia de codificación,
+pero afecta considerablemente tiempo de codificación del codificador.
+
+= El uso de programación paralela para la estimación de movimiento reduce la eficiencia
+de codificación, pero esta reducción tiene gran magnitud; esta perdida de eficiencia se
+genera debido a dependencia de información entre PU vecinos.
+
+= El uso de un arreglo de 3 dimensiones permite la transferencia de la información de
+movimiento que calcula la GPU, para que pueda ser usada por el codificador.
+
+8.2 SUGERENCIAS PARA TRABAJO FUTURO
+
+En este proyecto existe la posibilidad de continuar con investigaciones en el proceso de
+estimación de movimiento del codificador HEVC usando programación paralela. Los trabajo
+futuros pueden estar orientados a:
+
+= Modelar e implementar el refinamiento de los vectores de movimiento usando programación paralela para integrarlo al modelo de estimación de movimiento propuesto en
+este trabajo
+
+= Aumentar la cantidad de CTUS a evaluar, en los cuales se puede realizar el proceso de
+estimación de movimiento. Actualmente la GPU solo evaluá un CTU a la vez.
+
+= Evaluar y comparar el modelo propuesto teniendo en cuenta otros fabricantes de dispositivos de arquitectura paralelas que tenga características similares al dispositivo con
+que se evaluó el modelo propuesto en este trabajo.
+
+45RESULTADOS DE LA EVALUACIÓN DEL MÓDULO
+LOOK-AHEAD EN X264
+
+ 
+
+PSNR-YUV (dB)
+
+PSNR-YUV (dB)
+
+PSNR-YUV (dB)
+
+40
+
+39
+
+38
+
+37
+
+36
+
+35
+
+34
+
+33
+
+32
+
+31
+
+30
+
+38
+37
+36
+35
+34
+33
+32
+31
+30
+29
+28
+27
+
+40
+
+39
+
+38
+
+37
+
+36
+
+35
+
+34
+
+33
+
+32
+
+31
+
+30
+
+BasketballDrill, 832x480, 50fps
+AMD A10-5750M + HD Radeon 8670M
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+mbtree ——
+mbtree-opencl ——
+
+ 
+
+ 
+
+no-mbtree —s—
+
+ 
+
+ 
+
+500
+
+1000
+
+1500
+Bit-rate (Kb/s)
+
+2000 2500
+
+PartyScene, 832x480, 50fps
+AMD A10-5750M + HD Radeon 8670M
+
+3000
+
+ 
+
+ 
+
+   
+
+ 
+
+ 
+
+ 
+ 
+
+ 
+
+mbtree ——
+mbtree-opencl ——
+no-mbtree_—*—
+
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+1000
+
+2000
+
+3000
+Bit-rate (Kb/s)
+
+4000 5000
+
+BQMall, 832x480, 60fps
+AMD A10-5750M + HD Radeon 8670M
+
+6000
+
+ 
+
+ 
+
+ 
+
+ 
+
+mbtree ——
+mbtree-opencl —H—
+no-mbtree_—*—
+
+ 
+
+ 
+
+ 
+
+ 
+
+500
+
+1000
+
+1500
+Bit-rate (Kb/s)
+
+2000 2500
+
+3000
+
+PSNR-YUV (dB)
+
+PSNR-YUV (dB)
+
+PSNR-YUV (dB)
+
+BasketballDrive, 1920x1080, 50fps
+AMD A10-5750M + HD Radeon 8670M
+
+39 1
+
+ 
+
+38 +
+
+ 
+
+ 
+
+34 F mbtree —*x— 7
+mbtree-opencl ——
+no-mbtree —+—
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+33 L L L L TI
+1000 2000 3000 4000 5000 6000 7000 8000 se8o000 10000 11000
+
+Bit-rate (Kb/s)
+
+ 
+
+Traffic, 2560x1600, 30fps
+AMD A10-5750M + HD Radeon 8670M
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+42 T T T T T T
+41 + 40 | 39 + 3
+38 + 3
+37 + J
+36 + 35 | 7
+mbtree ——
+34 F mbtree-openc] —e— |7
+33 l l L L I no-mbtree >
+0 2000 4000 6000 8000 10000 12000 14000 16000
+Bit-rate (Kb/s)
+BQTerrace, 1920x1080, 60fps
+AMD A10-5750M + HD Radeon 8670M
+38 T T T T T T T T
+37 | J
+36 + 35 + 3
+34 | 33 + 3
+32 | mbtree —*k— |
+mbtree-opencl —H—
+31 L L l l L I no-mbtree I
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+0 2000 4000 6000  soo0 10000 12000 14000 16000 18000
+Bit-rate (Kb/s)PSNR-YUV (dB)
+
+PSNR-YUV (dB)
+
+PSNR-YUV (dB)
+
+PSNR-YUV (dB)
+
+39
+
+38
+
+37
+
+36
+
+35
+
+34
+
+33
+
+32
+
+31
+
+RESULTADOS DE LA EVALUACIÓN DEL MÓDULO LOOK-AHEAD EN x264
+
+Cactus, 1920x1080, 50fps
+AMD A10-5750M + HD Radeon 8670M
+
+ 
+
+ 
+
+ 
+
+ 
+
+mbtree ——
+
+mbtree-opencl ——
+
+no-mbtree >
+I
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+1000 2000 3000 4000 5000 6000 7000 g8000 «8000 10000 11000 12000
+
+41
+
+40
+
+39
+
+38
+
+37
+
+36
+
+35
+
+34
+
+33
+
+32
+
+31
+
+36
+
+34
+
+32
+
+30
+
+28
+
+26
+
+24
+
+42
+
+41
+
+40
+
+39
+
+38
+
+37
+
+36
+
+35
+
+Bit-rate (Kb/s)
+
+PeopleOnStreet, 2560x1600, 30fps
+AMD A10-5750M + HD Radeon 8670M
+
+ 
+
+ 
+
+ 
+
+ 
+
+mbtree —*—
+mbtree-opencl —m— +
+no-mbtree rm
+
+I
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+5000 10000 15000 20000
+Bit-rate (Kb/s)
+
+25000 30000 35000
+
+CrowdRun, 1280x720, 50fps
+AMD A10-5750M + HD Radeon 8670M
+
+ 
+
+ 
+
+ 
+
+ 
+
+mbtree —*— 7
+mbtree-opencl ——
+no-mbtree —*—
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+5000 10000 15000 20000
+Bit-rate (Kb/s)
+
+25000 30000
+
+Kimono1, 1920x1080, 24fps
+AMD A10-5750M + HD Radeon 8670M
+
+ 
+
+ 
+
+ 
+
+ 
+
+mbtree —*— |,
+mbtree-opencl —H—
+no-mbtree —*—
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+1000 2000 3000 4000
+Bit-rate (Kb/s)
+
+5000 6000
+
+47
+
+PSNR-YUV (dB)
+
+PSNR-YUV (dB)
+
+PSNR-YUV (dB)
+
+PSNR-YUV (dB)
+
+40
+
+39
+
+38
+
+37
+
+36
+
+35
+
+34
+
+33
+
+32
+
+31
+
+41
+
+40
+
+39
+
+38
+
+37
+
+36
+
+35
+
+34
+
+33
+
+32
+
+37
+
+36
+
+35
+
+34
+
+33
+
+32
+
+31
+
+30
+
+29
+
+39
+
+38
+
+37
+
+36
+
+35
+
+34
+
+33
+
+32
+
+31
+
+30
+
+City, 1280x720, 60fps
+AMD A10-5750M + HD Radeon 8670M
+
+ 
+
+ 
+
+ 
+
+ 
+
+mbtree ——
+
+mbtree-opencl —m— 7
+
+no-mbtree >
+T
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+500
+
+1000
+
+1500 2000 2500 3000 3500 4000 4500 5000 5500
+Bit-rate (Kb/s)
+
+ParkScene, 1920x1080, 24fps
+AMD A10-5750M + HD Radeon 8670M
+
+ 
+
+ 
+
+ 
+
+ 
+
+mbtree ——
+mbtree-opencl —m— 7
+no-mbtree SS
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+1000
+
+2000 3000 4000 5000 6000
+Bit-rate (Kb/s)
+
+7000 8000 9000
+
+CrowdRun, 3840x2160, 50fps
+AMD A10-5750M + HD Radeon 8670M
+
+ 
+
+ 
+
+ 
+
+ 
+
+mbtree ——
+mbtree-opencl ——
+no-mbtree -—+—
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+10000
+
+20000 30000 40000 50000
+Bit-rate (Kb/s)
+
+60000 70000 80000
+
+MobileCalendar, 1280x720, 50fps
+AMD A10-5750M + HD Radeon 8670M
+
+ 
+
+ 
+
+ 
+
+ 
+
+mbtree ——
+mbtree-opencl —H— 7]
+no-mbtree —*+—
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+500
+
+1000 1500 2000 2500 3000
+Bit-rate (Kb/s)
+
+3500 4000 4500 5000RESULTADOS DE LA EVALUACIÓN DEL MÓDULO LOOK-AHEAD EN x264
+
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ParkJoy, 3840x2160, 50fps ParkRun, 1280x720, 50fps
+AMD A10-5750M + HD Radeon 8670M AMD A10-5750M + HD Radeon 8670M
+37 T T T T T 37 T T T T
+36 | - $6 F
+35 +
+35 Pp 7
+_ _ 34t
+a 34 | 7 o e
+= 33 + 7 = 32 |
+> >
+er  32t 7 a 3415
+Z Z
+30 +
+29 +
+30 Pp 7
+mbtree —x— 28 mbtree —x— ||
+29 t mbtree-openc!l —m— |7 27 L mbtree-opencl —a— |?
+28 E ] no-mbtree —— 06 ] no-mbtree —e—
+0 20000 40000 60000 80000 100000 120000 0 5000 10000 15000 20000 25000
+Bit-rate (Kb/s) Bit-rate (Kb/s)
+
+Figura 29: Curvas de Rate-Distortion de las secuencias de video codificadas con AMD A1o-5750M
+Dual Graphics 8650G+8670M
+
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+BasketballDrill, 832x480, 50fps BasketballDrive, 1920x1080, 50fps
+Intel Core ¡7-4500U + Nvidia GeForce 840M Intel Core ¡7-4500U + Nvidia GeForce 840M
+40 T T T T T 39 T
+39 + >
+38 t
+38 t >
+a “1 7 mm 37)?
+O DO
+— 36 +t ] E
+> >
+> 35- - > 361
+S 341 , >
+dd 28 | | DD  35t
+32 | ]
+mbtree —x— 34 t mbtree —x— |7
+31 + mbtree-opencl —m— y mbtree-opencl ——
+30 L L L I no-mbtree 7 33 L L L L I no-mbtree 9
+0 500 1000 1500 2000 2500 3000 1000 2000 3000 4000 5000 6000 7000 8000 9000 10000 11000
+Bit-rate (Kb/s) Bit-rate (Kb/s)
+BQMall, 832x480, 60fps BQTerrace, 1920x1080, 60fps
+Intel Core ¡7-4500U + Nvidia GeForce 840M Intel Core ¡7-4500U + Nvidia GeForce 840M
+40 T T T T T 38 T T T T T T T T
+39 + >
+37 + J
+38 t >
+L J 36 t >
+a 5
+2 36 Lt J 2
+> > >355+ 7
+> 35| y >
+S 3? 7 E “tr |
+MN Mn
+o. 33 + + a 33 L J
+32 + mbtree —— 32 | mbtree —*x— |,
+31 + mbtree-opencl —m— y mbtree-opencl ——
+30 | no-mbtree —e— 31 l | no-mbtree —$
+0 500 1000 1500 2000 2500 3000 0 2000 4000 6000  so0o0 10000 12000 14000 16000 18000
+Bit-rate (Kb/s) Bit-rate (Kb/s)PSNR-YUV (dB)
+
+PSNR-YUV (dB)
+
+PSNR-YUV (dB)
+
+PSNR-YUV (dB)
+
+39
+
+38
+
+37
+
+36
+
+35
+
+34
+
+33
+
+32
+
+31
+
+RESULTADOS DE LA EVALUACIÓN DEL MÓDULO LOOK-AHEAD EN x264
+
+Cactus, 1920x1080, 50fps
+Intel Core i7-4500U + Nvidia GeForce 840M
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+mbtree ——
+mbtree-opencl ——
+no-mbtree >
+
+ 
+
+ 
+
+ 
+
+ 
+
+1000 2000 3000 4000 5000 6000 7000 g8000 «8000 10000 11000 12000
+
+37
+
+36
+
+35
+
+34
+
+33
+
+32
+
+31
+
+30
+
+29
+
+42
+
+41
+
+40
+
+39
+
+38
+
+37
+
+36
+
+35
+
+37
+
+36
+
+35
+
+34
+
+33
+
+32
+
+31
+
+30
+
+29
+
+28
+
+Bit-rate (Kb/s)
+
+CrowdRun, 3840x2160, 50fps
+Intel Core ¡i7-4500U + Nvidia GeForce 840M
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+80000
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+6000
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Ñ mbtree —x*— ||
+mbtree-opencl ——
+] no-mbtree >
+0 10000 20000 30000 40000 50000 60000 70000
+Bit-rate (Kb/s)
+Kimono1, 1920x1080, 24fps
+Intel Core ¡7-4500U + Nvidia GeForce 840M
+L mbtree —*k— |
+mbtree-opencl ——
+no-mbtree —s—
+0 1000 2000 3000 4000 5000
+Bit-rate (Kb/s)
+ParkJoy, 3840x2160, 50fps
+Intel Core ¡7-4500U + Nvidia GeForce 840M
+mbtree —x—
+T mbtree-opencl —iH— 7]
+] no-mbtree ——
+0 20000 40000 60000 80000 100000
+
+Bit-rate (Kb/s)
+
+120000
+
+49
+
+PSNR-YUV (dB)
+
+PSNR-YUV (dB)
+
+PSNR-YUV (dB)
+
+PSNR-YUV (dB)
+
+40
+
+39
+
+38
+
+37
+
+36
+
+35
+
+34
+
+33
+
+32
+
+31
+
+36
+
+34
+
+32
+
+30
+
+28
+
+26
+
+24
+
+39
+
+38
+
+37
+
+36
+
+35
+
+34
+
+33
+
+32
+
+31
+
+30
+
+36
+
+35
+
+34
+
+33
+
+32
+
+31
+
+30
+
+29
+
+28
+
+27
+
+26
+
+City, 1280x720, 60fps
+Intel Core 17-4500U + Nvidia GeForce 840M
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+mbtree ——
+mbtree-opencl ——
+no-mbtree e A
+
+ 
+
+ 
+
+ 
+
+ 
+
+500
+
+1000
+
+1500 2000 2500 3000 3500 4000 4500 5000
+
+Bit-rate (Kb/s)
+
+CrowdRun, 1280x720, 50fps
+Intel Core ¡7-4500U + Nvidia GeForce 840M
+
+5500
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+mbtree ——
+mbtree-opencl ——
+no-mbtree —.—
+
+ 
+
+ 
+
+ 
+
+ 
+
+5000
+
+10000 15000
+Bit-rate (Kb/s)
+
+20000 25000
+
+MobileCalendar, 1280x720, 50tps
+Intel Core i7-4500U + Nvidia GeForce 840M
+
+30000
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+mbtree ——
+mbtree-opencl ——
+no-mbtree —*—
+
+ 
+
+ 
+
+ 
+
+ 
+
+500
+
+1000
+
+1500 2000 2500
+Bit-rate (Kb/s)
+
+3000
+
+3500 4000 4500
+
+ParkRun 1280x720, 50fps
+Intel Core i7-4500U + Nvidia GeForce 840M
+
+5000
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+mbtree ——
+mbtree-opencl —H—
+no-mbtree —*—
+
+ 
+
+ 
+
+ 
+
+ 
+
+5000
+
+10000
+Bit-rate (Kb/s)
+
+15000
+
+20000
+
+25000RESULTADOS DE LA EVALUACIÓN DEL MÓDULO LOOK-AHEAD EN x264
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ParkScene, 1920x1080, 24fps PartyScene, 832x480, 50fps
+Intel Core i7-4500U + Nvidia GeForce 840M Intel Core i7-4500U + Nvidia GeForce 840M
+41 T T T T T T T T 38 T T T T T
+40 P J 37 t J
+36 t 39 + _ _ 35t y
+g 1 Eau
+L J >
+> > Ss
+ar 36+t 7 a %2r 7
+Z Z al |
+30 + 7
+34 + y
+mbtree —xx— 2 Tr mbtree —xt— ||
+33 1 mbtree-openc! —H— |7 28 t mbtree-opencl —HH— |?
+ES ] no-mbtree +— 97 ] no-mbtree —s—
+0 1000 2000 3000 4000 5000 6000 7000 8000 29000 0 1000 2000 3000 4000 5000 6000
+Bit-rate (Kb/s) Bit-rate (Kb/s)
+PeopleOnStreet, 2560x1600, 30fps Traffic, 2560x1600, 30fps
+Intel Core i7-4500U + Nvidia GeForce 840M Intel Core i7-4500U + Nvidia GeForce 840M
+41 T T T T T 42 T T T T T T
+40 + y 41) ]
+39 F 7 40 | 7
+_ 38 + 4 —_
+cn om  39+ 7
+UD O
+S 37 + y S se | |
+> 36) ] >
+, 37 Lt y
+S 351 - 5
+dl 34 | | y  36+t o
+33 L | 35 t mbtree —x— mbtree —xk—
+32 p mbtree-opencl —m— | 34 T mbtree-openc!l —H— |7
+5 E no-mbtree — ES : E E no-mbtree _*—
+0 5000 10000 15000 20000 25000 30000 35000 0 2000 4000 6000 8000 10000 12000 14000 16000
+Bit-rate (Kb/s) Bit-rate (Kb/s)
+
+Figura 30: Curvas de Rate-Distortion de las secuencias de video codificadas con Intel Core i7 and
+GeForce 840M
+
+BORESULTADOS DE LA EVALUACIÓN DEL MÓDULO LOOK-AHEAD EN x264
+
+ 
+
+AMD Axo - 8780M GPU
+
+Intel 17 - GeForce 840M GPU
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Sequence Name | Configuration
+22 27 32 37 Avg 22 27 32 37 Avg
+no-mbtree 1137.34 942.26 809.36 724.96 | 903.48 | 992.25 811.78 705.40 607.65 | 779.27
+CrowdRun mbtree 2209.169 1771.21 1420.02 1164.51 | 1641.23 | 1946.16 1572.72 1292.89 1103.78 | 1478.89
+mbtree OpenCL | 2105.44 1703.92 1378.10 1117.95 | 1576.35 | 1827.32 1517.96 1203.35 1019.85 | 1392.12
+no-mbtree 1205.74 974.50 780.04 699.06 | 914.83 | 1130.44 874.33 693.16 582.17 | 820.02
+ParkJoy mbtree 2282.621 1823.98 1492.54 1191.06 | 1697.55 | 2047.61 1618.92 1274.98 1035.03 | 1494.14
+btree OpenCL 2103.38 1613.18 1375.44 1109.72 | 1550.43 | 1968.89 1519.23 1128.55 0976.10 | 1398.19
+no-mbtree 117.71 102.24 90.71 83.73 98.60 93.17 80.93 71.57 64.81 77.62
+Traffic mbtree 220.68 192.21 15454 125.58 | 173.25 | 192.56 158.19 130.41 107.72 | 147.22
+mbtree OpenCl 191.66 150.61 118.34 94.62 138.81 | 147.04 113.20 83.90 59-56 100.92
+no-mbtree 128.89 109.33 90.39 70.66 99.82 104.81 86.30 75.97 57.72 81.20
+PeopleOnStreet mbtree 216.79 182.56 156.24 127.93 | 170.88 | 190.55 172.95 128.69 105.89 | 149.52
+mbtree OpenCL | 205.64 158.61 130.79 103.37 | 149.60 | 142.60 104.18 86.44 68.62 100.46
+no-mbtree 123.05 97.07 81.50 70.74, 93.09 103.33 78.01 63-93 55:53 75.20
+Kimono1 mbtree 213.77 181.69 152.42 117.72 | 166.40 | 190.09 150.30 122.40 93-48 139.07
+mbtree OpenCL | 185.65 150.20 116.83 85.69 134.59 | 202.76 105.74 80.01 53-91 110.60
+no-mbtree 166.80 133.21 106.01 90.04 124.01 | 100.96 79.78 64.77 56,00 75,38
+ParkScene mbtree 300.81 253.44 208.96 168.04 | 232.81 | 197.91 163.01 133.44 95-94 147.58
+mbtree OpenCL | 283.23 229.30 182.66 139.12 | 208.58 | 162.65 119.85 90.59 64.10 109.30
+no-mbtree 343.70 205.49 242.06 209.43 | 272.67 | 293,18 245,90 195,001 183,81 | 229,48
+Cactus mbtree 595.80 498.80 392.44 310.92 | 449.47 | 525.27 427.13 334,909 256.89 | 386,07
+mbtree OpenCL | 518.67 416.50 322.98 249.73 | 376.97 | 407.11 311.52 220.30 160/71 | 277,16
+no-mbtree 470.01 387.15 314.93 273.83 | 361.48 | 396.50 322.24 257.26 214.48 | 297,62
+BOTerrace mbtree 900.61 704.10 538.76 403.00 | 636.62 | 813.45 600.39 442.82 320.50 | 544.30
+mbtree OpenCL | 843.77 643.69 464.85 349.95 | 575.56 | 650.32 473.00 336.68 229.10 | 422.28
+no-mbtree 92.30 77.20 61.02 46.22 69.19 TIT 62.44 48.65 36.93 55:45
+BasketballDrive mbtree 140.34 119.90 95.17 69.20 106.15 | 120.21 100.06 78.72 55,83 88.71
+mbtree OpenCL | 137.56 116.03 89.36 63.62 101.64 91.85 71,76 54.13 38.03 63-94
+no-mbtree 85.31 74.18 63.87 55:43 69.70 68.15 58.54 50.95 44.57 55-56
+BQMall mbtree 143.38 125.15 106.59 87.65 115.69 | 119.47 102.20 83.86 70.13 93.92
+mbtree OpenCL | 144.77 128.06 110.10 93.81 119.18 | 109.99 89.47 72.84 59.30 82.90
+mbtree 88.13 75.20 62.56 53-84 69.93 78.80 69.21 52.93 44.29 61.31
+PartyScene mbtree 166.25 146.47 126.83 103.76 | 135.83 | 129.93 114.09 95-95 86.41 106.60
+mbtree OpenCL | 149.10 132.05 113.81 96.71 122.92 | 124.31 106.01 85.74 67.55 95.90
+no-mbtree 79.06 66.38 53-65 39.23 59.58 64.99 59-59 46.14 33.66 51.10
+BasketballDrill mbtree 123.51 106.06 85.99 63.21 94.69 | 103.89 8882 6854 51.26 78.13
+mbtree OpenCL | 123.53 106.29 90.07 70.42 97.58 93-73 76.55 59.46 43-59 68.33
+no-mbtree 153.90 139.95 132.92 129.96 | 139.19 | 132,553 11542 10744 101,336 | 114,19
+City mbtree 285.61 245.23 216.67 186.10 | 233.40 | 249,95 200,76 176,337 148,46 | 193,89
+mbtree OpenCL | 263.22 222.31 196.28 169.74 | 212.89 | 21745 184,557 153,147 127,09 | 170,65
+no-mbtree 198.54 169.27 147.50 129.40 | 161.18 | 17186 14132 12079 11140 | 136,35
+ParkRun mbtree 386.90 333-37 281.77 237.20 | 309.81 | 337.77 284,32 239.41 199.15 | 265,17
+mbtree OpenCL | 376.11 312.77 264.58 217.30 | 292.70 | 326,46 276,41 231,199 184,08 | 254,74
+no-mbtree 289.91 247.34 204.829 162.99 | 226.27 | 271,01 218,38 173,110 135,40 | 199,48
+CrowdRun mbtree 453-04 401.83 361.87 313.23 | 382.49 | 396,92 357,20 310,58 261,335 | 331,52
+mbtree OpenCL | 425.89 372.32 324.95 281.09 | 351.06 | 375,92. 335,554 288,64 238,45 | 300,64
+no-mbtree 140.36 119.58 110.35 92.68 113.24 | 12134 103,70 77,34 73,57 93,99
+MobileCalendar mbtree 264.21 217.80 168.43 139.22 | 197.42 | 224,32 189,11 144/06 108,91 | 166,60
+mbtree OpenCL | 238.42 193.88 151.10 126.20 | 177.40 | 206,65 165,86 117,49 92,26 145,57
+
+ 
+
+Cuadro 15: Tiempo de codificación en segundos
+
+51RESULTADOS DE LA EVALUACIÓN DEL MÓDULO LOOK-AHEAD EN x264
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Sequence Name | Configuration QP 22 QP 27 QP 32 QP 37
+bitrate  PSNR | bitrate PSNR | bitrate PSNR bitrate  PSNR
+no-mbtree 50130.21 35.628 | 25650.65 33.889 | 13732.29 31.953 | 7720.68 29.890
+CrowdRun mbtree 77561.49 36.532 | 36170.43 34.981 | 19018.67 33.187 | 10397.23 31.146
+mbtree OpenCL | 77760.85 36.536 | 36252.98 34.984 | 19063.74 33.191 10427.91 31.165
+no-mbtree 68336.75 34.557 | 31890.42 32.362 | 14565.42 30.179 | 6816.30 28.121
+parkJoy mbtree 116413.31 36.029 | 53185.19 33.958 | 25114.97 31.718 11486.89 29.663
+mbtree OpenCL | 115070.72 35.981 | 52974.12 33.902 | 25102.45 31.770 | 11529.89 29.582
+no-mbtree 21008.87 38.707 | 11840.71 36.443 | 6950.07 34.153 | 4108.35 31.744
+PeopleOnStreet mbtree 30991.16 40.328 | 16700.73 38.024 | 9550.63 35.704 | 5639.50 33.342
+mbtree OpenCL | 30989.70 40.313 | 16699.04 38.005 | 9557.34 35.681 | 5654.23 33.304
+no-mbtree 10204.71 40.133 | 5071.15 37.868 | 2746.05 35.535 1509.65 33.231
+Traffic mbtree 1417346 41.316 | 6866.31 39.237 | 3648.58 37.042 | 2081.36 34.762
+mbtree OpenCL | 14140.17 41.298 6874.94 39.210 | 3648.35 37.017 | 2083.37 34.735
+no-mbtree 7534.80 36.344 | 3100.26 34.861 | 1587.51 33.099 | 928.65 31.106
+BQTerrace mbtree 16869.20 37.200 | 5474.55 35.981 | 2319.41 34.528 1246.71 32.790
+mbtree OpenCL | 16057.57 37.133 | 5219.35 35.889 | 2259.31 34.389 | 1233.26 32.600
+no-mbtree 6120.96 39.026 | 2969.20 36.720 | 1467.54 34.442 | 751.75 32.356
+ParkScene mbtree 8662.99 40.282 | 4231.53 38.185 | 2128.17 35.946 1089.39 33.751
+mbtree OpenCL | 8627.50 40.260 | 4209.65 38.153 | 2111.15 35.905 1080.59 33.710
+no-mbtree 7901.17 37.406 | 3948.03 35.637 | 2101.42 33.651 1163.08 31.547
+Cactus mbtree 11015.70 38.152 | 4868.07 36.586 | 2561.93 34.742 1416.63 32.701
+mbtree OpenCL | 10944.93 38.109 | 4835.80 36.554 | 2548.09 34.703 | 1411.53 32.654
+no-mbtree 4695.18 41.277 | 2564.37 39.375 | 1371.78 37.305 759.83 35.121
+Kimono1 mbtree 5802.52 41.693 | 2981.65 39.993 | 1595.70 37.968 887.39 35.784
+mbtree OpenCL | 5715.32. 41.662 | 2940.57 39.945 | 1574.80 37.914 877.29 35.737
+no-mbtree 10722.04 38.972 | 5308.50 37.370 | 2977.11 35.503 | 1763.08 33.419
+BasketballDrive mbtree 9573-76 38.902 | 5015.54 37.209 | 2875.95 35.318 | 1719.89 33.152
+mbtree OpenCL | 9588.66 38.850 | 5051.63 37.149 | 2892.49 35.247 | 1730.34 33.074
+no-mbtree 2179.58 38.021 | 1165.89 35.593 | 646.74 33.155 | 379.61 30.792
+BQMall mbtree 2841.16 39.330 | 1491.09 36.988 | 814.55 34.584 464.07 32.194
+mbtree OpenCL | 2807.72 39.283 | 1473.74 36.932 | 805.39 34.581 459.59 32.135
+no-mbtree 3721.01 34.763 | 1768.25 31.999 | 833.37 29.465 389.09 27.227
+PartyScene mbtree 5766.93 37.206 | 2789.85 34.409 | 1312.51 31.790 608.48 209.367
+mbtree OpenCL | 5766.26 37.150 | 2790.85 34.345 | 1322.85 31.739 623.34 29.316
+no-mbtree 2452.81 37.746 | 1308.49 35.203 | 716.71 32.844 | 413.52 30.575
+BasketballDrill mbtree 2797.35 39.155 | 1490.59 36.555 | 816.71 34.121 466.95 31.766
+mbtree OpenCL | 2789.93 39.145 | 1488.20 36.546 | 816.82 34.122 | 466.43 31.766
+no-mbtree 3705.77 38.781 | 1529.80 36.636 | 805.73 34.271 482.46 31.876
+City mbtree 5271.67 39.852 | 2126.61 37.939 | 1072.45 35.891 622.23 33.581
+mbtree OpenCL | 5102.40 39.812 | 2082.22 37.851 | 1036.30 35.767 600.91 33.426
+no-mbtree 11683.42 33.302 | 4784.27 30.764 | 1856.52 28.406 | 737.78 26.288
+ParkRun mbtree 24620.93 36.001 | 11195.45 33.527 | 4671.27 31.155 | 1951.23 28.999
+mbtree OpenCL | 24620.75 35.996 | 11174.30 33.514 | 4633.04 31.127 1926.23 28.961
+no-mbtree 14558.89 32.417 | 6804.42 29.487 | 3028.15 26.917 1407.92 24.887
+CrowdRun mbtree 27513.71 35.605 | 13633.05 32.499 | 6403.51 20.573 2842.33 26.985
+mbtree OpenCL | 27423.89 35.583 | 13595.46 32.435 | 6356.77 29.544 | 2819.30 26.955
+no-mbtree 2686.77 37.182 | 1309.15 35.285 | 745.62 33.059 438.17 30.605
+MobileCalendar mbtree 4867.74 38.384 | 2099.37 36.853 | 1128.66 35.052 | 672.18 32.868
+mbtree OpenCL | 4725.82 38.326 | 2049.18 36.760 | 1098.68 34.929 650.85 32.707
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+5750M Dual Graphics 8650G+8670M
+
+B2
+
+Cuadro 16: Resultados de PSNR y tasa de bits para secuencias de video codificadas con AMD Azo-RESULTADOS DE LA EVALUACIÓN DEL MÓDULO LOOK-AHEAD EN x264
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Sequence Name | Configuration QP 22 QP 27 QP 32 QP 37
+bitrate  PSNR | bitrate PSNR | bitrate PSNR bitrate  PSNR
+no-mbtree 50242.32 35.626 | 25687.25 33.885 | 13728.38 31.949 | 7721.57 29.879
+CrowdRun mbtree 77710.07 36.531 | 36235.01 34.978 | 19049.12 33.183 | 10396.96 31.141
+mbtree OpenCL | 77780.07 33.210 | 36109.17 34.993 | 19097.32 33.210 10423.53 30.993
+no-mbtree 68450.61 34.558 | 31915.09 32.361 | 14565.5 30.175 | 6818.91 28.113
+parkJoy mbtree 116548.16 36.028 | 53260.30 33.958 | 25131.09 31.832 | 11472.64 29.660
+mbtree OpenCL | 115510.08 36.151 | 53320.48 33.120 | 25118.16 31.810  11589.31 29.510
+no-mbtree 21144.04 38.698 | 11912.48 36.429 | 6977.51 34.135 4110.69 31.725
+PeopleOnStreet mbtree 31176.24 40.321 | 16804.52 38.014 | 9597.89 35.688 | 5658.31 33.326
+mbtree OpenCL | 31406.51 40.292 | 19637.85 37.981 | 9682.97 35.652 | 5701.43 33.271
+no-mbtree 10301.73 40.131 | 5070.35 37867 | 274.70 35.533 | 1600.24 33.228
+Traffic mbtree 31176.24 40.321 | 16804.52 38.014 | 9597.89 35.688 | 5658.31 33.326
+mbtree OpenCL | 14196.45 41.274 | 6872.12 39.193 | 3659.83 37.004 | 2084.84 34.721
+no-mbtree 7530.82 36.338 | 3097.22 34.854 | 1590.11 33.092 926.53 31.103
+BQTerrace mbtree 16896.88 37.197 | 5480.53 35.975 | 2314.66 34.520 | 1248.56 32.785
+mbtree OpenCL | 16093.92 37.127 | 5215.48 35.880 | 2258.52 34.379 | 1230.91 32.596
+no-mbtree 6134.08 39.024 | 2973.06 36.719 | 1470.52 34.440 | 750.54 32.355
+ParkScene mbtree 8674.75 40.280 | 4235.66 38.183 | 2128.86 35.944 | 1088.80 33.747
+mbtree OpenCL | 8661.00 40.245 | 4222.24 38.140 | 2117.67 35.895 1081.46 33.700
+no-mbtree 7910.78 37.403 | 3951.13 35.632 | 2100.07 33.644 | 1183.81 31.540
+Cactus mbtree 11031.88 38.125 | 4870.54 36.581 | 2563.93 34.736 | 1417.09 32.606
+mbtree OpenCL | 10980.54 38.105 | 4854.76 36.550 | 2554.50 34.695 1410.68 32.642
+no-mbtree 4961.71 41.238 | 2564.42 39.373 | 1370.97 37.303 | 758.47 35.115
+Kimono1 mbtree 5795.86 41.690 | 2978.02 39.993 | 1593.30 37.961 | 887.22 35.773
+mbtree OpenCL | 5708.87 41.654 | 2937.72 39.938 | 1573.96 37.906 | 875.30 35.727
+no-mbtree 10740.39 38.972 | 5319.99 37.343 | 2985.02 35.506 1777.43 33-417
+BasketballDrive mbtree 9525.45 38.897 | 5028.74 37.208 | 2884.93 35.312 | 1717.34 33.151
+mbtree OpenCL | 9618.06 38.840 | 5065.46 37.143 | 2898.87 35.226 1725.73 33.067
+no-mbtree 2185.70 38.016 | 1168.21 35.588 | 647.78 33.276 378.73 30.797
+BQMall mbtree 2850.23 39.327 | 1494.24 36.983 | 815.20 34.572 464.39 32.189
+mbtree OpenCL | 2817.51 39.278 | 1476.53 36.923 | 805.78 34.511 459.42 32.127
+no-mbtree 3727.54 34.761 | 1771.31. 31.909 | 834.30 29.463 389.53 27.225
+PartyScene mbtree 5813.14 37.200 | 2827.58 34.420 | 1342.86 31.825 633.47 20.405
+mbtree OpenCL | 5770.69 37.148 | 2794.93 34.344 | 1324.02 31.736 | 623.55 29.316
+no-mbtree 2458.23 37.742 | 1310.50 35.195 | 717.40 32.834 414.52 30.565
+BasketballDrill mbtree 2803.87 39.151 | 1492.36 36.546 | 816.74 34.109 466.40 31.754
+mbtree OpenCL | 2796.46 39.140 | 1489.90 36.537 | 816.26 34.105 466.01 31.755
+no-mbtree 3708,24 38,782 | 1529,65 36,634 | 806,559 34,273 481,19 31,876
+City mbtree 5276,952 39,852 | 2163,07 37,940 | 1073,41 35,890 | 622,111 33,577
+mbtree OpenCL | 5101,69 39811 | 2081.63 37,852 | 1037,1 35,771 601,07 33,427
+no-mbtree 11698.92 33,301 | 4792.19 30,763 | 1858.37 28,404 736,40 26,284
+ParkRun mbtree 24632,53 36,000 | 11199,94 33,526 | 4674,22 31,155 | 1953.36 28,995
+mbtree OpenCL | 24629,46 35,996 | 11178,82 33,513 | 4638,83 31,126  1924,10 28,956
+no-mbtree 14608.10 32,445 | 6822198 209,486 | 3028/01 26,911  1407,30 24,886
+CrowdRun mbtree 27578,99 35,608 | 13702,42 32,463 | 6415,10 20,572  2848,34 26,985
+mbtree OpenCL | 27478,78 35,584 | 13625.84 32,435 | 6377,75 29,546  2823,03 26,955
+no-mbtree 2687,82 37,180 | 1309,75 35,286 | 746,45 33,060 | 435,74 30,608
+MobileCalendar mbtree 4866,36 38,382 | 2097,37 36,849 | 112891 35,048 | 670,41 32,871
+mbtree OpenCL | 4721,13 38,325 | 2050,05 36,754 | 1099,29 34,929 649,37 32,711
+
+ 
+
+and GeForce 840M
+
+53
+
+Cuadro 17: Resultados de PSNR y tasa de bits para secuencias de video codificadas con Intel Core i7RESULTADOS DE LA EVALUACIÓN DEL HEVC MODEL (HM)
+CON OPENCL
+
+ 
+
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+PeopleOnStreet, 2560x1600, 30fps Kimono, 1920x1080, 24fps
+Intel Core ¡7 + Nvidia 840M Intel Core ¡7 + Nvidia 840M
+43 T T T T T T T T 43
+42 | 42 P 414 mn 40tb - DO 41+p J
+a o)
+> 39 + 5 >
+> > 40+ ]
+E 381 - e
+z z
+2 375 - D 39 t ]
+36 + y
+38 + 35 t HM =x— |] HM —x—
+34 L L L L L HM-OpenCL I 37 L L L L HM-OpenCL I
+5000 10000 15000 20000 25000 30000 35000 40000 45000 50000 1000 2000 3000 4000 5000 6000 7000 8000
+Bit-rate (Kb/s) Bit-rate (Kb/s)
+ParkScene, 1920x1080, 24fps PedestrianArea, 1920x1080, 25fps
+Intel Core ¡7 + Nvidia 840M Intel Core ¡7 + Nvidia 840M
+42 T T T T T 44 T T T T T T
+414 - 43 | |
+40 | a
+_ _ 42t ]
+mn 39t - Eo
+Y o)
+41 + | E
+>. >.
+a 3971 7 an 40+ 5 5
+36 + E — sb 7
+35 | y
+38 7
+34 F HM —x— |] HM —x—=
+33 | | HM-OpenCL A 27 | HM-OpenCL AH
+0 2000 4000 6000 8000 10000 12000 14000 0 1000 2000 3000 4000 5000 6000 7000
+Bit-rate (Kb/s) Bit-rate (Kb/s)
+
+Figura 31: Curvas de Rate-Distortion de las secuencias de video codificadas con Intel Core 17 and
+GeForce 840M
+
+54RESULTADOS DE LA EVALUACIÓN DEL HEVC MODEL (HM) CON OPENCL
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Sequence Name | Configuration QPz2 QP27 OP32 0P37
+bitrate  PSNR | bitrate  PSNR | bitrate  PSNR | bitrate  PSNR
+PeopleOnStreet HM 46155.40 42.096 | 21401.87 39.258 | 11234.74 36.613 | 6339.79 34.091
+HM-OpenCL | 46670.53 42.079 | 21712.85 39.225 | 11338.81 36.549 | 6365.31 34.018
+Kimono SMA 7622.27 42.916 | 3668.32 41.253 | 1908.48 39.303 | 1018.40 37.192
+HM-OpenCL | 7654.22. 42.909 | 3684.38 41.244 | 1915.06 39.291 | 1019.36 37.180
+ParkScene HM 11898.15 41.223 | 4933.17 38.653 | 2193.33 36.122 | 967.13 33.657
+HM-OpenCL | 12044.80 41.206 | 4998.27 38.632 | 2220.36 36.103 | 976.19 33.639
+PedestrianArea HM 6306.94 43.140 | 2649.41 41.318 | 1363.02 39.365 | 749.32 37.247
+HM-OpenCL | 6329.79 43.134 | 2665.30 41.309 | 1366.66 39.343 | 750.57 37.220
+
+ 
+
+Cuadro 18: Resultados de PSNR y tasa de bits para secuencias de video codificadas con Intel Core i7
+and GeForce 840M
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Sequence Name | Configuration or Avg
+2 27 32 37
+
+PeopleOnStreet HM 131001.63  128533.45 127272.37 126732.87 | 128385.08
+HM-OpenCL 65234.44 62927.82 61674.23 61000.72 62709.30
+Kimono HM 99853.93 98661.02 97889.5 98620.64 98756.27
+HM-OpenCL | 47882.99  46581.09  45853.44  45462.29 | 46444.95
+ParkScene HM 100080.86  98454.02  97679.85 97197.43 98353.04
+HM-OpenCL | 47956.21  46385.73  45529.51 4514430 | 46253.94
+PedestrianArea HM 99241.92 9792344  97360.90 9724692 | 97943.29
+HM-OpenCL | 47322.88  46158.62  45689.83  45309.63 | 46120.24
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cuadro 19: Tiempos de codificación en segundos
+
+55BIBLIOGRAFÍA
+
+ 
+
+[1] J. Ohm, G. Sullivan, H. Schwarz, T. K. Tan, and T. Wiegand, “Comparison of the coding
+efficiency of video coding standards - including high efficiency video coding (HEVC),”
+Circuits and Systems for Video Technology, IEEE Transactions on, vol. 22, pp. 1669-1684, Dec
+2012.
+
+[2] J. Ohm and G. Sullivan, “High efficiency video coding; the next frontier in video compression [standards in a nutshell],” Signal Processing Magazine, IEEE, vol. 30, pp. 152-158,
+Jan 2013.
+
+[3] S. Metkar and S. Talbar, Motion Estimation Techniques for Digital Video Coding. Springer,
+2013.
+
+[4] G. Sullivan, J. Ohm, W.-J. Han, and T. Wiegand, “Overview of the high efficiency video
+coding (HEVC) standard,” Circuits and Systems for Video Technology, [EEE Transactions on,
+vol. 22, pp. 1649-1668, Dec 2012.
+
+[5] G. Sullivan and T. Wiegand, “Rate-distortion optimization for video compression,” Signal Processing Magazine, IEEE, vol. 15, pp. 74-90, Nov 1998.
+
+[6] L. Zhao, X. Guo, S. Lei, S. Ma, and D. Zhao, “Simplified AMVP for high efficiency video
+coding,” in Visual Communications and Image Processing (VCIP), 2012 IEEE, pp. 1-4, Nov
+2012.
+
+[7] M. Li, K. Chono, and $. Goto, “Low-complexity merge candidate decision for fast HEVC
+encoding,” in Multimedia and Expo Workshops (ICMEW), 2013 IEEE International Conference on, pp. 1-6, July 2013.
+
+[8] F. Bossen, B. Bross, K. Suhring, and D. Flynn, “HEVC complexity and implementation
+analysis,” Circuits and Systems for Video Technology, IEEE Transactions on, vol. 22, pp. 1685—
+1696, Dec 2012.
+
+[9] M. Viitanen, J. Vanne, T. Hamalainen, M. Gabbouj, and J. Lainema, “Complexity analysis
+of next-generation HEVC decoder,” in Circuits and Systems (ISCAS), 2012 IEEE International Symposium on, pp. 882-885, May 2012.
+
+[10] S. Kim, C. Park, H. Chun, and J. Kim, “A novel fast and low-complexity motion estimation for UHD HEVC,” in Picture Coding Symposium (PCS), 2013, pp. 105-108, Dec
+2013.
+
+[11] N.-M. Cheung, X. Fan, O. Au, and M.-C. Kung, “Video coding on multicore graphics
+processors,” Signal Processing Magazine, IEEE, vol. 27, pp. 79-89, March 2010.BIBLIOGRAFÍA
+
+[12] M. Pourazad, C. Doutre, M. Azimi, and P. Nasiopoulos, “HEVC: The new gold standard for video compression: How does HEVC compare with H.264/AVC?,” Consumer
+Electronics Magazine, IEEE, vol. 1, pp. 36-46, July 2012.
+
+[13] C. Chi, M. Alvarez-Mesa, J. Lucas, B. Juurlink, and T. Schierl, “Parallel HEVC decoding
+on multi- and many-core architectures,” Journal of Signal Processing Systems, vol. 71, no. 3,
+
+pp. 247-260, 2013.
+
+[14] M. Ghanbari and 1. of Electrical Engineers, Standard Codecs: Image Compression to Advanced Video Coding. IEE telecommunications series, Institution of Engineering and Techno
+logy, 2003.
+
+[15] J. Jain and A. Jain, “Displacement measurement and its application in interframe image
+coding,” Communications, IEEE Transactions on, vol. 29, pp. 1799-1808, Dec 1981.
+
+[16] M. Santamaria and M. Trujillo, “A comparison of block-matching motion estimation
+algorithms,” in Computing Congress (CCC), 2012 7th Colombian, pp. 1-6, Oct 2012.
+
+[17] S. Soongsathitanon, W. Woo, and S. Dlay, “Fast search algorithms for video coding
+using orthogonal logarithmic search algorithm,” Consumer Electronics, IEEE Transactions
+
+on, vol. 51, pp. 552-559, May 2005.
+
+[18] A. Munshi, B. Gaster, T. Mattson, and D. Ginsburg, OpenCL Programming Guide. OpenGL,
+Pearson Education, 2011.
+
+[19] V. Sze, M. Budagavi, and G. Sullivan, High Efficiency Video Coding (HEVC): Algorithms and
+Architectures. Integrated Circuits and Systems, Springer International Publishing, 2014.
+
+[20] J. Lin, Y. Tsai, Y. Huang, and S. Lei, “Improved advanced motion vector prediction,”
+Technical Report JCTVC-D125, January 2011.
+
+[21] K. Ugur, A. Alshin, E. Alshina, FE. Bossen, W.-J. Han, J.-H. Park, and J. Lainema, “Motion
+compensated prediction and interpolation filter design in H.265/HEVC”” Selected Topics
+in Signal Processing, IEEE Journal of, vol. 7, pp. 946-956, Dec 2013.
+
+[22] P. Helle, S. Oudin, B. Bross, D. Marpe, M. Bici, K. Ugur, J. Jung, G. Clare, and T. Wiegand,
+“Block merging for quadtree-based partitioning in HEVC,” Circuits and Systems for Video
+Technology, IEEE Transactions on, vol. 22, pp. 1720-1731, Dec 2012.
+
+[23] W.-N. Chen and H.-M. Hang, “H.264/AVC motion estimation implmentation on compute unified device architecture (CUDA),” in Multimedia and Expo, 2008 IEEE International
+Conference on, pp. 697-700, June 2008.
+
+[24] M. Harris, “Optimizing parallel reduction in CUDA,” in NVIDIA Developer Technology,
+2007.
+
+[25] Z. Jing, J. Liangbao, and C. Xuehong, “Implementation of parallel full search algorithm
+for motion estimation on multi-core processors,” in Next Generation Information Technology (ICNIT), 2011 The 2nd International Conference on, pp. 3135, June 2011.
+
+57BIBLIOGRAFÍA
+
+[26] M. Kung, O. Au, P.-W. Wong, and C.-H. Liu, “Block based parallel motion estimation
+using programmable graphics hardware,” in Audio, Language and Image Processing, 2006.
+ICALIP 2008. International Conference on, pp. 599-603, July 2008.
+
+[27] A. Obukhov, “GPU-accelerated video encoding,” in NVIDIA GPU Technology Conference,
+2010.
+
+[28] R. Gaetano and B. Pesquet-Popescu, “OpenCL implementation of motion estimation
+for cloud video processing,” in Multimedia Signal Processing (MMSP), 2011 IEEE 13th
+International Workshop on, pp. 1-6, Oct 2011.
+
+[29] J. Zhang, J. E. Nezan, and J.-G. Cousin, “Implementation of motion estimation based on
+heterogeneous parallel computing system with OpenCL,” in High Performance Computing and Communication 2012 IEEE oth International Conference on Embedded Software and
+Systems (HPCC-ICESS), 2012 IEEE 14th International Conference on, pp. 41-45, June 2012.
+
+[30] K. Misra, J. Zhao, and A. Segall, “Entropy slices for parallel entropy coding,” July 2010.
+[31] FE. Henry and $. Pateux, “Wavefront parallel processing,” March 2011.
+[32] A. Fuldseth, M. Horowitz, S. Xu, A. Segall, and M. Zhou, “Tiles,” March 2011.
+
+[33] K. Misra, A. Segall, M. Horowitz, S. Xu, A. Fuldseth, and M. Zhou, “An overview of
+tiles in HEVC),” Selected Topics in Signal Processing, IEEE Journal of, vol. 7, pp. 969-977,
+Dec 2013.
+
+[34] A. Fuldseth, M. Horowitz, S. Xu, K. Misra, A. Segall, and M. Zhou, “Tiles for managing
+computational complexity of video encoding and decoding,” in Picture Coding Symposium (PCS), 2012, pp. 389-392, May 2012.
+
+[35] S. Radicke, J. Hahn, C. Grecos, and Q. Wang, “A highly-parallel approach on motion
+estimation for high efficiency video coding (HEVC),” in Consumer Electronics (ICCE),
+2014 IEEE International Conference on, pp. 187-188, Jan 2014.
+
+[36] X. Wang, L. Song, M. Chen, and J. Yang, “Paralleling variable block size motion estimation of HEVC on CPU plus GPU platform,” in Multimedia and Expo Workshops (ICMEW),
+2013 IEEE International Conference on, pp. 1-5, July 2013.
+
+[37] X. wen Wang, L. Song, M. Chen, and J. jie Yang, “Paralleling variable block size motion
+estimation of heve on multi-core CPU plus GPU platform,” in Image Processing (ICIP),
+2013 20th IEEE International Conference on, pp. 1836-1839, Sept 2013.
+
+[38] C. Yan, Y. Zhang, E. Dai, and L. Li, “Highly parallel framework for HEVC motion estimation on many-core platform,” in Data Compression Conference (DCC), 2013, pp. 63-72,
+March 2013.
+
+[39] E. Wang, D. Zhou, and $. Goto, “OpenCL based high-quality HEVC motion estimation
+on GPU,” in Image Processing (ICIP), 2014 IEEE International Conference on, pp. 1263-1267,
+Oct 2014.BIBLIOGRAFÍA
+
+[40] S. Kim, D.-K. Lee, C.-B. Sohm, and S.-J. Oh, “Fast motion estimation for HEVC with
+adaptive search range decision on CPU and GPU,” in Signal and Information Processing
+(ChinaSIP), 2014 IEEE China Summit International Conference on, pp. 349-353, July 2014.
+
+[41] Z. He and S. Mitra, “Optimum bit allocation and accurate rate control for video coding via rho-domain source modeling,” Circuits and Systems for Video Technology, IEEE
+Transactions on, vol. 12, pp. 840-849, Oct 2002.
+
+[42] G. Sullivan and T. Wiegand, “Rate-distortion optimization for video compression,” S1gnal Processing Magazine, IEEE, vol. 15, pp. 74-90, Nov 1998.
+
+[43] J. Garrett-Glaser, “A novel macroblock-tree algorithm for high-performance optimization of dependent video coding in H.264/AVC,” unpublished.
+
+[44] “OpenCL.  Lookahead.”  https://mailman.videolan.org/pipermail/x264-devel/
+2013-April/009996.html.
+
+[45] “Ubuntu manuals x264 - fast H.264 encoder.” http: //manpages.ubuntu.com/manpages/
+lucid/man1/x264.1.html*contenttoco. [Online; accessed March-2015].
+
+[46] G. Bjontegaard, “Calculation of average PSNR differences between RD-curves,” [TU-T
+Q.6/5G16 VCEG 13th Meeting, March 2001.
+
+[47] H. Kibeya, F. Belghith, H. Loukil, M. Ben Ayed, and N. Masmoudi, “Tzsearch pattern
+search improvement for HEVC motion estimation modules,” in Advanced Technologies for
+Signal and Image Processing (ATSIP), 2014 1st International Conference on, pp. 95-99, March
+2014.
+
+[48] X. Jiang, T. Song, T. Shimamoto, and L. Wang, “High efficiency video coding (HEVC)
+motion estimation parallel algorithms on GPU,” in Consumer Electronics - Taiwan (ICCETW), 2014 IEEE International Conference on, pp. 115-116, May 2014.
+
+[49] B. Catanzaro, “OpenCL optimization case study: Simple reductions.” http:
+//developer.amd.com/resources/documentation-articles/articles-whitepapers/
+opencl-optimization-case-study-simple-reductions/, 2010. [Online; accessed
+March-20151.
+
+[50] “HM software manual.” https://hevc.hhi.fraunhofer.de/svn/svn_HEVCSoftware/
+trunk/doc/software-manual.pdf.
+
+59

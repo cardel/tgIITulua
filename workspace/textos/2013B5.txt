@@ -1,0 +1,3363 @@
+DESARROLLO DE UN SISTEMA DE INFORMACIÓN WEB PARA EL APOYO A
+LA GESTIÓN DE ACTIVOS DE INFORMACIÓN EN LA EMPRESA INGENIO
+CARMELITA S.A
+
+JUAN DAVID RODRÍGUEZ VALENCIA
+
+UNIVERSIDAD DEL VALLE SEDE TULUÁ
+PROGRAMA ACADÉMICO DE INGENIERÍA DE SISTEMAS
+TULUÁ, 2014DESARROLLO DE UN SISTEMA DE INFORMACIÓN WEB PARA EL APOYO A
+LA GESTIÓN DE ACTIVOS DE INFORMACIÓN EN LA EMPRESA INGENIO
+CARMELITA S.A
+
+JUAN DAVID RODRÍGUEZ VALENCIA
+Cód. 200956332
+
+Trabajo de grado para optar al título de Ingeniero de Sistemas
+
+Director
+
+Albeiro Aponte Vargas
+
+UNIVERSIDAD DEL VALLE SEDE TULUÁ
+PROGRAMA ACADÉMICO DE INGENIERÍA DE SISTEMAS
+TULUÁ, 2014Nota de Aceptación
+
+Firma del presidente del Jurado
+
+Firma del Jurado
+
+Firma del Jurado
+
+Tuluá, Mayo 2015Dedicatoria
+
+A mi madre, porque es y seguirá siendo la persona más importante en mi vida, la
+que me ha brindado su apoyo incondicional para que hoy culmine una etapa
+importante y por la quien seguiré luchando para cumplir todas mis metas
+
+propuestas.
+
+A mi padre, porque me ha enseñado los valores y principios que una persona debe
+tener, por los consejos que me ha brindado los cuales seguiré teniendo en cuenta
+
+para siempre.Agradecimientos
+
+A Dios ante todo, por permitirme tener salud y fuerza para afrontar y culminar una
+etapa en mi vida.
+
+Agradezco a mis padres Luz Dary Valencia y José Albein Rodríguez porque me
+dieron la vida y estuvieron siempre a mi lado brindándome compañía y amor infinito.
+
+A mis tías Melba Valencia y Ayde Valencia por tratarme como un hijo y brindarme
+apoyo en las dediciones tomadas.
+
+Por último agradezco a mi director de grado Albeiro Aponte por guiarme en el
+proceso de desarrollo del trabajo de grado, y al Ingeniero Albeiro Marín por la
+disponibilidad y ayuda para el desarrollo del proyecto dentro de la empresa.ÍNDICE
+
+INTRODUCCIÓN ccocccccocococononnononononcnnono conosco nenas 12
+1.1 Descripción general ....ooocccconncconnccconccncncnconcnnonarncnnnnnnonnnconnncnnarnnnnrnnnnnnnnnanoss 12
+1.2 PLANTEAMIENTO DEL PROBLEMA ...occccccocccnnccccncnnnccnnoncnncnnnocononononcnnnnos 13
+1.3. FORMULACIÓN DEL PROBLEMA ..0cococccccconccnnccnononcnnnnananoninnnnnncnnccnncnnanns 14
+1,4 OBJETIVOS ..ooocccccccccccnnccononcnnnonnonnnnnnonannnnnnnnonnnnnnnnannnnnnonannnnnnnnannnnnnonanennnns 14
+
+1.4.1 Objetivo General ...ooocooooncnccconncncoconnnconoconocnononononnnnonnnnnnonnnononnnnnnonannnnnnos 14
+1.4.2 Objetivos ESpecÍfiCOS .........oooncccconnnncocononccoonnnononcnnononnnnonnnonoonarcnonancnnnnos 14
+1.5 ESTRUCTURA DEL DOCUMENTO coocccoocccncnnconcnnanononnncnnnnononnonannnnonnanononos 15
+
+MARCO REFERENCIA occcccoccccononncnnconenonancnnnnonanconennnnnnrnrnnnnnnrrrnnnnnrrrrnnnnrrrrnnananns 16
+
+2.1. —ANtecedenteS...ocooocncccncnccncncnoncnccnncconncnnoncnnonnrnnnnnnnnnnrnrnnnrnnnnrnnonnrnnnnrnnnnnnnnnas 16
+2.1.1 Trabajos dentro de la empresa. ...cccoccccocccccccnnncncnnononnonanncnnnncnnncnnnnnnnnos 16
+2.1.2 Software gestión de activos y manejo de incidentes.......................... 17
+
+2.2 Marco teÓriCO ..ccccoocncconnnconnncnonnnccnnnconnnnonncnnonnrnnnnnnnnnnrnnnnnrnnnnrnnnnnrnnnnrnnnnnnnnnns 19
+2.2.1  GStiÓN ACÍÍVOS......cooonncccccncnncconnnconannnnonannnnonnnnonnnrnnonnnnnnonnnrnonnnnnnnnnananos 19
+2.2.2 Incidentes de hardware y SOÍÍ(WAr€.......ooocccconccccncncoconnconnnonanncnoncnnnnnnnnos 21
+
+2.3 Marco CONCeptual .....ooccconcnccnnccccoccnccccnncnnnncnnnncnnnnnnonnncnnnnnonnnnnonrnnnnnnnonannnnnnos 24
+2.3.1 Activo de infOrMaciÓN ...ccooocccconnnconnnccnnncconnnconnnnnnnrnnnnnnnnnnnnonnnrcnnarnnonenenns 24
+2.3.2 AUTOMAÍIZQl ..ooccoocccnccncncnncnnnonnnoconnconcnnnnnnnnnnonnnnnnnnonnnnnnnnnnnnnnnnnnnnnnnnenaninns 24
+2.3.9 Catdal0QA..occccococcccconccnnononcnnononcncnnnncnnonnnnnnonnrnnnnnnncnnnnnnnnnnnnrnnnnnnrnrnnanrnnenanens 24
+2.3.4 CIÚOTÍOS ...oocccconcccoccncconncoonnnononnnononononnnnnnncnnnnnnnnnnnnnnnrnnnnnnnnnnnnnnnnnnonnnnnnnnnnnns 24
+2.3.9 EMPLEOS cooocconoccccononcnnncconncnonnnnnonnnncnnnnrn nn rnn rn rnrnnnrnnnnrnnnnnnnrnnnnrrnnrrnnarinnnnnnnns 24
+2.3.0 GOStIÓN ..ooocccccccccnconoccnnonanononnncnnononcnnnnnnennonnnnnnnnnrnnnnnnrnnnnnnnnnonnnrnnonnnrnnnnanens 24
+A NA 24
+2.3.8 MeCaniSMO cccoccccccnconcncncnncnnncnnnononnnnncnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnninos 24
+AA 24
+AI 24
+2.3.11 Seguridad de la información ......ccccooncnccccnnncononnnoconnnnononnnnononnnnonanenconanenos 25
+2.3.12 SISOMA ..occoconncconcnccocnnconnncnnnnnonnnnnonnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnonnncnnnnns 25
+2.3.13 SistematizaciÓn .....cccoonnnccococonocononccconcnnononnnnonnnnnonnnnnnnnnnnnnonnnnnnnnnnrnnnnananes 25
+
+2.1 SOTÍWAre coococococococononoconcnonnn cnn nn erre nr nn rnnnnnnnns 25QA SOPOMBococcccnnnccncnnnccnncnonnncnnncnnnnnnnnnnnnncnnnnnnnnnnnnnnnnnnnrnrrnnnnnnnnnnnnnrnnnrncnnanens 25
+
+DESARROLLO DEL PROYECTO cooononncccconcnnonnnnnnanonenonnnnonennnnnnnnrnnnnnnrrrenananerrnnanans 26
+AA 27
+3.2 Segundo CiCÍO .......occoconccnccoccnccconcnnononnnnononononnnnnnnnnnnnnnnnnrnnonnnrnnnnancnnonannnnonaninos 29
+3.3 Tercer GCÍO ...coccconocccococcnccooccncooononononcnnononcnnonnnnnonnnnnnononennnnanrnronannnnnnnnrnnonanenes 33
+
+3.3.1 Ámbito del SiSteMa .......oonnnonnnnnnnncnnnnncnncnnocccon nano nrn cnn nro cnn aran cnn canann nano 34
+3.3.2 Descripción general del sisteMa.........ooonccconnccconccnoccnocncononanononnnnnonenonanenos 34
+3.3.3 Requerimientos específiCOS ......oooccconnncconcccoonnoconononnnononacocnnnnnnoncnonannnos 36
+3.3.4 Diagramas de entidad-relación y relacional ............ccconccconnccconcncoonncno. 38
+3.4 Cuarto CiClO......oocccconnnccconcccccoonnncononnnnonononcononononnnnnnnonnrononnnrnnnnnnrnnonannnnnnnnennns 41
+3.4.1 CASOS DE USO coocccoocccccccnonccnncononnnnnonnnnnnnnonnnnnnnnnnnncnnnnnnnnrrnronnnnenenonenness 41
+3.4.2 DIAGRAMAS DE SECUENCÍA ..oooccoocccnccccncconccnconccnnonnononononnnncnnnonnnnons 46
+3.5 QUINTO CICÍO.........ooonnncnncconnnnnncoconnnnnconnoncnnonononcnnnnnnnnnnnononnncnnnnnnnnnnnnnnnnnnnnnnnanens 49
+3.5.1 Arquitectura ...ooccconnccconccconcncnonononncononnnnonnnnnnnnnnnnnnnonnnrnnnnnnnonnrnrnnnnrrnrnenannes 49
+3.5.2 TOCNO(OYDÍAS ..ooocccooccccoccnccnoncnnnononncononanncnnnnnnonrnnnnnnrnnnrnnnnnnnonnrnnnnnnnrnrnenancess 50
+3.5.3 HerraMientaS ..occconccccoccccoccnonocononannonnnnnnnncnnnnrnnonnrnnnnrnnnnnnnnnnnnrnnnnrrnnrrnnnninnns 52
+3.6 Sexto CICÍO ...oococccconnccccoconccooccncnonnonononconononcnnononnnnonnncnnonnncnnnnanrnrnnannnnnnnrrnnonananos 53
+3.6.1 PrUBDAS coooocccoocncnononcnnncconccnnnncnnonnnncnnnnrnnnrnnrnrnnnnnrnnnnrnrnnnnnrnnnnrrnnrrnnnrinenennnns 53
+3.6.2 Descripción general de la aplicación ...........ccooccccconicocnnccconncnanncnoncnnnnnnnnns 58
+3.7 SéptiMo GICÍO .....ooooccccoccnncccccnccconcnnononnnnononononnanenonnnnnnnonnrononnnrnnnnnnrnnonannnnonaninns 60
+3.7.1 Instalación Ingenio Carmelita S.A ....oooccoconccccccccnccnocnnononnononononononcnnnnnananos 60
+
+CONCLUSIONES Y TRABAJOS FUTURO S ooocconoccconcccccnncnoccnnancncnnancnnnannnnnnannnnnnzs 63
+4.1 CONCIUSIONES ..cccoocccccnocnnconocononnnnnncnnnnnnnnnnrnnnnnnrnnrnnnrnnonnnnnnonnnrnnnnnnrnronannnnnnnninens 63
+4.2 Trabajos FUtUFOS...coocccconccconcnccncnnonncnnnnnnnonnnnnnnnconnnrnnonnnnonnnnnnnnnrronrnrrnnrrnnnrnnnnnos 64
+
+BIBLIOGRAFÍA ......cccoccococooconoccnccccnnnnnnnnonononononnnnnnnnn ono nnnr cnn anna nn nn rn rrnnnanannnannnnnns 65ÍNDICE DE TABLAS
+
+Tabla 1 Desarrollo Primer Ciclo ...........ooooccccccoonncnnccnnnccnnnnnnaconncnnnnconnnonanconcnnnnnrnnnnnnos 27
+Tabla 2 Categorías Activos Información .......oooncccccnncconnncconncocnnnnnonnnononnnonnnnnonnnonanenos 28
+Tabla 3 Desarrollo Segundo GCicCloO ..........oooccconccccocccccccncccnnncconnncnonononnncnoncnnnnnnnnnononos 29
+Tabla 4 Formatos de la empreSa ..ococcoocnccnonnconcncnoncnnonencnnnnnnnnnnnnnnnnnnnnnonannnnnnrnnnnnnnnos 30
+Tabla 5 Registro Inventario de ACTIVOS ........occoocccccnncccccconnccncnconnconcnonanonannonanonnnnonanos 33
+Tabla 6 Desarrollo Tercer CICÍO .....ooccccooncccccononccnnccnnnccnnnnnonccnnnnnnnccnnnonancrncnnnnnrnnnnnnos 33
+Tabla 7 Permisos Usuarios de la Aplicación .........ccooncccconcccoccnnnocnnncnannonannnnnnnononenonos 36
+Tabla 8 RequeriMientos.......occcoccccocncocnnoccnononnconnnnnnncnncnonnnonnnnnnnnnonnnonnnnnnnnonannnnnnnnanss 38
+Tabla 9 Desarrollo Cuarto GiclO.......occooonnccccooonccnncconoconnnnnnnconcnnnnccnnnonancrnnnnnnrrnnnnnnos 41
+Tabla 10 Formato-Expandido (Registrar Procedimientos) ........ooccconccccnnccccncnncncnnnos 43
+Tabla 11 Formato-Expandido (Eliminar ACTtIVO).............ooccccccnicccnnnccnnnccannnonanononcnnnos 44
+Tabla 12 Formato-Expandido (Diligenciar Solicitud) .................coooocccccconnnnonononononos: 46
+Tabla 13 Desarrollo Quinto GiclO ...........oooncccnnccnoconnccnnnccnnnonnnnnnonononannnononononnnnnennnnnos 49
+Tabla 14 Desarrollo Sexto GiclO..........oooonccccconnncconcconoconnnonnnconnnononccnnnonanroncnnnnnrnnnnnnos 53
+Tabla 15 Caso de prueba - Crear ÁCTIVO.....coooncccoccncconnncconnconnnnnnonnncnnnnnnnnnononnnonanenos 54
+Tabla 16 Caso de prueba. Diligenciar Solicitud .................coooccccccncconcncconnncccninonononos 55
+
+Tabla 17 Desarrollo Séptimo GiclO.............oooncccccoccncnconcnccconnnnonaconononnnnonnnnnonanenononons 60ÍNDICE DE ILUSTRACIONES
+
+Ilustración 1 Metodología ITIL................ooocccconccconncccoccnncocononannconnnononnncnnnnonancnnnannnnns 21
+Ilustración 2 Actividades Manejo de Incidentes ..............cooccococcccccoccnnccnnnconnnoncnononos 22
+Ilustración 3 flujo de proceso ...occcooccccoccncononcconcnccnnncnnnnnnnncononnnncnnnnnnnnrnnnnrnenancnnnnnnnnns 29
+Ilustración 4 Diagrama Entidad-Relación (Clasificación de Activos)...................... 39
+Ilustración 5 Diagrama Entidad-Relación (Incidentes) ..........cccoccncconccconcncnoncnnnannnnos 40
+Ilustración 6 Diagrama Caso de Uso Modulo Gestión (BÁSICO) .............cccoocccccoo.... 42
+Ilustración 7 Diagrama Caso de Uso Modulo Gestión (Actualización) ................... 43
+Ilustración 8 Diagrama Caso de Uso Solicitudes .............cocoocccocnncconncccnnncconcnnnannnnos 45
+Ilustración 9 Diagrama de Secuencia Modulo Gestión (Actualización) .................. 47
+
+Ilustración 10 Diagrama de Secuencia Modulo Solicitudes (Diligenciar Solicitud) .48
+
+Ilustración 11 Arquitectura SiSteMa......cccoonccconccconcnconncnonnnononannonnnnnnoncnnnnnnononenonannnnns 49
+Ilustración 12 SeleniumHQ - Guardar acciones de crear actiVO......ooonccccononncnnccc.mmo 56
+Ilustración 13 SeleniumHA - Ejecutar acciones de crear actiVO.........oocccccccnccconncos. 57
+Ilustración 14 Junit - Crear actiVO......ooonccccconccccconcnnononnnnononononnnnnnononnnnononnnnonnnnnonnnnnnos 57
+Ilustración 15 Página principal SGA....ooccoooccccccnccocononnnnonocononnnnnnononnnnononnnnonnnenonannnnos 58
+Ilustración 16 Interfaz Crear Activos - SGÁ cococccconcccncnccoocnnnnnnannnnnnonannnnnnnnanennnnnnnos 59
+Ilustración 17 Máquina Virtual SGÁ ....oocccooccccccnccnnoconnnnonocononnnnnnononnnnononcnnonanenonannnnos 61
+
+llustración 18 Instancia BD-SGA...oococncncncoconocononononononononnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnns 62Resumen
+
+El propósito de este proyecto surgió de la necesidad de la Empresa Ingenio
+Carmelita S.A para controlar los activos de información que se manejan en la
+compañía y además de dar una solución correcta para aquellos activos de
+información más susceptibles a incidentes como lo son los de hardware y software.
+
+Por medio de la metodología de desarrollo RUP (Rational Unified Process) se
+realizaron las diferentes actividades que permitieron la identificación de los activos
+y de los diferentes incidentes a los que están expuestos estos, posteriormente se
+realizó el proceso de diseño y construcción de la aplicación que permitiera suplir los
+requisitos planteados.
+
+Para lo anterior se logró construir una aplicación web con la capacidad de gestionar
+los activos de información de la empresa de una forma fácil y eficiente, y el cual
+permitió guardar en la bases de datos de la empresa la referencia de los activos
+importantes, así como el control de la trazabilidad o movimientos de los mismos.
+Además permite el registro y respuesta a los incidentes de hardware y software
+logrando llevar un control sobre estos incidentes.Abstract
+
+The purpose of this Project emerged when the company Ingenio Carmelita S.A
+identified the necessity to control the information assets which are managed in the
+company. In addition, to give them an excellent and fast solution; In this case
+hardware and software are the most susceptible to incident.
+
+Different activities were carried out through the RUP development methodology
+which allowed the identification of the assets also the different incidents that could
+affect them. Immediately, the design and building process of the application which
+could allow to stand in for set requirements.
+
+By the way, a web application was successfully built with the capacity to manage the
+information assets of the company in an efficient and easy way which permitted to
+save the information of the assets' reference in the data base. As well as the control
+and the monitoring management. Of course, it has to be said that this application
+allows the recording of the hardware and software problems.CAPÍTULO 1
+
+INTRODUCCIÓN
+
+1.1 Descripción general
+
+El uso y acceso a la información dentro de las empresas son un elemento clave que
+permite que estas alcancen sus objetivos y por ende se puede lograr un mayor
+crecimiento de sus organizaciones, aquella información catalogada como de alta
+relevancia (activos de información) permite o facilita el proceso de toma de
+decisiones generando así que las empresas obtengan una ventaja competitiva
+frente a sus rivales dentro del mercado al cual pertenecen. Esta información
+considerada importante es a su vez la que requiere un mayor control para asegurar
+que esta sea gestionada de una forma correcta y así garantizar que la empresa
+cumpla con sus finalidades de negocio. “Es sin duda el elemento determinante de
+
+la dinámica económica y del entorno en el que se mueve la sociedad en general y
+las empresas en particular” [1].
+
+En esa misma dirección, la empresa Ingenio Carmelita S.A actualmente para
+cumplir con la finalidad de su negocio tiene la necesidad de dar apoyo a la gestión
+de activos de información y al control de incidentes de activos de hardware y
+software, se realizó una búsqueda de información de sistemas orientadas a la
+gestión de activos que podrían convertirse en base u orientación para el desarrollo
+de la herramienta, se definió una metodología de desarrollo para trabajar y en
+conjunto con el Ingeniero Albeiro Marín, jefe del área de tecnología e informática de
+la empresa se plantearon los requerimientos esperados en el funcionamiento de la
+plataforma. De igual manera se definió los procesos propios del área de tecnología
+para dar solución a los problemas relacionados con los activos de hardware y
+software, en base a esto se dio paso a analizar las diferentes herramientas que
+podrían ser utilizadas en el desarrollo de la aplicación, y así por medio de los
+diferentes ciclos de desarrollo definidos en la metodología se fue construyendo una
+
+aplicación cada vez más robusta y estable orientada a cumplir los requerimientos
+planteados, la cual es descrita en este documento.
+
+Con el desarrollo de un sistema web que permitió apoyar la gestión de los activos
+de información en la empresa Ingenio Carmelita S.A, facilito a los jefes y
+supervisores de los diferentes departamentos y sus subalternos el control de aquella
+información considerada importante para la empresa, ya que esta es el eje principal
+
+12sobre el cual las organizaciones aseguran el mejoramiento continuo de sus
+procesos y por ende obtener un mayor crecimiento a nivel competitivo.
+
+1.2 PLANTEAMIENTO DEL PROBLEMA
+
+Administrar o gestionar los activos de información dentro de una empresa es sin
+duda uno de los mayores retos que tiene una organización para garantizar que todos
+los procesos que hacen uso de esta información estén debidamente orientados a
+cumplir su finalidad, ya que si se gestiona de forma correcta los activos de
+información se puede conocer su trazabilidad y así entender el pasado, vigilar el
+presente y proyectar o programar el futuro de las inversiones de la empresa con
+base a los activos administrados. Actualmente la empresa Ingenio Carmelita S.A
+cuenta con una gran cantidad de documentos o información considerados de alta
+relevancia para la misma, denominados activos de información correspondientes a:
+activos tangibles, intangibles, software de aplicación, hardware, como por ejemplo
+actas, formatos, equipos de cómputo, licencias, entre otros, los cuales se
+encuentran distribuidos por todas las áreas de trabajo y son manipulados por una
+gran cantidad de personas que la necesitan para realizar sus actividades laborales
+diarias.
+
+Por lo anterior, el Ingenio tiene una gran dificultad para dar apoyo a la gestión de
+los activos mencionados, ya que no se cuenta con unos criterios claros de gestión
+o administración de activos y de dominio de todo el personal que asegure que no
+se vulnere la seguridad de estos, lo que ha ocasionado múltiples problemas dentro
+de la organización, ya que dependiendo del tipo de requerimiento, los tiempos de
+respuesta para gestionar esta información puede tardarse entre 2 horas y 3 horas,
+o incluso días; y además existe la dificultad para dar solución de posibles fallas a
+aquellos activos más susceptibles como hardware y software, los cuales no están
+debidamente definidos los parámetros que permitan mitigar estos problemas de
+forma rápida y efectiva.
+
+Lo anterior ha conllevado a una gran dificultad para conocer en donde se encuentran
+los activos deseados, quien o quienes son los responsables de manipular cierta
+información dentro de los diferentes departamentos de la empresa, que acciones o
+modificaciones han sufrido los activos recientemente, quien tiene la última versión
+de un formato, cuales son los nuevos activos que han surgido, quien los creo o los
+clasifico, y en general todos estos inconvenientes generados de una gestión poco
+robusta para los activos de información.
+
+Además como consecuencia de esta mala gestión, ha generado que la
+disponibilidad de los activos correspondientes a hardware y software sea vulnerada
+
+13al no tener disponible de forma rápida los criterios que permitan mitigar de una forma
+adecuada los posibles incidentes que se producen sobre estos. Estos incidentes
+corresponden a fallas que se puedan producir como consecuencia de la
+manipulación de estos activos, como fallas en el software de aplicación de la
+empresa, perdida de información a causa de la caída del sistema, daño en el
+hardware, fallo de controladores del equipo de cómputo, problemas relacionados
+con el uso de las herramientas como antivirus, actualizaciones del sistema etc. Entre
+otros problemas, los cuales deben ser reportados y solucionados de forma
+adecuada y rápida para garantizar que el incidente no vuelva a presentarse.
+
+Se hace necesario darle solución a esta problemática, con el fin de facilitar a las
+personas de la empresa el apoyo a la gestión de los activos de información, para
+que así se asegure que estos sean manipulados de una forma correcta para generar
+beneficios organizativos para la empresa.
+
+1.3 FORMULACIÓN DEL PROBLEMA
+
+¿Cómo sistematizar y automatizar la gestión de los activos de información de la
+empresa Ingenio Carmelita S.A para facilitar la adecuada administración de estos y
+el manejo de los incidentes de los activos de hardware y software que están
+directamente relacionados con estos?
+
+1.4 OBJETIVOS
+
+1.4.1 Objetivo General
+
+Desarrollar un sistema de información web para el apoyo a la gestión de activos de
+información que permita su administración y manejo de incidentes de hardware y
+software en el Ingenio Carmelita S.A.
+
+1.4.2 Objetivos Específicos
+
+1. Identificar y clasificar los activos de información del Ingenio Carmelita S.A
+2. Diseñar e implementar componentes para la administración de activos de
+información que se puedan automatizar mediante el sistema web.
+
+143. Diseñar e implementar componentes para el manejo de incidentes de
+hardware y software dentro de la empresa
+
+4. Implantar el sistema web para el apoyo a la gestión de activos de información
+en la empresa Ingenio Carmelita S.A en el área de informática y
+comunicaciones.
+
+1.5 ESTRUCTURA DEL DOCUMENTO
+
+El presente documento está dividido en cuatro capítulos, el primer capítulo
+anteriormente expuesto y los tres capítulos siguientes desarrollados de la siguiente
+manera:
+
+En el segundo capítulo se detalla el marco de referencia que se tomó en cuenta
+para el desarrollo del trabajo de grado, allí se describen las herramientas más
+relevantes enfocadas a la gestión de activos y control de incidentes, además de la
+descripción de los conceptos más relevantes enfocadas al problema a solucionar.
+
+En el tercer capítulo se describe el desarrollo del proyecto, en el cual se detallan las
+diferentes actividades realizadas en cada uno de los ciclos propuestos de la
+metodología escogida, allí se evidencia el proceso que se llevó a cabo para construir
+el software y las pruebas correspondientes del producto.
+
+Finalmente, en el capítulo cuatro se presentan las conclusiones que se obtuvieron
+en el desarrollo de la aplicación web, además se presentan los trabajos futuros que
+se pueden desarrollar a partir del producto construido.
+
+15CAPÍTULO 2
+
+MARCO REFERENCIA
+
+2.1 Antecedentes
+
+En esta sección se presenta como antecedente un trabajo realizado en el Ingenio
+sobre la seguridad en la información de los activos, además se presentan diferentes
+herramientas enfocadas a buscar soluciones en cuanto a la gestión efectiva de
+activos de información dentro de una empresa y el manejo de incidentes sobre
+activos de hardware y software, allí se hará una explicación breve y concreta del
+trabajo o herramienta mencionada donde se resaltara las ventajas y desventajas de
+las soluciones encontradas. Posteriormente se mencionará el principal aporte que
+se realizará con el desarrollo de la herramienta.
+
+2.1.1 Trabajos dentro de la empresa.
+
+En el ingenio Carmelita S.A se desarrolló un trabajo titulado “Diseño y estructura
+del modelo de sistema de gestión para la seguridad de la información basado en la
+norma iso 27001:2005 en ingenio Carmelita S.A, este trabajo enfocado a la
+seguridad de la información teniendo en cuenta los activos dentro de la
+organización, nos permite tener una idea general de los principales riesgos a los
+que están expuestos los activos de información en la empresa y los procedimientos
+o los métodos que se deberían tener en cuenta para asegurar que los activos se
+administren de forma correcta. “La Información es el eje primordial del soporte y
+desempeño competitivo de los negocios, pero es a la vez, una fuente importante de
+riesgo que requiere atención para evitar la ineficacia en la entrega de servicios o
+productos.” [2].
+
+Según este trabajo realizado dentro de la empresa es de vital importancia realizar
+un plan que mitigue los riesgos en cuanto a la seguridad de los activos de
+información, con el fin que estos riesgos no se materialicen o en caso de hacerlo
+cual es el plan a seguir para dar pronta solución al problema. Allí se hace un diseño
+y estructura de un sistema de gestión de la seguridad de información que abarca
+todos los activos dentro de la organización, este modelo se basa en los estándares
+de la norma iso 27001:2005, con el fin de identificar todos los procedimientos y
+acciones que pueden implementarse con el fin de mejorar la seguridad de la
+
+16información. Dentro de la ventajas que conlleva la implantación de este sistema se
+encuentra “Reducción de los riesgos involucrados al manejo de información en
+medios informáticos.”, “Mejor reacción a incidentes de Seguridad Informática.” [3],
+entre otros beneficios relacionados con la información. La desventaja más
+significativa de este trabajo es que no está actualmente implementado en la
+empresa por lo que los riesgos en materia de la seguridad de la información todavía
+
+son muy grandes por lo que los activos son vulnerables a fallas de administración.
+
+Este trabajo realizado dentro de la empresa nos permite evidenciar que dentro de
+la empresa los activos de información están expuestos a diferentes inconvenientes
+producto de que no existe actualmente un procedimiento generalizado para la
+administración de dichos activos, por lo que la información recolectada en el trabajo
+anteriormente mencionado nos permite tener una idea de cómo la construcción del
+producto de software debe garantizar que dichos inconvenientes sean
+administrados para que se reduzcan lo máximo posible.
+
+2.1.2 Software gestión de activos y manejo de incidentes
+
+Entre los diferentes software investigado tenemos:
+
+Easyvista: “La Gestión de Activos Tl no es sólo encontrar tus activos, se trata de
+agregar valor e inteligencia sobre ellos. Esto significa ir más allá de una simple base
+de datos de activos Tl, para realizar una gestión de activos integral, de alto nivel,
+que englobe igualmente la gestión de software y procesos de negocio asociados”
+[4]. Este es un software que permite llevar un control general de toda aquella
+información que puede ser relevante para la empresa abarca desde la manipulación
+de software para conocer su estado y cumplimiento de licencias hasta el ciclo de
+vida de los recursos, también se caracteriza o se destaca por mantener un registro
+automático de cambios. Sin embargo una principal falencia de este sistema es la
+poca practicidad para utilizar esta herramienta ya que la cantidad de información
+que maneja es muy amplia y que en muchos casos puede no ser la que se necesita
+realmente administrar, es decir se pierde capacidad de procesar aquella información
+verdaderamente importante por estar manipulando otra que se puede obviar o que
+se puede manipular con un sistema ya en operación.
+
+Infor EAM Enterprise: “EAM Enterprise es una completa solución de gestión de los
+activos empresariales que monitoriza de forma continua el estado y el rendimiento
+de los activos, analiza los datos para detectar tendencias y anomalías y prevé
+problemas de rendimiento para tomar las decisiones y las acciones más oportunas
+en cada momento.” [5] Software con más de 20 años en el mercado el cual ha sido
+
+17utilizado por muchas empresas a nivel mundial, dentro de sus principales
+características se encuentra en la de permitir que se clasifique de forma jerárquica
+los activos dentro de la empresa, permite reducir costos en cuanto a la acción
+oportuna de reclamo de garantía y permite llevar un control de presupuestos una
+vez se elabora y se pone el plan en marcha. Investigando sobre la herramienta se
+puede identificar que a pesar de tener las herramientas para notificar problemas en
+un activo no cuenta con un sólido módulo para solucionar estos inconvenientes, ya
+que la herramienta está orientada a reducir costos en la manipulación de los mismos
+y no tanto para mitigar posibles errores en la manipulación, además no existe un
+claro control para las posibles actualizaciones de la información.
+
+SysAid: Es un software enfocado a la ayuda de escritorio es decir la de proveer las
+herramientas adecuadas para que el control de procesos y activos se realicen de
+una forma clara y coherente. Las principales características de este software es la
+capacidad de ordenar las peticiones que los usuarios solicitan al sistema para que
+posteriormente se pueda hacer un control de estos ya sea por jerarquización de
+usuarios o por importancia de la demanda, su principal ventaja en cuanto a otros
+sistemas es: “único software de IT que ofrece capacidades de comunicación
+completas: SysAid no sólo permite a los usuarios enviar emails, SMS, y mensajes
+instantáneos entre sí, sino que también es capaz de comunicarse automáticamente
+con los usuarios. El tiempo de consumo de las llamadas telefónicas es reemplazado
+por una comunicación moderna y eficiente” [6]. Otro característica es que permite
+agregar tanto activos se necesite controlar pero de allí viene su principal desventaja
+y es que este producto es dedicado a los activos de hardware y software limitando
+su capacidad ya que no se puede llevar un control de otra clases de activos que son
+importantes para una organización.
+
+Belarc Advisor: “Construye un perfil detallado del software y hardware instalados
+en su PC, incluyendo los hotfixes de Microsoft y muestra el resultado en su
+explorador Web. Toda la información del perfil se mantiene privada en su PC y no
+se envía a ningún servidor Web” [7]. Este software permite crear un inventario de
+hardware y software dentro de la organización permitiendo así que el control sobre
+estos se realice de una forma más sencilla y productiva, sin embargo está limitado
+solo hacia esta clase de activos y no permite enfocarse hacia otros tipos de
+información importante.
+
+Los anteriores producto de software permiten la manipulación de activos de
+información y control de incidentes sobre dichos activos, sin embargo estas
+herramientas no permiten que los módulos destinados a la administración y control
+de incidentes estén relacionados entre sí o que exista una buena integración entre
+ambas, generando que la utilización de estos software este enfocado a solo una de
+estas dos características. El software que se construyó permite la integración de
+estas dos características ya que el control de incidentes está estrechamente
+
+18relacionado con la administración de los activos, esto nos permite generar un aporte
+adicional a la administración de activos ya que permite que se reduzcan o se
+realicen los procedimientos adecuados cuando se presentan dificultades sobre
+aquellos activos más susceptibles a problemas.
+
+2.2 Marco teórico
+
+2.2.1 Gestión activos
+
+Los activos de información es todo aquello que las empresas o entidades
+consideran importante, por lo tanto un activo de información puede ser un equipo
+de cómputo, el software que utiliza la empresa, documentos físicos que produce la
+entidad como facturas, manuales, procedimientos, informes de ventas, informes de
+compra etc, documentos digitales que están guardados dentro de los ordenadores
+o dispositivos de almacenamiento, y en fin todo aquello que se pueda catalogar
+como de alto valor. Seria delicado que las empresas no tomaran medidas para tratar
+de administrar esta información con el fin de que los procesos que hacen uso de
+estos activos sean óptimos ya que si estas medidas son débiles o poco
+estructuradas se podría perder la finalidad del negocio y así se fracasaría en el
+intento de crecer como empresa.
+
+Adoptar medidas que permitan el uso correcto de los activos de información es sin
+duda una de las metas que una organización debería trazarse para garantizar que
+el desempeño de la misma sea el correcto, estas medidas pueden ser el manejo
+que se le da a los activos de información como por ejemplo quien puede hacer uso
+de la información, quien es el encargado de velar por que la información este
+protegida, que permisos se tienen para manipular la información, que tipo de
+manipulación se puede hacer, que cambios se pueden efectuar sobre estos activos,
+que hacer en caso de que se produzca un error en la manipulación de activos de
+hardware y software los cuales son tipos de activos que son utilizados
+frecuentemente por los trabajadores, ya que estos son las herramientas principales
+sobre la cual se labora o trabaja hoy en día, por lo cual las dificultades que puedan
+surgir como consecuencia de la manipulación diaria de estos es muy propenso a
+materializarse, por esta razón la empresa debe buscar la mejor forma de solucionar
+estos inconvenientes ya que hace parte de la buena gestión de los activos.
+
+Es necesario en primera instancia conocer qué y cuales tipos de activos se le piensa
+brindar un apoyo de gestión dentro de la organización, para después identificar
+aquellos mecanismos o componentes que permitan que la gestión sea mejorada
+dentro de la organización y así no malgastar tiempo y dinero en aquella información
+
+19que no es tan importante o que en ese momento no presenta un nivel crítico de
+administración.
+
+La norma ISO27001 es un conjunto de estándares desarrollado por la ISO
+International Organization for Standardization) e IEC (International Electrotechnical
+Commission) que proporcionan un marco de gestión de la seguridad de la
+información que puede ser adaptada por cualquier entidad que desea implementar
+un sistema de gestión de la seguridad, esta norma ha sido utilizada por el ingenio
+en un documento en el cual se especifican todos aquellos procedimientos que se
+deben tener en cuenta a la hora de manipular la información para garantizar así que
+la seguridad de los mismos no sean vulnerados.
+
+Esta seguridad puede apoyarse con una buena gestión de activos de información
+por lo que adoptar algunas medidas de este proyecto asegura que la administración
+de los activos este orientada a mejorar los procesos internos dentro del Ingenio
+Carmelita S.A. Uno de estos procesos es el levantamiento del inventario de activos
+de información el cual permite identificar y clasificar los activos de la empresa, estos
+activos se clasifican dependiendo de los tipos de activos que hacen parte de esta,
+los cuales están ya definidos y son correspondientes a equipos de cómputo,
+software, activos físicos y magnéticos, y sobre los cuales se definieron dentro de
+este proyecto planteado en la empresa los criterios en los cuales se medirá su nivel
+de confidencialidad, integridad y disponibilidad. También se definen que información
+relevante debe contener cada activo definido como:
+
+e Nombre del activo, por ejemplo: equipo de usuario, router 014, proyecto,
+expediente, etc.
+
+e Ladescripción del activo.
+
+e Categoría a la que pertenece, por ejemplo: equipo, aplicación, etc.
+
+e Ubicación: el lugar físico o en el que se encuentra dentro de la organización.
+
+e Propietario: entendiendo por tal al responsable del activo.
+
+Con base en esta información o este levantamiento de inventario de activos de
+información se pueden ya empezar a definir todos los componentes que se pueden
+adoptar para brindar apoyo a la gestión de activos de información.
+
+202.2.2 Incidentes de hardware y software
+
+Los incidentes que ocurren cuando se manipula un activo de hardware y software
+es un problema muy frecuente dentro de las empresas, y al ser un problema que
+ocurre casi todos los días afecta el flujo de trabajo de cada proceso ya que se debe
+parar por un tiempo determinado la actividad que se está realizando para
+posteriormente realizar el proceso de solución a este inconveniente. Este tipo de
+problema hace parte de la gestión activos ya que al haber mecanismos o
+componentes de administración adecuados para los activos se asegura que al
+momento de producirse un inconveniente se pueda buscar la mejor solución al
+problema presentado.
+
+TIL (Information Technology Infrastructure Library) es un conjunto de conceptos y
+prácticas para la gestión de servicio de tecnologías de la información. Allí se dan
+procedimientos detallados de gestión ideados para ayudar a las organizaciones a
+mejorar la eficiencia de sus actividades de Tl. ITIL como metodología propone una
+serie de estándares que permiten ayudar al control de operación y administración
+de recursos, en la cual dentro de su concepto para apoyar los servicios de
+administración de un negocio se plantean una serie de procesos como:
+
+Control, operación y administración
+de los recursos
+
+RECURSO
+
+Manejo de
+incidentes
+
+Manejo de
+problemas
+
+Manejo de
+configuraciones
+
+Manejo de
+cambios
+
+Manejo de
+entregas
+
+ 
+
+Ilustración 1 Metodología ITIL
+
+21Manejo de Incidentes
+Manejo de problemas
+Manejo de configuraciones
+Manejo de cambios
+Manejo de entregas
+
+ES
+
+Dentro del proceso de manejo de incidentes se plantea un objetivo principal el cual
+es el de reestablecer lo más rápido posible el servicio afectado, para así garantizar
+que la disponibilidad del servicio sea afectado lo más mínimo posible. Así mismo
+dentro del proceso de incidentes existe una serie de subprocesos los cuales
+garantizan que al cumplir todos los pasos establecidos se puede brindar un soporte
+o ayuda confiable a aquellos problemas que se puedan presentar, los subprocesos
+son:
+
+MONITOREO Y COMUNICACIÓN
+
+    
+
+Clasificación
+
+Ilustración 2 Actividades Manejo de Incidentes
+
+e Detección del incidente: Es cuando el sistema presenta alguna anomalía o
+falla y que esto se puede traducir en un error en el sistema o que el usuario
+no puede hacer algo y recurre a pedir ayuda.
+
+e Clasificación del incidente: vemos si el error que se presenta es conocido o
+si nunca se ha presentado, en caso que el incidente sea conocido se hace el
+procedimiento de solicitud de servicio
+
+22e Soporte: Se ejecutan los pasos a seguir según el manual de procedimientos
+para poder llegar a la solución de una forma viable y eficiente
+
+e Documentación y contabilización: Se documenta y se contabiliza para
+conocer qué tanta incidencia tiene este problema
+
+e Evaluación: Para ver si efectivamente se resolvió el incidente de forma
+satisfactoria y en caso de ser afirmativa se cierra el incidente y en caso que
+la solución que se planteó no es lo suficientemente eficiente o acertada para
+que resuelva el problema, se recurre a hacer una investigación y un
+diagnostico
+
+e Investigación y diagnóstico: Se buscan otras mejoras al problema dentro de
+un contexto determinado, se entra a evaluar si el incidente es recuperable es
+decir se puede solucionar o si el daño es muy grande que hace que se dé
+por perdido el servicio afectado.
+
+e Cierre y documentación: Se cierra el incidente y esta solución se documenta
+en una base de datos a la que se le llama base del conocimiento o Knowledge
+Data Base (aquí vienen documentadas todas las soluciones, y se establecen
+los pasos a seguir para que se hagan de forma eficiente) para que al
+momento de volverse a presentar el incidente ya va a estar documentado y
+esto hace que sea más fácil, rápida y eficiente su resolución.
+
+Durante el proceso de desarrollo de software se tuvieron en cuenta estos
+subprocesos para el caso en que se presentaran incidentes en los activos de
+hardware y software.
+
+232.3 Marco conceptual
+
+2.3.1 Activo de información
+Aquello que tiene alto valor para la empresa.
+
+2.3.2 Automatizar
+
+Ejecución por medios propios de un proceso, donde se trasfieren tareas de
+producción a un conjunto de elementos tecnológicos que operan con mínima o sin
+intervención del ser humano.
+
+2.3.3 Catalogar
+Ordenar, clasificar o registrar elementos según unas normas de ordenación
+definidas por el responsable de esta acción.
+
+2.3.4 Criterios
+Requisitos que debe ser respetado para alcanzar un cierto objetivo o satisfacer una
+necesidad.
+
+2.3.5 Empresa
+
+Es una unidad económico-social, integrada por elementos humanos, materiales y
+técnicos, que tiene el objetivo de obtener utilidades a través de su participación en
+el mercado de bienes y servicios. Para esto, hace uso de los factores productivos
+(trabajo, tierra y capital).
+
+2.3.6 Gestión
+Administración de recursos, para alcanzar los objetivos propuestos.
+
+2.3.7 Hardware
+Es la parte tangible y/o física del ordenador. Incidente: Circunstancia o suceso que
+ocurre y que puede afectar al desarrollo de un proceso o de un elemento.
+
+2.3.8 Mecanismo
+Conjunto de pasos, elementos o acciones que pretenden simplificar la realización
+de un objetivo
+
+2.3.9 Mitigar
+Medidas de intervención dirigidas a reducir o atenuar el riesgo. Procedimiento: modo
+de proceder o método que se implementa para llevar a cabo ciertas cosas o tareas.
+
+2.3.10 Proceso
+
+Es un conjunto de actividades planificadas que implican la participación de un
+número de personas y de recursos materiales coordinados para conseguir un
+objetivo previamente identificado.
+
+242.3.11 Seguridad de la información
+Conjunto de medidas preventivas y reactivas de las organizaciones y de los
+sistemas tecnológicos que permitan resguardar y proteger la información.
+
+2.3.12 Sistema
+Hace referencia al conjunto de herramientas conectadas entre sí que interactúan
+
+para lograr un objetivo.
+
+2.3.13 Sistematización
+
+Proviene de la idea de sistema, de orden o clasificación de diferentes elementos
+bajo una regla o parámetro similar. La sistematización es, entonces, el
+establecimiento de un sistema u orden que tiene por objetivo permitir obtener los
+mejores resultados posibles de acuerdo al fin que se tenga que alcanzar.
+
+2.3.14 Software
+Es el conjunto de pasos o instrucciones que necesita un ordenador para poder
+ejecutar sus tareas, es la parte intangible del ordenador.
+
+2.3.15 Soporte
+Asistencia que brinda una compañía para resolver problemas vinculados a sus
+productos o servicios.
+
+25CAPÍTULO 3
+
+DESARROLLO DEL PROYECTO
+
+Para la elaboración de este proyecto se utilizó la metodología de desarrollo RUP la
+cual permitió a través de sus ciclos de iteración ir ajustando la aplicación hasta
+obtener un producto final.
+
+La metodología RUP divide el proceso de desarrollo de software en cuatro etapas
+o fases principales como lo son la fase de inicio, elaboración, construcción y
+transición, a partir de estas etapas se pueden realizar varias iteraciones en número
+variable dependiendo del proyecto a desarrollar, en cada una de estas fases se
+hace énfasis en las distintas actividades que el desarrollo de software plantea.
+
+Las actividades planteadas por RUP se dividen en dos flujos principales, el primer
+flujo está enfocado al trabajo del proceso y abarca las siguientes actividades:
+
+e Modelado del negocio
+e Requisitos
+
+e Análisis y diseño
+
+e Implementación
+
+e Pruebas
+
+e Despliegue
+
+El segundo flujo hace énfasis al trabajo de soporte y abarca las siguientes
+actividades:
+
+e Gestión del cambio y configuraciones
+e Gestión del proyecto
+e Entorno
+
+Un ciclo en la metodología equivale a realizar una serie de actividades enfocadas a
+la fase en la que nos encontremos, en la fase de inicio se hace un mayor hincapié
+en las actividades de modelado del negocio y requisitos, en la fase de elaboración
+se enfoca al diseño del software, en la tercera fase se realiza un mayor esfuerzo a
+la construcción del producto, y por último en la fase de transición se orienta al
+
+26despliegue del software en donde se realizan las pruebas necesarias para
+garantizar que se tiene un producto preparado para ser entregado al usuario final.
+
+De acuerdo a lo anterior, en el proyecto se llevó a cabo siete ciclos, y durante cada
+ciclo se realizaron las diferentes actividades enfocadas al flujo de trabajo del
+proceso planteadas en la metodología, esto permitió ir avanzando hacia una
+aplicación que cumpliera con la especificación de requerimientos planteados.
+Además gracias a la actividad de gestión del cambio y configuración permitió la
+corrección de inconvenientes que fueron surgiendo en el desarrollo de la aplicación
+de una forma más simple y sin que se pusiera en riesgo la culminación del mismo.
+A continuación se detallan los diferentes ciclos utilizados y las actividades
+desarrolladas.
+
+3.1 Primer Ciclo
+
+ 
+
+ 
+
+$ de % de % de % de % de Descripción
+ciclo iniciación | elaboración | construcción | transición
+1 60 0 0 O El problema a resolver ya
+
+ha sido claramente
+identificado y delimitado, se
+empieza a realizar las
+primeras actividades que
+nos brinden información
+acerca de los activos de
+información dentro de la
+empresa.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 1 Desarrollo Primer Ciclo
+
+El primer ciclo del desarrollo del proyecto se enfocó en la parte de modelado del
+negocio, en donde se procedió a recolectar información inicial sobre los activos de
+información, se identificaron documentos en donde se especifican o se detallan
+dichos activos dentro de la empresa, la mayoría de estos documentos están en
+formato digital, es decir se puede encontrar la mayoría de activos de información
+detallados en archivos guardados dentro de los computadores de la empresa, se
+pudo establecer de forma general unas categorías de activos en los cuales se
+pueden clasificar dicha información. En la tabla 2 se expone las categorías
+identificadas y los activos correspondientes a dicha categoría.
+
+27Categoría | Descripción
+
+ 
+
+Hardware Hace referencia a computadores tanto
+
+de escritorio como portátiles y todos
+los componentes que forman parte de
+
+esto ordenadores como por ejemplo
+
+memorias RAM, memorias ROM,
+
+unidad de cd, tarjetas de red, fuentes
+de poder etc., también hacen parte de
+esta categoría servidores, impresoras,
+
+equipos de red, entre otros.
+
+Software Se incluyen todo el software de
+aplicación que se manejan dentro de
+la empresa como por ejemplo los
+aplicativos Biosalc y Senior. Además
+de programas como office, adobe,
+antivirus, Oracle, cobian backup entre
+otros.
+
+ 
+
+Digitales Hace referencia a todos los
+documentos que se guardan dentro de
+los computadores o dispositivos de
+almacenamiento de la empresa, allí se
+encuentran trabajos o documentos que
+los trabajadores realizan diariamente
+los cuales se trabajan con office,
+también se guardan formatos,
+instructivos, correos, entre otros. Que
+son importantes para la empresa.
+
+ 
+
+Tangibles Dentro de esta categoría se encuentra
+todos los documentos que son físicos
+como por ejemplo facturas, archivos,
+
+contratos, licencias entre otros, los
+cuales se encuentran guardados en
+archivadores o escritorios de la
+empresa
+
+ 
+
+ 
+
+ 
+
+Tabla 2 Categorías Activos Información
+
+283.2 Segundo ciclo
+
+ 
+
+ 
+
+H de % de % de % de % de Descripción
+ciclo iniciación | elaboración | construcción | transición
+2 80 20 0 0 Realización de las
+
+actividades de recolección
+de información, en donde se
+obtuvo toda la información
+pertinente para levantar un
+inventario de activos de
+información
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 3 Desarrollo Segundo Ciclo
+
+Durante el segundo ciclo se profundizo en la recolección de información sobre los
+activos, se logró identificar los procesos o procedimientos que actualmente el área
+de tecnología e informática de la empresa lleva a cabo con respecto a la
+administración de activos de información y el manejo de incidentes. En la figura 3
+se muestra el diagrama de contexto del área de Tecnología e informática del Ingenio
+en la cual se basa el proyecto.
+
+Area Tecnologia e Informatica
+
+Area
+Logistica
+Archivo Soporte
+
+Base de Datos
+
+Archivo Control
+
+Servicios
+
+Archivo Reportes
+
+ 
+
+Diagrama de contexto
+
+Ilustración 3 flujo de proceso
+
+29El documento completo donde se detalla los procesos del área se encuentran en el
+anexo Á sección 1.
+
+Con base a los diagramas de flujo de datos se logró determinar los diferentes
+formatos que se deben diligenciar al momento de realizar alguna gestión o
+movimiento sobre los diferentes activos, estos formatos fueron importantes para la
+construcción de la aplicación ya que la forma como se crean y se aprueban deberían
+ser involucrados dentro de la aplicación. Algunos formatos se detallan a
+continuación:
+
+Nombre formato Descripción
+Solicitud de usuarios Es un tipo de formato que se
+maneja en la mayoría de áreas
+de la empresa, se utiliza cuando
+un usuario desea realizar una
+solicitud referente a los activos
+de hardware y software, este se
+utiliza tanto para incidentes
+como para realizar alguna
+revisión de rutina de los activos.
+
+ 
+
+ 
+
+Actas de entrega
+Procedimiento que se utiliza
+
+generalmente para los activos
+de hardware que llegan a la
+empresa, y como su nombre lo
+indica su propósito es indicar
+que un activo en específico fue
+entregado a un usuario o área
+en particular
+
+Traslado interno de equipos Formato que se tramita siempre
+que exista un movimiento de
+
+activos entre áreas de la
+empresa.
+
+Requerimientos a aplicativos Este tipo de formato se tramita
+cuando se requiere realizar una
+acción dentro de los aplicativos
+
+de la empresa, como por
+ejemplo eliminar algún registro
+que se digito de forma errónea.
+
+Tabla 4 Formatos de la empresa
+
+ 
+
+ 
+
+ 
+
+30Con base a estos formatos se logró identificar una serie de campos comunes que
+permitieran la creación de un estándar de formato que se pudiera tramitar dentro de
+la aplicación, el documento completo en donde se detallan los formatos más
+importantes que se tomaron en cuenta para el desarrollo de la aplicación se
+encuentran en el anexo Á sección 2.
+
+Con el propósito de identificar los diferentes incidentes o problemas a los que están
+expuestos los activos de hardware y software, se recolecto información importante
+que permitió conocer los diferentes inconvenientes a los que están comprometidos
+estos tipos de activos, como por ejemplo los activos de software están expuestos a
+diferentes tipos de virus o malware, así como también a errores lógicos propios de
+los aplicativos de la empresa, en cuanto a los activos de hardware existen diferentes
+amenazas o vulnerabilidades a los que están expuestos como el mal uso por parte
+de los usuarios de los equipos o por defectos de fábrica. Con esta información
+recolectada se logró obtener una idea general de cómo debería responder la
+aplicación con base en los diferentes incidentes que podrían ocurrir. El documento
+completo en donde se detallan las amenazas y vulnerabilidades a los que están
+expuestos estos tipos de activos se encuentran en el anexo Á sección 3.
+
+Además de lo anteriormente descrito se procedió a realizar un acercamiento a los
+trabajadores de la empresa para que directamente expusieran los problemas o
+fallos que han surgido como consecuencia de la manipulación de los activos de
+hardware y software, dichos problemas expuestos por los trabajadores ayudaron a
+fortalecer la parte contextual en la que se debía desenvolver la aplicación cuando
+se produjera un incidente o requerimiento sobre esta clase de activos. En el anexo
+A sección 4 se detallan los problemas más comunes descritos por los trabajadores
+directos de la empresa.
+
+Al final del segundo ciclo de la metodología propuesta, se logró crear un inventario
+de activos de información que nos permitió establecer la base de información de la
+aplicación, en la tabla 5 se detalla un registro del inventario de activos en donde se
+puede evidenciar las categorías de activos identificados para la construcción del
+proyecto:
+
+ 
+
+INVENTARIO DE ACTIVOS DE INFORMACIÓN
+
+ÁREA SISTEMAS
+
+ 
+
+ 
+
+Responsable Albeiro Marín (Jefe Departamento)
+
+ 
+
+Computador portátil Lenovo
+
+Hardware Pantalla SAMSUNG SyncMaster 943
+
+Mose Genius s/n x63309502157
+
+ 
+
+ 
+
+31SISTEMAS
+
+ 
+
+Software
+
+Aplicativos Senior (Sapiens, Rubi,VetorH)
+
+Aplicativos Biosalc (Sigind,Siman,Siagri,Sifrota, Cofrota)
+
+ 
+
+Microsoft Windows-8 Professional
+
+ 
+
+Microsoft Office 2013
+
+ 
+
+Adobe Acrobat Reader
+
+ 
+
+Kaspersky Antivirus
+
+Suite office de todos los Pc's del Ingenio
+
+ 
+
+Licencias OEM de Windows de Pc's de la empresa
+
+Instaladores de Plataforma ERP y Biosalc
+
+ 
+
+SGBD Oracle
+
+Suite Louts
+
+ 
+
+Instaladores de Impresoras (Drivers)
+
+ 
+
+Drivers de Boards de PC's
+
+Sistemas Operativos de Servicios (AlX, LINUX, UNIX)
+
+ 
+
+Drivers de Tarjetas de Red PCI
+
+Instaladores Software Gestión de Planta Eléctrica
+
+ 
+
+ 
+
+Tangibles
+
+Digitales
+
+Informes auditorías externas
+
+ 
+
+Presupuesto del Departamento
+
+ 
+
+Actas Comité Sistemas
+
+ 
+
+Planchas de Digitalización SIG - CVC
+
+Archivos de Departamento de Proyectos
+
+ 
+
+Planos de Redes
+
+ 
+
+Carpeta de BIOSALC de Sistemas
+
+ 
+
+Carpeta de SENIOR de Sistemas
+
+ 
+
+Carpeta de BIOSALC (visita realizada al Brasil)
+
+ 
+
+Carpeta de BIOSALC de Sistemas y Soluciones
+
+ 
+
+Carpeta RFP
+
+ 
+
+Carpeta SQL de Nómina
+
+ 
+
+ERP Agroindustry Información de BIOSALC
+
+ 
+
+Informes Navegación Internet
+
+ 
+
+Indicadores de Gestión
+
+ 
+
+32SISTEMAS
+
+ 
+
+Presupuesto del Área
+
+ 
+   
+ 
+   
+ 
+ 
+
+Actas Comité Sistemas
+
+ 
+
+Contratos de Tercerización
+
+ 
+
+Control de Acuerdos de Servicio
+
+ 
+ 
+   
+ 
+
+ 
+
+Solicitudes de Usuarios
+
+ 
+
+Reportes de Acceso y Monitoreo de Aplicativos y Usuarios
+
+  
+
+Resultados de Auditorías Externas de Sistemas
+
+ 
+
+Planes de Contingencia
+
+Programación de Copias de Seguridad
+
+ 
+
+Bitácoras de Prestación de Servicios
+
+ 
+
+Tabla 5 Registro Inventario de Activos
+
+El inventario completo se puede detallar en el anexo B.
+
+3.3 Tercer Ciclo
+
++ de % de % de % de % de Descripción
+ciclo iniciación | elaboración | construcción | transición
+3 100 40
+
+0 0 Levantamiento de
+requerimientos, y diseño de
+la base de datos
+
+ 
+
+ 
+
+Tabla 6 Desarrollo Tercer Ciclo
+
+En colaboración con el jefe del área de Tecnología e Informática de la empresa se
+elaboró los requerimientos que debía tener el software para garantizar que el
+problema de gestión de activos y el control de incidentes de hardware y software
+fueran suplidos con la herramienta, se concretó lo siguiente:
+
+333.3.1 Ámbito del sistema
+
+El sistema web se identificó por el nombre de “SISTEMA DE INFORMACIÓN WEB
+PARA EL APOYO A LA GESTIÓN DE ACTIVOS DE INFORMACIÓN” se
+caracterizara por brindar herramientas para el control de los activos de información
+y para el registro de incidentes de los activos de hardware y software de la empresa.
+El sistema cuenta con los siguientes módulos:
+
+e Módulo Usuarios: crear, mostrar, buscar, actualizar, eliminar cuentas de
+usuario, además de notificar pendientes y mostrar los activos asociados a un
+usuario
+
+e Módulo Gestión: Divido en tres partes, el primero llamado básico el cual
+permitirá mostrar, buscar, crear activos y formatos, permitirá registrar
+solicitudes y procedimientos referentes a activos de hardware y software,
+permitirá agendar actividades, mostrar activos asociados a formatos y
+exportación a archivos pdf de los formatos. La segunda división corresponde
+a movimiento el cual permitirá la actualización y eliminación de activos,
+formatos y procedimientos dentro de la aplicación. La tercera división
+corresponde a solicitudes, este permitirá realizar todo el proceso de registro
+de solicitud, asignación, y respuesta de los requerimientos o incidentes que
+se materialicen sobre los activos de hardware y software.
+
+e Módulo Perfiles: Asignación y administración de los perfiles de usuario dentro
+de la aplicación.
+
+e Módulo Reportes: Generación de reportes y exportación a archivos paf de los
+mismos.
+
+3.3.2 Descripción general del sistema
+
+3.3.2.1 Perspectiva del software
+
+El sistema no necesito de otra aplicación dentro del ingenio para funcionar, la lógica
+del programa se instaló dentro del servidor de aplicaciones de la empresa, desde
+allí se hace las operaciones necesarias para el funcionamiento del software el cual
+consulta, guarda, elimina y modifica los datos alojados en el servidor de bases de
+datos.
+
+343.3.2.2 Funciones del software
+
+Este sistema tiene como funciones principales:
+
+e Gestionar activos de información
+
+e Gestionar el proceso de incidentes o requerimientos de usuarios referentes
+a activos de hardware y software
+
+e Generar reportes
+
+3.3.2.3 Características de los usuarios
+
+Los usuarios del sistema son los trabajadores del ingenio Carmelita. S.A para los
+cuales se han definido los siguientes permisos que tienen dentro de la aplicación
+
+ 
+
+Actores del sistema Funciones
+Administrador Gestión de usuarios, activos,
+formatos, procedimientos,
+solicitudes, perfiles, reportes y
+tablas maestras.
+
+ 
+
+ 
+
+Jefe Autorizar solicitudes,
+crear y registrar formatos,
+crear y actualizar activos,
+
+agendar actividades,
+visualizar activos, formatos,
+reportes,
+registrar y cerrar solicitudes
+
+ 
+
+Jefe Sistemas Asignar ingeniero soporte,
+autorizar solicitudes,
+crear y registrar formatos,
+crear y actualizar activos,
+agendar actividades,
+visualizar activos, formatos,
+reportes,
+registrar y cerrar solicitudes,
+asignar permiso de asignación
+
+ 
+
+Ingeniero Soporte Crear y registrar formatos,
+crear y actualizar activos,
+agendar actividades,
+visualizar activos, formatos
+
+ 
+
+ 
+
+35registrar solicitudes directas,
+atender y cerrar solicitudes,
+
+registrar procedimientos y
+
+solicitudes
+Empleado Crear y registrar formatos,
+crear y actualizar activos,
+agendar actividades,
+
+visualizar activos, formatos,
+registrar y cerrar solicitudes
+
+ 
+
+ 
+
+Tabla 7 Permisos Usuarios de la Aplicación
+
+3.3.3 Requerimientos específicos
+
+Con base a los módulos previamente descritos se procedió a definir los
+requerimientos específicos de la aplicación, estos requerimientos debían cumplir
+con el propósito de construir una aplicación que permitiera la administración de
+activos de información teniendo en cuenta las dificultades que actualmente existe
+dentro del área para la gestión de dichos activos y para el manejo de los incidentes
+de los activos de hardware y software.
+
+A continuación se muestran algunos requerimientos establecidos en la tabla 8:
+
+ 
+
+Módulo requerimiento Descripción requerimiento
+
+ 
+
+Básico El sistema en el módulo gestión deberá
+permitir a un usuario con los permisos
+adecuados crear activos de información
+
+capturando los datos especificados.
+
+ 
+
+Básico El sistema en el módulo gestión deberá
+ofrecer una opción mediante la cual se
+pueda generar la visualización de todos los
+activos de información registrados en el
+sistema.
+
+ 
+
+Básico El sistema en el módulo gestión deberá
+permitir a un usuario con los permisos
+adecuados crear formatos con los
+parámetros establecidos.
+
+ 
+
+ 
+
+36Básico
+
+El sistema en el módulo gestión deberá
+permitir a un usuario diligenciar los
+formatos creados dentro de la aplicación.
+
+ 
+
+Movimiento
+
+El sistema en el módulo gestión deberá
+permitir la visualización de todos las
+modificaciones o acciones que ha sido
+objeto un activo en específico.
+
+ 
+
+Movimiento
+
+El sistema en el módulo gestión deberá
+permitir a un usuario actualizar los
+procedimientos establecidos para los
+incidentes de hardware y software.
+
+ 
+
+Movimiento
+
+Movimiento
+
+El sistema en el módulo gestión deberá
+permitir a un usuario con los permisos
+adecuados actualizar los formatos
+previamente establecidos en la aplicación.
+
+El sistema en el módulo gestión deberá
+permitir a un usuario actualizar los
+procedimientos establecidos para los
+incidentes de hardware y software.
+
+ 
+
+Movimiento
+
+Solicitudes
+
+El sistema en el módulo gestión deberá
+permitir a un usuario administrador la
+opción de eliminar activos de información
+en caso que dicho activo haya sido creado
+de forma inadecuada.
+
+El sistema en el módulo solicitudes deberá
+permitir a un usuario la opción de registrar
+una solicitud de un activo de hardware o
+software.
+
+ 
+
+ 
+
+Solicitudes
+
+Solicitudes
+
+El sistema en el módulo solicitudes deberá
+permitir al usuario al momento de
+solucionarse un incidente registrar el cierre
+del incidente o del requerimiento.
+
+ 
+
+El sistema en el módulo solicitudes deberá
+permitir al usuario encargado del soporte
+registrar el cierre de la atención.
+
+ 
+
+37Solicitudes El sistema en el módulo solicitudes deberá
+presentar al usuario encargado del soporte
+los procedimientos adecuados para un tipo
+
+de incidente o de requerimiento en
+específico.
+
+Solicitudes El sistema en el módulo solicitudes deberá
+permitir que la atención del incidente o
+requerimiento se realice una vez que sea
+aprobada por los usuarios con los niveles
+de autorización requeridos por los
+procedimientos de la empresa.
+
+ 
+
+Solicitudes El sistema en el módulo solicitudes deberá
+ofrecer una opción para que un usuario con
+un perfil definido pueda asignar un
+ingeniero de soporte para atender la
+solicitud del usuario.
+
+ 
+
+ 
+
+Tabla 8 Requerimientos
+
+La especificación de requerimientos completos se encuentra en el anexo C.
+
+3.3.4 Diagramas de entidad-relación y relacional
+
+Una vez se definió los requerimientos que debe suplir la aplicación se procedió a
+desarrollar el diseño de la base de datos, dicho diseño conto con la elaboración de
+los diagrama de entidad-relación y con el diagrama relacional.
+
+En la figura 4 se ilustran aquellas tablas correspondientes a la administración de
+activos, allí se puede evidenciar la forma y las relaciones de cómo se almacena la
+información correspondiente a los tipos de activos y en la figura 5 se ilustran las
+tablas correspondientes a los incidentes sobre los activos de información, y la
+relación que estos tienen con los formatos y procedimientos dentro de la aplicación.
+
+38Ilustración 4 Diagrama Entidad-Relación (Clasificación de Activos)
+
+39dpo_procedirmienño
+
+ 
+
+Ilustración 5 Diagrama Entidad-Relación (Incidentes)
+
+40Para una mayor comprensión de las relaciones que se establecieron entre las
+diferentes tablas de la base de datos se puede acudir al anexo D donde se ilustra
+el diagrama completo, el diagrama relacional se detalla en el anexo E.
+
+3.4 Cuarto ciclo
+
+ 
+
+ 
+
+$ de % de % de % de % de Descripción
+ciclo iniciación | elaboración | construcción | transición
+4 100 80 0 0 Diseño de los módulos que
+
+aseguren una buena
+administración de los
+activos de información y
+para el control de los
+incidentes de activos de
+hardware y software.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 9 Desarrollo Cuarto Ciclo
+
+Dentro del diseño de los módulos de administración y control de incidentes, se
+elaboró los diagramas de casos de uso, los formatos expandidos de estos casos de
+uso y los diagramas de secuencia basados en la versión 2.2 de UML.
+
+3.4.1 CASOS DE USO
+
+Con el fin de especificar la comunicación entre los diferentes actores y el sistema
+se desarrolló los diagramas y los formatos expandidos de los casos de uso, a
+
+continuación se ilustran algunos de los diagramas desarrollados y un ejemplo del
+formato expandido correspondiente al módulo expuesto.
+
+3.4.1.1 MÓDULO GESTIÓN
+
+3.4.1.1.1 Básico
+
+Diagrama que permite especificar la relación elemental que debe existir dentro de
+la aplicación para asegurar la administración de activos de información.
+
+41Buscar Actwos |
+
+  
+ 
+
+Mostrar
+Formatos ]
+
+Buscar
+Lo Formatos
+
+    
+   
+
+  
+
+Crear
+Formatos
+
+ 
+
+| Diligenciados |
+
+ 
+ 
+ 
+
+¿autorización
+
+  
+
+Ilustración 6 Diagrama Caso de Uso Modulo Gestión (Básico)
+
+Formato expandido del caso de uso registrar procedimientos:
+
+ 
+
+Caso de uso: Registrar Procedimientos
+
+Actores: Ingeniero de Soporte
+
+Propósito: Este caso de uso le permite al Usuario registrar
+procedimientos asociados a los activos de hardware
+y software.
+
+Resumen: Este caso de uso inicia cuando el Usuario se ubica
+en la opción “Registrar Procedimiento”, dentro del
+panel de gestión.
+
+ 
+
+ 
+
+ 
+
+42Tipo: Primario-esencial
+
+Referencias cruzadas: Ninguna
+
+Curso normal de los eventos
+
+Acción de los actores Acción del sistema
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+1. El Usuario ingresa a la opción | 2. El sistema despliega los campos “id
+registrar procedimiento dentro del menú | proveedor”, “tipo solicitud”, “tipo
+de procedimientos. procedimiento”, “descripción
+procedimiento”, “información adicional”.
+3. El Usuario digita el procedimiento y | 4. El sistema mostrara una ventana de
+guarda la información. procedimiento creado.
+
+Cursos alterno de los eventos
+
+LINEA 4. Si el usuario digita un campo no valido, el sistema no permitirá el registro,
+
+se mostrara un mensaje indicándolo y sugiriendo que se vuelvan a ingresar los datos.
+
+Tabla 10 Formato-Expandido (Registrar Procedimientos)
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+3.4.1.1.2 Actualización
+
+Diagrama que ilustra el movimiento que se genera sobre los activos de información.
+
+Eliminar Activo
+
+Actualizar
+
+Actividad
+Eliminar
+Formato
+
+Actualizar
+Formato
+
+  
+
+USUARIO Actualizar
+Procedimiento
+
+Actualizar
+Maestro
+
+Eliminar
+Maestro
+
+Ilustración 7 Diagrama Caso de Uso Modulo Gestión (Actualización)
+
+43Formato expandido del caso de uso Eliminar Activo:
+
+ 
+
+Caso de uso: Eliminar Activo
+
+Actores: Administrador.
+
+Propósito: Este caso de uso le permite al Usuario Administrador
+eliminar un activo creado incorrectamente en la
+aplicación.
+
+Resumen: Este caso de uso inicia cuando se ubica el activo al
+
+cual se desea eliminar de la aplicación. El Usuario
+Administrador ingresa a la opción “eliminar activo”
+dentro del panel de gestión.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tipo: Primario-esencial
+
+Referencias cruzadas: Caso de uso Mostrar Activos, Buscar Activos
+
+Curso normal de los eventos
+
+Acción de los actores Acción del sistema
+
+1. El Usuario Administrador ingresa a la | 2. El sistema despliega la alerta de que se
+opción de eliminar activo. va a realizar una eliminación de un activo.
+
+ 
+
+3. El Usuario Administrador confirma la | 4. El sistema mostrara una ventana de
+eliminación del activo. activo eliminado y mostrara el panel
+principal.
+
+ 
+
+ 
+
+Cursos alterno de los eventos
+
+ 
+
+LINEA 4: El sistema informa que no se pudo realizar la eliminación ya que el activo
+se encuentra relacionado con varios registros de la aplicación.
+
+ 
+
+ 
+
+Tabla 11 Formato-Expandido (Eliminar Activo)
+
+3.4.1.2 MODULO SOLICITUDES
+
+Diagrama que permite especificar las relaciones que posee la aplicación para
+garantizar el manejo de incidentes.
+
+44Diligenciar
+Solicitud
+
+Asignar
+
+Formato
+=Include=>
+
+  
+
+Petición
+
+Autorizar
+solicitud
+
+ 
+
+  
+
+Cerrar
+Atención
+
+  
+
+Presentar
+Procedimiento
+
+Cerrar
+Solicitud
+
+  
+ 
+ 
+   
+     
+  
+   
+   
+ 
+ 
+
+USUARIO
+
+Asignar
+
+ 
+
+Ingeniero
+
+  
+
+Asignar
+Permisos
+Ingeniero
+
+    
+ 
+
+Procedimiento
+Proveedores
+
+Ilustración 8 Diagrama Caso de Uso Solicitudes
+
+Formato expandido del caso de uso Diligenciar Solicitud:
+
+ 
+
+ 
+
+ 
+
+Caso de uso: Diligenciar Solicitud
+Actores: Administrador , Jefe, Jefe sistemas, Ingeniero
+Soporte, Empleado
+Propósito: Este caso de uso permite a los usuarios de la
+
+aplicación registrar solicitudes referentes a los
+
+activos de hardware y software.
+Resumen: Este caso de uso inicia cuando un usuario ingresa
+al panel de solicitud de usuarios.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tipo: Primario-esencial
+
+ 
+
+45Referencias cruzadas:
+
+Caso de uso autorizar solicitud, asignar formato
+
+ 
+
+Curso normal de los eventos
+
+ 
+
+Acción de los actores
+
+Acción del sistema
+
+ 
+
+1. El usuario ingresa al panel de
+solicitud de usuarios.
+
+2. El sistema muestra las diferentes
+solicitudes registradas en el sistema
+clasificadas por los parámetros
+establecidos y un campo vació para
+digitar.
+
+ 
+
+3. El usuario escoge la solicitud o
+escribe una nueva solicitud que no se
+encuentra dentro de las registradas en
+
+el sistema.
+
+4. El sistema informa de la solicitud
+escogida y verifica los diferentes
+formatos creados dentro de la aplicación
+comparando estos con la solicitud
+creada.
+
+ 
+
+5. El sistema muestra la información del
+formato.
+
+ 
+
+6. El usuario procede a llenar los
+campos requeridos en el formato y
+guarda la información.
+
+7. El sistema guarda y asocia el formato
+con el activo afectado.
+
+ 
+
+ 
+
+8. El sistema informa que la solicitud se
+realizó con éxito.
+
+ 
+
+Cursos alterno de los eventos
+
+ 
+
+ 
+
+Línea 5. El sistema informa que no hay formatos asociados con el tipo de solicitud
+requerida e informa que la solicitud se realizó con éxito.
+
+ 
+
+Tabla 12 Formato-Expandido (Diligenciar Solicitud)
+
+3.4.2 DIAGRAMAS DE SECUENCIA
+
+Diagramas diseñados para la definición de los diferentes objetos que interactúan
+atreves del tiempo de ejecución de un proceso determinado, a continuación se
+¡llustran dos de los diagramas elaborados dentro del desarrollo del software.
+
+46USUARIOS IGUu | GESTIÓN | | ACTIVO Conexión BD | QUERY |
+
+1. Ingresa al panel de E n
+
+2. Ingresa a buscar activo
+
+———> 2. Envia petición
+
+[pro
+
+5. Petición
+
+£ Respuesta
+
+1
+4
+¡
+1
+¡
+¡
+¡
+¡
+¡
+4
+¡
+¡
+4
+¡
+¡
+1
+3
+4
+¡
+¡
+;
+4
+4
+4
+4
+¡
+¡
+¡
+4
+¡
+¡
+1
+¡
+4
+1
+4
+
+7. Despliega campos
+
+$. Digita parametros 4
+
+9. Envia datos
+
+a
+
+10. Envia datos
+
+» 11. Procesa
+
+   
+     
+
+12. Petición conexión BD
+
+13. Get conexión
+
+v
+
+ 
+
+14, Conexión
+
+15.Conectado
+
+A
+
+ 
+
+ 
+
+1
+¿
+16 Petlción datos
+; b 17. Select ]
+j 18. Select exitoso
+19. Datos activo A—————————_——
+<d —
+20. Petición desconexión | 1
+ED 4 ¡
+A 31. Get desconexión
+
+ 
+
+v
+
+22. Desconexión
+
+ 
+
+“
+
+23 .Desconectado
+
+25. Datos activo 24. Datos activo
+
+.
+
+26. Ingresa a la opcion
+
+"actualizar activo” »
+
+27. Envio petición
+
+a
+
+28. Petición
+
+e
+
+29. Datos modificables
+
+-——————
+
+20.Datos modificables
+
+31. Digita nuevos datos A
+
+22. Envio datos
+
+——
+
+22. Envio datos
+
+—_—_—>
+
+ 
+
+25. Petición conexión BD
+26. Get conexión
+
+37. Conexión
+
+28.Conectado
+
+29. Actualización datos
+
+ 
+
+40. Update
+
+41. Update exitoso
+
+42. Datos ¡actualizados
+
+42. Petición desconexión
+BD
+
+e
+
+. Get desconexión
+
+A
+
+ 
+
+v
+
+45, Desconexión
+
+ 
+
+48. Desconectado
+47. Datos actualizados
+
+————
+
+48. Informa activo
+
+d actualizado
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+¡
+4
+4
+4
+4
+1
+4
+1
+1
+1
+1
+4
+,
+
+Ilustración 9 Diagrama de Secuencia Modulo Gestión (Actualización)
+
+47| IGU | GESTION | | SOLICITUD | FORMATO CONEXION BD
+T 7 Y
+1 i E ;
+¡ ¡
+¿ ¿
+: ;
+¿ ;
+
+¿
+1. Ingresa al panel de solicitud
+
+de usuarios .
+—— 2. Envia petición
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Escoge solicitu: 4
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Digita campos
+
+> 30. Select
+| —
+S bars 31. Select exitoso o
++ A
+
+ 
+
+ 
+
+ 
+
+> 40. Insert
+
+>
+
+ 
+
+ 
+
+ 
+
+ 
+
+48. informa solicitud se
+realizo con exito
+
+ 
+
+ 
+
+ 
+
+ 
+
+Ilustración 10 Diagrama de Secuencia Modulo Solicitudes (Diligenciar Solicitud)
+
+El documento completo de los diagramas de casos de uso, formatos expandidos y
+diagramas de secuencias se encuentran en los anexos F, y G respectivamente.
+
+483.5 Quinto ciclo
+
+ 
+
+ 
+
++ de % de % de % de % de Descripción
+ciclo iniciación | elaboración | construcción | transición
+5 100 100 35 0 Definición de la arquitectura
+
+en donde se desarrolló la
+aplicación, generación del
+script de la base de datos y
+definición de las tecnologías
+y herramientas para la
+construcción del software.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 13 Desarrollo Quinto Ciclo
+
+3.5.1 Arquitectura
+
+Para la implementación del sistema web en el ingenio Carmelita S.A se utilizó una
+arquitectura cliente-servidor lógica de tres capas como se ilustra en la siguiente
+figura.
+
+1. Capa de presentación 2. Capa de negocio 3. Capa de datos
+
+ 
+
+NAVEGADORES WEB SERVIDOR DE APLICACIÓN SERVIDOR DE BASE DE DATOS
+
+Ilustración 11 Arquitectura sistema
+
+Capa de presentación: Para acceder a la interfaz de la aplicación los usuarios
+pueden acceder a través de los diferentes navegadores instalados en los equipos
+de cómputo de la empresa, la aplicación cuenta con la funcionalidad de ser
+adaptativa a cualquier tamaño de pantalla de un dispositivo determinado por lo que
+aquellos que desean acceder por medio de dispositivos móviles dentro de la red
+
+49interna del Ingenio Carmelita S.A pueden hacerlo y a su vez encontrar una interfaz
+amigable y compatible con el dispositivo utilizado.
+
+Capa de negocio: Dentro de la empresa existen diferentes servidores encargados
+de prestar servicios a los usuarios, entre estos servidores existen dos servidores
+encargados principalmente de almacenar los aplicativos que actualmente se utilizan
+dentro del ingenio, la aplicación fue instalada en uno de estos dos servidores de
+aplicaciones y desde allí se procesan todas las peticiones de los usuarios
+conectados a la aplicación para presentar la información requerida atreves de
+interacciones con el servidor de bases de datos.
+
+Capa de datos: Dentro de la empresa existe un servidor de bases de datos Oracle
+10g el cual fue el utilizado para almacenar la información de la aplicación, dentro
+de este servidor existe una instancia de pruebas que se tomó para probar la
+aplicación web.
+
+3.5.2 Tecnologías
+
+Para la construcción de la aplicación se ha utilizado distintas tecnologías y
+lenguajes de programación, se optó por el lenguaje de programación java, además
+se utilizaron complementos o herramientas para hacer más robusta la aplicación,
+los cuales se detallan a continuación.
+
+3.5.2.1 Servlets
+
+Es una clase en el lenguaje de programación Java que extiende de la clase
+HttpServlet y responde una petición HTTP en un contenedor Web, esta clase de
+java nos permitió procesar las peticiones que se enviaban desde los navegadores,
+para posteriormente enviar la información correspondiente.
+
+3.5.2.2 Java server pages
+
+Java Server Pages (JSP) son archivos que contienen HTML y código Java
+embebido, este tipo de archivos nos permitía construir código HTML de nuestra
+aplicación, además de mostrar respuestas enviadas desde los servlets atreves del
+código java.
+
+503.5.2.3 Html
+
+Siglas de HyperText Markup Language “lenguaje de marcas de hipertexto”, este
+lenguaje fue utilizado dentro de los archivos jsp para crear la estructura de nuestra
+aplicación web.
+
+3.5.2.4 Css
+
+Las hojas de estilo en cascada o CSS, este tipo de lenguaje nos permitió de una
+forma sencilla, definir todo tipo de formatos, colores, posiciones, etc. que le
+queríamos dar a nuestra aplicación Web, es decir la apariencia de nuestra
+aplicación.
+
+3.5.2.5 Javascript
+
+Es un lenguaje de programación interpretado y se utiliza principalmente en su forma
+del lado del cliente, este tipo de lenguaje fue utilizado principalmente en nuestra
+aplicación para manejar los eventos que realizaban los usuarios dentro de la
+aplicación.
+
+3.5.2.6 Jquery
+
+Biblioteca de Javascript utilizada para simplificar la interacción entre los documentos
+Jsp.
+
+3.5.2.7 Ajax
+
+Es una técnica de desarrollo web para crear aplicaciones interactivas, este tipo de
+técnica nos permitió realizar cambios sobre las páginas web sin necesidad que la
+página se recargue, ya que utiliza una comunicación asíncrona con el servidor que
+permitió que los datos adicionales que se le soliciten al servidor se carguen en un
+segundo plano sin interferir con el comportamiento total de la página.
+
+513.4.2.8 Bootstrap
+
+Es un framework que permitió crear interfaces web con CSS y JavaScript que
+adaptan la interfaz dependiendo del tamaño del dispositivo en el que se visualice de
+forma nativa, es decir, automáticamente se adapta al tamaño de un ordenador o de
+una Tablet sin que el usuario tenga que hacer nada, esto se denomina diseño
+adaptativo.
+
+3.5.3 Herramientas
+
+Las herramientas utilizadas en el desarrollo de nuestra aplicación han sido:
+
+3.5.3.1 Netbeans
+
+Es un entorno de desarrollo que nos permitió facilitar la codificación de la aplicación,
+atreves de este IDE utilizamos todas librerías necesarias para hacer de la aplicación
+una herramienta robusta y que se adaptara a los requisitos planteados.
+
+3.5.3.2 Glassfish
+
+Servidor de aplicaciones de software libre, este servidor se utilizó en nuestra
+máquina para simular en una primera instancia la aplicación, sobre este servidor se
+ejecutó la aplicación a medida que se ¡iba construyendo.
+
+523.6 Sexto ciclo
+
+ 
+
+ 
+
+$ de % de % de % de % de Descripción
+ciclo iniciación | elaboración | construcción | transición
+6 100 100 90 20 Codificación de los módulos
+
+especificados e
+implementación de pruebas
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 14 Desarrollo Sexto Ciclo
+
+A medida que se desarrollaba los diferentes módulos de la aplicación se visualizaba
+su funcionamiento por medio del servidor glassfish instalado en la maquina local,
+esto permitió que cada módulo o conjunto de funciones orientadas a cumplir un
+requerimiento específico de la aplicación estuviera en constante monitoreo
+realizando los ajustes necesarios en la codificación para garantizar que la aplicación
+cumpliera con los requisitos planteados.
+
+Estos ajustes se realizaban a partir de los resultados obtenidos por las pruebas
+funcionales y unitarias las cuales permitieron que se obtuviera una aplicación web
+orientada a dar apoyo a la gestión de activos de información en la empresa Ingenio
+Carmelita S.A, a continuación se describe las pruebas realizadas y de forma general
+la aplicación obtenida.
+
+3.6.1 Pruebas
+
+3.6.1.1 Pruebas Funcionales
+
+Las pruebas de este tipo se realizaron bajo un enfoque de caja negra, con el
+propósito de evaluar que cada requerimiento planteado fuera suplido por la
+aplicación, de igual manera se requería comprobar el flujo del proceso de cada caso
+de uso mencionado en los ciclos anteriores.
+
+En las tablas 15 y 16 se describen algunos de los casos de prueba que se realizaron
+para evaluar la respuesta del sistema.
+
+53Requerimiento o Caso de uso
+relacionado:
+
+Actores:
+
+Crear Activos
+
+Todos los usuarios
+
+ 
+
+Propósito:
+
+Comprobar el funcionamiento de crear un
+activo de información dentro de la
+aplicación.
+
+ 
+
+Precondiciones:
+
+Los usuarios deben estar registrados en
+la aplicación
+
+ 
+
+Datos de prueba:
+
+, Sistemas”, “activo”, “Wewserty-tyui”, “192.168.40.12”.
+
+“equipo1” Cn ” (tí 3) 111
+
+ 
+
+Resultados esperados:
+
+Activo creado.
+
+ 
+
+Eventos
+
+ 
+
+Acción de los actores
+
+Resultado esperado
+
+ 
+
+1. El Usuario ingresa a la opción crear
+activo dentro del panel de activos y
+selecciona el tipo de activo que desea
+crear.
+
+3. El Usuario diligencia los campos.
+
+Detalles de
+
+2. El sistema despliega los campos
+establecidos para el tipo de activo
+seleccionado.
+
+4. El sistema automáticamente guardara
+los datos.
+
+5. El sistema mostrara una ventana de
+activo creado.
+
+la ejecución
+
+ 
+
+Resultado obtenido:
+
+Prueba exitosa Sl ( X) NO ()
+
+ 
+
+Comentarios de la prueba:
+
+Fecha:
+
+Los resultados esperados se obtuvieron,
+la aplicación web permite crear activos
+de información.
+
+1 de abril del 2015
+
+ 
+
+ 
+
+Realizado por:
+
+ 
+
+Juan David Rodríguez
+
+ 
+
+Tabla 15 Caso de prueba - Crear Activo
+
+ 
+
+Requerimiento o Caso de uso
+relacionado:
+
+Diligenciar Solicitud
+
+ 
+
+ 
+
+Actores:
+
+Propósito:
+
+ 
+
+Administrador , Jefe, Jefe sistemas,
+Ingeniero Soporte, Empleado
+
+ 
+
+Comprobar el funcionamiento de
+diligenciar un procedimiento dentro de la
+aplicación cuando se produce un
+incidente en los activos de hardware y
+software.
+
+ 
+
+54Precondiciones:
+
+El usuario debe estar registrado en la
+aplicación web.
+
+ 
+
+Datos de prueba:
+Resultados esperados:
+
+Se escoge “cambiar pantalla”.
+Solicitud exitosa.
+
+ 
+
+Eventos
+
+ 
+
+Acción de los actores
+
+Resultado esperado
+
+ 
+
+1. El usuario ingresa al panel de
+
+solicitud de usuarios.
+
+2. El sistema muestra las diferentes
+solicitudes registradas en el sistema
+clasificadas por los parámetros
+establecidos y un campo vació para
+digitar.
+
+ 
+
+3. El usuario escoge la solicitud o
+escribe una nueva solicitud que no se
+encuentra dentro de las registradas en
+
+el sistema.
+
+6. El usuario procede a llenar los
+campos requeridos en el formato y
+
+guarda la información.
+
+4. El sistema informa de la solicitud
+escogida y verifica los diferentes
+formatos creados dentro de la aplicación
+comparando estos con la solicitud
+creada.
+
+5. El sistema muestra la información del
+formato.
+
+7. El sistema guarda el formato
+diligenciado.
+
+ 
+
+ 
+
+8. El sistema informa que la solicitud se
+realizó con éxito.
+
+ 
+
+Resultado obtenido:
+
+Comentarios de la prueba:
+
+Detalles de
+
+la ejecución
+
+Prueba exitosa Sl (X) NO ()
+
+Los resultados esperados se obtuvieron,
+la aplicación web permite diligenciar
+solicitudes cuando se presentan
+incidentes en los activos de hardware y
+software.
+
+ 
+
+Fecha:
+
+1 de abril del 2015
+
+ 
+
+Realizado por:
+
+ 
+
+Juan David Rodríguez
+
+ 
+
+Tabla 16 Caso de prueba. Diligenciar Solicitud
+
+El documento completo de los casos de prueba realizados se encuentra en el anexo
+
+H.
+
+553.6.1.2 Pruebas Unitarias
+
+Este tipo de pruebas se realizó sobre cada módulo creado en la aplicación con el
+fin de determinar el correcto funcionamiento de las clases y métodos involucrados
+en cada proceso de la aplicación, para realizar estas pruebas utilizamos la
+herramienta SeleniumHQ el cual nos permitió recolectar todas las acciones que los
+usuarios realizan en el navegador web cuando están utilizando la herramienta, a
+
+partir de allí se ejecutan las acciones recolectadas para comprobar que la aplicación
+respondía adecuadamente.
+
+A continuación se detalla uno de los procesos escogidos para evaluar la aplicación,
+de forma adicional se exporto algunas de las pruebas obtenidas a archivos Java
+
+para evaluar la aplicación con Junit y así ratificar que los métodos o clases
+respondían adecuadamente.
+
+En la figura 12 se detalla el proceso de crear un activo, con la herramienta
+SeleniumHQ guardamos los eventos involucrados en dicho proceso.
+
+ 
+
+ 
+
+ 
+
+ 
+
+[2] ADMINISTRACIÓN x | + - O
+de http://localhost:2084/gestion_activos/principal.jsp* > B- Google P Y B y Ñ Ss E a =
+(E....... GESTIÓN DE ACTIVOS DE INFORMACIÓN Dr SY 6Ar £y
+
+      
+
+search Q Archivo (E) Editar Actions Options
+Base URL | http://localhost:8084/
+ast Slow = =
+B INICIO Ao ba > ab
+Test Case
+
+Lal Gestión Maestros € crear activo * Digitales
+
+ 
+
+(1 Gestión Usuarios <
+
+Call Activos y
+
+Crear Activos
+
+sistemasjr
+Mostrar Activos equipol
+qwea-sdesa-dert-as
+
+Solicitar Autorización 192.168.11.23
+
+«ll Procedimientos
+ua A Activo guardado stock equipo
+
+ 
+
+ 
+
+ 
+
+1) Formatos < Comman d assertAlert
+
+Target Activo guardado stock equipo
+
+Agendar tareas
+Value
+
+ 
+
+Solicitudes de Usuario
+
+ 
+
+Reference | Ul-Element | Rollup
+Reportes
+
+KF Ul Elements
+
+ 
+
+ala Multi-Level Droodown :
+http://localhost:8084/gestion_activos/principal.jsp+* Y
+
+ 
+
+ 
+
+Ilustración 12 SeleniumHQ - Guardar acciones de crear activo
+
+56En la figura 13 se ejecuta el archivo para comprobar que el proceso guardado se
+ejecuta correctamente.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+/ [A] ADMINISTRACIÓN xl+ 20
+€ http://localhost:8084/gestion_activos/principal.jsp* e + Google AP YY 56 -|) ÑÁ 5 e ad =
+A
+EniGestión Maestros S Equipos Pieza E/S principales Software Digitales Tangibles
+[ai Gestión Usuarios <
+Archivo (E) Editar Actions Options Ayuda
+Activos isa Base URL | http://localhost:8084/
+Fast Sloy PS p=S0S | e
+Crear Activos Table | Source]
+Mostrar Activos Target Value
+id=serise sistemasjr
+Solicitar Autorización id—setie A
+E) Procedimientos e id=serse qwea-sdesa-dert-asdf
+192.168.11.23
+E) Formatos e Command |assertAlert
+Target | Activo guardado stock equipo Select |
+Agendar tareas Value |
+Solicitudes de Usuario = >
+| Log | Reference | Ul-Element | Rollup Info+ Clear
+R A PITO] EXECUaIg. PUNCK | MIK=ACUVUS [| Y A
+Eros [info] Executing: [click | id=registrarac | |
+Z [info] Executing: |assertAlert | hola | |
+F Ul Elements [info] Executing: [click | id=menueq | |
+[info] Executing: |type | id=serise | sistemasjr |
+ala Multi-Level Dropdown $ [info] Executing: |type | id=serie | equipo1 |
+[info] Executing: |type | id=serse | qwea-sdesa-dert-asdf |
+[info] Executing: |type | id=serieq | 192.168.11.23 |
+[info] Executing: |click | id=enviarseq | |
+[info] Executing: |assertAlert | Activo guardado stock equipo | |
+[info] Test case passed
+tinto] Test suite completed: 1 played, all passed!
+v
+
+ 
+
+Ilustración 13 SeleniumHOQ - Ejecutar acciones de crear activo
+
+En la figura 14 se exporta el archivo a Junit.
+
+File Edit Source Refactor Navigate Search Project Run Window Help
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+e IAN Ex: 70-Q-:Wa- E > [E DEAN e acces | ES | 49 Java EE Xs Debug
+a | ÍS) crearactivos java E
+2 public class CrearActivo ( A
+
+private WebDriver driver;
+
+private String baseUrl;
+
+private boolean acceptNextAlert = true;
+
+private StringBuffer verificationErrors = new StringBuffer();
+
+=>  (MBefore
+public void setUp() throws Exception (
+driver = new FirefoxDriver();
+baseUrl = "http://localhost:8084/";
+driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+J
+
+>  (fMTest
+public void testCrearActivo() throws Exception (
+driver.get(baseUrl + "/gestion_activos/principal.jsp");
+driver.findElement(By.linkText("Activos”)).click();
+driver.findElement(By.id("registrarac")).click();
+assertEquals("hola", closeAlertAndGetItsText());
+
+driver.findElement(By.
+driver.findElement(By.
+driver.findElement(By.
+driver.findElement(By.
+driver.findElement(By.
+driver.findElement(By.
+driver.findElement(By.
+driver.findElement(By.
+driver.findElement(By.
+driver.findElement(By.
+
+id("menueq”)).click();
+id("serise")).clear();
+id("serise")).sendKeys("sistemasjr"”);
+id("serie")).clear();
+id("serie")).sendKeys("equipol”);
+id("serse")).clear();
+
+id("serse”)).sendKeys("qwea-sdesa-dert-asdf”);
+
+id("serieq")).clear();
+id("serieq")).sendKeys("192.168.11.23");
+id("enviarseq”")).click();
+
+assertEquals("Activo guardado stock equipo", closeAlertAndGetItsText());
+
+J
+fAfter
+
+public void tearDown() throws Exception «(
+
+driver.quit();
+
+String verificationErrorString = verificationErrors.toString();
+if (!”"".equals(verificationErrorString)) (
+fail(verificationErrorString);
+
+F
+j
+
+Ilustración 14 Junit - Crear activo
+
+573.6.2 Descripción general de la aplicación
+
+En la aplicación existe tres paneles principales en la cual los usuarios podrán hacer
+uso de las diferentes opciones que la aplicación brinda teniendo en cuenta los
+perfiles asignados a los diferentes usuarios para la gestión de activos y control de
+incidentes de hardware y software.
+
+En la figura 15 el primer panel situado en la parte superior de la aplicación los
+usuarios podrá visualizar el nombre del usuario que se encuentra registrado,
+además de los diferentes pendientes que se generan dentro de la aplicación, y
+podrán visualizar las tareas agendadas.
+
+En el segundo panel se encuentra la barra de navegación, desde allí los usuarios
+accederán a las opciones más destacadas de la aplicación, esta barra siempre
+permanecerá visible para los usuarios sin importar la opción en la cual se
+encuentren, esto facilitara que los usuarios puedan acceder a cualquier otra opción
+siempre que lo deseen.
+
+El tercer panel es el área de la aplicación en donde se mostrara la información
+generada a partir de los diferentes eventos que los usuarios realicen dentro de la
+aplicación.
+
+ 
+    
+
+GESTIÓN DE ACTIVOS DE INFORMACIÓN
+
+O
+
+BIENVENIDOS!
+
+EL SISTEMA WEB PARA EL APOYO A LA GESTIÓN DE ACTIVOS DE INFORMACIÓN LES DA LA BIENVENIDAD A
+LA APLICACIÓN,PODRÁN ENCONTRARAN DIFERENTES RECURSOS QUE FACILITARÁN EL CONTROL DE SUS
+ACTIVOS, LA HERRAMIENTA OFRECE LAS SIGUIENTES HERRAMIENTAS:
+
+Crear, visualizar, modificar y eliminar Diligenciar Solicitudes Reportes
+
+Control de activos de información, tipos de formatos, Si se les presenta algún incidente con sus activos de Los usuarios con los permisos adecuados podrán
+procedimientos, además podrán agendar tareas hardware y software podrán registrar la solicitud de acceder a los reportes que la aplicación brinda
+solicitar autorizaciones, visualizar pendientes y forma inmediata en nuestra aplicación
+
+Guarde sus reportes en formato PDF
+exportar sus formatos
+
+Las solicitudes podrán ser administradas por los
+usuarios correspondientes
+
+ 
+
+Ilustración 15 Página principal SGA
+
+En la figura 16 se puede visualizar las diferentes opciones destinadas a la
+administración de los activos de información, como por ejemplo la creación de
+activos de información en donde los usuarios deberán escoger el tipo de activo que
+desean crear para posteriormente diligenciar el formulario desplegado y guardar la
+
+58información. Además podemos observar la opción destinada para que los usuarios
+realicen las solicitudes correspondientes a incidentes generados sobre los activos
+de hardware y software.
+
+GHGestión Maestros « GESTIÓN DE ACTIVOS DE INFORMACIÓN
+
+ul] Gestión Usuarios
+
+Equipos Pieza EJS principales Software Digitales Tangibles
+ui] Activos
+
+l El ud o Y
+pa A pd
+
+Mostrar Activos Id Stock Equipo:
+
+Solicitar Autorización
+: : AS Id Equipo:
+Registrar Tipos de Solicitudes
+
+ful] Procedimientos
+
+Id Usuario:
+[al] Formatos
+
+jrodriguez
+
+Agendar tareas
+
+Id Ubicación Equipo:
+Solicitudes de Usuario sistemas v
+
+Reportes Id Estado Equipo:
+activo v
+
+Serial Equipo:
+
+Ip Equipo:
+
+ 
+
+ 
+
+ 
+
+Ilustración 16 Interfaz Crear Activos - SGA
+
+En la figura 17 se puede observar las diferentes opciones que el usuario puede
+acceder cuando ha decidido ingresar a la opción solicitudes, desde allí el usuario
+podrá escoger la solicitud deseada, cerrar las solicitudes, o si su perfil es de jefe de
+sistemas podrá seleccionar el ingeniero de soporte que atenderá en una primera
+instancia los incidentes que se generen dentro de la aplicación.
+
+€ INGENIO CARMELITA S.A E y 6ñm > a”
+
+fe INICIO
+
+GCEstión Maestros « GESTIÓN DE ACTIVOS DE INFORMACIÓN
+
+ful] Gestión Usuarios
+
+E Act Diligenciar Solicitud Mis Solicitudes Asignar permisos
+ctivos
+
+q ] Seleccione el tipo de solicitud que desea realizar
+Solicitar Autorización
+
+N
+Registrar Tipos de Solicitudes HARDWARE
+
+v
+ll] Procedimientos : ES
+
+Gl] Formatos
+
+ 
+
+ 
+
+ 
+
+ 
+
+TIPO SOLICITUD DESCRIPCION SOLICITUD ACCION
+Agendar tareas _ .
+
+solicitud de usuarios problema en la pantalla
+Solicitudes de Usuario
+
+cambio de pantalla se requiere cambiar la pantalla
+Reportes
+
+Digitar un nuevo tipo de solicitud que no se encuentra en el sistema
+
+ 
+
+59Para más detalle de las funcionalidades y opciones que ofrece la aplicación se
+puede consultar el manual de usuario.
+
+3.7 Séptimo Ciclo
+
+$ de % de % de % de % de Descripción
+ciclo iniciación | elaboración | construcción | transición
+7 100 100 100 100 implementación y
+
+despliegue en los
+servidores del ingenio
+Carmelita S.A
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 17 Desarrollo Séptimo Ciclo
+
+3.7.1 Instalación Ingenio Carmelita S.A
+
+Actualmente el Ingenio Carmelita cuenta con un proveedor de servicios NET
+GROUP S.A que administra y provee los servidores necesarios para que los
+diferentes servicios como antivirus, impresoras, actualizaciones y aplicativos
+funcionen dentro de la empresa. Estos servidores se encuentran en constante
+monitoreo por parte del personal del área de T.l del ingenio como por personal del
+proveedor.
+
+El servidor destinado para la instalación del aplicativo es un server anfitrión con
+sistema operativo winserver 2012 R2 datacenter, en este servidor se encuentran
+virtualizadas diferentes máquinas que prestan un servicio determinado en la
+empresa, para el proyecto se creó una nueva máquina virtual en el servidor con un
+nombre y una dirección IP estática que sería utilizada para acceder a los servicios
+de la aplicación.
+
+En la figura 18 se puede apreciar las características de la máquina virtual creada
+como el nombre escogido “APP-SGA”, que hace referencia al aplicativo de gestión
+de activos y la dirección asignada 192.168.10.23.
+
+60File Action View Help
+4» 2 ala
+
+E3 Hyper-V Manager
+
+ 
+
+   
+
+    
+
+     
+
+da ANFI-APP Virtual Machines
+Name a State CPU Usage Assigned Memory Uptime Status
+d APPBINAPS-10.15 Running 0% 9192 MB 137.23:43:10
+d APP-BIOSALC-10.14 Rurnna 0% 8192 MB 58.18:18:32
+PP-SGA-10.23 0% 8192 MB 11:47
+3 APP-TRACING-10 35 Running 0% 4095 MB 26.17:34:51
+ APP-UNOEE-10.20 Running 0 24576 MB 7.00:27:43
+
+a APP-UNOEE-T5-10.21 (NO ENCENDER) On
+
+Checkpoints
+
+The selected virtual mactune has no checkpomts
+
+APP-SGA-10.23
+
+Adapter Connection IP Addresses
+Network Adapter [D ynarrc MAC: 00 Not connected
+
+Network Adapter [Dymarmc MAC: 00:... VIRTU-LAN-NG 192 168.10.23
+
+Network Adapter [Dynarmec MAC: 00... Not connected
+
+ 
+
+Summary | Memory Networking | Replkication
+
+Ilustración 17 Máquina Virtual SGA
+
+En la maquina mencionada anteriormente se procedió a realizar la instalación del
+servicio web que permite que los diferentes equipos conectados dentro de la LAN
+de la empresa puedan acceder a la aplicación. Inicialmente se procedió a la
+instalación del servicio de glassfish, sin embargo se presentaron inconvenientes a
+la hora de visualizar la página web especialmente en las partes donde se realizaban
+peticiones a las clases servlets las cuales en reiteradas ocasiones no respondían a
+las peticiones realizadas por los usuarios. Por esta razón se procedió a la instalación
+de Apache Tomcat el cual fue escogido tras investigar que soporta las aplicaciones
+creadas especialmente con jsp y servlets.
+
+Para montar el script de la base de datos sobre el cual nuestra aplicación interactúa
+se designó el servidor anfitrión con sistema operativo Linux en el cual fue asignada
+una máquina virtual donde se creó la instancia de la base de datos llamada DB_SGA
+con dirección ip 192.168.10.17. Además se creó un usuario para la conexión y
+administración de esta base de datos llamado adminsga.
+
+En la figura 18 se puede apreciar la instancia creada junto con otras instancias que
+actualmente el ingenio Carmelita S.A utiliza.
+
+61QA Red
+. SIB de Datos
+BIOOES
+
+DB-5+H_92 1681013
+
+DBUNOEE_192 168.10.26
+
+PRUEBA1_192 168.102
+PRUEBAS
+
+ 
+
+Ilustración 18 Instancia BD-SGA
+
+Para más detalle acerca de la configuración ver el manual en el cd.
+
+62CAPITULO 4
+
+CONCLUSIONES Y TRABAJOS FUTUROS
+
+4.1 Conclusiones
+
+e Se logró generar una aplicación web ajustada a los requerimientos reales
+planteados en conjunto con el Ingenio Carmelita S.A atreves del jefe del área
+de Tecnología e Informática de la empresa, logrando una herramienta que
+permitió ayudar en la gestión de activos de información dentro de la
+compañía.
+
+e Se realizó una aplicación adaptable a los diferentes dispositivos que
+actualmente son utilizados para la navegación web, logrando que la
+herramienta pueda ser accedida desde cualquier dispositivo que cuente con
+un navegador web y que esté conectado a la red interna de la empresa.
+
+e Seimplanto el sistema en un ambiente real de trabajo, en donde los usuarios
+
+del Ingenio Carmelita S.A lograron acceder a las diferentes opciones que la
+aplicación ofrece.
+
+e Se logró crear un módulo para el manejo de incidentes de los activos de
+hardware y software de la empresa, esto permitió que el proceso de
+solicitudes de incidentes se realizara atreves de la aplicación y que el control
+o seguimientos a estos incidentes se lograran gestionar dentro de la
+herramienta, logrando documentar estos incidentes y la solución de los
+mismos en la bases de datos de la empresa para tomar medidas que puedan
+minimizar estos incidentes.
+
+e El control de activos de información es una de las actividades que permite
+que las empresas minimicen los riesgos a los que estos activos están
+expuestos, por lo que la herramienta construida para el apoyo a la gestión de
+activos permitió que se tenga un seguimiento de los activos de información
+de la empresa, esta herramienta permite conocer la ubicación y los
+responsables de los activos así como sus movimientos, permitiendo que se
+pueda conocer el estado en que los activos de información se encuentran.
+
+634.2 Trabajos Futuros
+
+Adaptar e implementar en la herramienta creada algunos de los restantes
+procesos de la metodología ITIL como lo son: Manejo de problemas, manejo
+de configuraciones, manejo de cambios y manejo de entregas, buscando así
+que la aplicación sea mucha más robusta y que permita que los incidentes
+de hardware y software sean reducidos dentro de la compañía.
+
+Buscar que la aplicación sea más automatizada, creando módulos que
+permita encontrar de manera inteligente las mejores soluciones a los
+incidentes que se presentan sobre los activos de hardware y software,
+además que permita la asignación automática de ingenieros de soporte a los
+incidentes, dependiendo del tipo de perfil o capacidades que cada ingeniero
+posea.
+
+Integrar la aplicación con el directorio activo de la empresa, permitiendo así
+que cada usuario registrado dentro del dominio del Ingenio Carmelita S.A
+pueda acceder a la aplicación web desarrollada.
+
+Extender el alcance de cobertura de la aplicación para que los usuarios
+puedan acceder a la herramienta desde cualquier lugar en donde se
+encuentren sin importar si se encuentran por fuera de la red de la empresa.
+
+64BIBLIOGRAFÍA
+
+e [1]J.J.G. Zabala. El talento. Base de un progreso consciente para elegir un
+futuro. Ed Díaz de Santos, Madrid 2012.
+
+e [2] J.P Saldarriaga, “Diseño y estructura del modelo de sistema de gestión
+para la seguridad de la información basado en la norma iso 27001:2005 en
+
+ingenio Carmelita S.A.” Trabajo de Grado, Unidad Central del Valle, Tuluá,
+2009
+
+e [3]15027001 Sistemas de Gestión de la Seguridad de la Información [artículo
+en internet]. http://www.iso27000.es/iso27000.html[Consulta:18 septiembre
+de 2013]
+
+e [4] Easyvista, Manage the future of it. Septiembre 2013. Available:
+http://www.easyvista.com/ev/es/soluciones/gestion-de-activos-ti
+
+e [5] Infor EAM Enterprise. Septiembre 2013. Available:
+http://www.infor.es/productos/eam/enterpriseedition/
+
+e [6]  SysSaid, Keep ¡it Simple. Septiembre 2013. Available:
+http://www. ilient.es/fullversion.htm
+
+e [7] Belarc Advisor, Sistemas de administración para las era de internet.
+Octubre 2013. Available: http://www.belarc.com/es/index.html
+
+e [8] Anglone.15O027002 [artículo en internet].
+htips://iso27002.wiki.zoho.com/ISO-27002.html [Consulta: 18 septiembre de
+2013].
+
+e [9] José Manuel Poveda. Los Activos de Seguridad de la Información [artículo
+en internet http: //jmpovedar.files.wordpress.com/2011/03/mc3b3dulo7 .pdf[Consulta:18 septiembre de 2013].
+
+65[10] Ricardo Rosales. Activos Físicos [Artículo en internet].
+http:/www.activosfisicos.com/2012/08/administración-del-activo-fijo-controlo-gestión [Consulta: 18 de septiembre de 2013].
+
+[11] Arata A. Manual de gestión de activos y mantenimiento. Ril editores.
+2005.
+
+[12] ¿Cómo gestionar activos de información”? Alide edición enero-marzo
+2013. [5 pantallas]. Disponible en
+http://www.alide.org.pe/download/Financ_Sectorial/fn13_tfin_rev1_activos.p
+af
+
+[13] Itil Gestión de servicios Tl. Gestión de incidentes [Articulo en internet).
+http://itil.osiatis.es/Curso_ITIL/Gestion_Servicios Tl/gestion_de incidentes/i
+ntroduccion_objetivos gestion_de incidentes/introduccion_ objetivos gestio
+n_de incidentes.php [Consulta: 2 de octubre de 2013].
+
+66
