@@ -28,19 +28,19 @@ import gensim.corpora as corpora
 from wordcloud import WordCloud
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.decomposition import NMF
-!pip install pyLDAvis
+#!pip install pyLDAvis
 import pyLDAvis
 from pyLDAvis import sklearn as sklearn_lda
 import re
 
-!wget https://github.com/cardel/tgIITulua/raw/main/datosTG.xlsx
+#!wget https://github.com/cardel/tgIITulua/raw/main/datosTG.xlsx
 
 data = pd.read_excel("datosTG.xlsx")
 
 data.head()
 
-!wget https://github.com/cardel/tgIITulua/raw/main/textos.zip
-!unzip textos.zip
+#!wget https://github.com/cardel/tgIITulua/raw/main/textos.zip
+#!unzip textos.zip
 
 #Remove the unecessary columns
 dataset = data.drop(columns=['CATEGORÍA', 'CATEGORIA REVISA', 'PALABRAS CLAVE'], axis=1)
@@ -105,7 +105,7 @@ tokenized_data = tokenized_data.apply(lambda x: [re.sub('[.]', ' ', item) for it
 tokenized_data = tokenized_data.apply(lambda x: [item.lower() for item in x])
 # remove stop-words
 stop_words = stopwords.words('spanish')
-stop_words.extend(['grado','trabajo',"universidad","valle","tulua","tuluá","inglés","clinica","clínica","francisco","carvajal","ciat","municipio","buga","trujillo","caicedonia","cada","éste","sede","figura","contenido","tabla"])
+stop_words.extend(["_elaboracin_propia","ilustrain","presente_proyecto","varchar","consultar","_usuario","_usuario_permisos","_descripcin_general","findelementby","tinyint","grado","trabajo","universidad","valle","tulua","tuluá","inglés","clinica","clínica","francisco","carvajal","ciat","municipio","buga","trujillo","caicedonia","cada","éste","sede","figura","contenido","tabla"])
 #stop_words.extend(['from','use', 'using','uses','user', 'users', 'well', 'study', 'survey', 'think'])
 # remove words of length less than 3
 tokenized_data = tokenized_data.apply(lambda x: [item for item in x if item not in stop_words and len(item)>3])
