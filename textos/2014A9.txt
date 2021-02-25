@@ -1,0 +1,7670 @@
+SISTEMA DE APOYO EN LA TOMA DE DECISIONES PARA
+LA AUTOMATIZACIÓN DE PROCESOS DE LA EMPRESA
+SISA (SOLUCIONES INTEGRALES EN SALUD)
+
+ANDRÉS FELIPE GÓMEZ RODRIGUEZ
+VALENTINA MARTINEZ VALENCIA
+
+FACULTAD DE INGENIERÍA
+ESCUELA DE INGENIERÍA DE SISTEMAS Y COMPUTACIÓN
+PROGRAMA ACADÉMICO DE INGENIERÍA DE SISTEMAS
+TULUÁ, MAYO DEL 2015SISTEMA DE APOYO EN LA TOMA DE DECISIONES PARA
+LA AUTOMATIZACIÓN DE PROCESOS DE LA EMPRESA
+SISA (SOLUCIONES INTEGRALES EN SALUD)
+
+ANDRÉS FELIPE GÓMEZ RODRIGUEZ
+VALENTINA MARTINEZ VALENCIA
+
+TRABAJO DE GRADO
+
+PROFESOR
+PÁVEL FRANCO MARÍN, MAE.
+
+FACULTAD DE INGENIERÍA
+ESCUELA DE INGENIERÍA DE SISTEMAS Y COMPUTACIÓN
+PROGRAMA ACADÉMICO DE INGENIERÍA DE SISTEMAS
+TULUÁ, MAYO DEL 2015Nota de Aceptación
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Presidente Del Jurado
+
+ 
+
+Jurado
+
+ 
+
+Jurado
+
+ 
+
+Jurado
+
+Tuluá, Junio del 2015Dedicatoria
+
+ANDRÉS FELIPE GÓMEZ RODRIGUEZ:
+
+Dedico este trabajo de grado culminado con mucha laboriosidad a mis padres
+Jesús Antonio y Libia, que con muchos sacrificios y esfuerzos han hecho esto
+posible,a mis hermanas Lina Raquel y Edna Lucía, que con su apoyo y sus
+palabras de aliento me ayudaron a seguir adelante.
+
+A mis familiares por su aprecio, cuyo afecto resulta invaluable por la situación
+misma de la primacía de la unidad familiar.
+
+A mi novia Isabel, por creer en mi, por estar allí en los momentos difíciles,por
+su compañía incondicional, apoyo, comprensión y confianza.
+
+VALENTINA MARTINEZ VALENCIA:
+
+Dedico este trabajo de grado culminado a mi abuela, que aunque ya no se
+encuentra conmigo, fue mi mayor motivación para salir adelante en el trascurso
+de mi carrera universitaria.
+
+A mi mamá Maria Nelsy, por su apoyo incondicional en cada una de las
+decisiones de mi vida, por todos sus esfuerzos diarios para formar la persona
+que soy hoy.
+
+A mi familia quienes permanentemente me apoyaron con sus palabras de
+aliento y compañía, contribuyendo incondicionalmente a lograr mis metas
+propuestas.Agradecimientos
+
+ANDRÉS FELIPE GÓMEZ RODRIGUEZ
+
+Doy gracias a mi compañera Valentina por su empeño y compromiso, con la
+cual tuve un excelente proceso de trabajo colaborativo tanto a lo largo del
+desarrollo del proyecto como a lo largo de toda la carrera.
+
+Quiero agradecer a Pavel Franco Marín, por su dedicación y esfuerzo, ante
+tantos grupos, supo como guiarnos en tan arduo trabajo, deseo expresar
+mi gratitud hacia usted deseándole éxito y el mayor de los augurios en su
+trayectoria profesional.
+
+A todas las personas que de alguna u otra forma contribuyeron con
+nosotros, reciban este trabajo como suyo y sépanse acreedores de mi especial
+agradecimiento.
+
+VALENTINA MARTINEZ VALENCIA
+
+Quiero agradecer primeramente a DIOS por permitirme culminar esta etapa de
+mi vida.
+
+A mi compañero Andres Felipe por su apoyo a lo largo del desarrollo de
+este trabajo como a lo largo de toda la carrera, por su empeño y dedicación
+el cual fue un componente importante para lograr un buen equipo de trabajo
+colabortivo.
+
+A mi mamá por cada uno de los consejos y las palabras de aliento que
+me ayudarón a salir adelante en los momentos mas difíciles, por su apoyo
+incondicional y esfuerzo constante.
+
+A nuestro director de trabajo de grado Pavel Franco Marín por guiarnos durante
+todo este proceso de formación, por su apoyo y por ayudarnos a salir adelante
+en la realización del trabajo de grado.Tabla de contenido
+
+Introducción
+1.1. Descripción general
+
+1.2. Descripción del problema .
+
+Objetivos
+2.1. Objetivo general
+2.2. Objetivos específicos . .
+
+Estructura del documento
+
+Marco referencial
+
+4.1. Marco histórico
+
+4.2. Marco legal
+
+4.3. Marco conceptual ....
+4.4. Antecedentes
+
+Desarrollo del proyecto
+5.1. Metodología RUP ......
+5.2. Etapas de la metodología
+
+5.2.1. Ejecución de la metodología
+
+5.2.2. CICLO 1: Inicio
+5.2.3. Elaboración
+5.2.4. Construcción
+5.2.5. Transición. ....
+5.2.6. CICLO 2: Inicio
+5.2.7. Elaboración .
+5.2.8. Construcción
+5.2.9, Transición. ....
+5.2.10. CICLO 3: Inicio
+5.2.11. Elaboración .
+5.2.12. Construcción
+5.2.13. Transición ....
+5.2.14. CICLO 4: Inicio
+5.2.15. Elaboración .
+5.2.16. Construcción
+5.2.17. Transición .
+5.3. Implementación
+
+hBhad
+
+u
+
+O Y] DD
+
+13
+
+14
+15
+15
+19
+27
+30
+34
+39
+45
+48
+53
+56
+61
+61
+65
+68
+74
+75
+776. Conclusiones y trabajos futuros
+6.1. Conclusiones .......
+6.2. Trabajos futuros ............. ... o... o.
+
+Bibliografía
+
+IIListado de figuras
+
+4.1.
+
+Sul.
+5.2.
+5.3.
+5.4,
+Hd
+5.6.
+5.7.
+5.8.
+5.9
+
+5.10.
+5.11.
+5.12.
+5.13.
+5.14.
+5.15.
+5.16.
+5.17.
+5.18.
+5.19.
+5.20.
+5.21.
+3.22
+5.23.
+5.24.
+5.25.
+5.26.
+5.27.
+5.28.
+5.29.
+5.30.
+5.31.
+5.32.
+5.33.
+5.34.
+5.35.
+5.36.
+
+Tabla de comparación
+
+Metodología RUP
+
+Caso de uso módulo autenticación
+
+Caso de uso módulo usuarios .
+
+Caso de uso módulo perfiles
+
+Diagrama de secuencia autenticar usuario
+Diagrama de secuencia cerrar sesion
+Diagrama de secuencia registrar usuario
+Diagrama de secuencia consultar usuario .
+Diagrama de secuencia registrar perfil
+Diagrama de secuencia consultar perfil . . .
+Componentes Django .
+
+Caso de uso módulo historia clínica
+
+Caso de uso módulo agenda médica
+
+Caso de uso módulo citas activas
+
+Diagrama de secuencia consultar historia clínica .
+
+Diagrama de secuencia registrar cita
+
+Diagrama de secuencia consultar cita .
+Diagrama de secuencia registrar historia clínica
+Modelo aplicación Ajax
+
+Modelo aplicación Comet
+
+Caso de uso módulo convenios
+
+Caso de uso módulo exámenes médicos
+Diagrama de secuencia registrar convenio
+Diagrama de secuencia consultar convenio .
+Diagrama de secuencia diligenciar formatos
+Caso de uso módulo facturación
+
+Caso de uso módulo reportes
+
+Diagrama de secuencia registrar servicio .
+Diagrama de secuencia registrar reporte de caja
+Diagrama de secuencia consultar cuentas cobrar
+Diagrama relacional . . .
+
+Diagrama de componentes
+
+Autenticar usuario .
+
+Pagina principal . ...
+
+Registrar perfil
+
+Agenda médica
+
+TI
+
+12
+
+14
+18
+18
+18
+24
+24
+25
+25
+26
+26
+29
+38
+38
+39
+43
+44
+44
+45
+47
+47
+56
+56
+59
+60
+60
+68
+68
+71
+72
+72
+73
+74
+78
+78
+79
+79Listado de tablas
+
+1.1.
+
+Sul.
+5.2.
+5.3.
+5.4,
+Hd
+5.6.
+5.7.
+5.8.
+5.9
+
+5.10.
+5.11.
+5.12.
+5.13.
+5.14.
+5.15.
+5.16.
+5.17.
+5.18.
+5.19.
+5.20.
+5.21.
+3.22
+5.23.
+5.24.
+5.25.
+5.26.
+5.27.
+5.28.
+5.29.
+5.30.
+5.31.
+5.32.
+5.33.
+5.34.
+5.35.
+5.36.
+
+Tiempo requerido elaboración historia clínica de forma manual. 3
+
+Ficha técnica fase de inicio ciclol ............... 15
+Requerimientos módulo autenticación ............. 16
+Requerimientos módulo USUArIOS ................. 17
+Requerimientos módulo perfiles ................ 17
+Ficha técnica fase de elaboración ciclo l ............ 19
+Caso de uso extendido autenticar USUAarIO ............ 20
+Caso de uso extendido cerrar Sesión ............... 20
+Caso de uso extendido registrar USUATIO ............ 21
+Caso de uso extendido consultar USUAarIO ............ 22
+Caso de uso extendido registrar perfil. ............. 22
+Caso de uso extendido consultar perfil ............. 23
+Ficha técnica fase de construcción ciclol ........... 27
+Ficha técnica fase de transición ciclol ............. 30
+Caso de prueba 1.1 autenticar USUArIO ............. 31
+Caso de prueba 1.2 cerrar Sesión ................ 32
+Caso de prueba 1.3 registrar USUATIO .............. 32
+Caso de prueba 1.6 registrar perfil ............... 33
+Ficha técnica fase de inicio ciclo2 ............... 35
+Requerimientos módulo historia clínica ............ 36
+Requerimientos módulo agenda Médica ............ 37
+Requerimientos módulo citas actiVaS . ............. 37
+Ficha técnica fase de elaboración ................ 39
+Caso de uso extendido consultar historia clínica . ....... 40
+Caso de uso extendido registrar cita médica .......... 41
+Caso de uso extendido consultar cita médica ......... 42
+Caso de uso extendido registrar historia clínica ........ 43
+Ficha técnica fase de construcción ciclo2 ........... 45
+Ficha técnica fase de transición ciclo2 ............. 48
+Caso de prueba 2.1 registrar historia clínica .......... 49
+Caso de prueba 2.4 registrar ClÍa ................. 50
+Caso de prueba 2.6 consultar Cita ................. 51
+Caso de prueba 2.8 registrar historia clínica .......... 52
+Ficha técnica fase de inicio ciclo3 ............... 53
+Requerimientos módulo CONVENIOS ............... 54
+Requerimientos módulo exámenes MéÉdiCOS .......... 55
+Ficha técnica fase de elaboración ciclo3 ............ 56
+
+IVSN
+5.38.
+5.39.
+5.40.
+5.41.
+5.42.
+5.43.
+5.44.
+5.45.
+5.46.
+5.47.
+5.48.
+5.49.
+5.50.
+5.51.
+5.52.
+5.53.
+5.54,
+5.53.
+
+Caso de uso extendido registrar CONVENIO. ........... 57
+Caso de uso extendido consultar CONVENIO. ........... 58
+Caso de uso extendido diligenciar formatos. .......... 59
+Ficha técnica fase de construcción ciclo3 ........... 61
+Ficha técnica fase de transición ciclo3 ............. 61
+Caso de prueba registrar convenio3.1 ............. 62
+Caso de prueba consultar conveni0o3.2 ............. 63
+Caso de prueba 3.5 diligenciar formatos ............ 64
+Ficha técnica fase de inicio Cicl04 ............... 65
+Requerimientos módulo facturación .............. 66
+Requerimientos módulo reportes. ................ 67
+Ficha técnica fase de elaboración ciclo4 ............ 69
+Caso de uso extendido registrar ServiCiO. . ............. 70
+Caso de uso extendido registrar reporte de caja diario. ........ 71
+Ficha técnica fase de construcción ciclo4 ........... 74
+Ficha técnica fase de transición cicl04 ............. 715
+Caso de prueba 4.3 registrar ServiCiO . ............. 76
+Caso de prueba 4.6 registrar reporte de caja. .......... 77
+Servidor utilizado para la implementación de la aplicación .. 80Resumen
+
+El progreso de las nuevas tecnologías favorece el desarrollo e integración de
+los sistemas de información dentro de una entidad privada o publica con el
+fin de optimizar cada una de las actividades que allí se realicen, mediante una
+adecuada toma decisiones.
+
+En la actualidad los sistemas de información son una herramienta que bien
+implementada se convierte en un arma competitiva en los negocios ya que
+mediante su implementación se obtienen grandes ventajas, tales como ahorro
+de tiempo en gestión de procesos, entre otros. Esto lleva a incrementar la
+capacidad de organización al momento de realizar sus actividades diarias.
+
+La aplicación que se desarrollara ayudara a la automatización de procesos en
+SISA Soluciones Integrales En Salud, la cual es una entidad prestadora de
+servicios médicos en el sector privado que busca agilizar y mejorar cada uno
+de los procesos que allí se realizan.Abstrac
+
+The progress of the new technologies favors the development and integration
+of the information systems inside of a public or private enterprise in order
+of optimize each activity carried out there, through an appropriate decision
+making.
+
+Nowadays,the information systems are a tool that good implemented, i1t turns
+in a powerful plus in the business,because through its implementation gets
+many advantages, like time saving in process management. This increments
+the capacity of organization when performing their daily activities.
+
+The application that is developed will help to the automatization of the process
+in SISA Soluciones Integrales en Salud, which is a private entity providing
+medical services what are looking for speed up and improve each of their
+process.Capítulo 1
+
+Introducción
+
+1.1. Descripción general
+
+Un Sistema de Información (SI) es un conjunto formal de procesos que, operando sobre una colección de datos estructurados en función de las necesidades
+específicas del negocio, recopila, elabora y distribuye la información necesaria
+para la operación de la organización y para las actividades de dirección y control correspondientes, apoyando, al menos en parte, los procesos de toma de
+decisiones necesarios para desempeñar las funciones de negocio de la empresa,
+de acuerdo con su estrategia [1]. Los sistemas de información están cambiando
+la dinámica en que operan las organizaciones actuales. A través de su uso se
+logran importantes mejoras, pues automatizan los procesos operativos de las
+empresas, proporcionan información de apoyo al proceso de toma de decisiones y facilitan el logro de ventajas competitivas a través de su implementación
+en las empresas [2]. Hoy en día las tecnologías de información y comunicaciones, aportan también a la productividad, pero no solo en la reducción de
+costos y automatización de procesos, sino en la generación y mantenimiento
+del ingreso. [3]
+
+Dentro de los sistemas de información encontramos los SIH | sistemas
+integrados de información diseñados para gestionar todos los aspectos clínicos
+administrativos y financieros de un hospital, los SIH pueden estar compuestos
+por uno o más componentes de software y una gran variedad de subsistemas de
+especialidades médicas [4] Cabe destacar que estos sistemas de información
+solamente son útiles si se limita a los datos que lleven a una mejoría en los
+resultados , es decir, un SIH no es algo global, automático o despersonalizado,
+es ajustado específicamente a las necesidades de la institución de salud en la
+que se va a implementar.
+
+SISA (Soluciones Integrales en Salud S.A.S) actualmente es una entidad
+prestadora de servicios médicos en el sector privado que no cuenta con un
+sistema de información implementado y busca el mejoramiento continuo de
+
+ 
+
+| Sistemas de información hospitalarios o sistemas de información en saludtodos sus procesos, así como el bienestar y conformidad de las personas que
+hacen uso de sus servicios.
+
+Teniendo en cuenta lo mencionado anteriormente, SISA requiere la implementación de un sistema de información que ayude a capturar y procesar la información necesaria para algunos de los procesos que allí se realizan.
+
+Cabe destacar que la implementación de éstos sistemas de información trae
+consigo un cambio organizativo, el cual no afecta sólo a la empresa sino
+también a los empleados.
+
+1.2. Descripción del problema
+
+Un sistema de información orientado a la salud tiene muchos usuarios, por lo
+que es comprensible el por qué hay tantos sistemas de información dispares
+cubriendo todos los flujos de datos de las áreas relevantes a lo largo de una
+entidad prestadora del servicio de salud. Sin embargo, muchas áreas necesitan
+la misma información, tal como la demografía de un paciente o el resumen de
+una valoración reciente. Desde la perspectiva de un sistema de información, a
+menudo se pregunta, ¿Por qué no hay un sistema centralizado que distribuya
+toda la información clínica a través de una entidad médica?.[5]
+
+SISA actualmente es una entidad prestadora de servicios médicos, como
+consulta general y especializada, odontología y apoyos terapéuticos. Como
+toda entidad de salud, SISA maneja un gran flujo de información, por lo
+cual deben manejar un gran volumen y diversidad de documentos digitales
+y físicos que den soporte a cada uno de los procesos que allí se realizan, tales
+como los resultados de exámenes médicos, agenda médica, historia clínica por
+paciente, citas activas, facturación y reportes que sirvan de apoyo en la toma
+de decisiones.
+
+Las posibilidades de que se cometan errores en algunos de los procesos
+mencionados anteriormente o se cometa una mala praxis medico-asistencial
+aumenta debido al gran flujo de información que se maneja en SISA, por
+ejemplo, la pérdida de exámenes médicos o la desactualización del historialclínico.
+
+ 
+
+PROCESO
+
+MANUAL
+
+ 
+
+Registrar Historia Clínica
+
+(Datos del Paciente) De 5 a 7 minutos
+
+ 
+
+Archivar Historia Clínica
+
+l minuto aprox.
+
+ 
+
+Modificar Historia Clínica
+
+(Datos del Paciente) De 3 a 5 minutos
+
+ 
+
+Consultar Historia Clínica
+
+ 
+
+ 
+
+De 0.8 a 1 minuto aprox.
+
+ 
+
+Tabla 1.1: Tiempo requerido elaboración historia clínica de forma manual.
+
+Es por ello que SISA desea implementar un sistema de información orientado
+a la salud que automatice y mejore los procesos mencionados anteriormente,
+ya que la mayoría de información se maneja de forma física o por dropbox?,
+por medio del cual guardan, manejan y actualizan su información, pero dicha
+aplicación genera ineficiencia e inseguridad en el uso de los datos, esto
+ocasiona que el manejo de documentos digitales y físicos resulte más difícil,
+presentándose problemas de pérdida de documentación y/o desactualizacón de
+
+datos.
+
+Por lo mencionado anteriormente, se debe encontrar una manera de dar
+soporte a los procesos de SISA, integrando los datos procedentes de las
+distintas actividades y sobre el cual se integran soluciones complementarias
+
+especializadas.
+
+ 
+
+2Dropbox: es un servicio de alojamiento de archivos multiplataforma en la nube, operado
+
+por la compañía Dropbox.Capítulo 2
+
+Objetivos
+
+2.1.
+
+Objetivo general
+
+Desarrollar e implementar un sistema de información para la empresa
+SISA (Soluciones Integrales en Salud S.A.S.) que automatice las actividades
+inherentes a los procesos de usuarios, perfiles, resultados de exámenes
+médicos, agenda médica, historia clínica por paciente, citas activas,convenios
+facturación y reportes que sirvan de apoyo en la toma de decisiones.
+
+2.2.
+
+Objetivos específicos
+
+Diseñar e implementar los módulos de usuario, autentificación, perfiles, exámenes médicos, agenda médica, historia clínica, citas activas,convenios, facturación y reportes que garanticen el correcto funcionamiento del sistema de información.
+
+Sistematizar los documentos de los procesos de exámenes médicos,
+agenda médica, historia clínica por paciente, convenios, facturación y
+reportes que sirvan de apoyo en la toma de decisiones.
+
+Redefinir el esquema de los documentos para la gestión de historias
+clínicas con base en los lineamientos de la resolución 1995 de 1999,
+
+Implementar el sistema de información desarrollado.Capítulo 3
+
+Estructura del documento
+
+El presente documento es el resultado del trabajo de grado, para optar al título
+de ingeniero de sistemas, se compone de 6 capítulos en los cuales se
+presenta lo siguiente:
+
+El capítulo 1 se presenta la introducción del documento, donde se
+hablará acerca del centro médico SISA y el porqué darle solución al
+problema planteado con anteriodad, esta descripción se realizará de una
+forma muy breve.
+
+En el capítulo 2 se presenta el objetivo general como los objetivos
+específicos que se buscan alcanzar en este trabajo de grado.
+
+En el capítulo 3 se describe la estructura del documento con el fin de
+contextualizar y dar una idea del contenido de dicho documento.
+
+En el capítulo 4 se presenta el marco historico del centro médico SISA,
+así como todos los conceptos necesarios para entender el tema, junto
+con los antecedentes y el marco legal, el cuál indica las leyes en las que
+se debe basar el trabajo de grado y el marco teórico referente a toda la
+temática que gira alrededor de los sistemas de información y términos
+médicos.
+
+En el capítulo 5 se presenta la metodología de desarrollo que se
+utilizó para la realización del trabajo de grado, se definen los ciclos con
+sus respectivos módulos para la realización del sistema de información,
+así como el proceso de entrevistas y recolección de requerimientos en la
+entidad. También incluirá gran variedad de diagramas correspondientes
+a lo especificado en la metodología RUP.
+
+En el capítulo 6 se presentan las conclusiones con respecto al trabajo de
+grado.
+
+En el capítulo 7 se presentan todas las referencias bibliográficas que
+ayudaron a entender y a buscar soluciones al problema.Capítulo 4
+
+Marco referencial
+
+4.1. Marco histórico
+
+SISA nace del estudio minucioso de factibilidad, donde se evidenciá la
+necesidad de crear una institución que prestara sus servicios en salud a una
+sesgada parte de la población que no pertenece a ningún sistema de salud, pero
+que tiene la mínima capacidad de pago para sufragarlos a una tarifa especial, es
+decir, están en alguno de los planes complementarios de salud de bajo costo[6|].
+
+En el esquema actual del Sistema General de Seguridad Social en Salud de
+Colombia. SISA, es una institución que presta sus servicios de salud en el
+sector privado, y que se encuentra dotada y preparada para brindar atención
+eficiente y oportuna, con los criterios de calidad a los usuarios que acudan
+a solicitar sus servicios médicos. Basados en la experiencia recopilada de la
+labor desempeñada en el mismo campo de la salud por varios años, surge
+entonces la institución desde el 03 de septiembre del 2003.
+
+Manejando ciertas áreas de la medicina como los son: Análisis clínicos,odontología(general y especializada ),apoyos terapéuticos (psicología, terapia física, terapia respiratoria,etc), cirugía general(programada, medicina
+(general y especializada).
+
+4.2. Marco legal
+
+El presente proyecto se realizará dentro de las normas existentes para las
+entidades prestadoras de salud en Colombia
+
+Resolución 1995 de 1999, Ministerio de salud[7]
+
+Resolución que establece las normas para el manejo de la historia clínica,
+las cuáles deben ser cumplidas por las entidades que integran el sistema de
+salud. Las normas correspondientes al diligenciamiento, acceso, tiempo de
+conservación, y confidencialidad de las historias clínicas, proveen informaciónnecesaria, que afecta de forma directa la realización del proyecto.
+
+Ésta norma a su vez, establece que se debe dar cumplimiento a la ley 1438, en
+particular al artículo 112, la cuál se ampliará a continuación.
+
+Artíulo 112 de la ley 1438 de 2011 [8]
+
+Éste hace referencia a la articulación del sistema de información, por medio
+del cual se da a conocer que el ministerio de la protección social articulará el
+manejo y será el responsable de administrar la información. La ley 1438
+artículo 112 en su parágrafo transitorio, da a conocer que la historia clínica
+electrónica será de obligatoria aplicación.
+
+4.3. Marco conceptual
+
+Mala praxis: El término mala praxis se refiere a un acto u omisión de un
+profesional en el curso de sus obligaciones profesionales que causa O agrava
+una lesión a un paciente o cliente y es la consecuencia de un error de ejercer
+un grado razonable de prudencia, diligencia, conocimientos, o habilidades.
+
+Historia Clínica: Es un documento médico-legal que surge del contacto
+entre el profesional de la salud y el paciente donde se recoge la información
+necesaria para la correcta atención de los pacientes. La historia clínica es
+un documento válido desde el punto de vista clínico y legal, que recoge
+información de tipo asistencial, preventivo y social.
+
+Semiología clínica: Es el término médico empleado para estudiar los signos
+(manifestaciones clínicas objetivas) y síntomas (percepciones subjetivas) presentados y referidos, respectivamente, por el paciente, para mediante su organización en síndromes, jerarquización y razonamiento, llegar al diagnóstico.
+Esta información es obtenida, generalmente, durante la confección de la Historia Clínica (interrogatorio y examen físico) en el contexto de la entrevista
+médica.
+
+Anamnesis: En enfermería y medicina, la anamnesis es el término médico
+empleado en los conocimientos y habilidades de la Semiología clínica, para
+referirse a la información proporcionada por el propio paciente al enfermero/a
+o médico durante una entrevista clínica, con el fin de incorporar dicha
+información en la historia clínica.
+
+Análisis clínico: Es un examen cualitativo y cuantitativo de ciertas sustancias
+del organismo de una persona y sirve para determinar si sufre algún trastorno.
+Estos análisis forman parte de las pruebas complementarias que ayudan adiagnosticar o descartar una enfermedad.
+
+Sistema de información: Puede definirse como un conjunto de componentes
+interrelacionados que permiten capturar, procesar, almacenar y distribuir
+la información para apoyar la toma de decisiones y el control en una
+institución.[9]
+
+Metodología: Una metodología es un conjunto de filosofías, fases, procedimientos, reglas, técnicas, herramientas, documentación y aspectos de formación para los desarrolladores de software.
+
+Metodología RUP: Rational Unified Process o Proceso Unificado de Racional. Es un proceso de ingeniería de software que suministra un enfoque para
+asignar tareas y responsabilidades dentro de una organización de desarrollo.
+Su objetivo es asegurar la producción de software de alta y de mayor calidad
+para satisfacer las necesidades de los usuarios que tienen un cumplimiento al
+final dentro de un limite de tiempo y presupuesto previsible. Es una metodología de desarrollo iterativo que es enfocada hacia los diagramas de los casos
+de uso, y manejo de los riesgos y el manejo de la arquitectura como tal.
+
+RUP mejora la productividad del equipo ya que permite que cada miembro
+del grupo sin importar su responsabilidad específica pueda acceder a la misma
+base de datos, incluyendo sus conocimientos. Esto hace que todos compar
+tan el mismo lenguaje, la misma visión y el mismo proceso acerca de cómo
+desarrollar.”[10]
+
+Fase de inicio: Durante esta fase de inicio las iteraciones se centran con
+mayor énfasis en las actividades de modelamiento de la empresa y en sus
+requerimientos. Esta fase se centra mas en buscar o planear todo lo que la
+empresa requiera para luego utilizar sus recursos mejorando y dándole una
+visón de lo que se espera plantear en el proyecto. [10]
+
+Fase de elaboración: Durante esta fase de elaboración, se centran al desarrollo
+de los casos de uso tomando como base la de diseño, como lo dice la
+elaboración lleva una serie de requerimientos una serie de pasos ; el modelo de
+la organización, el análisis y el diseño se van acumulando las actividades y para
+empezar una parte de implementación mediante desarrollo de la fase de inicio
+que va a ser orientada a la base de la construcción de todas las especificaciones
+de la arquitectura del diseño. hasta obtener una diseño bien construido.[10]
+
+Fase de construcción: Durante la fase de construcción, se lleva a cabo la
+construcción del producto por medio de una serie de iteraciones las cuales se
+seleccionan algunos casos de uso, se define su análisis y después el diseño y
+se procede a su implantación y sus respectivas pruebas. En esta fase se realiza
+una serie de cascadas para cada ciclo, se realizan tantas iteraciones hasta que
+se termine la nueva implementación y el producto este listo para ser enviado alusuario.[10]
+
+Fase de transición Durante esta fase de transición se busca garantizar que el
+producto este bien preparado para su entrega al usuario.Es una fase que puede
+tener muchos cambios a la hora de la entrega.[ 10]
+
+4.4. Antecedentes
+
+Actualmente la tecnología influye mucho en las entidades prestadoras de
+servicios de salud pues a través de los sistemas de información y otros medios
+tecnológicos pueden tener un mejor manejo de la información que diariamente
+se encuentra en éstas entidades. Hoy en día existen diferentes sitios y empresas
+que ofrecen sistemas de información a la medida para las entidades prestadoras
+de salud, ya sea en modo de pago, de prueba o código abierto, acontinuación
+
+mencionaremos algunos sistemas de información implementados en el sector
+de la salud:
+
+GNU Health
+
+Desarrollador: GNU Project
+Diseñador: Luis Falcón
+
+Licencia: GNU
+
+Versión:2.4.0 / 27 de enero de 2014
+URL: http://www.health.gnu.org/
+
+GNU Health es un Sistema Libre de Gestión Hospitalaria y de Información de
+la Salud con las siguientes funcionalidades:
+
+= Expediente Médico Electrónico (EMR)
+= Sistema de Gestión Hospitalaria (HIS)
+
+= Sistema de Información de Salud
+GNU Health se utiliza en Centros de Salud, para llevar a cabo la práctica
+clínica diaria así como la gestión de los recursos del centro de salud.
+
+= Diseñado para ser multiplataforma, para que se pueda instalar en
+diferentes Sistema operativo (GNU/Linux, FreeBSD, MS Windows),
+Sistema de gestión de bases de datos (PostgreSQL), y Planificación de
+recursos empresariales (Tryton).
+
+Requerimientos de Hardware y Software:
+
+= Sistema operativo: Windows XP,Windows 7, Linux,FreeB5D.
+
+= Procesador Celeron o superiores.
+
+= Memoria RAM: 512 MB.=_ Espacio en disco: 250 MB/ más el del motor.
+
+= Base de Datos: PostgreSQL
+
+= Python: =2.6
+= Tryton: 2.8
+alasHIS
+
+Desarrollador: Mega practical
+URL: www.megapractical.com/index .php/soluciones/sistemas-de-informacionmedica-ece
+
+Licencia:Comercial
+Precio: 764.833 COP por año
+
+Es un sistema WEB integral de gestión de servicios de salud basado
+en la evidencia y soportado en su arquitectura por una historia clínica
+única, que cuenta con todos los módulos necesarios para cumplir con el
+proceso asistencial en salud pública y privada, incluyendo la administración
+hospitalaria, integra mas de 50 hojas de especialidad, cumple con los
+estándares tecnológicos como HL7 CDA y DICOM y médicos como CIE9, CIE-10, NANDA, LOINC. Puede ser operado en forma intuitiva desde
+cualquier plataforma conectada a Internet incluyendo dispositivos móviles,
+integra un entrenamiento en línea que reduce la resistencia al cambio y la
+inducción a la operación del sistema. Esta plataforma permite establecer las
+condiciones tecnológicas necesarias para agilizar los servicios requeridos para
+la cobertura nacional en salud, logrando la interoperabilidad de la historia
+clínica única entre las instituciones públicas y privadas.
+
+xHosp
+
+Desarrollador: Virtus Group
+URL: http://www. virtus.com.mx/xhosp/
+Licencia:Comercial
+
+xHosp es un sistema de información hospitalario para el apoyo operacional
+y el control administrativo integral de un hospital o clínica. Permite el
+control administrativo de pacientes hospitalizados durante su internamiento, de
+pacientes de corta estancia o ambulatorios así como de pacientes externos a una
+unidad hospitalaria. Ingreso de la información relevante del paciente así como
+la asignación y control de cuartos dentro del hospital. Controla el acceso
+del paciente a las diferentes áreas hospitalarias registrando las prestaciones
+otorgadas al paciente directamente en el servicio donde se otorgaron. Incluye el
+control electrónico del expediente médico: diagnósticos, estudios, movimiento
+del paciente dentro del hospital, notas médicas, etc. Por medio del sistema
+se realiza la facturación de pacientes tomando en cuenta en su caso, las
+caracteríticas del convenio que se tenga con las diferentes empresas o seguros,
+
+10así como también el manejo de casos especiales. Controla en forma completa y
+detallada la cobranza a las empresas con convenios. Permite la explotación de
+información médica con fines estadísticos o de la información administrativa
+con fines de control. Por medio de interfaces puede realizarse la transferencia
+de información administrativa hacia los sistemas contables de la compañía.
+
+TCA Assist HIS
+
+Desarrollador: TCA Software Solutions
+URL: http://www.tcasoftwaresolutions.com/assist/his.html
+Licencia:Comercial
+
+TCA Assist HIS permite manejar la operación, administración y planeación
+estratégica de una institución hospitalaria pública o privada. Presenta en todo
+momento información confiable y oportuna para la toma de decisiones y el
+control de la operación. TCA Assist HIS es un sistema escalable que permite
+administrar desde sanatorios o clínicas de unas decenas de camas hasta los
+más sofisticados centros médicos. TCA Assist HIS está diseñado para operar
+las 24 horas del día, 365 días del año, en la atención a pacientes hospitalizados
+y ambulatorios, el cual presenta los siguientes módulos
+
+= Admisión y registro
+
+= Caja
+
+= Reservaciones
+
+= Enfermería
+
+= Bioestadística
+
+= Intendencia (control de cuartos)
+= Auditoría de operación
+
+= Servicio de diagnóstico
+
+= Urgencias
+
+= Farmacia interna
+
+SQL Software Estructurado en Salud
+
+Desarrollador: SQL S.E.S
+Licencia:Comercial
+Precio: 6.000.000 COP
+
+SQL Software Estructurado en Salud es un sistema de gestión y automatización de las ips con las siguientes funcionalidades:
+
+= Facturación
+
+11= Resoluciín 3374 [Rips]
+
+= Agenda médica [aplica para consulta medica General, especialista y
+odontología |]
+
+= Historia clínica
+
+= Ayudas Diagnosticas
+
+= Informes gerenciales y estadísticos
+
+= Admisión [aplica para procesos administrativos]
+
+= Parámetros y seguridad
+
+Requerimientos de hardware:
+
+= Estacion de trabajo procesador a 1.7 GHz o superiores.
+=_ Disco duro de 500 GB
+
+= Ram2GB
+
+Con base a la información recolectada, se puede afirmar entonces que las
+diferentes aplicaciones mencionadas anteriormente no hacen parte de la
+solución a la problemática en SISA debido a que éstas aplicaciones abarcan
+muchas áreas dentro de una entidad de salud que en SISA no existen, tales
+como la hospitalización,auditoría de operación y servicio de diagnóstico.
+Generando así pagos innecesarios por módulos que no se van a utilizar.
+
+En el caso de GNU Health, se detectaron una cantidad considerable de errores
+o bugs, debido a que utiliza tryton como framework, cerca de 300 bugs han
+sido encontrados! .
+
+CARACTERISTICAS SISTEMA
+
+HISTORIA CLINICA
+FACTURACIÓN
+ENFERMERIA
+INFORMES DE
+GRENCIA
+EXAMENES
+MEDICOS
+REPORTES
+ESTADISTICOS
+URGENCIAS
+AGENDA MEDICA
+
+X
+
+| HISTORIA CLINICA | X
+A | ”|
+URGENCIAS | X
+| AGENDAMEDICA | Xx
+
+ 
+
+Figura 4.1: Tabla de comparación
+
+ 
+
+Ihttps://bugs.tryton.org/
+
+12Capítulo 5
+
+Desarrollo del proyecto
+
+5.1. Metodología RUP
+
+Las características puntuales del proyecto a desarrollar inclinan la balanza a
+la hora de escoger una metodología de desarrollo tradicional, ya que se debe
+tener en cuenta la magnitud del proyecto, la cantidad de participantes y la
+importancia de la documentación. Se descartan las metodologías ágiles debido
+a varios factores, tales como:
+
+= Tiempo: Las metodologías ágiles, se plantean por concepción para
+proyectos de menos de tres meses de requerimientos.
+
+= Importancia de la documentación: Las metodologías ágiles no establecen prioridad en este aspecto, por tanto, para una metodología ágil es
+más importante el producto, es decir la implementación, que la documentación.
+
+Luego de éste análisis, se observa que las metodologías tradicionales son las
+más adecuadas para culminar con éxito el proceso de ingeniería de software
+requerido, en cuanto al tipo de metodología tradicional que se debe utilizar en
+el proyecto, se opta por el uso del Proceso Unificado Racional (RUP, por sus
+siglas en inglés) debido a los altos niveles de calidad y seguridad del mismo,
+así como también el conocimiento obtenido de ésta metodología durante el
+curso del programa de pregrado.
+
+13Disciplinas
+
+ 
+
+Modelado del Megocio
+
+sE .
+sn ñ '
+h '
+Requerimientos
+
+ánállsis y Diseño
+
+implementación
+
+Pruebas
+
+Entrega
+
+GS ISS
+
+Configuración de
+Cambios y Administración
+
+ 
+
+Administración de
+Proyecio
+
+A e  A—o0—  —
+
+E
+
+lteraciones
+
+ 
+
+Figura 5.1: Metodología RUP
+
+5.2. Etapas de la metodología
+
+La metodología para la realización del sistema de información en SISA consta
+de cuatro fases de desarrollo: Inicio, elaboración, construcción y trancisión.
+Dicha metodología se realizó por ciclos de acuerdo a los módulos de usuario,
+autenticación, perfiles, exámenes médicos, agenda médica, historia clínica,
+citas activas, convenios, facturación y reportes con la siguiente estructura de
+desarrollo:
+
+Iniciación
+- Elaboración
+Ciclo 1:
+Construcción
+
+transición
+
+Iniciación
+. Elaboración
+Ciclo 3:
+
+Construcción
+
+transición
+
+Módulo autenticación
+Módulo usuarios
+
+Módulo perfiles
+
+Módulo exámenes
+médicos
+
+Módulo convenios
+
+14
+
+Iniciación
+
+Elaboración
+Ciclo 2:
+
+Construcción
+
+transición
+
+Iniciación
+. Elaboración
+Ciclo 4:
+Construcción
+
+transición
+
+ 
+
+Módulo agenda
+medica
+
+Módulo historia
+clínica
+
+Módulo citas activas
+
+Módulo facturación
+
+Módulo reportes5.2.1. Ejecución de la metodología
+
+5.2.2. CICLO 1: Inicio
+
+ 
+
+FICHA TÉCNICA
+
+ 
+
+Fase 1: Inicio
+
+ 
+
+Esta fase tiene como finalidad la recolección
+de información en SISA y la identificación de
+los diferentes requerimientos necesarios para
+el desarrollo de los módulos de autenticación,
+usuarios y perfiles.
+
+Propósito
+
+ 
+
+= 5.2.2.1 Recolección de información en
+SISA.
+
+Contenido = 5.2.2.2 Elaboración documento de
+requerimientos.
+
+= 5.2.2.3 Identificación de casos de uso.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 5.1: Ficha técnica fase de inicio ciclo 1
+
+5.2.2.1. Recolección de información
+
+Recolección de información en SISA por parte del equipo de trabajo al
+personal administrativo con el fin de obtener información veraz sobre el
+manejo de usuarios que llevan en la actualidad, se procedió a llevar a acabo
+una entrevista directa con el coordinador de servicios, siguiendo el formato de
+entrevista establecido en el anexo 7.1.
+
+5.2.2.2. Recolección de requerimientos
+
+Recolección de requerimientos para los módulos de autenticación, módulo
+de usuarios y módulo de perfiles, para la obtención de estos requerimientos
+se utilizó la observación directa y la entrevista a diferentes miembros de la
+entidad.
+
+15Número Requerimiento Visibilidad
+El sistema en el módulo autenticación deberá per
+R1.1 mitir la autenticación del personal que tiene acceso Visible
+a la aplicación por medio de los campos establecidos en el anexo 7.2
+
+210 El sistema en el módulo autenticación deberá per- visiBl
+
+. 5t s 54 : 1S1ble
+mitir al usuario cerrar la sesión una vez que quiera A
+salir del sistema.
+
+E El sistema en el módulo autenticación deberá con- No
+
+trolar el acceso a los diferentes tipos de usuario de visible
+acuerdo al perfil asignado.
+
+R14 El sistema en el módulo autenticación deberá rea- o
+
+. Le , visible
+lizar una validación de acceso al sistema.
+El sistema en el módulo autenticación deberá mos- o
+
+R1.5 0.2 Visible
+trar un mensaje de información, en caso de que los
+datos de usuario ingresados, no sean correctos.
+
+216 El sistema en el módulo autenticación deberá in- vicibl
+
+. : : isible
+gresar al sistema, en caso de que los datos ingresados por el usuario sean correctos.
+Tabla 5.2: Requerimientos módulo autenticación
+Número Requerimiento Visibilidad
+El sistema en el módulo usuarios deberá permitir
+
+R21 al usuario cuyos permisos se lo permitan, registrar | Visible
+usuarios capturando la información indicada en el
+anexo 7.3.
+
+292 El sistema en el módulo usuarios deberá permitir al Visibl
+usuario cuyos permisos se lo permitan, consultar la s1Dle
+información de los usuarios de la aplicación.
+
+El sistema en el módulo usuarios deberá permitir al o
+
+R2.3 Visible
+
+ 
+
+usuario cuyos permisos se lo permitan, modificar la
+información de los usuarios de la aplicación.
+
+ 
+
+ 
+
+16R2.4
+
+ 
+
+El sistema en el módulo usuarios deberá permitir al
+usuario cuyos permisos se lo permitan, desactivar o
+activar la actividad de un usuario en la aplicación.
+
+ 
+
+ 
+
+Visible
+
+ 
+
+ 
+
+Tabla 5.3: Requerimientos módulo usuarios
+
+ 
+
+Número
+
+Requerimiento
+
+Visibilidad
+
+ 
+
+R3.1
+
+El sistema en el módulo perfiles deberá permitir
+al usuario cuyos permisos se lo permitan, registrar
+los perfiles necesarios en SISA para ingresar a la
+aplicación capturando los datos establecidos en el
+anexo 7.4.
+
+Visible
+
+ 
+
+R3.2
+
+El sistema en el módulo de perfiles deberá permitir
+al usuario cuyos permisos se lo permitan, consultar
+los perfiles creados en la aplicación.
+
+Visible
+
+ 
+
+R3.3
+
+El sistema en el módulo de perfiles deberá permitir
+al usuario cuyos permisos se lo permitan, modificar
+los perfiles creados en la aplicación.
+
+Visible
+
+ 
+
+R3.4
+
+El sistema en el módulo perfiles deberá permitir al
+usuario cuyos permisos se lo permitan, desactivar
+O activar un perfil.
+
+Visible
+
+ 
+
+R3.5
+
+ 
+
+El sistema en el módulo de perfiles deberá permitir
+al usuario cuyos permisos se lo permitan, asignar
+diferentes permisos a los perfiles al momento de su
+creación.
+
+ 
+
+ 
+
+Visible
+
+ 
+
+ele ds
+
+Tabla 5.4: Requerimientos módulo perfiles
+
+Identificación de casos de usos
+
+Identificación de casos de usos para los módulos de autenticación, usuarios y
+perfiles, basado en los requerimientos mencionados con anterioridad.
+
+17Módulo autenticación
+
+  
+
+Autenticar usuario «e - - <Extends> ..- Cerra sesión
+
+Secretaria
+Administrador
+Enfermera
+médico
+
+ 
+
+ 
+
+Figura 5.2: Caso de uso módulo autenticación
+
+Módulo usuarios
+
+ 
+     
+
+    
+
+Registrar usuario
+Consultar usuario
+
+   
+
+Modificar usuario
+
+   
+
+Administrador
+
+Secretaria
+
+   
+ 
+
+ 
+
+io
+
+Figura 5.3: Caso de uso módulo usuarios
+
+Módulo perfiles
+
+ 
+    
+
+    
+
+Registrar perfil
+Consultar perfil
+
+   
+
+Modificar perfil
+
+   
+
+Administrador
+
+Secretaria
+
+    
+ 
+
+ 
+
+Figura 5.4: Caso de uso módulo perfiles
+
+185.2.3. Elaboración
+
+ 
+
+FICHA TÉCNICA
+
+ 
+
+Fase 2: Elaboración
+
+ 
+
+En esta fase se realizará la descripción de los
+
+ 
+
+ 
+
+ 
+
+Propósito casos de uso, la identificación de los diferentes
+diagramas de secuencias para los módulos de
+autenticación, usuarios y perfiles.
+
+= 5.2.3.1 Elaboración de casos de uso
+extendidos.
+
+Contenido
+
+= 5.2.3.2 Elaboración de diagramas de
+secuencia.
+
+ 
+
+Tabla 5.5: Ficha técnica fase de elaboración ciclo 1
+
+5.2.3.1. Elaboración y descripción de casos de uso extendidos.
+
+A continuación se describen los casos de uso extendidos de los módulos
+autenticación, usuarios y perfiles, el caso de uso extendido de modificar usuario
+y modificar perfil se pueden ver en los anexos 7.5 y 7.6 respectivamente, que
+se encuentran en los anexos generales del CD, ubicado en la ruta “Trabajo de
+
+grado-Sisa Sas/Anexos”.
+
+ 
+
+Caso de uso
+
+Autenticar usuario.
+
+ 
+
+Actores
+
+Administrador, secretaria, médico.
+
+ 
+
+Resumen:
+
+Este caso de uso comienza cuando el
+usuario realiza el llamado a la URL
+de inicio de la aplicación de SISA,
+el sistema solicita el nombre de usuario así como su clave de acceso y le
+permite ingresar al subsistema correspondiente al tipo de perfil que tenga
+asignado el usuario, para realizar las
+acciones que tiene permitidas.
+
+ 
+
+Tipo
+
+Primario esencial.
+
+ 
+
+ 
+
+Referencias cruzadas
+
+ 
+
+R1:1, R1:3, R1:4, R1:5, R1:6
+
+ 
+
+19Curso normal
+
+de los eventos
+
+ 
+
+Acción de los actores
+
+Acción del sistema
+
+ 
+
+Línea 1: El usuario ingresa a la página
+principal del sistema.
+
+Línea 2: El sistema solicita la autenticación del usuario.
+
+ 
+
+Línea 3: El usuario ingresa su nombre
+de usuario y contraseña.
+
+ 
+
+Línea 4: El sistema valida la información y posteriormente permite el acceso del usuario dependiendo de su perfil y despliega la página principal.
+
+ 
+
+Curso alterno de los eventos
+
+ 
+
+ 
+
+Línea 4:Si la información digitada no
+
+es consistente. El sistema muestra un
+
+mensaje de información, en caso de que los datos de usuario ingresados,no
+
+sean correctos.
+
+ 
+
+Tabla 5.6: Caso de uso extendido autenticar usuario
+
+ 
+
+ 
+
+ 
+
+ 
+
+Caso de uso Cerrar sesión.
+
+Actores Administrador, secretaria, médico.
+
+Resumen Este caso de uso permite al actor cerrar la sesión iniciada en la aplicación.
+
+Tipo Primario esencial.
+
+ 
+
+Referencias cruzadas
+
+R1:2.
+
+ 
+
+Curso normal
+
+de los eventos
+
+ 
+
+Acción de los actores
+
+Acción del sistema
+
+ 
+
+Línea 1: El usuario con sesión iniciada, selecciona la opción cerrar sesión.
+
+Línea 2: El sistema cierra la sesión del
+usuario.
+
+ 
+
+ 
+
+Línea 3: El sistema muestra la página
+principal con los campos de nombre
+de usuario y contraseña.
+
+ 
+
+ 
+
+Tabla 5.7: Caso de uso extendido cerrar sesión
+
+20Caso de uso Registrar usuario.
+Actores Administrador, secretaria.
+Este caso de uso le permite al usuario
+Resumen registrar los diferentes usuarios de la
+aplicación.
+Tipo Primario opcional.
+
+ 
+
+Referencias cruzadas
+
+R2:1.
+
+ 
+
+Curso normal
+
+de los eventos
+
+ 
+
+Acción de los actores:
+
+Acción del sistema:
+
+ 
+
+Línea 1: El usuario ingresa a la opción
+usuarios.
+
+Línea 2: El sistema despliega las opciones de “registrar usuario” y “consultar usuario”.
+
+ 
+
+Línea 3: El usuario ingresa a la opción
+“registrar usuario”.
+
+Línea 4: El sistema despliega los
+campos establecidos en el anexo 7.3.
+
+ 
+
+Línea 5: El usuario diligencia cada
+
+ 
+
+uno de los campos.
+
+Línea 6: El sistema valida y almacena
+la información del nuevo usuario.
+
+ 
+
+Curso alterno
+
+de los eventos
+
+ 
+
+ 
+
+Línea 6: Si al validar la información registrada por el usuario el campo nombre
+de usuario ya se encuentra almacenado, el sistema debe emitir un mensaje de
+
+error debido a que el usuario a crear ya
+
+existe.
+
+ 
+
+Tabla 5.8: Caso de uso extendido registrar usuario
+
+ 
+
+ 
+
+ 
+
+ 
+
+Caso de uso Consultar usuario.
+
+Actores Administrador, secretaria.
+Este caso de uso le permite al usuario
+
+Resumen consultar todos los usuarios que tiene
+el sistema, así como su respectiva
+información.
+
+Tipo Primario-opcional
+
+ 
+
+Referencias cruzadas
+
+R2:3.
+
+ 
+
+Curso normal
+
+de los eventos
+
+ 
+
+Acción de los actores:
+
+Acción del sistema:
+
+ 
+
+ 
+
+Línea 1: El usuario ingresa a la opción
+usuarios.
+
+ 
+
+Línea 2: El sistema despliega las opciones de “registrar usuario” y “consultar usuario”.
+
+ 
+
+21Línea 3: El usuario ingresa a la opción
+“consultar usuario”.
+
+Línea 4: El sistema despliega el formulario de búsqueda con el campo
+nombre de usuario o cédula.
+
+ 
+
+Línea 5: El usuario diligencia el campo con la información del usuario a
+consultar.
+
+ 
+
+Línea 6: El sistema valida la información y despliega la información del
+usuario consultado.
+
+ 
+
+Curso alterno
+
+de los eventos
+
+ 
+
+ 
+
+Línea 6: Si al validar la información
+
+registrada por el usuario, ésta no se
+
+encuentra almacenada en la base de datos, el sistema debe mostrar un mensaje
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+de error.
+Tabla 5.9: Caso de uso extendido consultar usuario
+Caso de uso Registrar perfil.
+Actores Administrador, secretaria.
+Ml Este caso de uso le permite al usuario
+esumen crear los perfiles necesarios en la
+aplicación.
+Tipo Primario.
+Referencias cruzadas R3:1.
+
+ 
+
+Curso normal
+
+de los eventos
+
+ 
+
+Acción de los actores:
+
+Acción del sistema:
+
+ 
+
+Línea 1: El usuario ingresa a la opción
+perfiles.
+
+Línea 2: El sistema despliega las opciones de “registrar perfil” y “consultar perfil”.
+
+ 
+
+Línea 3: El usuario ingresa a la opción
+“registrar perfil”.
+
+Línea 4: El sistema despliega el formulario con los campos establecidos
+en el anexo 7.4.
+
+ 
+
+Línea 5: El usuario diligencia cada
+uno de los campos.
+
+ 
+
+Línea 6: El sistema valida y almacena
+la información del nuevo perfil.
+
+ 
+
+Curso alterno
+
+de los eventos
+
+ 
+
+ 
+
+Línea 6: Si al validar la información registrada por el usuario el campo nombre
+de perfil ya se encuentra almacenado en la base de datos, el sistema debe emitir
+
+un mensaje de error.
+
+ 
+
+Tabla 5.10: Caso de uso extendido registrar perfil
+
+LadaCaso de uso: Consultar perfil.
+
+ 
+
+Actores Administrador, secretaria.
+
+ 
+
+Este caso de uso le permite al usuario
+
+ 
+
+ 
+
+ 
+
+ 
+
+Resumen consultar todos los perfiles que tiene
+el sistema así como su respectiva
+información.
+
+Tipo Primario - opcional.
+
+Referencias cruzadas R3:4.
+
+Curso normal de los eventos
+Acción de los actores Acción del sistema
+
+ 
+
+Línea 2: El sistema despliega las opciones de “registrar perfil” y “consultar perfil”.
+
+Línea 1: El usuario ingresa a la opción
+perfiles.
+
+ 
+
+Línea 4: El sistema despliega el formulario de búsqueda con el campo
+nombre de perfil.
+
+Línea 3: El usuario ingresa a la opción
+“consultar perfil”.
+
+ 
+
+Línea 6: El sistema valida la información y despliega la información del
+perfil consultado.
+
+Línea 5: El usuario diligencia el campo nombre de perfil
+
+ 
+
+ 
+
+Curso alterno de los eventos
+
+ 
+
+Línea 6: Si al validar la información registrada por el usuario esta no se
+encuentra almacenada en la base de datos, el sistema debe mostra un mensaje
+de error.
+
+ 
+
+ 
+
+ 
+
+Tabla 5.11: Caso de uso extendido consultar perfil
+
+5.2.3.2. Elaboración diagramas de secuencia
+
+A continuación se describen los diagramas de secuencia de los módulos
+autenticación, usuarios y perfil, los diagrama de secuencia de modificar usuario
+y modificar perfil se pueden ver en los anexos 7.7 y 7.8 respectivamente, que
+se encuentran en los anexos generales del CD, ubicado en la ruta “Trabajo de
+grado-Sisa Sas/Anexos”
+
+23secretaria
+
+—— 1.Ingresa a la aplicación >
+
+¿ 5.Muestra formulario
+“iniciar sesión
+
+——- 6.Diligencia formulario =>
+
+15.Redirecciona página
+<- => principal :
+
+Médico
+l | l | l
+l | | | l
+
+ 
+
+ 
+
+< — 10.Información válida — —
+
+|
+——2Venífica url autenticar >>
+3.Redirecciona autenticar
+— usuario >
+4 Devuelve formulario
+< iniciar sesión 7 _
+7. Valida datos
+iniciar sesión >
+método POST 8. Envia información de
+autenticación ? 9 Verifica información —)> Base de
+11. Información autenticación
+12.Autenticación exitosa t > valida a MA
++ _ usuario activo a á(iOÓOO.OAA
+——— 13 Verifica url home —>
+——- 14, Redirecciona home —)>
+
+Figura 5.5: Diagrama de secuencia autenticar usuario
+
+ 
+
+fate saganney ces Create! on
+
+| |
+|
+
+Secretaria |
+Administrador | |
+Médico | |
+|
+1.Ingresa al sistema —>S+
+2.Verifica url
+Cerrar sesión >
+3.Redirecciona
+cerrar sesión ?
+e ia 4 Cerrar sesión m == ci ia a ii a a iu a id ii
+5.Usuario fuera del
+< VOS T> sistema "7770
+
+  
+
+Figura 5.6: Diagrama de secuencia cerrar sesion
+
+24
+
+[onine dagraming 4 design] CPeately comAdministrador
+
+AO AO A A
+I
+
+Secretaria 1
+
+ 
+     
+    
+
+1. Ingresa
+
+módulo usuarios >
+
+2. Despliega opciones:
+4 Escraeas Registrar usuario. ----consultar usuario
+
+3. Seleccionar
+
+Registrar usuario >
+
+   
+      
+   
+
+4 Verifica url
+Registrar usuario 5. Redirecciona
+
+Registrar usuario > 6.Solicita formulario
+
+Registrar usuario >
+
+7. Devuelve formulario
+47 Registrar usuario
+
+ 
+
+8. Devuelve Formulario
+<- Registro >
+
+ 
+
+9. Muestra formulario
+< “Registrar usuario “|
+
+   
+
+11.Valida y envia
+datos de usuario
+método POST
+
+10.Diligencia formulario
+Registrar usuario >
+
+12. Solicita almacenar
+
+información >
+
+13.Almacena información
+
+14. Información del
+
+15. Informacion del s Ñ
+Usuario almacenada
+
+4 - - Usuario almacenada con —
+exito
+
+=----- 16. Usuario creado - - - — [oo ---
+17. Usuario creado
+< PORRA con exito. "2
+
+iron CrOAtely.om
+
+ 
+
+Figura 5.7: Diagrama de secuencia registrar usuario
+
+ 
+
+ 
+
+ 
+
+ 
+
+Administrador
+secretaria I
+
+1. Ingresa al módulo
+
+Usuarios >
+
+2. Despliega las opciones:
+4 =- Registrar usuario -Consultar usuario
+
+|
+1
+1
+1
+1
+|
+1
+1
+1
+1
+1
+
+3. Selecciona
+
+1
+I
+1
+|
+I
+|
+1
+|
+1
+l
+I
+1
+“Consultar usuario —> |
+
+  
+
+4.Verifica url
+Consultar usuario
+
+    
+  
+
+5.Redirecciona
+
+consultar usuario ?
+
+6.Redirecciona html
+consultar usuario
+
+   
+
+7.Muestra campo
+77 de búsqueda
+
+ 
+
+8.Dilengia campo de
+
+busqueda —>
+
+ 
+ 
+
+9. Envía y valida
+información del campo
+de búsqueda
+
+ 
+ 
+
+10.Envia informacion
+
+campo de búsqueda >
+
+  
+   
+ 
+
+11.Busca usuario
+
+ 
+
+. 12. Envia información
+
+13. Envia información usuario
+
+den Usuario consultado “7
+
+ 
+ 
+   
+ 
+
+14. Solicita formulario
+consultar usuario ?
+
+  
+ 
+
+15. Formulario
+q consultar usuario
+
+   
+
+    
+
+16. Envia formulario con su
+< a respectiva is
+información
+
+ 
+
+17. Muestra información
+<-- del usuario
+
+rnno des CPEALE!y com
+
+ 
+
+Figura 5.8: Diagrama de secuencia consultar usuario
+
+Za/
+
+Administrador
+Secretaria
+
+1. Ingresa
+
+módulo perfiles ?
+
+2. Despliega opciones:
+Registrar perfil
+consultar perfil
+
+3. Seleccionar
+
+Registrar perfil >
+
+9. Muestra formulario
+X nn Registrar perfil
+
+10.Diligencia formulario
+Registrar perfil >
+
+17. Perfil creado
+con exito. "2
+
+Formulario.py
+
+ 
+   
+       
+
+4 Verifica url
+Registrar perfil
+
+   
+
+     
+     
+   
+
+5. Redirecciona
+registrar perfil > 6.Solicita formulario
+
+Registrar perfil >
+
+7. Devuelve formulario
+
+8. Devuelve formulario Registrar perfil
+
+registro. "20
+
+d--
+11. Valida y envia
+
+datos de perfil —>
+
+metodo POST 12. Solicita almacenar
+
+información
+
+>
+
+— 13.Almacena información
+
+   
+
+        
+
+14. Información del perfil
+
+15. Informacion del < almacenada
+
+4 - - perfil almacenada con - —
+éxito
+
+24 dec CPCAtely son
+
+ 
+
+Figura 5.9: Diagrama de secuencia registrar perfil
+
+A
+
+Administrador
+secretaria
+
+1. Ingresa al módulo
+
+Perfiles >
+
+2. Despliega las opciones:
+Registrar perfil Ss
+Consultar perfil
+
+4--
+3. Selecciona
+
+Consultar perfil >
+
+7.Muestra campo
+< NO de búsqueda
+
+8.Dilengia campo de
+busqueda >
+
+17. Muestra información
+<-- del perfil con
+
+ 
+
+Formulario.py
+
+URL
+
+models.py
+
+ 
+
+ 
+
+ 
+
+| |
+! l
+| l
+l l
+! l
+l l
+! 1
+, l
+| |
+| l
+| /
+I
+
+4.Verifica url
+
+Consultar perfil
+5.Redirecciona
+
+consultar perfil >
+
+     
+   
+
+   
+     
+ 
+     
+     
+
+6.Redirecciona html
+consultar perfil
+
+ 
+
+9. Envia y valida
+información del campo
+
+de búsqueda 10.Envia informacion
+
+campo de búsqueda >
+
+11.Busca perfil
+
+. 12. Envia información
+perfil
+
+13. Envia información
+<--- perfil consultado
+
+14. Solicita formulario
+consultar perfil
+
+15. Formulario
+< ES consultar perfil
+
+16. Envia formulario con su
+< » respectiva Pl
+información
+
+ 
+
+ 
+
+Figura 5.10: Diagrama de secuencia consultar perfil
+
+265.2.4. Construcción
+
+ 
+
+FICHA TÉCNICA
+
+ 
+
+Fase 3: Construcción
+
+ 
+
+En esta fase se documenta el proceso de cons
+ 
+
+Propósito trucción de la aplicación, así como el plan de acción para el desarrollo de la aplicación.
+= 5.2.4.1 Definición de la arquitectura.
+Contenido
+
+= 5.2.4.2 Desarrollo de software.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 5.12: Ficha técnica fase de construcción ciclo 1
+
+5.2.4.1. Definición de la arquitectura
+
+Una arquitectura de software, también denominada arquitectura lógica, consiste en un conjunto de patrones y abstracciones coherentes que proporcionan el
+marco de referencia necesario para guiar la construcción de software para un
+sistema de información.
+
+Para el desarrollo del presente proyecto se utilizo una arquitectura MVT, que
+es una variación de MVC denominada modelo vista template.
+
+= M: Es sinónimo de “modelo”, la capa de acceso a datos. Esta capa
+contiene todo lo relacionado con los datos, cómo acceder a estos, como
+validar y las relaciones entre los datos.
+
+= T: Significa “plantilla”, la capa de presentación. Esta capa contiene las
+decisiones relacionadas con la presentación, como algo se debe mostrar
+en una página Web u otro tipo de documento.
+
+=  V: Significa “view”, la capa de lógica. Esta capa contiene la lógica que
+accede al modelo y se remite a la plantilla(s) apropiadas. Se puede decir
+que es el puente entre los modelos y las plantillas.
+
+5.2.4.2. Desarrollo del software
+
+Para la elaboración del producto de software se utilizaron las siguientes
+tecnologías:
+
+Python: El cuál es un lenguaje de programación multipropósito de alto
+nivel. Su filosofía de diseño se enfatiza en la productividad del programador
+y la legibilidad del código. Tiene un núcleo sintáctico minimalista con
+
+27unos pocos comandos básicos y simple semántica, pero además tiene una
+enorme y variada librería estándar, que incluye una Interfaz de Programación
+de Aplicaciones (APD), soporta múltiples paradigmas de programación,
+incluyendo programación orientada a objetos (class), programación imperativa
+(def) y funcional (lambda), ádemas tiene un sistema de tipado dinámico y
+manejo automatizado de memoria utilizando conteo de referencias (similar a
+
+Perl, Ruby y Scheme)[12].
+
+¿Por qué Python y no otros lenguajes? Las razones de la elección de Python
+como lenguaje de programación para el desarrollo del proyecto se especifican
+a continuación:
+
+= Curva de aprendizaje muy suave: A diferencia de muchos lenguajes,
+Python tiene una sintaxis muy limpia y fácil de entender.
+
+= Simplificado y rápido: Generalmente la programación hace que el
+programador se ajuste a un modo de lenguaje de programción.
+
+= Multiparadigma: Python es un lenguaje de programación multiparadigma, permite varios estilos: Programación orientada a objetos, programación estructural y funcional.
+
+= Código abierto: Python se desarrolla como un proyecto de código
+abierto, administrado por la Python Software Foundation.
+
+Django: El cuál aparenta ser un framework MVC (Modelo Vista Controlador), pero se llama al “controlador” la “vista” y la “vista” la llama “template”.
+¿Cómo es que no se usan los nombres estándar?. En nuestra interpretación del
+MVC, la “vista” describe los datos que se presentan al usuario. No necesariamente cómo se ven los datos, sino que datos son presentados. La vista describe
+que datos usted puede ver, no cómo los ve, así que en nuestro caso, una “vista” es el llamado de una función Python para una URL particular, porque ese
+llamado describe que datos son presentados[14].
+
+Además, es sensato separar el contenido de la presentación, aquí es donde
+vienen los templates. En Django, una “vista” especifica qué datos son
+presentados, pero normalmente una vista delega ésto a un template, el cual
+especifica la forma en como se presentan los datos, en pocas palabras, la vista
+se encarga de describir qué datos van a ser presentados y el template, como se
+van a representar esos datos, entonces: ¿Dónde está el controlador? en el caso
+de Django, es el mecanismo que envía una petición a la vista apropiada, de
+acuerdo a la configuración establecida en el archivo URL[14].
+
+Resumiendo, se puede decir entonces que Django es un framework “MTV”
+(Model Template View). Para entender de una manera más clara el funcionamiento de Django, se presenta la siguiente imagen:
+
+28—_— Pyittuomn EXE AA
+
+Figura 5.11: Componentes Django
+
+Javascript: Es un lenguaje de programación que se utiliza principalmente
+para crear páginas web dinámicas.Técnicamente, JavaScript es un lenguaje de
+programación interpretado, por lo que no es necesario compilar los programas
+para ejecutarlos. En otras palabras, los programas escritos con JavaScript se
+pueden probar directamente en cualquier navegador sin necesidad de procesos
+intermedios[ 15].
+
+Jquery:Es una biblioteca gratuita de Javascript, cuyo objetivo principal es
+simplificar las tareas de creación de páginas web responsivas, acordes a lo
+estipulado en la Web 2.0, la cuál funciona en todos los navegadores modernos.
+Por otro lado, se dice que ¡Query ayuda a que nos concentremos de gran
+manera en el dise?o del sitio, al abstraer por completo todas las características
+específicas de cada uno de los navegadores. Otra de las grandes ventajas de
+]JQuery es que se enfoca en simplificar los scripts y en acceder/modificar el
+contenido de una página web[16|].
+
+Css: Es un lenguaje de hojas de estilos creado para controlar el aspecto o
+presentación de los documentos electrónicos definidos con HTML y XHTML.
+CSS es la mejor forma de separar los contenidos y su presentación y es
+imprescindible para crear páginas web complejas[ 17].
+
+295.2.5. Transición
+
+ 
+
+ 
+
+ 
+
+ 
+
+FICHA TÉCNICA
+Transición
+o En esta fase se documenta las pruebas de caja
+Propósito negra así como las pruebas unitarias por cada
+ciclo establecido en la metodología de desarrollo.
+= 5.2.5.1 Pruebas de caja negra.
+Contenido
+=_ 5.2.5.2 Pruebas unitarias.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 5.13: Ficha técnica fase de transición ciclo 1
+
+5.2.5.1. Pruebas de caja negra
+
+El único instrumento adecuado para determinar el status de la calidad de un
+producto de software es el proceso de pruebas. En este proceso se ejecutan
+pruebas dirigidas a componentes del software o al sistema de software en su
+totalidad, con el objetivo de medir el grado en que el software cumple con
+los requerimientos. En la ingeniería del software, los casos de prueba son un
+conjunto de condiciones o variables bajo las cuáles el analista determinará si
+el requerimiento de una aplicación es parcial o completamente satisfactorio.
+En el proyecto se realizaron dos tipos de pruebas, pruebas de caja negra, las
+cuales se realizaron por cada caso de uso y de los cuales se analizó la respuesta
+del sistema y se tomaron los datos, a su vez se realizaron pruebas unitarias
+realizadas a cada módulo del sistema para establecer su integridad, en los
+anexos 7.9, 7.10, 7.11 y 7.12 se pueden ver las pruebas realizadas a consultar
+usuario, modificar usuario , consultar perfil y modificar perfil respectivamente,
+que se encuentran en los anexos generales del CD, ubicado en la ruta “Trabajo
+de grado-Sisa Sas/Anexos”.
+
+ 
+
+CASO DE PRUEBA CP 1-1
+
+ 
+
+Nombre caso de prueba Autenticar usuario
+
+ 
+
+Id caso de uso CU 1-1
+
+ 
+
+Comprobar los permisos del grupo
+al cual pertenece el usuario que se
+está autenticando.
+
+Objetivo de la prueba
+
+ 
+
+Actor Administrado, secretaria, médico.
+
+ 
+
+El usuario a iniciar sesión debe estar
+
+Precondiciones o aa
+registrado en la aplicación.
+
+ 
+
+ 
+
+ 
+
+ 
+
+30Pasos a seguir
+
+ 
+
+Acción del actor
+
+Resultados esperados
+
+ 
+
+1. El usuario ingresa a la página
+principal del sistema.
+
+2. El sistema solicita la autenticación
+del usuario.
+
+ 
+
+3. El usuario ingresa su nombre de
+usuario y contraseña.
+
+4. El sistema valida la información y
+posteriormente permite el acceso del
+usuario dependiendo de su perfil y
+despliega la página principal.
+
+ 
+
+Ejecución
+
+ 
+
+Fecha
+
+12 diciembre 2014
+
+ 
+
+Resultados obtenidos
+
+Los resultados obtenidos fueron igual
+a los esperados.
+
+ 
+
+Revisado por
+
+Andres Felipe Gomez, Valentina
+Martinez.
+
+ 
+
+Aceptado por
+
+ 
+
+ 
+
+Estado caso de prueba
+
+ 
+
+Superado
+
+ 
+
+Tabla 5.14: Caso de prueba 1.1 autenticar usuario
+
+ 
+
+CASO DE PRUEBA CP 1-2
+
+ 
+
+Nombre caso de prueba
+
+Cerrar sesión
+
+ 
+
+Id caso de uso
+
+CU 1-2
+
+ 
+
+Cerrar la sesión del usuario activo y
+
+ 
+
+ 
+
+Objetivo de la prueba redireccionar a la página de
+autenticación.
+
+Actor Administrador, secretaria, médico.
+
+Precondiciones El usuario a cerrar sesión debe estar
+
+registrado y autenticado.
+
+ 
+
+Pasos a seguir
+
+ 
+
+Acción del actor
+
+Resultados esperados
+
+ 
+
+ 
+
+1. El usuario selecciona la opción
+cerrar sesión
+
+ 
+
+2. El sistema cierra la sesión del
+usuario y lo redirecciona a la página
+de autenticación
+
+ 
+
+31Ejecución
+
+ 
+
+Fecha
+
+12 de diembre de 2014.
+
+ 
+
+Resultados obtenidos
+
+Los resultados obtenidos fuerón igual
+a los esperados.
+
+ 
+
+Revisado por
+
+Andres Felipe Gomez, Valentina
+Martinez.
+
+ 
+
+Aceptado por
+
+ 
+
+ 
+
+Estado caso de prueba
+
+ 
+
+Superado
+
+ 
+
+Tabla 5.15: Caso de prueba 1.2 cerrar sesión
+
+ 
+
+CASO DE PRUEBA CP 1-3
+
+ 
+
+Nombre caso de prueba
+
+Registrar usuario
+
+ 
+
+Id caso de uso
+
+CU 1-3
+
+ 
+
+Comprobar el correcto funcionamien
+ 
+
+ 
+
+Objetivo de la prueba to al momento de registrar un usuario
+en la entidad.
+El usuario a registrar un nuevo
+
+Precondiciones usuario en la aplicación debe estar
+registrado y autenticado.
+
+Actor Administrador, secretaria.
+
+ 
+
+Pasos a seguir
+
+ 
+
+Acción del actor
+
+Resultados esperados
+
+ 
+
+1. El usuario ingresa a la opción
+usuarios.
+
+2. El sistema despliega las opciones
+de “registrar usuario” y “consultar
+usuario”.
+
+ 
+
+3. El usuario ingresa a la opción
+“registrar usuario”.
+
+4. EL sistema despliega los campos
+establecidos en el anexo 7.3
+
+ 
+
+5. El usuario diligencia cada uno de
+los campos.
+
+6. El sistema valida y almacena la
+información del nuevo usuario.
+
+ 
+
+Ejecución
+
+ 
+
+Fecha
+
+12 de diembre de 2014.
+
+ 
+
+Resultados obtenidos
+
+Los resultados obtenidos fueron igual
+a los esperados.
+
+ 
+
+Revisado por
+
+Andres Felipe Gomez, Valentina
+Martinez.
+
+ 
+
+Aceptado por
+
+ 
+
+ 
+
+Estado caso de prueba
+
+ 
+
+Superado
+
+ 
+
+Tabla 5.16: Caso de prueba 1.3 registrar usuario
+
+32CASO DE PRUEBA CP 1-6
+
+ 
+
+Nombre caso de prueba
+
+Registrar perfil
+
+ 
+
+Id caso de uso
+
+CU 1-6
+
+ 
+
+Comprobar el correcto funcionamien
+ 
+
+ 
+
+Objetivo de la prueba to al momento de registrar los perfiles
+en la aplición y asignarle los diferentes permisos a dicho perfil.
+
+Actor Administrador, secretaria.
+
+Precondiciones El usuario a registrar el perfil debe
+
+estar registrado y autenticado.
+
+ 
+
+Pasos a seguir
+
+ 
+
+Acción del actor
+
+Resultados esperados
+
+ 
+
+1. El usuario ingresa a la opción
+perfiles.
+
+2. El sistema despliega las opciones
+
+de “registrar perfil” y “consultar perfil”.
+
+ 
+
+3. El usuario ingresa a la opción
+“registrar perfil”.
+
+4. Línea 4: El sistema despliega el formulario con los campos establecidos
+en el anexo 7.4
+
+ 
+
+5. El usuario diligencia cada uno de
+los campos.
+
+6. El sistema valida y almacena la
+información del nuevo perfil.
+
+ 
+
+Ejecución
+
+ 
+
+Fecha
+
+12 de diembre de 2014.
+
+ 
+
+Resultados obtenidos
+
+Los resultados obtenidos fueron igual
+a los esperados.
+
+ 
+
+Revisado por
+
+Andres Felipe Gomez, Valentina
+Martinez.
+
+ 
+
+Aceptado por
+
+ 
+
+ 
+
+Estado caso de prueba
+
+ 
+
+Superado
+
+ 
+
+Tabla 5.17: Caso de prueba 1.6 registrar perfil
+
+5.2.5.2. Pruebas unitarias
+
+Las pruebas unitarias del ciclo 1 se pueden ver en los anexos 7.13, 7.14 y 7.15
+respectivamente, que se encuentran en los anexos generales del CD, ubicado
+en la ruta “Trabajo de grado-Sisa Sas/Anexos”.
+
+335.2.6. CICLO 2: Inicio
+
+Actualmente SISA lleva un control de las diferentes historias clínicas de
+los pacientes que hacen uso de alguno de los servicios que allí se prestan,
+dicho control se realiza de forma manual, en un formato donde se registra la
+información básica del paciente, el formato de historia clínica se puede ver en
+el anexo 7.16, que se encuentra en los anexos generales de CD, ubicado en la
+ruta “Trabajo de grado-Sisa Sas/Anexos”.
+
+Con el fin de cumplir con los lineamientos de la resolución 1993 de 1999
+en la cual se establece que La historia clínica de un usuario debe reunir la
+información de los aspectos científicos, técnicos y administrativos relativos a
+la atención en salud en las fases de fomento, promoción de la salud, prevención
+específica, diagnóstico, tratamiento y rehabilitación de las enfermedades,
+donde se abarcan todos sus aspectos biológicos, psicológicos, sociales y
+su interrelación con las dimensiones personales y familiares,esta resolución
+también establece que los componentes mínimos que debe tener la historia
+clínica son: datos personales de identificación del usuario, apellidos y nombres
+completos, estado civil, documento de identidad, fecha de nacimiento, edad,
+sexo, ocupación, dirección y teléfono del domicilio y lugar de residencia,
+aseguradora y tipo de vinculación. SISA busca re diseñar el formato de historia
+clínica de la entidad, no solo para cumplir con dichos lineamientos si no
+también para brindar una atención eficaz a sus pacientes.
+
+El formato de historia clínica que maneja SISA actualmente no cumple con
+los lineamentos de dichas resoluciones ya que no llevan un control de los
+antecedentes familiares, de los apoyos de diagnóstico ni de lo exámenes
+médicos de los pacientes, lo que se busca con la sistematización de esta,
+es diseñar una historia clínica que cumpla con los lineamentos de ambas
+resoluciones y le brinde una solución eficaz y permanente a la entidad de salud
+no solo al momento de registrar las diferentes historias clínicas, si no también
+al momento de consultar dichos historiales y almacenarlos, pues esto ayudará a
+que dicha consulta y almacenamiento se realice de una forma mas fácil y mas
+rápida.
+
+34FICHA TÉCNICA
+
+ 
+
+Fase 1: Inicio
+
+ 
+
+Esta fase tiene como finalidad entender los
+procesos que lleva SISA con relación a historia
+clínica, agenda médica y citas médicas, así como
+la recolección de los diferentes formatos que
+allí se utilizan para la realización de los procesos
+descritos con anterioridad y la identificación de
+los diferentes requerimientos necesarios para el
+desarrollo de los módulos de historia clínica,
+agenda médica y citas médicas.
+
+Propósito
+
+ 
+
+= 5.2.6.1 Recolección de información en
+SISA.
+
+Contenido = 5.2.6.2 Elaboración del documento de
+requerimientos.
+
+= 5.2.6.3 Identificación de casos de uso.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 5.18: Ficha técnica fase de inicio ciclo 2
+
+5.2.6.1. Recolección de información
+
+Recolección de información en SISA tanto del personal médico como del
+personal administrativo para comprender exactamente que procesos se realizan
+con respecto a historia clínica, agenda médica y citas médicas, para esto se
+procedió a realizar entrevistas directas con el siguiente personal: Alejandra
+Gómez, secretaria y Angela Rios, doctora, dichas entrevistas se encuentran en
+los anexos 7.16 y 7.17.
+
+5.2.6.2. Recolección de requerimientos
+
+Recolección de requerimientos para los módulos de historia clínica, agenda
+médica y citas activas.
+
+35Número
+
+Requerimiento
+
+Visibilidad
+
+ 
+
+R4.1
+
+El sistema en el módulo historia clínica deberá permitir al usuario cuyos permisos se lo permitan consultar la información correspondiente a la historia
+clínica general de un paciente, capturando la información del anexo 7.18.
+
+Visible
+
+ 
+
+R4.2
+
+El sistema en el módulo historia clínica deberá permitir al usuario cuyos permisos se lo permitan consultar la información correspondiente a la historia
+clínica ocupacional de un paciente, capturando la
+información del anexo 7.19.
+
+Visible
+
+ 
+
+R4.3
+
+El sistema en el módulo historia clínica deberá permitir al usuario cuyos permisos se lo permitan general el pdf de la historia clínica general y la historia clínica ocupacional.
+
+Visible
+
+ 
+
+ 
+
+R4.4
+
+ 
+
+El sistema en el módulo historia clínica deberá permitir al usuario cuyos permisos se lo permitan reglstrar los exámenes médicos del paciente en la respectiva historia clínica.
+
+ 
+
+Visible
+
+ 
+
+Tabla 5.19: Requerimientos módulo historia clínica
+
+ 
+
+Número
+
+Requerimiento
+
+Visibilidad
+
+ 
+
+R5.1
+
+El sistema en el módulo agenda médica deberá permitir al usuario cuyos permisos se lo permitan registrar una cita médica capturando la información
+indicada en el anexo 7.20.
+
+Visible
+
+ 
+
+R5.2
+
+El sistema en el módulo agenda médica deberá permitir al usuario cuyos permisos se lo permitan consultar las citas medicas de la entidad, filtrando la
+búsqueda por médico, paciente o fecha.
+
+Visible
+
+ 
+
+ 
+
+R5.3
+
+ 
+
+El sistema en el módulo agenda médica deberá permitir al usuario cuyos permisos se lo permitan modificar la información de una cita médica.
+
+ 
+
+Visible
+
+ 
+
+36R5.4
+
+ 
+
+ 
+
+El sistema en el módulo agenda médica deberá permitir al usuario cuyos permisos se lo permitan consultar la información correspondiente a la agenda
+médica.
+
+ 
+
+Visible
+
+ 
+
+ 
+
+Tabla 5.20: Requerimientos módulo agenda médica
+
+ 
+
+Número
+
+Requerimiento
+
+Visibilidad
+
+ 
+
+R6.1
+
+El sistema en el módulo citas activas deberá permitir al usuario cuyos permisos se lo permitan, reglstrar la información correspondiente a la historia
+clínica general de un paciente capturando la información indicada en el anexo 7.18.
+
+Visible
+
+ 
+
+R6.2
+
+El sistema en el módulo citas activas deberá permitir al usuario cuyos permisos se lo permitan, reglstrar la información correspondiente a la historia
+clínica ocupacional de un paciente capturando la
+información indicada en el anexo 7.19.
+
+Visible
+
+ 
+
+R6.3
+
+El sistema en el módulo citas activas deberá permitir al usuario cuyos permisos se lo permitan, generar la formula médica así como la formula de
+exámenes de diagnóstico del paciente capturando
+los datos del anexo 7.21.
+
+Visible
+
+ 
+
+R6.4
+
+El sistema en el módulo citas activas deberá permitir enviar una cita médica activa al respectivo médiCO.
+
+Visible
+
+ 
+
+R6.5
+
+ 
+
+ 
+
+El sistema en el módulo citas activas deberá permitir cambiar el estado de una cita médica de enviado
+a recibido al momento de aceptar dicha cita.
+
+ 
+
+No
+visible
+
+ 
+
+Tabla 5.21: Requerimientos módulo citas activas
+
+5.2.6.3. Identificación de casos de usos
+
+Identificación de casos de usos para los módulos de historia clínica, módulo
+de agenda médica y módulo de citas activas, basado en los requerimientos
+mencionados con anterioridad.
+
+37Modulo historia clinica
+
+ 
+
+   
+ 
+
+Consultar historia
+
+o. y = <Extends> === Generar pdf
+clinica
+
+  
+  
+   
+
+<Extends>
+
+   
+
+¡
+I
+
+I
+Secretaria '
+Administrador
+
+: Registrar exámenes
+Medico
+
+ 
+
+Figura 5.12: Caso de uso módulo historia clínica
+
+Módulo agenda médica
+
+Consultar agenda
+médica
+Registrar cita
+médica Lo
+<Extends>
+
+<Extends>>
+Administrador ”
+. . k
+Secretaria Consultar cita
+médica
+
+Figura 5.13: Caso de uso módulo agenda médica
+
+ 
+
+ 
+
+médico
+Administrador
+
+ 
+   
+   
+
+Modificar cita
+médica
+
+a?
+.
+
+ 
+
+ 
+
+ 
+
+ion Creately cor
+
+38Módulo citas activas
+
+ 
+
+Registrar historia
+clínica
+
+Médico Recibir cita
+médica
+
+Enviar cita
+médica
+
+Figura 5.14: Caso de uso módulo citas activas
+
+Secretaria
+Administrador
+
+creately
+
+ 
+
+5.2.7. Elaboración
+
+ 
+
+FICHA TÉCNICA
+
+ 
+
+Fase 2: Elaboración
+
+ 
+
+En esta fase se realizara la descripción de los
+casos de uso, la identificación de los diferentes
+Proposito diagramas de secuencias para los módulos de
+historia clínica, agenda médica y citas activas.
+
+ 
+
+= 5.2.7.1 Elaboración de casos de uso
+
+extenidos
+
+Contenido
+= 5.2.7.2 Elaboración de diagramas de
+
+secuencia
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 5.22: Ficha técnica fase de elaboración
+
+5.2.7.1. Elaboración y descripción de casos de uso extendidos.
+
+A continuación se describen los casos de uso extendidos de los módulos
+agenda médica, historia clínica y citas activas, el caso de uso extendido de
+generar pdf historia clínica, registrar exámenes médicos, consultar agenda
+médica, modificar cita médica, enviar cita y recibir cita se pueden ver en los
+anexos 7.22, 7.23, 7.24, 7.25, 7.26, 7.27 respectivamente, que se encuentran
+
+en los anexos generales del CD, ubicado en la ruta “Trabajo de grado-Sisa
+Sas/Anexos”.
+
+29Caso de uso
+
+Consultar historia clínica .
+
+ 
+
+ 
+
+ 
+
+ 
+
+Actores Administrador, secretaria, médico.
+Este caso de uso le permite al usuario
+
+Resumen consultar todas las historias clínicas
+almacenadas en el sistema, así como
+su respectiva información.
+
+Tipo Opcional
+
+Referencias cruzadas R4:1, R4:2
+
+ 
+
+Curso normal
+
+de los eventos
+
+ 
+
+Acción de los actores
+
+Acción del sistema
+
+ 
+
+Línea 1: El usuario ingresa a la opción
+historia clínica.
+
+Línea 2: El sistema despliega la opción de “consultar historia clínica”.
+
+ 
+
+Línea 3: El usuario ingresa a la opción
+“consultar historia clínica”.
+
+ 
+
+Línea 4: Linea 4: EL sistema despliega el formulario de búsqueda con el
+campo nombre de usuario o cédula.
+
+ 
+
+Línea 5: El usuario diligencia el campo por nombre de usuario o cédula.
+
+Línea 6: El sistema valida y despliega
+la información de la historia clínica.
+
+ 
+
+Curso alterno de los eventos
+
+ 
+
+ 
+
+Línea 6: Si al validar la información registrada por el usuario, esta no se
+encuentra almacenada en la base de datos, el sistema debe mostrar un mensaje
+
+de error.
+
+ 
+
+Tabla 5.23: Caso de uso extendido consultar historia clínica
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Caso de uso Registrar cita médica.
+
+Actores Administrador, secretaria.
+Este caso de uso le permite al usua
+Resumen rio, registrar las citas médicas que se
+asignarán a los médicos pertenecientes a la entidad.
+
+Tipo Opcional
+
+Referencias cruzadas R5:1
+
+ 
+
+ 
+
+40Curso normal de los eventos
+
+ 
+
+Acción de los actores
+
+Acción del sistema
+
+ 
+
+Línea 1: El usuario ingresa a la opción
+agenda médica.
+
+Línea 2: El sistema despliega las
+opciones de “registrar cita médica”,
+“consultar cita médica” y “consultar
+agenda médica”.
+
+ 
+
+Línea 3: El usuario ingresa a la opción
+“registrar cita médica”.
+
+ 
+
+Línea 4: El sistema despliega el calendario, donde se muestran los espacios disponibles para asignar las citas
+médicas.
+
+ 
+
+Línea 5: El usuario selecciona el día
+de la cita médica.
+
+Línea 6: El sistema despliega el formulario con los campos establecidos
+en el anexo 7.20.
+
+ 
+
+Línea 7: El usuario diligencia cada
+uno de los campos.
+
+Línea 8:El sistema valida y almacena
+la información.
+
+ 
+
+Curso alterno de los eventos
+
+ 
+
+ 
+
+Línea 8: Si al validar la información registrada por el usuario el campo hora,
+sala y médico ya se encuentran asignados, el sistema debe emitir un mensaje
+de error. Para que el usuario diligencie nuevamente dichos campos.
+
+ 
+
+Tabla 5.24: Caso de uso extendido registrar cita médica
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Caso de uso Consultar cita médica.
+
+Actores Administrador, secretaria.
+
+Resumen Este caso de uso le permite al usuario
+consultar una cita médica especifica.
+
+Tipo Opcional
+
+Referencias cruzadas R5:2
+
+ 
+
+Curso normal de los eventos
+
+ 
+
+Acción de los actores
+
+Acción del sistema
+
+ 
+
+ 
+
+Línea 1: El usuario ingresa a la opción
+agenda médica.
+
+ 
+
+Línea 2: El sistema despliega las
+opciones de “registrar cita médica”,
+“consultar cita médica” y “consultar
+agenda médica”
+
+ 
+
+41Línea 3: El usuario ingresa a la opción
+“consultar cita médica”.
+
+Línea 4: El sistema despliega el formulario de búsqueda con las opciones
+de consulta por paciente, médico o fecha.
+
+ 
+
+Línea 5: El usuario selecciona la consulta a realizar y diligencia el campo
+de búsqueda.
+
+Línea 6: El sistema valida la información y despliega la respectiva consulta.
+
+ 
+
+Línea 7: El usuario selecciona la cita
+a consultar.
+
+Línea 8: El sistema muestra la información de la respectiva cita.
+
+ 
+
+Curso alterno de los eventos
+
+ 
+
+ 
+
+Línea 6: Si al validar la información registrada por el usuario no se encuentra
+alguna cita médica asignada para el paciente, el sistema debe emitir un mensaje
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+de error.
+Tabla 5.25: Caso de uso extendido consultar cita médica
+
+Caso de uso Registrar historia clínica .
+
+Actores Administrador, Médico.
+Este caso de uso le permite al usuario
+
+Resumen registrar la historia clínica de un paciente.
+
+Tipo Primario
+
+Referencias cruzadas R5:1
+
+ 
+
+Curso normal
+
+de los eventos
+
+ 
+
+Acción de los actores
+
+Acción del sistema
+
+ 
+
+Línea 1: El usuario ingresa a la opción
+historia clínica.
+
+Línea 2: El sistema despliega la opción “Citas pendientes”.
+
+ 
+
+Línea 3: El usuario ingresa a la opción
+“Citas pendientes”.
+
+ 
+
+Línea 4: El sistema despliega las citas
+pendientes del usuario.
+
+ 
+
+ 
+
+Línea 5: El usuario selecciona la respectiva cita médica
+
+Línea 6: El sistema muestra la información básica del paciente y las opciones para diligenciar cada uno de
+los campos de dicha historia clínica:
+Antecedentes, anamnesis, tratamiento
+y exámenes médicos.
+
+ 
+
+42Línea 7: El usuario diligencia cada | Línea 8: El sistema cambia el estado
+uno de los campos y registra la infor- | de la cita médica, almacena y valida
+mación. la información.
+
+ 
+
+Curso alterno de los eventos
+
+ 
+
+Línea 8: Si al validar la información por el usuario este ingresa caracteres no
+válidos en determinados campos el sistema debe emitir un mensaje informando
+dicho error.
+
+ 
+
+ 
+
+ 
+
+Tabla 5.26: Caso de uso extendido registrar historia clínica
+
+5.2.7.2. Elaboración diagramas de secuencia
+
+A continuación, se describen los diagramas de secuencia de los módulos
+agenda médica, historia clínica y citas activas, los diagrama de secuencia
+de generar pdf historia clínica, registrar exámenes médicos, consultar agenda
+médica, modificar cita médica, enviar cita y recibir cita se pueden ver en los
+anexos 7.28, 7.29, 7.30, 7.31, 7.32, 7.33 respectivamente, que se encuentran
+en los anexos generales del CD, ubicado en la ruta “Trabajo de grado-Sisa
+Sas/Anexos”.
+
+C
+IGU 0
+
+T
+
+I
+
+I
+
+Administrador
+Medico
+Secretaria
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+L Views.py Formulario.py Models.py
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+== o ---7343
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+T T T
+I | 1
+I 1 I
+1. Ingresa al módulo ! ! l l
+Historia clinic: > ! E
+|
+. . I 1 |
+2. Despliega la opción: I I
+4-- Consultar ----- 1 | 1
+Historia cl I | I
+|
+3. Selec: Cc Itar E | :
+> pa
+Histona el 4 Verifica url ltar ,
+il
+Historia > 5 Hed
+. Redirecciona
+Consultar historia clinica ?
+6. Redirecciona
+7.Muestra formul: < NS iii store: 12
+<. de búsqueda pe clinica
+cedula
+8.Dilengía formulario —o>
+9. Envia y valid:
+inform: n del mpo ——>+> 10. E formación
+ee hisqued mpo de búsqueda? .
+——— 11.Busca historia clínica —>
+12. Envia información
+=> historia clinica >
+13. Envia inform:
+gen hist A
+15.Formul, Ii
+=> hist 1 “
+17. Muestra información < la —— == |
+EN historia clini on ,
+|
+
+ 
+
+Figura 5.15: Diagrama de secuencia consultar historia clínica
+
+43Views.py
+
+Formulario.py
+
+ 
+
+ 
+
+ 
+
+Models.py
+
+ 
+
+ 
+
+Secretaria
+Administrador
+
+1. Ingresa al módulo agenda
+médica >
+
+2.Despliega las opciones:
+Registrar cita
+Consultar cita
+Consultar agenda
+
+<-
+ 
+
+3. Selecciona registrar cita
+
+15.Muestra calendario
+con citas activas
+
+  
+ 
+
+16.Selecciona fecha
+cita agregar ?
+
+17.Muestra formulario _
+Registrar cita
+
+18. Diligencia campos
+Registrar cita
+
+X- - 25.Cita creada con éxito= ===
+
+ 
+
+ 
+ 
+ 
+  
+
+      
+      
+ 
+ 
+ 
+ 
+ 
+    
+ 
+ 
+
+4.Verifica url s
+
+registrar cita 5. Redirecciona registra s
+
+cita
+
+14.Envia formulario registrar
+citas. envia citas activas
+
+  
+
+<
+19. Valida y envia
+
+formulario registrar ———>
+
+cita
+
+— -24.Cita creada con éxito- ——
+
+ 
+
+      
+       
+ 
+ 
+
+6.Solicita consultar >
+todas las citas activas
+
+9. Envia información citas
+activas
+
+10.Solicita formulario
+
+11.Campos formulario
+registrar cita
+
+registrar cita
+
+_12.Retorna campos
+solicitados
+
+foo
+
+<- -13.Formulario registrar cita =
+
+20. Solicita almacenar
+información
+
+ 
+
+23. Información cita _
+almacenada
+
+Figura 5.16: Diagrama de secuencia registrar cita
+
+ 
+
+< 8.Envia información citas
+
+7.Consulta todas las
+citas activas
+
+o»
+
+activas
+
+21. Almacena información —>
+
+foi
+
+22. Informa:
+almacenada
+
+ 
+
+ 
+
+ 
+
+Secretaria
+Administrador
+
+1Ingresa al módulo
+agenda medica >
+
+2.Despliega las opciones
+Registrar cita
+Consultar cita
+Consultal agenda
+
+t--
+—— 3.Seleccioan consultar cita —P>
+
+_ _ 7.Muestra campo de
+búsqueda
+
+8.Diligencia campo de >
+búsqueda
+
+ 
+
+_.15.Muestra información
+cita
+
+16.Selecciona cita a >
+consultar
+
+ 
+
+25. Muestra información
+de la cita
+
+consultada
+
++-
+IGU
+
+       
+    
+
+4.Verifica url
+
+Consultar cita >
+
+5.Redirecciona
+consultar cita
+
+al 6.Redirecciona html
+consultar cita
+
+9. Valida y envia campo
+de búsqueda
+
+14.Retorna información
+cita
+
+     
+     
+
+t---.
+
+17. Envia solicitud cita a
+consultar
+metodo GET
+
+24. Envia formulario
+con lainformación -—
+de la cita
+
+ 
+
+Figura 5.17: Diagrama de secuencia consultar cita
+
+Views.py
+
+ 
+
+Formulario.py
+
+     
+   
+
+10.Envia información
+campo de búsqueda >
+
+18. Solicita formulario
+consultar cita >
+4 - --19.Retorna formulario-——
+
+20. Solicita información
+
+ 
+
+44
+
+ 
+
+Models.py
+
+————- 11 Busca cita ———><+
+
+12. Retorna información
+cita
+
+————-21. Busca cita ——>Y>
+
+22. Retorna información
+citaRL views.py Formulario.py Models.py
+T T T T T
+| I | | |
+. , I I I I
+A 'gresa al módulo -—S a 1
+A
+— > | | |
+— peor aa 5. Red
+Citas pendientes —>| 6. Solicita citas pendientes
+— da A — reos
+ico que solaio
+9. Retorna información
+ci tas pendientes medico lili
+10. Retorna html las cit q licit
+X< p ¡pu 1 La dicos [lero Pa
+<. 11.Muestra citas pendientes - — . :
+12. Selecciona cita a
+NS oo SRA ¡Eolica fomulario y 8D
+d=-- 15. Cita escsients |
+4-- 16. Da : mularió 2 221
+19 O e mutante 20. Solicita almacenar
+O GM
+< _23. Historia cli L <-- > ma mistorta
+en _24 ARES A el O
+locos EE
+l I
+I I
+I I
+1 I
+Figura 5.18: Diagrama de secuencia registrar historia clínica
+o 2
+5.2.8. Construcción
+FICHA TÉCNICA
+e. 2
+Fase 3: Construcción
+En esta fase se documenta el proceso de
+2 e .) . .) ,
+Propósito construcción de la aplicación, así como el plan
+
+de acción para el desarrollo de la aplicación.
+
+ 
+
+Contenido = 5.2.8.1 Desarrollo de software.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 5.27: Ficha técnica fase de construcción ciclo 2
+
+5.2.8.1. Desarrollo del software
+
+En esta etapa de desarrollo de software se utilizaron las tecnologías descritas
+en la fase de construcción del ciclo 1,python, django, javascript, ¡query y css,
+además se investigaron tres tecnologías que ayudarán al desarrollo de éste, las
+
+cuales se explican a continuación.
+
+Ajax: (Asynchronous JavaScript And XML) es una técnica para cargar
+datos o fragmentos de HTML sin refrescar la ventana del navegador. Fue
+diseñado a finales de los 90 por Microsoft como una API que daba soporte
+a su servicio de Outlook Web Access (Outlook a través de navegador).
+Esencialmente ésta tecnología permite que el cliente javascript se comunique
+con el servidor utilizando el objeto XML HttpRequest, presente en la mayoría
+
+de los navegadores modernos[ 13].
+
+45Pero Ajax no es la única opción. A continuación hablaremos de Comet y
+WebSocket como opciones substitutas para la contrucción de aplicaciones con
+interfaces y comportamiento complejos que en el caso de Comet no gozan
+de la popularidad de Ajax ni se ha convertido en estándar por no tener una
+espalda empresarial como Microsoft[1], Google o Yahoo!. El caso de Web
+Socket es diferente por haber nacido como parte de una especificación creada
+y en desarrollo por parte de W3C.
+
+Comet: Alex Russell descubre una nueva forma de comunicación “no
+estándar” entre el browser y el servidor usado por aplicaciones como Google
+Talk |, Meebo o JotLive (ahora de Google)? diferente a la tradicional Ajax y
+decide denominarla Comet como una forma de poder referenciarla a futuro.
+
+La diferencia de Comet con Ajax es que en Ajax, las peticiones de ejecución
+en el server nacen en el browser (la dirección es la tradicional, del browser
+al servidor). En Comet sin embargo se abre una linea de comunicación
+entre el browser y el server, reduciendo la latencia de enviar paquetes
+desde el browser cada vez que se necesite un requerimiento y permitiendo
+que sea el server quien envie los paquetes al browser de forma autónoma
+(la comunicación es bidireccional, ahora el servidor también puede enviar
+peticiones al browser)[18]. Una aplicación Comet puede enviar datos al
+browser en cualquier momento, lo que permite crear aplicaciones más real
+time (por ejemplo monitoreo o colaboración online entre usuarios) a diferencia
+de Ajax donde el browser encola las peticiones enviadas al servidor de forma
+asíncrona, dado que Comet no está contruida sobre la base de comunicación
+estándar HTTP Request/Response es necesario instalar componentes de parte
+del server. Apache provee un módulo ?comet-ready? en su versión 2.2, existen
+también soluciones como Twisted (para desarrollos en python), o POE (para
+perl), la lista aumenta a medida que Comet se convierte en una opción popular.
+
+ 
+
+IGoogle talk: Fue un cliente de mensajería instantánea y VoIP de protocolo XMPP
+desarrollado por Google Inc., sustituido en mayo de 2013 por Hangouts.
+
+2Meebo o JotLive: Fue un cliente de mensajería instantánea ejecutable dentro de un
+navegador web, como AIM Express, y que integraba múltiples servicios de mensajería
+instantánea simultaneamente.
+
+46Ajax web application model (asynchronous)
+
+  
+
+   
+
+data transmisión
+
+  
+
+A
+
+  
+
+server
+
+Figura 5.19: Modelo aplicación Ajax
+
+Comet web application model
+
+      
+
+client proceasing 1
+
+      
+
+q JOPoULca
+
+poz ieaju Y
+
+     
+
+data trans mission
+
+dealiiransmissión
+OB ILUs ue] EJEp
+
+        
+  
+
+Eran
+—
+
+comet enant bus
+E E E
+2 E É
+
+server-side processing
+
+Figura 5.20: Modelo aplicación Comet
+
+HTML 5 WebSocket: Web Socket es la alternativa estándar (escrita desde
+cero) para la especificación de la versión 5 del lenguaje HTML ( que en
+su versión expresada en XML se podrá llamar XHTML ) y por tanto con
+implementación nativa para los browsers que cumplan dicha especificación.
+La diferencia que da valor agregado a Web Socket ( a parte de ser estándar )
+radica en que provee una conexión duplex entre el browser y el server con una
+sola conexión TCP/IP (a diferencia de Comet que abre conexiones para cada
+requerimiento) y por otro lado genera pocos headers HTTP en los mensajes (
+a diferencia de Comet que se basa en escribir mucha información en el header
+haciendo más pesados los mensajes). Además el protocolo de transporte que
+
+47usa Web Socket puede ser usado en una diversidad de clientes (e.g. JavaScript,
+Adobe Flex, JavaFX, Microsoft Silverlight, etc.) sin usar transformación de
+mensajes a diferencia de Comet que usa el protocolo Bayeux o JSON de la
+
+parte cliente, requiriendo transformación cuando el server trabaja con otro
+protocolo como JMS, XMPP o IMAP.[18]
+
+Después de la investigación de estas tecnologías se decidió utilizar webSocket
+y ajax para el desarrollo de citas activas, ya que proporciona un canal de
+comunicación bidireccional.
+
+Reportlab: Es un paquete de librerías libre, escrito en python, que permite
+crear archivos en formato PDF y exportarlos.
+
+5.2.9. Transición
+
+ 
+
+FICHA TÉCNICA
+
+ 
+
+Fase 4: Transición
+
+ 
+
+En esta fase se documentan las pruebas de caja
+
+ 
+
+Propósito negras así como las pruebas unitarias por cada
+ciclo establecido en la metodología.
+=_ 5.2.9.1 Pruebas de caja negra.
+Contenido
+
+= 5.2.9.2 Pruebas unitarias.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 5.28: Ficha técnica fase de transición ciclo 2
+
+5.2.9.1. Pruebas de caja negra
+
+Se realizaron pruebas de caja negra a cada módulo del sistema para establecer
+su integridad, en los anexos 7.34, 7.35, 7.36, 7.37, 7.38 y 7.39 se pueden ver las
+pruebas realizadas a generar pdf historia clínica, registrar exámenes médicos,
+consultar agenda médica, modificar cita médica, enviar cita y recibir cita, que
+se encuentran en los anexos generales del CD, ubicado en la ruta “Trabajo de
+grado-Sisa Sas/Anexos”.
+
+48CASO DE PRUEBA CP 2-1
+
+ 
+
+Nombre caso de prueba
+
+Consultar historia clínica
+
+ 
+
+Id caso de uso
+
+CU 2-1
+
+ 
+
+Comprobar el correcto funcionamien
+ 
+
+ 
+
+Objetivo de la prueba to al momento consultar la historia
+clínica de un paciente.
+
+Actor Administrador, secretaria, médico
+
+Precondiciones El usuario a consultar la historia clíni
+ca debe estar registrado y autenticado.
+
+ 
+
+Pasos a seguir
+
+ 
+
+Acción del actor
+
+Resultados esperados
+
+ 
+
+Acción del actor
+
+Resultados esperados
+
+ 
+
+1. El usuario ingresa a la opción
+historia clínica.
+
+2. El sistema despliega las opciones
+de “consultar historia clínica”. “regis
+trar examenes médico”.
+
+ 
+
+3. El usuario ingresa a la opción
+“consultar historia clínica”.
+
+4. EL sistema despliega el formulario
+de búsqueda con el campo nombre de
+usuario o cedula.
+
+ 
+
+Ejecución
+
+ 
+
+Fecha
+
+30 de enero de 2015.
+
+ 
+
+Resultados obtenidos
+
+Los resultados obtenidos fuerón igual
+a los esperados.
+
+ 
+
+Revisado por
+
+Andres Felipe Gomez, Valentina
+Martinez.
+
+ 
+
+Aceptado por
+
+ 
+
+ 
+
+Estado caso de prueba
+
+ 
+
+Superado
+
+ 
+
+Tabla 5.29: Caso de prueba 2.1 registrar historia clínica
+
+ 
+
+CASO DE PRUEBA CP 2-4
+
+ 
+
+Nombre caso de prueba
+
+Registrar cita
+
+ 
+
+Id caso de uso
+
+CU 2-4
+
+ 
+
+Comprobar el correcto funcionamiento al momento de registrar un cita
+
+ 
+
+ 
+
+Objetivo de la prueba médica en la entidad validando la disponibilidad del médico, consultorio y
+hora.
+
+Actor Administrador, secretaria.
+
+ 
+
+ 
+
+49Precondiciones
+
+El usuario a registrar una cita médica
+debe estar registrado y autenticado.
+
+ 
+
+Pasos a seguir
+
+ 
+
+Acción del actor
+
+Resultados esperados
+
+ 
+
+1. El usuario ingresa a la opción
+agenda médica.
+
+2. El sistema despliega las opciones
+
+de “registrar cita medica”, “consultar
+
+cita médica”, “consultar agenda médi
+99
+
+Ca
+
+ 
+
+3. El usuario ingresa a la opción
+“registrar cita medica”.
+
+ 
+
+4. El sistema despliega el calendario,
+donde se muestran los espacios disponibles para asiganar citas medicas.
+
+ 
+
+5. El usuario selecciona el dia de la
+cita medica.
+
+6. El sistema despliega el formulario
+con los campos establecidos en el
+anexo .
+
+ 
+
+7. El usuario diligencia cada uno de
+los campos y almacena la información.
+
+8. El sistema valida y almacena la
+información.
+
+ 
+
+Ejecución
+
+ 
+
+Fecha
+
+30 de enero de 2015.
+
+ 
+
+Resultados obtenidos
+
+Los resultados obtenidos fuerón igual
+a los esperados.
+
+ 
+
+Revisado por
+
+Andres Felipe Gomez, Valentina
+Martinez.
+
+ 
+
+Aceptado por
+
+ 
+
+ 
+
+Estado caso de prueba
+
+ 
+
+Superado
+
+ 
+
+Tabla 5.30: Caso de prueba 2.4 registrar cita
+
+ 
+
+CASO DE PRUEBA CP 2-6
+
+ 
+
+Nombre caso de prueba
+
+Consultar cita
+
+ 
+
+Id caso de uso
+
+CU 2-6
+
+ 
+
+Comprobar el correcto funcionamien
+ 
+
+ 
+
+ 
+
+Objetivo de la prueba to al momento de consultar una cita
+específica en la entidad.
+
+Actor Administrador, secretaria
+
+Precondiciones El usuario a consultar una cita médica
+
+ 
+
+debe estar registrado y autenticado.
+
+ 
+
+50Pasos a seguir
+
+ 
+
+Acción del actor
+
+Resultados esperados
+
+ 
+
+1. El usuario ingresa a la opción
+agenda médica.
+
+2. El sistema despliega las opciones
+
+de “registrar cita medica”, “consultar
+
+cita médica”, “consultar agenda médi
+ye
+
+Ca
+
+ 
+
+3. El usuario ingresa a la opción
+“consultar cita médica”.
+
+ 
+
+4. El sistema despliega el formulario
+de búsqueda con las opciones de busqueda por paciente, medico,fecha y el
+campo de busqueda dependiendo la
+consulta a realizar.
+
+ 
+
+5. El usuario selecciona la consulta
+a realizar y diligencia el campo de
+búsqueda.
+
+6. El sistema valida la información y
+despliega la respectiva consulta.
+
+ 
+
+7. El usuario selecciona la cita a
+consultar.
+
+8. El sistema muestra la información
+de la respectiva cita.
+
+ 
+
+Ejecución
+
+ 
+
+Fecha
+
+30 de enero de 2015.
+
+ 
+
+Resultados obtenidos
+
+Los resultados obtenidos fueron igual
+a los esperados.
+
+ 
+
+Revisado por
+
+Andres Felipe Gomez, Valentina
+Martinez.
+
+ 
+
+Aceptado por
+
+ 
+
+ 
+
+Estado caso de prueba
+
+ 
+
+Superado
+
+ 
+
+Tabla 5.31: Caso de prueba 2.6 consultar cita
+
+ 
+
+CASO DE PRUEBA CP 2-8
+
+ 
+
+Nombre caso de prueba
+
+Registrar historia clínica
+
+ 
+
+Id caso de uso
+
+CU 2-8
+
+ 
+
+Comprobar el correcto funcionamiento al momento al momento de regis
+ 
+
+ 
+
+ 
+
+Objetivo de la prueba trar la historia clínica de un paciente
+que se dispone a entrar a una consulta
+médica en la entidad.
+
+Actor Médico.
+
+El usuario a registrar la historia clíni
+Precondiciones
+
+ 
+
+ca de un paciente debe estar registrado
+y autenticado.
+
+ 
+
+51Pasos a seguir
+
+ 
+
+Acción del actor
+
+Resultados esperados
+
+ 
+
+1. El usuario ingresa a la opción
+historia clínica.
+
+2. El sistema despliega la opción
+“Citas pendientes”.
+
+ 
+
+3. El usuario ingresa a la opción
+“Citas pendientes”.
+
+ 
+
+4. El sistema despliega las citas pendientes de la entidad.
+
+ 
+
+5. El usuario selecciona y acepta la
+respectiva cita médica.
+
+6. El sistema muestra la información
+básica del usuario y las opciones para
+diligenciar cada uno de los campos de
+dicha historia clínica: antecedentes,
+anamnesis, tratamiento y exámenes
+médicos.
+
+ 
+
+7. El usuario diligencia cada uno de
+los campos y registra la información.
+
+8. El sistema cambia el estado de
+la cita medica. almacena y valida la
+información.
+
+ 
+
+Ejecución
+
+ 
+
+Fecha
+
+30 de enero de 2015.
+
+ 
+
+Resultados obtenidos
+
+Los resultados obtenidos fueron igual
+a los esperados.
+
+ 
+
+Revisado por
+
+Andres Felipe Gomez, Valentina
+Martinez.
+
+ 
+
+Aceptado por
+
+ 
+
+Estado caso de prueba
+
+ 
+
+ 
+
+Superado
+
+ 
+
+Tabla 5.32: Caso de prueba 2.8 registrar historia clínica
+
+5.2.9.2. Pruebas unitarias
+
+Las pruebas unitarias del ciclo 2 se pueden ver en los anexos 7.40, 7.41 y 7.42
+respectivamente, que se encuentran en los anexos generales del CD, ubicado
+en la ruta “Trabajo de grado-Sisa Sas/Anexos”.
+
+25.2.10. CICLO 3: Inicio
+
+ 
+
+FICHA TÉCNICA
+
+ 
+
+Fase 1: Inicio
+
+ 
+
+Esta fase tiene como finalidad comprender los
+procesos que lleva SISA con relación a los convenios que tiene con otras entidades y los procesos que llevan para la toma de exámenes médicos, los cuales se realizan en dicha entidad o en
+Propósito otra entidad con la cual tenga algún convenio establecido, así como la recolección de los diferentes formatos que allí se utilizan para la realización de los procesos descritos con anterioridad y
+la identificación de los diferentes requerimientos
+necesarios para el desarrollo de los módulos de
+convenios y exámenes médicos.
+
+ 
+
+= 5.2.10.1 Recolección de información en
+SISA.
+
+Contenido = 5.2.10.2 Elaboración documento de
+requerimientos.
+
+= 5.2.10.3 Identificación de casos de uso .
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 5.33: Ficha técnica fase de inicio ciclo 3
+
+5.2.10.1. Recolección de información
+
+Recolección de información en SISA por parte del equipo de trabajo al personal administrativo para comprender exactamente como se llevan a cabo los
+procesos de exámenes médicos y convenios con otras entidades, con el fin de
+obtener una información veraz, se procedió a utilizar entrevistas directas con el
+coordinador de servicios de SISA Oscar Lozano, dicha entrevista se encuentra
+en el anexo 7.43.
+
+5.2.10.2. Recolección de requerimientos
+
+Recolección de requerimientos de los módulos de convenios y exámenes
+médicos, para la obtención de estos requerimientos se utilizó la observación
+directa y la entrevista a diferentes miembros de la entidad.
+
+53Número
+
+Requerimiento
+
+Visibilidad
+
+ 
+
+R7.1
+
+El sistema en el módulo exámenes médicos deberá permitir al usuario cuyos permisos se lo permitan registrar la información de los diferentes
+convenios de la entidad capturando los datos del
+anexo 7,44,
+
+Visible
+
+ 
+
+R7.2
+
+El sistema en el módulo exámenes médicos deberá permitir al usuario cuyos permisos se lo permitan consultar la información de los diferentes
+convenios de la entidad.
+
+Visible
+
+ 
+
+R7.3
+
+El sistema en el módulo exámenes médicos deberá permitir al usuario cuyos permisos se lo permitan modificar la información de los diferentes
+convenios establecida en el anexo 7.44.
+
+Visible
+
+ 
+
+R7.4
+
+El sistema en el módulo exámenes médicos deberá permitir al usuario cuyos permisos se lo permitan agregar servios a cada convenio capturando
+los datos del anexo 7.45.
+
+Visible
+
+ 
+
+R7.5
+
+El sistema en el módulo exámenes médicos deberá permitir al usuario cuyos permisos se lo permitan generar los diferentes formatos de la entidad,
+según la necesidad del usuario para la realización,
+información y control de los diferentes exámenes
+médicos, capturando los datos del anexo 7.46 (remisión de exámenes médicos) , anexo 7.47 (exámenes médicos diarios) , anexo 7.48 (consentimiento informado de flebotomia), anexo 7.49 (autorización de servicios)
+
+Visible
+
+ 
+
+ 
+
+R7.6
+
+ 
+
+El sistema en el módulo exámenes médicos deberá permitir al usuario cuyos permisos se lo permitan cambiar el estado de un servicio de activo a
+inactivo.
+
+ 
+
+Visible
+
+ 
+
+Tabla 5.34: Requerimientos módulo convenios
+
+54Número
+
+Requerimiento
+
+Visibilidad
+
+ 
+
+R8.1
+
+El sistema en el módulo exámenes médicos deberá permitir al usuario cuyos permisos se lo permitan registrar la información del formato de re
+misión de muestras capturando los datos del anexo
+7.46.
+
+Visible
+
+ 
+
+R8.2
+
+El sistema en el módulo exámenes médicos deberá permitir al usuario cuyos permisos se lo
+permitan registrar la información del formato de
+exámenes médicos diarios realizados en sisa capturando los datos del anexo 7.47.
+
+Visible
+
+ 
+
+R8.3
+
+El sistema en el módulo exámenes médicos deberá permitir al usuario cuyos permisos se lo permitan diligenciar los diferentes formatos de la entidad, según la necesidad del usuario para la realización, información y control de los diferentes
+exámenes médicos, anexo 7.48 (consentimiento informado de flebotomia), anexo 7.49 (autorización
+de servicios).
+
+Visible
+
+ 
+
+R8.4
+
+El sistema en el módulo exámenes médicos deberá permitir al usuario cuyos permisos se lo permitan generar el formato de consentimiento informado de flebotomia con los datos establecidos en
+el anexo 7.48 .
+
+Visible
+
+ 
+
+R$8.5
+
+ 
+
+ 
+
+El sistema en el módulo exámenes médicos deberá permitir al usuario cuyos permisos se lo permitan generar el formato de autorización de servicios con los datos establecidos en el anexo 7.49.
+
+ 
+
+Visible
+
+ 
+
+5.2.10.3.
+
+Tabla 5.35: Requerimientos módulo exámenes médicos
+
+Identificación de casos de usos
+
+Identificación de casos de uso para los módulos de convenios y exámanes
+médicos, basado en los requerimientos mencionados con anterioridad.
+
+55Moódulo convenios
+
+ 
+
+ 
+
+Secretaria
+Administrador
+
+ 
+
+Registrar convenio
+
+ 
+   
+
+Consultar
+convenios
+Agregar servicio
+
+  
+
+ 
+
+ 
+
+Figura 5.21: Caso de uso módulo convenios
+
+Módulo Exámenes médicos
+
+ 
+
+Registrar
+
+Y
+Y
+Y
+Y
+Y
+
+<Extends>
+
+r
+
+O .
+Y
+== xK q A
+——_—_—__—_—> Diligenciar formatos L- <Extends>
+é.
+
+* <Extends>
+
+ss
+
+ 
+
+Y
+
+Y
+
+Secretaria s E
+
+s
+ss
+
+Remisión de muestras
+
+Registrar exámenes
+médicos diarios
+
+Generar pdf
+
+autorización de
+
+servicios
+
+ 
+
+¿gxtends>
+s
+
+s
+s
+s
+s
+
+>
+Y Generar pdf
+flebotomia
+
+ 
+
+LOat
+
+ 
+
+Figura 5.22: Caso de uso módulo exámenes médicos
+
+5.2.11. Elaboración
+
+ 
+
+FICHA TÉCNICA
+
+ 
+
+Fase 2: Elaboración
+
+ 
+
+En esta fase se realizará la descripción de los
+casos de uso y la identificación de los diferentes
+
+ 
+
+Propósito z
+P diagramas de secuencia para los módulos de
+convenios y exámenes médicos.
+= 6.2.11.1 Elaboración de casos de uso
+extendidos.
+Contenido
+
+ 
+
+= 6.2.11.2 Elaboración de diagramas de
+secuencia.
+
+ 
+
+ 
+
+Tabla 5.36: Ficha técnica fase de elaboración ciclo 3
+
+565.2.11.1. Elaboración y descripción de casos de uso extendidos.
+
+A continuación se describen los casos de uso extendidos de los módulos
+exámenes médicos y convenios, el caso de uso extendido de modificar
+convenio, agregar servicio, registrar remisión de muestras, registrar exámenes
+médicos, generar pdf de consentimiento informado de flebotomía y generar
+pdf de autorización de servicios se pueden ver en los anexos 7.50, 7.51, 7.52,
+7.53, 7.54,7.55 respectivamente, que se encuentran en los anexos generales del
+CD, ubicado en la ruta “Trabajo de grado-Sisa Sas/Anexos”.
+
+ 
+
+Caso de uso Registrar convenio.
+
+ 
+
+Actores Administrador, secretaria.
+
+ 
+
+Este caso de uso le permite al usuario
+
+ 
+
+ 
+
+ 
+
+ 
+
+Resumen registrar cada uno de los convenios
+que tiene la entidad.
+Tipo Secundario
+Referencias cruzadas R7:1
+Curso normal de los eventos
+Acción de los actores Acción del sistema
+
+ 
+
+Línea 2: El sistema despliega las opciones de “registrar convenio”, “consultar covenio” y “agregar servicio”.
+
+Línea 1: El usuario ingresa a la opción
+convenios.
+
+ 
+
+Línea 4: Linea 4: El sistema despliega
+Línea 3: El usuario ingresa a la opción | el formulario de registrar convenios
+“registrar convenio” . con los campos establecidos en el
+anexo 7.44.
+
+ 
+
+Línea 5: El usuario diligencia cada
+uno de los campos del formulario y | Línea 6: El sistema valida y almacena
+registrada la información correspon- | la información.
+
+diente.
+
+ 
+
+ 
+
+Curso alterno de los eventos
+
+ 
+
+Línea 6: Si al validar la información por el usuario,éste ingresa caracteres no
+válidos en determinados campos el sistema debe emitir un mensaje informando
+dicho error. Linea 6: Si al validar la información registrada por el usuario
+se encuentra duplicación de información el sistema debe emitir un mensaje
+informando sobre la redundancia de datos.
+
+ 
+
+ 
+
+ 
+
+Tabla 5.37: Caso de uso extendido registrar convenio
+
+57Caso de uso
+
+Consultar convenio
+
+ 
+
+ 
+
+ 
+
+ 
+
+Actores Administrador, secretaria.
+Este caso de uso le permite al usuario
+Resumen consultar cada uno de los convenios
+que tiene la entidad.
+Tipo Secundario
+Referencias cruzadas: R7:2
+
+ 
+
+Curso normal
+
+de los eventos
+
+ 
+
+Acción de los actores
+
+Acción del sistema
+
+ 
+
+Línea 1: El usuario ingresa a la opción
+convenios.
+
+Línea 2: El sistema despliega las opciones de “registrar convenio”, “consultar covenio” y “agregar servicio”.
+
+ 
+
+Línea 3 El usuario ingresa a la opción
+“consultar convenio”.
+
+Línea 4: El sistema despliega el formulario con el campo de búsqueda
+por medico o entidad .
+
+ 
+
+Línea 5: El usuario diligencia el campo, con la información del médico o
+la entidad a consultar.
+
+ 
+
+Línea 6: El sistema valida y despliega la información correspondiente al
+médico o entidad consultado.
+
+ 
+
+Curso alterno de los eventos
+
+ 
+
+ 
+
+Línea 6: Si al validar la información por el usuario,éste ingresa caracteres no
+válidos en determinados campos el sistema debe emitir un mensaje informando
+
+dicho error.
+
+ 
+
+Tabla 5.38: Caso de uso extendido consultar convenio.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Caso de uso Diligenciar formatos
+Actores Administrador, secretaria.
+Este caso de uso le permite al usuario
+Resumen diligenciar cada uno de los formatos
+necesarios para la remisión y toma de
+exámenes médicos de la entidad.
+Tipo Primario- opcional
+
+ 
+
+Referencias cruzadas
+
+R8:3
+
+ 
+
+Curso normal de los eventos
+
+ 
+
+Acción de los actores
+
+Acción del sistema
+
+ 
+
+ 
+
+Línea 1: El usuario ingresa a la opción
+exámenes médicos.
+
+ 
+
+Línea 2: El sistema despliega la opción de “diligenciar formatos”.
+
+ 
+
+58Línea 4: El sistema despliega los formularios de remisión de muestras,
+exámenes médicos diarios, consentimiento informado flebotomía y autorización de servicios.
+
+Línea 3: El usuario ingresa a la opción
+“diligenciar formatos”
+
+ 
+
+Línea 5: El usuario selecciona el for- | Línea 6:El sistema despliega el formato a diligenciar. mulario seleccionado.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 5.39: Caso de uso extendido diligenciar formatos.
+
+5.2.11.2. Elaboración diagramas de secuencia
+
+A continuación se describen los diagramas de secuencia de los módulos
+exámenes médicos y convenios, el diagrama de secuencia de modificar
+convenio, agregar servicio, registrar remisión de muestras, registrar exámenes
+médicos, generar pdf de consentimiento informado de flebotomía y generar
+pdf de autorización de servicios se pueden ver en los anexos 7.56, 7.57, 7.58,
+7.59, 7.60, 7.61 respectivamente, que se encuentran en los anexos generales
+del CD, ubicado en la ruta “Trabajo de grado-Sisa Sas/Anexos”.
+
+| Ni IGU URL Views.py Formulario.py Models.py
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+I
+Administrador l
+Secretaria |
+
+l
+
+1. Ingresa
+
+módulo convenios >
+
+2. Despliega opciones:
+Registrar convenio
+< 7777 Consultar convenio
+Agregar servicio
+
+3. Seleccionar
+
+Registrar convenio >
+
+4 Verifica url
+Registrar convenio —> 5. Redirecciona
+registrar convenio > 6.Solicita formulario
+Registrar convenio ?
+¿ 7. Devuelve formulario
+< 8. Devuelve formulario Registrar convenio
+9. Muestra formulario registro
+
+< ES Registrar convenio
+
+10.Diligencia formulario
+
+Registrar convenio > 11. Valida y envia
+datos del convenio
+
+metodo POST 12. Solicita almacenar
+
+OS —— información > S
+—- 13.Almacena información
+15. Informacion del 4 14, con Si convenio _
+4- - convenio almacenada con Lalo almacenada
+
+éxito
+
+17. convenio creado
+CN con exito. "77707
+
+ 
+
+ 
+
+ 
+
+Figura 5.23: Diagrama de secuencia registrar convenio
+
+59Secretaria
+
+ 
+
+ 
+
+ 
+
+Administrador T
+
+1.Ingresa al módulo >
+convenio
+
+2.Despliega opciones:
+< Registrar convenio
+Consultar convenio
+
+Agregar servicio
+
+3.Selecciona consultar
+convenio >
+
+7.Muestra campo de
+búsqueda
+por (entidad, medico, completo)
+
+£-
+8.Diligencia campo de
+busqeuda
+
+17.Muestra información
+convenio.
+
+ 
+
+ 
+
+Figura 5.24: Diagrama de secuencia consultar convenio
+
+Á
+
+Secretaria
+Administrador
+
+1.Ingresa al módulo y
+exámenes médicos
+
+2. Despliega la opciones:
++ =- “Diligenciar formatos” +====
+
+3. Selecciona la opción: y
+diligenciar formatos
+
+9. Muestra formatos
+Remisión de muestras
+< Exámenes médicos diarios
+Consentimiento informado flebotomia
+Autorización de servicios
+
+10. Selecciona formarto a y
+diligenciar
+
+X11 Muestra formato seleccionado —
+
+4.Verífica url
+consultar convenio
+
+6.Redirecciona htm!
+
+respectiva información
+
+t--
+16.Envia información
+
+      
+ 
+   
+     
+  
+   
+   
+     
+ 
+
+consultar -=-convenio
+
+convenio consu ===
+
+4, Verifica url
+
+URL
+
+diligenciar formatos >
+
+8. Devuelve formulario
+disponibles
+
+5.Redirecciona consultar >
+
+9.Valida y envia
+
+información del campo de ——>S>
+
+ 
+
+ 
+
+convenio
+
+búsqueda
+
+ 
+
+ 
+
+ 
+
+Formulario.py
+
+ 
+
+Models.py
+
+ 
+
+ 
+
+  
+
+14.Solicita formulario
+
+consultar convenio
+
+< 15.Formulario consultar
+convenio
+
+5. Redirecciona y
+diligenciar formatos
+
+60
+
+ 
+
+6. Solicita formularios de
+formatos disponibles
+
+7. Retorna formulario
+formatos disponibles
+
+10.Envia información
+campo de búsqueda
+
+_ 13. Envia información
+
+convenio
+
+Formulario.py
+
+ 
+
+|
+
+Figura 5.25: Diagrama de secuencia diligenciar formatos
+
+ 
+
+11. Busca información
+convenio
+
+12.Retorna información
+convenio
+
+é
+   
+
+create!
+
+ 
+
+Models.py
+
+[tine dagramming 8 cesan) CPEALE!y com5.2.12. Construcción
+
+ 
+
+FICHA TÉCNICA
+
+ 
+
+Fase 3: Construcción
+
+ 
+
+En esta fase se documenta el proceso de
+construcción de la aplicación, así como el plan
+
+ 
+
+Proposito de acción tomado para el desarrollo del
+software.
+Contenido = 6.2.7.1 Desarrollo de software.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 5.40: Ficha técnica fase de construcción ciclo 3
+
+5.2.12.1. Desarrollo del software
+
+En esta etapa del desarrollo del software se utilizarón las tecnologías descritas
+en la fase de construcción del ciclo 1 (python, django, javascript, ¡query y css)
+y reportlab descrita en la fase de construcción del ciclo 2.
+
+5.2.13. Transición
+
+ 
+
+FICHA TÉCNICA
+
+ 
+
+Fase 4: Transición
+
+ 
+
+En esta fase se documenta las pruebas de caja
+
+ 
+
+Propósito negra así como las pruebas unitarias del ciclo 3
+establecido en la metodología.
+= 5.2.13.1 Pruebas de caja negra.
+Contenido
+
+= 5.2.13.2 Pruebas unitarias.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 5.41: Ficha técnica fase de transición ciclo 3
+
+5.2,.13.1. Pruebas de caja negra
+
+Se realizaron pruebas de caja negra a cada módulo del sistema para establecer
+su integridad, en los anexos 7.62, 7.63, 7.64,77.65, 7.66 y 7.67 se pueden ver las
+pruebas realizadas a modificar convenio, agregar servicio, registrar remisión
+
+61de muestras, registrar exámenes médicos, generar pdf de consentimiento
+informado de flebotomía y generar pdf de autorización de servicios, que se
+encuentran en los anexos generales del CD, ubicado en la ruta “Trabajo de
+
+grado-Sisa Sas/Anexos”.
+
+ 
+
+CASO DE PRUEBA CP 3-1
+
+ 
+
+Nombre caso de prueba
+
+Registrar convenio
+
+ 
+
+Id caso de uso
+
+CU 3-1
+
+ 
+
+Comprobar el correcto funcionamien
+ 
+
+ 
+
+ 
+
+Objetivo de la prueba to al momento de registrar un convenio con otra entidad.
+
+Actor Administrador, secretaria.
+
+Precondiciones El usuario a registrar el convenio debe
+estar registrado y autenticado.
+
+Poscondiciones
+
+ 
+
+Pasos a seguir
+
+ 
+
+Acción del actor
+
+Resultados esperados
+
+ 
+
+1. El usuario ingresa a la opción
+convenios.
+
+2. El sistema despliega las opciones
+de “registrar convenio”, “consultar
+covenio” y “agregar servicio”.
+
+ 
+
+3. El usuario ingresa a la opción
+“registrar convenio”.
+
+4. Linea 4: El sistema despliega el formulario de convenios con los campos
+establecidos en el anexo 7.44.
+
+ 
+
+5. El usuario diligencia cada uno de
+los campos del formulario.
+
+6. El sistema valida y almacena la
+información.
+
+ 
+
+Ejecución
+
+ 
+
+Fecha
+
+2 de marzo de 2015.
+
+ 
+
+Resultados obtenidos
+
+Los resultados obtenidos fueron igual
+a los esperados.
+
+ 
+
+Revisado por
+
+Andres Felipe Gomez, Valentina
+Martinez.
+
+ 
+
+Aceptado por
+
+ 
+
+ 
+
+Estado caso de prueba
+
+ 
+
+Superado
+
+ 
+
+Tabla 5.42: Caso de prueba registrar convenio 3.1
+
+62CASO DE PRUEBA CP 3-2
+
+ 
+
+Nombre caso de prueba
+
+Consultar convenio
+
+ 
+
+Id caso de uso
+
+CU 3-2
+
+ 
+
+Comprobar el correcto funcionamien
+ 
+
+ 
+
+ 
+
+Objetivo de la prueba to al momento de consultar los convenios de la entidad.
+
+Actor
+
+Precondiciones El usuario a consultar el convenio
+debe estar registrado y autenticado.
+
+Poscondiciones
+
+ 
+
+Pasos a seguir
+
+ 
+
+Acción del actor
+
+Resultados esperados
+
+ 
+
+1. El usuario ingresa a la opción
+convenios.
+
+2. El sistema despliega las opciones
+de “registrar convenio”, “consultar
+convenio” y “agregar servicio”.
+
+ 
+
+3.El usuario ingresa a la opción “consultar convenio”.
+
+4. El sistema despliega el formulario
+con el campo de búsqueda por médico
+o entidad .
+
+ 
+
+5.: El usuario diligencia el campo con
+el nombre del médico o la entidad a
+consultar.
+
+6. El sistema valida y despliega la información correspondiente al médico
+o entidad consultado.
+
+ 
+
+Ejecución
+
+ 
+
+Fecha
+
+2 de marzo de 2015.
+
+ 
+
+Resultados obtenidos
+
+Los resultados obtenidos fueron igual
+a los esperados.
+
+ 
+
+Revisado por
+
+Andres Felipe Gomez, Valentina
+Martinez.
+
+ 
+
+Aceptado por
+
+ 
+
+ 
+
+Estado caso de prueba
+
+ 
+
+Superado
+
+ 
+
+Tabla 5.43: Caso de prueba consultar convenio 3.2
+
+63CASO DE PRUEBA CP 3-5
+
+ 
+
+Nombre caso de prueba
+
+Diligenciar formatos
+
+ 
+
+Id caso de uso
+
+CU 3-5
+
+ 
+
+Comprobar el correcto funcionamien
+ 
+
+ 
+
+ 
+
+Objetivo de la prueba to al momento de diligenciar los diferentes formatos de la entidad.
+Actor Administrador, secretaria.
+El usuario a diligenciar los formatos
+Precondiciones disponibles en la entidad debe estar
+registrado y autenticado.
+Poscondiciones
+
+ 
+
+Pasos a seguir
+
+ 
+
+Acción del actor
+
+Resultados esperados
+
+ 
+
+1. El usuario ingresa a la opción
+exámenes médicos.
+
+2. El sistema despliega la opción de
+“diligenciar formatos”.
+
+ 
+
+3. El usuario ingresa a la opción
+“diligenciar formatos”.
+
+4. El sistema despliega los formularios de remisión de muestras, exámenes médicos diarios, consentimiento
+informado flebotomía y autorización
+de servicios.
+
+ 
+
+5. El usuario selecciona el formato a
+diligenciar.
+
+ 
+
+6. El sistema despliega el formulario
+seleccionado.
+
+ 
+
+7. El usuario diligencia el formato
+seleccionado.
+
+ 
+
+Ejecución
+
+ 
+
+Fecha
+
+2 de marzo de 2015.
+
+ 
+
+Resultados obtenidos
+
+Los resultados obtenidos fueron igual
+a los esperados.
+
+ 
+
+Revisado por
+
+Andres Felipe Gomez, Valentina
+Martinez.
+
+ 
+
+Aceptado por
+
+ 
+
+ 
+
+Estado caso de prueba
+
+ 
+
+Superado
+
+ 
+
+Tabla 5.44: Caso de prueba 3.5 diligenciar formatos
+
+5.2.13.2. Pruebas unitarias
+
+Las pruebas unitarias del ciclo 3 se pueden ver en los anexos 7.68 y 7.69
+respectivamente, que se encuentran en los anexos generales del CD, ubicado
+en la ruta “Trabajo de grado-Sisa Sas/Anexos”.
+
+645.2.14. CICLO 4: Inicio
+
+ 
+
+FICHA TÉCNICA
+
+ 
+
+Fase 1: Inicio
+
+ 
+
+Esta fase tiene como finalidad comprender los
+procesos que lleva SISA con relación a facturació, reportes y recibos de caja, así como la recoPropósito lección de los diferentes formatos que allí se ut1lizan para la realización de los procesos descritos
+con anterioridad y la identificación de los diferentes requerimientos necesarios para el desarrollo de los módulos de facturación y reportes.
+
+ 
+
+= 5.2.14.1 Recolección de información en
+SISA.
+
+Contenido = 5.2.14.2 Elaboración documento de
+requerimientos.
+
+= 5.2.14.1 Identificación de casos de uso.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 5.45: Ficha técnica fase de inicio ciclo 4
+
+5.2.14.1. Recolección de información
+
+Recolección de información en SISA por parte del equipo de trabajo al personal administrativo para comprender exactamente como llevan a cabo los procesos de facturacón y reportes con el fin de obtener una información veraz, se
+procedió a utilizar entrevistas directas con la secretaria de la entidad Alejandra
+Gomez, siguiendo el formato de entrevista establecido en el anexo 7.70.
+
+5.2.14,2. Recolección de requerimientos
+
+Recolección de requerimientos para los módulos de facturación y reportes,
+para la obtención de estos requerimientos se utilizó la observación directa y la
+entrevista a diferentes miembros de la entidad.
+
+ 
+
+Número Requerimiento Visibilidad
+
+ 
+
+El sistema en el módulo de facturación deberá alR9.1 macenar la información correspondiente al recibo | Visible
+de caja capturando los datos del anexo 7.71, al momento de enviar una cita médica.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+65R9.2
+
+El sistema en el módulo facturación deberá permitir al usuario cuyos permisos se lo permitan consultar los diferentes recibos de caja generados por
+cada servicio prestado en la entidad.
+
+Visible
+
+ 
+
+R9.3
+
+El sistema en el módulo facturación deberá permitir al usuario cuyos permisos se lo permitan consultar las diferentes facturas de ventas generadas en la
+entidad.
+
+Visible
+
+ 
+
+R9.4
+
+El sistema en el módulo facturación deberá permitir al usuario cuyos permisos se lo permitan generar
+la factura de venta.
+
+Visible
+
+ 
+
+R9.5
+
+El sistema en el módulo facturación deberá permitir al usuario cuyos permisos se lo permitan crear
+los diferentes servicios que se prestan en la entidad
+capturando los datos del anexo 7.74.
+
+Visible
+
+ 
+
+R9.6
+
+El sistema en el módulo facturación deberá permitir al usuario cuyos permisos se lo permitan consultar los diferentes servicios que se prestan en la
+entidad.
+
+Visible
+
+ 
+
+ 
+
+R9.7
+
+ 
+
+El sistema en el módulo facturación deberá permitir al usuario cuyos permisos se lo permitan modificar los diferentes servicios que se prestan en la
+entidad.
+
+ 
+
+Visible
+
+ 
+
+ 
+
+Tabla 5.46: Requerimientos módulo facturación
+
+ 
+
+Número
+
+R10.1
+
+Requerimiento
+
+El sistema en el módulo reportes deberá permitir al
+usuario cuyos permisos se lo permitan consultar la
+información del formato de remisión de muestras.
+
+Visibilidad
+
+Visible
+
+ 
+
+R10.2
+
+El sistema en el módulo reportes deberá permitir
+al usuario cuyos permisos se lo permitan consultar
+la información del formato de exámenes médicos
+diarios realizados en la entidad.
+
+Visible
+
+ 
+
+ 
+
+R10.3
+
+ 
+
+El sistema en el módulo reportes deberá permitir al
+usuario cuyos permisos se lo permitan generar el
+reporte de remisión de muestras de la entidad por
+mes.
+
+ 
+
+Visible
+
+ 
+
+66El sistema en el módulo reportes deberá permitir al
+R10.4 usuario cuyos permisos se lo permitan generar el | Visible
+reporte de exámenes médicos diarios realizados en
+la entidad.
+
+ 
+
+El sistema en el módulo reportes deberá permitir al
+R10.5 usuario cuyos permisos se lo permitan registrar el | Visible
+reporte de caja diario de la entidad capturando los
+datos del anexo 7.73.
+
+ 
+
+El sistema en el módulo reportes deberá permitir al
+
+ 
+
+R10.6 usuario cuyos permisos se lo permitan consultar el Visible
+reporte de caja diario de la entidad.
+El sistema en el módulo reportes deberá permitir al .
+R10.7 Visible
+
+usuario cuyos permisos se lo permitan generar el
+reporte de caja diario de la entidad.
+
+ 
+
+El sistema en el módulo reportes deberá permitir al
+R10.8 usuario cuyos permisos se lo permitan registrar la | Visible
+información del formato de residuos hospitalarios
+diarios capturando los datos del anexo 7.73.
+
+ 
+
+El sistema en el módulo reportes deberá permitir al
+R10.9 usuario cuyos permisos se lo permitan consultar la | Visible
+información del formato de residuos hospitalarios
+diarios.
+
+ 
+
+El sistema en el módulo reportes deberá permitir al
+R10.10 | usuario cuyos permisos se lo permitan generar el | Visible
+reporte del formato de residuos hospitalarios de la
+entidad.
+
+ 
+
+El sistema en el módulo reportes deberá permitir
+al usuario cuyos permisos se lo permitan consultar
+todas las facturas por cobrar de la entidad.
+
+R10.11 Visible
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 5.47: Requerimientos módulo reportes.
+
+5.2.14.3. Identificación de casos de usos
+
+Identificación de casos de usos para los módulos de facturación y reportes,
+basados en los requerimientos mencionados con anterioridad.
+
+67Módulo facturación
+
+Consultar recibo de
+caja
+Consultar factura
+
+Registrar servicio
+< --<nno Hadid >
+
+Figura 5.26: Caso de uso módulo facturación
+
+ 
+
+ 
+   
+   
+
+ 
+
+ 
+
+Secretaria
+Administrador
+
+ 
+
+ 
+
+ 
+
+Módulo facturación
+
+Registrar reporte de
+
+caja diario
+Consultar reporte de
+
+caja diario
+
+Ta
+Aa
+A
+a
+
+' <Extends>
+Consultar exámenes 5
+médicos diaros Po
+
+ 
+
+   
+ 
+ 
+ 
+  
+ 
+ 
+    
+
+ 
+
+e
+- ss
+O <Extends> e
+>=. A
+MO Ca . a
+Registrar reporte Ss Generarreporte
+rh1 E
+e”
+ae
+Secretaria <Extends> a
+e e
+Administrador .”
+
+e
+Consultar reporte o” Ml
+rh1 <Extends>
+e
+AS
+se
+e
+..z .
+Consultar remisión de o
+muestras
+Consultar cuentas
+por cobrar
+
+Figura 5.27: Caso de uso módulo reportes
+
+ 
+
+ 
+
+ 
+
+5.2.15. Elaboración
+
+ 
+
+FICHA TÉCNICA
+
+ 
+
+Fase 2: Elaboración
+
+ 
+
+En esta fase se realizará la descripción de los
+casos de uso, la identificación de los diferentes
+diagramas de secuencia para los módulos de
+facturación y reportes, la elaboración del
+diagrama de componentes y el digrama
+relaciónal de la aplicación
+
+Propósito
+
+ 
+
+ 
+
+ 
+
+ 
+
+68= 5.2.15.1 Elaboración de casos de uso
+extendidos.
+
+= 5.2.15.2 Elaboración de diagramas de
+
+secuencia.
+
+Contenido
+=_5.2.15.3 Elaboración de diagrama
+
+relacional.
+
+= 5.2.15.4 Elaboración de diagramas de
+componentes.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 5.48: Ficha técnica fase de elaboración ciclo 4
+
+5.2.15.1. Elaboración y descripción de casos de uso extendidos.
+
+A continuación se describen los casos de uso extendidos de los módulos
+facturación y reportes, el caso de uso extendido de consultar recibo de caja,
+consultar factura, consultar servicio, modificar servicio, consultar reporte de
+caja, consultar exámenes médicos diarios, consultar remisión de muestras,
+registrar formato de residuos hospitalarios, consultar formato de residuos
+hospitalarios, consultar cuentas por cobrar y generar reporte, se pueden ver
+en los anexos 7.76, 7.77, 7.78, 7.79, 7.80, 7.81, 7.82, 7.83, 7.84, 7.85, 7.86
+respectivamente, que se encuentran en los anexos generales del CD, ubicado
+en la ruta “Trabajo de grado-Sisa Sas/Anexos”.
+
+ 
+
+Caso de uso Registrar servicio
+
+ 
+
+Actores Administrador, secretaria.
+
+ 
+
+Este caso de uso le permite al usuario
+agregar los diferentes servicios que
+
+ 
+
+ 
+
+ 
+
+ 
+
+Resumen presta la entidad, este se utilizará al
+momento de generar las facturas y los
+recibos de caja.
+
+Tipo Secundario-opcional
+
+Referencias cruzadas R9-7
+
+Curso normal de los eventos
+Acción de los actores Acción del sistema
+
+ 
+
+Línea 2: El sistema despliega las opciones de “crear servicio” y “consultar servicio”.
+
+Línea 1: El usuario ingresa a la opción
+servicios.
+
+ 
+
+ 
+
+ 
+
+ 
+
+69Línea 3: El usuario ingresa a la opción
+“Crear servicio”.
+
+Línea 4: El sistema despliega el formulario de crear servicios con los
+campos establecidos en el anexo 7.74.
+
+ 
+
+Línea 3: El usuario diligencia cada
+uno de los campos del formulario
+y registra la información correspondiente.
+
+ 
+
+Línea 6: El sistema valida y almacena
+la información.
+
+ 
+
+Curso alterno de los eventos
+
+ 
+
+ 
+
+Línea 6: Si al validar la información suministrada por el usuario, éste ingresa
+caracteres no válidos en determinados campos, el sistema debe emitir un
+
+mensaje informando dicho error.
+
+Linea 6: Si al validar la información suministrada por el usuario se encuentra
+duplicación de información, el sistema deberá emitir un mensaje informando
+
+sobre la redundancia de datos.
+
+ 
+
+Tabla 5.49: Caso de uso extendido registrar servicio.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Caso de uso Registrar reporte de caja diario
+Actores Administrador, secretaria.
+Este caso de uso le permite al usuario
+Resumen: registrar el reporte de caja diaria de la
+entidad.
+Tipo Primario
+Referencias cruzadas R10.5
+
+ 
+
+Curso normal
+
+de los eventos
+
+ 
+
+Acción de los actores:
+
+Acción del sistema:
+
+ 
+
+Línea 1: El usuario ingresa a la opción
+reportes.
+
+Línea 2: El sistema despliega las
+opciones de “reporte de caja diario”
+y “residuos hospitalarios”.
+
+ 
+
+Línea 3: El usuario ingresa a la opción
+“reporte de caja diario”.
+
+Línea 4: El sistema despliega el formulario de búsqueda por fecha del reporte.
+
+ 
+
+ 
+
+Línea 5: El usuario diligencia el campo con la información de la fecha, y
+selecciona la opción buscar.
+
+ 
+
+Línea 6: El sistema muestra todos los
+recibos de caja de la fecha consultada.
+
+ 
+
+70Línea 7: El usuario selecciona todos
+los recibos de caja de la fecha consultada y selecciona la opción aceptar.
+
+dos.
+
+Línea 8: El sistema muestra la opción
+de agregar los gastos diarios realiza
+ 
+
+Línea 9: El usuario diligencia los
+campos con la información de los gastos realizado y selecciona la opción
+aceptar.
+
+ 
+
+reporte de caja.
+
+ 
+
+Línea 10: El sistema despliega el
+
+ 
+
+Tabla 5.50: Caso de uso extendido registrar reporte de caja diario.
+
+5.2.15,2. Elaboración diagramas de
+
+secuencia
+
+A continuación se describen los diagramas de secuencia de los módulos
+facturación y reportes, los diagramas de secuencia de consultar recibo de caja,
+consultar factura, consultar servicio, modificar servicio, consultar reporte de
+caja, consultar exámenes médicos diarios, consultar remisión de muestras,
+registrar formato de residuos hospitalarios, consultar formato de residuos
+hospitalarios, consultar cuentas por cobrar y generar reporte, se pueden ver
+en los anexos 7.87, 7.88, 7.89, 7.90, 7.91, 7.92, 7.93, 7.94, 7.95, 7.96,
+respectivamente, que se encuentran en los anexos generales del CD, ubicado
+en la ruta “Trabajo de grado-Sisa Sas/Anexos”.
+
+Á
+
+Secretaria
+Administrador
+
+reportes
+
+| I
+
+| I
+
+1Ingresa al módulo y | I
+| I
+
+1 l
+
+|
+
+2. Despliega opciones:
+“Crear servicio” -===
+"Consultar Servico"
+
+4---
+3. Selecciona la opción: y
+Crear servicio e
+
+4. Verifica url y
+
+Crear servicio 5. Redirecciona y
+
+Crear servicio
+
+< 8. Devuleve formulario |
+registro
+
+4 7. Muestra formulario
+Crear servicio
+
+8. Diligencia y
+
+formulario
+
+11. Valida y envia datos y
+
+crear servicio metodo POST
+
+4 16. Información del servicio
+
+Zo o almacenada
+17. Información del servicio
+
+almacenada con ...
+éxito
+
+4
+ 
+
+ 
+
+ 
+
+6. Solicita formulario )
+
+Crear servicio
+
+< 7. Devuelve formulario
+Crear servicio
+
+12. Solicita almacenar y
+información
+
+4 15. Información del servicio
+almacenada
+
+ 
+
+|
+
+=—— 13.Almacena información —>>
+
+4 14. Información servicio
+almacenada
+
+creately
+
+Figura 5.28: Diagrama de secuencia registrar servicio
+
+71Secretaria
+Administrador
+
+1.Ingresa al módulo
+reportes >
+
+2.Despliega opciones:
+——-— Reporte de caja diario ===
+
+Residuos hospitalarios
+
+3. Selecciona:
+
+reporte de caja diario >
+
+7. Muestra campo
+- =- diligenciar fecha reporte - ===
+
+de caja
+
+8. Diligencia campo
+
+con la fecha del reorte >
+
+- 15. Muestra recibos de caja ===
+
+16. Selecciona los recibos de
+caja a ingresar al reporte
+
+<-- 17. Muestra formulario
+de gastos del dia
+
+— 18 ¿Diligencia formulario ——>H>
+
+25. Reprote de caja
+<---- diario almacenado =====
+con éxito.
+
+ 
+
+     
+       
+
+ 
+  
+
+ 
+
+» |
+
+4. Verifica url
+reporte de caja diario
+
+ 
+ 
+
+<-
+reporte de caja diario
+
+_ 14.Enviainformación _
+recibos de caja
+
+24.Información
+almacenada con éxito
+
+6. Redirecciona html _|
+
+][
+
+  
+    
+     
+ 
+
+5. Redirecciona
+reporte de caja diario
+
+19. Valida y envia
+
+de caja diario
+
+Views.py
+T
+
+  
+
+formulario reporte ———>+>
+
+ 
+
+ 
+   
+ 
+    
+
+13. Envia Información ___
+recibos de caja
+
+don
+
+Lera 23. Información
+almacenada
+
+Formulario.py
+T
+
+ 
+
+Models.py
+
+ 
+
+11. Busca los recibos de caja
+
+cuyo estado sea pago y cuya
+fecha sea la ingresada >
+por el usuario
+
+10. Envia inforrmación —Y> E >>>
+
+12. Devuelve información
+— =- recibos de caja con estado ==
+pago
+
+20. Solicita almacenar >
+
+información á dE
+— 21. Almacena información ——>
+
+<-- 22. Información almacenada -==
+
+ 
+
+ 
+
+IGU
+
+Administrador
+Secretaria
+
+1. Ingresa al modulo
+reportes >
+
+2.Despliega opciones:
+“Facturas pendientes”
+” “Consultar reporte de caja diario” —
+“Consultar residuos hospitalarios”
+
+3. Selecciona :
+Consultar reporte de caja diari:
+
+>
+
+ 
+
+< _7. Muestra campo de búsqueda _
+por fecha
+
+ 
+
+8.Diligencia campo
+de búsqueda >
+
+_17. Muestra información
+reporte de caja diario
+
+ 
+
+4. Verifica url
+consultar reporte de
+caja diario
+
+6. Redirecciona html
+= -consultar reporte de» =
+caja diario
+
+ 
+
+< --_.16.Envia información
+reporte de caja diario
+
+ 
+
+ 
+
+5. Redirecciona
+consultar reporte de
+caja diario
+
+9. Valida y envia
+información campo de
+búsqueda
+
+           
+   
+     
+
+ 
+
+-- 19. Enviainformación
+reporte de caja diario
+
+ 
+
+14. Solicita formulario
+Consultar reporte de caja diario-P>
+E 15. Formulario s
+Consultar reporte de caja diario
+
+Formulario.py
+
+ 
+
+Models.py
+
+10. Envia información ,
+campo de búsqueda
+
+11. Busca información reporte de y ES Y
+
+caja diario
+
+< —. . .12.Envia información _
+reporte de caja diario
+
+ 
+
+(nine ciarrerng a deso! CPRALOÍ y am
+
+Figura 5.30: Diagrama de secuencia consultar cuentas cobrar
+
+5.2.15.3. Elaboración diagrama relacional
+
+El diagrama relacional de la aplicación se realizó en el último ciclo de
+desarrollo, debido a que se hacía necesario la totalidad de los módulos.
+
+TZfacturacion
+
+historiaOcupacional
+
+  
+  
+  
+
+FE —— — -_- -  - - O
+
+ding soni sessions
+
+django.contrib.auth
+
+  
+  
+
+abstract
+
+popa quest) horitance
+
+> EN
+
+Imissbns (group)
+
+0]
+
+3
+—
+Ss
+
+  
+
+      
+
+pendientes
+
+django.cont
+
+ 
+
+examenes
+
+ 
+
+Figura 5.31: Diagrama relacional
+
+73
+
+historia
+
+xamenes_medicos
+
+ETS
+
+a
+
+  
+
+ 
+
+ 
+
+ 
+
++ hiso CreAtely an5.2.15,4, Elaboración diagrama de componentes
+
+El diagrama de componentes de la aplicación se realizó en el último ciclo de
+desarrollo, debido a que se hacía necesario la totalidad de los módulos.
+
+ 
+
+ 
+
+Servidor
+
+8]
+
+Api base de datos
+python
+
+Datos
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figura 5.32: Diagrama de componentes
+
+5.2.16. Construcción
+
+ 
+
+FICHA TÉCNICA
+Fase 3: Construcción
+
+ 
+
+ 
+
+En esta fase se documenta el proceso de
+Propósito construcción de la aplicación, así como el plan
+de acción tomado para el desarrollo.
+
+ 
+
+Contenido = 5.2.16.1 Desarrollo de software.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 5.51: Ficha técnica fase de construcción ciclo 4
+
+745.2.16.1. Desarrollo del software
+
+En esta etapa del desarrollo del software se utilizarón las tecnologías descritas
+en la fase de construcción del ciclo 1 (python, django, javascript, ¡query y css)
+y reportlab descrita en la fase de construcción del ciclo 2.
+
+5.2.17. Transición
+
+ 
+
+FICHA TÉCNICA
+
+ 
+
+Fase 4: Transición
+
+ 
+
+En esta fase se documenta las pruebas de caja
+
+ 
+
+Propósito negra, así como las pruebas unitarias por el ciclo
+4 establecido en la metodología.
+= 5.2.16.1 Pruebas de caja negra.
+Contenido
+
+= 5.2.16.2 Pruebas unitarias.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 5.52: Ficha técnica fase de transición ciclo 4
+
+5.2.17.1. Pruebas de caja negra
+
+Se realizaron pruebas de caja negra a cada módulo del sistema para establecer
+su integridad, en los anexos 7.98, 7.99, 7,100, 7.101, 7.102, 7.103, 7.104,
+7.105, 7.106, 7.107, y 7.108 se pueden ver las pruebas realizadas a consultar
+recibo de caja, consultar factura, consultar servicio, modificar servicio,
+consultar reporte de caja, consultar exámenes médicos diarios, consultar
+remisión de muestras, registrar formato de residuos hospitalarios, consultar
+formato de residuos hospitalarios, consultar cuentas por cobrar y generar
+reporte, que se encuentran en los anexos generales del CD, ubicado en la ruta
+“Trabajo de grado-Sisa Sas/Anexos”.
+
+ 
+
+CASO DE PRUEBA CP 4-3
+
+ 
+
+Nombre caso de prueba Registrar servicio
+
+ 
+
+Id caso de uso CU 4-3
+
+ 
+
+Comprobar el correcto funcionamien
+ 
+
+ 
+
+jeti la pr .
+Objetivo de la prueba to al momento de registrar los servicios que la entidad presta.
+Actor Administrador, secretaria
+Precondiciones El usuario a registrar los servicios
+
+debe estar registrado y autenticado.
+
+ 
+
+ 
+
+ 
+
+ 
+
+75Pasos a seguir
+
+ 
+
+Acción del actor
+
+Resultados esperados
+
+ 
+
+1. El usuario ingresa a la opción
+servicios.
+
+2. El sistema despliega las opciones
+de “crear servicio” y “consultar servi
+97
+
+CIO .
+
+ 
+
+3. El usuario ingresa a la opción
+“Crear servicio”.
+
+4. El sistema despliega el formulario
+de crear servicios con los campos
+establecidos en el anexo 7.74.
+
+ 
+
+5. El usuario diligencia cada uno de
+los campos del formulario.
+
+L6. El sistema valida y almacena la
+información e informa del correcto
+almacenamiento.
+
+ 
+
+Ejecución
+
+ 
+
+Fecha
+
+2 de marzo de 2015.
+
+ 
+
+Resultados obtenidos
+
+Los resultados obtenidos fueron igual
+a los esperados.
+
+ 
+
+Revisado por
+
+Andres Felipe Gomez, Valentina
+Martinez.
+
+ 
+
+Aceptado por
+
+ 
+
+ 
+
+Estado caso de prueba
+
+ 
+
+Superado
+
+ 
+
+Tabla 5.53: Caso de prueba 4.3 registrar servicio
+
+ 
+
+CASO DE PRUEBA CP 4-6
+
+ 
+
+Nombre caso de prueba
+
+Registrar reporte de caja
+
+ 
+
+Id caso de uso
+
+CU 4-6
+
+ 
+
+Comprobar el correcto funcionamien
+ 
+
+ 
+
+Objetivo de la prueba to al momento de registrar los reportes
+diarios de caja en la entidad.
+
+Actor Administrador, secretaria.
+
+Precondiciones El usuario a registrar el reporte de caja
+
+debe estar registrado y autenticado.
+
+ 
+
+Pasos a seguir
+
+ 
+
+Acción del actor
+
+Resultados esperados
+
+ 
+
+1. El usuario ingresa a la opción
+reportes.
+
+2. El sistema despliega las opciones
+de “reporte de caja diario” y “residuos
+hospitalarios”.
+
+ 
+
+ 
+
+3. El usuario ingresa a la opción
+“reporte de caja diario”.
+
+ 
+
+4. El sistema despliega el formulario
+de búsqueda por fecha.
+
+ 
+
+765. El usuario diligencia el campo
+con la información de la fecha, y
+selecciona la opción buscar.
+
+6. El sistema muestra todos los recibos de caja de la fecha consultada.
+
+ 
+
+7. El usuario selecciona todos los
+recibos de caja de la fecha consultada
+y selecciona la opción aceptar.
+
+8. El sistema muestra la opción de
+agregar los gastos diarios realizados.
+
+ 
+
+9. El usuario diligencia los campos
+con la información de los gastos rea
+10. El sistema despliega el reporte de
+
+ 
+
+ 
+
+l > caja.
+lizado y selecciona la opción aceptar.
+Ejecución
+Fecha 2 de marzo de 2015.
+
+ 
+
+Resultados obtenidos
+
+Los resultados obtenidos fueron igual
+a los esperados.
+
+ 
+
+Revisado por
+
+Andres Felipe Gomez, Valentina
+Martinez.
+
+ 
+
+Aceptado por
+
+ 
+
+ 
+
+Estado caso de prueba
+
+ 
+
+Superado
+
+ 
+
+Tabla 5.54: Caso de prueba 4.6 registrar reporte de caja.
+
+5.2.17.2. Pruebas unitarias
+
+ 
+
+Las pruebas unitarias del ciclo 4 se pueden ver en los anexos 7.109, 7.110
+y 7.11 respectivamente, que se encuentran en los anexos generales del CD,
+ubicado en la ruta “Trabajo de grado-Sisa Sas/Anexos”.
+
+5.3. Implementación
+
+5.3.0.3. Producto final
+
+Después del desarrollo de cada uno de los ciclos vistos con anterioridad, el
+producto final de software es el siguiente:
+
+Módulo autenticación, el usuario se autentica con un nombre de usuario y una
+contraseña, ambas provistas por el administrador.
+
+7]Figura 5.33: Autenticar usuario
+
+página principal, de acuerdo al perfil y permisos que tenga asociado dicho
+perfil, el usuario podrá acceder a los diferentes módulos de la aplicación.
+
+INICIO CERRAR SESION
+
+ 
+
+ 
+
+Figura 5.34: Pagina principal
+
+Para registrar los diferentes perfiles de la entidad, se debe ingresar a la opción
+AGREGAR PERFIL y diligenciar el formulario que se muestra a continuación.Sy SISA eS
+Soluciones Integrales en Salut 5.4.5 REESE
+
+INICIO CERRAR SESION
+
+REGISTRAR PERFIL
+
+6 CAME MAGICA COM [1 OM CMA TODA
+
+Figura 5.35: Registrar perfil
+
+Asignación y consulta de las diferentes citas médicas de la entidad.
+
+ANDRES GOMEZ
+
+    
+
+Salinas Aeprades de Fat TA.
+
+INICIO CERRAR SESION
+
+ 
+
+= AGENDA MÉDICA
+c >» Hr MES SEMARA DÍA
+JUNIO 20%
+2 3 4 5 6 7
+5 o o “ e B Mm
+5 “ y su » 20 2
+2 2 24 » 2 7 2
+
+Figura 5.36: Agenda médica
+
+79Para ver la implementación del producto de software en su totalidad ver el
+manual de usuario de la aplicación, que se encuentran en los anexos generales
+del CD, ubicado en la ruta “Trabajo de grado-Sisa Sas/Anexos”.
+
+5.3.0.4. Proceso de implementación
+
+La aplicación para la entidad de salud SISA se debe instalar en un servidor con
+
+las siguientes características:
+
+ 
+
+Referencia
+del servidor
+
+PowerEdge T320
+
+ 
+
+Procesador
+
+Intel Xeon E5-2403 v2 1.80GHz, 10M Cache,
+6.4GT/s QPI, No Turbo, 4C, 8S0W, Max Mem
+1333MHz
+
+ 
+
+Tipo de memoria
+DIMM y la velocidad
+
+1600MT/s RDIMMS
+
+ 
+
+Capacidad
+
+4GB RDIMM, 1600MT?/s, Low Volt, Single
+Rank, x8 Data Width
+
+ 
+
+Configuración del chasis
+
+Chasis hasta con 4 discos duros de 3,5 cableados
+y SATA integrado, configuración de rack
+
+ 
+
+Configuración de RAID
+
+Sin RAID requiere controladora de software de
+S110
+
+ 
+
+Discos duros
+
+Disco duro SATA 500GB 7.2K RPM 3Gbps 3.5
+pulgadas Cabled
+
+ 
+
+Fuente De
+Alimentación
+
+Individual , Satelite fuente de alimentación ,
+350W
+
+ 
+
+Cables de alimentación
+
+ 
+
+ 
+
+NEMA 5-15P a C14 enchufe de pared , 125
+voltios , 15 AMP, 10 pies (3 m ), cable de
+alimentación
+
+ 
+
+Tabla 5.55: Servidor utilizado para la implementación de la aplicación
+
+Para la implementación de la aplicación en SISA se hizo necesaria la
+instalación de las siguientes herramientas : Python, Django, MySQL, MySQL
+para Python, Dajax, Dajaxice, Report-lab, Redis-server, nodeJS, drealtime.
+
+El manual de instalación de la aplicación, así como la carta que hace constar
+que se implanto el SISTEMA DE APOYO EN LA TOMA DE DECISIONES
+PARA LA AUTOMATIZACIÓN DE PROCESOS DE LA EMPRESA SISA
+
+(SOLUCIONES INTEGRALES EN SALUD), se puede ver en los anexos
+generales del CD), ubicado en la ruta “Trabajo de grado-Sisa Sas/Anexos”.
+
+80Capítulo 6
+
+Conclusiones y trabajos futuros
+
+6.1.
+
+Conclusiones
+
+Se desarrolló una aplicación para la automatización de procesos en
+SISA que les permitirá llevar a cabo procesos de registro, consulta y
+modificación de usuarios, perfiles, agenda médica, convenios, exámenes
+médicos, reportes y facturación, así como el registro y consulta de
+historias clínicas para los pacientes de dicha entidad.
+
+La investigación realizada a cerca de los principios legales determinados
+por el gobierno sobre las historias clínicas, permitió limitar el alcance de
+la aplicación y concentrarse en los puntos más importantes que envuelve
+el manejo de la historia clínica.
+
+La obtención de información llevada a cabo en SISA, permitió tener
+un contacto más cercano con el personal vinculado, logrando con ello,
+experimentar de manera positiva, la relación analista/usuario para el
+desarrollo satisfactorio de la aplicación.
+
+SISA Soluciones Integrales En Salud es una entidad prestadora de
+servicios médicos, que siempre se ha preocupado por darle una atención
+ágil y eficaz a todos sus usuarios, pero aún no posee una aplicación en
+la cual pueda potenciar la automatización de los diferentes procesos que
+allí se realizan, por esta razón necesitaba una aplicación a la medida de
+las necesidades.
+
+Los sistemas de información representan una fuente importante para la
+toma de decisiones y son un componente importante para el desarrollo
+de productos y servicios competitivos que den a las organizaciones una
+ventaja estratégica en el mercado.
+
+816.2. Trabajos futuros
+
+El sistema de información desarrollado se visualiza a largo plazo como una
+herramienta de gran utilidad para el sector salud, con el fin de alcanzar este
+objetivo se hace interesante la realización de las siguientes operaciones:
+
+= Incorporación de dispositivos móviles.
+
+= Incorporación de módulos que permitan la extensión de la aplicación
+hacia hospitales de diferentes niveles de atención.
+
+= Aplicación de técnicas de descubrimiento de conocimiento, para hallar
+patrones de comportamiento sobre los diagnósticos de los pacientes.
+
+82Bibliografía
+
+[1] R ANDREW, J.E RICART y J VALOR, Estrategia y sistemas de
+información gerencial Barcelona: McGraw-Hill 1996
+
+[2] DC KAREN y E A LARES, sistemas de información para los negocios
+
+con un enfoque de toma de decisiones, 3ra edición. México DC: McGrawHill 2000.
+
+[3] JOSE CAMILO DACCACH T. Para sistemas de información [ONLINE]
+http://www.deltaasesores.com/articulos/tecnolog1a/502-ipara-quesistemas-de-informacion
+[4] ALBERTO GARCÍA Manual de salud electrónica para directivos de
+servicios y sistemas de salud [ONLINE]
+
+[5] SANDERS, D Healthcare Analytics: Standing on the Brick of a
+
+Revolution, Journal of Healthcare Information Management vol. 16, pág.
+17, 2002.
+
+[6] Acta de creación SISA Soluciones Integrales En Salud
+
+[7] Resolucion 1993.Diario Oficial de la República de Colombia Núm
+43655,Bogotá,agosto 5 de 1999,
+
+[S] Ley 1438,Diario Oficial de la República de Colombia Núm 47957,Bogotá,enero 19 de 2011.
+
+[9] Sistema de información, febrero de 2012. [EN LINEA ] Disponible:
+http://www. gerencie.com/sistemas-de-informacion.html
+
+[10] Metodología rup [EN LINEA ] Disponible:
+http://rupmetodologia.blogspot.com/
+
+[11] DANNY DUMÍNIGO BENÍTEZ Sistemas de información, aplicación en
+empresas [ONLINE]
+http://www.eumed.net/ce/2012/ddb.html
+
+[12] El lenguaje Python. [EN LINEA ] Disponible:
+http://web2py.com/books/default/chapter/36/02/el-lenguaje-python.
+
+[13] Definicion AJAX ”?que es AJAX?. [EN LINEA ] Disponible:
+https://sites.google.com/site/jojooa/informatica-tecnologia/definicion-deajax-que-es-ajax
+
+83[14] django [EN LINEA ] Disponible:
+https://docs.djangoproject.com/en/l.7/faq/general/django-appears-to-bea-mvc-framework-but-you-call-the-controller-the-view-and-the-viewthe-template-how-come-you-don-t-use-the-standard-names
+
+[15] javascript [EN LINEA ] Disponible:
+http://librosweb.es/libro/javascript/capitulo_1.html
+
+[16] ¡query [EN LINEA ] Disponible:
+http://www.mexired.com/blog/que-es-]query/
+
+[17] css [EN LINEA ] Disponible:
+https: //librosweb.es/libro/css/capitulo_1.html
+
+[18] Comet y Web Socket. Un enfoque diferente a Ajax[EN LINEA ] Disponi
+ble:
+
+http://blog.continuum.cl/comet-y-web-socket-un-enfoque-diferente-aajax/
+
+84

@@ -1,0 +1,3704 @@
+Interfaz compatible con GLPI para la gestión de acceso
+y uso de las salas de cómputo de la Universidad del Valle
+sede Tuluá.
+
+Trabajo presentado como requisito para obtener el título de Ingeniera de
+Sistemas.
+
+Natalia Torres Rojas
+
+Código: 201153785
+
+natalia.torres.rojas(dcorreounivalle.edu.co
+
+Directora:
+
+Ing. Yuri Mercedes Bermúdez Mazuera MBA
+
+Escuela de Ingeniería de Sistemas y Ciencias de la
+Computación
+Ingeniería de Sistemas
+Universidad del Valle - Sede Tuluá
+
+2016Nota de aceptación:
+
+ 
+
+ 
+
+ 
+
+Firma del presidente del jurado
+
+ 
+
+Firma del jurado 1
+
+ 
+
+Firma del jurado 2
+
+Tuluá, Diciembre de 2016Resumen
+
+Los sistemas de control de acceso posibilitan crear una autoridad para vigilar el acceso
+a los recursos o a ciertas zonas de las instalaciones de un lugar, es por esto que son
+una parte fundamental que garantiza buena estabilidad y seguridad en las instituciones.
+En el presente trabajo de grado se muestra el desarrollo de una aplicación de escritorio
+que posibilita confirmar la identidad de las personas que acceden a los equipos de las
+salas de cómputo de la Universidad del Valle sede Tuluá; además de la implementación
+del plugin “Acceso Final” para el sistema GLPI, el cual permite tener control sobre
+los módulos que regirán el comportamiento de la aplicación de escritorio, y también
+agregar funcionalidades útiles para la administración de las salas.
+
+Palabras clave: Sistema de acceso, Sistema de control, Aplicación de escritorio.
+
+IIAbstract
+
+Acces control systems allow creating an authority to guard the acces to certain areas of
+a place, this is why they are essential to guarantee good stability and safety within institutions. This final proyect document presents the development of a desktop application
+that verifies the identity of the person that is trying to access any of the computers from
+the computer rooms at Universidad del Valle located in Tuluá; besides the implementation of the “Acceso Final” plugin for GLPI. This last one grants control over some
+modules that will rule the behaviour of the desktop application, and will also add useful
+functionalities for managin the computer rooms.
+
+Key words: Access system, Control system, Desktop Application
+
+HTAgradecimientos
+
+ÁA mi directora, Yuri Mercedes Bermúdez Mazuera quien con Su paciencia y buenos
+consejos me apoyó en todo el proceso para realizar este trabajo de grado.
+
+A el profesor Pedro Pablo Bermudez Medina, quien fue un excelente mentor y cuya
+serenidad fue clave en esta etapa.
+
+A la Universidad del Valle sede Tuluá, por haberme acogido y permitido adquirir conocimientos que me servirán para el resto de mi vida.
+
+IVDedicatoria
+
+Á Dios, por permitirme tener perseverancia y disciplina, y por concederme el regalo de
+culminar una etapa más en mi vida.
+
+Á mi mamá, por ser el pilar de mi vida, apoyarme en todas mis aspiraciones y por
+esforzarse en hacer de mí una persona de bien.
+
+Á mi papa, por regalarme pensamientos y consejos que se quedarán conmigo por siempre.Índice de Imágenes
+
+Imagen 1
+Imagen 2
+Imagen 3
+Imagen 4
+Imagen 5
+Imagen 6
+Imagen 7
+Imagen $8
+Imagen 9
+Imagen 10
+Imagen 11
+Imagen 12
+Imagen 13
+Imagen 14
+Imagen 15
+Imagen 16
+Imagen 17
+Imagen 18
+Imagen 19
+Imagen 20
+Imagen 21
+Imagen 22
+cipal.
+Imagen 23
+
+gar un nuevo usuario
+
+Software OCS Inventory NG
+Software GLPI
+Ciclo de Scrum. Fuente: [1]
+Arquitectura utilizada para el desarrollo del proyecto.
+Diagrama de Componentes del servicio web en GLPI
+Diagrama de Secuencia - Inicio Sesión
+Pantalla principal de la aplicación de escritorio
+Pantalla para la creación de una nueva cuenta.
+Pantalla que se muestra una vez la persona inicia sesión. . .....
+Pantalla que permite al usuario dejar uno o varios comentarios.
+
+Pantalla en donde el usuario podrá ver y editar sus datos personales.
+
+Pantalla principal del plugin “Acceso final”.
+Pantalla para subir archivo plano a la base de datos.
+Pantalla para administrar los programas académicos. .......
+Pantalla para administrar las salas de cómputo. ..........
+Pantalla para administrar los comentarios predeterminados.
+Pantalla para administración del tiempo restante de un usuario.
+Pantalla de la sección de reportes. .................
+Archivo CSV con resultado de consulta.
+Plugin añadido al servidor de producción de la universidad . . . .
+Plugin añadido y listo para activar
+Error que se presentó cuando se intentó acceder a la pantalla prin
+Seript que comprueba el funcionamiento de la funcionalidad agre
+VIÍndice de tablas
+
+Tabla 1
+Tabla 2
+Tabla 3
+Tabla 4
+Tabla 5
+
+Datos recolectados porOCS ..................... 23
+Características importantes del análisis acústiCO. .......... 27
+Características de los sistemas de reconocimiento de identidad . . . 28
+Historias de Usuario. Módulo “Administración” .......... 32
+Caso de prueba para el módulo Usuario ............... 54
+
+VIIÍndice
+
+Resumen O
+Abstract nI
+Agradecimientos IV
+Dedicatoria V
+Índice de Imágenes vI
+Índice de tablas vu
+Capítulo 1. INTRODUCCIÓN 9
+1 Descripción General 9
+1.1 Planteamiento del Problema ........................ 9
+1.2 Formulación del Problema ........................ 11
+LB O bjetivOs ..... 12
+1.3.1 Objetivo General. ........... o... 12
+1.3.2 Objetivos ESpecÍÍICOsS ......... o... 12
+1.4 Estructura del documento .......... o... 13
+Capítulo I. MARCO REFERENCIAL 14
+2 Conceptos 14
+2.1 El mundo de los controles de accesos[2] . ................. 14
+2.2 Control de acceso y monitoreo de parámetros ambientales en sala de
+COMpUtOl3] ............. e... 14
+2.3 Sistema de control de acceso basado en Java Cards y Hardware libre[4] . 15
+
+2.4 Desarrollo de una aplicación web para la administración de los equipos de
+cómputo de las salas de sistemas de la universidad del valle sede Tuluá,
+
+que permita gestión de conocimiento a través de técnicas de KDD[5]. . . 15
+2.5 Software LibrelÓ] ............. e... e...» 16
+2.6 Biblioteca de Infraestructura de Tecnologías de la Información (TID[7]. 16
+2.7 Software de administración de recursos informáticos[8] . ......... 17
+2.8 OCS Software Inventory NG[9] ...................... 17
+DI GEO 17
+2.10 Sistema de información[11] ...................... .. 18
+2.11 Aplicaciones cliente/servidor[12] ..................... 19
+2.12 Servidores de bases de datos [13] ..................... 19
+2.13 Servidores Web [14] ........................ . . . o. 19
+2.14 SharpDevelop [15] ............................. 20
+2,15 MySQE IL... 20Capítulo HI. HERRAMIENTAS EXISTENTES Y PROCEDIMIENTOS PARA VERIFICACIÓN DE IDENTIDAD
+
+3 Herramientas utilizadas y procedimientos para verificación de identidad
+3.1 Sistemas OCS y GLPÍ ............ e... e...
+3.2 Métodos para el reconocimiento de identidad de usuario .........
+
+Capítulo IV. DESARROLLO DEL PROYECTO
+
+4 Desarrollo del Proyecto
+
+4.1 Metodología de Desarrollo de Software . .................
+42 ANÁLISIS 0.0...
+
+4.2.1 Definición del Product Backlog . ...................
+
+4.2.2 Planeando los SpridtS ........................
+
+BADEN
+AA DESARROLLO
+4.5 INSTALACIÓN Y CONFIGURACIÓN
+
+Capítulo V. PRUEBAS
+
+5 Pruebas
+5.1 Pruebas de funcionalidad -.....
+Capítulo VL. CONCLUSIONES Y TRABAJOS FUTUROS
+
+6 Conclusiones y Trabajos Futuros
+6.1 Conclusiones .......
+6.2 Trabajos Futuros ......
+
+Capítulo VII. Referencias Bibliográficas
+
+IX
+
+21
+
+21
+21
+25
+
+30
+
+30
+30
+31
+31
+33
+34
+37
+49
+
+52
+
+52
+53
+
+56
+
+56
+S6
+57
+
+58Capítulo LI.
+INTRODUCCIÓN
+
+En este documento se presenta el diseño, desarrollo e implementación de un plug-in
+para gestionar los procesos de ingreso y uso de los equipos de cómputo de las salas de
+sistemas, con implementación en la Universidad del Valle sede Tuluá. Esta propuesta pretende mejorar el proceso que se lleva a cabo al momento de ingresar y usar los
+equipos de las salas de cómputo.
+
+Los encargados de las salas de sistemas que se encuentran en la Universidad del Valle
+sede Tuluá no cuentan con un software que permita el registro y acceso de los estudiantes a los computadores. Esto evidencia que el control actual implementado para dicho
+proceso no es tan adecuado, pues un formato formalizado por la oficina de calidad no
+es suficiente para consignar la información pertinente al momento de solicitar el uso
+de un equipo. Es así como se demuestra la necesidad de implementar un sistema que
+se encargue de verificar quienes hacen uso de la sala y la veracidad de los datos que
+proveen los estudiantes y demás personal.
+
+1. Descripción General
+
+1.1. Planteamiento del Problema
+
+Los sistemas de control de acceso posibilitan crear una autoridad para vigilar el acceso
+a los recursos o a ciertas zonas de las instalaciones de un lugar, es por esto que son una
+parte fundamental que garantiza buena estabilidad y seguridad en las instituciones[17].
+
+Las entidades públicas se caracterizan por tener sus puertas abiertas al público en general puesto que hacen parte del patrimonio del estado; según el Artículo 13 de la Constitución Política de Colombia que reza: ... Todas las personas nacen libres e iguales
+ante la ley... y gozarán de los mismos derechos, libertades y oportunidades sin ninguna
+discriminación ”...; sin embargo, esto puede no ser tan conveniente para las instituciones de educación superior. Una parte importante de estas instituciones son las salas de
+cómputo, en donde se reúnen los estudiantes a recibir clase o a realizar trabajos. Estas salas usualmente están a cargo del personal técnico y cuentan con algún sistema de
+control de acceso, sin embargo existen casos en los que no se lleva control de la identificación. Esto podría conllevar a que personas no autorizadas hagan uso inadecuado
+de los recursos, lo cual hace necesario que el uso de los mismos se circunscriba única y
+exclusivamente a la comunidad académica oficialmente registrada.
+
+9De acuerdo a lo anterior, se presenta el caso de la Universidad del Valle sede Tuluá,
+la cual lleva más de 20 años prestando sus servicios en la ciudad y cuenta con un importante reconocimiento a nivel regional, por lo que muchas personas la eligen para
+llevar a cabo sus estudios superiores. Actualmente la sede de la Universidad cuenta con
+aproximadamente 1.200 ' estudiantes en los programas de Tecnología en Sistemas de
+Información, Tecnología en Alimentos, Tecnología en Electrónica, Trabajo Social, Ingeniería de Sistemas, Administración de Empresas y Contaduría Pública. Dentro del
+rigor académico, es necesario que los estudiantes de dichos programas hagan uso de
+las salas de cómputo para desarrollar diferentes actividades asignadas por los docentes
+(cabe aclarar que los estudiantes de Ingeniería de Sistemas y Tecnología en Sistemas
+usan estas salas con mayor frecuencia), lo que implica una administración sobre dichas
+salas, que actualmente se encuentra a cargo del Profesor Pedro Pablo Bermúdez ”.
+
+Ahora bien, los equipos de las salas se encuentran disponibles para que los estudiantes
+accedan a ellos siempre y cuando no estén reservados para clase. En este escenario, el
+único control existente es un registro que se lleva del uso de los equipos, el cual es un
+formato físico normalizado por la oficina de calidad, donde se debe escribir el nombre
+del estudiante, el código, el número del equipo que va a utilizar, la hora de entrada y
+de salida. No obstante, este control manual es poco efectivo. En palabras del profesor
+Pedro Pablo Bermúdez, esto genera el riesgo de ingreso de personal externo, además de
+desorientación ya que muchas veces los datos que el estudiante registra en la hoja son
+confusos o ilegibles; e incluso, a menudo no queda ninguna evidencia. De otro lado, es
+poco probable que el monitor de la sala verifique que la información que los estudiantes
+registran en el formato sea verídica y confirme que las personas que usen las aulas estén
+asociadas a la universidad.
+
+En consecuencia, desde el Programa de Ingeniería de Sistemas de la Universidad del
+Valle sede Tuluá se han propuesto diversos trabajos de grado con relación a este tema,
+dentro de los cuales se encuentra el trabajo realizado por Jhonny Agudelo Oviedo, el
+cual pretendía gestionar los equipos de las salas de cómputo mediante técnicas de KDD.
+Sin embargo, a la fecha estas propuestas no han tenido el éxito esperado debido; entre
+varias razones, al alcance que se ha propuesto inicialmente, ya que la etapa de pruebas
+realizada no ha sido lo suficientemente rigurosa; es decir, las soluciones se quedan en
+lo académico sin llegar a cumplir el ciclo completo que implica el uso permanente en
+situaciones reales, lo que evidenciaría si el software es exitoso. Por lo tanto, no se genera
+la confiabilidad que se requiere para su uso en un ambiente real. Es así como al momento
+de implementar las soluciones surgen problemas que no se pueden solucionar fácil y
+
+ 
+
+De acuerdo a la página web de la Universidad http://tulua.univalle.edu.co/index.php/conoce-tu-u/28historia-de-univalle-tu lua.html (2016, 02)
+
+“Ingeniero de Sistemas de la Universidad del Valle y Coordinador de Recursos Informáticos para el
+2015.
+
+10rápidamente, lo que permite evidenciar que el proceso de producción de software no
+fue completo.
+
+Por otra parte, cabe destacar la existencia de la mediateca en la biblioteca Mario Carvajal de la Universidad del Valle en Cali. La cual, es la base de datos que contiene libros
+y revistas en formato electrónico, a la que únicamente se puede acceder si se tiene una
+contraseña que se debe solicitar a las oficinas de la biblioteca. Aunque esta, es una buena
+solución para asegurar el control de acceso, restringiendo el uso solamente a las personas asociadas a la universidad. Este sistema no puede migrarse a las salas de cómputo,
+debido a que este se diseñó teniendo en cuenta las particularidades de la biblioteca; y
+además su servidor se encuentra en Cali lo que dificultaría el acceso a la información
+de la sede Tuluá.
+
+Es por esto que de la mano con la implementación de cualquier solución de software,
+es importante verificar que el sistema satisfaga las necesidades expuestas desde la concepción del proyecto que generó tal solución, hasta su implementación en el ambiente
+real. Propendiendo porque exista el menor número posible de errores.
+
+1.2. Formulación del Problema
+
+¿De qué manera se puede controlar de forma inmediata, el acceso a los equipos de
+cómputo de las salas de sistemas y realizar un seguimiento de la utilización de los mismos, por parte de la comunidad académica de la Universidad del Valle sede Tuluá?
+
+111.3. Objetivos
+1.3.1. Objetivo General
+
+Implementar un plug-in para GLPI que permita gestionar el proceso de acceso/uso de
+
+estudiantes, profesores y personal administrativo, de los equipos de cómputo de las salas
+de la Universidad del Valle sede Tuluá.
+
+1.3.2. Objetivos Específicos
+
+ 
+
+ 
+
+Objetivos Específicos Capítulo
+1. Analizar los sistemas OCS y GLPI para determinar
+cómo se relacionan entre sí y reconocer su rol y Capítulo II
+
+funcionamiento en los equipos de la sala.
+
+2. Investigar los diferentes procedimientos para el
+reconocimiento de identidad de usuario y que puedan | Capítulo II
+ser aplicados al problema.
+
+3. Modelar los artefactos que permitan la
+implementación de la interfaz para así definir los Capítulo IV
+requisitos sistema.
+
+4. Desarrollar un plug-in que permita gestionar el
+proceso de ingreso y uso de las salas de cómputo de Capítulo IV
+la Universidad del Valle sede Tuluá.
+
+5. Instalar la aplicación en el servidor de producción
+de la Universidad del Valle sede Tuluá.
+
+6. Realizar pruebas de software que permitan asegurar
+el correcto funcionamiento del aplicativo.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Capítulo IV
+
+ 
+
+Capítulo V
+
+ 
+
+ 
+
+ 
+
+ 
+
+121.4. Estructura del documento
+
+En el capítulo II está el Marco Referencial, de donde se desprenden los antecedentes y
+el marco teórico. Este último contiene todos los conceptos necesarios para comprender
+el contexto de este documento.
+
+Luego, en el capítulo III se presentan las herramientas que actualmente están en uso en
+las salas de cómputo de la universidad y los procedimientos para verificar la identidad
+de una persona.
+
+Luego, en el capítulo IV se puede ver el Desarrollo del Proyecto. Este capítulo consta
+de las fases de Análisis, Diseño, Implementación y Pruebas.
+
+En el capítulo V se desarrolla la fase de Pruebas.
+
+En el capítulo VI se encuentran las Conclusiones y Trabajos Futuros.
+
+Y por último, en el capítulo VII están las Referencias Bibliográficas.
+
+13Capítulo HH.
+MARCO REFERENCIAL
+
+En el presente capítulo se definen los conceptos directamente empleados en el desarrollo del proyecto. La recopilación de estos breves conceptos que se utilizaron para la
+
+implementación del proyecto permitió dar solución a la problématica que se presentaba
+en la Universidad del Valle - Sede Tuluá.
+
+Al consultar el estado del arte de este tipo de sistemas, se puede confirmar que existen
+algunos referentes y varias características generales de los mismos.
+
+2. Conceptos
+
+2.1. El mundo de los controles de accesos[2]
+
+Francisco Navarro, en su documento de trabajo final de grado de la Universidad Abierta
+de Cataluña (Universitat Oberta de Catalunya UOC), explica en el año 2014 los sistemas
+existentes para el control de acceso físico en las zonas militares. Su investigación se
+centra en la identificación de tecnologías que respetan la entereza y seguridad de dichas
+áreas. Al final plantea una propuesta propia que no depende de terceros y que usa la
+identificación por radio frecuencia.
+
+2.2. Control de acceso y monitoreo de parámetros ambientales en
+sala de cómputo[3]
+
+Los estudiantes Pablo Tovorosky y Miguel Zanin de la Universidad Tecnológica de Panamá, se centran en su publicación en la necesidad inminente de una empresa local de
+controlar el acceso del personal a la sala de servidores. La tecnología usada se fundamenta en tarjetas de identificación y el reconocimiento por radiofrecuencia los cuales
+posibilitan el reconocimiento de sus empleados al igual que registrar las mediciones de
+temperatura y humedad para tener control de las alteraciones en su sala.
+
+142.3. Sistema de control de acceso basado en Java Cards y Hardware
+libre[4]
+
+Carlos Enrique explica en el año 2010 en su artículo que su práctica consiste en “...un
+sistema parametrizable que permite el control de acceso a las puertas y el registro del
+ingreso del personal en la empresa donde se labora a través de conexión remota a
+servidores de autenticación...” (tomado del trabajo escrito), además demuestra que se
+usan e integran las tecnologías de SmartCards con JavaCards y Arduino. Allí el detalla
+que para poder acceder a ciertas zonas de la empresa, se debe ingresar un carné por
+un dispositivo lector. Este sistema también cuenta con un modo basado en roles que
+concede más privilegios a algunos usuarios.
+
+2.4. Desarrollo de una aplicación web para la administración de
+los equipos de cómputo de las salas de sistemas de la universi
+dad del valle sede Tuluá, que permita gestión de conocimiento
+a través de técnicas de KDD]|$5]
+
+Por último y con un enfoque más local, este trabajo de grado fue presentado por el
+estudiante Jhonny Agudelo Oviedo. Sin embargo, su implementación no pudo ser posible por unos problemas de compatibilidad que se presentaron con los servidores de la
+universidad.
+
+Con respecto a lo anterior, es notorio que aunque los autores han sugerido propuestas
+muy bien elaboradas y llamativas, ninguna cuenta con un sistema de acceso sencillo, un
+sistema que se ajuste a la realidad y necesidades que hoy en día enfrenta la universidad,
+en donde los verdaderos menesteres no precisan de medidas lujosas, si no de métodos
+eficaces que desempeñen satisfactoriamente la tarea de controlar el acceso y ofrecer
+reportes que permitan tener un seguimiento de las estadísticas de las salas de cómputo
+de la Universidad.
+
+Es así como se evidencia un campo estudiado en el que aún existen muchos aspectos
+que se pueden revisar y otros sobre los que se puede profundizar más con el objetivo
+de generar soluciones más óptimas que permitan regenerar el proceso de acceso a los
+computadores para así tener la posibilidad de producir mejores censos basados en información real, lo cual permitiría mejorar el estado general del uso de los equipos en el
+entorno universitario.
+
+152.5. Software Libre[6]
+
+Software libre es el software que respeta la libertad de los usuarios y la comunidad. A
+grandes rasgos, significa que los usuarios tienen la libertad de ejecutar, copiar, distribuir,
+estudiar, modificar y mejorar el software. Es decir, el software libre es una cuestión de
+libertad, no de precio. Un programa es software libre si los usuarios tienen las cuatro
+libertades esenciales:
+
+= La libertad de ejecutar el programa como se desea, con cualquier propósito (l1bertad 0).
+
+= La libertad de estudiar cómo funciona el programa, y cambiarlo para que haga lo
+que usted quiera (libertad 1). El acceso al código fuente es una condición necesaria
+para ello.
+
+= La libertad de redistribuir copias para ayudar a su prójimo (libertad 2).
+
+= La libertad de distribuir copias de sus versiones modificadas a terceros (libertad
+3). Esto le permite ofrecer a toda la comunidad la oportunidad de beneficiarse de
+las modificaciones. El acceso al código fuente es una condición necesaria para
+ello.
+
+2.6. Biblioteca de Infraestructura de Tecnologías de la Información
+AID) [7]
+
+ITILO fue desarrollada al reconocer que las organizaciones dependen cada vez más de
+la Informática para alcanzar sus objetivos corporativos. A través de los años, el énfasis
+pasó de estar sobre el desarrollo de las aplicaciones TI a la gestión de servicios TI. La
+aplicación TI (a veces nombrada como un sistema de información) sólo contribuye a
+realizar los objetivos corporativos si el sistema está a disposición de los usuarios y, en
+caso de fallos o modificaciones necesarias, es soportado por los procesos de mantenimiento y Operaciones.
+
+A lo largo de todo el ciclo de los productos TI, la fase de operaciones alcanza cerca
+del 70-80 % del total del tiempo y del coste, y el resto se invierte en el desarrollo del
+producto (u obtención). De esta manera, los procesos eficaces y eficientes de la Gestión
+de Servicios TI se convierten en esenciales para el éxito de los departamentos de TI.
+
+Esencialmente, el objetivo de ITIL es proporcionar a los administradores de sistemas
+de TI las mejores herramientas y documentos que les permitan mejorar la calidad de sus
+
+16servicios, es decir, mejorar la satisfacción del cliente al mismo tiempo que alcanzan los
+objetivos estratégicos de su organización.
+
+2.7. Software de administración de recursos informáticos|8]
+
+La administración de los recursos informáticos tiene que ver con la forma que planeamos, organizamos, dirigimos y controlamos nuestros bienes informáticos. El software
+diseñado para esto permite controlar el inventario de hardware y software, administrar
+el uso del espacio en disco y ancho de banda de la red, respaldar y recuperar información. Es por esto que el uso de estas aplicaciones en salas de cómputo es vital. De estos,
+se pueden destacar:
+
+2.8. OCS Software Inventory NG[9]
+
+Open Computers and Software Inventory NextGeneration es una solución de manejo
+técnica para los activos de TI (Tecnologías de la Información). Desde el 2001, OCS
+Inventory NG intenta hacer el inventario automatizado de los computadores de manera
+más eficiente.
+
+OCS es una aplicación gratuita diseñada para permitirle al administrador de una red o
+sistema, mantener un seguimiento de la configuración y el software que está instalado
+en la red. Esta herramienta permitirá crear un servidor de inventariado donde se dispondrá de toda la información necesaria y actualizada de forma automática que puede
+visualizarse a través de una interfaz web. Incluso, OCS comprende la posibilidad de
+implementar aplicaciones en los equipos de acuerdo a criterios de búsqueda.
+
+2.9. GLPI[10]
+
+Gestionnaire libre de parc informatique (Administrador libre de parques informáticos)
+es una interfaz de manejo y administración de los recursos de información. Se puede
+utilizar para construir una base de datos con un inventario para su empresa (ordenador,
+software, impresoras, entre otros). Tiene funciones mejoradas para hacer la vida cotidiana de los administradores más fácil. Estas funciones incluyen un sistema de seguimiento
+de trabajo con notificación por correo y métodos para construir una base de datos con
+información básica sobre la topología de su red. Las principales funcionalidades de la
+aplicación son:
+
+17= Inventario preciso de todos los recursos técnicos. Todas sus características serán
+almacenados en una base de datos.
+
+= La gestión y la historia de las acciones de mantenimiento y los procedimientos
+consolidados. Esta aplicación es dinámica y está conectada directamente a los
+usuarios que pueden mandar solicitudes a los técnicos.
+
+Algunas virtudes[18] de emplear esta aplicación en la vida diaria son:
+
+= Reducción de costos
+
+= Optimización de recursos
+
+= Rigurosa gestión de licencias
+= Alta calidad
+
+= Usabilidad satisfactoria
+
+= Seguridad
+
+Las razones primordiales para utilizar GLPI se basan en la capacidad de inscribir todas
+las incidencias y procesos anormales que podrían causar suspensiones en las labores
+diarias o disminución en la calidad de las mismas. Además el registro de solicitudes se
+convierte en una tarea fácil.
+
+2.10. Sistema de información[11]
+
+Por definición es un conjunto de elementos que interactúan entre sí con un fin común;
+que permite que la información esté disponible para satisfacer las necesidades en una organización. Los elementos que interactúan entre sí son: el equipo computacional (cuando esté disponible), el recurso humano, los datos o información fuente, programas ejecutados por las computadoras, las telecomunicaciones y los procedimientos de políticas
+y reglas de operación. Un Sistema de Información realiza cuatro actividades básicas:
+
+=_ Entrada de información: proceso en el cual el sistema toma los datos que requiere.
+
+= Almacenamiento de información: puede hacerse por computadora o archivos físicos para conservar la información.
+
+= Procesamiento de la información: permite la transformación de los datos fuente
+en información que puede ser utilizada para la toma de decisiones
+
+18= Salida de información: es la capacidad del sistema para producir la información
+procesada o sacar los datos de entrada al exterior.
+
+2.11. Aplicaciones cliente/servidor[12]
+
+Un servidor es una aplicación que ofrece un servicio a usuarios de Internet; un cliente es
+el que pide ese servicio. Una aplicación consta de una parte de servidor y una de cliente,
+que se pueden ejecutar en el mismo o en diferentes sistemas.
+
+Los usuarios invocan la parte cliente de la aplicación, que construye una solicitud para
+ese servicio y se la envía al servidor de la aplicación que usa TCP/IP como transporte.
+
+El servidor es un programa que dedica todos sus recursos a atender peticiones de los
+equipos cliente. El recibe una solicitud (cargar una página web, enviar/abrir un correo
+electrónico), realiza el servicio requerido y devuelve los resultados en forma de una
+respuesta(muestra la página o el correo enviado/recibido, entre otros). Generalmente
+un servidor puede tratar múltiples peticiones (múltiples clientes) al mismo tiempo.
+
+2.12. Servidores de bases de datos [13]
+
+Un servidor de bases de datos es un sistema con arquitectura cliente/servidor que proporciona servicios de gestión, administración y protección de la información (datos) a
+través de conexiones de red, las cuales están gobernadas por unos protocolos definidos
+y alos que acceden los usuarios, de modo concurrente, a través de aplicaciones clientes
+(bien sean herramientas del propio sistema como aplicaciones de terceros).
+
+Un servidor de bases de datos se utiliza para almacenar, recuperar y administrar los
+datos de una base de datos. El servidor gestiona las actualizaciones de datos, permite el
+acceso simultáneo de muchos servidores o usuarios web y garantiza la seguridad y la
+integridad de los datos.
+
+2.13. Servidores web [14]
+
+Programa diseñado para permitir la interacción entre ordenadores el cual suele funcionar
+permaneciendo a la espera de peticiones. Cuando las recibe responde a ellas transfiriendo documentos de tipo hipertexto y para ello implementa el protocolo HTTP (HyperText
+Transfer Protocol).
+
+192.14. SharpDevelop [15]
+
+SharpDevelop es una herramienta gratuita que actúa como un entorno de desarrollo para
+aplicaciones basadas en los lenguajes CF y .NET. El programa tiene total disponibilidad en Español y sus características se pueden extender con plugins que se encuentran
+disponibles en su página web.
+
+Sus características más sobresalientes son:
+
+= Depurador incorporado
+
+= Resaltado de sintaxís
+
+= Editor visual de Windows Forms
+
+= Escrito absolutamente en C+
+
+= Cuenta con la propiedad de auto completado
+
+= Extensible por medio de herramientas externas o complementos
+
+2.15. MySQL [16]
+
+MySQL es un sistema OpenSource de administración de bases de datos. Se destaca
+por su fácil adaptación e interacción con lenguajes de programación como PHP, Perl y
+Java. Este gestor permite, a través de sentencias simples, recuperar rápidamente la información que necesitemos. MySQL tiene controladores que permiten que aplicaciones
+
+construidas en diversos lenguajes puedan comunicarse directamente con los servidores
+y bases de datos de MySQL.
+
+20Capítulo HI.
+
+HERRAMIENTAS EXISTENTES Y PROCEDIMIENTOS PARA
+VERIFICACIÓN DE IDENTIDAD
+
+En este capítulo se presenta el desarrollo de los objetivos 1 y 2, para los cuales se decidió
+iniciar con una investigación que abarcara las funciones de los sistemas existentes en
+las salas de la universidad.
+
+Para argumentar y dar solución al objetivo 1, se llevó acabo un estudio exhaustivo del
+funcionamiento del sistema OCS y de GLPI, y de la relación que se crea una vez éstos
+interactúan. De esta manera, se pudo identificar la importancia de su rol en las salas,
+además de definir el papel que cumplen y el alcance real que tienen las actividades que
+se realizan mediante estos programas.
+
+3. Herramientas utilizadas y procedimientos para verlficación de identidad
+
+3.1. Sistemas OCS y GLPI
+
+En esta fase se inició con la exploración de las funciones de los sistemas OCS y GLPI.
+Una vez entendidas las definiciones y funciones de éstos se procedió a indagar e inspeccionar el actual estado de dichos sistemas en las salas de la Universidad del Valle
+sede Tuluá. Es así como al terminar con el desarrollo de este primer objetivo, se obtuvo
+una comprensión más profunda y amplia de la importancia de ambos programas en la
+realidad de las salas.
+
+Las soluciones para el manejo de inventario e implementación remota de software se
+han convertido en pieza clave para la administración de grandes infraestructuras de
+tecnologías de la información. “..Su uso le ha permitido a cientos de supervisores de
+recursos tecnológicos tener un mejor control de los bienes de la empresa mediante
+la instalación simultánea en múltiples equipos y el inventario de éstos, además de los
+programas instalados en cada uno de ellos..”[9]. Para la realización del inventario, estos
+sistemas obtienen toda la configuración del hardware y software de cada equipo, así
+como también todas las licencias y programas instalados en los mismos. De esta manera,
+es sencillo hacer un seguimiento de los cambios realizados en los equipos[19].
+
+21Con respecto a la implementación remota, estas soluciones permiten distribuir, instalar,
+actualizar y desinstalar aplicaciones en un sólo bien o en un grupo en específico de
+computadores[19].
+
+Una de las herramientas es el software OCS Inventory NG (Open Computer and Software Inventory Next Generation), el cual sirve para obtener el registro de todo el software
+y hardware de cada uno de los equipos de cómputo de las salas que se encuentren conectados a una red. Este sistema permite tener una visualización del inventario de los
+equipos a través de una interfaz web, además de proporcionar un módulo para gestionar
+los derechos del usuario y otro para los técnicos en donde pueden acceder al servicio de
+asistencia técnica.
+
+Sus principales funcionalidades estan basadas en dos núcleos. El primero está relacionado con el inventario de todos los recursos informáticos, y el software existente, de una
+empresa o una red de computadora, cuyas propiedaes se almacenan en bases de datos
+de forma manual.
+
+El otro está basado en la administración y los historiales de las diferentes labores de
+mantenimiento y procedimientos relacionados, los cuales se llevan a cabo sobre esos
+recursos informáticos (permite registrar información de inventario, de contactos, registrar solicitudes de servicio y asignar la atención de dichas solicitudes al personal de
+soporte correspondiente).
+
+En la imagen 1 se muestra el listado de los equipos que ya han sido inventariados por
+el administrador de las salas y/ó auxiliar de las salas de sistemas.
+
+ 
+
+ 
+
+eS uy O SECURITY ALERT! . o
+
+wentoryne The default sql login/password ¡is activate on your database: ocsweb
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+0S06S 0550060444000
+
+pi
+
+Restrict view: y Filter [X<
+Nombre de los bienes inventariados — adicionar columna: 71%
+
+99 Resultado (Descargar)
+Account
+info: Sele
+
+Inventario Computador Dirección 1PX
+
+*X
+
+47654700 POSTGRADOS03 192.168.14.155
+53898310 SOPORTEO1 192.168.14.34
+48882500 SALACONTAO2 192.168.14.10
+48882900 SALA 192.168.14.11
+48892100 SALACONTAD4 192.168.14.33
+48890500 SALACONTAO4 192.168.14.12
+48893700 SALACONTAOS 192.168.14.93
+48884500 SALACONTAO6 192.168.14.14
+48884900 SALACONTAO7 192.168.14.15
+48885300 SALACONTAOS 192.168.14.16
+
+a4nanenan
+
+A
+
+ 
+
+ 
+
+o
+cope j
+
+Imagen 1: Software OCS Inventory NG
+
+22Lo que se observa en la anterior imágen son los computadores que se encuentran en
+funcionamiento de las sedes de la universidad en Tuluá. Este listado se alimenta de
+la base de datos en donde están almacenados todos los bienes con los que cuenta la
+institución.
+
+Según la página oficial de OCS Inventory NG [9], alguna de la información que reco
+lecta el software es:
+
+ 
+
+ 
+
+Tipo Unidad Lipo de Sistema Operativo Software Pantalla
+Lógica unidad lógica
+- Removible 2 - Nombre
+po. l - Compañía registrada .> - Fabricante
+- Máquina física | Letra de la | - Disco duro o - Versión
+po. oo, - Propietario registrado - Tipo
+- Máquina virtual | partición - CD -Room ID del producto - Idioma _H serial
+- RAM P - Entre otros
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 1: Datos recolectados por OCS
+
+Estos datos que reune el programa tienen como propósito ayudar al administrador de
+un sistema a mantener el seguimiento de la configuración de las computadoras y el
+software que se instala en la red.
+
+El software OCS almacena todos estos datos en campos destinados para ello, sin embargo, el personal técnico de las salas con frecuencia ha notado que estos espacios no
+son suficiente para todos los datos que se requieren para tener un inventario totalmente
+actualizado y al día. GLPI cuenta con más campos que detallan la hoja de vida de cada
+computador y periférico (impresora, mouse, teclado), entre estos campos se encuentran
+Fabricante, Número de serie, componentes y procesador. y además, se ha percatado que
+el software no permite tener historial de información agregada, tal como datos de soporte, o de cambios realizados por los monitores a los equipos debido a soportes técnicos.
+Esto es un claro inconveniente para cuestiones de supervisión y control de los equipos,
+pues el historial de cambios, modificaciones y mejoras nunca queda registrado. Esto 1mplica un declinamiento en la administración pues no se gestiona lo que no se controla,
+no se controla lo que no se define y no hay éxito en lo que no se gestiona.
+
+Es por esto que surgió la necesidad de migrar la información y hacer uso de un segundo programa llamado GLPL, el cual permite la gestión de un parque tecnológico[10]
+y además proporciona que las funciones de OCS puedan ser mejoradas y ampliadas.
+En la sede Tuluá, se cuenta con este software para administrar y dar un mejor uso de
+las propiedades tecnológicas de la institución. Los administradores de las salas tienen
+todos lo bienes inventariados, además de hacer una constante revisión de los equipos
+que podrían tener tickets para revisión. Esta aplicación trabaja con perfiles, los cuales
+
+23conceden diferentes permisos sobre el sistema a los distintos técnicos y administradores que tienen acceso a las salas de cómputo. También, el programa cuenta con mayor
+funcionalidad y permite añadir información adicional sobre los equipos y los usuarios;
+a manera de ilustración, una de sus funciones es posibilitar el control de las asistencias técnicas que se han realizado al equipo de cómputo y demás procedimientos que se
+hayan hecho, como traspaso del equipo a otra sala o cambio de estado a Inactivo.
+
+El uso de los datos migrados de OCS a este software, permite la gestión de los recursos
+tecnológicos de la sala. Esta gestión se ejecuta en un ambiente web.
+
+En la imagen 2 se contempla la lista de computadores en la sección inventario del programa GLPI. Esta sección se llena con datos provenientes del sistema OCS. Como se
+puede observar, a cada lado de los equipos se detallan las especificaciones técnicas.
+
+Q AS) bd
+
+  
+ 
+
+SA A A
+
+Inicio A UNIV
+nostrados Y contiene y 05
+.. . . e =
+a - mosiSección inventario + F Página actual en Horizontal PDF + [EJ Desde 1 a 15 en 98 > A
+cas
+z .
+teme => 965 9 9 0 9 y 0
+Nombre Estado Fabricante Número de Tipo Modelo Sistema Operativo Ubicación Última z Componentes - Procesador
+serie actualización
+
+ADMINISTRATIVA1 Activo Dell Inc. 8XKBFZ1 Desktop OptiPlex Microsoft Windows 10 Pro 11-04-2016 10:49 Intel(R) Core(TM) ¡5-3470 CPU QU 3.20GHz [4 core(s) x86_64]
+3010
+
+AUXSALASISTEMAS Activo Dell Inc. 90H8FZ1 Desktop OptiPlex Microsoft Windows 10 Pro 11-04-2016 10:48 Intel(R) Core(TM) ¡5-3470 CPU Q 3.20GHz [4 core(s) x86_64]
+3010
+
+BIBLIOTECAO1 Activo Dell Inc. 9ORBFZ1 Desktop OptiPlex Microsoft Windows 10 Pro 11-04-2016 10:49 Intel(R) Core(TM) ¡5-3470 CPU A 3.20GHz [4 core(s) x86_64]
+3010
+
+BIBLIOTECAO2 Activo Dell Inc. 8WR9FZ1 Desktop OptiPlex Microsoft Windows 10 Pro 11-04-2016 10:48 Intel(R) Core(TM) ¡5-3470 CPU (Y) 3.20GHz [4 core(s) x86_64]
+3010
+
+BIBLIOTECAO3 Activo Dell Inc. 39YFNH1 Desktop OptiPlex 330  MicrosoftB) Windows Vista” 11-04-2016 10:49 Intel(R) Core(TM)2 Duo CPU E7200 Q 2.53GHz [2 core(s)
+
+Business x86_64]
+
+Imagen 2: Software GLPI
+
+Es así como se presenta el caso de la Universidad del Valle sede Tuluá que cuenta con
+tres sedes de las cuales dos poseen salas de cómputo. La sede principal de la institución
+tiene una sala que cuenta con 24 equipos de cómputo, mientras que en la sede Príncipe,
+hay dos salas en las que hay 30 y 25 equipos respectivamente.
+
+En conclusión, sólo se trabajará con GLPI puesto que los datos que serán utilizados son
+los que se encuentran en éste.
+
+243.2. Métodos para el reconocimiento de identidad de usuario
+
+La necesidad notoria de implementar y mejorar los controles de acceso y seguridad en
+lugares donde la situación lo amerite ha guiado a mejorar el diseño y efectividad de los
+sistemas, es por esto que las propuestas van desde sistemas sencillos como logueo o
+verificación con un documento de identidad, hasta opciones más complejas como reconocimiento biométrico con identificación facial o por huella que requieren otros elementos de hardware e inversión adicional para poder ser implementados en las empresas
+o instituciones. Algunas de las técnicas que permiten el reconocimiento de identidad se
+describirán a continuación:
+
+1. Reconocimiento por Login/autenticación: El método de autenticación por logueo es ampliamente usado por distintas entidades, como colegios, universidades,
+empresas y demás. Consiste en el uso de un ID y un pase (password) para lograr
+el ingreso a un sistema con acceso restringido. El proceso es simple, el usuario
+ingresa su identificación y contraseña y estos datos se verifican con unos que ya
+se encuentran en una base de datos. Si los datos son válidos, el acceso se autorlza. Tradicionalmente, las contraseñas e ID han sido usados para moderar el acceso
+a lugares restringidos. Sin embargo, en estos sistemas “..la seguridad puede ser
+
+fácilmente violada cuando se divulga la contraseña a un usuario no autorizado..” [20].
+
+Aun así, son ampliamente usuados en entornos escolares y en algunas empresas
+pequeñas pues su implementación y uso es mucho más sencillo que los demás
+sistemas que se presentarán.
+
+2. Reconocimiento Facial: Los sistemas de reconocimiento facial están englobados
+dentro de las técnicas FRT (Face Recognition Techniques). Estos métodos pueden
+clasificarse en dos categorías según el tipo de aproximación: holística o analítica. “..La aproximación holística considera las propiedades globales del patrón,
+mientras que la segunda considera un conjunto de caracteristicas geométricas de
+la cara..”[21]. Hoy en día, este método se utiliza en aeropuertos, en las esquinas
+de muchas vías y en diversas áreas públicas[22].
+
+Es importante aclarar que aún hoy, este proceso requiere de ciertos estándares
+para poder tener un alto grado de efectividad. Por ejemplo, las imágenes tienen
+que tener buena calidad y contar con gran nitidez para permitir la identificación.
+Además “..el sistema es susceptible a los cambios de luz, expresiones faciales, o
+a personas que se han sometido a cirugías plásticas..”[23].
+
+3. Reconocimiento de identificación por documento: Los documentos de identidad son carnéts públicos que se emiten para permitir la identificación individual de una persona. La mayoría de los países cuentan con una identificación,
+
+25sin embargo, otros como el Reino Unido y Japón[24] no disponen de un ID, sino
+únicamente del pasaporte.
+
+Ambos documentos (cédula y pasaporte), están altamente expuestos a ser falsif1cados. Es por esto que en la actualidad existen software que escanean los documentos con luz blanca, ultraroja y ultravioleta[25] con las que se identifican todas
+las marcas y sellos de seguridad que están presente en los carnéts de identidad.
+Sin embargo, las tarjetas de identidad, cédulas y pasaportes pueden ser fácilmente
+usurpadas de sus propietarios lo que los convierte en un blanco fácil pues cualquier usuario podría acceder a esta información.
+
+. Reconocimiento por Huella dactilar: Según una publicación hecha en el año
+2011 en la página de la Registraduría de Colombia[26], esta técnica se considera
+en la actualidad como el “método ideal de identificación humana.” y “...La identificación biométrica es una tecnología de seguridad que mide e identifica alguna
+caracteristica morfológica que diferencia a una persona del resto de seres humanos, como puede ser la forma del rostro, el iris, la voz o la huella dactilar...” Hoy
+en día, la forma más representativa del uso de la biometría es la identificación
+por medio de huellas digitales: Tiene usos tan variados como permitir el acceso
+a computadoras y redes, controlar horarios de ingreso, regular el acceso físico a
+un área restringida, hacer seguimiento a migrantes en puntos fronterizos y para
+mejorar la seguridad en los cajeros automáticos, entre otros.
+
+Regularmente, un sistema de identificación por huella funciona así: primero la
+persona ubica su dedo en un escáner biométrico el cual produce una imagen digltal de la impresión. La extracción digital de los rasgos de los surcos es un proceso
+adicional que produce una representación de los mismos en forma compacta. Durante la preparación, un Número de Identificación Personal es asociado a la huella.
+Luego se valida la identificación de la persona en el lugar de acceso, en esta fase
+de operación, se introduce el PIN, el cual es exclusivo de cada persona. El lector
+biométrico captura la imagen para luego convertirla a formato digital. Así, tanto
+la representación proveniente de la base de datos como la resultante del procesamiento se introducen al compaginador (matcher), quien se encarga de comparar.
+Finalmente se obtiene el formato compacto de la huella y se verifica con todas
+las muestras de la base de datos y produce un resultado de identificación o no del
+usuario[27].
+
+. Reconocimiento por Voz: La voz es una combinación de características físicas y
+de conducta. Las particularidades del modo de hablar de cada ser humano permanecen invariables, pero las modos de conducta (emociones) cambian a lo largo del
+tiempo y se ven influenciadas mayormente por la edad, las condiciones médicas
+o el estado de ánimo de la persona. Las principales desventajas de este rasgo son
+su baja distintividad entre la infinidad de rangos y tonos de voces y la facilidad
+con la que puede ser imitado.
+
+26La acústica se utiliza para identificar y describir los atributos del habla que son
+necesarios para un reconocimiento de voz efectivo. En la siguiente tabla se especifican tres características importantes del análisis acústico.
+
+ 
+
+Característica Descripción
+
+ 
+
+Es un patrón simple y cíclico. La amplitud de una onda sonora representa
+
+Frecuencia y amplitud a o. , ,
+y mp fisiológicamente al movimiento del tímpano del oído.
+
+ 
+
+Estructura Armónica | El habla no es un tono puro. Es una continuación de múltiples frecuencias
+(tono versus ruido) y se representa como una onda compleja.
+
+ 
+
+Se define como la habilidad que tiene una fuente vibrante de sonido de causar
+que otro objeto vibre. La garganta, boca y nariz son cámaras de resonancia
+que amplifican las bandas o frecuencias formantes contenidas en el sonido
+generado por las cuerdas vocales.
+
+Resonancia
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 2: Características importantes del análisis acústico
+
+6. Reconocimiento de iris: El iris “Se trata de una caracteristica morfológica perfectamente circular que presenta las propiedades matemáticamente más individuales y únicas”. [21] El sistema de reconocimiento consiste en un proceso de
+adquisición riguroso. La aplicación realiza una captura de la imagen a nivel de
+grises mediante scanners que escanean la superficie del ojo (por lo que no se realiza ningún reconocimiento de colores), este tipo de adquisición dota al sistema de
+invarianzas, desplazamientos y rotaciones presentes en la imagen original. [21]
+Normalmente, la representación digital utilizada por el sistema de reconocimiento no sólo contiene el iris, sino también las regiones de alrededor. También, la
+imágen de éste suele estar obstruida por párpados, pestañas y reflejos producidos por el sistema de iluminación. Por otro lado, el tamaño generalmente varía
+en diferentes tomas debido a la contracción o dilatación del mismo. Por esto es
+necesario que posteriormente se realice una etapa de procesamiento de la imagen.
+
+Este proceso puede dividirse en 2 etapas [28]. La segmentación, donde se ubica
+la imagen del iris para tener dicha sección disponible para el procesamiento; y la
+normalización, por medio de la cual se obtiene una imagen independiente y que
+también permite la comparación entre diferentes iris.
+
+Finalmente, después de realizar una revisión de los diferentes mecanismos de reconocimiento de identidad en la tabla 1 se indican algunas características de los sistemas
+mencionados. Este cuadro está hecho basado en un entorno institucional. El campo
+“Características adicionales”se refiere a si es necesario algún hardware adicional para el sistema.
+
+27Sistemas
+
+Características
+
+Entorno de uso
+
+Requisitos adicionales
+
+ 
+
+ 
+
+Reconocimiento
+por huella dactilar
+
+Instituciones públicas / privadas, bancos, empresas de
+giros, universidades
+
+Requiere de la implementación
+de un sistema lector de huellas
+
+ 
+
+Instituciones que manejan
+
+Necesita contar con cámaras de
+
+ 
+
+Reconocimiento información de suma alta definición para lograr
+facial importancia, empresas de capturar el rostro de manera
+seguridad. precisa.
+Reconocimiento os
+Insituciones como bancos,
+por Ninguna
+
+identificación / ID
+
+universidades
+
+ 
+
+Instituciones que manejan
+
+ 
+
+ 
+
+Reconocimiento información de suma Debe haber instalado un micrófono
+por voz importancia, empresas de para detectar la voz
+seguridad.
+Reconocimiento Instituciones públicas / privapor das, bancos, empresas de Ninguna
+login/autenticación | giros, universidades.
+Instituciones que manejan ,
+oo. ., Necesita contar con cámaras de
+Reconocimiento información de suma o,
+o. alta definición para lograr
+de iris importancia, empresas de
+
+capturar el rostro de manera precisa.
+seguridad
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 3: Características de los sistemas de reconocimiento de identidad
+
+Con base en el análisis realizado sobre los procedimientos para el reconocimiento de
+identidad de usuario, se puede concluir que el método más acorde a las necesidades
+específicas de la actividad de control de acceso que se debe desarrollar en las salas
+de sistemas de la Universidad del Valle - sede Tuluá, son la identificación por huella
+dactilar y la autenticación por logueo. Sin embargo, de acuerdo con el análisis realizado
+en la tabla anterior y teniendo en cuenta el hecho que la universidad es una institución
+pública y la información presente en los computadores disponibles para el uso público
+no representa un alto riesgo(pues estos datos varian desde un trabajo de clase hasta
+un programa para edición de imágenes); la técnica seleccionada para implementar será
+la de Logueo. Adicionalmente, el Ingeniero Pedro Pablo Bermúdez (actualmente es el
+coordinador de recursos tecnológicos de la sede Tuluá) quien será el usuario de está
+aplicación, sugirió que este sería el procedimiento más adecuado y práctico a la hora de
+gestionar el acceso a los computadores de personas que son externas a la Universidad y
+que requieran hacer uso esporádico de los equipos de cómputo de las salas, por ejemplo:
+individuos que se encuentren realizando diplomados, talleres, cursos, entre otros, que
+impliquen el uso de la sala. Dichas personas solicitan beneficiarse de la sala por un
+máximo de 7 horas cada semana. Por el contrario, el método por huella dactilar conlleva
+un proceso de adaptación previo al uso, pues en el caso de personas que son visitantes
+se tendría que hacer recolección de 10 o más muestras de huellas por persona, lo que
+significa una larga espera para una fase de uso que será en algunas ocasiones de un sólo
+
+28día o máximo por algunas horas a la semana, lo que lleva un almacenamiento inoficioso
+de información que probablemente no será útil en un futuro. Finalmente el método más
+apropiado para el entorno universitario y la problemática que se evidencia en las salas
+de la Universidad fue el de Logueo.
+
+29Capítulo IV.
+DESARROLLO DEL PROYECTO
+
+4. Desarrollo del Proyecto
+
+4.1. Metodología de Desarrollo de Software
+
+La metodología SCRUM fue la seleccionada para el desarrollo del proyecto porque se
+consideró que al usar un método ágil, el conjunto de técnicas que éstas aplican permiten
+favorecer la disminución del costo de cambios en el proyecto, pues al hacer uso de
+un proceso iterativo se orienta al mejoramiento de los resultados en cada una de las
+fases de análisis, diseño, desarrollo y pruebas. Es así como se consideró como un marco
+de trabajo más apropiado el uso de SCRUM para de esta manera obtener un sistema
+funcional y con un mínimo de errores.
+
+La imagen 3 se muestra la metodología de desarrollo sobre el cual se desplegó este
+trabajo, siendo ésta la que definió la línea de evolución de la aplicación de escritorio y
+el plugin que se contruyeron. El proceso inició por una fase de investigación donde se
+obtuvo el marco referente necesario para este trabajo(1dentificación y reconocimiento
+de los sistemas OCS y GLPI) para finalmente abordar la etapa de desarrollo donde se
+trabajó con Scrum como metodología de producción de software para la construcción e
+implementación de la solución generada.
+
+   
+
+Daily Scrum
+
+Potentially Shippable
+Product Increment
+
+Imagen 3: Ciclo de Scrum. Fuente: [1]
+
+A continuación está descrito el proceso de desarrollo que se aplicó para elaborar el
+proyecto siguiendo los estándares de la metodología scrum.
+
+304,2. ANÁLISIS
+4.2.1. Definición del Product Backlog
+
+De acuerdo a los lineamientos que propone la metodología Scrum, el Product Backlog
+se establece como un mecanismo para manejar los requerimientos, tanto funcionales
+como no funcionales del sistema. Este se define antes de iniciar la primera iteración.
+
+Las historias de usuario son utilizadas en las metodologías ágiles de desarrollo para la
+especificación de los requisitos. Éstas describen, de forma corta y simple, una funcionalidad[29]. Es por esto que este método se seleccionó como la manera mas adecuada
+para especificar los requerimientos del Product Backlog.
+
+La disposición general de una historia de usuario es la siguiente:
+= ID: El ID es un código que identifica la Historia de Usuario en el la línea de
+tiempo del proyecto.
+
+= Título: Presenta de manera corta la necesidad expresada por el usuario.
+
+= Descripción General: Explica, de forma general, la actividad que el usuario podrá realizar una vez reciba el producto.
+
+= Prueba de Aceptación: Verifica que el sistema responda adecuadamente y funcione de acuerdo a lo determinado en la descripción dela historia de usuario.
+
+= Prioridad: Es el nivel de importancia de una historia de usuario.
+
+31Módulo: Administración
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ID Título Descripción Prueba de aceptación Prioridad
+Cuando los computadores de
+COMO administrador DA rr ados Cuando un usuario vaya
+IERO crear las cuentas de , S . acceder a un computador
+suenos diplomados. pinga 1109) debe poder iniciar sesión
+HUI | PARA llos no tengan o : ? normalmente con el Alta
+_ que crearlas Dor sí mismos el Drganizador de dietas usuario y contraseña
+cuando accedan al equipo IEUmIones debe enviar los datos dados por el administrador
+de cómputo. de los participantes para que de la sala
+el administrador de la sala pueda
+crear sus respectivas cuentas.
+En caso de que sea necesario,
+COMO administrador la aplicación tendrá una
+QUIERO agregar manualmente | El administrador podrá agregar opción “Insertar datos
+HU2 | los datos de un usuario nuevo manualmente a la base de datos manualmente” para que Alta
+PARA que sea agregado a la los datos de un usuario nuevo. el administrador pueda
+base de datos agregar datos de usuarios
+nuevos a la base de datos.
+o. o Z n ri
+COMO administrador El aduiinisirades pex sable ol datos a la base de
+QUIERO importar un archivo un archivo plano para añadir datos, el administrador
+HU3 | plano a la base de datos un listado de podrá hacerlo cargando Alta
+PARA añadir rápidamente usuarios cuando 86a Hecesaro, archivos planos mediante
+. . por ejemplo, para actualizar OL .
+un listado de usuarios datos cada semestre. una o po archivo
+plano a la BD”.
+COMO administrador El administrador podrá
+QUIERO modificar el estado o. , seleccionar de un
+de un programa académico El administrador podrá ero desplegable, la opción
+HU4 | PARA llevar registro de desactivar un programa académico “Inactivo” para un Alta
+todos los programas ana vez este 19 Se: ENSUSniTe en programa académico y
+po funcionamiento. . .
+académicos que se ofertan cambiarlo haciendo
+en la sede. click en el botón editar.
+El administrador podrá
+COMO administrador En caso de que sea necesario extender el tiempo de uso
+QUIERO extender el tiempo y un usuario así lo solicite, el de un equipo,mediante la
+de uso de un equipo a administrador podrá extender el opción “Administrar
+HUS | un usuario tiempo de uso a un usuario tiempo de conexión” en Alta
+PARA permitir que este para que pueda finalizar las donde podrá buscar un
+finalice las actividades que actividades que se encuentra usuario por su ID y escribir
+se encuentra realizando. realizando. el número de horas por las
+que extiende su uso.
+El administrador podrá
+COMO administrador En caso 28 que mu prolksor ca la ici se
+QUIERO desactivar la necesite alguna sala para lle var de tiempo en alguna
+restricción de tiempo en a cabo actividades académicas, de las salas
+Ene una sala el administrador podra seleccionandola del ata
+PARA que pueda ser usada desactivar el temporizador para desplegable y dando
+E dd que los usuarios no tengan un ' A din ba
+sin ninguna limitación. limita de tiempo click en el botón “Iniciar
+: clase”
+El administrador podrá
+Ss En caso de que una clase o a ag
+MO administrador e ativar la restricción de
+QUIERO activar la restricción actividad haya acabado, el tiempo en alguna de las
+HU7 | de tiempo en una sala admunsirador podrá olivar salas seleccionandola Alta
+
+ 
+
+PARA volver a tener el control
+de acceso a los equipos.
+
+ 
+
+de nuevo la aplicación para
+tener, el temporizador otra
+vez en ejecución.
+
+ 
+
+del desplegable y dando
+click en el botón
+“Terminar clase”
+
+ 
+
+ 
+
+En la Tabla 4 se presentan las historias de usuario pertenecientes al módulo Adminis
+Tabla 4: Historias de Usuario. Módulo “Administración”
+
+32tración. Allí se puede apreciar la estructura aclarada en el anterior párrafo.
+
+De esta manera se realizaron 33 Historias de Usuario, las cuales quedaron agrupadas
+en los módulos “Autenticación”, “Administración”, “Usuario”, y “Reportes”. Sin embargo, debido a la constante fluctuación de necesidades y puesto que la definición del
+Product Backlog es cambiante durante todo el proyecto, al final la ejecución de los
+
+Sprints se obtuvieron 24 historias de usuarios. Estas historias se encuentran recopiladas
+en el ANEXO 1.
+
+4.2.2. Planeando los Sprints
+
+Luego de terminada la tarea de definición de historias de usuario en el Product Backlog, dichas historias se agruparon por su funcionamiento en 4 áreas diferentes. Estos
+módulos se describen a continuación:
+
+= Autenticación: Este módulo contiene todas las necesidades referentes al proceso
+de registro y la administración de acceso de los usuarios que ya tienen cuenta.
+
+= Usuario: El módulo “Usuarios”se refiere a la gestión de los datos que cada persona tiene registrados en el sistema. El usuario podrá editar su información y dejar
+comentarios sobre el rendimientos del equipo
+
+= Administración: Aquí se definen todas las actividades que los administradores
+podrán hacer sobre los usuarios y sobre la aplicación misma. Editar datos de usuarios y renovar tiempo restante, además de administrar los programas académicos
+y las salas de cómputo
+
+= Reportes: En el módulo de “Reportes”, los administradores podrán consultar los
+reportes de todas las conexiones y comentarios, también podrá filtrar por parámetos como sala y rango de fecha. Es importante resaltar que este módulo cuenta
+con la característica de exportación de información a archivo CSV .
+
+Los módulos anteriores se desarrollaron en 4 Sprints priorizados por su funcionalidad
+y distribuidos de la siguiente manera:
+
+= Sprint 1: Módulo “Autenticación”, con tiempo asignado de 1 mes.
+
+= Sprint 2: Módulo “Usuario”, con tiempo asignado de 2 meses.
+
+= Sprint 3: Módulo “Reportes”, con tiempo asignado de 2 meses.
+
+= Sprint 4: Módulo “Administración”, con tiempo asignado de 3 meses.
+
+334.3. DISEÑO
+
+Teniendo en cuenta que se trabajó con una metodología ágil y cuyos lineamientos permitien cierta flexibilidad en el cambio de los requerimientos, en la etapa de diseño se
+optó por realizar sólo la documentación necesaria para el desarrollo del proyecto. De esta manera se tomó la decisión realizar las Historias de Usuario, al igual que el diagrama
+de componentes, diagrama de clases y un diagrama de secuencia.
+
+Para el desarrollo de la aplicación se utilizó una arquitectura basada principalmente en
+el modelo cliente-servidor, sugiriendo 3 capas: La Capa de cliente, Capa de Servicios y
+Capa de Datos.
+
+Capa de cliente
+
+Aplicación de
+Escritorio
+
+Interfaz de usuario
+
+Capa de servicios
+
+Aplicación web Plugin
+
+Interfaz web
+
+Capa de datos
+
+Motor de BD
+My SQL
+
+Interfaz Web
+
+ 
+
+Imagen 4: Arquitectura utilizada para el desarrollo del proyecto.
+
+En la imagen 4 se puede contemplar la representación gráfica de la arquitectura utilizada. La capa de cliente se compone por la lógica de la aplicación a la que el usuario final
+accede directamente mediante una interfaz de usuario. Esta capa recoge la información
+luego de la interacción del usuario y la envía al nivel de servicios, el cual se basa en
+la lógica que realizan las funciones principales del sistema, además de interactuar con
+
+la capa de datos para manejar la información y devolver una respuesta a la capa de
+presentación.
+
+La capa de datos está formada por los servicios que suministra la información persistente. Los detalles pueden ser referencias de aplicaciones almacenados en un sistema
+
+34de administración de bases de datos.[30] Esta capa se encarga de almacenar y mantener
+la entereza de la información alojada en la aplicación.
+
+En la imagen 5, se muestra el diagrama de componentes del plugin “Acceso Final” desarrollado para GLPI, el cual representa la estructura del sistema. Este diagrama permite
+reconocer el comportamiento e interacción de los componentes ya existentes, con los
+
+nuevos módulos añadidos.
+
+ 
+
+ 
+
+Espacio de trabajo - GLPI
+(PC)
+
+Navegador web a |
+(Google Chrome)
+
+ 
+
+HTTP
+
+Servidor
+Web Aplicación me03)
+(Interfaz)
+
+Administración |
+
+Usuarios
+
+My SQL
+Base de Datos |
+
+ 
+
+ 
+
+Imagen 5: Diagrama de Componentes del servicio web en GLPI
+
+35En la imagen 6 se puede observar la secuencia que tiene la actividad de inicio de sesión
+en la aplicación de escritorio. El usuario ingresa su ID y contraseña, y presiona click en
+el botón “Iniciar Sesión”. El sistema hace la consulta correspondiente, y dependiendo
+de la validación en la base de datos, concede o no el acceso al equipo.
+
+ 
+
+ 
+
+Ingresar 1D y contraseña
+—_—
+
+getiD
+
+getContraseña
+
+login : TRUE validarFormato.TRUE
+—_—_—_—__—
+
+' validar !
+OK
+AAA |
+validarlD: TRUE existeUsuario.TRUE ! conexionBD
+! : —_—_—_—
+' ) OK
+] ] ro
+; ' buscarUsuario
+OK
+.__ñ-—————=
+' ' desconexionBD
+OK
+: OK enn
+
+' .
+O O 1
+OK
+or Or
+
+ 
+
+'
+'
+'
+'
+'
+'
+'
+'
+'
+'
+4
+'
+'
+'
+'
+'
+'
+'
+'
+'
+'
+'
+'
+'
+4
+'
+'
+'
+'
+'
+'
+'
+'
+4
+'
+'
+'
+'
+'
+'
+'
+'
+'
+'
+
+ 
+
+Imagen 6: Diagrama de Secuencia - Inicio Sesión
+
+364.4. DESARROLLO
+
+Para emprender el ciclo de codificación se emplearon dos herramientos. Una de éstas
+fue SharpDevelop en la versión 5.1.0, con la que se desarrolló la aplicación de escritorio que controla el acceso a los computadores. SharpDevelop es un IDE para desarrollar
+proyectos en CF, Visual Basic, .NET, entre otros[15]. Para la creación del plugin para el
+sistema GLPI se utilizó el editor de texto Sublime Text, el cual soporta una gran cantidad
+de lenguajes de programación y cuya interfaz simple permite centrar completamente la
+atención en el desarrollo. Según la página web de Sublime Text, sus principales características son “..selección múltiple, modo “Libre de distracción”, división de pantalla,
+cambio instantáneo de proyecto, entre otros ..”[31]
+
+Durante las realizaciones de cada Sprint, la codificación se centró en repeticiones cortas
+de 1 o 2 semanas, las cuales fueron permitiendo la construcción y el robustecimiento
+al ir añadiendo características nuevas, para obtener prototipos prácticos y funcionales
+cada vez más completos.
+
+De esta manera, para los módulos de Autenticación y Usuario los cuales corresponden
+al núcleo de la aplicación de escritorio, se codificó con enfoque a desarrollar el modelo adecuado para la interfaz gráfica presentada al consumidor para luego centrarse
+en el procesamiento de los datos que pueden ser editados por el usuario en esta aplicación. Para este intercambio de información fue necesario descargar e instalar el conector
+MySOL Connector/NET, el cual actúa como librería y provee la conexión a MySQL
+desde aplicaciones .NET. Cabe aclarar que la versión utilizada de MySQL fue 5.5.46.
+
+La aproximación fue un poco diferente para la creación del plugin “Acceso Final”pues
+como primera medida el planteamiento estuvo guíado hacía la creación de las tácticas
+para recopilar y tratar todos los datos que se manejan en el sistema(detalles de las salas
+de informática, programas académicos, entre otros), para luego centrarse en la creación
+de la interfaz gráfica, en donde se crearon todos los correspondientes componentes visuales y mecanismos de interacción. En esta última fase se hizo uso de de HTMLS5 y
+también del lenguaje Javascript, en donde además se complementó con la biblioteca
+JQuery. Es importante destacar que las interfaces hacen uso de AJAX para realizar las
+peticiones a la capa de servicios.
+
+A continuación se presentan 13 imágenes que le permitirán visualizar el proyecto; y
+además hacerse una idea de cómo trabaja. Las primeras 5 fotos exponen el funcionamiento de la aplicación de escritorio, la cuál se instala en los computadores cliente.
+Las siguientes 8 imágenes representan el desempeño del plugin “Acceso Final” que se
+instala en el servidor web de la Universidad del Valle sede Tuluá.
+
+37Usuario
+
+ 
+
+Contraseña
+
+Universidad
+del Valle
+
+Sede Tuluá
+
+ 
+
+Acceder
+
+ 
+
+Usuario Invitado? Por favor registrese AQUI
+
+ 
+
+ 
+
+Imagen 7: Pantalla principal de la aplicación de escritorio
+
+En la imagen 7 se muestra la pantalla inicial de la aplicación. Aquí un usuario (estudiante, profesor, administrativo o invitado) completa los campos “usuario” y “contraseña”
+para iniciar sesión en un equipo de cómputo de alguna de las salas de la Universidad
+del Valle sede Tuluá. Si por el contrario la persona no tiene una cuenta, podrá crearla
+mediante el enlace “Por favor registrese AQUT”. En la foto 8, se muestran los campos
+que un usuario debería diligenciar para poder crear una cuenta e iniciar sesión en el
+equipo.
+
+38Nombres y apellidos
+
+Cédula
+[Será su identificación/login)
+
+ 
+
+Email
+
+Contraseña
+
+Escriba de nuevo su contraseña
+
+Cancelar
+
+ 
+
+Registrarse
+
+ 
+
+ 
+
+ 
+
+Imagen 8: Pantalla para la creación de una nueva cuenta.
+
+S1 la persona tiene una cuenta creada y los datos que ingresa son válidos, la pantalla que
+se muestra cuando se dá click en “Acceder” es la presentada en la foto 9. Esta ventana
+contiene 3 pestañas. La primera tiene el temporizador que muestra el tiempo restante de
+conexión, la sala desde la cual se está conectando el usuario y el botón “Cerrar sesión”.
+Cabe aclarar que cada día se reiniciará el temporizador a 2 horas para garantizar que
+todos los usuario cuenten con la totalidad del tiempo definido para uso del equipo. Dicho
+tiempo límite fue definido por el coordinador de recursos tecnológicos.
+
+39all Panel de Control dl +.” O 18
+sesión | Le gustaría dejar un comentario ? Consulte y edite sus datos personales
+
+Bienvenido 201133785 !
+Conectado desde SEDE VILLA CAMPESTRE
+
+00:29:40
+
+Cerrar Sesión
+
+ 
+
+ 
+
+Imagen 9: Pantalla que se muestra una vez la persona inicia sesión.
+
+40En la imagen 10 se muestra el contenido de la segunda pestaña. Allí se encuentran los
+comentarios predeterminados y la opción de escribir una opinión propia. Estas alternativas son importantes pues le proporcionan al usuario una manera fácil de enviar al
+administrador de la sala, su consideración respecto al rendimiento del equipo.
+
+ 
+
+Le gustaría dejar un comentario? | Consulte y edite sus datos personales
+
+[A] No hay intenet O presione este botón si desea
+[FP] Bl equipo está lento escribir su propio comentario.
+
+Escribir comentario
+
+do
+l
+|
+s
+Ñ
++
+|
+Ñ
+
+ 
+
+ 
+
+ 
+
+ 
+
+Imagen 10: Pantalla que permite al usuario dejar uno o varios comentarios.
+
+41Por último, en la tercera pestaña se presentan todos los datos del usuario conectado,
+de los cuales se pueden editar la cédula, contraseña y ambos correos. Esto se puede
+observar en la imágen 11.
+
+ 
+
+ul Panel de Control mm o
+ID: 201153785
+Cédula: 11111111
+
+Nombre: TORRES ROJAS NATALIA
+
+Cambiar
+
+Contraseña: ESE Contraseña
+
+lp
+Ñ
+1
+8
+F
+i
+r
+4
+
+| Cambiar + Añadir
+Correo Electrónico: — natalia tores. rojastcoreounivalle.edu.co
+
+ 
+
+ 
+
+ 
+
+ 
+
+Imagen 11: Pantalla en donde el usuario podrá ver y editar sus datos personales.
+
+42La segunda parte del proyecto consta del plugin “Acceso Final” para el sistema GLPI,
+el cual será utilizado principalmente por el administrador de las salas o por alguno de
+los monitores, quienes hacen parte del personal técnico. Dicho plugin se instaló en la
+ruta /var/www/glpi/plugins del servidor web de la Universidad del Valle sede Tuluá.
+
+En la imagen 12 se presenta la pantalla principal del plugin. En la parte superior se
+encuentran los botones para acceder a los siguientes módulos: “Subir archivo plano a
+la BD”, “Administrar programas académicos”, “Administrar salas de cómputo”, “Administrar comentarios predeterminados”, “Administrar tiempo de conexión”. Bajo esta
+sección está el área para agregar individualmente un nuevo usuario, en donde se deben
+llenar los campos ID (identificación), Cédula, Nombre, Estado, Programa académico
+y Correo electrónico. En la parte inferior está la lista páginada de todos los usuarios
+que actualmente tienen una cuenta para hacer uso de los equipos; y por último, si es
+necesario individualizar una búsqueda, también se tiene la opción de ingresar el ID de
+un usuario para obtener los datos de la persona (estudiante, docente, administrativo o
+invitado).
+
+ 
+
+Configuración del Plugin Acceso Final
+
+Seleccione lo que desea realizar:
+
+AE e E A Administrar comentarios predeterminados
+
+Aquí podrá agregar manualmente un usuario o subir un archivo plano.
+
+Insertar datos manualmente
+
+ 
+
+ID: Cédula: Nombre: Estado: Programa Académico: Correo electrónico:
+" v
+Enviar datos
+« « |Página 1 de 28 páginas, mostrando 1 - 50 de 1394 resultados | > »
+ID Cédula Usuario Estado Programa Académico Correo Electrónico Editar Eliminar
+201663740 OSPNA PELAEZ CRISTIAN ALEXANDE Estudiante Y 3743 v cristian.ospna(Dc orreounivalle.edu.co > x
+20155018 GIRON ARCILA SEBASTIAN Estudiante v 2711 Y sebastian.giron(Wc orreounivalle.edu.co > x
+201455989 AVILA RODAS CRISTIAN Estudiante v 3743 v dasfsa(Mhotmail.c om > x
+201356082 0 GORDILLO SANCHEZ JOHN JAIRO Estudiante v 3841 john.jairo.gordillo(fHc orreounivalle.edu.co > x
+200859611 ATEHORTUA MARTINEZ GLORIA YULE Estudiante v 3841 yuleni7832gmail.c om $ x
+
+ 
+
+Imagen 12: Pantalla principal del plugin “Acceso final”.
+
+43S1 el administrador de las salas o alguien perteneciente al personal técnico desea subir
+un archivo plano a la base de datos, podrá hacerlo dando click en el botón correspondiente. Luego, la pantalla mostrada en la imagen 13 se cargará. Allí la persona podrá
+
+seleccionar el archivo en formato .txt y también el caracter que actuará como separados
+de columnas.
+
+Subir archivo plano a la base de datos.
+
+Abrir archivo(*.txt): | Seleccionar archivo | Ningún archivo seleccionado
+
+Campos separados por. Punto Y coma
+Espacio
+Coma
+Barra vertical
+
+| Subir archivo |
+
+Imagen 13: Pantalla para subir archivo plano a la base de datos.
+
+ 
+
+44Dado el caso en que el administrador o un monitor quiera añadir, eliminar o editar un
+programa académico; podrá hacerlo dando click en el botón “Administrar programas
+académicos” y la pantalla mostrada en la imágen 14 se cargará. Esta interfaz permite modificar el nombre y estado actual de un programa académico y, si es necesario,
+eliminarlo.
+
+ 
+
+Configuración de los programas académicos de la Universidad del Valle - Sede Tuluá
+
+Aquí podrá agregar o eliminar manualmente un programa académico.
+
+Insertar nuevo programa académico
+
+Q
+
+ID Programa Estado Editar Eliminar
+3743 Ingeniería de Sistemas ¿£ctivo Y d E | y
+3045 Administración de Empresas Activo  * ' ls y | |
+3841 Contaduría Pública Activo h a ] x
+3249 Trabajo Social Activo | E x
+212 Tecnología en Alimentos Activo  * a y | x
+2711 Tecnología en Sistemas de Info Activo Y + pp A
+2710 Tecnología en Electrónica Actwo YT Ñ A y | Me |
+
+ 
+
+ 
+
+ 
+
+Imagen 14: Pantalla para administrar los programas académicos.
+
+45S1 lo que se requiere es administrar las salas de cómputo, la persona podrá hacerlo
+haciendo click en el botón “Administrar salas de cómputo”. En la imágen 15 se muestra
+la pantalla que se cargará luego de oprimir el botón. Allí se podrá desactivar o activar
+la aplicación de escritorio. De esta manera, cuando un profesor solicite alguna sala para
+realizar tareas académicas, será posible desactivar el temporizador de la aplicación para
+que no haya límite de tiempo. Una vez el profesor termine su clase, el temporizador
+podrá volver a activarse en los equipos de la sala. Por otro lado, también se tiene la
+posibilidad de agregar nuevas salas, editar su nombre y también su estado.
+
+ 
+
+Configuración de las salas de cómputo de la Universidad del Valle
+
+Aquí podrá seleccionar la sala en donde se va a desactivar la aplicación de escritorio.
+
+Salas que se encuentran
+
+Salas que no se encuentran en clase
+en clase.
+
+1 - SEDE WILLA CAMPESTRE Y :
+D - Minguna sala Y
+
+Iniciar clase Terminar clase
+ID Nombre Activa Editar Eliminar
+1 SEDE VILLA CAMPESTRE Si * | a | »
+2 SEDE PRINCIPE SALA 01 SH Y o Xx
+3 SEDE VICTORIA Ho Ss y
+d SEDE PRINCIPE S4L4, 002 Sa Y o | x
+
+Insertar nueva sala de cómputo
+
+9
+
+Imagen 15: Pantalla para administrar las salas de cómputo.
+
+ 
+
+ 
+
+ 
+
+46También será posible administrar las comentarios que aparecerán como predeterminados en la pestaña “Le gustaría dejar un comentario?” de la ventana de la aplicación
+de escritorio. Al dar click en la opción “Administrar comentarios predeterminados”, se
+encontrarán con una pantalla (como la exhibida en la imagen 16), en donde se podrán
+
+insertar nuevos comentarios o cambiar el estado de los ya existentes.
+
+ 
+
+EA PA let
+
+ 
+
+Configuración de los comentarios que aparecerán por defecto en la aplicación de Escritorio
+Aquí podrá agregar o eliminar manualmente un comentario.
+Insertar nuevo comentario
+ID: Comentario: Estado: v
+
+Enviar datos
+
+ID Comentario Estado Editar Eliminar
+1 Equipo Lento Activo Y $ x
+2 Internet Lento Activo Y S| x
+
+ 
+
+ 
+
+ 
+
+Imagen 16: Pantalla para administrar los comentarios predeterminados.
+
+Por último en esta área, se encontrará la opción “Administrar tiempo de conexión” en
+donde será posible buscar un usuario por su ID y modificar el tiempo de conexión según
+se considere. En la imágen 17 se muestra la pantalla que se cargará, en donde se podrá
+
+modificar el campo Tiempo ingresando la hora con alguno de los siguientes formatos
+00:00:00 ó 00:00.
+
+ 
+
+ 
+
+a a Configuraci
+
+Administración de tiempo restante de conexión de los usuarios
+Aquí podrá aumentar o disminuir el tiempo restante de conexión de un usuario
+Buscar usuario por ID
+
+ID Usuario: 201153785
+
+Buscar Usuario
+
+ID Usuario Tiempo Editar
+
+201153785 02:00:00] | $
+
+ 
+
+ 
+
+ 
+
+ 
+
+Imagen 17: Pantalla para administración del tiempo restante de un usuario.
+
+47En la imagen 18 se muestra la pantalla del área de los reportes. Esta sección comprende
+una parte fundamental del plugin pues es la que permitirá consultar las estadísticas de
+uso de todas las salas de la sede. El plugin ofrece 3 tipos de consultas y permite filtrarlas
+por sala y/o rango de fechas. Una vez consultado el reporte, en la gráfica aparecerán los
+fragmentos representando cada sección del resultado. Cada uno de estos trozos tendrá
+un número que significará las unidades resultantes. Para conocer la cantidad total del
+reporte consultado, es necesario sumar las cantidades de las fracciones de la gráfica.
+
+ 
+
+ 
+
+Reportes - Universidad del Valle - Sede Tuluá
+
+Seleccione la sala sobre la cual desea hacer las consultas:
+
+TODAS pe Todas las conexiones - SIN FECHA - Sala: TODAS
+
+Seleccione el rango de fechas:
+
+O Administrativo
+Desde: ¡dd/mm/aaaa
+
+O 3743
+O 2710
+O 2712
+
+Hasta: ¡dd/mm/aaaa
+
+ 
+
+Cantidad de personas que se han conectado:
+
+Todos *
+
+ 
+
+Consulte los equipos que tienen comentarios:
+
+ 
+
+Seleccione el tipo de gráfica:
+
+ 
+
+Torta Y
+Cantidad de estudiantes, profesores e invitados:
+
+ 
+
+ 
+
+Exportar Reporte
+
+ 
+
+ 
+
+Imagen 18: Pantalla de la sección de reportes.
+
+El primer informe proporciona información sobre la cantidad de personas que han realizado conexiónes. Como se mencionó anteriormente, se pueden aplicar los filtros para
+consultar en una sala en específico y/o por un rango de fecha definido; además se podrá
+seleccionar el programa académico o estado (Docente, Administrativo o Invitado), para
+crear reportes aún más específicos.
+
+La segunda consulta posibilita conocer la cantidad y nombres de los equipos a los que
+los usuarios les han añadido comentarios. Una vez más, los mismos filtros (excepto
+el del estado del usuario) se podrán aplicar a este informe. Este reporte será de gran
+importancia pues permitirá llevar un registro de los equipos que necesitan asistencia
+técnica, lo que posibilitará brindar rápidamente el servicio requerido.
+
+Por último se encuentra la consulta para averiguar la cantidad de personas que tienen una
+cuenta. Ninguna filtro se podrá seleccionar para este informe, sin embargo la gráfica que
+
+48se crea como respuesta, especifica el número de usuarios con cada uno de los perfiles:
+Docente, Administrativo e Invitado; y los estudiantes en cada uno de los programas
+académicos.
+
+Una característica escencial que fue implementada en el área de los reportes fue la exportación a archivo en formato CSV. Esta propiedad permite obtener en detalle los resultados de un informe; es decir, si se consultan las conexiones hechas por todas las
+personas en la sala “SEDE VILLA CAMPESTRE”, en el archivo resultante de la exportación podrá encontrar todos los detalles de las personas que se conectaron; además
+del equipo desde el que se realizó la conexión, la fecha y hora. En la imagen 19 se puede
+
+observar el resultado de la exportación de mencionado informe.
+
+ 
+
+ 
+
+ 
+
+ 
+
+A [NN o E S
+
+id nombre programaacz estado id_equipo fecha_conex hora_conexion
+201153785 TORRES ROJAS NATALIA 3743 Estudiante pc-214 01/11/2016 9:26:30
+16346165 Jaime Agudelo Martinez Docente pc-218 09/09/2016 9:26:30
+98381333 Harold Antonio Angulo Castillo Docente Ppc-112 09/08/2016 9:26:30
+200956086 BEJARANO MEJIA KAROL XIMENA 3841 Estudiante SALACONTA14 20/10/2016 9:26:30
+1116252236 Johanna Gil Arango Administrativo SALACONTA23 15/08/2016 9:26:30
+30 Invitado Invitado SALACONTA22 02/11/2016 9:30:00
+14894872 Carlos Alberto Gomez Valverde Administrativo pc-227 10/10/2016 10:50:30
+10295860 Adolfo Ernesto Burbano Coral Docente pc-219 04/10/2016 14:00:00
+14894872 Carlos Alberto Gomez Valverde Administrativo PpCc-115 21/09/2016 10:30:25
+201255182 RAMIREZ SERNA YESSICA ALEJANDR 3249 Estudiante SALACONTAO9 02/10/2016 20:00:00
+201355896 AMAYA VELA MAYRA ALEJANDRA 2710 Estudiante SALACONTAOS 13/07/2016 15:45:26
+201153785 TORRES ROJAS NATALIA 3743 Estudiante SALACONTA1O 10/10/2016 2:00:00
+201153785 TORRES ROJAS NATALIA 3743 Estudiante SALACONTA13 09/09/2016 10:00:00
+201056354 MUÁA'OZ NAÁ'EZ EIDA ALEJANDRA 3841 Estudiante SALACONTA10O 31/10/2016 8:00:00
+30 Invitado Invitado SALACONTA1O 01/11/2016 2:00:00
+30 Invitado Invitado SALACONTA15 01/11/2016 13:00:00
+
+Imagen 19: Archivo CSV con resultado de consulta.
+Y y
+4.5. INSTALACION Y CONFIGURACION
+
+Una vez terminado el proceso de codificación, se procedió a instalar y configurar ambas partes del proyecto final. Se inició con la aplicación de escritorio y como primera
+medida se descargó e instaló el conector de MySQL .NET en la versión 6.9.9, para lograr establecer la comunicación entre el computador y el sistema de gestión de bases
+de datos. Luego se dispuso el ejecutable de la aplicación en la carpeta de arranque de
+Windows. Esto se realizó para que la aplicación se ejecutara cuando se encendiera el
+computador.
+
+Para la instalación del plugin “Acceso Final” en el servidor de producción de la Universidad del Valle Sede Tuluá, se tomó la carpeta que lo contiene y se puso en la ruta
+
+49Ivar/www/glpi/plugins, como se puede observar en la imagen 20. Allí es donde se almacenan los plugins de GLPI en el servidor.
+
+ 
+
+ 
+
+univalle(4192,168,14,251 ] ($f New Session
+A
+
+az |
+
+ 
+
+ES Lo
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+plugins
+
+, 2 <a
+Eje Download [yg Xx
+
+aaa
+A Liz Properties | E Le
+
+ 
+
+ 
+
+ 
+
+me
+
+kas10mr3
+monpluginfinal
+Usuarios
+Windows.old
+xampp
+DVDVolume.iso
+DVDVolume.mds
+
+Servidor web de la universidad
+
+ 
+
+Par/www/glpi/plugins
+
+ame
+
+arsurveys
+
+Ll badges
+behaviors
+certificates
+connections
+consumables
+custom
+dashboard
+databases
+datainjection
+environment
+LU escalade
+
+fields
+
+financialreports
+
+URL
+
+formcreator
+
+U fusioninventory
+genericobject
+geninventorynumber
+U glpi_ansible-master
+glpi_bootstrap
+itilcategorygroups
+manufacturersimports
+mask
+
+mhooks-install module
+monitoring
+
+ 
+
+monpluginfinal
+ra e.
+
+A
+
+ 
+
+Imagen 20: Plugin añadido al servidor de producción de la universidad
+
+El servidor web con el que cuenta la Universidad del Valle sede Tuluá es de marca Dell
+y modelo Poweredge T620. Tiene además un sistema Linux Debian en versión 8.4, con
+
+una memoria RAM de 4 GB y un disco Duro 500 GB.
+
+Teniendo ya la carpeta en la ruta mencionada, se verificó que se mostrase en la pantalla
+de plugins en el sistema GLPI y luego se oprimió click en el botón “Instalar”. Como
+se Observa en la imagen 21, el plugin “Acceso Final” ya estaba instalado y listo para
+
+activarse.
+
+S0Lista de Plugins
+
+si E A Sitio Compatible
+Nombre Versión — Licencia Estado Autores Web CSRF
+Acceso final 1.0.0 aa Pe Natalia Y Si EN
+activado
+Accounts 2.4.1 cpiw2+ Instalado / no Infotel, Franck Waechter E Si EN
+activado
+Additionnal fields 0.90-1.1 GPLv2+ Activo Teclib', Olivier Moron E Si
+
+ 
+
+ 
+
+Imagen 21: Plugin añadido y listo para activar
+
+Como última medida, se realizó el traslado virtual de todos los equipos a sus correspondientes salas. Es decir, en GLPI existe la característica que permite agregar un activo
+(computador, video beam, impresora) a una “Entidad”, la cual por simplicidad se puede llamar Sala de informática. Es así como cada uno de los equipos de cómputo fue
+agregado a su respectiva sala, como Sala Sede Villa Campestre, Sala Sede Príncipe 01
+y Sala Sede Príncipe 02.
+
+51Capítulo V.
+PRUEBAS
+
+5. Pruebas
+
+El proceso de pruebas en la entrega de la aplicación de escritorio y del plugin “Acceso
+Final” es importante como parte final del proceso de desarrollo, puesto que se consideró
+sumamente relevante proporcionar una aplicación de escritorio que pudiese ser usada
+todos los días por profesores, estudiantes, administrativos e invitados; y por supuesto,
+un plugin que tuviese la facultad de generar reportes de confianza y permitiera la fácil
+administración de los diversos módulos (programas académicos, salas de cómputo, comentarios predeterminados y tiempo de conexión). Además, esta etapa permitió tener
+un control sobre ambos sistemas (escritorio y web) y una medición del nivel de acondicionamiento de las aplicaciones para hacer frente a la intensa circulación de personal
+que harán uso de ellas.
+
+En la imagen 22 se puede apreciar el error que surgió cuando se hizo la prueba de
+funcionalidad para acceder a la pantalla principal del plugin, una vez éste había sido
+instalado y activado.
+
+ 
+
+Eo ASS Administra
+
+Inicio
+
+Fatal error: Uncaught --> Smarty: unable to write file /var/www/html/soporte/plugins/monpluginfinal/Smarty/templates_c/wrt5813c96183c4a0_06034432 <-- thrown in
+/var/www /glpi/plugins/monpluginfinal/Smarty /libs/sysplugins/smarty_internal_runtime_writefile.php on line 48
+
+Imagen 22: Error que se presentó cuando se intentó acceder a la pantalla principal.
+
+Afortunadamente, el error se pudo solucionar fácilmente otorgando permisos de escritura a las plantillas de la carpeta Smarty ubicada en la ruta /var/www/glpi/ plugins/monpluginfinal, además de “files” que está localizada en “front”: /var/www/ glpi/
+plugins/monpluginfinal/front .
+
+525.1. Pruebas de funcionalidad
+
+Las pruebas de funcionalidad fueron empleadas para poder verificar el cumplimiento
+de los requerimientos y el comportamiento de ambas partes del proyecto, una vez el
+plugin estuviese bajo los límites puntuales del servidor de la universidad y la aplicación
+de escritorio la utilizara más de una persona a la vez. Esta etapa consistió en aproximadamente 3 reuniones, programadas una para cada semana desde la fecha Noviembre 1,
+hasta Noviembre 18; en las que participaron: la estudiante de Ingeniería de Sistemas,
+Natalia Torres Rojas y el administrador de recursos tecnológicos de la Universidad del
+Valle sede Tuluá: el Ingeniero Pedro Pablo quien además será uno de los usuarios finales
+del plugin. El objetivo principal de dichas reuniones fue comprobar el comportamiento
+y rendimiento de ambas aplicaciones. La siguiente lista consta de 3 notas recopiladas
+en todas estas reuniones:
+
+= El Ingeniero Pedro Pablo comentó: “No funciona cargar datos con archivo plano”
+(Para el módulo de Administración). Este error se presentó en la sección “Subir
+archivo plano en la base de datos” en el plugin.
+
+= También el Ing. hizo la siguiente solicitud: Los reportes deben permitir seleccionar el tipo de gráficas (torta, barra) (Para el módulo de Reportes)
+
+= Surge la necesidad de crear CRUD de salas de sistemas para poder administrar
+la activación o desactivación desde allí. (Para el módulo de Administrar salas de
+
+cómputo)
+
+Por otro lado, se hizo evidente la necesidad de tener una ejecución rápida y eficiente de
+pruebas. Es por esto que, como sugerencia del Ing. Pedro Pablo, se optó por realizar tests
+automatizados con Selenium? junto al Web Driver para el navegador Google Chrome.
+Haciendo uso de estas herramientas se desarrollaron diferentes scripts -los cuales se
+encontrarán en los anexos del CD- para testear cada una de las funcionalidades del
+plugin, y se socializaron las demostraciones y resultados con el Ing. Pedro Pablo. De
+esta manera se pudo constatar que el desempeño de la aplicación web fuese el esperado.
+
+Los scripts se encargaron de testear los módulos de administración de: Programas académicos, salas de cómputo, comentarios predeterminados y tiempo restante de conexión,
+así como de verificar el correcto registro “manual” de un usuario. En al imagen 25 se
+puede observar el script hecho para la funcionalidad “Agregar nuevo usuario”.
+
+ 
+
+¿Selenium es una herramienta para realizar pruebas de software para aplicaciones basadas en web
+
+53[1] TestNewUserjava ¿3 | [1] TestProgramasAcademicos.java [1] MainClass.java [1] TestSalas.java TestComentarios.java 41] TestTiempoConexion.java
+
+1 package demo;
+
+34 import org.openqa.selenium.By;[]
+
+g public class TestNewUser <
+public void newUser()(
+
+System.setProperty("webdriver.chrome.driver”, "C:11Seleniumilchromedriver.exe”);
+WebDriver driver = new ChromeDriver();
+driver.get("http://138.122.202.213/soporte/plugins/monpluginfinal/front/config.form.php”);
+
+driver.manage().window().maximize();
+driver.findElement(By.xpath(".//*[Mid="formID']”)).sendKeys("eb080");
+driver.findElement(By.xpath(".//*[Mid='formCedula']")).sendKeys("eb0B0”);
+driver.findElement(By.xpath(".//*[Mid="formlombre']”)).sendKeys("PruebaSelenium”);
+
+Select selectEstado = new Select(driver.findElement(By.xpath(”.//*[Mid="formEstado']"”)));
+selectEstado.selectByValue("none”);
+
+Select selectPrograma = new Select(driver.findElement(By.xpath(".//*[Mid='"programasAcademicos']")));
+selectPrograma.selectByValue("3743");
+
+driver.findElement(By.xpath(".//*[Mid="formCorreo']”)).sendKeys("pruebaSeleniumiiihotmail.com”);
+
+driver.findElement(By.xpath(".//*[Mid="buttonEnviar']”)).click();
+
+ 
+
+ 
+
+ 
+
+ 
+
+Imagen 23: Script que comprueba el funcionamiento de la funcionalidad agregar un nuevo
+usuario
+
+Fue necesario también desarrollar casos de prueba para verificar el comportamiento y
+rendimiento de la aplicación de escritorio. Estos se encuentran en el Anexo 4. A continuación está el caso de prueba 7:
+
+ 
+
+ 
+
+ 
+
+ 
+
+ID Objetivo de la prueba Descripción Resultado esperado | Resultado obtenido
+Si un usuario inicia sesión Aplica únicamente cuando un
+Confirmar que el usuario más de una vez en el mismo Temporizador inicia | usuario inicia sesión varias
+07 | inicie sesión con el tiempo día, el programa deberá iniciar | con tiempo restante veces en un mismo día. Cada
+restante de la sesión anterior. | el temporizador con el tiempo del usuario día la sesión se renueva a 2
+restante de la sesión. horas.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 5: Caso de prueba para el módulo Usuario
+
+Las pruebas “finales” hechas para la aplicación de escritorio se realizaron en la sala de
+cómputo de la sede Villa Campestre con 4 estudiantes de la Universidad del Valle sede
+Tuluá y con el Ingeniero Pedro Pablo. Las imágenes tomadas como prueba de la sesión
+se encuentran en el Anexo 5.
+
+En el transcurso de esta sesión, el Ing Pedro Pablo también probó funcionalidades del
+plugin como la de “Inicar clase” en la sala, para cersiorarse que el temporizador de
+la aplicación de escritorio se desactivara. También revisó la sección de reportes para
+verificar que las gráficas obtenidas correspondieran con los datos ingresados por los
+
+54estudiantes. Por supuesto la exportación de esta información a un archivo CSV fue examinada, pues esta característica corresponde a una parte importante de la funcionlalidad
+del plugin que permitirá conservar estadísticas de uso de los equipos y rendimiento de
+los mismos.
+
+Los resultados de estas pruebas de funcionalidad fueron los deseados: tanto la aplicación
+de escritorio como el plugin se comportaron de acuerdo a lo planeado, por lo que se dió
+por finalizada la etapa de pruebas.
+
+556.
+
+6.1.
+
+Capítulo VI.
+CONCLUSIONES Y TRABAJOS FUTUROS
+
+Conclusiones y Trabajos Futuros
+
+Conclusiones
+
+Un buen comienzo para desarrollar un plugin para el sistema GLPI, es dirigirse
+a su página Create a Plugin en GitHub. Allí se explican las convenciones a tener
+en cuenta en el momento de codificar; como los nombres de las tablas de la base
+de datos, nombres de clases y funciones. Asesorarse en esta página es importante
+para tener claro como iniciar el desarrollo de un nuevo plugin, sin embargo es
+valioso también seguir y consultar la página del Foro (forum.glpi-project.org/)
+cuyas publicaciones se encuentran en Inglés o Francés. En este sitio web, en la
+sección de plugins, se pueden encontrar varios preguntas y dudas que otros desarrolladores ya han aclarado. Consultar esto se convierte en un procedimiento vital
+cuando se quiere crear una extensión para un programa ya existente.
+
+Tener un control efectivo de acceso a los computadores de las salas de la Universidad del Valle sede Tuluá es de suma importancia para el coordinador de recursos
+tecnológicos pues los registros de conexiones sirven como datos para producir
+informes y reportes sobre el uso y retroalimentación provista por los estudiantes
+sobre del estado y rendimiento de los computadores.
+
+Los sistemas que permiten adaptar nuevas características y propiedades (como
+plugins) a su estructura, son extremadamente útiles pues su escalabilidad permite
+mejorar fácilmente sus propiedades, lo que posibilita la nueva implementación de
+muchas más tareas que permiten al usuario llevarlas a cabo de una manera más
+eficiente.
+
+Generar informes estadísticos permite a la coordinación de recursos tecnológ1cos mejorar sus procesos administrativos y tomar decisiones que les facilite tener
+control sobre los equipos, priorizando a aquellos que presentan fallas, lo cual conlleva a tener un mejor monitoreo de los bienes de la Universidad del Valle sede
+Tuluá.
+
+La implementación de una metodología ágil como SCRUM, proporciona un aumento en la eficacia de la producción pues se puede tener un registro diario de los
+avances y fallas que el programados enfrenta. La constante comunicación con el
+
+S6cliente permite también una calidad sobresaliente del producto pues los requerlmientos de cliente están actualizados, lo que permite satisfacerlos de manera clara
+y concisa.
+
+6.2. Trabajos Futuros
+
+Al terminar el proyecto se pudo evidenciar que aún hace falta implementar algunas
+funcionalidades para que a la aplicación de escritorio y al plugin “Acceso Final” se le
+pueden agregar a futuro características de usabilidad y/o accesibilidad.
+
+1. Aplicación de Escritorio.
+
+a)
+
+b)
+
+Mejorar la interacción que los usuarios tendrán con la interfaz, como contar
+con la posibilidad de hacer zoom en la ventana, cambiar el tamaño y color
+de la letra para que la aplicación se ajuste a las necesidades específicas de
+una persona que cuente con problemas visuales. Esto en respuesta a que un
+ambiente universitario implica contar con individuos con múltiples características.
+
+Implementar la técnica de la huella dactilar para transformar la tecnología
+que permite el reconocimiento de identidad de las personas.
+
+2. Plugin “Acceso Final”
+
+a)
+
+b)
+
+El plugin podría contar con la funcionalidad que permita discriminar la jornada de los programas académicos por: diurna y/ó nocturna, para así tener
+un resultado de los reportes aún más completo y específico que posibilite
+enriquecer el resultado generado en los reportes.
+
+Permitir que los reportes se generen de una forma más interactiva a través
+de gráficas que brinden la opción de desglose de cada una de las secciones
+de su resultado.
+
+Creación de un nuevo módulo que permita la integración de los datos de
+los equipos activos en salas con el plugin “Acceso Final”. Esto proporcionaría llevar un control más efectivo de mantenimientos y agendar futuras
+revisiones.
+
+57Capítulo VII.
+REFERENCIAS BIBLIOGRÁFICAS
+
+[1] Q0O16, Oct 15) Agile ¡in a  Nutshell. [Online]. Available:
+http://www.agilenutshell.com/scrum
+
+[2] (016, Feb 5) El mundo de los controles de acceso. [Online]. Available:
+http://openaccess.uoc.edu/webapps/02/bitstream/10609/32641/4/fhavam
+aTFG0614memoria.pdf
+
+[3] J. Molinari. (2016, Feb 10) Control de acceso y monitoreo de
+parámetros ambientales en sala de cómputo. [Online]. Available:
+http: //www.actiweb.es/joelmolinari/archivo5.pdf
+
+[4] (Q016, Feb 5) Sistema de control de acceso basado en java cards y hardware libre. [Online]. Available:
+http: //www.uac.edu.co/images/stories/publicaciones/revistas cientificas/
+prospectiva/volumen-8-no-2/articulo08.pdf
+
+[5] J. Agudelo, “Desarrollo de una aplicación web para la administración de los equipos de cómputo de las salas de sistemas de la universidad del valle see tuluá, que
+
+permita gestión de conocimiento a través de técnicas de KDD, bachelor thesis,”
+Universidad del Valle, Tuluá, Colombia, 2012.
+
+[6] (Q016, Feb 20) Definición de software libre. [Online]. Available:
+http://www.gnu.org/philosophy/free-sw.es.html
+
+[7] (Q016, Feb 20) Biblioteca de Infraestructura de Tecnologías de la Información (TILO). [Online]. Available:
+http://1til.osiatis.es/Curso ITIL/Gestion Servicios TI/fundamentos de la
+_ gestion Tl/que es ITIL/que es ITIL.php
+
+[8] (Q016, Feb 20) Software de administración de recursos informáticos. [Online]. Available: https://prez1.com/gqjyxr0dtfzrh/software-de-administracion-derecursos-informaticos/
+
+[9] Q016, Apr. 11) OCS Inventory NG website. [Online]. Available:
+http: //www.ocsinventory-ng.org/en/
+
+[10] (016, Apr. 20) GLPI Software. Gestionnarre libre de parc informatique. [Online].
+Available: http://www. glpiproject.org/spip.php?article43
+
+58[11] 2015, Nov 4) Instituto de Nutrición de Centroamérica y  Panamá INCAP— - Sistema de información. [Online].  Available: http: //www.incap.int/sisvan/index.php/es/acerca-de-san/conceptos/sistemade-vigilancia
+
+[12] (015, Nov 15) Networking and Emerging Optimization  - El modelo Cliente Servidor. [Online]. Available:
+http://neo.lcc.uma.es/evirtual/cdd/tutorial/aplicacion/cliente-servidor.html
+
+[13] (015, Nov 15) Universidad de Murcia - Servidores de bases de datos. [Online]. Available:
+http: //www.um.es/docencia/barzana/DIVULGACION/INFORMATICA/
+segbd.html
+
+[14] (015, Nov 23) Universidad de Barcelona - Servidores web. [Online].
+Available: http://www.ub.edu/stat/docencia/b1oinformatica/introbiocomputacio/
+ServidoresWeb/ServidoresWeb-Concepto Configuracion Uso.pdf
+
+[15] (016, Nov 10) Sharp Develop. [Online]. Available:
+http://www.1csharpcode.net/opensource/sd/
+
+[16] (2016, Nov 10) MySQL. [Online]. Available: http://www.mysql.com/
+
+[17] Q016, Nov 10) Para que sirve un sistema de control de acceso. [Online]. Available: https: //www.linkedin.com/pulse/para-que-sirve-un-sistema-decontrol-acceso-rovillel-sandoval
+
+[18] Q016, Nov 10) Aplicación GLPI para un centro de atención al usuario.
+[Online]. Available: http://www.juntadeandalucia.es/educacion/cga/portal/wpcontent/uploads/2012/11/Manual-GLPI.pdf
+
+[19] Q016, Apr 10)  AdminArsenal website. [Online]. Available:
+http: //www.adminarsenal.com/
+
+[20] G. Aguilar, G. Sánchez, K. Toscano, M. Nakato, and H. Pérez. (2016, Apr 25)
+
+Reconocimiento de Huellas Dactilares Usando Características Locales. [Online].
+Available: http://www.scielo.org.co/pdf/rfiua/n46/n46a10.pdf
+
+[21] V. Espinosa. (016, Apr 18) Evaluación de S1Stemas de Reconocimiento Biométrico. [Online]. Available:
+http://www.]cee.upc.es/JCEE2001/PDFs %202000/13ESPINOSA .pdf
+
+[22] (2016, Nov 10) Aplicaciones de la biometría a la seguridad. [Online]. Available:
+http://www.criptored.upm.es/descarga/TASSR012 CarmenSanchez.pdf
+
+[23] R. Buderi, “Me, Myself and Eye,” Revista EOI, pp. 76-81, Apr. 5 2016.
+
+59[24] (2016, Apr 28) Paises sin documento nacional de identificación. [Online].
+Available: https://g00.gl/9QLGOA
+
+[25] (016, Apr 19) Crece el contrabando de documentos de identidad y pasaportes robados. [Online]. — Available: https://techsalesgroup.wordpress.com/2016/02/09/crece-el-contrabando-dedocumentos-de-1identidad-y-pasaportes-robados/
+
+[26] (2016, Apr 10) Registraduría Nacional del Estado Civil. El estado de la biometría.
+[Online]. Available: http://www.registraduria.gov.co/Biometria
+
+[27] A. Bosnjak, D. Guglielmetti, E. Alam, and L. Colmenares. (2016, Apr 25)
+Diseño e implementación de un software de reconocimiento de huellas digitales.
+[Online]. Available: https://g00.gl/AeJkqgO
+
+[28] L. Cruz and F. Carranza. (016, Apr 29) Reconocimiento de iris. [Online].
+Available: http://www.advancedsourcecode.com/reconocimientodeliris.pdf
+
+[29] (2016, Oct 10) Historias de Usuario. [Online]. Available:
+http://www.pmoinformatica.com/2015/05/historias-de-usuario-ejemplos.html
+
+[30] Q016, Oct 10) Descripción de capas lógicas. [Online]. Available:
+https://docs.oracle.com/cd/E19528-01/820-0888/aaubb/index.html
+
+[31] (016, Nov 20) Sublime text. [Online]. Available: https: //www.sublimetext.com/
+
+60io
+
+COMO
+administrador
+QUIERO
+autenticarme en el
+sistema
+
+PARA poder hacer
+uso de las
+funcionalidades de la
+aplicación.
+
+COMO usuario
+QUIERO
+autenticarme en el
+sistema
+
+PARA poder hacer
+uso de un
+
+computador.
+
+COMO usuario
+QUIERO ser
+autenticado
+
+PARA iniciar sesión
+de manera adecuada
+en la aplicación de
+escritorio..
+
+COMO usuario
+QUIERO que al
+iniciar sesion se
+garantice que mi
+sesión se mantenga
+activa
+
+PARA no tener que
+autenticarme
+nuevamente.
+
+Anexo 1
+
+Definición de Historias de Usuario
+
+Fecha: 15/04/2016 Documento: HUOO1 Revisión:001
+
+Aplicación de Escritorio
+
+Módulo: Autenticación
+
+Descripción general
+
+El usuario se identifica con un ID y
+una contraseña (según Anexo2).
+Antes de poder iniciar sesión, el
+sistema debe garantizar el ingreso
+obligatorio y validación de estos dos
+
+campos.
+
+El usuario se identifica con un ID y
+una contraseña. Antes de poder
+iniciar sesión, el sistema debe
+garantizar el ingreso obligatorio y
+
+validación de estos dos campos.
+
+El usuario ingresa y el sistema debe
+mostrar las opciones
+correspondientes.
+
+El usuario ingresa y el sistema debe
+garantizar que la sesión se
+mantenga activa por un mínimo de 2
+horas.
+
+Pruebas de aceptación
+
+En caso de que los campos sean
+bien diligenciados, la contraseña
+corresponda y el usuario tenga una
+cuenta, el sistema permitirá el
+ingreso, de lo contrario no podrá
+ingresar.
+
+En caso de que los campos sean
+bien diligenciados, la contraseña
+corresponda y el usuario tenga una
+cuenta, el sistema permitirá el
+ingreso, de lo contrario no podrá
+
+ingresar.
+
+En caso de que el usuario ingrese
+correctamente, el sistema mostrará
+las opciones correspondientes
+especificadas en el Anexo3.
+
+En caso de que el usuario ingrese
+correctamente, la sesión se
+mantendrá activa por 2 horas
+
+Prioridad
+
+AltaCOMO
+usuario
+QUIERO
+crear una
+cuenta para
+poder hacer
+uso del
+computador
+
+COMO
+usuario
+QUIERO
+consultar la
+información
+de mi
+cuenta
+PARA
+conocer los
+datos que
+están en el
+sistema.
+
+COMO
+usuario
+QUIERO
+editar mi
+cuenta
+PARA
+actualizar
+mis datos
+
+COMO
+usuario
+QUIERO
+conocer el
+tiempo
+restante de
+conexión
+PARA
+poder tener
+control
+sobre el
+
+Definición de Historias de Usuario
+
+Fecha: 15/04/2016 Documento: HUOO1 Revisión:001
+
+Aplicación de Escritorio
+
+Módulo: Usuario
+
+Descripción
+
+El usuario que no esté asociado a la
+Universidad del Valle sede Tuluá (usuario
+invitado) podrá crear una cuenta para poder
+usar un computador.
+
+El usuario podrá consultar la información de
+su cuenta por medio de un enlace para
+conocer los datos que están en el sistema,
+según el Anexo3.
+
+El usuario podrá editar la información
+asociada a su cuenta por medio de la
+opción “Consulte y edite sus datos”
+
+El usuario podrá ver su tiempo restante de
+conexión en una ventana ubicada en la
+parte superior izquierda de la pantalla.
+
+Pruebas de aceptación
+
+En caso de que un usuario no esté
+asociado a la universidad y requiera
+hacer uso de un computador, podrá
+crear una cuenta para acceder al
+sistema
+
+El usuario logueado seleccionará
+la opción “Consulte y edite sus
+datos personales” y el sistema
+mostrará la información
+correspondiente a su cuenta
+usuario.
+
+El usuario logueado podrá
+seleccionar la opción donde
+podrá modificar los siguientes
+campos:
+
+- — Cédula
+
+- Contraseña
+
+- Correo electrónico
+
+principal y secundario
+
+En la parte superior izquierda de
+la pantalla estará ubicada una
+ventana que le permitirá al
+usuario conocer su tiempo
+restante de conexión.
+
+Priori
+dadtiempo
+disponible.
+
+COMO
+usuario
+QUIERO
+dejar un
+comentario
+sobre el
+equipo
+PARA que
+el
+técnico/admi
+nistrador
+sepa que
+necesita ser
+revisado.
+
+COMO
+usuario
+QUIERO
+cerrar
+sesión
+PARA
+asegurarme
+que ninguna
+otra persona
+acceda a
+mis datos.
+
+COMO
+usuario
+QUIERO
+solicitar que
+se aumente
+mi tiempo
+de conexión
+PARA
+poder
+finalizar
+todas mis
+actividades
+en el equipo
+
+El usuario podrá dejar un comentario
+especificando qué problema(s) presentó
+el equipo para que el administrador
+pueda reportarlo. También podrá
+seleccionar uno o varios comentarios de
+las opciones que estarán presentes en
+la ventana.
+
+El usuario podrá cerrar sesión antes del
+tiempo límite (2 horas) y una vez decida
+que ya ha terminado todas sus tareas.
+
+El usuario podrá solicitarle al
+administrador que le extienda el tiempo
+restante de conexión.
+
+El usuario ingresará por la
+opción “Le gustaría dejar un
+comentario?” y allí podrá
+seleccionar uno o varios
+comentarios predeterminados o
+hacer su propia anotación.
+
+En caso de que el usuario quiera
+cerrar sesión antes de que se
+cumpla el tiempo límite, podrá
+hacerlo mediante el botón
+“Cerrar Sesión” ubicado debajo
+del temporizador.
+
+El usuario podrá solicitarle al
+administrador que extienda su
+tiempo de conexión en caso de
+que requiera más tiempo para
+poder finalizar todas sus tareas.COMO
+administrador
+QUIERO crear las
+cuentas de los
+usuarios PARA que
+ellos no tengan que
+crearlas por sí
+mismos cuando
+accedan al pc.
+
+COMO
+administrador
+QUIERO agregar
+manualmente los
+datos de un usuario
+nuevo
+
+PARA
+
+que sea agregado a
+la base de datos
+
+COMO
+administrador
+QUIERO importar
+un archivo plano
+PARA añadir
+rápidamente un
+listado de usuarios
+
+COMO
+
+administrador
+QUIERO
+
+modificar el estado
+de un programa
+académico
+
+PARA llevar
+registro de todos
+los programas
+académicos que se
+ofertan en la sede.
+
+COMO
+administrador
+
+Definición de Historias de Usuario
+
+Fecha: 15/04/2016 Documento: HUOO1 Revisión:001
+
+Plugin “Acceso Final”
+
+Módulo: Administración
+
+Descripción
+
+Cuando los computadores de las
+salas de la Universidad vayan a ser
+usados por usuarios que no estén
+registrados (Ej: diplomados, cursos,
+entre otros), el organizador de dichas
+reuniones debe enviar los datos de
+los participantes para que el
+administrador de la sala pueda crear
+sus respectivas cuentas.
+
+El administrador podrá agregar
+manualmente a la base de datos los
+datos de un usuario nuevo.
+
+El administrador podrá subir un
+archivo plano para añadir a la base
+de datos un listado de usuarios
+cuando sea necesario; por ejemplo,
+para actualizar datos cada semestre.
+
+El administrador podrá desactivar un
+programa académico una vez este no
+se encuentre en funcionamiento.
+
+En caso de que sea necesario y un
+usuario así lo solicite, el
+
+Pruebas de aceptación
+
+Cuando un usuario vaya acceder a
+un computador debe poder iniciar
+sesión normalmente con el usuario
+y contraseña dados por el
+administrador de la sala
+
+En caso de que sea necesario, la
+aplicación tendrá una opción
+“Insertar datos manualmente” para
+que el administrador pueda agregar
+datos de usuarios nuevos a la base
+de datos.
+
+Cada vez que sea necesario subir
+datos a la base de datos, el
+administrador podrá hacerlo
+cargando archivos planos mediante
+una opción “Subir archivo plano a la
+BD”.
+
+El administrador podrá seleccionar
+de un desplegable, la opción
+“Inactivo” para un programa
+académico y cambiarlo haciendo
+click en el botón editar.
+
+El administrador podrá extender el
+tiempo de uso de un equipo
+
+Priori
+dadQUIERO extender
+el tiempo de uso de
+un equipo a un
+usuario
+
+PARA permitir que
+este finalice las
+actividades que se
+encuentra
+realizando.
+
+COMO
+administrador
+QUIERO
+desactivar la
+restricción de
+tiempo en una sala
+PARA que pueda
+ser usada sin
+ninguna limitación
+
+COMO
+administrador
+QUIERO
+
+activar la restricción
+de tiempo en una
+sala
+
+PARA volver a
+tener el control de
+acceso a los
+equipos
+
+COMO
+administrador
+QUIERO
+
+eliminar los datos
+de un usuario
+PARA borrarlo de
+la base de datos
+
+COMO
+administrador
+QUIERO
+
+agregar un
+comentario
+predeterminado
+PARA que
+aparezca en la lista
+de comentarios en
+la aplicación de
+escritorio.
+
+administrador podrá extender el
+tiempo de uso a un usuario para que
+pueda finalizar las actividades que se
+encuentra realizando.
+
+En caso de que un profesor necesite
+alguna sala para llevar a cabo
+actividades académicas, el
+administrador podrá desactivar el
+temporizador para que los usuarios
+no tengan un límite de tiempo
+
+En caso de que una clase o actividad
+haya acabado, el administrador podrá
+activar de nuevo la aplicación para
+tener el temporizador otra vez en
+ejecución
+
+En caso de que se hayan ingresado
+de manera incorrecta los datos de un
+usuario, el administrador tendrá la
+posibilidad de eliminar dicho usuario
+de la base de datos
+
+El administrador podrá agregar o
+eliminar comentarios
+predeterminados que se presentarán
+en la aplicación de escritorio para que
+el usuario pueda seleccionar los que
+necesite.
+
+mediante la opción “Administrar
+tiempo de conexión” en donde
+podrá buscar un usuario por su ID y
+escribir el número de horas por las
+que extiende su uso.
+
+El administrador podrá quitar la
+restricción de tiempo en alguna de
+las salas seleccionandola del
+desplegable y dando click en el
+botón “Iniciar clase”
+
+El administrador podrá ativar la
+restricción de tiempo en alguna de
+las salas seleccionandola del
+desplegable y dando click en el
+botón “Terminar clase”
+
+El administrador podrá borrar un
+usuario dando click en el botón
+“Eliminar”
+
+El administrador podrá agregar o
+eliminar un comentario
+predeterminado mediante la
+opción “Administrar comentarios
+predeterminados”COMO
+administrado
+r QUIERO
+generar un
+reporte de
+las
+conexiones a
+los equipos,
+filtrado por
+fecha y/o
+programa
+académico o
+rol, y/o sala
+PARA
+
+tener registro
+de quienes
+usaron el
+computador.
+
+COMO
+administrado
+r QUIERO
+generar un
+reporte del
+total de
+conexiones
+en los
+equipos por
+programa
+académico
+PARA
+
+tener registro
+de cuántas
+personas
+han usado
+los equipos
+
+COMO
+administrado
+r QUIERO
+
+Definición de Historias de Usuario
+
+Plugin “Acceso Final”
+
+Descripción
+
+El administrador podrá consultar/generar un
+reporte de quienes han usado los equipos
+en cierta fecha, y/o programa académico o
+rol y/o sala especificada.
+
+El administrador podrá consultar/generar un
+reporte del total de conexiones en los
+equipos por programa académico en un
+rango de fechas y/o en una sala específica.
+
+El administrador podrá consultar/generar un
+reporte de cuáles equipos tienen
+comentarios. Este reporte se podrá filtrar
+
+Pruebas de aceptación
+
+El administrador podrá
+consultar/generar este reporte en
+el menú Reportes mediante la
+opción “Cantidad de personas
+que se han conectado”, en
+donde podrá filtrar su búsqueda
+por fecha y/o programa académico
+o rol y/o sala.
+
+El administrador podrá
+consultar/generar este reporte en el
+menú Reportes mediante la opción
+
+“Cantidad de personas que se
+han conectado”, en donde podrá
+filtrar su búsqueda por fecha y/o
+
+programa académico o rol y/o sala.
+
+El administrador podrá
+consultar/generar este reporte en el
+menú Reportes mediante la opción
+
+Fecha: 15/04/2016 Documento: HUO0OO01 Revisión:001
+Módulo: Reportes
+
+Priori
+dadgenerar un
+reporte de
+los equipos
+que tienen
+comentarios
+PARA
+
+tener registro
+de cuales
+equipos
+necesitan
+ser
+atendidos
+por los
+monitores
+
+por fecha, y/o programa académico o rol y/o
+sala especificada.
+
+“Consulte los equipos que tienen
+comentarios”, en donde podrá
+filtrar su búsqueda por fecha y/o
+programa académico o rol y/o sala.Anexo 2.
+
+La nueva cuenta debe tener por defecto el estado "invitado" y activarse después de
+finalizar la creación. Este perfil corresponderá a personas que visitan la universidad
+de manera esporádica y requieren hacer uso de los computadores de las salas.
+
+Campo
+
+Alfabético
+Alfabético
+
+Alfanumérico y
+carácter
+especial.
+
+Numérico
+Alfanumérico
+
+Apellido
+
+Contraseña
+
+Visualizar
+
+El campo Nombre
+contiene una longitud
+no mayor a 20
+caracteres, el campo
+es obligatorio.
+
+El campo Apellido
+contiene una longitud
+no mayor a 20
+caracteres, el campo
+es obligatorio.
+
+El campo correo
+debe tener la
+siguiente estructura:
+ejemplo(Mcorreo.com
+, el campo es
+obligatorio.
+
+El campo cédula
+debe contener una
+longitud no mayor a
+20 caracteres, el
+campo es obligatorio.
+
+Para los estudiantes,
+administrativos e
+invitados, la
+contraseña inicial
+asignada es su ID.
+
+ 
+
+| Visualizar | Modificar
+MN
+MNAnexo 3
+
+Iniciar sesión
+
+Crear usuarios
+
+Crear perfiles
+
+Consultar Perfiles.
+
+Editar el perfil de un usuario
+
+Consultar usuarios
+
+Eliminar un usuario
+
+Realizar observaciones sobre los comentarios de
+un usuario.
+
+Consultar reportes (Número de usuarios que
+accedieron por días, semanas, meses; programas
+que más usan las salas; equipos con
+observaciones; equipos que han reportado fallas)
+
+Administrador
+
+Registrado Editar datos
+(Estudiante/Administrativo Hacer uso del computador
+/Docente) Realizar observaciones sobre un equipo
+
+Registrado Editar datos
+(Invitado) Hacer uso del computador
+Realizar observaciones sobre un equipoManual de Configuración - Plugin “Acceso Final” y aplicación de escritorio
+Dirigido a: administrador de recursos tecnológicos y monitores auxiliares
+
+Este manual tiene como objetivo guiarlo en el proceso de familiarización y configuración del plugin “Acceso
+Final” para el sistema GLPI y la aplicación de escritorio que le permitirá a estudiantes, profesores y
+administrativos loguearse y utilizar un computador en cualquiera de las salas de la sede.
+
+Para instalar la aplicación de escritorio en los equipos de la Universidad del Valle sede Tuluá, primero debe
+asegurarse que estos cuenten con el conector de MySQL para CH en su versión 6.9.9. Esto es para permitir
+la comunicación entre la aplicación de escritorio y el administrador de bases de datos.
+
+Una vez se cerciore de esto, proceda a ubicar el ejecutable llamado *“Login_CSharp.exe” en la carpeta de
+arranque de Windows. Para acceder a ella siga los siguientes pasos: Oprima Windows+R y escriba
+shell:startup, luego oprima Enter. Terminado este procedimiento, la aplicación de escritorio ya se ejecutará
+
+una vez se prenda un equipo.
+
+A continuación se describirán las características y las versiones de los programas utilizados y del servidor
+web presente en la Universidad del Valle sede Tuluá:
+
+- — El servidor web con el que cuenta la Universidad del Valle sede Tuluá es de marca Dell y modelo
+Poweredge T620. Tiene además un sistema Linux Debian en versión 8.4, con una memoria RAM
+de 4 GB y un disco Duro 500 GB.
+
+- Apache 2.4.10
+
+- — Mysql 5.5.46
+
+- PHP5.6
+
+- — IDE para desarrollar proyectos basados en lenguaje . NET “SharpDevelop” en su versión 5.1.0
+- Conector de MySQL para CF, versión 6.9.9
+
+- — Sistema GLPI en su versión 0.90.1
+
+Para añadir un plugin nuevo a GLPl, se deben seguir las siguientes instrucciones:
+
+Copiar la carpeta que lo contiene en el directorio "plugins". Una vez hecho esto hay que ir al menú
+"Configuración" en la página principal de la aplicación, y luego a Plugins en donde se mostrarán los plugins
+que hemos agregado a la carpeta. Después sólo hay que pulsar Instalar y luego Activar para finalizar con
+un plugin instalado y activado y con el que se podrá trabajar.
+
+Para desinstalar el plugin, es necesario ir a la pestaña de Configuración, seguido de Plugins y pulsar en
+desactivar junto al plugin que deseemos desinstalar. Luego se debe pulsar la opción Limpiar para eliminar
+
+los residuos que hayan
+quedado del plugin. Si el plugin se quiere eliminar por completo, debe borrarse la carpeta que lo contiene,
+
+del directorio "plugins".Una vez se tiene el plugin “Acceso Final” instalado, se hace click sobre el nombre y en seguida se abrirá la
+
+pantalla principal (Imagen 1) en donde encontrará en la parte superior los botones para acceder a los
+
+diferentes módulos que podrá administrar: “Subir archivo plano a la BD”, “Administrar programas
+académicos”, “Administrar salas de cómputo”, “Administrar comentarios predeterminados”, “Administrar
+tiempo de conexión”.
+
+Configuración del Plugin Acceso Final
+
+Seleccione lo que desea realizar:
+
+TT TE Anna tengo de con
+
+Aquí podrá agregar manualmente un usuario o subir un archivo plano.
+
+Insertar datos manualmente
+
+Estado: Programa Académico: Correo electrónico:
+
+Enviar datos
+
+ 
+
+Imagen 1. Parte superior de la pantalla principal del plugin “Acceso Final”
+
+Y en la parte inferior (Imagen 2) estarán, paginados, todos los estudiantes, profesores y administrativos
+que se encuentran registrados. Ud podrá editar cualquier dato de cualquier individuo y luego presionar el
+botón “Editar” para guardar los cambios hechos. También podrá buscar una persona en específico
+presionando el botón “Buscar Usuario”.
+
+E BET
+
+| « || e ¡Página 1 de 28 páginas, mostrando 1 - 50 de 1394 resultados | > || » |
+ID Usuario Estado Programa Académico Correo Electrónico Editar Eliminar
+
+201663740 0 OSPNA PELAEZ CRISTIAN ALEXANDE Estudiante cristian.ospna(Dc orreounivalle.edu.co
+201550180 0 GIRON ARCILA SEBASTIAN Estudiante sebastian.giron(fhc orreounivalle.edu.co
+AVILA RODAS CRISTIAN Estudiante dasfsa(Mhotmail.com
+GORDILLO SANCHEZ JOHN JAIRO Estudiante john.jairo.gordilloídc orreounivalle.edu.co
+200859611 0 ATEHORTUA MARTINEZ GLORIA YULE | Estudiante yuleni783I2gmail.com
+201255669 1) ESCOBAR LUNA ALEXANDER Estudiante alexander.escobar(Mcorreounivalle.edu.cc
+201455813 0 VARELA RUIZ GUSTAVO ANDRES Estudiante gustavo.varela(Wacs-ss.com
+
+200956438 0 BOLIVAR CEBALLOS JESUS ANTONIO Estudiante jesussalo84(2Hgmail.com
+
+CAÑAS HERNANDEZ DIEGO FERNAND | | Estudiante diego_fdo79Mhotmail.com
+
+200956507 0 SANDOVAL BETANCOURT EFRAIM Estudiante efrax390gmail.com
+
+201255464 0 PAZ GIRALDO NATHALIA Estudiante nati_paz2(Mhotmail.com
+
+ 
+
+Imagen 2. Parte inferior de la pantalla principal del plugin “Acceso Final”Si desea subir un archivo plano a la base de datos lo podrá hacer dando click en “Subir archivo plano a la
+BD”. Allí (Imagen 3) adjunta el archivo en formato .txt y selecciona el caracter que actúa como separador
+de columnas y luego da click en subir archivo.
+
+Subir archivo plano a la base de datos.
+
+Abrir archivo(*.txt): | Seleccionar archivo | Ningún archivo seleccionado
+
+ 
+
+Campos separados por: Punto Y coma
+Espacio
+Coma
+Barra vertical
+
+ 
+
+| Subir archivo |
+
+Imagen 3. Pantalla para subir un archivo plano a la base de datos.
+
+Si da click en la opción “Administrar programas académicos”, podrá añadir o eliminar un programa
+académico (Imagen 4) y cambiar el estado de los programas académicos que ya existen. Para agregar un
+nuevo programa académico presione el botón con el símbolo *+” y escriba el ID del programa, nombre y
+estado. Si desea modificar algún dato del programa, simplemente cambie los datos que necesita y luego de
+click en el botón Editar.
+
+Configuración de los programas académicos de la Universidad del Valle - Sede Tuluá
+
+Aquí podrá agregar o eliminar manualmente un programa académico.
+
+Insertar nuevo programa académico
+
+Programa Estado Editar Eliminar
+
+Ingeniería de Sistemas Activo Y
+Administración de Empresas Activo
+Contaduría Pública Activo
+Trabajo Social Acto
+Tecnología en Alimentos Activo
+
+Tecnología en Sistemas de Info Activo
+
+Tecnología en Electrónica Activo
+
+ 
+
+Imagen 4. Pantalla para administrar los programas académicosSi por el contrario desea administrar las salas de cómputo de la sede (Imagen 5), de click en “Administrar
+salas de cómputo”. Allí podrá desactivar o activar la aplicación de escritorio seleccionando la sala en donde
+desea hacerlo y oprimiendo el botón “Iniciar clase”. De esta manera, cuando un profesor solicite alguna sala
+para realizar tareas académicas, ud podrá desactivar el temporizador de la aplicación para que no haya
+límite de tiempo. Una vez el profesor termine su clase, usted podrá volver a activar el temporizador.
+
+Por otro lado, usted también podrá agregar nuevas salas, si así fuera necesario o cambiar el nombre de
+una sala y su estado.
+
+Configuración de las salas de cómputo de la Universidad del Valle
+
+4quí podrá seleccionar la sala en donde se va a desactivar la aplicación de escritorio.
+
+Salas que se encuentran
+
+Salas que no se encuentran en clase
+en clase.
+
+1 - SEDE VYILLA CAMPESTRE Y EA
+O - Ninguna sala Y
+
+| Iniciar clase | | Terminar clase |
+
+ID Nombre Activa Editar Eliminar
+
+SEDE WILLA CAMPESTRE
+SEDE PRINCIPE S4LA 01
+SEDE METORIA
+
+SEDE PRINCIPE S4LA 012
+
+Insertar nueva sala de cómputo
+
++)
+
+ 
+
+Imagen 5. Pantalla para administrar las salas de cómputo de la sede de la universidad.
+
+Usted también podrá administrar las comentarios que aparecerán como predeterminados en la pestaña “Le
+gustaría dejar un comentario?” de la ventana de la aplicación de escritorio. Si da click en la opción
+"Administrar comentarios predeterminados”, se encontrará con una pantalla (Imagen 6) en donde podrá
+insertar nuevos comentarios o cambiar el estado de los ya existentes.
+
+Configuración de los comentarios que aparecerán por defecto en la aplicación de Escritorio
+
+Aquí podrá agregar o eliminar manualmente un comentario.
+
+Insertar nuevo comentario
+
+Q|
+
+Comentario Estado Editar Eliminar
+
+Equipo Lento Activo "|| 5|
+
+Internet Lento Activo
+
+ 
+
+Imagen 6. Pantalla para administrar los comentarios predeterminados.Por último se encontrará con la opción “Administrar tiempo de conexión” (Imagen 7) en donde podrá buscar
+un usuario por su ID y modificar el tiempo de conexión según usted considere. Para cambiar el tiempo
+restante a un usuario, ingrese el ID y presione el botón “Buscar usuario”, luego modifique el campo Tiempo
+ingresando los números con los siguientes formatos 00:00:00 ó 00:00 y de click en el botón “Editar”
+
+Administración de tiempo restante de conexión de los usuarios
+
+Aquí podrá aumentar o disminuir el tiempo restante de conexión de un usuario
+
+Buscar usuario por ID
+
+ID Usuario: 201153785
+
+| Buscar Usuario |
+
+ID Usuario Tiempo
+
+201153785 | | 02:00:00]
+
+ 
+
+Imagen 7. Pantalla para administrar el tiempo restante de un usuario.
+
+Para acceder al módulo de los reportes, haga click en la opción “Útiles” y luego en “Reportes” (Imagen 8)
+
+PA RADO
+Projects
+Recordatorios
+
+R55 feeds Todo RSS feeds
+
+Base de
+
+conocimiento
+
+Reservas Su planeación
+
+OCS Inventory NG Recordatorios personales
+
+IP Adressing
+
+Recordatorios públicos
+
+ 
+
+Imagen 8. Pasos para acceder al módulo de Reportes.
+
+Luego seleccione la opción “Generar Reporte”, ubicada bajo “Acceso Final” (Imagen 9)SRA TS Pa eta
+
+Seleccione el reporte que desea generar
+
+Reporte predeterminado
+
+Por contratos
+
+Por años
+
+Datos financieros y administrativos del Hadware
+
+Otra información financiera y administrativa (licencias, cartuchos, consumibles)
+Informe de red
+
+Préstamo
+
+Estado
+
+Acceso final
+
+lp >
+
+ 
+
+ 
+
+ 
+
+ 
+
+Imagen 9. Pasos para acceder al módulo de Reportes.
+
+Allí se encontrará con una pantalla como la mostrada en la Imagen 10. Los filtros que podrá utilizar para
+depurar su consulta son la selección de sala y la selección de un rango de fechas. Puede aplicar uno o
+ambos al mismo tiempo.
+
+Reportes - Universidad del Valle - Sede Tuluá
+
+Seleccione la sala sobre la cual desea hacer las consultas:
+
+TODAS - Seleccione el tipo de gráfica:
+
+. Torta Y
+Seleccione el rango de fechas:
+
+Desde: dd/mm/aaaa
+Hasta: ¡dd /mm/aaaa
+
+Permite seleccionar el tipo
+
+Cantidad de personas que se han conectado: de gráfica (howa/gráflca)
+
+Todos v
+Cantidad de personas que se han
+
+conectado. Se puede aplicar el filtro de
+salas y/o rango de fechas.
+
+Consulte los equipos que tienen comentarios: Equipos que tienen comentarios. Se
+
+puede aplicar el filtro de salas y/o
+
+rango de fechas.
+
+Cantidad de estudiantes, profesores e invitados: Cantidad total de estudiantes, profesores,
+
+administrativos e invitados que se
+
+encuentran registrados. No se puede
+aplicar ningún tipo de filtro
+
+Exportar Reporte
+
+Exportar el reporte
+=> actual a archivo CSV.
+
+ 
+
+Imagen 10. Pantalla principal de reportes, con indicaciones sobre la funcionalidad
+de cada botón.En la imagen 11, podrá observar un reporte con el filtro sala “SEDE VILLA CAMPESTRE” aplicado.
+
+Reportes - Universidad del Valle - Sede Tuluá
+
+Seleccione la ME zoe a en acer las consultas: Todas las conexiones - SIN FECHA - Sala: 1 - SEDE VILLA
+Z - CAMPESTRE
+Seleccione el rango de fechas: O 3743
+Desde: ¡dd /mm/aaaa 0 Administrativo
+Hasta: [dd/mm/aaza O 2710
+O 2712
+O invitado
+
+Cantidad de personas que se han conectado:
+
+Todos v
+
+ 
+
+Consulte los equipos que tienen comentarios:
+
+ 
+
+Seleccione el tipo de gráfica:
+
+Torta Y
+Cantidad de estudiantes, profesores e invitados:
+
+ 
+
+Exportar Reporte
+
+Imagen 11. Reporte de todas las conexiones, con filtro sala “SEDE VILLA CAMPESTRE” aplicado.Manual de Usuario - Aplicación de escritorio
+Dirigido a: estudiantes, docentes, administrativos e invitados
+
+Este manual tiene como objetivo guiarlo en el proceso de familiarización con la aplicación que le permitirá
+loguearse y utilizar un computador en cualquiera de las salas de la sede.
+
+En primera instancia ud se encontrará con una interfaz como muestra la Imagen 1. Esta cuenta con dos
+campos llamados “Usuario” y “Contraseña”. Si usted es un estudiante, docente o administrativo de la sede;
+ya tiene una cuenta, por lo que podrá iniciar sesión ingresando su identificación (código completo para
+estudiantes, cédula para demás personal) y su contraseña (si no la ha editado, su contraseña es su misma
+identificación). Si usted es un invitado (alguien que hará uso del equipo por pocas horas o un sólo día),
+podrá crear una cuenta haciendo click en el link llamado “Usuario invitado? Registrese AQUÍ” que se
+
+encuentra debajo del botón “Acceder”.
+
+ 
+
+Usuario
+
+Contraseña
+
+ 
+
+Acceder
+
+ 
+
+Usuario Invitado? Por favor registrese AQUI
+
+ 
+
+Imagen 1. Pantalla para iniciar sesiónUna vez hizo click allí, una nueva pantalla aparecerá (como la Imagen 2) en donde deberá completar todos
+los campos para poder crear una cuenta. Terminado este proceso podrá iniciar sesión con su identificación
+
+y contraseña.
+
+Nombres y apellidos
+
+Céaula
+(Será su identificación/login)
+
+ 
+
+Email
+
+Contraseña
+
+Escriba de nuevo su contraseña
+
+ 
+
+Registrarse Cancelar
+
+ 
+
+ 
+
+Imagen 2. Pantalla para crear una cuenta.
+
+Una vez inicie sesión se encontrará con una pequeña ventana (Imagen 3) que cuenta con 3 pestañas. La
+primera contiene la información que muestra su identificación y desde cual sala se conecta, el temporizador
+que marca su tiempo restante de conexión y el botón para cerrar sesión.
+
+a Panel de Control
+
+Sesión | Le gustaria dejar un comentario ? | Consulte y edite sus datos personales |
+
+Bienvenido 2011537853 !
+Conectado desde SEDE VILLA CAMPESTRE
+
+00:29:40
+
+Cerrar Sesión
+
+Imagen 3. Información general de la sesión.En la segunda pestaña (Imagen 5) se encuentran las opciones de comentarios de las cuales ud podrá
+escoger sólo una o varias, si así considera. Si ninguna de estas alternativas se ajusta a la opinión que ud
+desea manifestar, también está la opción de escribir su propia apreciación.
+
+ 
+
+Le gustaría dejar un comentario? | Consulte y edite sus datos personales
+
+[A] No hay intemet O presione este botón si desea
+[7] E equipo está lento escribir su propio comentario.
+
+Escribir comentario
+
+|
+¡0
+|
+
+Imagen 4. Pestaña para dejar uno o varios comentarios.
+
+En la última pestaña (Imagen 5) estará disponible la posibilidad de editar algunos de sus datos personales
+como su cédula, contraseña y sus correos electrónicos.
+
+po Q Panel de Control a
+Le gustaria dejar un comentario? | Consulte y edite sus datos personales |
+ID: 201153785 |
+Cédula: 11111111 Editar cédula
+Nombre: TORRES ROJAS NATALIA
+
+Contraseña: ELE
+
+Y
+A
+|
+u
+Ñ
+Ñ
+lr
+]
+
+Cambiar * Añadi
+Correo Hectrónico: — natalia torres rojasí*coreounivalle.edu.co
+
+ 
+
+Imagen 5. Información personal de la persona que inició sesión en el computador.Cuando ya no requiera utilizar más el equipo, podrá cerrar sesión dando click en el botón “Cerrar Sesión”
+ubicado debajo de temporizador en la primera pestaña (Imagen 3). Sin embargo, si su tiempo se agota
+antes de que pueda terminar sus tareas, tendrá la posibilidad de solicitarle al administrador que extienda su
+horario de conexión. Si ha solicitado más tiempo, deberá cerrar sesión y volver a conectarse para que el
+
+temporizador se actualice.

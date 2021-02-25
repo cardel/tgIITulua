@@ -1,0 +1,4123 @@
+Desarrollo de una aplicación web basada en el método
+BSC, para apoyar la ejecución del plan estratégico en las
+empresas y mejorar su productividad
+
+CORREA GIRALDO SEBASTIÁN
+Cód. 200956142
+
+UNIVERSIDAD DEL VALLE SEDE TULUÁ
+PROGRAMA DE INGENIERÍA DE SISTEMAS Y CIENCIAS DE LA
+COMPUTACIÓN
+TULUÁ - VALLE
+OCTUBRE,2014Desarrollo de una aplicación web basada en el método
+BSC, para apoyar la ejecución del plan estratégico en las
+empresas y mejorar su productividad
+
+CORREA GIRALDO SEBASTIÁN
+Cód. 200956142
+
+Trabajo de grado para optar al titulo de
+Ingeniero de Sistemas
+
+Modalidad Pasantía
+
+Director: Ing. Pablo Lopera
+Gerente Bussiness Costumer Solution
+
+Codirector: Ing. Pavel Franco Marin
+
+UNIVERSIDAD DEL VALLE SEDE TULUÁ
+PROGRAMA DE INGENIERÍA DE SISTEMAS Y CIENCIAS DE LA
+COMPUTACIÓN
+TULUÁ - VALLE
+OCTUBRE,2014Nota de Aceptación
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Presidente del jurado
+
+ 
+
+Jurado 1
+
+ 
+
+Jurado 2
+
+Tuluá, Octubre de 2014Resumen
+
+Actualmente las empresas ya no se encuentran bajo el enfoque industrial, donde
+lo importante eran los activos físicos o tangibles, ahora se debe invertir esfuerzos en
+obtener y potenciar los activos intangibles; teniendo en cuenta que actualmente se vive
+en la era del conocimiento, donde los datos, la información y por ende la comunicación
+han pasado a ser determinantes en el éxito o fracaso de la gestión empresarial [34].
+
+En consecuencia, la competitividad de las empresas está directamente relacionada
+con una buena gestión, donde la pregunta sería entonces ¿Cómo realizar una buena
+gestión?. El Balanced Scorecard (BSC) es un revolucionario método que apoya el proceso de gestión empresarial, dónde además de tener en cuenta la perspectiva financiera,
+también tiene en cuenta a los clientes, los procesos, la formación y crecimiento [34].
+
+En este sentido, el presente proyecto ejecutado en modalidad de pasantía en la empresa Clip Consulting, permitió construir un producto de software que permitiera crear
+y administrar un BSC como apoyo al proceso de gestión empresarial, el cual será puesto
+en el mercado para los clientes de la empresa en cuestión.
+
+Palabras clave: BSC, gestión, finanzas, clientes, procesos, crecimiento.
+
+11Abstract
+
+Businesses today no longer under the industrial approach, where what mattered were
+the physical or tangible assets, now must make efforts to secure and enhance intangible
+assets; considering that currently exists in the knowledge era, where data, information
+and communication have thus become decisive in the success or failure of business management [34].
+
+Consequently, the competitiveness of enterprises is directly related to good governance, where the question is then ¿How to make a good management?. The Balanced
+Scorecard (BSC) is a revolutionary method that supports business process management,
+where in addition to consider the financial perspective, also takes account of customers,
+processes, training and growth [34].
+
+In this sense, this project in form of internship at the company Clip Consulting, allowed to build a software product that would create and manage a BSC to support the
+business management process, which will be put on the market for customers of the
+company in question.
+
+Keywords: BSC, management, finance, customer, process, growth.
+
+111Dedicatoria
+
+Quiero dedicar este trabajo de grado a Dios, a mis padres, familiares y amigos, los
+cuales siempre de alguna u otra manera me han apoyado, motivado, y acompañado para
+seguir adelante y obtener grandes logros.
+
+Sebatián Correa Giraldo
+
+1vAgradecimientos
+
+A los profesores que colaboraron en mi proceso de formación. Gracias por su dedicación y exigencia.
+
+Gracias al Ing. Pablo Lopera, Gerente Bussiness Costumer Solution por ser mi director y confiar en mi para la realización de este proyecto. Al profesor e Ing. Pavel
+Franco Marín por ser mi director y apoyarme en todo el proceso de desarrollo de este
+proyecto.
+
+A mis amigos y compañeros por todos los momentos vividos.
+
+Y por último gracias a Dios por darme la oportunidad de culminar este trabajo. Y a
+todos los que de alguna forma tuvieron que ver con esto.Tabla de Contenido
+
+1 Introducción 1
+1.1 Planteamiento del Problema ....................... l
+1.1.1. Descripción del Problema .................... 1
+
+1.1.2 Formulación del Problema .................... 2
+
+1.2 Justificación... 3
+1.2.1 Práctica ........ 3
+
+1.2.2 Social ........ 3
+
+1.23 Académica 4
+
+1.3 Objetivos ....... 5
+1.3.1. Objetivo General ......................... 5
+
+1.3.2 Objetivos ESpecÍfICOS . ....... o... .. . . . . . . . . . .. 5
+
+ld Alcance... 5
+1.5 Estructura del documento ........ o... 6
+2 Marco Referencial 7
+2.1 Marco de Antecedentes ........ e... 7
+2.1.1 IBM Cognos Express... o... o... 7
+
+2.1.2 QuickScore ..... 7
+
+2.1.3 Corporater EPM ............... . . . . . . . ... 8
+
+2.1.4 Oracle Business Intelligence Enterprise Edition 118 ........ 8
+
+2.1.5 DataCycle Scorecard ....... o... ...... ...... 8
+
+QA UCM 8
+SS 8
+
+2.2 MALCO teórico... 9
+2.2.1 Tecnologías de la información y la comunicación (TIC). ..... 9
+
+2.2.2 Las TIC en las empresas ..................... 9
+
+2.2.3 Estrategia empresarial ...................... 10
+
+2.2.4 Las TIC en la estrategia ..................... 10
+
+2.2.5 Inteligencia de negocios (Business Intelligence) . ........ 10
+
+2.2.6 Balanced Scorecard (BSO) .................... 11
+
+vi2.2.7 Perspectiva financiera ............ ... . . . .. .. 12
+
+2.2.8 Perspectiva del cliente ...................... 12
+
+2.2.9 Perspectiva de los procesos interMo0S . .............. 12
+2.2.10 Perspectiva de formación y crecimiento ............. 12
+2.2.11 Mapa estratégicO ............ . . . . . . . ...... 13
+2.2.12 Ingeniería del SOÍtWare ............... . . . ..«... 13
+2.2.13 Modelos de desarrollo de software ............... 13
+2.2.14 Metodologías de desarroll0 ................... 14
+2.2.15 Metodologías tradicionales ................... 14
+2.2.16 Metodologías agileSs . . ....... o... ... ....... 14
+2.2.17 Marco de trabajo para proyectos de software .......... 15
+
+2.3 MÍArCO Conceptual... 15
+2.3.1. Cuadro de Mando .............. e... e... 15
+
+2.3.2 El cuadro de mando integral o Balanced Scorecard (BSC) . . . 16
+
+IA CA 16
+
+2.34 Aplicación Web ............... . . . . . ... .. 16
+
+2.3.3 Perspectiva .............. e... 16
+
+2.3.6 Herramienta ........ o... 16
+2.3.7 Ejecución. ...... 16
+
+2.3.8 Plan estratégiCO ........... . .. . +... ... 17
+
+LID. Preso... 17
+2.3.10 Inductores de actuación .............. ....... 17
+2.3.11 KPI (Indicadores clave de desempeño) ............. 177
+2.3.12 Productividad .............. . . +... .. 17
+
+3 Aspectos del desarrollo del proyecto 18
+3.1 Metodología .......... 18
+3.2 Desarrollo de Fase 1. Teorización ............. .. . . . .. 20
+3.3 Desarrollo de Fase 2. Modelado .............. . . . . . .. 26
+3.4 Desarrollo de Fase 3. Construcción ............. .. . . +... 29
+BS Planeación 30
+3.5.1 Especificación de requerimientos ................ 44
+
+3.5.2 Product Backlo0g ....... o... o... e... 45
+
+3.5.3 Sprint Backl0g ....... o... 46
+
+BI DA 47
+3.6.1 Arquitectura - Diagrama de Componentes ............ 47
+
+3.6.2 Diagrama Entidad Relación ................... 48
+
+3.6.3 Diagrama de Clases... ............. .. . . .. +. 49
+
+BT Codificación 51
+BB Pruebas... 51
+3.8.1 Pruebas unitarias, aceptación, integración, regresión ...... 51
+
+vil4 Conclusiones y trabajos futuros
+41 Conclusiones...
+A E
+
+Referencias
+
+viliListado de Tablas
+
+3.1
+3.2
+3.3
+3.4
+3.5
+3.6
+
+4.1
+4.2
+4.3
+4.4
+4.5
+4.6
+4.7
+4.8
+4.9
+4.10
+4.11
+4.12
+4.13
+4.14
+4.15
+4.16
+4.17
+4.18
+4.19
+4.20
+4.21
+
+Componentes básicos del BSC ........... o... ........ 26
+Resultado de Planeación .................. . ... . .. 31
+Requerimientos Módulo Organizaciones ................. 45
+Historias de Usuario Módulo Organizaciones .............. 46
+Planeación de Sprints(BSC) .................... . .. 47]
+Resumen de Módulos y Clases Elaboradas ................ 49
+Requerimientos del Sistema ....................... 61
+Requerimientos Módulo ObjetivoS . .................... 61
+Requerimientos Módulo Iniciativas Estratégicas . ............ 62
+Requerimientos Módulo Administración ................. 62
+Requerimientos Módulo Autenticación . ................. 63
+Requerimientos Módulo Indicadores . .................. 63
+Requerimientos Módulo GTUPOS ..................... 63
+Requerimientos Módulo Perspectivas. .................. 64
+Requerimientos Módulo Reportes .................... 64
+Requerimientos Módulo Scorecard ...... o... .......... 65
+Requerimientos Módulo Usuari0S .................... 66
+Historias de Usuario Módulo GTUPOS ................... 67
+Historias de Usuario Módulo Perspectivas . ............... 68
+Continuación Historias de Usuario Módulo Objetivos ............ 69
+Historias de Usuario Módulo Iniciativas Estratégicas .......... 70
+Historias de Usuario Módulo Indicadores ................ 71
+Historias de Usuario Módulo Administración .............. 72
+Historias de Usuario Módulo Reportes ................... 73
+Historias de Usuario Módulo Autenticación ............... 74
+Historias de Usuario Módulo Balanced scorecard ............ 75
+Historias de Usuario Módulo UsSUAriOS .................. 76
+
+1XLista de Figuras
+
+3.1
+3.2
+3.3
+3.4
+3.5
+3.6
+3.7
+3.8
+3.9
+3.10
+3.11
+3.12
+3.13
+3.14
+3.15
+3.16
+3.17
+3.18
+3.19
+3.20
+3.21
+3.22
+3.23
+3.24
+3.25
+3.26
+3.27
+
+Metodología del proyecto . ............... . . . . . . . . . .. 19
+Interrelación de los tipos de estudi0. .................... 19
+ModeloBSC ............. e... 27
+Proceso de desarrollo metodología ScruM ................ 30
+Creación de Organizaciones ........... e... e... 32
+Interfaz para creación y eliminación de BSC ............... 32
+Formulario de Creación de BSC ..................... 33
+Creación de Componentes del BSC........... o... ..... 34
+Formulario de Perspectivas ............... . . . . . . . . .. 35
+Formulario de Creación de ObjetivOS . .................... 36
+Interfaz de Estado de ObjetivOS . .......... o... ... . . .. ... 37
+Interfaz de Estado de Indicadores ..................... 38
+Interfaz de Adición de Mediciones .................... 38
+Formulario de Creación de Iniciativas Estratégicas ........... 39
+Formulario de Creación de Acciones .................. 39
+Interfaz de Estado de ACCIONES ............. ... . ..... 40
+Interfaz de Creación de UsSUariOS ................ . ..... 41
+Formulario de Creación de GTUPOS .................... 42
+Formulario de Ingreso al Sistema —.................... 43
+Interfaz de Creación de Reportes ..................... 43
+Reporte de comparación de indicadores por periodo ........... 44
+Reporte de mapa estratégiCO ............. . . . . . . . . .. =,
+Diagrama de componentes (BSC) .................... 48
+Fragmento Diagrama Entidad Relación (BSC) .............. 49
+Clases Logueo y ObjetivOS . ....... o... ... . . . . . . . . . .. SO
+Prueba en Selenium, punto de partida, acceso al sistema fallando . . . . 52
+Prueba en Selenium, acceso al sistema exitosO ............. 53Lista de Anexos
+
+Anexo A: Especificación de Requerimientos
+Anexo B: Historias de Usuario
+Anexo C: Diagrama Entidad RelaciónCapítulo 1
+
+Introducción
+
+1.1 Planteamiento del Problema
+
+1.1.1 Descripción del Problema
+
+Colombia se encuentra en puestos desventajosos en los factores del índice Global de
+Competitividad [30], y en gran medida la competitividad de un país está relacionada
+con la productividad de la gran mayoría de sus empresas. Como se plantea en [12], en
+Colombia la principal dificultad de las empresas es su baja capacidad de gestión, que
+ocurre debido a una visión de corto plazo en lo relacionado con la dimensión estratégica,
+poco aprovechamiento de las potencialidades del personal por parte de las empresas,
+dificultad para configurar la estructura de la organización de acuerdo a la dinámica del
+entorno con su estrategia, y una visión de procesos funcional y mal comprendida, que
+no permite ver el negocio desde una perspectiva integral.
+
+De esta manera, Colombia tiene grandes retos para continuar con su desarrollo, y
+donde la empresa tiene gran importancia para lograrlo, pues según el Dane el porcentaje
+de desempleo en el país es del 10,2% [26] y mediante su medición IPM' (Indice de Pobreza Multidimensional), el 27,0% de la población en Colombia es pobre [7]. Además,
+alrededor del 80% de las personas empleadas, trabajan en mipymes, y en general ganan
+el salario mínimo [28].
+
+Estas estadísticas muestran una indispensable necesidad de mejora de las empresas,
+pues la calidad de vida de los colombianos y su riqueza, dependen en gran medida de
+
+ 
+
+'http://formularios.dane.gov.co/Anda_4_1/index.php/catalog/257que esto ocurra, de lo contrario, Colombia seguirá rezagada a ser un país en desarrollo,
+pero nunca desarrollado.
+
+Ante la situación planteada, se hace necesaria la búsqueda de nuevas formas de hacer
+más competitivas las empresas en Colombia, permitiendo su crecimiento y por consiguiente la creación de nuevos empleos y mejora de la calidad de vida de las personas. Y
+dado que la sociedad y la industria se encuentran actualmente enmarcadas bajo el contexto de la era del conocimiento [29], se hace indispensable la búsqueda de una solución,
+
+que se centre en la aplicación de nuevos modelos de gestión empresarial apoyados en el
+uso de las TIC [16].
+
+Luego, las TIC han cobrado importancia en las empresas, ya que su utilización
+supone un importante ahorro de tiempo y recursos, un dinamismo en los procesos, una
+mejor gestión del negocio y una reducción de la carga administrativa [17]. Además,
+las organizaciones se enfrentan a un entorno cada vez más cambiante y complejo, y sus
+unidades de recursos humanos han pasado de un enfoque netamente operativo a uno
+cada vez más estratégico y competente, haciendo necesario gestionar su talento humano
+de manera más competitiva y dado que muchos directivos se educaron para gestionar
+empresas en un entorno estable que ya no existe, surgen las empresas de consultoría
+como alternativa para apoyar la gestión humana y empresarial, ya que así es posible contar con la orientación de un experto temático familiarizado con un entorno específico, la
+experiencia de otras empresas, la academia y con una perspectiva independiente [43].
+
+Clip Consulting es una empresa Colombiana de consultoría e implementación tecnológica, que brinda soporte, capacitación y apoyo al negocio de sus clientes, ofreciendo
+además distintas soluciones de software, con lo que, en conjunto busca generar valor
+aplicando innovación a las problemáticas de dichos clientes.
+
+Ahora, teniendo en cuenta lo indicado anteriormente y la naturaleza del negocio de
+Clip Consulting, es importante tener en cuenta que actualmente ésta no cuenta, dentro
+de su portafolio de productos y servicios, con una herramienta que permita generar un
+apoyo para la gestión empresarial de sus clientes. En consecuencia, el presente trabajo
+de grado fue desarrollado en modalidad de pasantía en Clip Consulting para satisfacer
+la necesidad expuesta anteriormente.
+
+1.1.2 Formulación del Problema
+
+¿Cómo sistematizar los procesos de creación y administración de un BSC como producto de software a ser comercializado y usado en el negocio de la empresa Clip Consulting?1.2 Justificación
+
+1.2.1 Práctica
+
+La empresa desde el punto de vista de la teoría general de sistemas, es un sistema con
+entradas provenientes de su entorno y con salidas que cambian algo de ese entorno
+[15], de esta manera las empresas deben cambiar conforme su ambiente lo hace, y dado
+que actualmente el mundo se encuentra bajo la era del conocimiento [22], las empresas deben desarrollar nuevas capacidades para lograr el éxito competitivo, pues ahora
+la competencia de la era industrial se ha hecho obsoleta y los activos intangibles han
+tomado importancia [34].
+
+En consecuencia, se entiende por activos intangibles las relaciones con los clientes,
+la innovación en los productos y servicios ofrecidos, calidad que posee lo que se ofrece,
+la motivación de empleados, el conocimiento mismo como el activo intangible más
+valioso que existe, entre otros [34]. Es aquí donde el BSC toma importancia, porque
+apoya a la empresa para que realice una buena gestión, dónde se tienen en cuenta los
+activos intangibles referenciados anteriormente.
+
+Por otra parte, la empresa Clip Consulting no cuenta con una herramienta de gestión
+empresarial dentro de sus productos y servicios, por lo que se hace necesario satisfacer
+dicha necesidad teniendo en cuenta, además, el contexto expuesto anteriormente, pues
+se hace indispensable para las empresas tener herramientas que respondan a las actuales
+necesidades que expone el mercado, permitiendo una gestión integral, dónde se pueda
+generar valor a largo plazo con base en la estrategia, y de esta forma lograr perdurar y
+crecer en el tiempo de manera sostenible.
+
+1.2.2 Social
+
+El BSC tiene en cuenta cuatro perspectivas dentro de las cuales se encuentra formación
+y crecimiento, dónde se busca generar valor a la empresa por medio de capacitaciones
+a los empleados, generando esto profesionales más integrales, eficientes, dando lugar a
+un aprovechamiento de todo su potencial. Por consiguiente al mejorar las competencias
+de los empleados, se tienen empleados más satisfechos, un mejor clima laboral y mayor
+productividad organizacional [34].
+
+Además, una buena gestión empresarial permite que las empresas obtengan ventajas
+competitivas y crezcan [34]. De esta manera, será necesaria la contratación de nuevo
+personal. Igualmente si los procesos son mejores y más eficientes, las personas pueden
+realizar mejor su trabajo, en un ambiente laboral agradable y reduciendo el estrés, enfermedad que ha ido en aumento, pues según un estudio hecho por Regus, el 38% de losColombianos sufren de estrés laboral [14].
+
+Por tanto, una buena gestión empresarial conduce a que mejore la calidad de vida
+de los empleados y de la sociedad. Además con procesos más eficientes, se contribuye
+al medio ambiente, puesto que puede reducirse la generación de residuos peligrosos,
+ahorrar costos en incineración, utilizar menos agua, ahorrar energía, etc.
+
+De esta manera, este trabajo de grado es una oportunidad para que las personas
+tengan una mejor calidad de vida, por medio de mejores empresas, más productivas y
+eficientes, debido a una mejor gestión empresarial.
+
+1.2.3 Académica
+
+Durante la formación académica de los estudiantes del plan de Ingeniería de Sistemas
+de la Universidad del Valle, se tiene la oportunidad de ampliar los conocimientos en
+diferentes aspectos de las Ciencias de la Computación, logrando formar mejores capacidades de razonamiento y forjando personas más críticas.
+
+Sin embargo, en el contexto empresarial actual y las demandas del mercado en
+términos laborales, es clave revisar temas no sólo relacionados con las ciencias exactas y de la computación, sino también relacionados con las ciencias sociales, administrativas, humanas, económicas, etc. Ya que así se logra ser más competente y obtener
+mejores resultados, un claro ejemplo es el de los CEO? (Chief Executive Officer) o directores ejecutivos de las principales empresas en Estados Unidos, pues en un informe
+de Standard £ Poors 500 se indicó que de las 502 principales empresas listadas en Estados Unidos, el 28.1% de los directores ejecutivos estudiaron carreras universitarias
+relacionadas con ciencia e ingeniería, es decir, tres cuartas partes de ellos eran ingenieros, aunque a la formación académica de los ingenieros le falta profundizar en temas
+sociales, conocimientos de contabilidad, finanzas y recursos humanos [42]. De esta
+manera existe gran potencial para la administración de empresas en las personas con
+formación en ingeniería, pero existe aún la necesidad de tener más conocimientos en
+otras áreas, como se mencionó anteriormente. Por consiguiente, la elaboración de este
+trabajo generó espacios de adquisición de nuevos conocimientos sobre administración
+y ampliar los conocimientos actuales desde nuevas perspectivas, permitiendo además
+desarrollar competencias investigativas y ejercitar habilidades de autoaprendizaje.
+
+ 
+
+“http://www.investopedia.com/terms/c/ceo.asp1.3 Objetivos
+
+1.3.1 Objetivo General
+
+Desarrollar un producto de software que apoye la gestión empresarial a través del BSC,
+de modo que haga parte del portafolio de productos y servicios de la empresa Clip
+Consulting.
+
+1.3.2 Objetivos Específicos
+
+1. Determinar qué aspectos teóricos sobre BSC y gestión empresarial, son necesarios
+al momento de crear un producto de software que apoye procesos directivos
+
+2. Modelar la sistematización de un BSC, a partir de aspectos teóricos, en función
+de su proceso de creación y administración
+
+3. Construir una herramienta que permita crear distintos BSC para apoyar procesos
+de gestión empresarial
+
+1.4 Alcance
+
+Con el presente proyecto se buscó desarrollar un producto de software que brindara
+apoyo a las empresas en la traducción de la estrategia en objetivos, medidas de actuación
+y fines concretos para controlar y vigilar la puesta en práctica de la misma, facilitando
+su implantación y difusión. De esta manera, se tendrá una mejor compresión de los
+objetivos y de los métodos que se han de utilizar para alcanzarlos y proporcionar la
+estructura necesaria para hacer efectiva una gestión empresarial adecuada.
+
+Así, para hacer efectivo todo el esquema planteado anteriormente, existen diversas
+alternativas, y dentro de ellas se encuentra el BSC, dónde se abordan distintas perspectivas entre las cuales están: las finanzas, los clientes, los procesos internos, la formación
+y el crecimiento. De esta manera, la herramienta apoyará a las empresas en los procesos de medición para la forma en que se crea valor para sus clientes actuales y futuros,
+junto con la forma en que debe potenciar las capacidades internas y las inversiones en
+personal, sistemas y procedimientos que son necesarios para su acción expectante.
+
+Por consiguiente, como el BSC permite clarificar, traducir y actualizar la estrategia,
+comunicarla a toda la organización, alinear los objetivos personales y los de los departamentos, identificar, ordenar iniciativas, y obtener esquemas de retroalimentación paraaprender sobre la estrategia y mejorarla.
+
+En consecuencia el presente proyecto permitió desarrollar un producto de software,
+como ya se indicó, que permitiera crear y administrar adecuadamente un BSC, dónde
+es importante aclarar que el éxito de un BSC depende en gran medida de la capacidad
+de la alta dirección para definir los objetivos, indicadores y metas, a pesar de que al
+sistematizarlo la tarea será mucho más sencilla, por lo que existirá mayor probabilidad
+de éxito en el ejercicio directivo.
+
+1.5 Estructura del documento
+
+El presente documento se divide en cuatro capítulos, que se describen a continuación:
+
+En el capítulo 1, se define el concepto del proyecto donde se presentan la descripción
+del problema, la formulación del mismo, su justificación, el objetivo general, específicos
+y alcance.
+
+En el capítulo 2 se definen el Marco Teórico y Antecedentes.
+
+En el capítulo 3 se encuentra la descripción del proceso de desarrollo llevado a cabo
+para la construcción del sistema BSC.
+
+Finalmente en el capítulo 4, se presentan las conclusiones y trabajos futuros. Adicionalmente se anexan los diferentes diagramas generados, historias de usuario y pruebas realizadas.Capítulo 2
+
+Marco Referencial
+
+El contenido de este cápitulo es parte de la evidencia que demuestra el cumplimiento
+del primer objetivo del proyecto, junto con los archivos (sintesis-BSC.pdf, Documentossíntesis-GestionEmpresarial.pdf) contenidos en el cd que acompaña este documento,
+permitiendo identificar los conocimientos teóricos necesarios para la construcción de
+un sistema BSC o de apoyo a procesos directivos.
+
+2.1 Marco de Antecedentes
+
+Actualmente existen varias herramientas de software que permiten realizar inteligencia
+de negocios y gestión empresarial. A continuación se mencionan algunas:
+
+2.1.1 IBM Cognos Express
+
+IBM actualmente ofrece IBM Cognos Express, que brinda una solución con informes,
+análisis y planificación específicamente diseñada para las empresas de tamaño medio,
+también ofrece las características básicas de generación de informes, análisis, tablero de
+control (dashboard), cuadro de mandos (scorecard), planificación y presupuestos [19].
+
+2.1.2 QuickScore
+
+Spider Strategies ha creado la herramienta QuickScore que permite realizar gestión
+empresarial y además posee algunas características de cuadro de mando. El sistema
+
+facilita el ingreso de la información de forma manual o por medio de la carga de archivos
+Excel. [38].2.1.3 Corporater EPM
+
+La empresa Corporater tiene actualmente un software con características Balanced Scorecard, que permite crear mapas de estrategia y de proceso, ingresar métricas, sub-procesos
+y recursos de apoyo, además de gestión de métricas, Benchmarking, etc. Corporater
+
+ofrece el paquete en la versión Enterprise y la versión On-demand [5].
+
+2.1.4 Oracle Business Intelligence Enterprise Edition 11g
+
+Oracle actualmente posee Oracle Business Intelligence Enterprise Edition 11g que es
+una solución integrada de productos de inteligencia empresarial (BI) con cuadros de
+mando, un completo sistema de consultas ad hoc, alertas e información proactiva, informes financieros y corporativos, datos predictivos en tiempo real y análisis desconectado entre otras funciones [11].
+
+2.1.5 DataCycle Scorecard
+
+Apesoft desarrolló DataCycle Scorecard es la solución que automatiza la generación
+y distribución de Cuadros de Mando. Ofrece tanto un soporte integral al despliegue
+de la estrategia en la organización (mapa estratégico, indicadores y objetivos, metas,
+seguimiento de proyectos e iniciativas, planes de mejora) como la automatización de
+cuadros de mando operativos (indicadores y objetivos) [2].
+
+2.1.6 vCMI
+
+Velneo ha creado vEMI que es una plantilla empresarial para el desarrollo de un programa o software de gestión de Cuadro de Mando Integral (CMI). Esta aplicación está
+orientada al registro y seguimiento de indicadores y objetivos empresariales. Ayuda a
+trasladar la estrategia de una compañía desde la dirección hacia toda la organización,
+buscando la participación de todos los trabajadores en la definición y seguimiento de
+aquellos indicadores más relevantes que permitan medir la marcha de la empresa y,
+sobre todo, alinearla con la estrategia definida [41].
+
+2.1.7 Litebi
+
+La empresa Litebi ha creado Litebi que es un software que permite crear cuadros de
+mando, además permite construir data warehouses y crear soluciones analíticas, este
+software permite que se pueda medir la estrategia de la empresa, por medio de indicadores creados en los cuadros de mando y además hacer un seguimiento a lo que ocurre
+en el negocio [23].2.2 Marco teórico
+
+2.2.1 Tecnologías de la información y la comunicación (TIC)
+
+Las TIC son herramientas y métodos empleados para recabar, retener, manipular o distribuir información. De este modo, las TIC están cambiando la forma tradicional de
+hacer las cosas; las personas que trabajan en el gobierno, en empresas privadas, que
+dirigen personal o que trabajan como profesionales en cualquier campo las utilizan cotidianamente mediante el uso de Internet, las tarjetas de crédito, el pago electrónico de
+la nómina, entre otras funciones; es por eso que su tarea en los procesos de la empresa
+como manufactura y ventas se han expandido significativamente [6].
+
+2.2.2 Las TIC en las empresas
+
+Las Tecnologías de la Información y la Comunicación han transformado la manera de
+trabajar y gestionar recursos en las empresas. Las TIC son un elemento clave para hacer
+que el trabajo sea más productivo: agilizando las comunicaciones, sustentando el trabajo
+en equipo, gestionando las existencias, realizando análisis financieros, y promocionando
+productos en el mercado [40].
+
+Las TIC constituyen un instrumento fundamental para la organización interna de
+cualquier negocio. Su utilización supone un importante ahorro de tiempo y recursos, al
+simplificar y agilizar los procesos de gestión, toma de decisiones, y facilitar el contacto
+directo con la clientela, empresas proveedoras y Administración Pública. De esta manera las TIC permiten: mejor aprovechamiento del tiempo, mejor gestión del negocio y
+reducción de la carga administrativa [43].
+
+Estas herramientas acompañan el desempeño de cada empresa, a través de la utilización de indicadores y metas preestablecidas conjuntamente. Además proporcionan información (cantidad y calidad) superior a la que se obtiene con procesos tradicionales. Los controles de ejecución del planeamiento, el cumplimiento de las metas
+de ventas y de facturación pueden ser monitoreados en tiempo real. Así, las TIC ofrecen también estos beneficios: profesionalizar la gestión de las empresas, dar mayor
+transparencia a las informaciones proporcionadas por la empresa, optimizar los recursos disponibles para una gestión más eficiente, mejorar las oportunidades de éxito del
+nuevo emprendimiento, implementar prácticas gerenciales más modernas y eficientes
+
+[20].2.2.3 Estrategia empresarial
+
+La estrategia empresarial, a veces también llamada gestión estratégica de empresas,
+es la búsqueda deliberada de un plan de acción que desarrolle la ventaja competitiva
+de una empresa y la acentúe, de forma que ésta logre crecer y expandir su mercado
+reduciendo la competencia. La estrategia articula todas las potencialidades de la empresa, de forma que la acción coordinada y complementaria de todos sus componentes
+contribuya al logro de objetivos definidos y alcanzables. La planeación estratégica es
+el proceso mediante el cual quienes toman decisiones en una organización, obtienen,
+procesan y analizan información pertinente, interna y externa, para evaluar la situación
+presente y nivel de competitividad, para anticipar y decidir sobre el direccionamiento de
+la institución a futuro [33].
+
+2.2.4 Las TIC en la estrategia
+
+Para los empresarios, cada vez es más clara la necesidad de diseñar el futuro de sus
+decisiones de hoy y seleccionar de forma coherente las alternativas más convenientes y
+propicias al éxito. Tal aspiración demanda un adecuado soporte en Tecnologías de la
+Información. El rápido y continuo cambio del entorno hace que las nuevas tecnologías
+cada vez influyan más en la gestión de las empresas, fenómenos como Internet afectan
+a la manera de hacer negocios, el talento es cada vez más escaso y la globalización cada
+vez es un fenómeno más importante.
+
+De esta manera, con la revisión, modificación y aplicación de sistemas de información y control, a la estrategia, se desarrolla un pensamiento estratégico en los equipos
+de trabajo y la actitud que permita dirigir el día a día de la empresa [16].
+
+2.2.5 Inteligencia de negocios (Business Intelligence)
+
+Es el conjunto de estrategias y herramientas enfocadas a la administración y creación de
+conocimiento mediante el análisis de datos en una organización o empresa. Sirve para
+apoyar la toma de decisiones en la empresa y existen varias herramientas para realizar
+inteligencia de negocios [8]:
+
+e Cuadro de mando integral también llamados Dashboard.
+
+e Digital Dashboards o paneles de Control Digital - También conocidos como Business Intelligence Dashboards, o Dashboard Ejecutivos, Son resúmenes visuales
+de información del negocio, que muestran de una mirada la comprensión global de
+las condiciones del negocio mediante métricas e Indicadores Clave de Desempeño
+(KPIs). Esta es una Herramienta de Inteligencia de Negocios muy popular desde
+hace unos pocos años.
+
+10e OLAP (Procesamiento Analítico en línea por sus siglas en Inglés) (incluido HOLAP, ROLAP and MOLAP). Es la capacidad de algunos sistemas de soporte
+de decisiones gerenciales que permiten examinar de manera interactiva grandes
+volúmenes de información desde varias perspectivas.
+
+e Aplicaciones de Informes, genera vistas de datos agregadas para mantener a la
+gerencia informada sobre el estado de su negocio.
+
+e Minería de datos - Extracción de información de las bases de datos acerca del
+consumidor, mediante la utilización de aplicaciones que pueden aislar e identificar patrones o tendencias del consumidor en un alto volumen de datos. Hay
+una gran variedad de técnicas de minería de datos que revelan distintos tipos de
+patrones. Algunas de las técnicas son métodos estadísticos (Particularmente Estadística de Negocios) y Redes Neurales como formas altamente avanzadas de
+análisis de datos.
+
+El Balanced Scorecard hace parte del campo de la inteligencia de negocios para
+apoyar la toma de decisiones en la empresa, pero es importante resaltar que es diferente
+al cuadro de mando, pues el concepto de este último fue introducido con anterioridad y
+
+Y
+
+es originario del término en francés ”tableau de bord”.
+
+2.2.6 Balanced Scorecard (BSC)
+
+El Cuadro de Mando Integral CMI (Balanced Scorecard BSC) es un método para medir
+las actividades de una compañía en términos de su visión y estrategia. Proporciona a
+los gerentes una mirada global del desempeño del negocio. Es una herramienta de
+administración de empresas que muestra continuamente cuándo una compañía y sus
+empleados alcanzan los resultados definidos por el plan estratégico. También es una
+herramienta que ayuda a la compañía a expresar los objetivos e iniciativas necesarias
+para cumplir con la estrategia [34].
+
+El BSC puede ser utilizado para:
+
+e Clarificar y traducir la visión y la estrategia.
+
+e Comunicar y vincular los objetivos y los indicadores estratégicos.
+
+e Planificación, establecimiento de objetivos y alineación de iniciativas estratégicas.
+
+e Aumentar el feedback y la formación estratégica. Contempla la organización
+desde cuatro perspectivas: financiera, clientes, procesos internos y formación y
+crecimiento:
+
+— Aprendizaje: ¿Cómo debe nuestra organización aprender e innovar para alcanzar sus objetivos”?
+
+11— Procesos Internos: ¿En qué procesos debemos ser excelentes?
+— Clientes: ¿Qué necesidades de los clientes debemos atender para tener éxito?
+
+— Financiera: ¿Qué objetivos financieros debemos lograr para ser exitosos?
+
+2.2.7 Perspectiva financiera
+
+En general, los indicadores financieros están basados en la contabilidad de la compañía,
+y muestran el pasado de la misma. Esta perspectiva abarca el área de las necesidades
+de los accionistas. Además se enfoca en los requerimientos necesarios para crear valor
+al accionista como: las ganancias, rendimiento económico, desarrollo de la compañía y
+rentabilidad de la misma [34].
+
+2.2.8 Perspectiva del cliente
+
+En esta perspectiva, los directivos identifican los segmentos de clientes y de mercado,
+en los que competirá la unidad de negocio, y las medidas de la actuación de la unidad
+de negocio en esos segmentos seleccionados.
+
+Algunos indicadores de esta perspectiva son: Satisfacción de clientes, desviaciones
+en acuerdos de servicio, reclamos resueltos del total de reclamos, incorporación y retención de clientes. El conocimiento de los clientes y de los procesos que más valor
+generan es muy importante para lograr que el panorama financiero sea próspero. Se
+quiere saber desde esta perspectiva cómo ve el cliente a la organización, y qué debe
+hacer esta para mantenerlo [34].
+
+2.2.9 Perspectiva de los procesos internos
+
+En esta perspectiva, los ejecutivos identifican los procesos críticos internos en los que
+la organización debe ser excelente. Las medidas de los procesos internos se centran en
+los procesos internos que tendrán el mayor impacto en la satisfacción del cliente y en la
+consecución de los objetivos financieros de una organización [34].
+
+2.2.10 Perspectiva de formación y crecimiento
+
+Esta perspectiva identifica la infraestructura que la empresa debe construir para crear una
+mejora y crecimiento a largo plazo. La formación y el crecimiento de una organización
+proceden de tres fuentes principales: las personas, los sistemas y los procedimientos
+de la organización. Incluye aspectos como entrenamiento de los empleados, cultura
+organizacional, etc. Estos indicadores constituyen el conjunto de activos que dotan a la
+organización de la habilidad para mejorar y aprender [34].
+
+122.2.11 Mapa estratégico
+
+Los mapas estratégicos son una manera de proporcionar una visión macro de la estrategia de una organización, y proveen un lenguaje para describir la estrategia, antes de
+elegir las métricas para evaluar su desempeño. Cuando una organización ha desarrollado
+un Plan Estratégico y quiere implantarlo de una forma eficiente, fácil de comunicar y
+ágil de medir; con el fin de alcanzar los objetivos planificados de una manera eficiente
+y rentable, debe definir su Mapa Estratégico. Un Mapa Estratégico es una poderosa
+herramienta que permite alinear a todos los miembros de la organización hacia la consecución de los objetivos descritos en su Plan Estratégico, a comunicarlos y a definir qué
+es lo que tiene que hacer para alcanzarlos [1].
+
+2.2.12 Ingeniería del software
+
+Concierne a teorías, métodos y herramientas para el desarrollo profesional de software,
+buscando así mejores técnicas para la garantía de la calidad del software, mejores herramientas para la automatización de métodos, bloques de construcción más potentes para
+la implementación del software, entre otros. Además, lo que se busca es que los productos de software tenga características como: mantenibilidad, confiabilidad, eficiencia,
+utilización adecuada [27].
+
+2.2.13 Modelos de desarrollo de software
+
+Son paradigmas o filosofías de desarrollo en los cuales se apoya la construcción del
+software, algunos de ellos son [27]:
+
+e Modelo de Cascada: Separa en distintas fases de especificación y desarrollo,
+dónde se realizan unas etapas de forma lineal, es decir, la siguiente no puede
+realizarse hasta que se haya terminado la anterior.
+
+e Desarrollo Evolutivo: La especificación y el desarrollo están intercalados. Se
+utiliza generalmente para sistemas interactivos pequeños o medianos.
+
+e Prototipado: Un modelo sirve de prototipo para la construcción del sistema final.
+Se realiza un prototipo en poco tiempo, usando los programas adecuados y sin utilizar muchos recursos; buscando representar aquellos aspectos que serán visibles
+para el cliente.
+
+e Espiral: Las actividades se conforman como una espiral, en la que cada bucle o
+iteración representa un conjunto de actividades. Dichas actividades no están fijas,
+sino que se eligen en función del análisis de riesgo, comenzando por el bucle
+anterior.
+
+132.2.14 Metodologías de desarrollo
+
+Son procesos a seguir sistemáticamente para idear, implementar y mantener un producto
+de software desde que surge la necesidad del producto hasta cumplir con el objetivo
+por el cual fue creado. Se tienen dos esquemas de las metodologías de desarrollo las
+tradicionales y las agiles.
+
+2.2.15 Metodologías tradicionales
+
+Son aquellas con mayor énfasis en la planificación y control del proyecto, y especificación y modelado, algunas de ellas son:
+
+RUP (Rational Unified Process)
+
+Es una plataforma de proceso de desarrollo de software configurable que entrega mejores
+prácticas comprobadas y una arquitectura configurable. Además permite seleccionar y
+desplegar solamente los componentes de proceso que usted necesita para cada etapa de
+su proyecto [18].
+
+MSF (Microsoft Solution Framework)
+
+Es un enfoque personalizable para entregar correcta y más rápidamente soluciones tecnológicas, con menos personas y menos riesgo, pero con resultados de más calidad [25].
+
+Cascada
+
+Ordena rigurosamente las etapas del ciclo de vida del software, de tal forma que el inicio
+de cada etapa debe esperar a la finalización de la inmediatamente anterior [13].
+
+2.2.16 Metodologías agiles
+
+Se enfocan en reducir tiempo y documentación innecesaria sin perder calidad y con
+requisitos variables a lo largo del tiempo estimado para el proyecto, se orientan en la
+interacción del cliente con los desarrolladores y en flexibilidad para el cambio. Algunas
+de ellas son:
+
+XP
+
+Es un conjunto de pasos de diversas metodologías, acopladas de manera que sean pasos
+flexibles a seguir utilizadas con el uso común, para realizar un desarrollo más agradable
+y sencillo [3].
+
+14Scrum
+
+Es un marco de trabajo colaborativo, que proporciona un conjunto de reglas para que
+los equipos se centren en soluciones innovadoras [35].
+
+Crystal Methods
+
+Busca mejorar la comunicación entre los miembros del equipo y combina la productividad y la tolerancia [4].
+
+2.2.17 Marco de trabajo para proyectos de software
+
+Aunque existen distintos marcos de trabajo para un proyecto de software, es decir, las
+fases que deberá tener el proyecto para culminarlo; según Pressman [27], existe un
+marco de trabajo para la gran mayoría de proyectos de software, el cual abarca las
+siguientes etapas:
+
+e Comunicación: Investigación de requisitos mediante una intensa colaboración
+del cliente.
+
+e Planeación: Donde se establece un plan para el trabajo de la ingeniería del software.
+
+e Modelado: Abarca la construcción de modelos que permiten entender mejor los
+requisitos del software.
+
+e Construcción: Generación de código y realización de pruebas.
+
+e Despliegue: Etapa donde se realiza la entrega al cliente.
+
+2.3 Marco conceptual
+
+2.3.1 Cuadro de mando
+
+El Cuadro de Mando o Tablero de Control, es una herramienta operativa útil para controlar lo que pasó en un área o departamento. Sus indicadores están focalizados solamente
+a procesos. Es un instrumento útil para medir el avance de los resultados operativos en
+una Organización [34].
+
+152.3.2 El cuadro de mando integral o Balanced Scorecard (BSC)
+
+Es una herramienta por medio de la cual una Organización logra ejecutar su Plan Estratégico trasladando el mismo a la acción. Su importancia radica en que por medio de
+sus indicadores- muestrea de manera continua, cuándo la Organización y sus colaboradores alcanzan las metas del Plan Estratégico [34].
+
+2.3.3 Gestión
+
+Son guías para orientar la acción, previsión, visualización y empleo de los recursos y
+esfuerzos a los fines que se desean alcanzar, la secuencia de actividades que habrán de
+realizarse para logar objetivos y el tiempo requerido para efectuar cada una de sus partes
+y todos aquellos eventos involucrados en su consecución [9].
+
+2.34 Aplicación web
+
+Una aplicación web es un conjunto de páginas que interactúan unas con otras y con
+diversos recursos en un servidor web, incluidas bases de datos. Esta interacción permite implementar características en su sitio como catálogos de productos virtuales y
+administradores de noticias y contenidos. Adicionalmente podrá realizar consultas a
+bases de datos, registrar e ingresar información, solicitudes, pedidos y múltiples tipos
+de información en línea en tiempo real [39].
+
+2.35 Perspectiva
+
+Punto de vista desde el cual se considera o se analiza un asunto [31].
+
+2.3.6 Herramienta
+
+Una herramienta es un objeto elaborado a fin de facilitar la realización de una tarea. Las
+herramientas se diseñan y fabrican para cumplir uno o más propósitos específicos, por
+lo que son artefactos con una función específica [37].
+
+2.3.7 Ejecución
+
+La ejecución es la etapa donde se materializan los aspectos descritos en el estudio
+técnico, pero soportado en la estructura organizacional para la implementación del proyecto.
+Para realizar la ejecución es necesario desarrollar una gestión que facilite su terminación
+
+y lo deje listo para la iniciación o puesta en marcha (inicio de operaciones) [21].
+
+162.3.8 Plan estratégico
+
+Es un documento en el que los responsables de una organización (empresarial, institucional, no gubernamental, deportiva, etc.) reflejan cual será la estrategia a seguir por su
+compañía en el medio plazo. Aunque en muchos contextos se suelen utilizar indistintamente los conceptos de plan director y plan estratégico, la definición estricta de plan
+estratégico indica que éste debe marcar las directrices y el comportamiento para que una
+organización alcance las aspiraciones que ha plasmado en su plan director [17].
+
+2.3.9 Proceso
+
+Un proceso es un conjunto de actividades planificadas que implican la participación de
+un número de personas y de recursos materiales coordinados para conseguir un objetivo
+previamente identificado. Se estudia la forma en que el Servicio diseña, gestiona y
+mejora sus procesos (acciones) para apoyar su política y estrategia y para satisfacer
+plenamente a sus clientes y otros grupos de interés [10].
+
+2.3.10  Inductores de actuación
+
+Las medidas de resultados, sin los inductores de actuación, no comunican la forma en
+que hay que conseguir esos resultados y tampoco proporciona la información referida
+al grado de logro de la estrategia planteada [24].
+
+2.3.11 KPI (Indicadores clave de desempeño)
+
+Miden el nivel del desempeño de un proceso determinado, enfocándose en el cómo e
+
+indicando que tan efectivos son los procesos, de forma que se pueda alcanzar el objetivo
+fijado [36].
+
+2.3.12 Productividad
+
+Relación entre lo producido y los medios empleados, tales como mano de obra, materiales, energía [32].
+
+17Capítulo 3
+
+Aspectos del desarrollo del proyecto
+
+En este capítulo se presenta el proceso de desarrollo del proyecto empleado para el
+desarrollo de este trabajo de grado en modalidad de pasantía. Aquí se evidencia el
+cumplimiento de los 3 objetivos planteados y sus resultados.
+
+3.1 Metodología
+
+La metodología planteada para el desarrollo del actual proyecto obedece a un proceso
+de tres fases como se muestra en la figura 3.1, en ésta se presentan las etapas correspondientes a la metodología del proyecto; en la primera fase se buscó recopilar la
+información necesaria para definir y estructurar un marco de referencia riguroso que
+obedeciera al planteamiento del problema, los objetivos y el alcance de este trabajo,
+permitiendo conocer toda la información correspondiente a BSC y gestión empresarial,
+dando como resultado los documentos que evidencian el cumplimiento del primer objetivo del proyecto. éste marco de referencia se convirtió en el insumo fundamental para
+la segunda fase del proyecto, posibilitando la creación de un modelo para sistematizar
+el BSC y que evidenciara el cumplimiento del segundo objetivo del proyecto. Posteriormente, el modelo de sistematización del BSC es el insumo de la tercera fase para
+que fuera usado en la construcción de un producto de software de gestión empresarial,
+que hiciera parte del portafolio de productos y servicios de la empresa Clip Consulting,
+evidenciando este producto de software el cumplimiento del tercer objetivo planteado.
+
+18EA
+
+Fase 1
+
+CONTRUCCIÓN
+
+TEORIZACIÓN MODELADO
+
+   
+
+     
+      
+
+     
+   
+   
+
+Creación de un modelo
+que permita la
+sistematización y
+administración de un BSC
+
+Estudiar los elementos
+teóricos a lener en cuenta
+en la construcción del
+
+producto de software
+
+Construcción del producto
+de software
+
+la els
+
+Pd
+
+Marco de Referencia del B
+¡2p=] e
+
+A E
+
+ 
+
+Figura 3.1: Metodología del proyecto
+
+Para la elaboración del sistema y definición de las características del mismo, se
+tuvo en cuenta diferentes tipos de estudio e información, entre estos se mencionan los
+siguientes.
+
+e Tipos de estudios
+
+Los tipos de estudio presentes en este trabajo fueron el descriptivo y explicativo dónde
+interactuaron como se muestra en la Figura 3.2.
+
+nao 30 do
+
+ 
+
+Figura 3.2: Interrelación de los tipos de estudio.
+
+El tipo de estudio descriptivo, fue un tipo de estudio con gran participación ya que
+partió del proceso investigativo, genero una serie de descripciones relacionadas con cada
+uno de los elementos teóricos definidos en la fase de teorización. El explicativo, toma
+como base el estudio descriptivo referenciado anteriormente, se sistematizó la creación
+y administración de BSC verificando sus características para la gestión empresarial.
+
+e Fuentes de información
+
+Al ser este trabajo un proyecto en modalidad de pasantía, fue imprescindible la comunicación y suministro de información constante por parte de la empresa Clip Consulting, en busca de poder lograr los resultados esperados. Dentro de esta información
+se tuvieron diferentes fuentes, entre estas: Fuentes primarias, las cuales recaen en la
+empresa Clip Consulting, como principal interesado en crear el sistema BSC. Fuentes
+terciarias, donde La información proviene de libros, revistas, artículos, sitios web y
+
+19demás elementos bibliográficos, finalmente se emplearon Técnicas de recolección de
+información, como entrevistas, que se realizaron a las personas designadas por Clip
+Consulting, ya que se busca que el producto de software desarrollado supliese la necesidad de esta empresa, y de esta forma obtener un resultado satisfactorio.
+
+3.2 Desarrollo de Fase 1. Teorización
+
+El proyecto presentado en este documento, buscó el desarrollo de un producto de software que apoye la gestión empresarial (Ver objetivo general, sección 1.3.1). Así que,
+se hizo necesario conocer que es la gestión empresarial, revisar la teoría sobre BSC y
+como estas se relacionan de manera que se apoyen los procesos directivos de una organización. El contenido de esta sección es la evidencia del cumplimiento del primer
+objetivo del proyecto, que busca obtener los aspectos teóricos necesarios para determinar una consolidación de las teorías BSC, gestión empresarial a un producto de software.
+
+Sobre gestión empresarial
+
+De la teoría existente sobre gestión empresarial (Ver Documento Documentos-síntesisGestionEmpresarial.pdf que se encuentra en la carpeta Evidencias Primer Objetivo en
+el cd que acompaña este documento), se encontró que administrar o gestionar, significa
+tomar decisiones; buscando como resultado un incremento en la rapidez y efectividad
+de las actividades a realizar para lograr mayor productividad, calidad e impacto. Siendo
+esto un conjunto sistemático de reglas que permita la máxima eficiencia en las formas
+de estructurar y manejar un organismo social.
+
+La administración o gestión posee unos elementos: Los “elementos de la administración” los cuales son “Los pasos o etapas básicas a través de los cuales se realiza
+aquella”.
+
+Los elementos de la administración son:
+
+e Previsión: responde a la pregunta ¿Qué puede hacerse?
+e Planeación: ¿Qué va a hacerse?
+
+e Organización: ¿Cómo se va a hacer?
+
+e Integración: ¿Con qué se va a hacer?
+
+e Dirección: Ver que se haga
+
+e Control: ¿Cómo se ha realizado”
+
+20Previsión: Implica la idea de anticipación de acontecimientos y situaciones futuras
+que la mente humana es capaz de hacer sin la cual sería imposible hacer planes. Encierra
+la pregunta ¿Qué puede hacerse? Pues puede caerse en la falacia de creer que existe un
+único camino para hacer las cosas.
+
+Planeación: La planeación es lo que va a hacerse. Por tanto es fijar un curso concreto de acción que ha de seguirse, estableciendo los principios que habrán de orientarlo, la secuencia de operaciones para realizarlo y las determinaciones de tiempos y de
+números necesarias para su realización.
+
+Organización: Es el arreglo de las funciones que se estiman necesarias para lograr
+un objetivo, y una indicación de la autoridad y responsabilidad asignada a las personas
+que tienen a su cargo la ejecución de las funciones respectivas.
+
+Integración: Integrar es obtener los elementos materiales y humanos que la organización y la planeación señalan como necesarios para el adecuado funcionamiento de un
+organismo social.
+
+Así que, aquí se obtienen los elementos materiales y humanos que se determinaron
+en la planeación y la organización.
+
+Dirección: Es aquel elemento de la administración en el que se logra la realización
+efectiva de todo lo planeado, por medio de la autoridad del administrador ejercida a base
+de decisiones, ya sea tomadas directamente, con más frecuencia delegando autoridad,
+y se vigila simultáneamente que se cumplan en la forma adecuada todas las ordenes
+emitidas.
+
+Control: Es la medición de los resultados actuales y pasados, en relación con los
+esperados, ya sea total o parcialmente, con el fin de corregir, mejorar y formular nuevos
+planes. Es la medición del desempeño de lo ejecutado, comparándolo con los objetivos y
+metas fijadas; se detectan los desvíos y se toman las medidas necesarias para corregirlos.
+
+Estos elementos se ejecutan de manera secuencial y forman un ciclo, es decir, el
+control retroalimenta la previsión.
+
+Así que, la gestión empresarial es la obtención de eficiencia en los procesos de
+
+21la empresa; esto se logra haciendo uso de los elementos mencionados anteriormente:
+la previsión, la planeación, la organización, la integración, la dirección y el control;
+permitiendo una evolución continua.
+
+Sobre Balanced Scorecard
+
+De la teoría sobre BSC (Ver Documento Documentos-síntesis-BSC.pdf que se encuentra en la carpeta Evidencias primer objetivo en el cd que acompaña este documento) se encontró, que anteriormente las empresas estaban excesivamente centralizadas en los aspectos contables y financieros, pero los cambios tecnológicos, culturales,
+políticos, y un entorno cada vez más globalizado y dinámico ha hecho la competencia
+más intensa. Ahora los costos directos de fabricación son significativamente menos
+importantes mientras que los indirectos (Investigación y desarrollo, logística, comercialización) han ido aumentando su relevancia. La competencia de la era industrial se
+ha transformado en la competencia de la era de la información.
+
+Así que surgió un método llamado Cuadro de mando integral o en inglés Balanced
+Scorecard para gestionar y movilizar los activos intangibles de una empresa, necesarios
+en la era de la información.
+
+El BSC es también una herramienta por medio de la cual una organización logra
+ejecutar su Plan Estratégico trasladando el mismo a la acción. Su importancia radica en
+que por medio de sus indicadores muestra de manera continua, cuándo la organización
+y sus colaboradores alcanzan las metas del Plan Estratégico. Es así como el BSC puede
+ser más que un Sistema de medición, y es usado como un sistema de gestión estratégica,
+de manera que permita llevar a cabo procesos de gestión decisivos como:
+
+e Clarificar, traducir o transformar la visión y la estrategia
+e Comunicar y vincular los objetivos e indicadores estratégicos
+e Planificar, establecer objetivos y alineación de iniciativas estratégicas
+
+e Aumentar la retroalimentación y formación estratégica
+
+Clarificar, traducir o transformar la visión y la estrategia
+
+El trabajo inicia, cuando la alta dirección se pone a trabajar en traducir la estrategia
+y la visión en unos objetivos específicos que permitan llegar al cumplimiento de las
+
+22mismas. Iniciando por los financieros, luego clientes y procesos internos.
+
+El proceso de construcción de un BSC clarifica los objetivos estratégicos y su origen
+es responsabilidad conjunta del equipo de altos ejecutivos.
+
+Comunicar y vincular los objetivos e indicadores estratégicos
+
+Los objetivos e indicadores estratégicos se comunican a toda la organización por
+medio de los boletines internos de la empresa, anuncios, videos, correos, etc. Esto es
+importante si se quiere tener éxito en la estrategia. Al final del proceso de comunicación,
+todo el mundo debe comprender los objetivos a largo plazo de la empresa y la estrategia
+para el cumplimiento de la visión.
+
+Planificar, establecer objetivos y alineación de iniciativas estratégicas
+
+Los altos ejecutivos deben establecer unos objetivos para los indicadores del BSC,
+Esto permite:
+
+e Cuantificar los resultados a largo plazo que desea alcanzar.
+
+e Identificar los mecanismos y proporcionar los recursos necesarios para alcanzarlos.
+
+e Establecer metas a corto plazo para los indicadores financieros y no financieros.
+
+Aumentar la retroalimentación y formación estratégica
+
+El BSC permite vigilar y ajustar la puesta en práctica de sus iniciativas para alcanzar
+la visión y, si fuera necesario, hacer cambios fundamentales en la propia estrategia. Al
+haber establecido unos objetivos a plazo inmediato para los indicadores financieros así
+como para otros indicadores del BSC, las revisiones de gestión mensuales y trimestrales
+pueden seguir siendo examinadas, permitiendo la retroalimentación.
+
+Las perspectivas
+
+El BSC engloba, además de la visión financiera, más enfoques o perspectivas en la
+toma de decisiones de las empresas. Estas, son aquellas dimensiones críticas y claves en
+la organización, sirven para clasificar los objetivos que se definen en el plan estratégico
+de una organización. Así que, sirven para organizar la estrategia y visión de una empresa. Pueden entenderse como un punto de vista, un enfoque, una óptica. Según la
+
+23metodología de Norton y Kaplan [34], existen cuatro perspectivas básicas: Financiera,
+clientes, procesos internos del negocio, aprendizaje y desarrollo:
+
+La perspectiva financiera
+
+Sus objetivos e indicadores sirven de enfoque y medidas finales en todas las demás
+perspectivas. Se centra en responder a las expectativas de los accionistas de manera que
+les genere valor.
+
+La perspectiva del cliente
+
+Es donde las empresas identifican sus segmentos de clientes y mercado. Las empresas que intentan serlo todo para todos, terminan siendo nada para nadie. Aquí el
+BSC traduce la estrategia y visión en objetivos específicos sobre clientes y segmentos
+de mercado, es decir, responder a las expectativas de los clientes.
+
+La perspectiva del proceso interno
+
+Los directivos identifican los procesos más críticos a la hora de conseguir los objetivos de accionistas y clientes. Los objetivos e indicadores de esta perspectiva se hacen
+después de la financiera y clientes, se recomienda que se defina una completa cadena de
+valor de los procesos internos que inicia con las tareas de innovación para que se creen
+nuevos procesos además de los existentes y se logre una evolución continua.
+
+La perspectiva de aprendizaje y crecimiento
+
+Aquí se desarrollan objetivos e indicadores para impulsar el aprendizaje y el crecimiento de la organización. Esta perspectiva proporciona la infraestructura para que se
+alcancen los objetivos ambiciosos de las otras perspectivas. Además de la investigación
+y desarrollo (1 + D), las organizaciones deben invertir en personal, capacitaciones, sistemas y procedimientos, para que la empresa evolucione y genere retroalimentación.
+
+Relación entre gestión empresarial Y BSC
+De la investigación, se tiene que la gestión empresarial es un conjunto sistemático
+
+de reglas para lograr la máxima eficiencia en las formas de estructurar y manejar un
+organismo social, también es la técnica de la coordinación; y busca la obtención de
+
+24resultados de máxima eficiencia integralmente. La gestión empresarial tiene que ver
+con reglas y técnicas, que se pueden descomponer en elementos, estos son conocidos
+como los “elementos de la administración”, dando lugar a los pasos o etapas básicas
+a través de los cuales esta se realiza; dentro de los elementos encontramos: previsión,
+planeación, organización, integración, dirección y control.
+
+El BSC es un Sistema de medición, y puede ser usado como un sistema de gestión
+estratégica, ya que permite llevar a cabo procesos administrativos decisivos. De esta
+forma, el BSC puede apoyar todo el proceso de la administración y aunque en su forma
+básica el BSC hace parte del elemento “control” siendo un sistema de medición, visto
+como un sistema de gestión, apoyaría el ciclo administrativo de manera integral. Y
+puede ser una parte fundamental, ya que es muy difícil gestionar lo que no se puede
+medir.
+
+El control se enfoca en evaluar y corregir el desempeño de las actividades para asegurar que los objetivos y planes de la organización se están llevando a cabo. Es por esto
+que el control tiene gran importancia, pues permite precisar si lo realizado se ajusta a lo
+planeado y en caso de existir desviaciones, identificar los responsables y corregir dichos
+errores o necesidades. Además, siendo el control la última de las funciones del proceso
+administrativo, ésta cierra el ciclo del sistema al proveer retroalimentación respecto a lo
+planeado.
+
+Consolidado de aspectos necesarios para la creación del producto de software
+para el apoyo de los procesos directivos
+
+A partir de la investigación se determinó que el BSC como sistema de gestión empresarial posee unos componentes específicos y necesarios para cualquier proyecto de
+BSC que se desee realizar, a partir de estos, se estableció que dichos elementos fueran
+convertidos en módulos funcionales y relacionarlos de acuerdo a la gestión empresarial
+por medio del control, a continuación se hace una especificación de éstos componentes:
+
+25Componente Detalle
+Organizaciones Son unidades de negocio, departamentos.
+
+proyectos u otros grupos de la empresa.
+Pueden formar una jerarquía.
+
+Perspectivas Son aquellos elementos que permiten tener un
+
+enfoque para cada uno de los objetivos.
+Objetivos Son aquellos elementos que identifican una
+
+finalidad hacia la cual deben dirigirse los
+recursos y esfuerzos para dar cumplimiento a
+los propósitos.
+
+Indicadores Son aquellos elementos sobre los cuales se
+
+permite realizar mediciones y conocer el
+cumplimiento de objetivos, facilitando su
+seguimiento.
+
+Mediciones Son cada uno de los cálculos tomados por
+indicador.
+
+Iniciativas Las iniciativas en conjunto conforman el plan
+
+de acción de la empresa, tienen un fin muy
+claro. Es decir, son los proyectos que se
+plantean ¡para el cumplimiento de los
+
+objetivos.
+
+alguna iniciativa.
+Son las personas que tienen cierto
+compromiso con algún elemento.
+
+Tabla 3.1: Componentes básicos del BSC
+
+ 
+
+Así que, éstos son los elementos o aspectos generales que cualquier producto de
+software que permita la creación de BSC requiere para que se ajuste a la teoría existente.
+Dichos aspectos son generales, en el sentido de que son los requisitos mínimos para la
+creación de BSC.
+
+3.3 Desarrollo de Fase 2. Modelado
+
+En esta fase se estableció un modelo a través del cual fue posible sistematizar una herramienta que permite la creación y administración de un BSC. Ser medio para entender
+mejor el problema, relacionado con el apoyo a la gestión empresarial, descrito en la
+sección 1.1.1. Dando lugar a un planteamiento a través de un aplicativo. En la figura 3.3
+se muestra el modelo obtenido, siendo este el resultado del cumplimiento del segundo
+objetivo del proyecto.
+
+26loa llo LAI INAP Ep po ds
+
+NI E!
+
+SE
+
+ 
+
+ 
+
+p18331035 pa3ue¡eg
+
+Flolmlis 4 [Fe
+
+RAMA EI
+
+ 
+
+Modelo BSC
+
+3
+
+Figura 3.
+
+21Para la sistematización de BSC, se tomó como insumo la investigación realizada
+en la sección anterior, teorización, donde se obtuvo que el Balanced Scorecard por ser
+una herramienta para diseñar, medir y gestionar la estrategia, recibe como entrada esta,
+convirtiendo la visión y la misma en objetivos e indicadores estratégicos, es decir, que a
+partir de ella el BSC debe hacer la transformación en otro tipo de estructura para lograr
+comunicarla, ejecutarla y transmitirla.
+
+El BSC parte de la visión y estrategias de la empresa. Luego se determinan los objetivos financieros requeridos para alcanzar la respuesta a esa pregunta de ¿qué queremos
+ser?, y estos a su vez serán el resultado de los mecanismos y estrategias que rigen los
+resultados con los clientes; ya que los procesos internos se planifican para satisfacer los
+requerimientos de los mismos y los financieros.
+
+El punto inicial del modelo de BSC es la revisión y/o definición de la planeación estratégica de la organización, es decir que entendida la visión y estrategias de la empresa
+es posible determinar los objetivos que hay que cumplir para lograr estas.
+
+Posteriormente, se pasa a la formulación de indicadores y metas, los cuales deben
+reflejar los resultados más puntuales de los objetivos, pero también deberán informar
+sobre el avance de estos. Generando una combinación balanceada entre indicadores de
+resultados e indicadores de actuación O avance; esto es lo que permitirá comunicar la
+forma de conseguir los resultados y, al mismo tiempo, el camino para lograrlo. Consecutivamente, en la fase de implementación se realiza la construcción de iniciativas
+estratégicas o planes de acción donde es posible que se ocurra de dos formas:
+
+Modelo de control y seguimiento. En caso de que la visión, estrategias e indicadores estén perfectamente definidos y acordados, el BSC puede implementarse como
+un modelo tradicional de análisis por excepción. Se da un seguimiento puntual sobre
+los avances en el logro de las estrategias con respecto a lo planteado y el BSC libera una
+cantidad de trabajo importante al directivo, al realizar análisis por excepción de aquellos
+procesos conocidos que, eventualmente, requieren de más tiempo para su análisis; uno
+que sólo se da cuando no corresponden los datos con el objetivo.
+
+Modelo de aprendizaje organizativo y comunicación. En empresas donde no
+existe un acuerdo unánime, que están en crecimiento o se quiere aprovechar el potencial
+de los empleados sin perder el control de la empresa, el BSC no debe utilizarse como un
+modelo de control, sino como un modelo de aprendizaje, un modelo proactivo que enriquezca las definiciones originales. En este caso, los valores de los indicadores pueden
+aprovecharse para adecuar la estrategia planteada originalmente y, por extensión, los
+rumbos de la empresa. A diferencia del modelo de control, el estratega necesita constantemente analizar los indicadores y tomar decisiones que reorienten los esfuerzos para
+obtener máximos beneficios.
+
+28BSC no termina en el análisis de los indicadores. Es un proceso permanente en
+el que puede haber feedback o retroalimentación de un ciclo, que consiste en corregir
+las desviaciones para alcanzar los objetivos fijos definidos y feedback de doble ciclo,
+donde los estrategas cuestionan y reflexionan sobre la vigencia y actualidad de la teoría
+planteada en un inicio, y su posible adecuación. La retroalimentación sugiere aprendizaje estratégico, que es la capacidad de formación de la organización a nivel ejecutivo, es el poder “aprender la forma de utilizar el Balanced Scorecard como un sistema
+de gestión estratégica”.
+
+3.4 Desarrollo de Fase 3. Construcción
+
+En esta fase se desarrolló un producto de software para la gestión empresarial, tomando
+como insumo todos y cada uno de los elementos obtenidos en las fases anteriores.
+
+Por otra parte, la metodología de desarrollo de software escogida para la construcción
+de este proyecto fue Scrum, ya que al ser una metodología ágil se adaptó a las características del mismo, teniendo en cuenta que se requerió una entrega continua de prototipos de software en tiempos reducidos que demandan una respuesta a cambios de forma
+rápida, si lo es necesario. Scrum permite realizar este tipo de cambios sin provocar
+un gran impacto en la continuidad de la planeación, estableciendo un nuevo plazo para
+terminar la actividad.
+
+Scrum es actualmente una de las metodologías agiles para el desarrollo de software
+de mayor difusión en la industria. Al inicio del proyecto se define el Product Backlog, que contiene los requerimientos funcionales y no funcionales del sistema. Estos
+deberán estar especificados de acuerdo a las convenciones de cada organización, donde
+usualmente se utiliza un artefacto de alto nivel, como lo son las historias de usuario.
+A partir de este, el Product Backlog, se definen las iteraciones, conocidas como Sprint.
+Cada Sprint tendrá su propio Product Backlog que será subconjunto del Product Backlog definido inicialmente; la duración recomendada para cada Sprint es de una a cuatro
+semanas.
+
+La Figura 3.3 presenta el proceso de desarrollo de la metodología Scrum:
+
+29Revisión
+Diaria
+
+  
+
+Sprint
+
+ 
+
+pon la 4semanas
+aa Reunión de
+Y 00d Revisión
+: 1405 => 0090 E==>
+vaa Product Reunión de Sprint Reuniónde Incremento
+Backlog Planeamiento  Backlog Retrospectiva deProducto
+
+Gi)
+
+Figura 3.4: Proceso de desarrollo metodología Scrum
+
+Para facilitar el proceso de desarrollo y definir claramente el alcance de la aplicación,
+se decidió complementar la metodología Scrum haciendo uso de la especificación de
+requerimientos empleada en la metodología RUP y algunos artefactos UML ( Unified
+Modeling Language) facilitando el proceso de desarrollo, como fueron los diagramas de
+componentes (véase sección 3.6 ), entidad relación (véase sección 3.6 ) y clases (véase
+sección 3.6 ).
+
+3.5 Planeación
+
+En la Tabla 3.2 se presenta los módulos establecidos para la aplicación, junto con la
+cantidad de requerimientos e historias de usuario asociados.
+
+30o , Detalles
+Resultado Planeación Cantidad por Modulo
+
+Reportes
+Autenticación
+Grupos
+Usuarios
+Iniciativas Estratégicas
+10 j
+Indicadores
+Objetivos
+Perspectivas
+Scorecard
+Organizaciones
+
+Reportes
+
+Autenticación
+Usuarios
+
+Iniciativas Estratégicas
+
+Requerimientos 
+Objetivos
+
+Scorecard
+
+Organizaciones
+
+Usuarios
+31
+
+ 
+
+iniciativas Estratégicas [5
+indicadores
+Perspectivas
+
+Historias de Usuario
+
+Scorecard
+Organizaciones |
+
+ 
+
+Tabla 3.2: Resultado de Planeación
+
+MÓDULOS
+
+Organizaciones: Permite la creación, eliminación y modificación de organizaciones.
+Las organizaciones son entendidas como unidades de negocio, departamentos, grupos,
+grupos de la empresa y pueden formar una jerarquía. Es decir, son aquellas a las que
+se les podrá crear Balanced Scorecards. Cada una de las unidades estratégicas serían
+organizaciones en la aplicación. En la Figura 3.4, se puede observar el formulario de
+creación de organizaciones.
+
+Módulo Scorecard: Este módulo permite crear Balanced Scorecard, modificarlos y
+
+31Organización
+
+ota! Mision Visión Valores
+
+Nombre
+
+Tecnológica S.A.
+
+Descripción
+
+ 
+
+Somos una empresa encargada de ofrecer productos y servicios de
+tencología
+
+ 
+
+ 
+
+ 
+
+Figura 3.5: Creación de Organizaciones
+
+desactivarlos. Aquí es dónde los otros elementos se unen como una sola representación
+e interactúan. Visualizado como un tablero de comando dónde se refleja para cada
+perspectiva el estado de cumplimiento de sus objetivos por medio de sus indicadores.
+En la figura 3.5, se puede observar la interfaz para creación y eliminación de BSC.
+
+BSC Alejandro Mendoza Morenos - Sábado 24 de Enero del 2015
+
+Tecnológica S.A.
+
+ 
+
+ATTE Balanced Scorecards
+
+> O=
+
+Nota: Aun no ha creado algún BSC.
+
+Figura 3.6: Interfaz para creación y eliminación de BSC
+
+32Balanced Scorecard
+
+ota!
+
+Nombre
+
+Cuadro de mando implementación
+
+Descripción
+
+Este es el primer proyecto de Balanced Scorecard, que busca la implementación
+del plan estratégico.
+
+Fecha Inicio
+
+ 
+
+ 
+
+O ¡Jan  v|2015  v
+
+Su Mo Tu We Th Fr Sa
+
+3
+17
+24
+31
+
+ 
+
+Figura 3.7: Formulario de Creación de BSC
+
+En la figura 3.7, se puede observar la interfaz de creación de componentes del BSC.
+
+33r .
+Tecnológica S.A. Cuadro de mando implementación
+
+( Perspectiva Perspectiva  PResponsables | [tl Reportes (4 Modificar
+
+Mapa
+
+Perspectiva Objetivos + Indicadores + Iniciativas +
+
+Financiera Implementación SGC Dias trabajados
+
+(2.10%) | (2.10%) ! (3.00%) !
+Clientes Satisfacción de los clientes Medir satisfacción de clientes
+(89.00%) _— (89.00%) il (79.00%) Ll
+Cantidad de visitas
+(99 00%) E
+Procesos Optimización productos Tiempo de creación del producto
+(29.50%) MW, (59.00%) MN, (59.00%) MN,
+
+Optimización de servicios
+(0.00%) '
+Aprendizaje y crecimiento Habilidades de los empleados Certificación de los empleados
+( NaN%) (0.00%) (0.00%)
+
+Clima laboral
+
+(0.00%) '!
+
+Figura 3.8: Creación de Componentes del BSC
+
+Módulo perspectivas: Permite la creación, modificación y actualización de perspectivas, asignarlas al Balanced Scorecard que posibilita su creación. Así que las perspectivas que se definan para el proyecto se realizan en este módulo. En la figura 3.8, se
+puede observar el formulario de perspectivas.
+
+34Tecnológica S.A. Cuadro de mando implementación
+
+Financiera
+
+ 
+
+y To)
+
+Objetivos e indicadores relacionados con la contabilidad
+
+SST
+
+ 
+
+ 
+
+ 
+
+ 
+
+Escribir comentario:
+
+ES a |
+
+ 
+
+4 Comentar
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figura 3.9: Formulario de Perspectivas
+
+Módulo objetivos: Es el encargado de la creación y administración de objetivos,
+permite crear un objetivo, modificarlo, eliminarlo, asignar responsables y su relación
+con otros objetivos. De modo que permite su definición y cambio durante todo el proceso. En la figura 3.9, se puede observar la interfaz de creación de objetivos.
+
+35O Crear objetivo
+
+Nombre
+
+Implementación SGC
+
+Descripcion
+
+Implementar un sistema de Gestión de
+Conocimiento que apalanque el éxito de la
+UEN
+
+Recomendaciones
+
+Fecha inicio
+01/01/2015
+Fecha fin
+
+30/06/2015
+
+ 
+
+Figura 3.10: Formulario de Creación de Objetivos
+
+En la figura 3.10, se puede observar la interfaz de estado de objetivos.
+
+36fbhiraBsc  tsRegresar [4% Modificar
+
+o Estado
+Satisfacción de los clientes
+
+Ao
+
+Aumentar la cantidad de clientes satisfechos
+
+eS
+
+A NS O
+
+    
+
+rele ps la]
+
+Medir satisfacción de clientes (50%)
+Cantidad de visitas (50%)
+
+ 
+
+RAIN =
+
+Figura 3.11: Interfaz de Estado de Objetivos
+
+ 
+
+Módulo indicador: Es el modulo que permite crear, modificar, desactivar y visualizar indicadores estratégicos, los cuales miden si se están alcanzando los objetivos
+propuestos. Algunos de éstos son: Incremento de las ventas, que sería el resultado de
+ventas del mes presente menos ventas del mes anterior. En la figura 3.11, se puede
+observar la interfaz de estado de indicadores.
+
+37O E A
+
+Ke Estado
+
+Estado
+
+ 
+
+Tiempo de creación del producto.
+
+ 
+
+Ao
+
+ 
+
+Tiempo que se demora el producto en ser creado, es
+decir, la conversión de la materia prima en él.
+
+ 
+
+XA 13
+
+RS
+
+ 
+
+ 
+
+ 
+
+NUMERO
+
+ 
+
+Tipo de valores
+
+Figura 3.12: Interfaz de Estado de Indicadores
+
+En la figura 3.12, se puede observar la interfaz de creación de mediciones de indicador.
+
+$ Nueva medición
+
+Fecha de medición
+
+01/29/2015
+
+Actual
+
+ 
+
+Figura 3.13: Interfaz de Adición de Mediciones
+
+Módulo Iniciativas estratégicas: Cuando se han definido los objetivos, es necesario definir proyectos que permitan alcanzar esos objetivos. Este módulo permite crear,
+modificar, desactivar y visualizar iniciativas estratégicas. Dichas iniciativas tendrán un
+periodo de tiempo, unos recursos, unos responsables de llevarlas a cabo y unas acciones
+que desglosan tal iniciativa en tareas más pequeñas. En la figura 3.13, se puede observar
+el formulario de creación de iniciativas estratégicas.
+
+38E Crear iniciativa
+
+Nombre
+
+Convenios con Oracle
+
+Descripción
+
+ 
+
+Crear un convenio con la empresa Oracle
+para que se realicen certificaciones y
+capacitación a nuestros empleados
+
+ 
+
+Recomendaciones
+
+ 
+
+Figura 3.14: Formulario de Creación de Iniciativas Estratégicas
+
+ 
+
+ 
+
+[Y Crear Acción
+
+Nombre
+Conseguir dinero
+Descripción
+
+Recursos necesarios para que la empresa
+Oracle pueda venir y realizar sus
+capacitaciones
+
+Recomendaciones
+
+Presupuesto
+
+1000000
+Gastado
+
+0
+
+Fecha de Inicio
+01/01/2015
+Fecha Fin
+
+31/12/2015
+
+Figura 3.15: Formulario de Creación de Acciones
+
+39En la figura 3.15, se puede observar la interfaz de estado de acciones.
+
+A O A it
+
+vi A o
+
+ 
+
+Conseguir dinero
+
+ 
+
+ADA o
+
+Recursos necesarios para que la empresa Oracle :
+pueda venir y realizar sus capacitaciones. rl edi
+
+  
+
+ 
+
+ 
+
+a pil
+
+ 
+
+OSOS
+
+ 
+
+Presupuesto: 1000000
+
+Vitor cnt:
+
+Figura 3.16: Interfaz de Estado de Acciones
+
+ 
+
+Módulo usuario: Permite la administración de los usuarios del sistema, es decir,
+crear, modificar, eliminar, visualizar usuarios. En la figura 3.16, se puede observar el
+formulario de creación de usuarios.
+
+40Creación de usuario
+
+Usuario
+
+alemendo
+
+Contraseña
+
+Nombre
+
+Alejandro
+
+Apellido
+
+Mendoza Morenos
+
+Telefono
+
+Correo
+
+alejandro.mendoza(Dcorreo.com
+
+Correo de notificaciones
+
+Cargo
+
+Departamento
+
+Grupo
+
+super_usuario
+
+Organización
+
+ 
+
+Tecnológica S.A
+
+Close Guardar
+
+ 
+
+Figura 3.17: Interfaz de Creación de Usuarios
+
+Módulo Grupos: Permite definir los grupos y sus alcances en el sistema. Un
+grupo es un rol o configuración que permite visualización, modificación, actualización,
+creación o desactivación de algún elemento de la aplicación, es decir, son los permisos
+del usuario. En la figura 3.17, se puede observar el formulario de creación de grupos.
+
+41Grupos
+
+Nombre
+
+super_usuario
+
+Permisos Crear
+
+Permisos Eliminar
+
+Y Acciones 4) Acciones
+
+Yi Balanced Scorecard Y Balanced Scorecard
+
+Y Grupos % Grupos
+
+Y Indicadores Y! Indicadores
+
+Yi Iniciativas ') Iniciativas
+
+Y Mediciones LJ Mediciones
+
+Y! Objetivos -) Objetivos
+
+Y Organizaciones ' Organizaciones
+
+Y) Perspectivas | Perspectivas
+Reportes Reportes
+
+Y Usuarios ' Usuarios
+
+Permisos Actualizar
+
+Y| Acciones
+
+Permisos Visualizar
+
+* Acciones
+
+Figura 3.18: Formulario de Creación de Grupos
+
+Módulo autenticación: Permite la autenticación o ingreso de usuarios al sistema.En
+la figura 3.18, se puede observar la interfaz de ingreso al sistema.
+
+42Bienvenido ¿olvidaste contrasena?
+
+[|] Recoradar
+
+Figura 3.19: Formulario de Ingreso al Sistema
+
+Módulo Reportes: Permite realizar reportes sobre toda la información del sistema,
+mostrando los comparativos y estados generales de objetivos, indicadores e iniciativas.
+A su vez la generación del mapa estratégico del BSC que evidencia la relación entre
+
+los objetivos del mismo.En la figura 3.19, se puede observar la interfaz de creación de
+reportes.
+
+Reporte Indicadores
+
+Objetivo
+
+Objetivo_1_otra
+
+Fecha Inicio
+
+2015-01-01
+
+Fecha fin
+
+2015-12-31
+
+Periodicidad
+
+Diario
+
+Indicadores
+
+2) Indicador_prueba
+
+ 
+
+Figura 3.20: Interfaz de Creación de Reportes
+
+43mr
+
+Estado de indicadores por objetivo +
+
+Comparación entre indicadores por periodo
+
+a Medir satisfacción de clientes |
+| Cantidad de visitas
+
+ 
+
+Figura 3.21: Reporte de comparación de indicadores por periodo
+
+Escoja el reporte +
+
+Capacitación a lo
+ld
+
+ 
+
+Figura 3.22: Reporte de mapa estratégico
+
+3.5.1 Especificación de requerimientos
+
+Como apoyo a las historias de usuario y en general al proceso de planeación se
+realizó una especificación de requerimientos para establecer el alcance de la aplicación.
+En la Tabla 3.3 se muestran los requerimientos funcionales del módulo Organizaciones,
+las otras especificaciones se encuentran en el apartado de Anexos A.
+
+44Especificación de Requerimientos
+
+Universidad
+del Valle
+
+Sede Tuluá
+Fecha: 22/08/2013
+
+Documento: ER003 Modulo: ORGANIZACIONES
+Revisión: 001
+] Requerimiento Categoría
+F=Funcional NF= No Funcional
+El sistema en el módulo organizaciones deberá dar la
+opción al usuario de crear organizaciones ingresando un
+
+nombre, descripción, misión, visión y valores.
+
+El sistema en el módulo organizaciones deberá dar la
+opción al usuario de modificar toda la información de una
+organización, almacenando un comentario, el usuario que
+realizó la modificación y la fecha.
+
+El sistema en el módulo organizaciones deberá dar la
+opción al usuario de desactivar organizaciones
+almacenando un comentario, el usuario que realizó la
+modificación y la fecha.
+
+ 
+
+Tabla 3.3: Requerimientos Módulo Organizaciones
+
+3.5.2 Product Backlog
+
+En base a los módulos definidos en el proceso de planeación se realizaron las historias
+de usuario correspondientes, definiendo las funcionalidades requeridas, características
+básicas, algunas excepciones y condiciones para establecer el correcto funcionamiento
+del sistema, por medio de las pruebas de aceptación que se establecen en el Product
+Backlog, estas fueron documentadas en un lenguaje no técnico. La Tabla 3.4 muestra
+las historias de usuario del módulo Organizaciones, las otras historias de usuario se
+encuentran en el Anexos B.
+
+45Especificación de Historias de Usuario
+
+Universidad
+del Valle
+
+Documento: ER003 BSCS5 (Cuadro de Mando Integral Sistematizado)
+Revisión: 001
+
+Modulo: ORGANIZACIONES
+¡pció Pruebas de Aceptación
+
+El usuario selecciona la opción crear|e Crear organizaciones
+
+crear | organizaciones e introduce el nombre. y verificar que dicha
+Organizaciones Una vez se ha insertado, se guarda la información se
+PARA poder crear organización. visualice en la ruta
+
+las entidades a las E.
+cuales se les podrá
+crear un Balanced
+
+Puntos Clave:
+e Se debe notificar al usuario si la
+
+creación fue exitosa o no.
+Scorecard.
+
+Prioridad: 10
+COMO — usuario | El usuario busca la organización y Modificar
+
+QUIERO modifica los datos que tiene asociados, organizaciones y
+modificar donde el sistema la valida el ingreso de verificar que dicha
+
+organizaciones los campos obligatorios. información se
+visualice
+
+PARA — actualizar
+- o. . correctamente
+zu información. Puntos Clave: a” 5 >.
+
+e Se debe notificar al usuario si la modificaciones
+modificación fue exitosa o no. realizadas.
+
+Prioridad: 10
+COMO — usuario | El usuario selecciona la organización, la Desactivar
+QUIERO desactiva e ingresa un comentario que Organizaciones y
+desactivar justifique el porqué de la desactivación, verificar que dicha
+organizaciones junto con la fecha proporcionada por el información no se
+
+PARA mantener | sistema. visualice.
+actualizada la
+
+información. Puntos Clave:
+
+e Se debe notificar al usuario si la
+desactivación fue exitosa o no.
+
+Prioridad: 10
+
+ 
+
+Tabla 3.4: Historias de Usuario Módulo Organizaciones
+
+3.5.3 Sprint Backlog
+
+Para el desarrollo de la aplicación que aquí se presenta, llamada BSC se realizaron 9
+iteraciones. En la Tabla 3.5 se observa la tabla de iteraciones o Sprints que se realizaron.
+
+46Definición de Sprints
+
+Universidad
+del Valle
+
+== A A
+
+séde Tulua
+
+Fecha: 05/11/2013 ESC (Cuadro de mando integral)
+Documento: D5001
+
+WVersion:001
+Id | Actividades
+1 | Creación modulo autenticación
+reación modulo organizaciones
+
+Duración Prioridad
+
+1 semana
+
+Responsable
+
+Equipo de trabajo
+3 semanas Equipo de trabajo
+reación modulo perspectivas 2 semanas Equipo de trabajo
+
+reación modulo objetivos 4 semanas Equipo de trabajo | 10 |
+reación modulo indicadores Equipo de trabajo | 10 |
+
+reación modulo iniciativas 3 semanas Equipo de trabajo
+Creación módulo scorecard 5 semanas Equipo de trabajo
+
+Creación modulo grupos 4 semanas Equipo de trabajo | 10 |
+
+Creación modulo usuarios 4 semanas Equipo de trabajo
+Creación modulo reportes 4 semanas Equipo de trabajo
+Pruebas y correcciones 5 semanas Equipo de trabajo
+
+as
+
+“=.]
+
+11
+
+ 
+
+Id | Actividades
+_01 | Creación modulo autenticación
+_06 | Creación modulo iniciativas
+_07 | Creación módulo scorecard
+08 | Creación modulo grupos
+_09 | Creación modulo usuarios
+_10 | Creación modulo reportes
+_11 | Pruebas y correcciones
+
+Tabla 3.5: Planeación de Sprints (BSC)
+
+3.6 Diseño
+
+3.6.1 Arquitectura - Diagrama de componentes
+
+La figura 3.22 muestra la arquitectura diseñada para la aplicación, con ayuda del análisis
+previo realizado con las historias de usuario, que permitieron en gran medida orientar la
+estructuración de la misma.
+
+47<<App Server>>
+
+Apache Tomcat
+=<protocol=>>
+
+HTTP 3] 3]
+
+controller model
+(js) (*.php)
+
+  
+
+ 
+
+ 
+
+<<Web Server>> : A A a
+
+<<Database Server>>
+MySQL
+
+ 
+  
+   
+
+ 
+
+  
+
+ar
+
+; : a : A «htaccess Adodb
+view a] á Archivo de configuración o (Servidor Apache) 0
+JScript distribuida que permite reescribir
+
+JQuery a | URLs largas y complejas en otras :
+más sencillas, cortas y faciles de ;
+HTML recordar.
+
+Css framework '
+ERA 3
+
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+Presentation Layer Logic Layer Data Layer
+
+Figura 3.23: Diagrama de componentes (BSC)
+
+Para el sistema BSC se diseñó una arquitectura de tres capas, donde la capa de
+presentación se elaboró con el framework bootstrap, permitiendo generar interfaces en
+código html, javascript y ¡query, con la posibilidad de ser responsivas, ajustándose a
+dispositivos con diferentes dimensiones de pantalla. La comunicación entre las capas se
+realiza por medio de servicios web con ayuda del framework para servicios Rest Slim
+y la técnica de AJAX a través de HTTP. La capa lógica se compone de los diferentes
+módulos que conforman la aplicación , donde se encuentra la lógica del negocio; esta
+capa se comunica con la capa de datos, la cual se compone de una base de datos mysa],
+usando AdoDB como medio de comunicación.
+
+3.6.2 Diagrama Entidad Relación
+
+Para la representación del diseño de la base de datos se empleó el diagrama UML entidad
+relación, en la Figura 3.23 se presenta un fragmento del mismo, en el que se evidencian
+las entidades objetivos, indicadores y mediciones las cuales interactúan por medio de
+las relaciones “tiene” y “posee”. Los objetivos poseen indicadores que les permiten
+tener un control de los mismos y realizarles un seguimiento; para esto se emplean las
+mediciones o cálculos que permiten identificar los estados de avance de los objetivos.
+El diagrama completo se encuentra en la carpeta “Diagrama Entidad Relacion” del cd
+que acompaña este documento*y además en el Anexo C.
+
+48o > |
+descripcion aa - 10
+O Indicador
+N Posee << ipci 4
+Objetivo CD E.
+N
+
+Nombre recomendaciones
+
+ 
+
+Figura 3.24: Fragmento Diagrama Entidad Relación (BSC)
+
+3.6.3 Diagrama de Clases
+
+La Tabla 3.6 muestra un resumen de los módulos y clases elaboradas para el sistema
+BSC.
+
+5] Modulo | Modelo | Contadores | VitÑ
+
+Reportes a reportesControlador, reportes
+scorecardModelo mapaEstrategicoControlador
+ES Autenticación | logueoModelo logueoControlador login, logOut
+
+| Grupos — |ad ministracionModelo | administracionControlador administracioninformacion
+
+e — usuarioModelo, usuarioControlador, administracioninformacion
+administracionModelo | administracionControlador
+
+Iniciativas iniciativaModelo, iniciativaControlador, iniciativasinformacion,
+Estratégicas accionModelo accionControlador accioninformacion
+
+6 | Indicadores | indicadorModelo indicadorControlador
+Objetivosinformacion
+-s | Scorecard — | scorecardmiadelo | scorecardControlador | scorecardinformacion |
+
+Otros archivos requeridos
+el, databaseController
+
+ 
+
+Tabla 3.6: Resumen de Módulos y Clases Elaboradas
+
+A continuación en la Figura 3.24se presentan dos fragmentos del diagrama de clases,
+correspondientes a las clases de Logueo y Objetivos, los otros fragmentos se encuentran
+disponibles en el CD que acompaña este documento en el directorio DiagramaDeClases.
+
+49ar OOELAAL.
+
+Iinseriiuanaji
+fomTcJE0HLeuanol)
+epdsteliarsnol
+slo ar loduaciaria
+comisaria)
+cainObtenidosdatbal
+
+E insartecorles)
+mlacrimacio Tarario, Doa)
+smlarAlllirarisna])
+nod Umata)
+
+ 
+ 
+ 
+
+objetuoModelo
+
+solcidio javi 51;
+
+icueriCibpetrol)
+
+moditrOtbjelroÚ
+sleciDojelvoFroplelarios 3d)
+sedecióojeilvoincicocona= 54d
+select jelivolndicador=sHo Tiene Sid)
+sledDojelvoPropieterios Mio Tien=[3 10]
+sleci5sjellvoaliidaiaa 2d
+
+solo jailvoCamentarica Sd)
+
+deleicdojeivolndicadcor3d_indicador|
+
+talelecbjativo Propietario dd objeto Hid_propietarmoi
+irsendbjaliro Indicadores]
+
+insendhjalisoPropiatarics])
+
+imendbprelirotomentanos |
+
+A A
+
+selsciObjellvoWalgr[)
+
+cbjetwoControlador
+
+objetivocinformacion
+
+  
+
+     
+ 
+
+varsooatALindicaror,
+vario ALO bjetivo;
+
+Iinmartiscoracardii
+
+fÉmTo20HASo0recard!i
+
+sli id)
+
+doloaSoorecardjónta)
+
+wpotatoCsganizacion])
+esquemalntormadonSorecedCarganlld_ socrecard
+ld_orgarizacion)
+
+cajas Cotanidos Tab ls data]
+imanPanpeolvasS00re card |
+mToj20NScorecardPenpedivas!
+sledinorecd nicas Ho Tiene id _indecsdo,
+ld_enrecard)
+
+iniciando Tlanajcato)
+
+—ledfoorecotinto abres Deindicadoriid_indvoedor
+iniciadas Delndicedor desta)
+IncariinicatiraSosecsidfindicador_ la, ntclaliva 14)
+lector csd ind lcacorasbd_s00160000]
+scorecardindicadoresdeta!
+
+inerllricistrmi
+
+MfamToJS:0NIn4 ca dor];
+celeicinicaabraDelndicadodid_ indicador,
+
+ld _emmiciadis]
+
+inercia)
+
+lraToa 30 ndleadar21]
+daleloScorsoard(ld_zocrecard_aliminar)
+slediPencedinmaDeSoorecerdid_»ocrecard)
+perpedinaDeDoorecarólda la!
+falslePaenperivaid_peapeciia_sliminsó)
+vpdaleScoracard|)
+
+esquema lero Guardar id Socre- cara,
+id_orpanicadior
+equermaVarionguardarFuncionfda ba)
+IirmmenEscuema a lonerinuciura)
+tÉmToa2S0AIinsetEsquemaWersooletucdiora|
+seledEsquerms Y esion venian]
+dalOboenidorSeldEspamoVeoridala]
+
+A A A O eric ci ei ve,
+
+Figura 3.25: Clases Logueo y Objetivos
+
+SO3.7 Codificación
+
+La codificación de BSCS se basó en generar prototipos de forma constante, de tal forma
+que con ayuda del codirector se fuera ajustando la aplicación hacia el resultado esperado.
+
+Para la elaboración de este sistema se uso el entorno de desarrollo Netbeans junto
+con el plugin de php. La plataforma se implementó con el uso en la parte visual en
+Javascript, Jquery y HTML, con la ayuda de bootstrap, para la generación de interfaces
+responsivas. El web service más conveniente para dicha plataforma fue RESTful, usandose como interfaz de comunicación entre el cliente y el servidor, Slim, un framework
+para servicios Rest en php.
+
+3.8 Pruebas
+
+3.8.1 Pruebas unitarias, aceptación, integración, regresión
+
+Este capítulo muestra el proceso de pruebas realizado para la aplicación BSCS, que
+se centra en la técnica de pruebas automáticas, donde se empleo el framework SeleniumHQ con ayuda del navegador FireFox como herramienta, para la elaboración de
+pruebas unitarias sencillas, que permitieran dar una idea del diseño que se debía realizar
+para BSCS. Estas se realizaron en las funcionalidades principales, con el fin de cubrir
+muchos detalles necesarios para la construcción del código. Por tanto el proceso de desarrollo por pruebas inicia su proceso con casos que deben fallar, como se muestra en
+la figura 3.25, al no existir la lógica suficiente que permita dar solución a la necesidad
+o funcionalidad que se desea probar, permitiendo establecer un diseño, y codificación
+ajustados y más limpios.
+
+51E. adan Fil 250"
+TH J EÑen EA EL
+
+l Archivo E), Editar. Actions; ¿Qptions Ayuda
+
+_Base URL http: //127991/
+
+a a e e a
+
+ 
+
+id=userna...
+
+selectiindow name=["3...
+
+selectWindow
+
+Select an element by clicking on it
+in the browser or click Cancel to
+cancel,
+
+pi EN
+
+Log | Reference | Ul-Element | Rollup.
+
+selectWinlontrinioni) á
+Arguments: D
+0 mind. the Javañera: idos TDLaf the o
+
+ 
+
+Figura 3.26: Prueba en Selenium, punto de partida, acceso al sistema fallando
+
+La elaboración de este tipo de pruebas a lo largo del desarrollo del proyecto permitió
+la realización de criterios de aceptación, donde se buscó cumplir con cada uno de los
+casos establecidos en las historias de usuario, hasta que se generara la prueba sin ningún
+error como se muestra en la Figura 3.26 para el caso del acceso al sistema.
+
+52Ñ Archivo (E Editor. Actions Options Ayuda
+
+e A A A A A A A
+
+Base a Apt /Mocalhost/
+
+Target Value
+Medi6205..,
+id=userna... admin
+¡d=passwo.. admin
+name=5ub...
+
+name=sub...
+
+Ul-Element | Rollup
+
+A A de EA ara aa a pa
+
+finfo] Executing: |type | id=password | admin 1
+[info] Executing: [click | name=submit | |
+info] Executing: |click | name=submit | |
+
+ 
+
+Figura 3.27: Prueba en Selenium, acceso al sistema exitoso
+
+El potencial de SeleniumHQ, permitió no solo la implementación de pruebas unitarias sino también la posibilidad de realizar pruebas de integración y regresión, ideales para el caso de BSCS, donde se trabajó por módulos, permitiendo verificar que las
+nuevas funcionalidades que se agregaron en cada momento no afectaran a las existentes,
+como se realiza en las pruebas de regresión.
+
+53Capítulo 4
+
+Conclusiones y trabajos futuros
+
+4.1 Conclusiones
+
+A continuación se exponen las conclusiones que el realizador del presente proyecto
+considera que han sido de mayor valor en el proceso de aprendizaje y desarrollo:
+
+1.
+
+Es importante asegurar una comunicación clara y constante con todas las partes
+interesadas en el desarrollo de un proyecto, siendo este aspecto mucho más importante cuando es llevado a un escenario o ambiente real, debido a que este puede
+tener variaciones muy riesgosas, como la falta de tiempo por parte de los directivos, pudiendo afectar de manera considerable el tiempo de desarrollo del mismo.
+
+. La administración de empresas permite la gestión y control de procesos, en busca
+
+de adquirir la mayor eficiencia de los mismos, obteniendo el máximo beneficio
+con la menor cantidad de materia prima o recursos. Para esta administración
+intervienen elementos claves como son: la previsión, planeación, organización,
+integración, dirección y control; que forman un ciclo de gestión al ser estos consecutivos, generando una evolución continua de la empresa.
+
+. La gestión empresarial posee unos elementos, y el BSC hace parte del elemento
+
+“control” pero puede hacer parte de todo el proceso administrativo, ya que podría
+usarse como un sistema de gestión empresarial integral.
+
+. El control es una parte fundamental en la gestión empresarial, ya que es difícil
+
+gestionar lo que no se puede medir.
+
+. La sistematización de BSC, es una herramienta que apoya la gestión empresa
+rial permitiendo beneficios como: implantación de la estrategia y visión a largo
+plazo, aprovechamiento de las potencialidades del personal, configuración de la
+
+54estructura de la organización de acuerdo a la dinámica del entorno, una visión
+de procesos mejor comprendida gracias a la medición en tiempo real y el fácil
+manejo brindado por dicha sistematización, permitiendo la visualización del negocio desde una perspectiva integral.
+
+6. Una herramienta basada en el método BSC para la creación y administración de
+éstos por medio de un software, proporciona a la empresa en cuestión la posibilidad de generar valor a sus clientes, ya que pueden realizar implementaciones de
+proyectos de gestión empresarial de manera sistemática.
+
+7. Una forma de sistematizar el proceso de creación de BSC, es por medio de una herramienta de software que incluya los elementos: Perspectiva, objetivo, indicador,
+mediciones, iniciativas, acciones y organizaciones; dónde se interrelacionen de
+forma adecuada y pueda fácilmente brindar la información oportuna acerca del
+estado de cumplimiento de lo planteado para algún proyecto de BSC.
+
+4.2 Trabajos futuros
+
+Del proceso de desarrollo para BSCS se lograron identificar las siguientes líneas de
+trabajos futuros:
+
+e Generar un mecanismo que permita el versionamiento de toda la información del
+sistema.
+
+e Generación de un mecanismo de impresión y generación de archivos Excel y pdf
+con la información contenida en el sistema, permitiendo obtener la versión deseada de la misma.
+
+e Desarrollar un mecanismo que permita una gestión exhaustiva de iniciativas estratégicas que proporcione la capacidad de planificar acciones con sus respectivas
+programaciones físicas o de recursos, financieras y llevar a cabo procesos tan importantes como los de contratación para las mismas.
+
+e Implementar un Data Warehouse con la información de la aplicación que permita
+obtener tendencias en los resultados obtenidos en el seguimiento del BSC.
+
+o)Referencias
+
+[1]
+
+[2]
+
+[5]
+[4]
+[5]
+
+[6]
+
+[7]
+
+[8]
+
+[9]
+
+[10]
+
+[11]
+
+Olga Aguilera. ¿qué es un mapa estratégico? http://www.iat.es/2012/04/que-esun-mapa-estrategico/, 2012. [Accesado 4-junio-2013].
+
+Apesoft. Datacycle scorecard. http://www.apesoft.es/datacycle-scorecard/. [Accesado 3-junio-2013].
+
+K. A. Beck. Extreme programming explained. addison wesley. 2004.
+Alistair Cockburn. Agile software development, addison-wesley. September-2004.
+
+Corporater. Oracle business intelligence enterprise. http://www.corporater.com.
+[Accesado 3-junio-2013].
+
+Genny E. Góngora Cuevas. Tecnología de la información como herramienta
+
+para aumentar la productividad de una empresa. universidad nacional de méxico.
+
+http://www.tuobra.unam.mx/publicadas/040702105342-191_Qu.html. [Accesado
+19-mayo-2013].
+
+Dane. Comunicado de prensa: Pobreza en colombia.
+http://www.dane.gov.co/files/investigaciones/condiciones_vida/pobreza/c_po
+breza_2012.pdf, Colombia:2012. [Accesado 22-mayo-2013].
+Josep Curto Díaz. Introducción al business intelligence. Editorial UOC, 2012.
+
+María Isabel Díaz. Gestión y tecnología. universidad nacional experimental.
+http://johanatov.blogspot.es/. [Accesado 10-junio-2013].
+
+Universidad de Jaén. Proceso. http://www10.ujaen.es/node/Criterio5.pdf. [Accesado 14-junio-2013].
+
+Oracle. Soluciones de Negocio. Oracle business intelligence enterprise. http://www.oracle.com/us/solutions/business-analytics/businessintelligence/enterprise-edition/overview/index.html. [Accesado 3-junio-2013].
+
+S6[12] Universidad del Rosario. Grupo de  perdurabilidad  empresarial. desafíos actuales de las empresas en colombia.
+http://www.urosario.edu.co/urosario_files/ee/ee035291-31f52-4d8a-8eb4c3d3d22914e5.pdf , 2007. [Accesado 20-Mayo-2013].
+
+[13] Ecured. Metodología cascada. http://www.ecured.cu/index.php/Metodlog_cas.
+[Accesado 15-marzo-2013].
+
+[14] El espectador. Estrés afecta al 38http://www.elespectador.com/impreso/salud/articulo373408-estres-afecta-al-38-de-los-trabajadores-colombia, Colombia:2010. [Accesado 10-marzo-2013].
+
+[15] Universidad de Huelva. España Esteban Lopez Zapata. Economía financiera, contabilidad y dirección de operaciones. la empresa como sistema.
+
+http://www.uhu.es/eyda.marin/apuntes/admon/tema4.pdf. [Accesado 3-junio20131.
+
+[16] Tomás Guillén Gorbe. Grupo ifedes s.a. las tic en la estrategia empresa
+rial.  http://video.anetcom.es/editorial/Las_TIC_en_la _estrategia_empresarial.pdf.
+[Accesado 4-mayo-2013].
+
+[17] Tomás Guillén  Gorbe. Piatic. las tic en la gestión  empresarial. http://www.piatic.net/piatic/contenidos/actuaciones/fichasdivulgativas/ticgestionempresarial/. [Accesado 13-marzo-2013].
+
+[18] IBM. Rational unified process best practices for software development team.
+http://www.ibm.com/ http://www.rational.com.ar/herramientas/rup.html. [Acce
+sado 4-junio-2013].
+
+[19] IBM. Soluciones de negocio. hardware and software.
+http://www.ibm.com/midmarket/co/es/businessanalytics.html, 2013. [Acce
+sado 8-marzo-2013].
+
+[20] Idisc. Herramientas de tics para planeamiento y gestión de empresas.
+http://www.idisc.net/en/Publication.283.html, 2008. [Accesado 3-junio-2013].
+
+[21] TUE. Ejecución del proyecto. institución universitaria de envigado.
+http://www.¡ue.edu.co/documents/emp/ejecuciondelProyecto.pdf. [Accesado
+
+14-junio-2013].
+
+[22] Karsten  Kriger. El concepto de sociedad del conocimiento.
+http://www.ub.edu/geocrit/b3w-683.html, España:2006. [Accesado 10-marzo2013].
+
+[23] Liteni. Litebi. http://www.litebi.com/. [Accesado 3-junio-2013].
+
+57[24] José María  Malgioglio. Distintos enfoques del  capital intelectual. universidad nacional del rosario.
+
+http://www.fcecon.unr.edu.ar/web/sites/files/ul6/Decimocuartas/Malgioglio.
+[Accesado 20-junio-2013].
+
+[25] Msdn. Descripción general de microsoft solutions framework.
+http://msdn.microsoft.com/es-es/library/jj161047.aspx. [Accesado 16-marzo20131.
+
+[26] El país. Desempleo en colombia bajo al 10,2
+
+http://www.elpais.com.co/elpais/economia/noticias/desempleo-colombia-bajo102-marzo-segun-dane , Colombia:2013. [Accesado 22-mayo-2013].
+
+[27] Roger S. Pressman. Ingeniería del software. Quinta edición.
+
+[28] Misión Pyme. Pymes en cifras.  http://www.misionpyme.com/cms/content/,
+Colombia:2008. [Accesado 23-mayo-2013].
+
+[29] Misión Pyme. La era del conocimiento: De sus  conceptos a sus aplicaciones. universidad autónoma de baja  california. http://iide.ens.uabc.mx/blogs/mcanally/files/2007/12/04-era-del
+conocimiento.pdf, México: 2007. [Accesado 26-marzo-2013].
+
+[30] Alexandra Montoya R. Situación de la competitividad de las pyme en colombia:
+
+elementos actuales y retos. http://www.scielo.org.co/pdf/agc/v28n1/v28n1a13.pdf
+, 2010. [Accesado 13-Marzo-2013].
+
+[31] Rae. Perspectiva. http://www.rae.es/drae/srv/search?id=PBcqsó6mofda. [Accesado
+14-j¡unio-2013].
+
+[32] RAE. Productividad. http://lema.rae.es/drae/?val=productividad . [Accesado 14junio-2013].
+
+[33] Colegio Inglaterra Real. Estrategia empresarial. http://colegioinglaterrareal.edu.co/mecir/wpcontent/uploads/2013/03/ESTRATEGIAS-EMPRESARIALES.padf, 2008.
+
+[Accesado 20-marzo-2013].
+[34] Rober s. Kaplan. David Norton, 1999,
+
+[35] Scrum. ¿qué es scrum? http://www.scrum.org/Resources/What-is-Scrum, Colombia:2010. [Accesado 15-junio-2013].
+
+[36] Sixtinagroup. Biblioteca de indicadores. http://www.sixtinagroup.com/herramientasy-recursos/biblioteca-de-indicadores/. [Accesado 14-junio-2013].
+
+58[37] Solvasquez. Las herramientas.  http://solvasquez.wordpress.com/2009/26/lasherramientas/. [Accesado 14-junio-2013].
+
+[38] Spider Strategies. Soluciones de negocio. quickscore.
+http://www.spiderstrategies.com/tour/balanced-scorecard-softwarel/, 2013.
+
+[Accesado 3-junio-2013].
+
+[39] Suronline. Beneficios y funcionamiento de las aplicaciones web.
+http://www.suronline.net/nuevo_sitio/beneficios-funcionamiento-aplicacionesweb.aspx. [Accesado 10-junio-2013].
+
+[40] Servicios TIC. Las tic en las empresas. http://www.serviciostic.com/las-tic/lastic-en-las-empresas.html. [Accesado 3-junio-2013].
+
+[41] Velneo. vcmi. http://velneo.es/velneo-open-app/vcmi/. [Accesado 3-junio-2013].
+
+[42] Cinthya Bibian y Carmen Murillo. Los ingenieros, ¿los mejores ceo?. cnn
+expansión. http://www.cnnexpansion.com/expansion/2013/06/05/los-ingenierosmas-aptos-para-ser-ceo , 2013. [Accesado 20-junio-2013].
+
+[43] Esteban Lopez Zapata. La consultoría de gestión humana.  i¡cesi.
+http://www.icesi.edu.co/revistas/index.php/estudios_gerenciales/article/view?/.
+
+[Accesado 4-junio-2013].
+
+59ANEXOSANEXO A: Requerimientos
+
+Especificación de Requerimientos
+
+Universidad
+del Valle
+
+—Sede Tuluá —
+Fecha: 22/08/2013
+Documento: ER003 Requerimientos del sistema
+Revisión: 001
+
+F=Funcional NF= No Funcional
+
+El sistema deberá ser construido usando PHP como
+lenguaje de programación del lado del servidor.
+
+El sistema deberá ser construido con la tecnología web
+services, usando la arquitectura REST para todas las
+
+Ri transacciones de base de datos que se realicen, es decir, NF
+las operaciones CRUD con los formularios respectivos.
+
+El sistema deberá ser construido usando Javascript como
+lenguaje de programación del lado del cliente para la
+conexión entre la parte gráfica y lógica.
+
+El sistema deberá ser una solución web. |. NF |
+
+ 
+
+Tabla 4.1: Requerimientos del Sistema
+
+Especificación de Requerimientos
+
+Universidad
+del Valle
+Sede Tuluá
+
+Fecha: 27/08/2013
+Documento: ER003 Modulo: OBJETIVOS
+Revisión: 001
+Requerimiento
+=Funcional _NF= No Funcional
+
+El sistema en el módulo de Objetivos deberá dar la opción
+
+al usuario de crear Objetivos ingresando: Nombre,
+
+Descripción y responsables.
+
+El sistema en el módulo de Objetivos deberá dar la opción
+al usuario de asociar Objetivos a alguna perspectiva.
+
+El sistema en el módulo de Objetivos deberá dar la opción
+al usuario de asociar Objetivos a otros objetivos en forma
+de relación causa efecto y de forma jerárquica.
+
+El sistema en el módulo de Objetivos deberá dar la opción
+al usuario de modificar toda la información de algún
+Objetivo almacenando un comentario, el usuario que
+realizó la modificación y la fecha.
+
+El sistema en el módulo de Objetivos deberá dar la opción
+al usuario de desactivar algún objetivo almacenando un
+comentario, el usuario que realizó la modificación y la
+fecha.
+
+ 
+
+Tabla 4.2: Requerimientos Módulo ObjetivosEspecificación de Requerimientos
+
+Universidad
+del Valle
+Sede Tuluá
+
+Fecha: 02/09/2013
+
+Documento: ER003 Modulo: INICIATIVAS ESTRATÉGICAS
+
+Revisión: 001
+
+Requerimiento Categoría
+=Funcional_NF= No Funcional
+
+El sistema en el módulo iniciativas estratégicas deberá
+dar la opción al usuario de crear nuevas iniciativas
+estratégicas ingresando: nombre, fecha de inicio, fecha de
+finalización, presupuesto, gastado, porcentaje de
+completado y responsable.
+El sistema en el módulo iniciativas estratégicas deberá
+dar la opción al usuario de modificar toda la información
+de una iniciativa estratégica, almacenando un
+comentario, el usuario que realizó la modificación y la
+fecha.
+El sistema en el módulo iniciativas estratégicas deberá
+dar la opción al usuario de desactivar iniciativas
+estratégicas. almacenando un comentario, el usuario que
+realizó la modificación y la fecha.
+El sistema en el módulo iniciativas estratégicas deberá
+dar la opción al usuario de crear acciones asociadas a una
+iniciativa estratégica ingresando: nombre, fecha de inicio,
+
+El sistema en el módulo iniciativas estratégicas deberá
+dar la opción al usuario de visualizar las iniciativas
+estratégicas por medio de un diagrama de Gantt.
+
+ 
+
+Tabla 4.3: Requerimientos Módulo Iniciativas Estratégicas
+
+Especificación de Requerimientos
+
+Universidad
+del Valle
+
+Sede Tuluá
+Fecha: 05/09/2013
+
+Documento: ER003 Modulo: ADMINISTRACIÓN
+Revisión: 001
+
+Número Requerimiento Categoría
+F=Funcional_NF= No Funcional
+
+El sistema en el módulo administración deberá permitir
+al usuario crear calendarios ingresando nombre,
+
+periodicidad, fecha inicio y la fecha fin.
+El sistema en el módulo administración deberá permitir
+al usuario modificar toda la información de un calendario.
+
+El sistema en el módulo administración deberá permitir
+al usuario desactivar calendarios.
+
+El sistema en el módulo administración deberá dar la
+opción al usuario de agregar un nuevo ítem a la lista de
+estados de un Balanced scorecard, ingresando un nombre.
+
+El sistema en el módulo administración deberá dar la
+opción al usuario de modificar toda la información de
+
+algún ítem a la lista de estados de un Balanced scorecard.
+
+El sistema en el módulo administración deberá dar la
+opción al usuario de desactivar algún ítem a la lista de
+estados de un Balanced scorecard.
+
+El sistema en el módulo administración deberá dar la
+opción al usuario de visualizar las distintas versiones de
+Balanced scorecard.
+
+ 
+
+Tabla 4.4: Requerimientos Módulo AdministraciónEspecificación de Requerimientos
+
+Universidad
+del Valle
+
+Sede Tuluá
+Fecha: 04/09/2013
+
+Documento: ER003 Modulo: AUTENTICACIÓN
+Revisión: 001
+
+Requerimiento Categoría
+F=Funcional _NF= No Funcional
+
+El sistema en el módulo de autenticación deberá dar la
+opción al usuario de identificarse con un nombre de
+
+usuario y una contraseña antes de poder ingresar a su
+cuenta.
+
+El sistema en el módulo de autenticación deberá dar la
+opción al usuario de cerrar su sesión.
+
+ 
+
+Tabla 4.5: Requerimientos Módulo Autenticación
+
+Especificación de Requerimientos
+
+Universidad
+del Valle
+
+Sede Tuluá
+Fecha: 28/08/2013
+
+Documento: ER003 Modulo: INDICADORES
+Revisión: 001
+j Requerimiento Categoría
+F=Funcional NF= No Funcional
+
+El sistema en el módulo de Indicadores deberá dar la
+opción al usuario de crear Indicadores asociados a un
+objetivo ingresando: nombre, descripción,
+recomendaciones, una formula, su periodicidad y sus
+
+El sistema en el módulo de Indicadores deberá dar la
+opción al usuario de modificar toda la información de un
+
+Indicador, almacenando un comentario, el usuario que
+realizó la modificación, la fecha y dicha modificación
+deberá crear una nueva versión del mismo.
+
+El sistema en el módulo de Indicadores deberá dar la
+opción al usuario de desactivar Indicadores almacenando
+
+un comentario, el usuario que realizó la modificación y la
+
+ 
+
+Tabla 4.6: Requerimientos Módulo Indicadores
+
+Especificación de Requerimientos
+
+Universidad
+del Valle
+Sede Tuluá
+
+Fecha: 04/09/2013
+Documento: ER 003 Modulo: GRUPOS
+Revisión: 001
+
+Requerimiento
+=Funcional NF= No Funcional
+
+El sistema en el módulo de grupos deberá dar la opción
+al administrador de crear grupos de usuario ingresando:
+nombre y los permisos sobre los accesos.
+
+El sistema en el módulo de grupos deberá dar la opción
+al administrador de visualizar el nombre y permisos
+activados y desactivados, mostrándolos en pantalla.
+
+ 
+
+El sistema en el módulo de grupos deberá dar la opción
+R2 al administrador de modificar los grupos con la siguiente
+información: permisos.
+
+Tabla 4.7: Requerimientos Módulo GruposEspecificación de Requerimientos
+
+Universidad
+del Valle
+
+Sede Tuluá
+Fecha: 24/08/2013
+
+Documento: ER003 Modulo: PERSPECTIVAS
+Revisión: 001
+
+Requerimiento Categoría
+F=Funcional _NF= No Funcional
+El sistema en el módulo Perspectivas deberá dar la
+opción al usuario de crear Perspectivas ingresando:
+
+Nombre y Descripción.
+
+El sistema en el módulo de Perspectivas deberá dar la
+opción al usuario de asignar Perspectivas a un Balanced
+Scorecard.
+
+El sistema en el módulo de Perspectivas deberá dar la
+opción al usuario de modificar toda la información de
+alguna perspectiva almacenando un comentario, el
+usuario que realizó la modificación y la fecha.
+
+El sistema en el módulo de Perspectivas deberá dar la
+opción al usuario de desactivar Perspectivas,
+almacenando un comentario, el usuario que realizó la
+modificación y la fecha.
+
+ 
+
+Tabla 4.8: Requerimientos Módulo Perspectivas
+
+Especificación de Requerimientos
+
+Universidad
+del Valle
+
+Sede Tuluá
+Fecha: 02/09/2013
+
+Documento: ER003 Modulo: REPORTES
+Revisión: 001
+
+Requerimiento Categoría
+F=Funcional _NF= No Funcional
+El sistema en el módulo de reportes deberá dar la opción
+al usuario de generar reportes sobre el estado de los
+objetivos permitiendo visualizar un comparativo por
+rango de fechas y periodicidad.
+
+Da
+
+El sistema en el módulo de reportes deberá dar la opción
+al usuario de generar reportes sobre el estado de los
+indicadores de algún objetivo permitiendo visualizar un
+comparativo por rango de fechas y periodicidad.
+
+El sistema en el módulo de reportes deberá dar la opción
+al usuario de generar reportes sobre el estado de las
+iniciativas de algún objetivo permitiendo visualizar un
+comparativo por rango de fechas y periodicidad.
+
+El sistema en el módulo de reportes deberá dar la opción
+al usuario de generar reportes sobre el estado general de
+objetivos.
+
+El sistema en el módulo de reportes deberá dar la opción
+al usuario de generar reportes sobre el estado general de
+los indicadores de algún objetivo.
+
+El sistema en el módulo de reportes deberá dar la opción
+al usuario de generar reportes sobre el estado general de
+las iniciativas de algún objetivo.
+
+El sistema en el módulo de reportes deberá dar la opción
+al usuario de generar un reporte llamado mapa estratégico
+el cual muestra la relación de los objetivos.
+
+E
+
+ 
+
+Tabla 4.9: Requerimientos Módulo ReportesEspecificación de Requerimientos
+
+Universidad
+del Valle
+
+Sede Tuluá
+Fecha: 24/08/2013
+
+Documento: ER003 Modulo: SCORECARD
+Revisión: 001
+Requerimiento Categoría
+F=Funcional NF= No Funcional
+El sistema en el módulo de Scorecard deberá dar la
+opción al usuario de crear Balanced Scorecards por cada
+organización, ingresando: Nombre, descripción, misión,
+visión y valores.
+El sistema en el módulo de Scorecard deberá dar la
+opción al usuario de modificar toda la información de un
+Balanced Scorecard, almacenando un comentario, el
+usuario que realizó la modificación y la fecha.
+El sistema en el módulo de Scorecard deberá dar la
+opción al usuario de desactivar Balanced Scorecards
+almacenando la fecha de desactivación, el usuario que la
+realizó y un comentario.
+
+ 
+
+Tabla 4.10: Requerimientos Módulo ScorecardEspecificación de Requerimientos
+
+Universidad
+del Valle
+Sede Tuluá
+
+Fecha: 02/09/2013
+Documento: ER003 Modulo: USUARIOS
+
+Requerimiento
+Funcional _NF= No Funcional
+
+El sistema en el módulo usuarios deberá dar la opción al
+administrador de registrar nuevos usuarios con: nombre,
+
+ellido, cedula, cargo. nombre de usuario y contraseña.
+El sistema en el módulo usuarios deberá dar la opción al
+administrador de modificar de los usuarios la siguiente
+información: nombre, apellido, cedula, cargo, nombre de
+usuario y contraseña, buscándolo con uno de los
+
+¡guientes criterios: nombre de usuario o cedula.
+
+El sistema en el módulo de usuarios deberá dar la opción
+al administrador de visualizar la siguiente información de
+un usuario: nombre de usuario, nombre, apellido, cedula
+y cargo: buscándolo con uno los siguientes criterios:
+nombre de usuario o cedula.
+El sistema en el módulo usuarios deberá dar la opción al
+usuario de modificar la siguiente información: nombre,
+
+pellido y contraseña.
+
+El sistema en el módulo usuarios deberá dar la opción al
+adunimistrador de modificar el estado de la cuenta de un
+
+Els Sistema en el módulo usuarios deberá dar la opción al
+administrador de desactivar un usuario del sistema.
+
+ 
+
+Tabla 4.11: Requerimientos Módulo UsuariosANEXO B: Product Backlog
+
+Universidad
+del Valle
+Sede Tuluá
+
+Especificación de Historias de Usuario
+Fecha: 06/10/2013
+Documento: ER003
+
+BSCS (Cuadro de Mando Integral Sistematizado)
+Revisión: 001
+
+Modulo: GRUPOS
+Número Pruebas de Aceptación
+
+COMO
+administrador
+QUIERO crear
+grupos de usuario
+PARA establecer
+las funcionalidades
+disponibles del
+sistema para cada
+
+QUIERO
+modificar grupos
+de usuario PARA
+actualizar las
+funcionalidades
+disponibles para un
+USUArIo.
+
+COMO
+administrador
+QUIERO
+visualizar los
+grupos de usuario
+PARA identificar
+las funcionalidades
+asociadas a alguno.
+
+El administrador selecciona la opción de | e
+
+crear nuevos grupos de usuario e
+ingresa: nombre y los permisos sobre los
+accesos.
+
+Puntos Claves:
+
+e Se deben mostrar mensajes
+informando al administrador si
+el proceso de creación de grupo
+fue exitoso o no
+
+Prioridad: 10
+El administrador selecciona la opción
+modificar grupos de usuario existentes.
+
+Puntos Claves:
+e Se
+
+deben mostrar mensajes
+informando al usuario si el
+
+proceso de modificación de
+
+grupos de usuario fue exitoso o
+no.
+
+Prioridad: 10
+El administrador selecciona visualizar
+
+grupos y selecciona uno de los
+existentes, identificando las
+funcionalidades activadas y no activas.
+
+Prioridad: 10
+
+Verificar la correcta
+creación del perfil y
+su visualización.
+
+e Verificar la correcta
+actualización del
+grupo.
+
+e Verificar la correcta
+visualización de los
+grupos de usuario.
+
+ 
+
+Tabla 4.12: Historias de Usuario Módulo GruposEspecificación de Historias de Usuario
+
+Universidad
+del Valle
+Sede Tuluá
+
+Fecha: 09/10/2013
+Documento: ER003 BSCS (Cuadro de Mando Integral Sistematizado)
+Revisión: 001
+
+Modulo: PERSPECTIVAS
+Número Pruebas de Aceptación
+
+COMO — usuario | El usuario selecciona la opción crear | + Crear perspectivas y
+QUIERO — crear | perspectivas e introduce los datos: asociarlas a un
+perspectivas nombre y descripción. Una vez se han Balanced scorecard.
+PARA asociarlas a | insertado todos los valores. se guarda la
+un Balanced | perspectiva.
+scorecard.
+Puntos Clave:
+e Se debe notificar al usuario si la
+creación de la perspectiva fue
+exitosa O no.
+
+Prioridad: 10
+El usuario busca la perspectiva y Modificar
+modifica los datos que tiene asociados, perspectivas y
+
+validando el sistema los campos verificar que dicha
+
+obligatorios. Ingresa un comentario que información se
+visualice
+
+justifique el porqué de la modificación, correctamente
+junto con la fecha proporcionada por el conforme a las
+
+sistema. modificaciones
+realizadas.
+Puntos Clave:
+
+e Se debe notificar al usuario si la
+modificación de la perspectiva fue
+exitosa o no.
+
+Prioridad: 10
+COMO — usuario | El usuario selecciona la perspectiva, la Desactivar
+QUIERO desactiva e ingresa un comentario que perspectivas y
+desactivar justifique el porqué de la desactivación, verificar que dicha
+perspectivas junto con la fecha proporcionada por el información no se
+
+PARA mantener | sistema. visualice.
+actualizada la
+
+información. Puntos Clave:
+
+e Se debe notificar al usuario si la
+desactivación fue exitosa o no.
+
+Prioridad: 10
+
+ 
+
+Tabla 4.13: Historias de Usuario Módulo PerspectivasUniversidad
+del Valle
+Sede Tuluá
+Fecha: 08/10/2013
+
+Documento: ER003
+
+Revisión: 001
+
+COMO — usuario
+QUIERO crear
+objetivos PARA
+poder reflejar la
+estrategia
+
+empresarial
+
+COMO usuario
+QUIERO
+modificar objetivos
+PARA actualizar la
+información de
+estos.
+
+COMO usuario
+
+QUIERO
+desactivar
+objetivos
+mantener
+actualizada la
+
+información.
+
+PARA
+
+Especificación de Historias de Usuario
+
+BSCS (Cuadro de Mando Integral Sistematizado)
+
+Modulo: OBJETIVOS
+
+El usuario selecciona Objetivos e
+ingresa un nombre, descripción,
+responsable y estado. Permitiendo a su
+vez asociarlos a una perspectiva u otro
+objetivo generando jerarquías de los
+mismos.
+
+Prioridad: 10
+
+Descripción General: El usuario
+selecciona el Objetivo deseado y edita
+los datos respectivos, ingresa un
+comentario que justifique el porqué de la
+modificación, junto con la fecha
+proporcionada por el sistema.
+
+Prioridad: 10
+
+El usuario selecciona el
+
+objetivo
+deseado, lo desactiva e ingresa un
+comentario que justifique el porqué de la
+
+desactivación, junto con la fecha
+
+proporcionada por el sistema.
+
+Puntos Clave:
+
+e Se debe notificar al usuario si la
+desactivación fue exitosa o no.
+
+Prioridad: 10
+
+Pruebas de Aceptación
+
+Verificar la correcta
+creación y asociación
+de objetivos.
+
+Verificar la correcta
+actualización del
+Objetivo.
+
+Verificar la correcta
+desactivación de
+objetivos.
+
+ 
+
+Tabla 4.14: Historias de Usuario Módulo ObjetivosUniversidad
+del Valle
+
+Sede Tuluá
+
+Especificación de Historias de Usuario
+Fecha: 05/10/2013
+Documento: ER003
+
+BSCS (Cuadro de Mando Integral Sistematizado)
+Revisión: 001
+
+Modulo: INICIATIVAS ESTRATÉGICAS
+Número Pruebas de Aceptación
+
+H4
+
+COMO — usuario
+QUIERO crear
+Iniciativas
+Estratégicas PARA
+poder crear
+proyectos que
+permitan dar
+cumplimiento a los
+objetivos
+planteados.
+
+COMO usuario
+
+QUIERO
+modificar
+Iniciativas
+Estratégicas PARA
+actualizar
+
+COMO Usuario
+
+QUIERO
+desactivar
+Iniciativas
+Estratégicas PARA
+
+usuario
+crear
+
+las
+
+COMO
+QUIERO
+acciones a
+Iniciativas
+Estratégicas PARA
+poder realizar los
+proyectos y
+hacerles
+
+seguimiento.
+
+COMO usuario
+
+QUIERO
+visualizar
+Iniciativas
+Estrategias por
+medio de un
+
+diagrama de Gantt
+
+PARA poder llevar
+un mejor control de
+
+las mismas.
+
+El usuario selecciona la opción crear
+
+iniciativas estratégicas e introduce los
+datos: nombre. fecha de inicio, fecha de
+
+finalización, presupuesto, gastado,
+porcentaje de completado y responsable.
+Una vez se han insertado todos los
+valores, “se guarda la iniciativa
+estratégica.
+
+Puntos Clave:
+
+e Se debe notificar al usuario sí la
+creación de la Iniciativa fue exitosa
+ono.
+
+Prioridad: 10
+El usuario busca la Iniciativa Estratégica
+
+y modifica los datos que tiene asociados,
+validando el sistema los campos
+obligatorios.
+
+Puntos Clave:
+
+e Se debe notificar al usuario si la
+modificación de la Iniciativa fue
+exitosa O no.
+
+El usuario selecciona la Immciativa, la
+desactiva e ingresa un comentario que
+justifique el porqué de la desactivación,
+junto con la fecha proporcionada por el
+sistema.
+
+Puntos Clave:
+
+e Se debe notificar al usuario si la
+desactivación fue exitosa o no.
+
+Prioridad: 10
+El usuario selecciona la opción crear
+
+tarea e introduce los datos: nombre,
+fecha de inicio, fecha de finalización,
+presupuesto, gastado, porcentaje de
+
+completado. Una vez se han insertado
+todos los valores, se guarda la tarea.
+
+Puntos Clave:
+e Se debe notificar al usuario si la
+creación fue exitosa o no.
+
+Prioridad: 10
+
+El usuario selecciona las Iniciativas y
+selecciona la opción visualizar diagrama
+de Gantt.
+
+Prioridad: $
+
+Crear Iniciativas y
+verificar que dicha
+información se
+visualice en la ruta
+indicada.
+
+Modificar Iniciativas
+Estratégicas y
+verificar que dicha
+información se
+visualice
+
+correctamente
+conforme a
+
+modificaciones
+realizadas.
+
+las
+
+Desactivar Iniciativas
+Estratégicas y
+verificar que dicha
+información no se
+visualice.
+
+Crear acciones
+
+asociadas a
+Iniciativas
+Estratégicas.
+
+Correcta creación del
+diagrama de Gantt.
+
+ 
+
+Tabla 4.15: Historias de Usuario Módulo Iniciativas EstratégicasEspecificación de Historias de Usuario
+
+Universidad
+del Valle
+
+Sede Tuluá
+
+Fecha: 09/10/2013
+Documento: ER003 BSCS (Cuadro de Mando Integral Sistematizado)
+Revisión: 001
+
+Modulo: INDICADORES
+
+Descripción
+
+COMO — usuario | El usuario selecciona la opción crear
+
+QUIERO — crear | indicadores e introduce los datos:
+indicadores PARA | nombre, descripción recomendaciones,
+asociarlos a  un| formula de seguimiento, periodicidad y
+objetivo. responsables. Una vez se han insertado
+
+todos los valores, se guarda el indicador.
+
+Puntos Clave:
+
+e Se debe notificar al usuario si la
+creación del indicador fue exitosa o
+no.
+
+Prioridad: 10
+
+COMO - usuario | El usuario busca el indicador y modifica
+los datos que tiene asociados, validando
+el sistema los campos obligatorios.
+Ingresa un comentario que justifique el
+porqué de la modificación, junto con la
+fecha proporcionada por el sistema.
+
+Puntos Clave:
+
+e Se debe notificar al usuario si la
+modificación del indicador fue
+exitosa o no.
+
+Prioridad: 10
+COMO usuario | El usuario selecciona el indicador, lo
+
+QUIERO desactiva e ingresa un comentario que
+desactivar justifique el porqué de la desactivación,
+indicadores PARA | junto con la fecha proporcionada por el
+mantener sistema.
+
+actualizada
+
+información. Puntos Clave:
+
+ruebas de Aceptación
+
+Crear indicadores y
+asociarlas a un
+objetivo.
+
+Modificar indicadores
+y verificar que dicha
+información se
+visualice
+correctamente
+
+conforme a las
+modificaciones
+realizadas.
+
+Desactivar
+indicadores y
+verificar que dicha
+información no se
+visualice.
+
+ 
+
+Tabla 4.16: Historias de Usuario Módulo IndicadoresUniversidad
+del Valle
+
+Sede Tuluá
+
+Fecha: 09/10/2013
+Documento: ER003
+
+Revisión: 001
+
+Especificación de Historias de Usuario
+
+BSCS (Cuadro de Mando Integral Sistematizado)
+
+Modulo: ADMINISTRACION
+
+Número
+
+1
+
+a
+
+L
+—]
+
+
+COMO usuario
+
+QUIERO crear
+calendarios PARA
+asociarlos a un
+
+Balanced
+scorecard.
+
+COMO usuario
+
+QUIERO
+desactivar
+calendarios PARA
+mantener
+actualizada
+información.
+
+la
+
+COMO usuario
+QUIERO agregar
+items PARA
+asociarlos a una
+
+lista de estados de
+un Balanced
+
+scorecard.
+
+COMO usuario
+
+QUIERO
+modificar items
+
+PARA — actualizar
+su información.
+
+COMO usuario
+
+QUIERO
+desactivar items
+PARA mantener
+actualizada la
+información.
+
+COMO usuario
+
+QUIERO
+
+visualizar distintas
+versiones de
+Balanced scorecard
+PARA llevar un
+
+seguimiento de los
+mismos.
+
+El usuario selecciona la opción crear
+calendarios e introduce los datos:
+nombre, periodicidad, fecha de inicio y
+de fin Una vez se han insertado todos
+
+los valores, se guarda el calendario.
+
+Puntos Clave:
+
+e Se debe notificar al usuario si la
+creación del calendario fue exitosa o
+no.
+
+Prioridad: 10
+El usuario busca el calendario y
+
+modifica los datos que tiene asociados,
+validando el sistema los campos
+obligatorios.
+
+Puntos Clave:
+
+e Se debe notificar al usuario si la
+modificación del calendario fue
+exitosa o no.
+
+Prioridad: 10
+El usuario selecciona el calendario y lo
+desactiva.
+
+Puntos Clave:
+
+e Se debe notificar al usuario si la
+desactivación fue exitosa o no.
+
+Prioridad: 10
+El usuario selecciona la opción crear
+item e introduce el nombre.
+
+Puntos Clave:
+
+e Se debe notificar al usuario si la
+creación del calendario fue exitosa o
+
+no.
+
+Prioridad: 10
+
+El usuario busca el items y modifica los
+datos que tiene asociados, validando el
+sistema los campos obligatorios.
+
+Puntos Clave:
+e Se debe notificar al usuario si la
+
+modificación del item fue exitosa o
+no.
+
+Prioridad: 10
+El usuario selecciona el item y lo
+desactiva.
+
+Puntos Clave:
+
+e Se debe notificar al usuario si la
+desactivación fue exitosa o no.
+
+Prioridad: 10
+
+El usuario selecciona el Balanced
+
+scorecard y lo consulta dependiendo la
+versión deseada.
+
+Prioridad: $
+
+P
+
+ruebas de Aceptación
+
+Crear calendarios y
+asociarlos a un
+Balanced scorecard.
+
+Modificar calendarios
+y verificar que dicha
+información se
+visualice
+correctamente
+
+conforme a
+modificaciones
+
+realizadas.
+
+las
+
+Desactivar
+calendarios y
+verificar que dicha
+información no se
+visualice.
+
+Crear items y
+asociarlos a una lista
+
+de estados.
+
+Modificar items y
+verificar que dicha
+información se
+visualice
+
+correctamente
+conforme a
+modificaciones
+realizadas.
+
+las
+
+Desactivar items y
+verificar que dicha
+información no se
+visualice.
+
+Verificación de la
+correcta visualización
+y carga de la
+información del
+Balanced  scorecard
+dependiendo de su
+
+versión.
+
+ 
+
+Tabla 4.17: Historias de Usuario Módulo AdministraciónEspecificación de Historias de Usuario
+
+Universidad
+del Valle
+Sede Tuluá
+Fecha: 08/10/2013
+
+Documento: ERO03
+
+BSCS (Cuadro de Mando Integral Sistematizado)
+Revisión: 001
+
+Modulo: REPORTES
+
+Número Pruebas de Aceptación
+
+usuario
+QUIERO generar
+reportes
+comparativos
+objetivos,
+iniciativas e
+indicadores por
+rango de fecha y
+
+periodicidad
+PARA visualizar la
+información
+contenida en
+sistema.
+COMO usuario
+
+QUIERO generar
+reportes de estado
+general de
+objetivos,
+iniciativas e
+indicadores PARA
+visualizar la
+información
+contenida en
+sistema.
+COMO — usuario
+QUIERO generar
+el reporte de mapa
+estratégico del
+1 PARA
+
+de
+
+el
+
+el
+
+relación de
+
+objetivos.
+
+El usuario selecciona la opción Balanced
+Scorecard, Reportes y escoge alguno de
+los reportes comparativos existentes, el
+rango de fecha o periodicidad, el filtro
+de objetivos e indicadores cuando sea
+necesario y generar.
+
+El usuario selecciona la opción Balanced
+Scorecard, Reportes y escoge alguno de
+los reportes de estado existentes, el filtro
+de objetivos e indicadores cuando sea
+necesario y generar.
+
+Prioridad: 10
+
+El usuario selecciona la opción Balanced
+Scorecard, Reportes, escoge la opción
+mapa estratégico y generar.
+
+Verificar la correcta
+visualización del
+reporte.
+
+Verificar la correcta
+visualización del
+reporte.
+
+Verificar la correcta
+visualización del
+reporte.
+
+ 
+
+Tabla 4.18: Historias de Usuario Módulo ReportesEspecificación de Historias de Usuario
+
+Universidad
+del Valle
+
+Documento: ER003 BSCS (Cuadro de Mando Integral Sistematizado)
+Revisión: 001
+
+Modulo: AUTENTICACIÓN
+Pruebas de Aceptación
+
+usuario | El usuario ingresa su nombre de usuario |. Verificar el correcto
+QUIERO - iniciar | y contraseña. De ser correctos los datos ingreso de un usuario
+
+sesión PARA | de ingreso entra al sistema y de no ser al sistema.
+acceder al sistema. | así se le comunica el estado de su
+
+cuenta.
+
+Puntos Claves:
+
+e Se deben mostrar mensajes
+informando al usuario el
+proceso de inicio.
+
+Se debe informar al usuario si
+sus datos son correctos o no.
+
+Prioridad: 10
+COMO — usuario | Descripción General: Una vez que el |. Verificar el correcto
+QUIERO cerrar | usuario este autenticado, el sistema cierre de sesión de un
+sesión PARA salir | deberá permitir a los usuarios cerrar usuario en el sistema.
+del sistema. sesión, enviándolos a la página de inicio
+
+de sesión.
+
+Prioridad: 10
+
+ 
+
+Tabla 4.19: Historias de Usuario Módulo AutenticaciónEspecificación de Historias de Usuario
+
+Universidad
+del Valle
+
+Sede Tuluá
+
+Fecha: 03/10/2013
+Documento: ER003 BSCS (Cuadro de Mando Integral Sistematizado)
+Revisión: 001
+
+Modulo: SCORECARD
+Número Pruebas de Aceptación
+
+COMO — usuario | El usuario selecciona la opción crear | + Crear Balanced
+QUIERO — crear | Balanced Scorecard e introduce los Scorecards y verificar
+Balanced datos: Nombre, Descripción, Misión, que o dicha
+Scorecard PARA | Visión y valores. Una vez se han información se
+. visualice en la ruta
+poder asociarlos a | insertado todos los datos, se guarda el tias
+una organización y | Balanced Scorecard.
+alojar documentos.
+Puntos Clave:
+e Se debe notificar al usuario sí la
+creación del Balanced Scorecard fue
+
+exitosa o no.
+
+Prioridad: 10
+COMO usuario | El usuario busca el Balanced Scorecard Modificar Balanced
+
+QUIERO y modifica los datos que tiene asociados, Scorecards y verificar
+
+modificar Balanced | validando el sistema los campos pr o dicha
+obligatorios. Mormación se
+gatonos visualice
+correctamente
+Puntos Clave: conforme a las
+
+e Se debe notificar al usuario si la modificaciones
+modificación del Balanced realizadas.
+Scorecard fue exitosa o no.
+
+Prioridad: 10
+COMO — usuario | El usuario selecciona el Balanced Desactivar Balanced
+QUIERO Scorecard de la organización, lo Scorecards y verificar
+desactivar desactiva e ingresa un comentario que que dicha
+Balanced justifique el porqué de la desactivación, información no se
+Scorecards PARA | junto con la fecha proporcionada por el visualice.
+mantener sistema.
+
+actualizada la
+información. Puntos Clave:
+e Se debe notificar al usuario sí la
+desactivación fue exitosa o no.
+
+ 
+
+Tabla 4.20: Historias de Usuario Módulo Balanced scorecardUniversidad
+del Valle
+
+Sede Tuluá
+
+Especificación de Historias de Usuario
+Fecha: 09/10/2013
+Documento: ER003
+
+BSCS (Cuadro de Mando Integral Sistematizado)
+Revisión: 001
+
+Modulo: USUARIOS
+Número Pruebas de Aceptación
+
+COMO El administrador selecciona registrar | e Registrar usuarios e
+
+administrador
+QUIERO
+registrar usuarios
+PARA que
+puedan acceder al
+sistema.
+
+COMO
+administrador
+QUIERO
+modificar la
+información de
+PARA
+mantener la
+
+usuarios
+
+información
+actualizada.
+COMO — usuario
+
+QUIERO
+modificar
+información.
+PARA mantener
+la — información
+actualizada.
+
+usuarios e ingresa la información del
+apellido,
+cedula, cargo. nombre de usuario y
+contraseña. Después guarda la nueva
+información.
+
+nuevo usuario: nombre,
+
+Puntos Claves:
+e El
+mensajes al
+
+informando
+registro.
+
+sistema debe mostrar
+
+administrador
+el proceso de
+
+Prioridad: 10
+Descripción General: El
+administrador ingresa a usuarios,
+
+busca el usuario deseado y actualiza
+
+toda su información.
+
+Prioridad: 10
+
+Descripción General: El usuario
+autenticado puede
+nombre, apellido y contraseña.
+
+modificar:
+
+Prioridad: 10
+
+ingresar al sistema
+
+con datos correctos
+e incorrectos.
+
+Actualizar usuarios
+y mostrar toda la
+información del
+usuario para
+verificar la nueva
+información
+
+actualizada
+
+Actualizar la
+información de un
+usuario
+
+ 
+
+Tabla 4.21: Historias de Usuario Módulo Usuarios

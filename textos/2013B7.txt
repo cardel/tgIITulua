@@ -1,0 +1,3973 @@
+APLICACIÓN CON ACCESO DESDE DISPOSITIVOS MÓVILES PARA LA GESTIÓN
+DE PEDIDOS UTILIZANDO UN AGENTE RECOMENDADOR
+CASO: MARIA JUANA
+
+LEYNA TARIN HINCAPIE LONDOÑO
+200956289
+
+   
+
+Universidad
+del Valle
+
+UNIVERSIDAD DEL VALLE SEDE TULUA
+ESCUELA DE INGENIERÍA DE SISTEMAS Y COMPUTACION
+TULUA-VALLE
+2015APLICACIÓN CON ACCESO DESDE DISPOSITIVOS MÓVILES PARA LA
+GESTIÓN DE PEDIDOS UTLIZANDO UN AGENTE RECOMENDADOR
+CASO: MARIA JUANA
+
+LEYNA TARIN HINCAPIE LONDOÑO
+200956289
+
+Trabajo de grado para optar al título de
+Ingeniera de Sistemas
+
+DIRECTOR:
+Ing. PAVEL FRANCO MARÍN.
+
+   
+
+Universidad
+del Valle
+
+UNIVERSIDAD DEL VALLE SEDE TULUA
+ESCUELA DE INGENIERÍA DE SISTEMAS Y COMPUTACION
+TULUA-VALLE
+2015Notas de aceptación.
+
+Firma Jurado. Firma Jurado.
+Firma Director de Firma Coordinador de
+Proyecto de Grado. Ingeniería de Sistemas — Tuluá.Dedicatoria
+
+Dedico mi trabajo de grado a mis padres Raúl Hincapié y Luz Mila Londoño por su
+incondicional apoyo y por su paciencia; gracias a los dos por inculcarme la responsabilidad
+y la fortaleza para siempre luchar por mis sueños. A mi hermana Mariana Hincapié por su
+motivación y tolerancia durante la carrera. A mi novio por su colaboración y motivación
+
+para seguir adelante en cada momento difícil.Agradecimientos
+
+Primeramente agradezco a Dios por acompañarme en cada paso dado para culminar con éxito
+mi carrera, por la sabiduría y fortaleza en los momentos difíciles.
+
+A mis padres por su educación, por sus consejos y por los valores inculcados.
+A mi hermana por siempre estar a mi lado acompañándome.
+
+A mis tías por toda su colaboración y apoyo incondicional.
+
+A mi novio por su paciencia, compañía, amor y contaste apoyo en el trascurso de la carrera.
+A mi amiga Diedrych por su amistad sincera y por alentarme en momentos difíciles.
+
+A mi director de trabajo de grado, Pavel Franco Marín quien me guio durante todo este
+proceso y me aporto sus conocimientos.
+
+A todos los profesores que colaboraron en mi formación académica.Tabla de Contenido
+
+INTRODUCCIÓN
+
+1.1. DESCRIPCIÓN GENERAL
+
+1.2. PLANTEAMIENTO DEL PROBLEMA
+1.2.1. DESCRIPCIÓN DEL PROBLEMA
+1.2.2. FORMULACIÓN DEL PROBLEMA
+1.4. OBJETIVOS
+
+1.4.1. OBJETIVO GENERAL
+
+1.4.2. OBJETIVOS ESPECÍFICOS
+
+1.5. ESTRUCTURA DEL DOCUMENTO
+
+MARCO REFERENCIAL
+
+2.1. MARCO TEÓRICO
+
+2.1.1. AGENTE
+
+2.1.2. AGENTES INTELIGENTES
+
+2.1.3. CARACTERÍSTICAS DE LOS AGENTES
+
+2.1.4. COMERCIO ELECTRÓNICO
+
+2.1.5. AGENTES DE SOFTWARE
+
+2.1.6. AGENTES DE RECOMENDACIÓN
+
+2.1.7. SISTEMAS DE FILTRADO COLABORATIVO
+
+2.1.8. ALGORITMO DEL VECINO MÁS CERCANO
+
+2.2. MARCO CONCEPTUAL
+
+2.2.1. TELÉFONO INTELIGENTE
+
+2.2.2. WEB MÓVIL
+
+2.2.3. APLICACIÓN MÓVIL
+
+2.2.4. APLICACIÓN WEB
+
+2.2.5. DISEÑO WEB RESPONSIVO
+
+2.3. MARCO DE ANTECEDENTES
+
+2.3.1. APLICACIÓN MÓVIL PARA EL CONTROL DE PEDIDOS EN UN RESTAURANTE
+2.3.2. DISEÑO DE UN SISTEMA RECOMENDADOR DE PRODUCTOS PARA CENTROS
+COMERCIALES
+
+2.3.3. APLICACIÓN PARA ATENCIÓN DE CLIENTES EN BONNY RESTAURANT
+
+DESARROLLO DEL PROYECTO
+
+3.1. METODOLOGÍA DE INVESTIGACIÓN
+3.1.1. FASE 1. ANÁLISIS
+
+3.1.2. FASE 2. MODELADO
+
+11
+
+11
+12
+12
+13
+14
+14
+14
+15
+
+16
+
+16
+16
+16
+17
+17
+18
+18
+18
+20
+23
+23
+23
+24
+24
+24
+25
+25
+
+25
+25
+
+27
+
+27
+28
+293.1.3. FASE 3. CONSTRUCCIÓN
+
+3.2. SELECCIÓN DE LA METODOLOGÍA DE DESARROLLO DE SOFTWARE
+3.3, EJECUCIÓN DE LA METODOLOGÍA DE DESARROLLO DE SOFTWARE
+3.3.1. PRODUCT BACKLOG
+
+3.3.2. SPRINTS
+
+DESARROLLO DE PRUEBAS
+
+CONCLUSIONES Y TRABAJOS FUTUROS
+
+REFERENCIAS
+
+34
+34
+35
+35
+
+37
+
+69
+
+73
+
+75Listado de Tablas
+
+Tabla 1. Tabulación de información del restaurante
+Tabla 2. Product Backlog
+Tabla 3. Sprint Backlog
+Tabla 4. Historias de Usuario, módulo de autenticación.
+Tabla 5. Historias de Usuario, módulo gestión de usuarios
+Tabla 6. Historias de Usuario, módulo gestión de perfiles.
+Tabla 7. Sprint backlog
+Tabla 8. Historias de Usuario, módulo gestión de productos
+Tabla 9. Sprint Backlog
+Tabla 10. Historias de Usuario, módulo gestión de pedidos.
+Tabla 11. Sprint Backlog
+Tabla 12. Historias de Usuario Modulo de Recomendación
+
+28
+36
+37
+39
+4]
+42
+SO
+33
+58
+60
+63
+64Lista de Figuras
+
+Figura 1. Crecimiento del número de Smartphone año 2013 12
+Figura 2. Diagrama de Agente en Interacción con el Ambiente ______ 16
+Figura 3. Funcionamiento de los sistemas de recomendación colaborativos _ _ 19
+Figura 4. Ecuación Coeficiente de Correlación de Pearson______________ 21
+Figura 5. Ecuación medida de similitud Cosine SS 21
+Figura 6. Ecuaciones de WSy9WA ss 23
+Figura 7. Fases de la metodología de investigación Ss 27
+Figura 8. Modelado de las tecnologías y los módulos de la aplicación... 33
+Figura 9. Proceso de la metodología Serum SS 34
+Eigura lo. Registro sz 453
+Figura ll. Sitio administrativo SS 453
+Figura Log Sa 453
+Figura 13. Modificar usuario ss 44
+Figura l4. Eliminar usuario SS 44
+Figura l3. Crear perfil Sa 44
+Figura 16. Mis datos personales Ss 45
+Figura 17. Cambio de contraseña sz 45
+Figura 18. Diagrama de clases de los módulos usuarios, perfiles y autenticación _______46
+Figura 19. Registro de la aplicación O __47
+Figura 20. Login de la aplicación Ss 47
+Figura 21. Editar perfil Ss 48
+Figura 22. Usuarios de la aplicación Ss 48
+Figura 23. Modificar usuario en la aplicación SS 49
+Figura 24. Añadir usuario en la aplicación SS 49
+Figura 25. Eliminar usuario de la aplicación SS 49
+Figura 26. Diagrama de clases de los módulos productos y pedidos. 54
+Figura 27. Menú de la aplicación SS 55
+Figura 28. Platos de la aplicación SS 55
+Figura 29. Página principal del restaurante Ss 56
+Figura 30. Servicios del restaurante Ss S7
+Figura 31. Carrito de compras del restaurante__ SS 6l
+Figura 32. Lista de pedidos Ss 6l
+Figura 33. Historial de compras ss 62
+Figura 34. Página de órdenes Ss 62
+Figura 35. Diagrama de clases del módulo recomendación 65
+Figura 36. Modelo Relacional SS 66
+Figura 37. Diagrama de componentes Ss 67
+Figura 38. Recomendación de platos _- Ss 68
+Figura 39. Reporte de Pruebas de Unidad _ SS 69
+Figura 40. Reporte General de Coverage _— Ss 70
+Figura 41. Reporte Coverage para Admin SS 70Figura 42. Reporte Coverage para Modelos
+
+Figura 43. Reporte Coverage para URLs
+Figura 44. Reporte Coverage para VistasResumen
+
+En este trabajo de grado se desarrolló una aplicación web para gestionar los pedidos de un
+restaurante, ésta aplicación web cuenta con un responsive design, lo cual permite que sea
+accedida por usuarios desde distintos medios como dispositivos móviles, tablets y
+computadores con pantallas en distintas resoluciones [26], de éste modo, la aplicación
+facilitará al restaurante, ampliar el número de clientes que podrían acceder a sus servicios.
+
+Además, la aplicación web utiliza un agente de recomendación que es capaz de soportar las
+fases del proceso de compra al ayudar a los clientes a realizar sus pedidos por medio de
+recomendaciones de productos. Este agente, hace uso de sistemas de filtrado colaborativo,
+que utilizan elementos como: la totalidad de los productos que se ofrecen, historiales de
+compras propios y de otros usuarios, similitudes entre los perfiles de usuarios y correlación
+entre los diferentes productos, los cuales son necesarios para el cálculo de recomendaciones y
+similitudes de un conjunto de productos [2, 29].
+
+Palabras claves: Sistema de recomendación, dispositivos moviles, filtrado colaborativo,
+agentes, pedidos, algoritmo.
+
+Abstract
+
+In this undergraduate project it was developed a responsive web application to manage the
+home delivery orders of a restaurant, due to the responsive design this application can be
+accessed by users from different devices such as smartphones, tablets and computers with
+screens in different resolutions [26], In this way, the web application will help to the
+restaurant to increase the number of customers who can access their services.
+
+In addition, the web application uses a recommendation agent that is able to support all the
+phases of the buying process by providing product recommendations to the customers in the
+home delivery orders. This agent has a collaborative filtering system that uses the following
+elements: the whole quantity of products that are offered by the restaurant, the buying history
+of the users, the similarities between the users and the correlation of the products. These
+elements are necessary for calculating both, the recommendations and the similarities
+between a set of products [2, 29].
+
+Keywords: Recommendation system, smartphone, collaborative filtering, software agents,
+home delivery orders, algorithms.
+
+10Capítulo 1
+
+Introducción
+
+1.1. Descripción General
+
+Los restaurantes requieren de un gran aliado en los pedidos a domicilio, puesto que, si no se
+cuenta con una herramienta adecuada, que ayude a gestionar de manera ordenada el proceso
+de los pedidos, se pueden presentar problemas en las órdenes de dichos pedidos, tales como,
+demoras en el servicio, entrega de pedidos equivocados a los clientes, falta de
+recomendaciones adecuadas a los clientes, entre otros. Lo que al final, se traduce en clientes
+insatisfechos; en este sentido el objetivo principal es satisfacer las necesidades de los clientes
+aumentando la calidad del servicio.
+
+Dado lo anterior, en el presente documento se muestra todo el proceso que se realizó en la
+aplicación para gestionar pedidos en el restaurante María Juana, utilizando un agente de
+recomendación basado en algoritmos de filtrado colaborativo, que permitió facilitar al cliente
+la elección del plato de su preferencia, proveyéndole recomendaciones de productos
+basándose en la colección completa de ítems valorados previamente por el usuario.
+
+Además la aplicación provee una interfaz de control de pedidos, de forma que los empleados
+
+tienen un control efectivo de los pedidos que se han realizado. El objetivo es facilitar a los
+clientes la realización de sus pedidos y a los empleados la atención de los mismos.
+
+111.2. Planteamiento del Problema
+
+1.2.1. Descripción del Problema
+
+En la actualidad el crecimiento y posicionamiento que han tenido las cadenas de comida
+rápida ha llevado a que se genere cada vez mayores expectativas en los consumidores puesto
+que buscan mejores oportunidades respecto a la relación calidad, precio y servicio.
+Actualmente los restaurantes generan dinámicas donde el objetivo principal es satisfacer las
+necesidades de los clientes, y donde son pocos los restaurantes que venden y dan a conocer
+sus productos a través de Internet, ya que son pocas las cadenas de comidas que poseen sitios
+web o plataformas móviles.
+
+Las aplicaciones con acceso desde dispositivos móviles representan un agradable lugar para
+anunciar u ofertar productos. Son muchos los usuarios que tienen acceso a este tipo de
+dispositivos puesto que se tiene estimado que nuestro país lidera en la tasa de adopción de
+móviles basados en los sistemas Android y ¡0S, Colombia ocupó el primer puesto con un
+crecimiento de activación de estos aparatos de un 278 por ciento, por encima de Vietnam,
+Turquía, Ucrania, Egipto, China, Chile e India, entre otros [1].
+
+Fastest Growing ¡OS 4 Android Markets by Active Devices (%)
+
+0
+bra 266%
+
+0
+247% 237%
+211% 209% 209%
+189%
+|
+Egypt
+
+Colombia Vietnam Turkey Ukraine
+
+    
+
+China Chile india Venezuala S. Africa Thailand Philippines
+
+O FLURAY Source: Flurry Analytics, January 2012 — Jaruary 2013, counines with al least 500,000 active devices as of January 2012
+
+Figura 1. Crecimiento del número de Smartphone año 2013
+
+En los restaurantes del país los clientes usualmente realizan las ordenes de pedidos a
+domicilio por teléfono, en donde se les ofrece variados platos en general, pero no se les da
+una descripción detallada del producto ni los ingredientes que contiene cada plato, para que
+los clientes escojan sus comidas, el encargado de apuntar la orden no da suficiente
+especificación de los platos al cliente, por tanto no cuenta con información acerca de las
+comidas disponibles (foto, descripción, especies, etc.) debido al tiempo que se tiene y a la
+gran cantidad de pedidos que se realizan. Además, no se lleva un orden y se presentan
+demoras a la hora de entregar el domicilio; tampoco se llevan estadísticas de platos más
+vendidos, no existe una forma de conocer comentarios o sugerencias de los usuarios. Esto
+provoca clientes insatisfechos y una reducción en la calidad del servicio.
+
+12En este sentido el objetivo principal de los restaurantes es satisfacer las necesidades de los
+clientes donde aspectos como gustos, color, tamaño, forma, precio e imagen, son preferencias
+por las cuáles, los consumidores optan por platos en particular, los restaurantes tienen la
+necesidad de recomendar el menú del restaurante en los pedidos a domicilio, puesto que el
+cliente quiere sugerencias de platos.
+
+Esta situación debe ser mejorada o controlada para la comodidad y satisfacción de los
+clientes; en donde ellos hagan sus pedidos a domicilio y también que les de sugerencias o
+recomendaciones de platos ahorrando tiempo en el servicio.
+
+Este trabajo de grado busca ayudar a resolver dichas falencia, proporcionando a los
+restaurantes un mejor servicio y mayor visibilidad en Internet, además de permitir a sus
+clientes una buena experiencia de navegación, a través de procesos eficientes de búsqueda,
+reserva y selección de variedad de comidas en los restaurantes. Para ello se planteó una
+solución con la capacidad de brindar una mayor simplicidad y rapidez en los pedidos por
+parte de los clientes, el cual fue implementado para el caso del restaurante María Juana.
+
+El restaurante María Juana ubicada en la ciudad de Tuluá, es una empresa dedicada al
+servicio en el sector gastronómico. Ofrece gran variedad de platos y bebidas a sus clientes
+para diferentes ocasiones, cuenta con un salón de eventos en un lugar agradable con un
+ambiente moderno, tiene acceso a internet mediante su zona Wi-Fi, y se realizan pedidos a
+domicilio.
+
+1.2.2. Formulación del Problema
+
+¿Cómo generar una mejor dinámica a la gestión de los pedidos en los restaurantes?
+
+1.3. Justificación
+
+La incorporación de la aplicación web responsiva en el restaurante María Juana, ayudara a
+llevar un mejor control de los pedidos a domicilio, ofreciendo una nueva experiencia a los
+clientes, incrementando las ventas para el sector de comidas, mejorando la experiencia del
+consumidor al hacer uso de este servicio, ya que los consumidores pueden navegar por las
+páginas virtuales del menú, elegir de forma divertida su comida, observando imágenes y
+leyendo las características de cada plato.
+
+Aunque existen aplicaciones responsivas comerciales, es necesario hacer una aplicación
+nueva de este tipo debido a que ninguna cuenta con un sistema Recomendador, o las que
+incluyen este tipo de sistemas no son aplicaciones moviles, en las que se pueda acceder
+fácilmente desde cualquier dispositivo móvil. Este trabajo de grado está enfocado a una
+aplicación web responsiva puesto que se tienen más ventajas, a diferencia de una aplicación
+nativa, como por ejemplo que la nativa solo serviría para el sistema operativo que desarrolle
+la aplicación, en cambio, una aplicación responsiva es para todos los sistemas operativos,
+también las web adaptativas son muy flexibles en este sentido, pueden ser actualizadas
+
+13inmediatamente, las aplicaciones nativas por el contrario dependen de que los usuarios
+vuelvan a actualizarla.
+
+A través de la aplicación web responsiva se verían beneficiados los empleados del
+restaurante, el administrador y los clientes, dado que el desarrollo de esta aplicación,
+permitirá agilizar y sugerir platos de comidas basándose en el perfil y en el conocimiento de
+los clientes, haciendo uso de un sistema de recomendación, con soporte de tecnologías y
+herramientas, para solucionar situaciones problemáticas que se presentan en restaurantes, con
+el fin de ahorrar tiempo y esfuerzo para realizar toma de decisiones, agilizando el tiempo en
+el proceso de pedidos, disminuyendo la cantidad de trabajo, teniendo acceso a la información
+de forma más rápida y permitiendo prestar un mejor servicio a los clientes.
+
+Con este proyecto se busca motivar a los clientes del restaurante María Juana a usar la
+aplicación con acceso desde dispositivos móviles, mejorando la interacción, con las ayudas
+que brindan estos sistemas. La herramienta recogerá información sobre el usuario, el sistema
+la analizara y basándose en su perfil y en la interacción con la aplicación, generara diferentes
+recomendaciones de acuerdo a sus gustos.
+
+1.4. Objetivos
+
+1.4.1. Objetivo General
+
+Desarrollar una aplicación responsiva con acceso desde dispositivos móviles que permita
+gestionar los pedidos de los restaurantes, utilizando un agente de recomendación.
+
+1.4.2. Objetivos Específicos
+l. Crear un mecanismo que permita adaptar al usuario el contenido y la navegación para la
+gestión de los pedidos del restaurante.
+2. Construir un agente de recomendación para los pedidos de acuerdo al perfil del cliente.
+
+3. Integrar el sistema de gestión de pedidos con el agente recomendador de pedidos, a una
+solución con acceso desde dispositivos móviles.
+
+4. Validar la aplicación móvil para el restaurante María Juana en términos funcionales.
+
+141.5. Estructura del Documento
+
+El documento se encuentra organizado de la siguiente forma: En el capítulo 2, se presenta el
+marco referencial, donde se encuentran el marco teórico, marco conceptual y marco de
+
+antecedentes, los cuales introducen conceptos relacionados con el desarrollo de las
+investigaciones realizadas en este trabajo de grado.
+
+En el capítulo 3, se describe el desarrollo del proceso que se ha definido para dar solución al
+problema y se explica la metodología implementada, aquí se aborda ampliamente todas las
+fases de desarrollo, como el análisis, el diseño y la implementación del trabajo de grado.
+Además, se definen las tecnologías y herramientas utilizadas para el desarrollo de la
+aplicación.
+
+En el capítulo 4, se presentan las pruebas y el análisis correspondiente de las mismas.
+
+Para finalizar, en el capítulo 5, se presentan una serie de conclusiones que se han obtenido
+durante la creación de la aplicación y se hace referencia a la bibliografía utilizada en este
+documento.
+
+15Capítulo 2
+
+Marco Referencial
+
+2.1. Marco Teórico
+
+En esta sección se hará una introducción acerca de los agentes de recomendación y las
+características más destacadas de estos, enfocados en los sistemas de filtrado colaborativo y
+los algoritmos de vecinos cercanos por su utilidad en este proyecto.
+
+2.1.1. Agente
+
+Un agente es un sistema que está en algún ambiente y que es capaz de tomar acciones
+autónomas de acuerdo al estado del ambiente para cumplir sus objetivos de diseño [2].
+
+ 
+
+Agente
+
+Figura 2. Diagrama de Agente en Interacción con el Ambiente
+
+2.1.2. Agentes Inteligentes
+
+Un agente inteligente es una entidad software que basándose en su propio conocimiento,
+realiza un conjunto de operaciones destinadas a satisfacer las necesidades de un usuario o de
+otro programa, bien por iniciativa propia o porque alguno de éstos se lo requiere [3].
+
+Los Agentes Inteligentes proporcionan una técnica para resolver problemas actuando en
+
+representación del usuario, para realizar diversas tareas tales como, búsqueda y filtraje de
+información, automatización de tareas, etc.
+
+162.1.3. Características de los Agentes
+
+A continuación las características más importantes de los Agentes Inteligentes:
+
+e Autonomía. Los agentes deben trabajar sin supervisión humana, al contrario que los
+programas que operan en base a interfaces de manipulación directa por parte del
+usuario. Así, una vez fijadas las condiciones y restricciones necesarias por parte del
+usuario, se espera que el agente intente cubrir o conseguir sus objetivos, dejando
+ocultos los detalles para dicho usuario [4] [5].
+
+e Inteligencia. En [6] se describe esta característica y se mencionan distintos
+escenarios y modos de concretar esta inteligencia, pero parece claro que el concepto
+de inteligencia puede entenderse de maneras muy distintas [4].
+
+e Cooperación. Un agente debería ser capaz de colaborar con otros agentes,
+intercambiando informaciones y resultados de acciones propias. La negociación
+puede hacerse con agentes que persigan los mismos objetivos (de manera que, por
+ejemplo, objetivos ya logrados por un agente podrían ser cedidos a otro agente que
+persigue lo mismo), o con agentes de objetivos diferentes, pero necesarios o al menos
+útiles para lograr las metas del primero [4].
+
+e Comunicación. Esto no sólo implica la simple capacidad para comunicarse con el
+usuario, sino también la necesidad de tener conocimiento sobre el mundo o dominio
+sobre el cual opera el agente. Habitualmente este conocimiento se implementa
+mediante ontologías y reglas de inferencia [7] [4].
+
+e Reactividad. Un agente debería poder responder ante eventos, tomando sus propias
+decisiones, incluso modificando su manera de operar, siempre con vistas a la
+consecución de sus metas [4].
+
+e  Adaptatividad. Un agente debería poder aprender de experiencias pasadas (y de la
+experiencia de otros agentes), así como de las reacciones del usuario ante resultados
+
+previos. Esto está directamente relacionado con el aprendizaje de máquina O
+aprendizaje automático [4].
+
+2.1.4. Comercio Electrónico
+
+Los Agentes Inteligentes pueden ayudar en el comercio electrónico de diversas formas. Los
+agentes pueden “ir de compras” tomando las especificaciones del usuario y regresando con
+recomendaciones de compras que cumplan estas especificaciones, también pueden actuar
+como agentes de ventas y promotores de productos y servicios para los usuarios, y también
+pueden ayudar a los clientes a resolver sus problemas [8].
+
+172.1.5. Agentes de Software
+
+Un agente de software es un programa informático capaz de operar de forma autónoma es
+decir, sin supervisión directa y continua, aprender de su entorno y comunicarse con otros
+agentes o usuarios humanos. Estas capacidades convierten a los agentes software en la
+herramienta ideal para identificar las características de los consumidores y permitir a las
+empresas ofrecer un servicio personalizado adaptado a dichas características es decir, actuar
+como un enlace entre los objetivos del negocio y los intereses de los consumidores[8].
+
+2.1.6. Agentes de Recomendación
+
+Estos agentes son capaces de recomendar al potencial cliente una serie de productos
+adaptados a sus preferencias. Para ello, el agente debe determinar el perfil del consumidor
+(profile management) y encajar este perfil con el catálogo de productos y servicios de la
+compañía [8].
+
+La identificación del perfil se basa en las preferencias o rechazos mostrados, que pueden
+conocerse preguntado directamente al cliente o bien mediante las compras o consultas
+realizadas anteriormente. El perfil obtenido de esta forma es refinado mediante la aplicación
+de reglas de decisión o técnicas de data mining que determinan patrones relacionados con las
+características de productos o entre consumidores similares [8].
+
+Este perfil es encajado con el catálogo de productos y servicios de la compañía para ofrecer
+un servicio personalizado que puede tomar formas muy diversas como recomendaciones
+directas, envió de e-mails de notificación periódicos, etc. algunos de los ejemplos más
+característicos der estos agentes se encuentran en las librerías online, como
+WWw.amazon.com o www.barnesandnoble.com [8].
+
+2.1.7. Sistemas de Filtrado Colaborativo
+
+Requieren que diversos usuarios evalúen elementos según sus preferencias (ratings). Luego
+unen los roles de estos usuarios con el perfil del usuario que busca la recomendación. Es
+decir, estos sistemas buscan personas que poseen perfiles similares para otorgarle una
+recomendación al usuario interesado. Este sistema se diferencia del anterior en que su
+recomendación se basa en las preferencias de otros usuarios, y el basado en contenido, en la
+similitud con el perfil del usuario [9].
+
+Funcionamiento
+
+El Esquema de funcionamiento general de un Algoritmo de Filtrado Colaborativo sigue los
+siguientes pasos [10]:
+
+1. División de la base de datos en dos conjuntos disjuntos: entrenamiento y test.
+
+2. Cálculo, sobre el conjunto de entrenamiento, de los K vecinos más cercanos oO
+similares a cada uno de los ítems usando alguna métrica de similitud.
+
+3. Cálculo de predicciones para los usuarios del conjunto de test utilizando algún
+algoritmo de predicción.
+
+184. Medida de la precisión de las predicciones obtenidas.
+
+Los sistemas de recomendación colaborativos se basan en la filosofía de que si un usuario
+realiza puntuaciones similares a otras en el pasado, en un futuro se reafirmará en sus
+puntuaciones y seguirá haciendo puntuaciones similares sobre los ítem.
+
+Selección de vecinos
+
+Predicción
+
+ 
+
+Figura 3. Funcionamiento de los sistemas de recomendación colaborativos
+
+El funcionamiento de este tipo de sistemas de recomendación es el siguiente [10]:
+
+1. El sistema guarda un perfil de cada usuario con sus evaluaciones sobre objetos
+conocidos por él y que pertenezcan a la base de datos sobre la que se trabaje.
+
+2. Se mide el grado de similitud entre los distintos usuarios del sistema en base a sus
+perfiles y se crean grupos de usuarios con características afines.
+
+3. El sistema usará toda la información obtenida en los pasos anteriores para realizar las
+recomendaciones. Á cada usuario le recomendará ítems que no haya evaluado y, que
+lo hayan sido de manera positiva por el resto de miembros de su grupo.
+
+Por lo tanto, estos sistemas de recomendación no toman en consideración el contenido y las
+características de los productos que recomiendan sino que, sean del gusto de usuarios con un
+perfil semejante al usuario que demanda el servicio.
+
+192.1.8. Algoritmo del Vecino más Cercano
+
+También llamados algoritmos de filtrado colaborativo basados en memoria, utilizan toda la
+base de datos de elementos y usuarios para generar predicciones. Primeramente emplean
+técnicas estadísticas para encontrar a vecinos, es decir usuarios con un historial de
+valoraciones sobre los elementos similar al usuario actual. Una vez que se ha construido una
+lista de vecinos se combinan sus preferencias para generar una lista con los N elementos más
+recomendables para el usuario actual [11].
+
+Los algoritmos basados en memoria son esencialmente heurísticas que realizan predicciones
+basadas en una colección completa de ítems valorados previamente por el usuario. Es decir,
+el valor de una puntuación no conocida v para un usuario u sobre un ítem i se calcula como
+un agregado de las valoraciones de otros usuarios (generalmente, los K más parecidos) para
+el mismo ítem i [12].
+
+En contraste con esto, las aproximaciones basadas en modelos utilizan la colección de
+valoraciones para aprender un modelo, el cual será utilizado a la hora de realizar las futuras
+predicciones. Algunos algoritmos colaborativos basados en modelos se fundamentan en:
+
+Uso de redes bayesianas y derivados.
+Métodos de clustering para filtrado colaborativo.
+Análisis iterativo de la componente principal.
+
+Otro método interesante es utilizar modelos de aprendizaje de forma que se pueda
+tratar el filtrado colaborativo como un problema de clasificación.
+
+A continuación conceptos sobre los Sistemas de Recomendación Colaborativos.
+
+Establecer similitud entre vecinos
+Para establecer la similitud entre los vecinos de los que obtendremos la predicción debemos
+
+definir una medida que nos permita evaluar el grado de parecido entre unos y otros [12]. Las
+medidas de similitud más referenciadas sobre sistemas de recomendación son:
+
+Coeficiente de Correlación de Pearson
+
+El Coeficiente de Correlación de Pearson (PCC — Pearson correlation coefficient) es la
+primera formulación estadística aparecida para el filtrado colaborativo. La correlación entre
+el usuario u y el usuario i se define como:
+
+20(Ecuación 1, PCC)
+
+Figura 4. Ecuación Coeficiente de Correlación de Pearson
+
+Vector de Similitud o Distancia del Coseno
+
+En el campo de la recuperación de información, la similitud entre dos documentos se mide a
+menudo tratando cada documento como un vector de frecuencias de palabras y calculando el
+coseno del ángulo formado por los dos vectores de frecuencia. Podemos adoptar este
+formalismo al filtrado colaborativo tomando los usuarios el rol de documentos, los ítems el
+rol de palabras y las valoraciones el rol de frecuencias. Es importante destacar que los votos
+deben ser positivos para ser tenidos en cuenta. Se puede formular esta medida de similitud
+(COS — Cosine) como sigue:
+
+w(u,i)=cos(v ,v.)
+
+u3*j
+
+ 
+
+(Ecuación 2, COS)
+
+Figura 5. Ecuación medida de similitud Cosine
+
+Estas dos medidas definen un recurso que nos permitirá elegir una serie de usuarios con los
+cuales poder realizar una predicción.
+
+Selección de vecinos
+
+Una vez que sabemos cómo calcular la similitud entre un usuario concreto, el usuario activo,
+y el resto de usuarios (Figura 3), se hace necesario elegir cuáles de entre esos usuarios se
+utilizarán para computar las predicciones. En términos de eficiencia y exactitud se debe elegir
+un subconjunto de usuarios para el cálculo de la predicción en vez de usar el conjunto
+completo. Este problema puede entenderse como un problema típico de clasificación, en el
+
+que se trata de agrupar a los usuarios en grupos o clases: los que nos van a servir para
+elaborar la predicción, y los que no son considerable
+
+s. Para elegir el número de vecinos se puede utilizar dos posibles técnicas:
+
+21La utilización de un umbral y la elección de los mejores k vecinos, conocida como vecindad
+centrada (KNN — k nearest neighbors).
+
+1. En la primera se propone un valor umbral, eligiendo todos aquellos vecinos que lo
+superen. Esto puede presentar algunos problemas, como por ejemplo que no haya un
+número suficiente de vecinos que supere dicho umbral para umbrales elevados,
+provocando problemas de cobertura, o bien que el número de vecinos elegidos sea
+excesivamente grande, computacionalmente hablando, debido a un umbral bajo,
+haciendo inútil el intentar elegir un subconjunto.
+
+2. La segunda técnica consiste en elegir un número K y utilizar los K vecinos con
+mayor factor de similitud, evitando que haya o pocos o muchos usuarios. La elección
+de éste número K es crucial puesto que si elegimos un número demasiado grande
+habrá un ruido considerable en las predicciones, perjudicando la exactitud de las
+mismas, pero si el número es demasiado pequeño, la cobertura disminuirá y habrá
+muchas predicciones que no podrán realizarse.
+
+Combinar ambas técnicas no mejora mucho el uso de KNN por lo que la esencia está en
+encontrar un número adecuado para k.
+
+Existe otro tipo de técnica a la hora de seleccionar vecinos para casos en los que la dispersión
+es acuciada. Se trata de un agregado de vecinos en el que se utiliza el vecino más parecido al
+usuario activo, el resto de los K-—1 vecinos se calcula en base al cálculo del centroide de la
+vecindad, lo que permite a los vecinos más cercanos tomar parte en la formación de dicha
+vecindad, lo que puede ser beneficioso para conjuntos de datos dispersos [29].
+
+Realización de predicciones
+
+Una vez que se ha escogido un vecindario, debemos combinar las valoraciones de ese
+vecindario para producir una predicción. La forma más sencilla de combinar estas
+puntuaciones es calcular una media con las valoraciones, sin embargo una de las
+aproximaciones más utilizadas es calcular una suma media ajustada de las puntuaciones,
+utilizando las correlaciones como pesos. Esta suma ponderada (WS — weighted sum) supone
+que todos los usuarios puntúan siguiendo aproximadamente la misma distribución. Se suele
+utilizar un multiplicador m como factor de normalización, y generalmente se utiliza m=1/21
+|wu,i], es decir, el inverso de la suma de correlaciones. Además de la suma ponderada se
+puede utilizar también una suma media ajustada (WA — weighted adjusted sum) que pretende
+evitar un problema que presenta WS, y que consiste no tomar en consideración el hecho de
+que usuarios diferentes puedan usar escalas diferentes de puntuación, es decir, diferentes
+usuarios pueden puntuar siempre o muy alto, o muy bajo, o siempre en los extremos, o sólo
+términos medios. Para ello en WA se utilizan desviaciones de la media para el usuario
+correspondiente.
+
+22(Ecuación 3, WS) (Ecuación 4, WA)
+
+Figura 6. Ecuaciones de WS y WA
+
+Así podremos obtener predicciones para los ítems que deseemos y que el usuario no haya
+puntuado.
+
+El usuario activo proporciona al motor de predicción una serie de ítems para los que desea
+obtener predicciones y el motor de predicción le devuelve una lista de predicciones para esos
+
+ítems. En otros casos, el motor, tras realizar los cálculos, lo que devuelve es una lista
+puntuada de las n mejores predicciones.
+
+2.2. Marco Conceptual
+
+2.2.1. Teléfono Inteligente
+
+Un teléfono inteligente o Smartphone es un teléfono móvil que incluye funcionalidades
+avanzadas más allá de realizar llamadas telefónicas y enviar mensajes de texto. La mayoría
+de los teléfonos inteligentes tienen la capacidad de mostrar fotos, reproducir videos, revisar y
+enviar correo electrónico y navegar por la Web [13].
+
+Dado que los teléfonos inteligentes tienen una amplia gama de funcionalidades, que requieren
+un software avanzado, similar a un sistema operativo de computador. El software de
+teléfonos inteligentes maneja las llamadas telefónicas, ejecuta las aplicaciones y proporciona
+opciones de configuración para el usuario. La mayoría de los teléfonos inteligentes incluyen
+una conexión USB, que permite a los usuarios sincronizar datos con sus computadores y
+actualizar su sistema operativo [13].
+
+2.2.2. Web Móvil
+
+Cuando se habla de Web Móvil se está haciendo referencia a una Web en la que el usuario
+puede acceder a la información desde cualquier lugar, independientemente del tipo de
+dispositivo que utilice para ello [14].
+
+23El acceso a la web desde dispositivos móviles (teléfonos móviles, pdas, smartphones, ultra
+portátiles, portátiles), presenta ventajas como la movilidad y la consulta de información y
+servicios desde cualquier punto con una conexión a internet [15]
+
+2.2.3. Aplicación Móvil
+
+Una aplicación móvil (o Mobile App) es una aplicación de software diseñada para funcionar
+en Smartphone , computadoras Tablet y otros dispositivos móviles . Ellos suelen estar
+disponibles a través de las plataformas de distribución de aplicaciones, que normalmente son
+operadas por el propietario del sistema operativo para móviles, como Apple App
+Store , Google Play, Windows Store Teléfono y BlackBerry App World [16].
+
+2.2.4. Aplicación Web
+
+Una aplicación web es un conjunto de páginas que interactúan unas con otras y con diversos
+recursos en un servidor web, incluidas bases de datos. Esta interacción permite implementar
+características en su sitio como catálogos de productos virtuales y administradores de noticias
+y contenidos. Adicionalmente podrá realizar consultas a bases de datos, registrar e ingresar
+información, solicitudes, pedidos y múltiples tipos de información en línea en tiempo real
+
+[17].
+
+2.2.5. Diseño Web responsivo
+
+Son una serie de prácticas aplicadas al diseño web que le permiten al usuario acceder a un
+sitio web desde diferentes medios como dispositivos móviles, tablets, pantallas wide y
+diferentes resoluciones en los computadores, esto partiendo de la base que todo diseño web
+debe estar centrado en la experiencia del usuario al momento de acceder a un sitio web, por
+este motivo es que actualmente muchos sitios web están usando el diseño web responsivo
+
+[18].
+Ventajas de la web 'Responsiva'
+
+e Carga más veloz del sitio en los dispositivos portátiles.
+
+e Mejor lectura, con el tamaño de letra adecuado para una lectura cómoda ya sea
+en Smartphone o Tablet.
+
+e Mejor experiencia en la navegación: con botones adaptados para el uso táctil del
+dispositivo.
+
+e Ahorro de costes ya que no es necesario desarrollar múltiples versiones del site o
+incluso desarrollar una App para IPhone / IPad y Android.
+
+242.3. Marco de Antecedentes
+
+Actualmente se han elaborado pocas aplicaciones móviles relacionadas a la solución del
+problema presentado en los restaurantes. Pero realizando un resumen acerca de los diferentes
+proyectos y software en los cuales se han utilizado sistemas de recomendación de forma
+similar, o desarrollos de aplicaciones móviles para restaurantes tenemos los siguientes:
+
+2.3.1. Aplicación Móvil para el Control de Pedidos en un
+Restaurante
+
+Se plantea el diseño de una aplicación para dispositivos móviles con la capacidad de brindar,
+una forma de auto-organización en clientes y personal a cargo; lograr una mayor simplicidad
+y rapidez en los pedidos por parte de los clientes y evitar complicaciones en los diferentes
+procesos que se realizan dentro del negocio [19].
+
+2.3.2. Diseño de un Sistema Recomendador de Productos
+para Centros Comerciales
+
+Sistema Recomendador para el uso (interno y externo) en centros comerciales que base su
+funcionamiento en parámetros de sugerencias: precios, marca, tipos de productos. La
+pertinencia de esta investigación se orienta en la variedad de productos existentes en los
+centros comerciales y el escaso tiempo de los usuarios para conocer las diferentes ofertas,
+además de la presentación de una herramienta que permita sugerir productos basados en las
+preferencias de cada cliente, vinculando tecnologías y herramientas emergentes[20].
+
+2.3.3. Aplicación para atención de clientes en Bonny
+Restaurant
+
+Este trabajo permite desarrollar una aplicación móvil para la atención al cliente en Bonny
+Restaurant, la cual está conformado por una aplicación web que permite realizar las
+actividades básicas del restaurante, tales como gestión de clientes, de platos o comidas, de
+pedidos, de mesas y de usuarios, desarrollado en una plataforma Android [21]. Actualmente
+existen algunas empresas europeas dedicadas al desarrollo de aplicaciones móviles
+personalizadas para restaurantes como:
+
+e Software Tu-App.Net: Contiene funcionalidades específicamente diseñadas para
+restaurantes. Crea, edita, diseña y publica todo a través de tu plataforma de control.
+Sistema de pedidos para restaurantes, establecimientos de comida rápida y servicios a
+domicilio por el teléfono móvil [22].
+
+e Software OhlalApp: Especialmente diseñada para restaurantes te permitirá hacer
+pedidos, aceptar reservas, mostrar tu menú, enviar ofertas, mostrar las instalaciones y
+la localización de tu restaurante, generar compromiso con tus clientes [23].
+
+25e Software AppsParaPYMES: Creado para que las aplicaciones móviles de
+restaurantes sean asequibles y fáciles para las pequeñas y medianas empresas. Es una
+plataforma de aplicaciones para iPhone, iPad, HIML5 y Android que permite a
+cualquier pequeña empresa crear y al mismo tiempo editar y gestionar aplicaciones
+móviles on-line [24].
+
+Dado lo anterior realizando comparaciones entre los diferentes trabajos de grado
+desarrollados sobre aplicaciones móviles para restaurantes, se nota que la propuesta [19], está
+limitado a realizar una aplicación móvil que permite gestionar los pedidos en el restaurante
+de manera digital por medio de un dispositivo móvil, este sistema cuenta con un menú de
+platillos, de esta manera los meseros no tendrán que ir de mesa en mesa escribiendo en su
+lista cada uno de los pedidos y solo se limitaran a realizar los cobros y llevar los platos a las
+mesas, la propuesta [19], está enfocada a tomar la orden como tal en el restaurante, no se
+encarga de realizar pedidos a domicilio.
+
+Todas las aplicaciones móviles ofrecidas por empresas desarrolladoras son de cobro y no se
+encuentran en nuestro país. Ninguna de los proyectos o software de aplicaciones móviles
+anteriormente mencionados, cuando con un agente de recomendación.
+
+26Capítulo 3
+
+Desarrollo del Proyecto
+
+En el presente capítulo se muestra el proceso que se llevó para el desarrollo del proyecto, se
+presenta la aplicación para la gestión de pedidos utilizando un agente Recomendador para el
+restaurante María Juana, y la documentación relacionada al desarrollo.
+
+3.1. Metodología de Investigación
+
+El desarrollo de este proyecto se basó en la metodología propuesta, como se muestra en la
+Figura 1, la cual está compuesta por tres fases, dónde se buscó recopilar la información
+necesaria para definir y estructurar un marco de referencia riguroso, que obedeciera al
+planteamiento del problema, los objetivos y el alcance de este trabajo. Este marco de
+referencia se convirtió en el insumo fundamental para la creación de un modelo que permitió
+desarrollar la aplicación móvil y el sistema de recomendación para restaurantes.
+Posteriormente, el modelo del sistema de recomendación y la herramienta que se utilizó para
+la aplicación móvil fue el insumo fundamental para la construcción de un sistema de
+recomendación y el desarrollo de la aplicación, que podrá ser utilizado en los diferentes
+
+restaurantes, pero que fue implementado para el restaurante María Juana.
+
+ANALISIS
+
+Analizar los elementos teóricos y prácticos a tener en
+cuenta en la construcción de un producto de software
+
+que soporte la gestión de pedidos y recomendaciones
+para un restaurante.
+
+MODELADO
+
+Creación de un modelo para el sistema de
+recomendación.
+
+CONSTRUCCION
+
+Construcción de una aplicación con acceso desde
+dispositivos móviles que soporte la gestión de pedidos
+y recomendaciones para un restaurante.
+
+ 
+
+Figura 7. Fases de la metodología de investigación
+
+21A continuación se explica cada fase de la metodología que ilustra la figura anterior:
+
+3.1.1. Fase 1. Análisis
+
+En esta fase se tuvieron en cuenta, varias investigaciones hechas sobre agentes de
+recomendación, y algoritmos, en el capítulo 2 se detallan estos conceptos y se mencionan
+distintos elementos teóricos que se tuvieron en cuenta para la construcción del producto de
+software que soporte la gestión de pedidos y recomendaciones para un restaurante.
+
+Además en esta fase se realizaron las entrevistas con el restaurante María Juana, y de esta
+
+manera se recopilo la información que se presenta en la siguiente tabla, en la cual se resume
+la información recolectada como parte de las reuniones con el cliente.
+
+Tabulación de información del restaurante María Juana
+
+ 
+
+Nombre Cargo Funciones
+
+ 
+
+e Dar un buen servicio al cliente.
+. Hacer conocer a los clientes las especialidades y promociones del
+
+restaurante.
+e Procesar los pagos en la computadora.
+Cristian Cajero . Coordinar los empleados del restaurante para garantizar que el cliente
+
+reciba el más alto nivel de servicio posible.
+. Pasar las bebidas a la nevera, envolver las comidas para llevar,
+
+organizar los cubiertos y bebidas para servir a la mesa. Además estar
+atento cuando el cliente pide algo adicional.
+
+ 
+
+Tomar las decisiones.
+
+Recibir los proveedores.
+
+Hacer el inventario diario.
+
+Atender las quejas y reclamos de los clientes.
+
+Delegar funciones para el manejo general.
+
+Ayuda a los meseros en la entrega de comidas cuando es posible.
+Supervisa la cocina para que tenga limpieza.
+
+Supervisar que los platos tengan excelente presentación.
+Cobrarle al cliente.
+
+William Ocampo Gerente
+
+ 
+
+. Atender y registrar las llamadas de clientes para el servicio de
+
+domicilios.
+e Hacer conocer a los clientes las especialidades del restaurante y las
+promociones.
+Varios Domicilio . Recibir (por teléfono) los pedidos de domicilio.
+
+e Servir y empaquetar con cubiertos de las comidas a domicilio
+
+. Entregar informe de domicilio con el cálculo exacto de cuanto vendió
+cada empleado.
+
+. Mantener limpia su área de trabajo.
+
+ 
+
+ 
+
+Tabla 1. Tabulación de información del restaurante
+
+283.1.2. Fase 2. Modelado
+
+En esta fase se estudiaron las herramientas y las tecnologías que se utilizaron para crear la
+aplicación, en este caso el framework Django; también los métodos y técnicas para
+desarrollar el agente Recomendador utilizando el algoritmo de filtrado colaborativo, toda la
+información se encuentra en el marco referencial.
+
+Tecnologías
+
+Esta aplicación está construida sobre un servidor de base de datos MySQL, la aplicación fue
+desarrollada con Django en el lenguaje Python, se implementó en HT'MES, junto con hojas
+de estilo CSS y Bootstrap, para optimizar posibles cambios futuros en la estética de la
+aplicación. La incorporación de la tecnología AJAX y javascript en el proyecto ha sido
+fundamental para que las páginas sean más rápidas y dinámicas.
+
+A continuación se describe cada uno de estos componentes importantes para el desarrollo de
+este proyecto.
+
+Python. Es un lenguaje de programación multipropósito de alto nivel Su filosofía de diseño
+enfatiza la productividad del programador y la legibilidad del código. Tiene un núcleo
+sintáctico minimalista con unos pocos comandos básicos y simple semántica, pero además
+tiene una enorme y variada librería estándar, que incluye una Interfaz de Programación de
+Aplicaciones (APD para muchas de las funciones en el nivel del sistema operativo (OS). El
+código Python, aunque minimalista, define objetos incorporados como listas enlazadas,
+tuplas, tablas hash, y enteros de longitud arbitraria.
+
+Python soporta múltiples paradigmas de programación, incluyendo programación orientada a
+objetos, programación imperativa y funcional. Python tiene un sistema de tipado dinámico y
+manejo automatizado de memoria utilizando conteo de referencias (similar a Perl, Ruby y
+Scheme).
+
+Es un lenguaje interpretado, lo que significa que no se necesita compilar el código fuente
+para poder ejecutarlo, lo que ofrece ventajas como la rapidez de desarrollo e inconvenientes
+como una menor velocidad.
+
+Django. Es un framework web de código abierto escrito en Python que permite construir
+aplicaciones web más rápido y con menos código.
+
+Django fue inicialmente desarrollado para gestionar aplicaciones web de páginas orientadas a
+noticias de World Online, más tarde se liberó bajo licencia BSD. Django se centra en
+automatizar todo lo posible y se adhiere al principio DRY (Don't Repeat Yourself).
+
+Xampp. Es un servidor de plataforma libre, es un software que integra en una sola
+aplicación, un servidor web Apache, intérpretes de lenguaje de scripts PHP, un servidor de
+base de datos MySQL, un servidor de FTP FileZilla, el popular administrador de base de
+datos escrito en PHP, MySQL, entre otros módulos.
+
+MySQL. Es un sistema de administración de bases de datos (Database Management System,
+DBMS) para bases de datos relacionales. MySQL es una aplicación que permite gestionar
+archivos llamados de bases de datos.
+
+29Existen muchos tipos de bases de datos, desde un simple archivo hasta sistemas relacionales
+orientados a objetos. MySQL, como base de datos relacional, utiliza multiples tablas para
+almacenar y organizar la información. MySQL fue escrito en C y C++ y destaca por su gran
+adaptación a diferentes entornos de desarrollo, permitiendo su interactuación con los
+lenguajes de programación más utilizados como PHP, Perl y Java y su integración en
+distintos sistemas operativos.
+
+HTMLS. Es el lenguaje usado para escribir las páginas web, describe la estructura y el
+contenido usando solo texto y lo complementa con objetos tales como imágenes, flash y
+otros.
+
+Los archivos así creados son guardados con la extensión de archivo HTM o HTML.
+Su estructura se compone de etiquetas o tags entre las cuales van insertados los diferentes
+elementos que componen la página como son los bloques de texto, scripts y la ruta a la
+ubicación de archivos externos como imágenes y otros archivos multimedia.
+
+HTML3 nos permite una mayor interacción entre nuestras páginas web y contenido
+media (video, audio, entre otros) así como una mayor facilidad a la hora de codificar nuestro
+diseño básico. Esta nueva versión se basó en el diseño más común de las páginas web
+alrededor del mundo para llegar a un estándar de etiquetas que realicen las mismas tareas de
+manera más rápida y eficiente.
+
+JavaScript. Es un lenguaje de programación dinámico que soporta construcción de
+objetos basado en prototipos. La sintaxis básica es similar a Java y C++ con la intención de
+reducir el número de nuevos conceptos necesarios para aprender el lenguaje.
+
+Técnicamente, JavaScript es un lenguaje de programación interpretado, por lo que no es
+necesario compilar los programas para ejecutarlos. En otras palabras, los programas escritos
+con JavaScript se pueden probar directamente en cualquier navegador sin necesidad de
+procesos intermedios.
+
+CSS. Los estilos CSS son un conjunto de normas que indican cómo el navegador debe
+visualizar cada uno de los diferentes elementos que contiene una página web. Aunque estas
+normas habitualmente están relacionadas con aspectos visuales y consideraciones
+decorativas, con CSS3 cada vez existen más posibilidades.
+
+Una de las utilidades más evidentes de CSS es la posibilidad de aplicar un estilo a múltiples
+páginas html, no teniendo que repetir los mismos estilos cada vez que creamos un html
+nuevo. En este caso se podría utilizar un único fichero CSS que afectaría al mismo tiempo a
+múltiples páginas html. También sería posible incluir el código CSS dentro del mismo
+fichero html, o bien añadir código CSS sólo dentro de un texto en concreto o incluso utilizar
+todas estas tres posibilidades conjuntamente.
+
+Bootstrap. framework de Twitter que permite crear interfaces web con CSS y Javascript que
+adaptan la interfaz dependiendo del tamaño del dispositivo en el que se visualice de forma
+nativa, es decir, automáticamente se adapta al tamaño de un ordenador o de una Tablet sin
+que el usuario tenga que hacer nada, esto se denomina diseño adaptativo o Responsive
+Design.
+
+30Aun ofreciendo todas las posibilidades que ofrece Bootstrap a la hora de crear interfaces web,
+los diseños creados con Bootstrap son simples, limpios e intuitivos, esto les da agilidad a la
+hora de cargar y al adaptarse a otros dispositivos.
+
+Módulos
+
+También se creó un modelado para el sistema de recomendación que permitiera el desarrollo
+de la aplicación para el restaurante y el resultado fue un diseño del sistema para iniciar la
+construcción del proyecto.
+
+A Continuación se describen los módulos que integran la aplicación desarrollada y la base
+tecnológica que se utilizó:
+
+Modulo autenticación: modulo encargado de verificar la identidad del usuario, que desea
+acceder a la aplicación del restaurante.
+
+Módulo gestión de usuarios: módulo que permite el control de la información de los
+usuarios del sistema y creación de cuentas de usuarios.
+
+Módulo de perfiles: modulo encargado de manejar las solicitudes de creación, modificación
+o eliminación de los permisos de acceso al sistema en los perfiles del usuario.
+
+Módulo gestión de pedidos: módulo que permite mantener los registros de compra de
+comidas en los diferentes clientes, la selección del plato, los datos del usuario que
+intervienen en el pedido; este módulo también está encargado de mandar la notificación al
+restaurante, la cual informa que hay un domicilio que entregar, de igual manera está
+encargado de responder a las solicitudes de los clientes.
+
+Módulo gestión de productos: este módulo ofrece la posibilidad de gestionar la información
+del menú de comidas que se venden en el restaurante, los ingredientes y precios.
+
+Base tecnológica de los módulos mencionados anteriormente.
+
+— Python
+
+— Framework django
+
+— HIML5+C5S53+Bootstrap
+— MySQL
+
+= Ajax
+
+Módulo de administración: módulo encargado de procesar los datos necesarios para
+establecer comunicación entre los diferentes componentes vinculados, también proporciona
+opciones necesarias de parametrización del sistema.
+
+Dependiendo del módulo donde se requiera, es responsable de recibir requerimientos, así
+como de mantener y actualizar información.
+
+Motor de Recomendación: es el encargado de gestionar la información relacionada a los
+procesos de recomendación, los cuales serán basados en los pedidos de platos, hechos
+anteriormente por los clientes utilizando historial de selección de ingredientes y de acuerdo al
+perfil, conocer el gusto o preferencias que tiene el usuario.
+
+31Módulo de Filtrado: En este módulo se identifican los historiales de compras resultado de
+las preferencias del usuario y colabora con la información de perfiles para personalizar las
+respuestas o sugerencias a las características del usuario.
+
+Modulo de Validacion: Este modulo se centra en la comprobacion de la existencia de los
+elementos agrupado en el motor de inferencia. (para evitar recomendaciones inconsistentes,
+ejemplo un plato que ya no es vendido). Ademas procesa los requerimientos del motor de
+inferencia y lleva nuevos requerimientos al gestor de contenidos.
+
+Motor de Inferencia: Este es el encargado de correlacionar la información filtrada basada en
+las configuraciones establecidas para identificar criterios de agrupación.
+
+Gestor de Contenido: Agente que gestiona todos los recursos y datos necesarios para el
+sistema de recomendación, es una estructura de almacenamiento de datos e información,
+relacionadas con la gestión de pedidos, alimenta la base de conocimiento del sistema
+Recomendador.
+
+Base tecnológica:
+
+— Agente Recomendador
+— Gestor de contenidos
+— Todas las tecnologías utilizadas anteriormente.
+
+32El modelo de la aplicación estará compuesto por los siguientes elementos:
+
+ 
+  
+ 
+ 
+     
+     
+ 
+   
+  
+
+PEDIDOS
+
+Recomendacion de comidas
+«Modulo gestión de usuarios
+-Modulo gestión de pedidos
+
+-Modulo gestión de productos
+
+-Modulo de administración
+
+  
+
+TECNOLOGIA
+
+  
+  
+  
+  
+
+Framework Django
+Framework Bootstrap
+Editor Sublime Text
+ETML5 + 0553
+MySQL
+XAMPP
+
+      
+ 
+  
+  
+  
+
+   
+
+RECOMENDACION
+Ara
+= Modulo de
+l- Filtrado inferencia
+Historial de
+Compras
+Modulo de
+Validacion
+Motor de
+Recomendacion
+
+   
+  
+
+   
+    
+ 
+ 
+  
+
+ 
+
+   
+ 
+ 
+
+> Gestor de | /
+contenido
+
+  
+ 
+
+Figura 8. Modelado de las tecnologías y los módulos de la aplicación.
+
+333.1.3. Fase 3. Construcción
+
+En esta fase se construyó un producto de software para la gestión de pedidos de los
+restaurantes, tomando como insumo todos y cada uno de los elementos obtenidos en las fases
+anteriores. Con lo anterior se obtiene una aplicación con acceso desde dispositivos móviles
+que soporte la gestión de pedidos y recomendaciones para un restaurante, aplicando los
+conocimientos adquiridos previamente.
+
+3.2. Selección de la Metodología de Desarrollo de
+Software
+
+SCRUM fue la metodología elegida para la realización de este trabajo de grado, teniendo en
+cuenta que este trabajo estuvo centrado en un desarrollo incremental de los requisitos del
+proyecto, es flexible a cambios y se adapta fácilmente a las necesidades del cliente, además
+produce resultados en periodos muy breves de tiempo.
+
+Está basado en un proceso constructivo, iterativo e incremental donde las iteraciones tienen
+duración fija. Este tipo de proceso de desarrollo permite hacer entregas parciales que se van
+complementando según avanza el proyecto. De esta manera se reducen los riesgos y a la vez
+el cliente va experimentando los resultados de proyecto.
+
+Se lleva un proceso iterativo para garantizar la realimentación de información y de requisitos
+una vez iniciado el desarrollo, así como la validación continua del sistema. Esto permite que
+cada iteración contemple ciclos de desarrollos completos y cortos, y obtener así rápidamente,
+una nueva versión con mejoras sobre las versiones anteriores. A la vez que este tipo de
+estrategia se enfoca más en las necesidades de los usuarios, instándolos a identificar sus
+prioridades en cada etapa del proyecto.
+
+Lista tareas iteración
+
+Proceso
+Scrum
+
+ 
+
+Planificación
+iteración ,o
+Selección
+requisitos
+
+  
+ 
+   
+
+    
+  
+   
+ 
+
+Sincronizaciones
+diarias
+15
+
+   
+
+I¡TERACIÓN
+150 30 dias
+
+  
+  
+  
+
+%
+
+Retrospectiva a
+a > Colaboración cliente - equipo
+gratis ng AA Colaboración intraequipo
+requisitos producto
+
+ProyectosAgiles.org
+Tec
+
+Figura 9. Proceso de la metodología Scrum
+
+34Scrum se centra en las funcionalidades con más prioridad y que pueden ser ejecutadas en un
+periodo corto de tiempo. Los ciclos de desarrollo llamados Sprints en Scrum, producen un
+incremento de funcionalidad terminado y operativo.
+
+El Product Backlog es la lista de requisitos priorizados que representa la visión del cliente
+respecto a los objetivos del proyecto, en donde el documento se modifica constantemente
+durante el desarrollo en las reuniones de revisión del Sprint. A través del Product Backlog
+también planificamos las iteraciones, agrupando de forma coherente funcionalidades de modo
+que no implique un esfuerzo extra completar todos los objetivos [28].
+
+A continuación se detallan las etapas por las cuales transita el proceso de desarrollo del
+proyecto.
+
+3.3. Ejecución de la Metodología de Desarrollo de
+Software
+
+3.3.1. Product Backlog
+
+A continuación se detalla una tabla del Product Backlog, que son las historias de usuario en
+forma de lista priorizada, dificultad y orden a desarrollar.
+
+HISTORIAS DE USUARIO PRIORIDAD(1-10) DIFICULTAD(1-5) DESARROLLAR
+HO001 10 2 2
+H002 10 4 1
+H003 10 y 11
+H004 9 3 24
+HO00OS 9 z 4
+HO006 o 3 5
+H007 10 5 6
+H008 10 5 3
+HO009 10 5 7
+HO0010 9 5 8
+H0011 8 4 E)
+H0012 9 4 10
+H0013 10 5 12
+H0014 7 5 23
+H0015 ll y 13
+H0016 10 3 14
+
+35Tabla 2. Product Backlog
+
+363.3.2. Sprints
+
+Sprint 1
+Análisis
+En la fase de análisis se especifica el sprint Backlog, en forma de lista de tareas que se
+
+realizan por sprint y las historias de usuario que reflejan los requisitos del sistema por
+prioridades.
+
+Sprint Backlog
+
+ 
+
+Definición de Sprint
+
+Universidad
+del Valle
+
+ 
+
+Fecha: 6/04/2014
+Documento: DSP001
+Revisión: 001
+
+Aplicación con acceso desde dispositivos móviles para la gestión de
+pedidos utilizando un agente Recomendador caso: María Juana
+
+ 
+
+Pila del Sprint
+
+ 
+
+ID Tareas Prioridad Duración Responsable
+
+ 
+
+Obtención del conocimiento necesario para trabajar
+con el framework django.
+
+Análisis:
+- Historias de usuario módulo autenticación
+=- Historias de usuario módulo gestión de
+usuarios
+=- Historias de usuario módulo gestión de
+perfiles
+Sp01 Diseño: > |
+E lagrama de clases: módulo de 10
+autenticación, módulo de usuarios, módulo $ semana | Equipo de trabajo
+de perfiles.
+= Prototipado
+Desarrollo:
+
+= Tecnologías utilizadas en la aplicación
+— Interfaz del módulo autenticación
+
+— Interfaz del módulo gestión de usuarios
+— Interfaz del módulo gestión de perfiles
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 3. Sprint Backlog
+
+37En el producto Backlog se incluyeron las historias de usuario para cada módulo de la
+aplicación; que especifican la funcionalidad que desea el cliente, a las cuales se les asigna un
+ID, un título, una descripción acorde al requerimiento, y se definen una serie de pruebas de
+aceptación.
+
+Las Tabla 4, 5 y 6 muestran las historias de usuario del módulo autenticación, gestión de
+
+usuarios y gestión de perfiles; las demás historias de usuario se encuentran definidas en las
+etapas y tareas correspondientes de cada sprint.
+
+Historias de usuario
+
+ 
+
+Definición de Historias de Usuario
+
+Universidad
+del Valle
+
+ 
+
+ 
+
+Fecha: 6/04/2014
+Documento: HUOO1
+Revisión: 001
+
+Aplicación con acceso desde dispositivos móviles para la gestión de
+pedidos utilizando un agente Recomendador caso: María Juana
+
+Módulo: Autenticación
+
+ID Titulo Descripción
+
+ 
+
+ 
+
+Descripción General: El usuario en la ventana principal del
+sistema, ingresa su nombre de usuario y contraseña para acceder a
+la aplicación.
+
+COMO Usuario Pruebas de Aceptación:
+H001 QUIERO iniciar sesión
+PARA acceder a la aplicación. 1. — Realizar el ingreso de un usuario al sistema.
+2. Verificar que el perfil del usuario sea acorde a los datos
+ingresados.
+
+Prioridad: 10
+
+Descripción General: El usuario en la ventana principal del
+sistema, selecciona la opción para registrarse en la aplicación,
+deberá llenar todos los campos con información del usuario y
+confirmar la creación.
+
+Nota: en caso de que el usuario sea el administrador, podrá crear
+los usuarios que desee.
+
+Pruebas de Aceptación:
+
+COMO usuario
+H002 | QUIERO poder registrarme 1. Realizar el ingreso de un usuario al sistema.
+
+PARA acceder a la aplicación. 2. Verificar la correcta creación del usuario.
+3. Verificar los permisos asociados al usuario creado.
+4. Verificar que los campos de los datos no estén vacíos.
+S. Verificar que los campos obligatorios (marcados con *),
+
+estén diligenciados.
+
+6. Verificar que no exista un nombre de usuario repetido.
+7. Verificar que el correo electrónico ingresado por el
+
+cliente no pertenezca a un usuario existente.
+
+Prioridad: 10
+
+ 
+
+ 
+
+ 
+
+ 
+
+38Descripción General: Estando el usuario previamente en el
+sistema con su sesión activada, selecciona la opción cerrar sesión
+en cualquier momento que lo desee.
+COMO Usuario
+H003 | QUIERO cerrar sesión Pruebas de Aceptación:
+PARA salir de la aplicación.
+1. Verificar el correcto cierre de sesión del usuario.
+
+Prioridad: 9
+
+Descripción General: El usuario en la ventana principal del
+sistema, selecciona la opción recuperar contraseña y se desplegara
+un campo de texto para que se ingrese un correo electrónico, donde
+se enviara el nombre de usuario y su contraseña.
+
+Puntos Clave: Se deberá garantizar que un correo electrónico esté
+
+COMO Usuario . o. .
+relacionado con una única cuenta de usuario.
+
+QUIERO recuperar la contraseña de acceso
+al sistema, en caso de haberla olvidado
+PARA poder acceder al mismo.
+
+H004
+Pruebas de Aceptación:
+
+l. Verificar la correcta recuperación de los datos en el
+correo electrónico.
+
+Prioridad: 9
+
+ 
+
+ 
+
+Tabla 4. Historias de Usuario, módulo de autenticación.
+
+39Definición de Historias de Usuario
+
+Universidad
+del Valle
+
+ 
+
+ 
+
+Fecha: 6/04/2014
+Documento: HUOO2
+Revisión: 001
+
+Aplicación con acceso desde dispositivos móviles para la gestión de
+pedidos utilizando un agente Recomendador caso: María Juana
+
+ 
+
+Módulo: Gestión de usuarios
+
+ID Titulo Descripción
+
+Descripción General: El usuario debe iniciar sesión con su
+nombre de usuario y contraseña, una vez ingresado al proceso de
+consulta le permitirá visualizar toda la información disponible para
+este usuario.
+
+Nota: en caso de que el usuario sea el administrador, podrá
+
+COMO usuario consultar cualquier tipo de usuarios en la aplicación.
+H0O0S | QUIERO poder consultarme
+PARA visualizar mi información. Pruebas de Aceptación:
+
+l. Verificar la correcta creación del usuario.
+2. Verificar los permisos asociados al usuario creado.
+
+Prioridad: 10
+
+Descripción General: El usuario debe iniciar sesión con su
+nombre de usuario y contraseña, una vez ingresado al proceso de
+modificar se visualizara toda la información disponible para este
+usuario, y deberá diligenciar los campos a modificar, con la nueva
+información.
+
+Nota: en caso de que el usuario sea el administrador, podrá
+
+COMO usuario modificar la información del usuario empleado
+
+QUIERO poder modificar mi información
+
+HOM PARA corregirla si es el caso.
+
+Pruebas de Aceptación:
+
+1. Verificar la correcta creación del usuario.
+Verificar los permisos asociados al usuario creado.
+Verificar que los campos de los datos no estén vacíos.
+Verificar que los campos obligatorios (marcados con
+*), estén diligenciados.
+
+a
+
+Prioridad: 10
+
+ 
+
+Descripción General: El administrador debe iniciar sesión con su
+nombre de usuario y contraseña, a continuación le permitirá
+visualizar todos los procesos disponibles para este usuario, siendo
+el Administrador el único responsable de la creación de usuarios.
+
+Una vez ingresado al proceso de creación el administrador deberá
+llenar todos los campos con información del usuario nuevo y
+
+COMO administrador . 2
+confirmar la creación.
+
+QUIERO poder eliminar usuarios
+
+H007 PARA la aplicación.
+
+Pruebas de Aceptación:
+
+l. Verificar la correcta creación del usuario.
+2. Verificar los permisos asociados al usuario creado.
+
+Prioridad: 10
+
+ 
+
+ 
+
+ 
+
+ 
+
+40Descripción General: El administrador debe iniciar sesión con su
+nombre de usuario y contraseña, a continuación le permitirá
+visualizar todos los procesos disponibles para este usuario, siendo
+el Administrador el único responsable de la creación de usuarios.
+
+Una vez ingresado al proceso de creación el administrador deberá
+llenar todos los campos con información del usuario nuevo y
+
+COMO administrador . o,
+confirmar la creación.
+
+HO0O8 | QUIERO poder crear usuarios
+
+PARA la aplicación. Pruebas de Aceptación:
+
+3. Verificar la correcta creación del usuario.
+4. Verificar los permisos asociados al usuario creado.
+
+Prioridad: 10
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 5. Historias de Usuario, módulo gestión de usuarios
+
+ 
+
+Definición de Historias de Usuario
+
+Universidad
+del Valle
+
+ 
+
+Fecha: 6/04/2014
+Documento: HUOO3
+Revisión: 001
+
+Aplicación con acceso desde dispositivos móviles para la gestión de
+pedidos utilizando un agente Recomendador caso: María Juana
+
+ 
+
+Módulo: Gestión de perfiles
+
+ID Titulo Descripción
+
+ 
+
+Descripción General: El administrador debe iniciar sesión con su
+nombre de usuario y contraseña, a continuación le permitirá
+visualizar todos los procesos disponibles para este usuario, siendo
+el Administrador el único responsable de la creación de perfiles.
+
+Una vez ingresado al proceso de creación el administrador deberá
+llenar todos los campos con información del perfil nuevo y
+confirmar la creación.
+
+COMO administrador
+
+QUIERO poder crear perfiles
+PARA la aplicación donde los perfiles
+deberán poder ser asignados a los usuarios.
+
+HO0O09
+
+Pruebas de Aceptación:
+
+1. Verificar la correcta creación del perfil.
+2. Verificar los permisos asociados al perfil creado.
+
+Prioridad: 10
+
+ 
+
+ 
+
+ 
+
+ 
+
+41Descripción General: El administrador debe iniciar sesión con su
+nombre de usuario y contraseña, una vez ingresado al proceso de
+consulta de perfil el administrador podrá visualizar la información
+de cada usuario, siendo el Administrador el único que puede
+consultar perfiles.
+
+ 
+
+ 
+
+ 
+
+COMO administrador
+QUIERO consultar perfiles 24
+Pruebas de Acepta :
+H0010 | PARA conocer la información de los muenas Le ACEPracIón
+Usuarios. 1. Verificar la correcta visualización de la consulta de
+perfiles.
+2. Verificar los permisos asociados al perfil consultado.
+Prioridad: 10
+Descripción General: El administrador debe iniciar sesión con su
+nombre de usuario y contraseña, una vez ingresa a modificar
+perfiles, el administrador podrá cambiar los permisos de cada
+usuario.
+Pruebas de Aceptación:
+COMO aciipistrador 1. Verificar la correcta modificación del perfil.
+QUIERO modificar perfiles cd j e
+H0011 j j 2. Verificar los permisos asociados al perfil modificado.
+PARA cambiar permisos de usuarios. Es z .
+3. Verificar que los campos de los datos no estén vacíos.
+4. Verificar que los campos obligatorios (marcados con *),
+estén diligenciados.
+Prioridad: 10
+Descripción General: El administrador debe iniciar sesión con su
+nombre de usuario y contraseña, una vez ingresa a eliminar
+perfiles, el administrador podrá borrar perfiles de usuarios si es el
+caso.
+Como administrador
+H0012 Quiero poder eliminar perfiles Pruebas de Aceptación:
+
+ 
+
+Para la aplicación.
+
+l. Verificar la correcta creación del perfil.
+2. Verificar los permisos asociados al perfil creado.
+
+Prioridad: 10
+
+ 
+
+Tabla 6. Historias de Usuario, módulo gestión de perfiles.
+
+42Diseño
+Prototipado
+
+A continuación se muestran algunas interfaces que se crearon para simular el diseño del
+sistema.
+
+Para ingresar como cliente debes rellenar el siguiente formulario.
+
+Campo obligatorio(*)
+
+Enviar
+
+ 
+
+Figura 10. Registro
+
+Perfiles Crear | Consultar | Modificar | Eliminar
+
+Usuarios Crear]Consultar] Modificar] Eliminar
+
+ 
+
+Figura 11. Sitio administrativo
+
+Username:
+
+(IS
+
+Password:
+
+¿No estas registrado? Registrate aquí.
+
+ 
+
+Figura 12. Login
+
+43Nombre:
+
+Email: leynathlGdgmail.com
+
+Direccion:
+
+Telefono:
+
+ 
+
+Figura 13. Modificar usuario
+
+¿Esta seguro?
+
+¿Esta seguro de que quiere borrar el el(los) usuario(s) "admin" ?
+Se borraran los siguientes elementos relacionados:
+
+Usuario: "admin"
+
+Si, estoy seguro
+
+ 
+
+Figura 14. Eliminar usuario
+
+Permisos:
+
+crear perfil
+
+modificar perfil
+consultar perfil
+eliminar perfil
+crear usuario
+modificar usuario
+consultar usuario
+eliminar usuario
+
+ 
+
+Figura 15. Crear perfil
+
+44Nombre: leyna tarin
+
+Email: leynathid2gmail.com
+Direccion:
+
+Telefono:
+
+Cambiar contraseña
+
+ 
+
+Figura 16. Mis datos personales
+
+Por favor, introduzca su contraseña antigua, por seguridad,
+y después introduzca la nueva contraseña dos veces para
+verificar que la ha escrito correctamente.
+
+ 
+
+Figura 17. Cambio de contraseña
+
+45Diagrama de clases de modulo autenticación, usuarios y perfiles
+
+El diagrama de clases es importante para el modelado y diseño de la aplicación, ya que sirve
+para representar las clases o módulos del sistema. A continuación se muestra el diagrama de
+clases de modulo usuarios, perfiles y autenticación para el restaurante María Juana.
+
+ 
+
+id AutoField
+
+content_type ForeianKey(id)
+
+user ForeignKey(id) id AutoField
+action_flag PositiveSmallintegerField user OneToOnetfield (id)
+action_time Date TimeField avatar imageField
+change_message TextField barrio TextField
+object_id TextField direccion TextFiela
+object_repr CharfField telefono Positive /ntegerField
+
+ 
+
+ 
+
+  
+
+user(logentry) user(perfil)
+
+   
+
+      
+   
+   
+   
+   
+   
+   
+        
+  
+ 
+   
+   
+
+id AutoField
+date_ joined Date TimeField
+email EmailField
+first_name CharField
+is_active BooleanField
+¡s_staff BooleanField
+¡s_superuser Booleanfield
+last_login Date TimeFiela
+last_name CharField
+
+¡cai password CharField
+
+mer username CharField oa
+
+   
+
+date_ joined Date TimeField
+
+email EmailField
+first_name CharField
+
+id AutoField
+
+content_type ForeignKey (id)
+codename charField permissions
+name charField group)
+
+       
+   
+   
+   
+   
+   
+       
+ 
+
+| ] is_active Booleanfield
+
+id AutoField is_staff BooleanField
+
+name  CharField is_superuser BooleanField
+last_login DateTimeField
+last_name CharField
+password CharField
+username CharFiela
+
+Figura 18. Diagrama de clases de los módulos usuarios, perfiles y autenticación
+
+46Desarrollo
+
+Interfaz del módulo autenticación
+
+En este módulo la aplicación mostrara una ventana con un formulario de registro, que
+una vez relleno y enviado, permitirá al usuario acceder a todo lo que ofrece el
+restaurante.
+
+Para ingresar como cliente debes rellenar
+
+Para ingresar como cliente debes rellenar el siguiente
+formulario
+
+el siguiente fermularis
+
+Nombre de usuario
+Contraseña:
+e-mail
+
+Nombre
+
+Apellidos
+
+Telefono o celular
+
+Direccion:
+
+Barrio:
+
+ 
+
+Figura 19. Registro de la aplicación
+
+Si un usuario está registrado en el sistema y desea entrar, deberá introducir su nombre
+de usuario y contraseña en la sección de login, situada en la parte de arriba de la
+aplicación.
+
+FOO 42201
+
+ 
+
+TOTO S
+
+Nombre de usuario:
+
+Contraseña:
+
+Es) | Es e ¿No estas registrado? Registrate aqui
+MERO ER
+
+¿No estas registrado? Registrate aqui. Sr Obuide mi contraseña
+
+Olvide mi contraseña
+
+Figura 20. Login de la aplicación
+
+47Interfaz del módulo gestión de perfiles
+
+En este módulo se mostrará la información del usuario, en la que podrá modificarla si
+lo desea.
+
+MT
+
+No mbre
+
+ia il Leyna
+
+Ay ellides
+
+Hincapie
+Nombre Leyna
+
+e- mall
+
+Apellidos Hincapie
+
+leynatarinhincapieO hotmail.com
+
+e-mail: leynatarinhincapiee' hotmail.com
+Telefono s celular
+
+Telefono o celular: 3164937068 e 3164937068
+Direccion cra 1 A+ 22-45 ¿AN Dirección
+
+cra1 AR 22-45
+Barrio Las Veraneras
+
+ER Bari
+ROS Jj Las Veraneras
+B WM ADSID, a NA
+, A (SR ADN ]
+
+Figura 21. Editar perfil
+
+ 
+
+Interfaz del módulo gestión de usuarios
+
+ 
+
+ 
+
+Nr adm Django A MR
+Escoja usuario a modificar
+a Buscar
+Por es staff
+nr vir a
+
+Nombre de usuario Dirección de correo electrónico Nombre Apellidos Es staff
+
+admin adminGiadmin.com o ;
+Por es superusuario
+
+ana ana(Mhotmail.com ana lucia marin o 
+carmen masa) hotmail.com carmen masa o
+
+fulanito fulanito fulanito.com Fulanito Fulano o .
+Por activo
+
+jalme jaime(Ojaime.net jaime jaimon o =
+
+jose joseWgmail.com jose hincapie o
+
+leyna leynatarinhincapie(Q hotmail.com Leyna Hincapie o
+
+loco locofMhotmail.com loco loco o
+
+luzmila luzmila(2gmail.com mila londo o
+
+marinaa sofia(2)hotmail.com mariana escoba o
+
+mia mia(Mteamo.com Mia Dinda o
+
+motas motasQ hotmail.com motas london o
+
+pavel pavel2)hotmail.com pavel marin o
+
+pepe PEPITO Perez o
+
+RAUL RAUL GO hotmail.com RAUL o
+
+sofia sofia) hotmail.com sofia escobar o
+
+tata aaa(Mhotmail.com motas motas o
+
+tux tuxGlinux.com Tux Bogotano o
+
+Figura 22. Usuarios de la aplicación
+
+48MR
+
+ 
+
+Inicio >» Auth >» Usuarios » admin
+
+Modificar usuario AO AECE
+Nombre de admin
+usuario: ó
+Requerido. 30 caracteres o menos. Letras, digitos y 2/./+/-/_ solamente.
+Contraseña: algoritmo: pbkdf2_sha256 iteraciones: 12000 sal: bUj5Ys*99* función resumen: ¡ta v2 nv“ POOOOOOnERo oa Raoooooooccaccacooonaad
+
+Las contraseñas no se almacenan en bruto, así que no hay manera de ver la contraseña del usuario, pero se puede cambiar la contraseña mediante este formulario .
+
+ 
+
+To
+Nombre:
+Apellidos:
+Dirección de adminGadmin.com
+
+correo
+electrónico:
+
+9) Activo
+
+Indica si el usuario debe ser tratado como activo. Desmarque esta opción en lugar de borrar la cuenta.
+
+(2) Es staff
+
+Indica si el usuario puede entrar en este sitio de administración.
+
+(2) Es superusuario
+
+Indica que este usuario tiene todos los permisos sin asignárselos explicitamente.
+
+Los grupos a los que este usuario pertenece. Un usuario obtendrá todos los permisos concedidos a cada uno sus grupos. Mantenga presionado "Control", o "Command" en un Mac, para seleccionar más de una opción.
+Grupos: grupos Disponibles Y PA dos > dh
+e
+
+QU Filtro
+
+Figura 23. Modificar usuario en la aplicación
+
+ 
+
+Inicio > Auth > Usuarios > Añadir usuario
+
+Añadir usuario
+Primero introduzca un nombre de usuario y una contraseña. Luego podrá editar el resto de opciones del usuario,
+
+Nombre de usuario: Lo]
+
+Requerido. 30 caracteres o menos. Letras, digitos y (2/./+/-/_ solamente.
+
+ 
+
+ 
+
+Contraseña:
+Contraseña
+(confirmación): :
+Introduzca la misma contraseña que arriba, para verificación.
+Grabar y añadir otro | Grabar y continuar editando | [Grabar
+. e . . . .
+Figura 24. Añadir usuario en la aplicación
+Selecciona todos (Y) O Eliminar todos
+Permisos especificos para este usuario. Mantenga presionado "Control", o "Command" en un Mac, para seleccionar más de una opción.
+Permisos de permisos de usuario Disponibles Y
+usuario: E
+a Filtro
+admin | entrada de registro | Can add log entry a
+
+admin | entrada de registro | Can change log entry
+admin | entrada de registro | Can delete log entry
+auth | grupo | Can add group
+
+auth | grupo | Can change group
+
+auth | grupo | Can delete group
+
+auth | permiso | Can add permission
+
+auth | permiso | Can change permission
+
+auth | permiso | Can delete permission
+
+auth | usuario | Can add user
+
+auth | usuario | Can change user
+
+auth | usuario | Can delete user
+
+contenttypes | tipo de contenido | Can add content type y cs
+
+00
+
+Selecciona todos Y) O Eliminar todos
+
+A O
+Último inicio — Fecha: |01/11/2014| Hoy |
+de sesión:
+
+Hora: 08:43:05 Ahora | (1)
+
+Fecha de Fecha: 01/11/2014 | Hoy |
+alta:
+Hora: 08:43:05 | Ahora | (|)
+% Eliminar Grabar y añadir otro Grabar y continuar editando | [Grabar |
+
+ 
+
+Figura 25. Eliminar usuario de la aplicación
+
+49Sprint 2
+
+Análisis
+
+En la fase de análisis se especifica el sprint Backlog, en forma de lista de tareas que se
+realizan por sprint y las historias de usuario que reflejan los requisitos del sistema por
+prioridades.
+
+Sprint Backlog
+
+ 
+
+Definición de Sprint
+
+Universidad
+del Valle
+
+ 
+
+Fecha: 6/04/2014
+Documento: DSP001
+Revisión: 001
+
+Aplicación con acceso desde dispositivos móviles para la gestión de
+pedidos utilizando un agente Recomendador caso: María Juana
+
+ 
+
+Pila del Sprint
+
+ 
+
+ID Tareas Prioridad Duración Responsable
+
+Análisis:
+— Historias de usuario módulo gestión de
+productos
+Diseño:
+— Diagrama de clases: módulo gestión de 4 semana | Equipo de trabajo
+Sp02 Lo 10
+productos y gestión de pedidos.
+Desarrollo:
+— Interfaz de la página principal y de
+servicios.
+
+— Interfaz del módulo gestión de productos.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 7. Sprint backlog
+
+SOHistorias
+
+de usuario
+
+ 
+
+Universidad
+del Valle
+
+Fecha: 7/04/2014
+Documento: HUOO2
+Revisión: 001
+
+Definición de Historias de Usuario
+
+Aplicación con acceso desde dispositivos móviles para la gestión de
+pedidos utilizando un agente Recomendador caso: María Juana
+
+ 
+
+Módulo: Gestión de productos
+
+ 
+
+ 
+
+ID Titulo Descripción
+Descripción General: El cliente deberá ingresar al sistema con su
+nombre de usuario y su contraseña. Una vez en el menú, podrá
+navegar por los diferentes platos.
+COMO cliente
+H0013 QUIERO navegar por los diferentes platos | Pruebas de Aceptación:
+
+ 
+
+PARA agregarlos al carrito de compras.
+l. Verificar la correcta navegación por la ventana del
+menú de platos.
+
+Prioridad: 10
+
+Descripción General: El cliente podrá ver los servicios que ofrece
+el restaurante sin necesidad de autenticarse, en donde se visualizan
+
+ 
+
+ 
+
+COMO cliente a - 2 Dor 3
+oo fotografías que muestran la decoración y organización del
+QUIERO ver los servicios que ofrece el
+H0014 restaurante.
+restaurante
+PARA conocer las instalaciones.
+Prioridad: 10
+Descripción General: El cliente podrá ver la sesión de inicio sin
+COMO cliente eScrIpcio ene a me pacta Y j oz
+oz o necesidad de autenticarse, allí se visualiza la información general
+QUIERO ver información de interés,
+La del restaurante.
+H0015 como la descripción general del restaurante
+PARA conocer el ambiente y la atención
+que llenen. Prioridad: 10
+Descripción General: El administrador es el responsable de crear
+las categorías de platos, el mismo que debe estar previamente
+autenticado, deberá ingresar al sitio administrativo, e ir a la
+categoría de platos y añadir categoría.
+COMO administrador
+H0016 QUIERO crear las categorías de platos Pruebas de Aceptación:
+
+ 
+
+ 
+
+PARA añadir platos a esas categorías.
+l. Verificar la correcta creación de la categoría de platos.
+2. Verificar que los campos de los datos no estén vacíos.
+
+Prioridad: 10
+
+ 
+
+ 
+
+51Descripción General: El administrador es el responsable de
+modificar las categorías de platos, el mismo que debe estar
+
+ 
+
+ 
+
+ 
+
+COMO administrador previamente autenticado, deberá ingresar al sitio administrativo, e
+QUIERO modificar las categorías de | ira la categoría de platos y modificar la categoría.
+platos
+PARA realizar cambios en el nombre, | Pruebas de Aceptación:
+H0017 o
+descripción e imagen de los productos del
+menú general. 3. Verificar la correcta modificación de la categoría de
+platos.
+4. Verificar que los campos de los datos no estén vacíos.
+Prioridad: 10
+Descripción General: El administrador es el responsable de
+eliminar las categorías de platos, el mismo que debe estar
+previamente autenticado, deberá ingresar al sitio administrativo, e
+COMO administrador ir a la categoría de platos y eliminar categoría.
+QUIERO eliminar las categorías de platos rr
+HO018 PARA borrar algún producto del menú Pruebas de Aceptación:
+general. añ o .
+l. Verificar la correcta eliminación de la categoría de
+platos.
+Prioridad: 10
+Descripción General: Una vez creadas las categorías de platos, el
+administrador debe ingresar a productos, e ingresar los datos del
+producto, escogiendo la categoría a la que pertenece y su
+descripción etc.
+HO0019 COMO administrador 24
+QUIERO crear productos Pruebas de Aceptación:
+Laa nero ment amplios de platos, l. Verificar la correcta creación de productos.
+2. Verificar que los campos de los datos no estén vacíos.
+Prioridad: 9
+Descripción General: El administrador debe ingresar a productos,
+seleccionar el plato y modificar los datos del producto.
+COMO administrador 24
+H0020 QUIERO modificar productos Pruebas de Aceptación:
+PARA r calizar cambios en el nom bre, l. Verificar la correcta modificación de productos.
+descripción, precio, imagen, código, e ¿ z
+2. Verificar que los campos de los datos no estén vacíos.
+ingredientes de los productos.
+Prioridad: 9
+Descripción General: El administrador debe ingresar a productos
+y seleccionar el plato a eliminar.
+H0021 COMO administrador Pruebas de Aceptación:
+
+ 
+
+QUIERO eliminar productos
+PARA borrar algún producto del menú de
+platos.
+
+1. Verificar la correcta eliminación de productos.
+2. Verificar que los campos de los datos no estén vacíos.
+
+Prioridad: 9
+
+ 
+
+32COMO administrador
+QUIERO crear ingredientes
+
+Descripción General: El administrador debe ingresar al sitio
+administrativo, e ir a ingredientes y añadir ingredientes.
+
+ 
+
+ 
+
+H0022 PARA tener gran variedad de ingredientes Pruebas de Aceptación:
+por plato. l. Verificar la correcta creación del ingrediente.
+Prioridad: 10
+Descripción General: El administrador debe ingresar al sitio
+administrativo, ir a ingredientes, seleccionar el ingrediente y
+modificar el nombre del ingrediente.
+COMO administrador
+H0023 QUIERO modificar ingredientes Pruebas de Aceptación:
+PARA realizar cambios en el nombre.
+1. Verificar la correcta modificación del ingrediente.
+Prioridad: 10
+Descripción General: El administrador debe ingresar al sitio
+administrativo, ir a ingredientes, seleccionar el ingrediente y
+seleccionar eliminar ingrediente.
+COMO administrador
+H0024 QUIERO eliminar ingredientes Pruebas de Aceptación:
+
+ 
+
+PARA borrar algún ingrediente de platos.
+
+ 
+
+1. Verificar la correcta eliminación del ingrediente.
+
+Prioridad: 10
+
+Tabla 8. Historias de Usuario, módulo gestión de productos
+
+53Diseño
+
+Diagrama de clases del módulo gestión de productos y pedidos
+
+       
+     
+       
+ 
+
+hd AutoField
+ordenCompra — ForeignKey (id)
+producto ForeianKey (1d)
+cantidad integerField
+
+productolordenproducto) | ordenComprafordenproducto)
+
+AutoField Hol AutoField
+
+ForeignKey (1d) usuario ForeignKey (1d)
+
+IintegerField enviado BooleanField
+descripcion CharField fecha Datefield
+
+imagen imageField ¡iMpuestos FloatField
+
+va FloatField revisado BooleanfField
+nombre CharField total FloatField
+precio FloaíField
+
+ 
+
+tipoí(producto) | ingredientes(producto)
+
+CS
+
+hd AutoField
+descripcion CharField
+
+id AutoField
+
+nombre  CharField
+
+ 
+
+enlaceHtmi CharfField
+imagen imagerField
+nombre CharfField
+
+ 
+
+Figura 26. Diagrama de clases de los módulos productos y pedidos.
+
+54Desarrollo
+
+Interfaz del módulo gestión de productos
+
+Una vez autenticado en la aplicación, el cliente tiene acceso desde el menú situado en la parte
+superior, al carrito de compra, a los servicios que tiene el restaurante, al menú de platos, al
+historial de órdenes realizadas, a ver su perfil y a cerrar sesión.
+
+a A TA TAN A ASA IA ES
+
+Tara ¡NA mu Servicio ANN NES 1
+
+RIN
+
+[AE E
+
+AMA
+
+IE ES
+
+ 
+
+Figura 27. Menú de la aplicación
+
+Una vez escogida cualquiera de las opciones del menú general, aparece una pantalla con la
+descripción detallada de cada plato.
+
+Ll IA Y MERO
+
+12.11.85.167
+
+TT
+
+PUNTA DE ANCA TERNERA A LA LLANERA
+
+A TE A A
+asada, Vegetales , Maduro. MN
+
+COSTILLA AHUMADA BBQ E AA E
+
+Yucas, Vegetales , Patacon, Costilla. > 00 e A LA
+<< y A TN
+
+A
+
+PARRILLADA CON COSTILLA + CHURRASCO
+
+A A a e) bl A A A
+A A >. A A
+Cerdo a la plancha.
+
+ 
+
+Figura 28. Platos de la aplicación
+55Interfaz de la página principal y de servicios
+
+La interfaz principal cuenta con una descripción del restaurante María Juana. Además en la
+parte superior de la pantalla aparece el menú principal, con las siguientes opciones que
+siempre estarán visibles: Inicio que mostrará la información del restaurante, nuestro menú,
+los servicios, iniciar sesión, registro.
+
+IA a
+
+A RATO RARO AR E A RA
+A ALS A LT RS RAS
+momentos especiales con tus familiares, amigos y grupos de trabajo.
+
+RT TN A TR LES AR RAT A A
+Nuestros empleados quedaran informados al minuto y estaran, a su disposicion. Reservaciones (57) (2) 2247011-316 5399997 Cr27A 37-42
+
+USO
+
+ 
+
+1 UD Y IE a IA Y E
+52.11.85.167 : 52.11.85.167 :
+
+RT
+
+MIITOT
+
+ 
+
+Figura 29. Página principal del restaurante
+
+S6Figura 30.
+
+Salón para celebración de fiestas,
+eventos empresariales con capacidad
+INSI
+
+SAA AN
+SEAN
+E ROS
+
+encargaremos de que tu cumpleaños
+SAS
+LS
+
+Déjate cautivar por una excelente
+atención y permite que tu pareja se
+ISE AAA
+
+Servicios del restaurante
+
+57
+
+EVENTOS:
+
+datén para celebración de
+
+1
+
+IDEN:
+
+Ea 7]
+capacidad para SO
+
+AIDA ITÍS
+
+RN
+Lun
+III
+TITAN
+OTTO
+TIC
+PAG A
+(ORT
+
+TISprint 3
+
+Análisis
+
+En la fase de análisis se especifica el sprint Backlog, en forma de lista de tareas que se
+realizan por sprint y las historias de usuario que reflejan los requisitos del sistema por
+prioridades.
+
+Sprint Backlog
+
+ 
+
+Definición de Sprint
+
+Universidad
+del Valle
+
+ 
+
+Fecha: 6/04/2014
+Documento: DSP001
+Revisión: 001
+
+Aplicación con acceso desde dispositivos móviles para la gestión de
+pedidos utilizando un agente Recomendador caso: María Juana
+
+ 
+
+Pila del Sprint
+
+ 
+
+ID Tareas Prioridad Duración Responsable
+
+ 
+
+Análisis:
+— Historias de usuario módulo
+gestión pedidos
+
+Diseño:
+— Diagrama de clases: módulo
+sp03 gestión de pedidos (el cual se 10
+encuentra relacionado en el
+módulo gestión productos).
+
+4 semana Equipo de trabajo
+
+Desarrollo:
+— Interfaz del módulo gestión de
+pedidos.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 9. Sprint Backlog
+
+58Historias
+
+de usuario
+
+ 
+
+Universidad
+del Valle
+
+ 
+
+   
+
+Definición de Historias de Usuario
+
+Fecha: 8/04/2014
+
+Documento: HUOO3
+
+Revisión: 001
+
+Aplicación con acceso desde dispositivos móviles para la gestión de
+pedidos utilizando un agente Recomendador caso: María Juana
+
+ 
+
+Módulo: Gestión de pedidos
+
+ 
+
+ 
+
+ 
+
+ID Titulo Descripción
+Descripción General: El cliente deberá ingresar al sistema con su
+COMO cliente nombre de usuario y contraseña, realizar el pedido e ir a la pestaña
+HO025 QUIERO tener un carrito de compras carrito de compras, para visualizar la orden.
+PARA realizar la orden del pedido.
+Prioridad: 10
+Descripción General: El cliente en la ventana del carrito de
+compras, da clic en el botón de eliminar platos, o cambia la
+cantidad de platos seleccionados con anterioridad, si lo desea.
+COMO cliente
+QUIERO eliminar o cambiar la cantidad | Pruebas de Aceptación:
+HO0026 de platos seleccionados en el carrito de
+compras l. Verificar que el botón de eliminar platos funcione
+PARA modificar la orden del pedido a correctamente.
+realizar. 2. Verificar que el campo de cantidades funcione
+correctamente.
+Prioridad: 10
+Descripción General: El cliente deberá ingresar al sistema con su
+nombre de usuario y su contraseña. Una vez en el menú propio del
+usuario, podrá navegar por los diferentes platos, agregarlos al
+carrito y dar clic en el botón pedir para enviar la orden al
+COMO cliente restaurante.
+H0027 lote enviar la orden del pedido al Pruebas de Aceptación:
+RARA zecibiz el domicilio, 1. — Correcto envío de la orden del pedido, con su respectiva
+notificación a la persona que recibe el mensaje.
+Prioridad: 10
+
+ 
+
+ 
+
+ 
+
+59COMO cliente
+QUIERO visualizar mis órdenes
+
+Descripción General: El cliente deberá ingresar al sistema con su
+nombre de usuario y su contraseña, e ir a la pestaña de Mis
+órdenes, y podrá visualizar la tabla con la información del ID del
+producto, fecha, productos pedidos y precio.
+
+ 
+
+ 
+
+H0028 PARA tener la información detallada de
+los productos pedidos. Pruebas de Aceptación:
+1. Correcta visualización de las órdenes.
+Prioridad: 10
+Descripción General: El administrador estando previamente en el
+sistema con su sesión activada, deberá ingresar a la pestaña lista de
+pedidos, donde podrá visualizar la tabla del listado de las órdenes.
+COMO administrador
+HO029 QUIERO visualizar un listado de pedidos
+PARA tener más detalle de la orden del | Pruebas de Aceptación:
+cliente.
+1. Correcta visualización de la ventana lista de pedidos.
+Prioridad: 8
+Descripción General: El administrador estando previamente en el
+sistema con su sesión activada, deberá ingresar a la pestaña lista de
+COMO administrador pedidos, donde podrá visualizar los domicilios pendientes.
+QUIERO que la aplicación mande la
+H0030 notificación informando cuando hay un | Pruebas de Aceptación:
+domicilio
+PARA atender. 1. Correcta visualización de las notificaciones.
+Prioridad: 8
+Descripción General: El administrador del restaurante o el
+encargado de contestar el teléfono, al estar con sesión activa, puede
+COMO administrador navegar poa Se peaicos de los clientes y seleccionar el botón
+QUIERO enviar una confirmación de :
+recibido el pedido y
+H0031 PARA los clientes. Pruebas de ¿xeeptación:
+
+ 
+
+1. Correcto envío de confirmación al cliente, con su
+respectiva notificación a la persona que recibe el
+mensaje.
+
+Prioridad: 8
+
+Tabla 10. Historias de Usuario, módulo gestión de pedidos.
+
+60Desarrollo
+
+Interfaz del módulo gestión de pedidos
+
+El cliente podrá ver su pedido desde el carrito de compras y si lo desea modificarlo,
+añadiendo o quitando productos.
+
+IA Y Y E
+
+CARRITO DE COMPRAS Y
+
+Cantidad Precio Subtotal Eliminar
+
+1 de 136000 3600.0 e
+6000.0 6000.0 e
+18500.0 18500.0 e
+
+ 
+
+ 
+
+Parrillada montañera
+
+ 
+
+ 
+
+Ternere a la llanera
+
+Costilla ahumada bbq
+
+ 
+
+ 
+
+Punta de anca
+
+ 
+
+ 
+
+ 
+
+ 
+
+TOTAL: 74000
+TOTAL: 28100
+
+  
+
+Figura 31. Carrito de compras del restaurante
+
+ 
+
+Fecha Nombre del cliente Enviar o Cancelar
+
+1 de Noviembre de motas [7
+
+2014
+
+ 
+
+ 
+
+ 
+
+1 de Noviembre de motas Cancelado
+2014
+
+2 de Noviembre de motas ua
+
+2014
+
+5 de Noviembre de motas 7 |x|
+2014
+
+ 
+
+ 
+
+ 
+
+2 de
+Nowiembre
+de 2014
+
+ 
+
+ 
+
+13 de Febrero de motas Enviado —
+2015 ER e ,
+22 de Febrero de motas ua coso de 204
+2015
+
+2 de Marzo de 2015 motas aa
+
+28 de Marzo de 2015 motas Enviado
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+24 de Abril de 2015 Iris9112 ua
+26 de Abril de 2015 hsalazar Cancelado
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+T
+
+26 de Abril de 2015 leyna ua
+T
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figura 32. Lista de pedidos
+
+61¡ ¡ Nombre del cliente: hsalaza
+Nombre del cliente: jose Nombre del oliente: haalazar
+
+ 
+
+Telefono:
+
+ 
+
+Correo electronico: josefgmail.com
+
+ 
+
+Direccion de pedido: DR Direccion de pedide
+
+Item Cantidad
+
+ 
+
+Porción de yucas 1
+
+ 
+
+Arepitas
+
+ 
+
+L
+Porción de papas a la francesa
+
+ 
+
+ 
+
+TOTAL: 155000
+
+ 
+
+Figura 33. Historial de compras
+
+ 
+
+> FOO 439
+TT a
+
+Fecha Prsductos Precio
+
+ 
+
+26 de Camey | 180000
+Abuil de pelle
+2015 Porción de
+papas a la
+francesa
+Limenada
+
+l
+cerejada
+
+ 
+
+Porción de | 120000
+yucas
+Porción de
+anillos de
+cebolla
+
+, /
+Limenada
+
+Fecha Productos Precio
+5 de Enero de 2015 Perro tradicional. 240000
+7 de Enero de 2015 Pollo y carne, Campesina. 250000
+
+20 de Enero de Nuggets , Hamburguesa. 240000
+2015
+
+5 de Febrero de Limonada natural. 30000
+2015
+
+7 de Febrero de Limonada natural. 30000
+2015
+
+7 de Febrero de Nuggets , Hamburguesa. 36000.0
+2015
+
+13 de Febrero de + libra de res. 306000
+2015
+
+ 
+
+ 
+
+ 
+
+nábural
+
+ 
+
+ 
+
+20 de Porción de | 28100.0
+Maya de | yucos
+2015 | Cerwejs
+
+importadas
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figura 34. Página de órdenes
+
+62Sprint 4
+
+Análisis
+
+En la fase de análisis se especifica el sprint Backlog, en forma de lista de tareas que se
+realizan por sprint y las historias de usuario que reflejan los requisitos del sistema por
+prioridades.
+
+Sprint Backlog
+
+ 
+
+Definición de Sprint
+
+Universidad
+del Valle
+
+ 
+
+ 
+
+Fecha: 6/04/2014
+Documento: DSP001
+Revisión: 001
+
+Aplicación con acceso desde dispositivos móviles para la gestión de
+pedidos utilizando un agente Recomendador caso: María Juana
+
+ 
+
+ 
+
+ 
+
+Pila del Sprint
+ID Tareas Prioridad Duración Responsable
+Análisis:
+— Historias de usuario módulo de
+recomendación.
+Diseño:
+— Diagrama de clases: módulo de
+recomendación.
+Sp04 — Modelo relacional de la Equipo de trabajo
+o, 10 8 semanas
+aplicación.
+— Diagrama de componentes.
+Desarrollo:
+— Interfaz del módulo
+recomendación.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 11. Sprint Backlog
+
+63Historias de usuario
+
+ 
+
+Definición de Historias de Usuario
+
+Universidad
+del Valle
+
+ 
+
+Fecha: 8/04/2014
+Documento: HUOO3
+Revisión: 001
+
+Aplicación con acceso desde dispositivos móviles para la gestión de
+pedidos utilizando un agente Recomendador caso: María Juana.
+
+ 
+
+Módulo: Recomendación
+
+ 
+
+ID Titulo Descripción
+
+ 
+
+Descripción General: El cliente deberá ingresar al sistema con su
+nombre de usuario y su contraseña, e ir al menú de platos donde se
+desplegaran las recomendaciones, si el usuario ha realizado pedidos
+con anterioridad.
+
+COMO cliente con historial de pedidos
+QUIERO que la aplicación me recomiende
+
+platos
+PARA facilitar la elección de la comida.
+
+H0032
+
+Prioridad: 10
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 12. Historias de Usuario Modulo de Recomendación
+
+64Diseño
+
+Diagrama de clases del módulo de recomendación
+
+id AutoField
+object _ctype ForeignkKey (id) hd AutoField |
+related _object_ctype  ForeignKey (1d) object ctype  ForeignkKey (fa)
+
+object_id PositivelntegerFiela object_id Positive/ntegerField
+object_site Positive/ntegerField object_site Positive/ntegerField
+related object_id Positive/ntegerField score FloatField
+
+related _object_site Positive /ntegerField user Positive/ntegerField
+2core FloatField
+
+ 
+
+abstract abstract
+inheritance inheritance
+
+ 
+
+object_ctype  ForeignKey (id)
+object_id PositivelntegerField
+object _site PositivelntegerField
+
+ 
+
+Figura 35. Diagrama de clases del módulo recomendación
+
+65Modelo Relacional
+
+Para finalizar, se presenta el modelo relacional donde se muestra la estructura de la base de
+datos utilizada.
+
+7 idINT(1D)
+% producto_id INT(11)
+
++ ingrediente_id INT(11) id INT(11)
+“+ nombre VAROHAR(140)
+
+IS
+
+PidINT(1D
+
+% nombre VARCHAR(50)
+
+% descripcion VARCHAR(500)
+% precio DOUBLE
+
+imagen VARCHAR(100)
+
+% tipo_id INT(11)
+
+% codigo INT(11) ao,
+> iva DOUBLE
+
+ 
+
+=> % producto_id INT(11)
+% ordenCompra_id INT(11)
+“% cantidad INT(11)
+
+7 id INT(11)
+
+“% nombre VAROHAR(30)
+4h % descripcion VAROHAR(300)
+“+ imagen VARCHAR( 100)
+
++ enlaceHtml Y ARCHAR(100)
+
+id INT(1D)
+
+% usuario_id INT(11)
+% total DOUBLE
+
+“% impuestos DOUBLE
+% fecha DATE
+
+% revisado TINYINT(1)
+% enviado TINYINT(1)
+
+PidINT(1D)
+
+% name VARCHAR(100)
+
+% app_label VARCHAR(100)
+“2 model VARCHAR(100)
+
+ 
+
+ 
+       
+   
+  
+
+Y idINT(11)
+% user_id INT(11)
+Y telefono INT(10)
+
+Y idINT(1D)
+
+9 password V ARCHAR(128)
+% last_Llogin DATETIME
+
+> is_superuser TINYINT(1)
++ username V ARCHAR(30)
+
+5 avatar VARCHAR( 100)
+% django_content_type_id INT(11)
+
+  
+   
+ 
+
+a a pal
+
++ first name VARCHAR(30)
+2 last_name VARCHAR(30)
+“% email VARCHAR(75)
+
+Sis staff TINYINT(1)
+
+% is_active TINYINT(1)
+
+% date _ joined DATETIME
+
+7 id INT(11)
+% object_ctype_id INT(11)
+% object_id INT(10)
+
+% object_site INT(10)
+% user INT(10)
+% score DOUBLE
+
+ 
+
+Figura 36. Modelo Relacional
+
+66Diagrama de componentes
+
+Para finalizar el Sprint se presenta el diagrama de componentes de la aplicación web, donde se muestra graficamente los componentes
+que conforman el sistema dentro de la arquitectura y su interaccion.
+
+<<App Web>>
+
+a] a] <<Web Server>> <<DataBase Server>>
+
+Autenticacion Productos
+Frontend = |]
+|] Backend a | My SQL
+
+3] HTMIL DataBase
+CSS
+
+: ; Python
+
+usuarios JScript DJANGO
+
+JQuery
+Ajax
+BOOTSTRAP
+
+Base de Datos
+
+S]
+
+Perfiles Recomendacion
+
+Agente Recomendador
+
+S]
+
+django-recommends
+
+ 
+
+Figura 37. Diagrama de componentes
+
+67Desarrollo
+
+Interfaz del módulo Recomendación
+
+Para que el sistema genere las recomendaciones el usuario debe haber realizado al menos un
+pedido con dos platos seleccionados para completar un perfil que permita al sistema ofrecer
+recomendaciones de calidad desde su módulo de recomendación. Para establecer las
+recomendaciones a un usuario el agente recomendador utiliza técnicas de filtrado
+colaborativo [29], basadas en el algoritmo del vecino más cercano [29, 30].
+
+El proceso que sigue el agente para ofrecer recomendaciones a un usuario es el siguiente:
+e Se determinan las preferencias del usuario teniendo en cuenta su historial de compra.
+
+e El agente compara los historiales de compra del usuario contra las historiales de otros
+usuarios y encuentra las personas con gustos similares. El agente utiliza el coeficiente
+de correlación de Pearson [29], para determinar las similaridades entre usuarios. En
+el marco teórico se encuentra una explicación detallada de cómo se utiliza este
+coeficiente en los algoritmos de filtrado colaborativo.
+
+e A partir de esta información, se obtendrá una relación de preferencia completa y
+posteriormente, el perfil de usuario. El agente recomienda aquellos productos que
+han ordenado los usuarios similares que todavía no han sido ordenados por el actual
+usuario.
+
+Se hizo uso del paquete django-recommends la cual es una librería que provee métodos para
+trabajar con algoritmos de inteligencia colectiva basada en usuarios. Esta librería está
+compuesta de un conjunto de métodos para obtener recomendaciones utilizando la opinión
+(votos) de los usuarios comparada con la opinión de un usuario específico. De éste modo, se
+obtienen los elementos más populares del sistema, y dicha información puede ser utilizada
+para que un usuario pueda descubrir que otros ítems pueden ser de su interés [27].
+
+A Y Y EY
+
+RECOMENDACIONES
+
+ANDA
+
+(1 ATA
+bol p ra
+
+4
+AS
+: 3 O IATA 7 Y
+5 O
+
+O
+
+ 
+
+Figura 38. Recomendación de platos
+
+La aplicación se encuentra disponible en: http://52.11.85.167:8000/
+
+68Capítulo 4
+
+Desarrollo de pruebas
+
+En este capítulo se presenta el proceso de pruebas de la aplicación en donde se realizaron
+pruebas al modelo, vistas y formularios, las pruebas unitarias en Django utilizan un módulo
+de la biblioteca estándar de Python unittest, este módulo soporta fixtures, bancos de pruebas,
+y un test runner que permite pruebas automatizadas para el código.
+
+Además se presenta la cobertura de la aplicación, que se utiliza para medir la efectividad de
+las pruebas, donde se muestra el porcentaje del código fuente que ha sido probado. En
+Django se puede integrar fácilmente con coverage.py, una herramienta para medir la
+cobertura de código de programas en Python.
+
+A continuación los reportes de pruebas muestran que los test han pasado con éxito.
+
+Unit Test Report
+
+Start Time: 2015-03-30 21:36:55
+Duration: 0:01:51.695000
+Status: Pass 8
+
+Show Summary Failed All
+
+Test Group/Test case Count ES (11 a View
+
+test_agregarProducto
+
+ 
+
+test_detallePedido
+
+ 
+
+test_historialCompra
+
+ 
+
+test_inicio
+
+ 
+
+test_listaPedidos
+
+ 
+
+0 jf0 [fon [fon [fo [fun
+un ¡lo flo flo [10 [lun
+
+test_menu
+
+ 
+
+¡5 8]
+Un
+IU
+
+test_servicios
+
+ 
+
+as
+un
+IU
+
+test_verCategoria_casol
+
+ 
+
+Total 8 8 0 0
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figura 39. Reporte de Pruebas de Unidad
+
+69Cobertura de pruebas
+
+Coverage report: 70%
+
+excluded coverage
+
+Module statements missing
+restaurante o
+restaurante.admin o
+restaurante.models 1 8
+restaurante.urlsRestaurante 4 o
+restaurante.views 69 31
+Total 129 309
+
+coverage. py 3.7.1
+
+Figura 40. Reporte General de Coverage
+
+100%
+100%
+
+84%
+100%
+
+59%
+
+00000
+
+70%
+
+Coverage for restaurante.admin : 100%
+
+5statements 5 run | O missing
+
+ 
+
+ 
+
+ 
+
+ 
+
+¡0 excluded |
+
+ 
+
+¡| from django.contrib import admin
+
+2 | from resteurante.models import Categoria,
+
+4 | admin.site.register (Categoria)
+admin.site.register (Producto)
+admin.site,. register (Ingrediente)
+
+E
+* index
+
+CoWwerage. py 3. 7.1
+
+Figura 41. Reporte Coverage para Admin
+
+70
+
+Producto,
+
+IngredienteCoverage for restaurante.models : 84%
+
+51 statements 43run||S missing |O excluded
+
+ 
+
+i| from django.db import models
+
+2 | from django.contrib.auth.models import User
+
+3| from recormends.providers import recommendation registry, RecommendationProvider
+4
+
+5| class Categoria (models .Model) :
+
+6 nombre = models.CharField(max_length=30)
+
+7 descripcion = models.CharField(max_length=300)
+8 imagen = models. ImageField (upload_to='menu')
+
+S enlaceitml = models.CharField(max_length=100)
+10
+
+11 def _unicode (self):
+
+12 return self.nombre
+
+14 | class Ingrediente (models.Model) :
+
+15 nombre = models.CharfField(max_length=140)
+
+16
+
+17 def _unicode (self):
+
+11 return self.nombre
+
+19
+20 | class Producto (models.Model) :
+
+21 nombre = models.CharfField(max_length=50)
+
+22 descripcion = models.CharfField(max_length=500)
+23 precio = models.FloatField()
+
+24 iva = models.FloatField()
+
+25 imagen = models.ImagefField (upload_to='productos/entradas')
+26 tipo = models.ForeignKey (Categoria)
+
+27 codigo = models. IntegerField()
+
+28 ingredientes = models.ManyToManyField (Ingrediente)
+
+29
+
+30 | def _unicode (self):
+
+Figura 42. Reporte Coverage para Modelos
+
+ 
+
+Coverage for restaurante.urlsRestaurante : 100%
+4 statements 4run | O missing | o excluded
+
+ 
+
+1] from django.conf.urls import patterns, url
+
+2 | from django.conf import settings
+
+3 | from .views import *
+
+4
+
+s| urlpatterns = patterns('',
+
+E url (r'"inicio/$', inicio, name='inicio'),
+
+7 url (r'"menu/$', menu, name='menu'),
+
+8 url (r'*servicios/$', servicios, name='servicios'),
+
+5 url (r'"verCategoria/ (1d+)$'", verCategoria, name='verCategoria'),
+
+10 url (r'"agregarProducto/ (1d+)$", agregarProducto, name='agregarProducto'),
+11 url (r'*carritoCompra/$', carritoCompra, name='carritoCompra'),
+
+12 url (r'"ordenCompra/$', ordenCompra, name='ordenCompra'),
+
+13 url (r'"confirmacionPedido/$', confirmacionPedido, name='confirmacionPedido'),
+14 url (r'*listaPedidos/$', listaPedidos, name="listaPedidos'),
+
+15 url (r'"detallePedido/ (1d+)$", detallePedido, name='detallePedido'),
+
+16 url (r'"historialCompra/$', historialCompra, name='historialCompra'),
+
+« index coverage.py v3.7.1
+
+Figura 43. Reporte Coverage para URLs
+
+71Coverage for restaurante.views : 55%
+
+69 statements 38run||31missing O excluded
+
+1| from django.shortcuts import render_to response
+
+2| from django.http import HttpResponseRedirect
+
+3 | from django.template import RequestClontext
+
+4 | from django.contrib.auth.decorators import login required
+5| from .models import *
+
+6 | import datetime
+
+8 | def inicio(request):
+9 return render_to response ('inicio.html', ('title': 'Inicio'), context_instance=RequestContext (request) )
+
+11 | def servicios (request):
+
+2 return render_to_response ('servicios.html', ('title': 'Servicios')], context_instance=RequestContext (request) )
+
+4 | def menu (request):
+
+5 categorias = Categoria.objects.all();
+
+6 return render_to response ('menu.html', ('title': 'Menu', 'categorias_list': categorias), context_instance=RequestContext (request) )
+
+def verCategoria (request, categoriald):
+
+19 categoria = Categoria.objects.get(id=categoriald);
+
+20 listaProductos = Producto.objects.filter(tipo=categoria);
+
+21 return render_to_response ('detalleCategoria.html', ('title': categoria.nombre, 'listaProductos': listaProductos), context_instance=RequestContext (request) )
+
+flogin_required(login_url='/login/*)
+def agregarProducto (request, id producto):
+
+ 
+
+25 product = Producto.objects.get(id=id producto)
+26 if not 'carrito_compra' in request.session:
+27 request.session['carrito_compra'] = ()
+
+28 map _ productos = request.session['carrito_compra']
+
+ 
+
+if map productos.has_key(id producto):
+
+Figura 44. Reporte Coverage para Vistas
+
+72Capítulo 5
+
+Conclusiones y Trabajos Futuros
+
+5.1 Conclusiones
+
+e Como se ha expuesto a lo largo de este trabajo de grado, la aplicación presentada
+permite a los restaurantes mejorar la calidad de sus servicios, ofreciendo una nueva
+experiencia a los clientes, con el uso de un sistema de recomendación, que provee
+sugerencias de nuevos platos a los usuarios de la aplicación, basados en sus
+preferencias.
+
+El uso de esta herramienta por parte de los restaurantes que continúan registrando
+manualmente los pedidos, constituye una mejora, puesto que permite enviar los
+pedidos ordenadamente, tener un historial de compra de todos los usuarios y ampliar
+la base de usuarios que pueden acceder a sus servicios.
+
+e El resultado principal de este trabajo de grado es un agente Recomendador de platos,
+en el que se utiliza algoritmos de filtrado colaborativo, que sugiere platos de comidas
+basándose en el perfil y en el conocimiento de los clientes que hayan realizado con
+anterioridad pedidos. Previamente se creó un mecanismo que permitiera adaptar al
+usuario en la aplicación web del restaurante María Juana y realizar su pedido.
+
+e Para el desarrollo de la aplicación se ha seguido el proceso de Ingeniería de Software,
+con la elección de una metodología de desarrollo siguiendo las fases de análisis,
+diseño, implementación y pruebas.
+
+e Adicionalmente, la aplicación fue implementada utilizando diseño adaptativo, lo que
+facilita su uso posterior a través de diferentes tipos de dispositivos. Siguiendo con las
+tecnologías utilizadas, el proceso de implementación, genero varios aprendizajes
+respecto a las tecnologías actuales, ya que nunca había utilizado Django, no tenía
+ningún conocimiento, este framework tiene muchas ventajas el lenguaje es
+relativamente corto, es más fácil de depurar y la aplicación se vuelve mucho más
+ágil, usable y flexible.
+
+135.2 Trabajos Futuros
+
+Como trabajos futuros se mencionan algunas funciones o tareas que pueden incorporarse al
+desarrollo para ampliar el alcance de este trabajo de grado.
+
+e Implementar un chat de soporte online al cliente, que sirva para ofrecer una atención
+inmediata y en tiempo real, que haga posible que los usuarios planteen consultas y al
+mismo tiempo que avise al cliente sobre ofertas y promociones del restaurante.
+
+e Añadir un módulo para realizar el pago en línea de los pedidos a domicilio, por
+medio de tarjetas de crédito o por transferencias bancarias de manera eficiente.
+
+e Utilizar Google Prediction API que proporciona capacidades de búsqueda de patrones
+y machine Learning, para ayudar a analizar datos y recomendar a los clientes que no
+cuentan con un historial de pedidos.
+
+74Referencias
+
+[1] Portafolio.com. Colombia, número uno en crecimiento de 'smartphones' [En línea]
+[Consulta: octubre 2 de 2013].Disponible en: http://www.portafolio.co/portafolio-plus/cifrasventas-telefonos-inteligentes-colombia.
+
+[2] Universidad nacional de Colombia [ Articulo en internet]. [Consulta: noviembre 2 de
+2013].Disponible en:
+
+http://www. virtual .unal.edu.co/cursos/ingenieria/2001394/docs_curso/capitulol/leccion!.3.ht
+m
+
+[3] Revista internacional científica y profesional [Artículo en internet]. [Consulta: noviembre
+2 de 2013].Disponible en:
+http://www.elprofesionaldelainformacion.com/contenidos/1999/abril/agentes_inteligentes_de
+finicion_y_tipologia_los_agentes_de_informacion.html.
+
+[4] José L. Berrocal, Carlos G. Figuerola, Ángel F. Zazo y Emilio Rodríguez. “Agentes
+inteligentes: recuperación autónoma de información en la web”. [Artículo en internet].
+[Consulta: noviembre 2 de 2013].
+
+[SIWOOLDRIDGE, N.R. y JENNINGS, M. Intelligent agents: Theory and practice.
+Knowledge Engineering Review, 1995, vol. 10, n. ? 2, p. 115-152. [Consulta: noviembre 6 de
+2013].
+
+[6] ROSELER, M. y HAWKINS, D. Get agents: Software servants for an electronic
+information world (and more!). ONLINE, 1994, Julio, p. 19-32. [Consulta: noviembre 10 de
+20131.
+
+[7] HENDLER, J. Is there an intelligent agent in your future? Nature, 1999,11 marzo.
+[Consulta: noviembre 11 de 2013].
+
+[8] Aragón Álvarez. Agentes software y comercio electrónico. [Artículo en internetl.
+[Consulta: noviembre 11 de 2013].Disponible en:
+http://profesores.ie.edu/salvador_aragon/Documentacion/1999-A gentes.pdf
+
+[9] Loren Terveen and Will Hill, “Beyond Recommender Systems: Helping People Help
+Each Other” In Carroll, J. (Ed.), HCI in the New Millennium. Addison Wesley, 2001.
+[Artículo en internet]. [Consulta: noviembre 16 de 2013].
+
+[10] sistema de recomendación de restaurantes georreferenciados” [Trabajo de
+erado].Universidad de Jaén. [Consulta: agosto 16 de 2014]. Disponible en:
+http://sinbad2.ujaen.es/cod/archivosPublicos/pfc/pfc_antonio_araque.pdf
+
+[11] Sergio Manuel Galán Nieto “Filtrado Colaborativo y Sistemas de Recomendación ”
+[Articulo en internet].  [Consulta: julio 29 de 2014]. Disponible en:
+http://www.it.uc3m.es/jvillena/irc/practicas/06-07/31.pdf
+
+[12] Emilio José Castellano Torres “Evaluación del uso de algoritmos colaborativos ”
+[Trabajo de diplomado]. Universidad de Jaén. [Consulta: septiembre 21 de 2014]. Disponible
+
+en:
+http://sinbad2.ujaen.es/cod/archivosPublicos/dea/DEA_EmilioCastellano.pdf
+
+15[13] Smartphone. From TechTerms.com, the tech term computer dictionary. [En línea]
+[Consulta: Diciembre 4 de 20131. Disponible en:
+http://www .techterms.com/definition/smartphone
+
+[14] Guía Breve de Web Móvil, [Artículo en internet]. [Consulta: noviembre 16 de 2013].
+Disponible en: http://www.w3c.es/Divulgacion/GuiasBreves/WebMovil
+
+[15] Arroyo Vázquez. “Web móvil y bibliotecas”. [Artículo en internet]. [Consulta:
+noviembre 16 de 2013]. Disponible en:
+http://eprints.rclis.org/13057/1/marroyo_webmovil.pdf
+
+[16] Mobile App. From Wikipedia, the free encyclopedia. [Consulta: octubre 16 de
+2013].Disponible en: http://en.wikipedia.org/wiki/Mobile_app
+
+[17] Suronline. Beneficios y funcionamiento de las aplicaciones web. [En línea]. [Consulta:
+octubre 16 de 2013].Disponible en: http://www.suronline.net/nuevo_sitio/beneficiosfuncionamiento-aplicaciones-web.asp
+
+[18] AdiInteractive. Diseño web adaptable, práctico [En línea] [Consulta: octubre 16 de
+2013]. Disponible en: http://www .adinteractive.co/web/diseno-web-adaptable-practico.
+
+[19] Erick Calderin Morales, Marco Soto de la Vega “Aplicación móvil para el control de
+pedidos en un restaurante” [Trabajo de grado]. Universidad de Córdoba. [Consulta:
+septiembre 29 de 2013]. Disponible en: http://www.slideshare.net/ErickCalderin/aplicacinmvil-para-el-control-de-pedidos-en-un-restaurante
+
+[20] Jair Enrique Otero Foliaco “Diseño de un Sistema Recomendador de productos para
+centros comerciales” [Articulo en internet]. [Consulta: septiembre 29 de 2013]. Disponible
+en: http://ciencia.espe.edu.ec/wp-content/uploads/2013/05/C0M92.pdf
+
+[21] karla johanna carvajal valdivieso, christian fernando sasig suntasig “Desarrollo de la
+
+aplicación para atención de clientes en la recolección de pedidos en Bonny Restaurant”
+[Trabajo de grado]. [Consulta: septiembre 29 de 2013].
+
+[22]Software Tu-App.Net [internet]. [Consulta: octubre 4 de 2013].Disponible en:
+http://www.tu-app.net/funciones-aplicaciones-móviles/funcion-pedidos-restaurantes.html
+
+[23]Software OhlalApp [internet]. [Consulta: octubre 4 de 2013].Disponible en:
+http://www.ohlalapps.com/es/aplicacion-movil-para-restaurantes/
+
+[24]Software AppsParaPymes [internet]. [Consulta: octubre 6 de 2013].Disponible en:
+http://appsparapymes.com/aplicacion-movil -para-restaurant/
+
+[25] Jérome Picault, Dimitre Kostadinov, Pablo Castells, Alejandro Jaimes “Conference on
+Recommender Systems” [Articulo en internet]. [Consulta: octubre 16 de 2013]. Disponible
+en: http://ceur-ws.org/V ol-676/prsat2010.pdf.
+
+[26] Ethan Marcotte “Responsive Web Design” [Articulo en internet]. [Consulta: febrero 11
+de 2015]. Disponible en: http://alistapart.com/article/responsive-web-design
+
+76[27] Flavio Curella Django-recommends documentation [Consulta: marzo 17 de 2015].
+
+Disponible en: https://media.readthedocs.org/pdf/django-recommends/latest/djangorecommends.pdf
+
+[28] Aplicación para la gestión de proyectos agiles con Scrum [internet]. [Consulta: marzo 6
+de 2015]. Disponible en: http://biblioteca.unirioja.es/tfe_e/TFEO00283.pdf
+
+[29] Kantor, P. B., Rokach, L., Ricci, F., 6 Shapira, B. (2011). Recommender systems
+handbook. Springer. p. 39-67. [Consulta: Junio 12 de 2015].
+
+[30] Segaran, T. (2007). Programming collective intelligence: building smart web 2.0
+applications. O'Reilly Media, Inc. p. 292-296. [Consulta: Junio 12 de 2015].
+
+17

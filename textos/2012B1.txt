@@ -1,0 +1,4349 @@
+SISTEMA ECM PARA LA GESTIÓN DE LA INFORMACIÓN
+DIGITAL EN LAS COORDINACIONES ACADÉMICAS DE LA
+UNIVERSIDAD DEL VALLE- SEDE CAICEDONIA
+
+ARMANDO ACOSTA GUERRERO
+
+UNIVERSIDAD DEL VALLE SEDE TULUÁ
+PROGRAMA ACADÉMICO DE INGENIERÍA DE SISTEMAS
+
+TULUÁ, 2014SISTEMA ECM PARA LA GESTIÓN DE LA INFORMACIÓN
+DIGITAL EN LAS COORDINACIONES ACADÉMICAS DE LA
+UNIVERSIDAD DEL VALLE- SEDE CAICEDONIA
+
+ARMANDO ACOSTA GUERRERO
+
+Cód. 200913230
+
+Trabajo de grado para optar al título de
+
+INGENIERO DE SISTEMAS
+
+Director
+
+ALBEIRO APONTE VARGAS, M.Sc.
+
+UNIVERSIDAD DEL VALLE SEDE TULUÁ
+PROGRAMA ACADÉMICO DE INGENIERÍA DE SISTEMAS
+
+TULUÁ, 2014Nota de Aceptación
+
+ 
+
+ 
+
+ 
+
+Firma del Presidente del Jurado
+
+ 
+
+Firma del Jurado
+
+Firma del Jurado
+
+Tuluá, Mayo 2014Dedicatoria
+
+Este trabajo es un sentido homenaje a la memoria de un gran amigo, colega tecnólogo en sistemas de información y compañero de trabajo. Julian David Serna Correa,
+quien en vida se destacó como un ser humano de grandes virtudes, capacidades, de
+un talento admirable y con los mejores deseos de llegar a ser uno de los mejores
+Ingenieros de Sistemas. A ti mi hermano, donde quiera que te encuentres, mi reconocimiento y toda mi gratitud por las buenas enseñanzas.
+
+Armando Acosta Guerrero
+
+IIAgradecimientos
+
+A Dios, por la fuerza de voluntad, la entrega, el compromiso, la disciplina y la
+responsabilidad necesaria para afrontar este reto en mi vida.
+
+A mis padres, por su apoyo incondicional en todo momento, por sus esfuerzos
+ingentes y sus múltiples sacrificios en favor de consolidar mi proyecto de vida.
+
+A mis hermanos, quienes han sido un apoyo invaluable en mi vida y me han motivado para llegar a conseguir los objetivos y las metas propuestas a nivel personal.
+
+A mis compañeros de estudio y colegas tecnólogos de sistemas, los cuales siempre
+tuvieron la mejor de las disposiciones para colaborarme en las ocasiones donde mi
+capacidad individual no era suficiente ante un determinado obstáculo.
+
+A la Universidad del Valle, en sus sedes de Tuluá y Caicedonia, por permitirme
+ser parte de su “alma mater” y adquirir un sinnúmero de conocimientos en forma
+integral, por su colaboración y vocación de servicio constante en todo mi proceso de
+formación.
+
+A todos ellos !Infinitas Graciasj¡
+
+IIIIndice general
+
+1. Introducción
+1.1. Planteamiento del Problema. ......................
+1.2. Formulación del Problema ........................
+1.3. Objetivos ......
+1.3.1. Objetivo General ............. . . .. o...
+
+1.3.2. Objetivos EspecÍfiCOS . ........... . . . . . . +... . 2...
+1.4. Estructura del Documento...
+
+2. Marco de Referencia
+
+2.1. Estado del Arte y Antecedentes .............. . . . . . +.
+2.2. Marco Teórico. .....
+2.2.1. Enterprise Content Management (ECM) ............
+2.2.2. ECM y sus áreas referenciales . ......... o... .... ..
+2.2.3. Los sistemas ECM y la Toma de decisiones ..........
+2.2.4. ECM como un concepto integrador en la gerencia de la inforMACIÓN
+
+2.2.5. Consideraciones sobre el Contenido Digital en la ECM .....
+2.2.6. El modelo Empresarial y su Importancia para la ECM ....
+
+2.3. Marco Contextual ............ e...
+
+3. Desarrollo del Proyecto
+3.1. Análisis de Requerimientos .......... e...
+3.1.1. Lecturas Preparatorlas . ......... . .. . . . +... +.
+3.1.2. Entrevistas ....... e...
+3.1.3. Cuestionarios ......
+3.1.4. Requerimientos Funcionales . .............. . . . . ..
+3.1.5. Diagramas de Casos de USO . .......... . . . . . . . ..
+3.2. Análisis y Diseño Preliminar. ............ . . . . .. e...
+3.2.1. Descripción de los Casos de USO ................
+3.2.2. Análisis de RObUSteZz . ............ . . . . . . . . . ..
+3.2.3. ATQUÍtectura
+A
+3.4. Implementación
+3.4.1. Codificación...
+3.4.2. Instalación ....----.
+3.4.3. Descripción general del aplicativo Web . ............
+
+4. Pruebas y Discusión de los Resultados
+4.1. Pruebas de Unidad ........... e...
+
+4.2. Pruebas de Integración ............ e...
+4.3. Pruebas de Validación ........... . .. o...
+
+5. Conclusiones y Proyecciones
+DL. Conclusiones
+5.2. Trabajos FUbUTOS ........ e...
+
+IV
+
+0 0 NN DN A pr
+
+O0IAIOCOO
+
+11
+12
+13
+14
+
+19
+20
+20
+20
+21
+21
+22
+23
+23
+25
+25
+SU
+32
+32
+34
+38
+
+44
+44
+45
+49Índice general Índice general
+
+Bibliografía 54
+A. Elementos de Análisis del Proyecto 57
+A.1. Cuestionario para la búsqueda de hechos . ................ 97
+A.2. Requerimientos sobre Disponibilidad y Desempeño del Sistema ... 59
+A.3. Diagnóstico del Contexto .............. e... 60
+B. Elementos de Diseño del Proyecto 62
+B.1. Diagramas de Casos de USO ............. . . . . . . . . . . +. 62
+B.2. Diagramas de Actividad ............ . . . . . . e... o. 65Índice de figuras
+
+2.1. ECM y sus áreas referenciales...
+
+2.2. Relación entre KM y ECM...
+
+2.3. Ciclo de Vida del Contenido...
+2.4. Mapa de subprocesos Univalle ...... e...
+
+3.1. Clases y Asociaciones Iniciales... ... e...
+3.2. Caso de Uso Gestión de Contenido...
+3.9. Diagrama de Robustez asociado a la Creación de Contenido .
+
+3.4. Arquitectura del Sistema EOM .
+
+3.9. Diagrama de Actividad para la Creación de Contenido . . . .
+
+3.0. Diagrama de Secuencia para la Creación de Contenido . . . .
+
+3.1. Diagrama de Clases del Sistema
+
+3.9. Diagrama de red del segundo ambiente del implantación . . .
+
+3.9. Perfil operacional de los equipos instalados en el cluster . .. .
+
+3.10. Perfil operativo del servidor principal... e... ..
+3.11. Diagrama de Despliegue del Sistema ECM .........
+3.12. WebOS del sistema ECOM .....
+3.13. Gestor de Archivos...
+3.14. Interfaz del Editor de Texto...
+3.15. Interfaz gráfica de la Hoja de Cálculo . ......... .. . . . . . . +...
+3.16. Búsqueda de Archivos en el Repositorio .........
+
+3.17. Versionado de Documentos en el Sistema
+
+3.18. Interfaces gráficas en la gestión de Workfl
+
+OWS +... .. . . .....
+
+B.1. Casos de Uso Gestión de Personal...
+B.2. Casos de Uso Gestión de Colaboración...
+
+B.3. Casos de Uso Gestión de Información...
+
+B.4. Diagrama de Actividad para el Caso de U
+B.5. Diagrama de Actividad para el Caso de U
+B.6. Diagrama de Actividad para el Caso de U
+B.7. Diagrama de Actividad para el Caso de U
+B.8. Diagrama de Actividad para el Caso de U
+B.9. Diagrama de Actividad para el Caso de U
+B.10.Diagrama de Actividad para el Caso de U
+B.11.Diagrama de Actividad para el Caso de U
+B.12.Diagrama de Actividad para el Caso de U
+B.13.Diagrama de Actividad para el Caso de U
+B.14.Diagrama de Actividad para el Caso de U
+
+lso Ingresar al Sistema. . . . .....
+
+lso Acceder Información Usuario.
+
+lso Crear Usuario. .
+lso Eliminar Usuario.
+
+lso Modificar Usuario.
+
+'so Capturar y/o Almacenar Contenido.
+
+lso Eliminar Contenido. ........
+
+lso Acceder y/o Actualizar Contenido. .
+
+lso Versionar Contenido. ........
+
+lso Bucar Contenido.
+
+lso Publicar Contenido
+
+ 
+
+B.15.Diagrama de Actividad para el Caso de U
+
+VI
+
+lso Activar Workflows.
+
+10
+11
+14
+
+22
+23
+25
+27
+3Ú
+31
+32
+36
+31
+31
+38
+38
+39
+40
+41
+41
+42
+42
+
+62
+63
+64
+65
+66
+66
+66
+67
+67
+67
+68
+68
+69
+69
+69Indice de cuadros
+
+3.1.
+3.2.
+
+4.1.
+4.2.
+
+B.1.
+B.2.
+B.3.
+B.4.
+
+Actores del Sistema ....... o... o... ..
+
+Descripción Caso de USO . ........... . . . . . . . ..
+
+Pruebas unitarias del modulo del sistema de archivos virtuales . . .......
+
+Pruebas de carga de contenido digital al repositoriO . . ................ . . .
+
+Descripción Casos de Uso Ingresar al Sistema . . . . . .
+
+Descripción Casos de Uso Ingresar al Sistema . . . . . .
+
+Descripción Casos de Uso Gestionar aspectos de colaboración. . .........
+
+Descripción Casos de Uso Gerenciar Información Personal
+
+VII
+
+23
+24
+
+45
+46
+
+62
+63
+64
+65Resumen
+
+Este proyecto se realizó con el objeto de mejorar los mecanismos de creación,
+control, almacenamiento, colaboración y acceso a contenidos digitales no numéricos
+en el ámbito de las coordinaciones académicas de la Universidad del Valle - Sede
+Caicedonia mediante el desarrollo de una plataforma Web de administración de
+contenido empresarial.
+
+El sistema de administración de contenido Web facultó el soporte a las principales
+tareas del ciclo de vida del contenido digital a través de una arquitectura ECM con
+un mecanismo de almacenamiento centralizado y escalable, utilizando el motor de
+base de datos MySQL en conjunto con el repositorio de documentos LILY, una capa
+de presentación precedida por el sistema operativo Web Oneye y un conjunto de
+herramientas orientadas al tratamiento de metadatos entre las que se destaca el uso
+
+del motor de indexado SOLR.
+
+El resultado obtenido, fundamentado en procedimientos de desarrollo de software
+modernos, ágiles y eficientes, finalmente permite establecer evidencias sólidas sobre
+la adopción de nuevas tecnologías para el manejo de información basadas en tópicos
+actuales de investigación pertenecientes a los Sistemas de Información.
+
+Palabras claves: Administración de Contenido Empresarial, Administración de
+Contenido Web, Gerencia de Contenido Digital.
+
+VIIIAbstract
+
+This project was conducted with the aim of improving the mechanisms for creating, testing, storage, collaboration and access to non-numeric digital content in the
+field of academic coordination of the Universidad del Valle - Sede Caicedonia by
+developing a web management platform enterprise content.
+
+The system of Web content management empowered to support the main tasks of
+the life cycle of digital content through an ECM architecture with a centralized and
+scalable storage mechanism using MYSQL database engine in conjunction with the
+LILY documents repository, a presentation layer preceded by Oneye web operating
+system and a set of tools designed to treat metadata among which highlights the
+use SOLR indexing engine.
+
+The obtained results, based on for modern, flexible and efficient software development procedures finally allows for solid evidence on the adoption of new technologies
+for information management based on current research topics pertaining to information systems.
+
+Keywords: Enterprise Content Management, Web Content Management, Digital
+Content Management.
+
+IX1. Introducción
+
+En la actualidad, los Sistemas de Información desempeñan una labor cada vez más
+importante en las modernas organizaciones, hasta el punto de condicionar su éxito
+o fracaso en un entorno económico y social tan dinámico y turbulento como el que
+caracteriza al mundo de hoy. Los fenómenos como la globalización o el tránsito hacia
+una economía más basada en el conocimiento han inducido importantes cambios.
+En este contexto, los Sistemas y las Tecnologías de la Información y Comunicación
+(TIC) se han convertido en un elemento esencial como motor del cambio y fuente
+de ventajas competitivas [1].
+
+Como campo emergente en la investigación de los Sistemas de Información, el concepto de Administración de Contenido Empresarial (ECM por sus siglas en inglés)
+es un enfoque integrado para la administración de información surgido a mediados
+de la década de 1990. Este enfoque constituye una respuesta al caos del contenido,
+termino utilizado para denotar la situación ineficiente originada por el crecimiento desbordado y la gestión irregular de material digital multiformato prevaleciente
+en la mayoría de las organizaciones, integrando la administración de información
+estructurada, semi-estructurada y no estructurada, código de software embebido
+en presentaciones de contenido, y metadatos en soluciones para la producción de
+contenido, almacenamiento, publicación y utilización en instituciones. Además, el
+concepto de ECM va más allá de las soluciones tecnológicas, también incluye “las
+estrategias, herramientas, procesos y habilidades que una organización requiere para
+administrar sus activos de información a través de su ciclo de vida” [2].
+
+Este proyecto formuló e implementó una solución a la problemática con relación
+al manejo de contenido digital al interior de la Universidad del Valle - Sede Caicedonia. La solución se estructuró mediante la adopción de conceptos modernos e
+innovadores en materia de Sistemas de Información para la administración de contenidos digitales no numéricos? como: Enterprise Content Management ECM y la
+administración holística del ciclo de vida del contenido digital, los cuales después de
+más de una década de investigación presentan poca literatura académica en contraste a la significativa atención por parte de compañías y practicantes [3]. El producto
+final lo constituye un sistema de información basado en la administración de contenido Web para el correcto tratamiento de activos digitales no estructurados que,
+adicionalmente, puede servir como precedente verificable sobre los tópicos referidos.
+
+1.1. Planteamiento del Problema
+
+Actualmente, procesos como el manejo, la administración, la seguridad, distribución y publicación de contenido digital no numérico en la Universidad del Valle —
+Sede Caicedonia, una de las nueve sedes de la Universidad del Valle, se vienen realizando bajo un entorno que no favorece el dinamismo en el flujo de la información.
+Los empleados y especialmente las personas que trabajan con contenido digital, pasan la gran mayoría de su tiempo laboral buscando documentos e información en
+
+ 
+
+1El contenido digital no numérico abarca todo tipo de contenido desde documentos, hojas de
+cálculo, presentaciones, diagramas e imágenes, etc.diferentes repositorios a través de toda la institución. La fuerte influencia de métodos empíricos que van desde la creación de copias no controladas, eliminación no
+regulada de contenidos, almacenamiento de datos en diferentes versiones, lenguajes
+y formatos, déficit en el control de acceso, falta de herramientas colaborativas y el no
+disponer de un sistema adecuado que integre las políticas y disposiciones necesarias
+para el correcto manejo y control de contenidos digitales no numéricos en la universidad, ocasionan traumatismos considerables que se identifican con la proliferación
+desmedida de material digital, especialmente documentos.
+
+La anterior situación al interior de la Universidad del Valle — Sede Caicedonia,
+presenta graves consecuencias entre las que se destacan la fuga de información importante, principalmente, en áreas de gestión académico-administrativa como las
+coordinaciones de los diversos programas de educación superior ofrecidos en esta
+importante Institución, la ausencia de una memoria organizacional digital que permita fortalecer procesos de desarrollo y posicionamiento en la región mediante la
+inclusión de antecedentes sobre los principales procesos y prácticas de la universidad, la pérdida deliberada de tiempo y un bajo índice de eficacia en las actividades
+cotidianas de interacción con el contenido digital (búsqueda, clasificación y acceso).
+
+Es importante mencionar la existencia del Sistema de Información de Registro
+Académico (SIRA), una aplicación Web administrada por la oficina de informática
+y telecomunicaciones de la Universidad del Valle (OITEL) de múltiples propósitos
+para toda la universidad, la cual, entre otros usos, proporciona las herramientas
+necesarias para la gestión estrictamente académica de las coordinaciones de los diversos programas de educación superior ofertados por la universidad. Si bien, dicho
+software permite la gerencia de información sobre cuestiones académicas, esta aplicación no cuenta con mecanismos adecuados para la gerencia de contenido digital
+no numérico de carácter administrativo generado en las coordinaciones de los diferentes programas académicos y de gran importancia para el control de la gestión
+institucional.
+
+Hasta el momento, no hay evidencia concreta y verás sobre acciones efectivas que
+propendan evitar estas dificultades por parte de la Universidad del Valle — Sede
+Caicedonia.
+
+Finalmente, es necesario e indispensable dar una solución concreta a esta problemática, con el fin de promover el mejoramiento en la productividad de la institución,
+obtener mecanismos eficientes de colaboración, control y acceso a contenidos digitales e incentivar el uso de tecnologías adecuadas en la gerencia de información no
+estructurada en procura de constituirla en un recurso empresarial clave.
+
+1.2. Formulación del Problema
+
+¿Cómo mejorar los mecanismos de creación, control, almacenamiento, colaboración y acceso a los contenidos digitales no numéricos en el ámbito administrativo de
+las coordinaciones académicas de la Universidad del Valle Sede - Caicedonia con el
+fin de lograr mayor eficiencia en los procesos de gestión de dicho contenido?
+
+1.3. Objetivos
+1.3.1. Objetivo General
+
+= Desarrollar un sistema ECM para la administración de contenido digital no numérico de carácter administrativo en el área de las coordinaciones académicasde la Universidad del Valle — Sede Caicedonia.
+
+1.3.2. Objetivos Específicos
+
+= Establecer los diferentes tipos de contenidos digitales no numéricos que se
+manejan en la gestión administrativa de las coordinaciones académicas.
+
+= Determinar los componentes ECM adecuados con respecto a los tipos de contenidos digitales definidos.
+
+= Construir un mecanismo para el tratamiento de datos que permita la organización de la información, al igual que el almacenamiento centralizado y seguridad
+de la misma.
+
+= Implementar las estructuras de código necesarias para consolidar la arquitectura del sistema ECM relacionada con la administración de contenido Web.
+
+= Diseñar e implementar las interfaces Web para la gestión de actividades y
+control administrativo de los usuarios en el sistema.
+
+1.4. Estructura del Documento
+
+Con el objeto de brindar una mejor comprensión sobre el desarrollo y las principales características del proyecto, el presente documento se estructura en cinco
+capítulos a saber:
+
+El primer capítulo describe los aspectos relacionados con la problemática del proyecto que abarcan la dimensión real de las practicas inadecuadas en la administración
+de contenido digital en el ámbito de la gestión administrativa de las coordinaciones
+académicas de la Universidad del Valle - Sede Caicedonia. Además de denotar el contexto donde se identifica la problemática, se introduce los lineamientos relativos a
+las primeras nociones teóricas que sustentan el marco de desarrollo del proyecto y la
+estructuración sistemática de la solución basada en el desarrollo de un sistema ECM
+para la administración de contenido digital no numérico de carácter administrativo.
+
+El segundo capítulo brinda un acercamiento más específico a la problemática global de gerenciar contenido digital, denotando su relación de causalidad con el origen
+de un concepto pionero en el manejo integral de la información a través de su ciclo de
+vida y su desarrollo a nivel comercial. En este apartado, también se incluyen los conceptos teóricos propios de un Sistema de Administración de Contenido Empresarial,
+ECM, su relación parcial con conceptos previos de diversas áreas de investigación
+de los Sistemas de Información y sus características diferenciales.
+
+El tercer capítulo define los aspectos metodológicos llevados a cabo durante el
+desarrollo del proyecto, permite conocer las etapas, actividades realizadas, las técnicas, los procedimientos y los resultados correspondientes. Además, presenta las
+tecnologías de soporte y la consolidación de elementos base para la estructura funcional de la solución propuesta en el capítulo uno.
+
+El cuarto capítulo explica los resultados derivados de las diferentes pruebas a
+las que se somete el aplicativo Web a través de todo su ciclo de desarrollo con el
+objetivo particular de asegurar unos estándares mínimos de calidad en el producto
+e identificar potenciales mejoras en el mismo.
+
+El quinto y último capítulo contiene las conclusiones formuladas a partir del desarrollo del proyecto y los trabajos futuros que se pueden desprender de la consecucióndel objetivo de este proyecto de ingeniería. Este capítulo consigna los hechos y las
+consideraciones teórico-prácticas más importantes implicadas en la consolidación del
+producto final.2. Marco de Referencia
+
+2.1. Estado del Arte y Antecedentes
+
+Grandes cantidades de contenido se producen en una tasa creciente todos los años
+(e.g., para el año 2005 se estimaba que el universo digital era de 130 Exabytes, en
+2010 su valor aproximado fue de 1227 Exabytes y se espera que para el año 2015
+el contenido digital se sitúe en aproximadamente 7910 Exabytes!). Los términos
+sobrecarga de información y el caos del contenido describen de forma apropiada la
+situación ineficiente que prevalece en la mayoría de las organizaciones. Los empleados
+y especialmente las personas que trabajan con la información pasan la gran mayoría
+de su tiempo laboral buscando documentos e información en diferentes repositorios a
+través de toda la organización. Los documentos se almacenan en diferentes lugares y
+sistemas, en diferentes versiones, lenguajes y formatos. La colaboración y la coautoría
+es un aspecto complicado; los documentos importantes se comparten vía email. La
+administración de contenido en una empresa de tamaño considerable supone como
+tal un gran desafío. Incluso más grave es el hecho de que el 80% del contenido
+organizacional son datos de carácter no estructurado [3]. Sin embargo, la calidad de
+la información y de los datos que podemos clasificar como no estructurados es crucial
+porque generalmente contienen información importante, de innovación y apoyo a la
+toma de decisiones que actualmente se convierte en un recurso empresarial de gran
+valor.
+
+Para resolver el caos del contenido surge la Administración de Contenido Empresarial ECM. La ECM (Enterprise Content Management) fue introducida por primera
+vez hace más de una década por parte de la AIIM (Asociación para la administración
+de la información y la imagen). En sus inicios la ECM adoptó un enfoque técnico
+y fue adaptada para enfatizar la importancia de los aspectos organizacionales: “Enterprise Content Management (ECM) son las estrategias, métodos y herramientas
+utilizadas para capturar, administrar, almacenar, preservar y entregar contenido y
+documentos relacionados con los procesos de la organización. La herramientas y estrategias ECM permiten la administración y/o direccionamiento de la información
+empresarial no estructurada, siempre y cuando dicha información exista.” [4]. Desde
+un punto de vista académico Páivárinta y Munkvold (2005) la caracterizan de forma
+muy concisa como un enfoque integrado para la administración de la información
+
+12].
+
+La ECM es un tópico aún en proceso de desarrollo que integra algunas disciplinas
+precedentes y relacionadas. Con un alcance e impacto importante en las organizaciones ésta combina e integra algunos conceptos que anteriormente eran separados
+por los campos de investigación de los Sistemas de Información. Se destacan la administración de documentos (DM) y la administración de documentos electrónicos
+(EDM) que prevalecieron antes de la aceptación de un concepto más granular del
+contenido. Para la administración de sitios web de trabajo intensivo se introdujo
+
+ 
+
+lLa información sobre las tasas de crecimiento del universo digital fueron tomadas del paper “Extracting Value from Chaos” (Junio 2011) realizado por IDC Go-to-Market Services y patrocinado
+por EMC Corporation. El contenido completo puede ser visto en http: //colombia.emc.com/
+leadership/programs/digital-universe.htmposteriormente la administración de contenido web (WCM). Para administrar los
+activos de conocimiento de una empresa se optó por la introducción de los conceptos de administración de conocimiento (KM) y la administración de la información
+(IM). Además, se consideran la administración de procesos de negocio (BPM) y la
+administración del flujo de trabajo (WFM) para dar soporte a la ejecución de procesos de negocios y flujos de trabajo empresarial. Para asegurar la preservación en
+forma permanente de documentos estáticos, se utilizó la administración de registros
+(RM). En la parte de elementos multimedia tales como archivos de audio y video
+se manejó a través de la inclusión de la administración de activos digitales. Dichos
+términos parcialmente cubren conceptos y áreas de investigación que se enfocan en
+la interacción con contenido, documentos e información en alguna forma.
+
+La ECM permite administrar contenido a gran escala y ha recibido un alto grado
+de atención por parte de la industria. El mercado ECM se ha convertido en un
+boom debido al creciente número de compañías que la adoptan [3]. A continuación
+
+referimos algunas de las empresas más importantes y su respectivo desarrollo en el
+campo de la ECM:
+
+= ASG Software Solutions: Reconocida como un agente innovador en las
+soluciones de software y tecnologías de información empresariales, ASG Software cuenta con 25 años de experiencia y se caracteriza por crear y desarrollar
+soluciones de software únicas que reducen costos, mitigan riesgo y mejoran la
+calidad de servicio [5]. En el portafolio de soluciones ECM se ofrecen soluciones
+tales como:
+
+e ASG-ViewDirectO: Administrador de contenido empresarial escalable,
+dotado de las características necesarias para la administración y el archivado de contenido. Soporta todo tipo de plataformas, bases de datos,
+dispositivos de almacenamiento, formatos y volumen de contenido empresarial en ambientes mainframe y distribuidos.
+
+e ASG-Total Content Integrator*M: Proporciona la tecnología adecuada en la integración y unificación del contenido. Este producto incorpora
+herramientas de autenticación, búsqueda federada, normalización indexada y servicios de transformación de contenido.
+
+e ASG-Records Manager*": Suministra administración comprensiva de
+todo tipo de registros electrónicos en sus formatos originales incluyendo
+estructuras de carpetas automatizadas y retención avanzada.
+
+= Autonomy Corporation: Una compañía de Hewlett Packard (HP), es un
+líder global en software que procesa información humana, o datos no estructurados, incluyendo medios sociales, email, vídeo, audio, texto y páginas web,
+etc. Su tecnología permite extraer y administrar contenido en tiempo real de
+todas las formas de información, tanto estructurada como no estructurada [5].
+
+= EMC Corporation: Considerado un líder mundial en desarrollar y proveer
+productos servicios y soluciones relacionados con la infraestructura de la información.
+
+= KOFAX: La plataforma KOFAX le permite a las organizaciones no solo automatizar el proceso de captura de la información sino también diseñar procesos
+de negocio flexibles y potentes para entregar de forma instantánea y automática información purificada y de alta calidad a aplicaciones y repositorios en
+toda la empresa [5].= Open Text: Una compañía dedicada al desarrollo de software empresarial y
+líder en Enterprise Content Management (ECM), ayuda a las organizaciones
+a manejar y obtener el valor real de su contenido empresarial. Open Text lleva
+dos décadas de experiencia en el soporte de millones de usuarios en 114 países.
+Promueve la captura y preservación de la memoria corporativa, automatiza
+procesos, mitiga el riesgo y mejora la competitividad |[5).
+
+A diferencia de ASG Software Solutions, las soluciones de las otras compañías se
+enfocan en ofrecer sistemas ECM con características únicas en las líneas de negocios
+en donde se mueven sus clientes. De ahí que todos los productos siempre difieran en
+su complejidad (funcionalidad variable) y no se especifiquen patrones genéricos de
+construcción entre sí. Otra consideración que debe someterse a un análisis crítico radica en los costos elevados derivados de la adquisición, implementación e integración
+de estas plataformas en las pequeñas y medianas empresas.
+
+En contraste con el aumento considerable de las soluciones ECM a nivel mundial,
+es preocupante que en la actualidad en el país y en la región no se tenga evidencia
+concreta sobre implementación alguna o desarrollo que promueva la administración
+de contenido empresarial (ECM). Cabe destacar que es muy poca la literatura académica que se puede encontrar al respecto, aun cuando los desarrollos de este tipo
+a nivel empresarial son cuantiosos [3]. Por otra parte es importante mencionar las
+dificultades que se tienen en el contexto local en materia de adopción de nuevas
+tecnologías que no permiten un rápido crecimiento en el desarrollo o la implementación de nuevas y mejores prácticas en cuanto al manejo de contenido empresarial
+se refiere.
+
+Teniendo en cuenta los referentes de los apartados anteriores, se puede analizar la
+situación particular que se presenta en la Universidad del Valle — Sede Caicedonia.
+Al constituirse en una de las nueve sedes de la Universidad del Valle, la sede en
+mención actúa con un alto grado de dependencia sobre la disposición de Sistemas
+de Información y tecnologías que permitan la gestión efectiva en los diferentes procesos y estrategias organizacionales que desarrolla en su zona de influencia. Si bien,
+la Universidad del Valle cuenta con diferentes sistemas informáticos que proporcionan un alto soporte a procesos académicos y pedagógicos (por ejemplo el SIRA, el
+Campus Virtual, etc.), no se evidencia de forma explícita un avance en materia de
+administración de contenidos digitales empresariales de carácter no estructurado en
+el aspecto administrativo; por lo menos no en las múltiples coordinaciones de los
+programas académicos establecidas en torno a su sistema de educación superior.
+
+2.2. Marco Teórico
+
+2.2.1. Enterprise Content Management (ECM)
+
+Enterprise Content Management es la tecnología que proporciona las formas adecuadas para crear, almacenar, administrar, asegurar y publicar todo el contenido
+digital para uso empresarial [6]. ECM es única en el sentido de que fue desarrollada para administrar la creación y consumo de grandes cantidades de contenido
+no numérico tales como documentos, páginas Web, hojas de cálculo, diagramas e
+imágenes, ampliamente impulsados por el auge de Internet [7].
+
+Enterprise Content Management reúne la administración de información estructurada, semi-estructurada y no estructurada en soluciones para la producción decontenido, almacenamiento, publicación y utilización en organizaciones [2]. El concepto se origina en esfuerzos pioneros de mediados de la década de 1990 para administrar contenido Web corporativo con sistemas “in-house”. Enterprise Content
+Management es un enfoque integrado para administrar la mayoría de información
+en una empresa, incluyendo estrategias, procesos, habilidades y herramientas [8].
+
+2.2.2. ECM y sus áreas referenciales
+
+En la actualidad se resalta la complejidad y la naturaleza holística del concepto
+de ECM. Cuando se observa sus componentes de forma separada, muchos de estos
+se pueden identificar dentro de áreas de investigación establecidas por la administración de recursos de información (IRM), la administración de documentos electrónicos
+(EDM), y administración de conocimiento (KM) (ver figura 2.1). IRM y EDM representan los “antepasados” más cercanos de la ECM [2]. La diferencia más visible
+entre la estructura IRM y la de los componentes ECM reside en la falta de enfoque
+de la IRM tradicional sobre estructuras de contenido heterogéneo más allá de las
+bases de datos formalizadas, los aspectos del ciclo de vida, los metadatos de contenidos heterogéneos, y la taxonomía corporativa en lugar de diccionarios de datos y
+bases de datos estructuradas. El enfoque de la ECM puede también diferir en forma
+más amplia de la corriente principal de la IRM “intra-organizacional” tradicional,
+debido a su avance hacia la colaboración en la administración de contenido.
+
+"e,
+
+ECM es una perspectiva moderna
+enla administración de la información
+que integra y refina los principales
+aspectos cobierttos en IRM, EDI y
+Eh
+
+  
+
+¡RIM
+
+- Ciclo de vida del contenido
+- Mecanismos de 4imacenamiento
+- Metadatos
+
+- Enfoque "intra- organizacional"
+
+   
+
+KM
+- Taxonomía corporativa
+
+- Metadatos
+
+- Administración de información
+
+sobre recursos de conocimiento
+¿Corporativos
+
+EDI
+- Interfaces de aplicación dinámicas.
+
+- Administración de modelos de
+
+estructura de contenido
+¡- Configuración del ciclo de vida
+
+A .
+
+Figura 2.1.: ECM y sus áreas referenciales
+
+La mayor contribución del concepto de ECM en relación a EDM reside en el hecho que la primera, especialmente basada en la Web, integra los aspectos que en el
+pasado eran separados entre las bases de datos estructuradas y las interfaces de aplicaciones dinámicas, documentos semi-estructurados y administración de archivos no
+estructurados. Esto promueve un nuevo nivel de complejidad, en vez de las connotaciones tradicionales de la EDM basadas en archivos, a la administración de modelos
+de estructura de contenido y configuraciones de los ciclos de vida. Las técnicas depersonalización avanzada y los servicios innovadores para clientes que se basan en
+ECM representan otra área moderna que no figura en los modelos de IRM y EDM.
+
+La investigación sobre administración de conocimiento (KM) identifica tres tipos
+de iniciativas KM organizacionales a nivel general: el codificado y la compartición de
+mejores prácticas; la creación de directorios de conocimiento corporativo; y la creación de redes de conocimiento [2|. Los sistemas de administración de conocimiento
+(KMS) son desarrollados para dar soporte y reforzar las tareas de generación de
+conocimiento, codificación, y utilización, combinando tecnologías tales como las intranets, los repositorios de conocimientos, y directorios corporativos. Desde el punto
+de vista de la investigación en administración de conocimiento, ECM puede ser expresada como una subárea de KM para administrar los directorios de conocimiento
+“explícito”. Además, la taxonomía y las herramientas de metadatos de ECM también tienen alcance en el área de administración de información sobre recursos de
+conocimiento corporativo, a menudo referida como “páginas amarillas corporativas”
+e incluidas dentro del “modelo de red” de KM para facilitar la comunicación humano
+a humano en las redes de conocimiento. El campo de KM ha estado en su mayoría
+relacionado a la teoría basada en recursos y el punto de vista de las organizaciones,
+en el cual el conocimiento se ha visto como un activo relacionado a ciertas unidades
+organizacionales.
+
+El concepto de la ECM une un poco la visión basada en recursos con la visión
+basada en procesos de la organización, avanzando más allá del típico enfoque basado
+en recursos de la administración de conocimiento (KM) [2]. Mientras la visión basada en recursos sobre la cual se enfoca KM se direcciona hacia las capacidades de una
+entidad organizacional en particular para producir y compartir nuevo conocimiento,
+la visión basada en procesos en una organización principalmente se focaliza en los
+aspectos de eficiencia y efectividad de operaciones establecidas. ECM puede contribuir en ambas perspectivas, a través del enfoque sobre el recurso de conocimiento
+codificado para unidades organizacionales logrando desarrollar sus capacidades de
+conocimiento, y proporcionando el soporte adecuado a los procesos de negocio.
+
+Aunque KM representa un concepto más amplio incluyendo también la administración de conocimiento tácito con arreglos organizacionales relacionados, el concepto
+de ECM resalta los desafíos especiales de administrar contenido sobre ciclos de vida
+de larga duración, involucrando una sofisticada comprensión de las estructuras de
+contenido, metadatos y taxonomías corporativas (ver sección 2.2.5). La figura 2.2
+describe la relación existente entre los sistemas de gestión de conocimiento y los
+sistemas de administración de contenido.
+
+2.2.3. Los sistemas ECM y la Toma de decisiones
+
+Los sistemas ECM y la administración de conocimiento constituyen “los ojos y
+los oídos para el control del desempeño de la compañía”. Para ejercer control o decidir, estos son necesarios en la gerencia de información con alto valor agregado
+y en tiempo real (9. A niveles operacional y táctico, la solución óptima es tener
+menos información (en términos de cantidad) en el momento adecuado para incrementar el valor de los datos y mejorar el desempeño de la compañía. Implementar
+un sistema ECM en una organización no solo genera las formas efectivas de crear,
+rastrear, administrar, y archivar todo el contenido de la compañía sino que además
+puede integrar procesos de negocio, desarrollar acciones colaborativas a través de la
+organización sistemática de equipos de trabajo, y crear un motor de búsqueda con
+“vistas lógicas de negocio” especializado.Codificado y cormpartición
+
+de mejores prácticas onocimiento
+
+ 
+
+eo. Benchmarking Interno
+
+|
+
+Administración de
+contenido tácito
+
+e,q. Sistemas ECM
+
+2
+Administración de recursos
+de conocimiento corporativo
+
+Administración de contenido
+explícito
+
+Adrninistració
+
+Estructuras de taxonomiías
+. Metadatos
+contenido corporativas
+
+Figura 2.2.: Relación entre KM y ECM
+
+Al administrar contenido estructurado y no estructurado, una plataforma ECM
+incrementa la cantidad y calidad de la información que se usa en la organización y
+acelera la fase de investigación. Este mejoramiento conlleva a incrementar las variables de entrada disponibles para la toma de decisiones o en sistemas que dan soporte
+a la decisión. Tal mejora no solo radica en la cantidad y calidad de la información
+sino que además aumenta la velocidad con la cual se proporciona los datos a quienes
+se encargan de la toma de decisiones. De forma similar a los sistemas de inteligencia
+de negocio, las plataformas ECM dan soporte a la toma de decisiones dentro de las
+organizaciones en términos de ver y recuperar datos y, analizar y compartir información — como también su almacenamiento y mantenimiento continuo a lo largo de
+ciclo de vida del contenido [10] (ver figura 2.3).
+
+El ciclo de vida del contenido define las diversas etapas por las que el contenido digital atraviesa desde su misma creación hasta su retención y/o eliminación.
+Dicho ciclo establece etapas generales en donde la información digital adquirida se
+clasifica, almacena y organiza de acuerdo a características específicas (estructurada
+semi-estructurada o no estructurada, numérica o no numérica, etc.). Posteriormente, el contenido digital es almacenado de acuerdo a criterios técnicos para procesos
+futuros de publicación, utilización y actualización de acuerdo a las políticas de la
+organización.
+
+10| Create mua) £ - Capture ud»
+e
+
+eo. 4 a HE
+
+' Ú i
+
+I ' 5
+
+non Organize/Classify
+Content Owners
+
+Up-to-date
+
+ 
+
+Hd
+
+storage
+
+Publishing yd
+
+Filine or
+GAIA
+
+Delete
+
+ 
+
+ 
+
+ 
+
+l'seKeuse
+
+Figura 2.3.: Ciclo de Vida del Contenido.
+
+2.2.4. ECM como un concepto integrador en la gerencia de la
+información
+
+ECM consiste en un amplio conjunto de elementos interrelacionados: los objetivos
+e impactos, los modelos empresariales y de contenido, la infraestructura, la gerencia
+y la administración del cambio [2]. El concepto de ECM integra algunas áreas de la
+gerencia de información:
+
+= ECM sigue una administración holística del ciclo de vida del contenido para integrar soluciones de producción de contenido, captura, almacenamiento/archivado, versionado, distribución, publicación, recuperación y retención.
+
+= ECM se esfuerza por integrar los modelos de estructura de contenido, metadatos, y taxonomía corporativa para alcanzar ambientes de producción, almacenamiento y recuperación involucrando todos los formatos de contenido (a
+menudo heterogéneos) con una variación en la granularidad de elementos de
+contenido y configuraciones; pasando de información sin estructurar vía datos
+semi-estructurados hasta información estructurada.
+
+= ECM combina el modelo de contenido con el usuario en la organización y
+procesa aspectos de modelado especial (personalización, el usuario y la administración de derechos de acceso, workflows).
+
+= ECM cubre los puntos de vista organizacionales basados en recursos y procesos
+para la administración de la información.
+
+= ECM representa una parte importante de la aplicación empresarial y la integración de infraestructura — desde aplicaciones de producción de contenido
+heterogéneo y bases de datos proporcionando “datos crudos” para sistemas de
+administración de contenido, hasta aplicaciones de flujo de trabajo controlado
+para edición de contenido y publicación multicanal, y herramientas integradas
+de taxonomía y búsqueda de contenido.
+
+11= ECM puede amalgamar algunos roles de trabajos de profesionales de información corporativos (archivistas, administradores de bases de datos, webmasters,
+
+etc.).
+
+2.2.5. Consideraciones sobre el Contenido Digital en la ECM
+
+La administración del ciclo de vida del contenido digital se fundamenta sobre
+la comprensión de los tipos y estructuras de contenido existente, y combinando
+esta con el conocimiento de cómo un contenido particular debe ser administrado a
+través de toda su existencia. En la ECM, los desafíos van más allá de la tradicional
+administración de documentos, administración de los ciclos de vida del contenido
+digital y el versionado de archivos, también incluyen:
+
+= Creación y captura de contenido efectivo desde fuentes internas y externas heterogéneas (medios de producción integrados, escaneo y digitalización, conversión de formatos de archivos, capturas de datos provenientes de formularios).
+
+= Edición controlada, revisión, aprobación, e información (multicanal), distribución, publicación y actualización de contenido — con los flujos de trabajo
+apropiados para la producción de contenido técnico, y tareas de publicación
+(incluyendo políticas para todos los niveles de “publicación”: en grupos o equipos, dentro de la organización, hacia patrones externos o consumidores objetivos, o para el público en general).
+
+= Almacenamiento controlado con formatos seleccionados archivo/datos incluyendo control de versión y administración histórica de revisiones en varios
+niveles de configuraciones de contenido, y administración de relaciones entre
+piezas de contenido sobre ciertas implementaciones de sistemas complejos.
+
+= La retención, preservación y transformación de formato para archivado a largo
+término, y su eliminación (si se considera necesaria).
+
+Para la mejor comprensión sobre los desafíos relacionados con la administración de
+ciclos de vida de contenido heterogéneo, combinado con un modelo complejo para
+la estructura de contenido, vistas, y presentaciones, a continuación se describe la
+experiencia de BOC Gases [2] como sigue: '
+para diseñar y construir la porción de una planta puede incluir cientos de piezas de
+contenido en una gran variedad de formatos, incluyendo dibujos de ingeniería, archivos 3-D CAD, información sobre facturas de materiales (BOM), fotografías, procedimientos operativos estándar, documentos sobre presupuestos, o presentaciones
+acerca de las ventas. Típicamente, hay cuatro o cinco paquetes como tal por planta,
+más paquetes pequeños de construcción específicos por contratista. El contenido dentro de estos paquetes existe en numerosos lugares a través de toda la organización,
+y sobre plataformas de hardware y software numerosas... para acabar de complicar
+las cosas el contenido en los paquetes de fabricación puede estar involucrado en la
+creación de múltiples plantas, lo cual crea un ciclo de vida aún más complejo... el
+contenido en estos paquetes de fabricación no solo se usan por las áreas de ingeniería y construcción; este es usado por mantenimiento, operaciones, y ventas... BOC
+deseaba recolocar contenido en múltiples lugares sino también mantener relaciones
+entre documentos de tal forma que la revisión a un diseño, por ejemplo, automáticamente debería tener eco en todos los paquetes de fabricación relacionados con
+este”.
+
+“.. La colección de contenido necesario
+
+En algunos casos, las etapas de creación/captura se consideran como grandes
+desafíos en algunas organizaciones. El no disponer de tecnologías idóneas puede tener
+
+12repercusiones negativas en cuanto al tratamiento eficiente y efectivo de las etapas
+tempranas de la administración de contenido heterogéneo. En cuanto al contenido
+digital, cuando este se almacena en un sistema de información, a menudo es necesario
+brindar las condiciones para que permanezca como un registro por largos periodos
+de tiempo.
+
+Dentro de las consideraciones más interesantes sobre las características y generalidades del ciclo de vida del contenido se encuentran los metadatos y la taxonomía
+corporativa. Los metadatos deberían proveer información sobre una configuración o
+elemento del contenido digital y su producción, propietario, y su contexto de utilización pensado para facilitar su recuperación o re-uso en propósitos organizacionales.
+Los mayores desafíos son la estandarización de modelos de metadatos corporativos,
+producción de metadatos dinámicos y automatizados de uso fácil y masivo, y el conocimiento entre los productores del contenido y los propietarios de la importancia
+de los metadatos para contextos anticipados de recuperación y re-uso.
+
+La taxonomía corporativa representa la estructuración lógica y conceptual de la
+fuente de contenido total. Esta debe proporcionar la base para que los usuarios puedan acceder y navegar a través de colecciones de contenido integrado lógicamente y
+conducir a búsquedas efectivas basadas en una taxonomía funcional con el motor de
+búsqueda. Partes de la taxonomía pueden servir como una base para la creación automática de metadatos sobre elementos de contenido. Un desafío aun mayor perdura
+en la integración taxonómica (además de la integración técnica) de bases de datos
+de contenido numerosas y heterogéneas bajo taxonomías prácticas para propósitos
+organizacionales.
+
+2.2.6. El modelo Empresarial y su Importancia para la ECM
+
+El modelo de contenido intersecta con los modelos empresariales y especificaciones
+detalladas en la implementación organizacional de sistemas ECM. El concepto de
+modelo empresarial se refiere en nuestro contexto al problema que cualquier organización debe tener, en alguna medida, una idea compartida sobre lo que se necesita
+realizar en la empresa (incluyendo la idea de negocio, las operaciones de soporte
+requeridas, y extendiéndose desde el interior de la organización como tal hacia la
+red de consumidores y proveedores seleccionados), quien hace que, y quien está a
+cargo de que, antes de poder construir sistemas de información útil para dar soporte a operaciones. Los objetivos contemporáneos de la ECM pueden influenciar
+necesidades de cambio al propio modelo empresarial y viceversa.
+
+Infraestructura
+
+La infraestructura de tecnología de información involucra un número de desafíos
+en iniciativas ECM a gran escala entre los que se destacan:
+
+= Integración de aplicaciones estandarizadas y herramientas a través del ciclo de
+vida del contenido (integrando producción/captura, almacenamiento, flujo de
+trabajo de procesamiento, publicación y archivado a largo termino de contenido
+heterogéneo).
+
+= Desarrollo de interfaces de usuario integradas, intuitivas y amigables para la
+administración de contenido, transparentemente integradas con producción de
+contenido “front-end” y soluciones de navegación.
+
+= Actualizaciones en software, hardware y sistemas operativos donde sea requerido.
+
+13= Actualizaciones de tecnología para utilizar formatos de contenido “independientes de la aplicación” tales como XML, reduciendo la dependencia sobre
+formatos o estructuras de contenido de un vendedor específico, facilitando a
+gran escala las actualizaciones de la infraestructura de la aplicación, y permitiendo compartir uniformemente contenido entre organizaciones.
+
+= Aspectos relacionados con la seguridad de la información. Por ejemplo, la inteeración de tecnologías de identificación de clave pública, signaturas electrónicas
+(firmas), administración de derechos digitales, etc.
+
+2.3. Marco Contextual
+
+La Universidad del Valle — Sede Caicedonia, como una de las sedes regionales de la
+Universidad del Valle, fundamenta sus actividades sobre una arquitectura orientada
+a procesos. Como se observa en la figura 2.4, su arquitectura se estructura en cuatro
+erandes subsistemas a saber:
+
+= Estratégico
+= Misional
+= Apoyo
+
+= Evaluación
+
+Misi 1
+
+SATISFACCIÓN DE LOS USUARIOS
+
+M
+A
+p
+A E
+5
+D 13
+= 18
+SE
+u.,
++
+JE
+pl
+o|z
+Cc
+E
+5
+O
+5
+
+ 
+
+Figura 2.4.: Mapa de subprocesos Univalle
+
+Cada subsistema anteriormente descrito contiene una cantidad específica de subprocesos que articulan su esquema de operación. Cabe destacar que dentro de la
+Universidad del Valle existe un Sistema de Gestión de Calidad? que se desarrolla
+
+bajo el soporte y adopción de una metodología conocida como “Planificar-HacerVerificar-Actuar” (PHVA). PHVA puede describirse brevemente como:
+
+ 
+
+“Dirección electrónica Sistema de Gestión de Calidad : http://gicuv.univalle.edu.co
+
+14= Planificar: Establecer los objetivos y los procesos necesarios para conseguir los
+resultados de acuerdo con los requisitos misionales y las políticas institucionales.
+
+= Hacer: Implementar y ejecutar los procesos.
+
+= Verificar: Realizar seguimiento y medición a los procesos respecto a las políticas, objetivos y los requisitos para el servicio, e informar sobre los resultados.
+
+= Actuar: Tomar acciones para mejorar continuamente los procesos.
+
+Para el caso específico de análisis en el marco de desarrollo del proyecto, se consideran especialmente los subprocesos que están contenidos dentro del subproceso de
+formación”, el cual forma parte a su vez del subsistema misional, y cuyo objetivo
+es definir las estrategias de los procesos pedagógicos de enseñanza, aprendizaje y
+la gestión general de las actividades académicas ligadas a la formación de pregrado
+y posgrado, en procura del desarrollo de una capacidad de pensamiento autónomo y creativo, fundamentado en los componentes artísticos, tecnológicos, científicos,
+técnicos, humanísticos y filosóficos. Se realiza mediante las modalidades presencial,
+semi-presencial y de nuevas tecnologías y educación virtual. Incluye los subprocesos
+de Gestión de los Programas Académicos, Gestión de las Actividades Académicas
+de Estudiantes, Apoyo y Estímulo a Estudiantes, Desarrollo de la Actividad Académica, Gestión de Material Bibliográfico y Apoyo para la Formación en Entornos
+Virtuales de Aprendizaje.
+
+A partir del subproceso de formación es importante resaltar los espacios de acción
+que tienen, específicamente, las coordinaciones académicas de la sede Caicedonia en
+los diferentes procedimientos y que de forma articulada propenden a la generación
+de contenido digital heterogéneo durante su desarrollo. En este sentido se puede
+mencionar el subproceso de Desarrollo de la Actividad Académica, y cuyo responsable es el vicerrector académico. Este subproceso tiene como objetivo Desarrollar
+en los estudiantes de pregrado y posgrado las competencias técnicas, conocimientos
+teóricos-prácticos, las habilidades en los ámbitos de la ciencia, la cultura, el arte,
+la técnica, la tecnología y las humanidades para integrarse en el mundo laboral y
+las competencias necesarias para la convivencia en la Sociedad. Su alcance incluye
+las actividades académicas de los docentes y estudiantes de pregrado y posgrado,
+desde la planeación académica, pasando por la evaluación de la calidad académica
+de los cursos, la medición del desempeño docente en su actividad académica hasta el
+registro de las dificultades en el desarrollo de la actividad académica y las acciones
+tomadas para el mejoramiento del proceso.
+
+En este subproceso las coordinaciones académicas sirven como proveedor de información (con la intervención sustancial del director de programa), suministrando
+como entrada una serie de informes relacionados con el desarrollo de las asignaturas,
+evaluación estudiantil de cursos y desempeños del profesor. Todo este contenido respectivamente soporta las acciones de seguimiento y evaluación de cursos, la adopción
+de planes y acciones de mejoramiento. Dada su visión de pequeños subsistemas, estas
+acciones permitirán la generación de unas salidas específicas que tienen que ver con
+la evaluación del desempeño del profesor, la evaluación del curso, las acciones de mejoramiento emprendidas al interior de los programas, entre otras. Consecuentemente
+con su naturaleza sistemática, finalmente, estas salidas tienen como usuarios otros
+subprocesos y proveedores del entorno, y unos registros específicos. Para el caso
+de análisis del subproceso de desarrollo de la actividad académica en relación a la
+
+ 
+
+“Información adicional en http: //procesos.univalle.edu.co/formacion.html
+
+15intervención de las coordinaciones académicas como proveedores de contenido sus
+usuarios son:
+
+= Subproceso de Gestión de Programas Académicos.
+= Subproceso de Gestión de Desarrollo Humano Docente.
+= Consejo Académico.
+= Dirección de Autoevaluación y Calidad Académica.
+= Área de Calidad y Mejoramiento.
+Los registros, por su parte, quedan bajo las definiciones de:
+
+= Evaluación de Desempeño.
+
+= Evaluación del Curso.
+
+= Informe de Autoevaluación.
+
+= Actas de Comités de Programas.
+
+= Actas de Consejos de Facultad e Institutos Académicos y Sedes Regionales con
+Planes y Acciones de Mejoramiento.
+
+= Reporte de Acciones Correctivas, Preventivas o de Mejora.
+
+Las Coordinaciones Académicas de la Universidad del Valle - Sede
+Caicedonia
+
+En concordancia con lo establecido en el apartado anterior, la Universidad del Valle
+— Sede Caicedonia, estipula una caracterización específica del cargo de coordinador
+del programa académico cuyos objetivos son:
+
+= Coordinar las actividades inherentes a la actividad académica de los estudiantes, bajo los lineamientos de la Dirección del Programa respectivo y la
+Dirección de Sede Regional.
+
+= Diseñar estrategias para responder a las necesidades del entorno y afianzar la
+relación del programa académico con el medio.
+
+Además, se denotan unas relaciones, con relación a su entorno:
+
+= Internas: Con el personal administrativo, estudiantes y profesores de la Sede.
+
+= Externas: Con personal de otras sedes de la Universidad del Valle a nivel
+regional, instituciones de educación superior, colegios, estamentos gubernamentales, ONG, empresas y comunidad en general.
+
+De igual forma establece unas funciones derivadas de obligaciones contractuales que
+sugieren en algunos casos la producción de contenido digital no estructurado y que
+se enfocan a:
+
+= Determinar el perfil requerido para la selección de los docentes encargados de
+las asignaturas del programa.
+
+= Recibir y dar trámite según las normas establecidas, a las inquietudes, solicitudes, reclamos, quejas y sugerencias de carácter académico que presenten los
+estudiantes del programa, acudientes, padres de familia y público en general.
+
+16Asesorar al estudiante en la revisión de su situación y/o historial académico.
+
+Asesorar al estudiante en el proceso de matrícula, adición o cancelación de
+asignaturas.
+
+Elaborar propuesta de programación académica de manera semestral para someterlo a consideración del Comité Académico de la Sede Regional.
+
+Presentar los casos académicos especiales ante el Comité Académico de la Sede
+para su consideración.
+
+Tramitar equivalencias a estudiantes del programa académico.
+
+Exponer ante la Dirección del Programa las solicitudes de reingreso, transferencia, traslado y equivalencias que presenten los estudiantes y/o aspirantes a
+ingresar al programa.
+
+Ingresar en el SIRA todos los movimientos académicos de los estudiantes (equivalencias, reportes de notas, reingresos, traslados, transferencias, candidatos a
+grado).
+
+Realizar el proceso de revisión de requisitos académicos y actualización de los
+candidatos a grado.
+
+Coordinar actividades de sustentación de trabajos de grado y elaborar los
+reportes que correspondan.
+
+Designar los profesores para direcciones de trabajos de grado, jurados evaluadores y/o Supervisores de Práctica (Aplica para los programas académicos que
+tienen la modalidad de trabajo de grado o prácticas).
+
+Difundir actividades relacionadas con convocatorias a elecciones de representación estudiantil ante los distintos cuerpos colegiados de la Universidad.
+
+Estimular la participación de los estudiantes en la evaluación docente.
+
+Realizar el respectivo Informe, análisis de datos y socialización de los resultados
+de la evaluación docente.
+
+Conjunto con los docentes, establecer estrategias que permitan corregir deficiencias halladas en las evaluaciones y estrategias metodológicas que permitan
+mejorar el proceso de enseñanza.
+
+Coordinar y difundir actividades complementarias al proceso de formación,
+tales como pruebas Saber Pro, seminarios de actualización, actividades de
+extensión, visitas empresariales, prácticas y pasantías.
+
+Afianzar relaciones con organizaciones y sector empresarial que permitan ampliar el radio de acción de los estudiantes y contribuir al fortalecimiento del
+programa académico.
+
+Llevar el archivo de la coordinación del programa de acuerdo con las disposiciones establecidas por la oficina de Gestión Documental.
+
+Revisar y entregar los programas de las asignaturas a los docentes como insumo
+para el plan de trabajo y desarrollo del semestre.
+
+17Realizar seguimiento a los procesos de formación realizados por los docentes a
+cargo de acuerdo con la programación y el plan de trabajo de cada asignatura.
+
+Coordinar de la mano con el encargado de Laboratorios la utilización y actividades a realizar (en los programas académicos que aplique).
+
+Promover de la mano con la Coordinación de Extensión actividades de actualización académica o actividades complementarias para el personal egresado
+del programa.
+
+Las demás actividades que requiera la Dirección del Programa.
+
+Asistir y participar activamente en las reuniones programadas por la Dirección
+del Programa, Comité de Programa Académico, Comité Académico de Sede,
+Dirección de Regionalización y Oficina de Dirección.
+
+Apoyar a la Secretaría Académica para la generación de informes sobre rendimiento académico de los estudiantes, tasas de deserción, y demás.
+
+Apoyar las actividades que realice la institución en general, que involucren
+áreas propias del programa.
+
+Las demás funciones que dispongan sus superiores inmediatos.
+
+183. Desarrollo del Proyecto
+
+Como estrategia de apoyo a las diferentes actividades del proyecto se implementó
+la metodología de desarrollo de software ICONIX [11|. Dicha metodología supone
+la utilización flexible y práctica de algunos conceptos de las metodologías Rational
+Unified Process (RUP) y extreme programming (XP), y se basa en un proceso iterativo e incremental que procura el perfeccionamiento de los resultados en cada una
+de las fases de análisis, diseño, implementación y pruebas.
+
+Al igual que la mayoría de las estrategias modernas para el desarrollo de software,
+ICONIX adopta un conjunto de técnicas que buscan mitigar el costo del cambio. En
+consecuencia, el marco de desarrollo del proyecto utilizó un enfoque de iteraciones
+sucesivas, cada una de las cuales se pudo contemplar como un miniproyecto. Para
+éste caso en particular, la metodología permitió la construcción del software por funcionalidades. Cada nueva iteración proporcionó nuevos elementos de funcionalidad
+que las anteriores, preservando la coherencia con los objetivos establecidos e incluso
+mejorando algunos aspectos de funcionalidad previamente entregados.
+
+ICONIX, como estrategia incremental, permitió realizar inicialmente un análisis
+que ayudó a centrar el alcance del problema e identificar los requisitos más importtantes. Adicionalmente, se seleccionaron los requisitos que proporcionarían mayor
+beneficio al usuario final como núcleo de primer incremento de desarrollo y entrega. La finalización de cada incremento proporcionó la retroalimentación necesaria
+al desarrollador y ayudó a definir el alcance y los contenidos de los incrementos
+posteriores [12].
+
+A continuación presentamos el proceso de desarrollo del producto final a través
+del enfoque de etapas principales destacadas por Rosemberg y Scott!, las cuales son:
+
+1. Análisis de Requerimientos.
+2. Análisis y Diseño Preliminar.
+3. Diseño.
+
+4. Implementación.
+
+Cabe destacar en este proceso, el uso simultáneo de tres principios fundamentales:
+= Trabajar hacia adentro desde los requerimientos del usuario.
+= Trabajar hacia fuera desde las abstracciones clave del dominio del problema.
+
+= Ir descendiendo desde modelos de alto nivel al diseño detallado [11].
+
+ 
+
+Doug Rosemberg y Kendall Scott fueron quienes desarrollaron el proceso de desarrollo de software
+ICONIX a partir de 1993.
+
+193.1. Análisis de Requerimientos
+
+Una característica importante propia de ICONIX, la cual se introdujo en el proyecto fue el “modelo de dominio”. El modelo de dominio es un modelo de clases
+análisis (de alto nivel) que es independiente de cualquier caso de uso particular. Dicha representación pertenece al espacio del problema (el mundo real) y permite su
+fácil comprensión. Para la consecución del modelo de dominio del proyecto necesariamente se inició con la recolección de requisitos a través de las técnicas de lecturas
+preparatorias, entrevistas y cuestionarios principalmente [12].
+
+3.1.1. Lecturas Preparatorias
+
+La investigación o las lecturas preparatorias son parte del proceso de adquisición
+de conocimientos acerca de la organización y de sus objetivos de negocio. Entre
+los documentos que constituyen fuentes adecuadas de información se incluyen los
+siguientes:
+
+= Informes de la empresa.
+
+= Gráficos de la Organización.
+
+= Manuales de normativas.
+
+= Descripciones de trabajos.
+
+= Informes.
+
+= Documentación de los sistemas existentes.
+
+Para el desarrollo específico del proyecto y dentro del marco de adquisición de conocimientos se contó con la importante colaboración de la Oficina de Calidad de la
+Universidad del Valle - Sede Caicedonia. Esta dependencia ayudó a la comprensión
+de la estructura organizacional y proporcionó diversos contenidos digitales como
+documentos, esquemas y enlaces Web, referentes al contexto específico dentro de
+la organización donde se identificó la problemática, permitiendo así la definición
+posterior de las características y el alcance del producto final.
+
+3.1.2. Entrevistas
+
+Las entrevistas constituyen, probablemente, la técnica de búsqueda de información más ampliamente utilizada; es también la que requiere mayor habilidad y sensibilidad. En el caso particular, se utilizaron las entrevistas para la recolección de
+información detallada de los procesos académico-administrativos? relacionados con
+las coordinaciones académicas de la Universidad del Valle - Sede Caicedonia con el
+objetivo de lograr la cohesión entre los requisitos del sistema y las políticas organizacionales. Entre el talento humano que intervino en esta técnica se destacan el
+personal de la Sub-dirección, la Secretaría Académica y la Coordinación Académica
+del Programa Académico de Tecnología en Sistemas de la Universidad del Valle Sede Caicedonia.
+
+ 
+
+“Fuente Adicional: http: / /procesos.univalle.edu.co/formacion.html
+
+203.1.3. Cuestionarios
+
+Los cuestionarios son instrumentos de investigación que pueden utilizarse para
+la búsqueda de hechos en proyectos de desarrollo de sistemas y consisten en una
+serie de preguntas escritas. Para el desarrollo de la plataforma se estructuró un
+cuestionario a través del cual se buscó identificar las condiciones acerca del manejo
+de contenido digital, los tipos y formatos utilizados, la proporción de documentos
+heterogéneos que se crean en un periodo de tiempo determinado y la percepción
+por parte del personal acerca de las tecnologías y herramientas utilizadas para la
+gestión de contenido digital en la institución. Dentro de los elementos de análisis
+más significativos que se desarrollaron (ver el anexo A), el apéndice A.l define el
+cuestionario implementado en esta fase del proyecto.
+
+Una vez implementadas cada una de las técnicas anteriormente descritas y siguiendo la metodología de desarrollo propuesta, se obtuvo un levantamiento formal
+de todos los requerimientos que en principio deberían ser parte del sistema. Además, se analizaron diferentes tipos de contenido digital no estructurado relacionado
+especialmente con la gestión administrativa de la dependencia específica, proporcionando la comprensión sobre las características, fuentes, usuarios e interacciones de
+los diferentes contenidos digitales que se integrarían a la plataforma.
+
+3.1.4. Requerimientos Funcionales
+
+En un estado inicial se definieron los requerimientos más importantes en conjunción con el mayor beneficio de los usuarios finales. Los requerimientos establecidos
+se presentan a continuación:
+
+= El sistema debe permitir administrar de forma centralizada el registro de usuarios, ingresar sus datos personales, de acceso y de contacto respectivos.
+
+= El sistema debe proporcionar un mecanismo de almacenamiento centralizado
+de contenidos digitales no numéricos.
+
+= El sistema debe facultar los procesos convencionales de creación, lectura, actualización y eliminación controlada de contenidos digitales específicos.
+
+= El sistema debe conservar las características de los contenidos digitales que
+almacena.
+
+= El sistema debe dar soporte a las diferentes etapas complementarias del ciclo
+de vida de los contenidos digitales:
+
+e Captura.
+
+e Almacenamiento.
+e Versionado.
+
+e Indexado.
+
+e Limpieza.
+
+e Distribución.
+
+e Búsqueda.
+
+e Publicación.
+
+= El sistema permitirá la utilización de herramientas colaborativas para la gestión de contenido digital.
+
+21En conjunción con los requerimientos funcionales planteados, El apéndice A.2 referencia los principales requerimientos no funcionales relacionados con la disponibilidad y desempeño del sistema.
+
+Finalmente, se presenta el primer modelo de dominio con sus respectivas asociaciones. Es importante anotar que el modelo del dominio está en el espacio del
+problema (mundo real) y no en la solución (ver figura 3.1). De forma análoga y con
+el propósito de clarificar el modelo de dominio particular, se decidió detallar algunos
+elementos de análisis teórico-prácticos de gran importancia sobre el ciclo de vida
+del contenido digital no estructurado y su relación directa en la consolidación de
+los requerimientos y su posterior enfoque orientado a la arquitectura ECM. Dichas
+consideraciones se consignan en el anexo A.3.
+
+Llsuario
+1 Se
+
+ 
+ 
+
+ 
+ 
+ 
+
+Se Vihcula
+
+  
+
+administra
+
+ 
+ 
+  
+     
+
+Es Asistido
+
+ 
+
+Herramientas
+Colaborativas
+
+Soporta
+
+Ciclo de ida del
+Contenido
+Figura 3.1.: Clases y Asociaciones Iniciales.
+
+ICONIX sugiere durante su implementación, antes de la realización de los casos
+de uso, el bosquejo del prototipo de la interfaz gráfica de usuario (GUI) si es factible.
+Para nuestro caso, optamos por omitir este paso debido a las restricciones impuestas
+por el tiempo, el equipo de trabajo y a la multiplicidad de los elementos gráficos a
+incluir. Sin embargo se definió de forma preliminar el uso de una interfaz integral
+introduciendo el concepto de Sistema Operativo Web o WebOS?.
+
+3.1.5. Diagramas de Casos de Uso
+
+Un importante aspecto de ICONIX es que un caso de uso se distingue explícitamente de un requisito. En este sentido, el primero describe un comportamiento;
+el segundo describe una regla para el comportamiento. Además, un caso de uso satisface uno o más requisitos funcionales; mientras un requisito funcional puede ser
+satisfecho por uno o más casos de uso. La figura 3.2 presenta el caso de uso realizado
+para la gestión de contenido.
+
+ 
+
+3 Generalmente, el término WebOS ha sido empleado para referirse a una plataforma que interactúa
+con el usuario a través del navegador web y no depende del sistema operativo.
+
+22Gestión de Contenido
+
+Accesar y/o
+actualizar
+
+Crear, capturar y/o contenido digital Eliminar
+almacenar — contenido digital |
+Ad trador ECM i igi y
+Administrador endo Ei | . multiformato
+
+Gerenciar
+
+| contenido digital / Ingresar al Sistema |
+
+' Ingresar al Sistema |
+
+ 
+
+"Distribución y/o
+ques e publicación de |
+indexar y Buscar a e
+
+[ contenido digital ' o
+multiformato
+—— Usuario ECM
+
+Versionar
+contenido digital
+
+ 
+
+ 
+
+ 
+
+Figura 3.2.: Caso de Uso Gestión de Contenido.
+
+Toda la notación desarrollada en esta parte de la metodología tuvo como referencia
+la exposición de casos de uso abstractos, los cuales ayudan a definir la funcionalidad
+
+de los otros casos de uso, pero no cuentan con una ejemplificación específica como
+tal [12].
+
+3.2. Análisis y Diseño Preliminar
+
+En esta etapa se describieron los casos de uso, como un flujo principal de acciones,
+pudiendo contener flujos básicos y flujos alternativos. La principal sugerencia de
+ICONIX en esta actividad, es que no se debe perder mucho tiempo con la descripción
+textual y usar un estilo consistente que sea adecuado al contexto del proyecto.
+
+Además de describir los casos de uso, se realizaron los diagramas de robustez (ver
+sección 3.2.2). Estos diagramas permitieron la ilustración gráfica de las interacciones entre los objetos participantes de un caso de uso y proporcionaron las bases
+necesarias para saber si las especificaciones del sistema eran razonables.
+
+Al finalizar esta sección, se da una conceptualización sobre arquitectura utilizada
+para la construcción del sistema ECM para la administración de contenido digital
+no numérico de carácter administrativo en el área de las coordinaciones académicas
+
+de la Universidad del Valle — Sede Caicedonia.
+
+3.2.1. Descripción de los Casos de Uso
+
+El primer paso en esta actividad consistió en definir explícitamente los usuarios
+que tendrían algún tipo de interacción con el sistema a desarrollar. Esto, con el fin
+de determinar las características y los perfiles del personal dentro del aplicativo. En
+este sentido, se establecieron principalmente dos tipos de actores (ver cuadro 3.1).
+
+ 
+
+Actor Descripción
+
+ 
+
+El administrador del sistema ECM es el responsable de la gestión
+
+o. operativa del sistema, comprendiendo las interacciones relacionadas
+Administrador
+
+ECM
+
+con los subsistemas de gestión de personal, de colaboración y de
+contenido.
+
+ 
+
+El Usuario regular del sistema ECM es el responsable de las
+. actividades de interacción con contenido digital durante su ciclo de
+Usuario ECM 5
+
+vida, las cuales tienen una correspondencia con la administración de
+contenido web dentro del marco ECM integral.
+
+Cuadro 3.1.: Actores del Sistema
+
+ 
+
+ 
+
+ 
+
+ 
+
+23Una vez se definieron las caracterizaciones de los usuarios y sus propiedades de
+interacción es posible generar la descripción de todos los casos de uso. En el cuadro
+3.2, se presenta el planteamiento escrito del caso de uso relacionado con la Gestión
+de Contenido.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Actor:
+Caso de Uso: Gerenciar contenido digital. Administrador
+ECM
+Pre-Condiciones: El Administrador ECM debe haber iniciado sesión en el sistema.
+Curso Básico: Curso Alterno:
+1, El usuario Administrador ECM, puede crear nuevos Si se presentan
+documentos en una variedad de formatos pre-establecidos a errores de
+
+través de un sistema basado en la técnica WYSIWYG (What
+You See Is What You Get).
+
+2. El usuario Administrador ECM, puede almacenar contenido
+digital a través de mecanismos de captura que permiten vía web
+
+validación,
+conexión con los
+repositorios de
+
+“llevar” dichos activos a un repositorio de datos centralizado. datos, falta de
+3. El usuario Administrador ECM puede, a través de una permisos, el
+interfaz web de control administrativo, accesar a activos digitales | sistema debe
+(listados en orden específicos). informar al
+
+4. El usuario Administrador ECM, puede ejecutar peticiones de
+eliminación de contenido multiformato, estas operaciones sobre
+
+usuario los
+
+, sucesos
+los archivos son de carácter irreversible. ,
+o. específicos a
+5. El usuario Administrador ECM, puede organizar y ;
+través de
+
+administrar cambios sucesivos de orden menor y mayor sobre un
+mismo contenido digital a través del versionado de documentos mensajes.
+digitales (mediante consecutivos numéricos).
+
+6. El usuario Administrador ECM tendrá permitido generar y o
+modificar características relativas al fichero digital (metadatos),
+con el fin de llevar a cabo el indexado de estas propiedades en el
+sistema como insumo de otras interacciones.
+
+7. El usuario Administrador ECM, tendrá la opción de generar
+búsquedas mediante una interfaz web con la capacidad de
+
+establecer diversos criterios (basados en los metadatos) para tal
+fin.
+
+8. El usuario Administrador ECM, estará facultado para realizar
+la publicación y/o distribución de contenido digital (a nivel
+público o privado) a través de mecanismos previamente
+establecidos por el sistema.
+
+ 
+
+ 
+
+Post-Condiciones: Los cambios realizados en el subsistema de gestión de contenido
+debe tener efectos correspondientes e inmediatos sobre los demás subsistemas y
+usuarios de la arquitectura ECM.
+
+ 
+
+Observaciones: De forma análoga, las interacciones aquí descritas tienen efectos
+similares si son llevadas a cabo por parte del usuario ECM, los cambios en los alcances
+de cada interacción vienen denotados por los niveles de permiso del grupo al que
+pertenecen dichos usuarios. La operación de eliminación no es literal, por el contrario,
+está interacción solo “oculta” el contenido digital afectado del acceso posterior por el
+
+ 
+
+ 
+
+usuario ECM hasta tanto el Administrador ECM confirme o niegue la real operación.
+
+ 
+
+Cuadro 3.2.: Descripción Caso de Uso
+
+Dentro del anexo correspondiente a los elementos de diseño (ver anexo B) el
+apéndice B.1 define y describe los casos de uso complementarios del proyecto.
+
+243.2.2. Análisis de Robustez
+
+El análisis de robustez ayuda a identificar los objetos que participan en cada caso
+de uso. Estos objetos que forman parte de los diagramas de robustez sirven como
+enlace entre el análisis (“el que” - diagramas de casos de uso) y el diseño (“el como”
+- diagramas de secuencia). Adicionalmente, este proceso ayudó a establecer si las especificaciones del sistema eran razonables. La figura 3.3 presenta una ejemplificación
+de los diagramas empleados en este tipo de análisis.
+
+estror de
+Aplicaciones
+
+Principal
+
+   
+
+Procesador de Control de
+Peticiones Operación
+
+Administrador
+de Archivos
+
+ 
+
+E An Di
+Usuario y,
+
+ECM Editor de Texto
+
+Repositorio de
+Datos
+
+Figura 3.3.: Diagrama de Robustez asociado a la Creación de Contenido
+
+3.2.3. Arquitectura
+
+La arquitectura implementada, entendiéndose esta como una estructura lógica de
+componentes que son interdependientes e interactuantes entre sí, se orientó mediante
+la disposición multicapa y bajo la plataforma cliente - servidor, enfocada especialmente a la gestión de actividades propias de la administración de contenido Web.
+Con el objeto de brindar una mejor comprensión, antes de describir la estructura
+en cuestión, es importante definir las propiedades fundamentales que pertenecen a
+procesos naturales de esta área.
+
+Administración de Contenido Web
+
+A primera vista, la Administración de Contenido Web (conocida como WCM por
+sus siglas en inglés), es muy similar a la Administración de Documentos (DM). En
+ambos casos, los propietarios de contenido almacenan archivos en un repositorio. A
+menudo, al contenido se le asignan metadatos, se asegura, es indexado para búsqueda
+posterior, y es enrutado a través de un workflow. La diferencia más obvia entre DM y
+WCM es que el contenido administrado es específicamente publicado en un sitio Web
+o como parte de una aplicación Web. Más allá de esta distinción de alto nivel, hay
+algunas otras diferencias que hacen que la WCM merezca una discusión separada
+113]. Estas incluyen:
+
+= Herramientas propietarias usadas para crear contenido.
+
+20= Separación de la presentación y el contenido.
+= Publicación sistemática o despliegue de contenido.
+
+A continuación, de forma breve se dá una mirada a cada uno de estos aspectos.
+
+Herramientas Propietarias
+
+La mayoría de las soluciones de administración de contenido tratan con archivos
+generados por una suite ofimática. Por supuesto, existen excepciones tales como las
+de varios tipos de archivos de gráficos, formatos de dibujo (CAD/CAM) y otras
+herramientas especializadas, pero con frecuencia, los archivos son generados por un
+número pequeño de herramientas diferentes y un número incluso menor de proveedores distintos de software.
+
+En el caso de la WCM, hay una amplia variedad de herramientas involucradas
+desde editores de texto hasta ambientes de desarrollo integrado para programas
+de gráficos con múltiples vendedores en cada categoría. Esto conlleva a que una
+solución WCM necesita ser muy flexible en la forma de integrarse con herramientas
+propietarias. La alternativa, la cual obliga a los desarrolladores a suministrar las
+herramientas favoritas de determinados usuarios en favor de un estándar, puede
+resultar en una “pesadilla de administración de contenido”.
+
+Separación de la presentación y el contenido
+
+WCM no requiere la separación entre la apariencia del contenido sobre el sitio web
+y su almacenamiento. Pero muchas implementaciones toman ventaja de este principio ya que las tareas concernientes al diseño del sitio se hacen más fáciles, faculta la
+publicación multicanal, y permite a las personas crear contenido sin habilidades de
+programación Web.
+
+Para comprender por qué esto es así, es necesario ejemplificarlo suponiendo un
+sitio web que tiene su contenido y presentación mezclados. Cuando sea tiempo de
+rediseñar el sitio, se debería tocar todas las páginas web ya que cada página tiene
+su propio marco de presentación. De forma análoga, la creación de contenido está
+limitada a personal con habilidades técnicas. Por otra parte, hay un riesgo de que el
+propietario del contenido (por ejemplo, la persona que escribe o publica un trabajo)
+inadvertidamente podría impactar de forma negativa el diseño de la página.
+
+Una forma de evitar estas problemáticas es separar el contenido de la presentación del mismo. Un mecanismo para realizar esto es almacenar el contenido como
+XML de presentación independiente. El XML puede luego ser transformado en cualquier presentación que se requiera. Así, un rediseño es tan simple como cambiar la
+presentación en un solo lugar y luego visualizarlo en todas las páginas.
+
+El impacto de separar el contenido de su presentación se da en tres sentidos.
+Primero, asumiendo que los consumidores del contenido no están interesados en leer
+XML puro, algo debe ser responsable de transformar el contenido. Dependiendo de
+la aplicación, esto puede llevarse a cabo por el sistema WCM o una aplicación web
+frontend.
+
+Lo segundo, en el caso de contenido estático, cualquier cambio en el contenido
+subyacente tiene que lanzar una transformación permitiendo que la capa de presentación se actualice, siempre recordando que puede haber más de un archivo afectado
+por el cambio.
+
+26Tercero, los autores del contenido pierden el beneficio de creación de contenido
+WYSIWYG (What You See Is What You Get) ya que el contenido no se observa
+inmediatamente, sino hasta tanto se publique en el sitio web. El sistema WCM,
+entonces, tiene que ser capaz de permitir a los autores de contenido “previsualizar”
+el contenido tal como ellos lo crean, preferiblemente en el contexto del sitio.
+
+Publicación Sistemática o Despliegue
+
+Un sistema de Administración de Documentos es un poco como una base de datos
+relacional en el sentido de que este es típicamente un repositorio centralizado y autoritativo (gestionando aspectos de seguridad y control de acceso). Hay excepciones,
+pero en la mayor parte, el contenido reside en un repositorio y es recuperado por los
+sistemas y las aplicaciones que lo requieran. Por otro lado, un sistema WCM a menudo se enfrenta al desafío de despliegue o publicación. Los archivos van al repositorio,
+pero deben ser entregados a algo para ser consumidos. Esto puede ocurrir sobre una
+tarea programada, en la petición de un usuario, como parte de un flujo de trabajo,
+o todos a la vez. Lo que es seguro es que algunos sitios web recuperan su contenido
+dinámicamente; pero la mayoría de los sitios tienen al menos un subconjunto de
+contenido que debe ser estáticamente entregado a un servidor web.
+
+Con base en los aspectos anteriormente descritos, la arquitectura del proyecto
+quedó definida como se muestra en la figura 3.4, denotando la relación entre sus
+componentes.
+
+   
+         
+   
+
+[Capa de Contenido]
+
+BUSCAR -.. Controlador || Apache Solr
+
+Busqueda [Datos Indexados]
+Manejo
+
+GET A Peticiones
+POST : Usuario
+
+Controlador
+A
+
+Documento
+DELETE
+
+. Contenido,
+Contenido,
+
+metadatos
+
+ 
+   
+
+metadatos
+
+Repositorio Lily
+
+Hadoop - MapReduce
+
+[Capa de Presentación]
+
+[Almacenamiento HDFS]
+
+ 
+
+[Capa de Contenido]
+
+Figura 3.4.: Arquitectura del Sistema ECM
+
+Ze lLa arquitectura establecida define dos capas específicas:
+= La capa de contenido.
+
+= La capa de presentación.
+
+La Capa de Contenido
+
+En esta capa se optó por correlacionar dos estructuras de almacenamiento de datos
+con características especiales. La primera está constituida por una base de datos
+relacional y la segunda por un repositorio de almacenamiento de contenidos digitales
+no estructurados o heterogéneos, donde su funcionamiento está en concordancia con
+lo estipulado en el tercer objetivo del proyecto. Para este propósito se utilizó el motor
+de bases de datos MySQL y el repositorio de contenido heterogéneo Lily?.
+
+En el ámbito del almacenamiento relacional, éste se utiliza con el propósito de
+gestionar los datos proporcionados por la aplicación de flujos de trabajo y para el
+registro de los datos correspondientes a las credenciales de acceso e información
+básica de los usuarios del sistema (su uso es opcional). En lo referente a Lily como
+plataforma de gestión de datos de carácter heterogéneo, es importante resaltar que
+su funcionamiento está basado en la plataforma de código abierto “big-data” de
+Apache llamada Hadoop?. Apache Hadoop utiliza HDFS (Hadoop Distributed File
+System), un sistema de fichero distribuido escrito en java, escalable y tolerante a
+fallos. Aunque Hadoop puede funcionar con varios sistemas de ficheros (sistema de
+ficheros locales de Linux, GlusterF'S, S3 de Amazon, etc.) HDFS se desmarca de ellos
+por ser totalmente compatible con MapReduce (modelo de programación) y ofrecer la
+optimización de “localidad de los datos”, lo cual lo convierte en la solución “natural”
+de Hadoop. Adicionalmente, Lily incorpora a su estructura de funcionamiento dos
+tecnologías robustas en administración de contenido digital: Hbase y SOLR*. Hbase
+es una base de datos no relacional, distribuida, altamente escalable, escrita en java,
+“open source” y que corre sobre HDF'S. Lily utiliza Hbase para el almacenamiento
+de datos granulares. Apache SOLR, por otra parte, se emplea en conjunto con el
+repositorio de contenido con el objeto de consolidar una plataforma de indexación
+y búsqueda de propiedades específicas de las unidades de contenido digital que Lily
+manipula. Finalmente, la administración de todas las tecnologías que implementa el
+repositorio se deja a cargo de Zookeeper, un servicio centralizado que actúa como
+un coordinador de aplicaciones distribuidas (incluyendo sus configuraciones).
+
+Lily proporciona escalabilidad y replicación a través de su arquitectura distribuida.
+Lily cuenta con múltiples nodos; cada nodo es responsable de participar en una o más
+de sus funcionalidades (almacenamiento, búsqueda y recuperación de contenido entre
+otras). Ya que Lily utiliza un almacenamiento NoSQL (no relacional), éste permite
+que se puedan agregar al repositorio cualquier tipo de esquema rico (flujos de datos
+binarios en múltiples formatos) [14]. Este repositorio está diseñado para ser usado por
+cualquier clase de aplicación front-end (capa de presentación) usando opcionalmente
+
+ 
+
+“Lily es un repositorio de datos escalable para almacenar, buscar y recuperar registros (o items de
+contenido, documentos, objetos, etc.). Más Información en http: //www.lilyproject.org/
+
+Apache Hadoop (http: //hadoop.apache.org/) es un marco de software de código abierto para
+aplicaciones intensivas de datos distribuidos, originalmente creado por Doug Cutting para apoyar
+su trabajo en Nutch, un motor web de código abierto.
+
+Web del proyecto: http: //lucene.apache.org/solr/
+
+28el API de Lily basado en Java o a través de la interfaz REST” (Representational
+State Transfer) del servicio Lily.
+
+El modelo de repositorio de Lily ofrece una rica funcionalidad expresada en campos
+multivalor, links, versionado, y un esquema que fácilmente se puede cambiar. La
+entidad básica administrada por el repositorio es llamada registro. Los registros son
+conjuntos de campos y se adhieren a un tipo de registro el cual especifica los tipos
+de campos que se permiten dentro del registro. Los tipos de campo definen la clase
+de valor que se puede almacenar en el campo (string, long, decimal, link, etc.) y el
+alcance del campo. El alcance del campo o scope determina si un campo es versionado
+o no. Los campos versionados son inmutables: por cada cambio o actualización de
+un campo versionado se crea una nueva versión dentro del registro. Los registros en
+su definición siempre cuentan con un Id de registro que puede ser asignado por el
+cliente cuando crea el registro, o se asigna automáticamente por el repositorio, en
+cuyo caso este será un UUID (Identificador Único Universal).
+
+Es importante mencionar que los campos en un registro pueden ser blobs (objetos binarios grandes), Estos blobs se almacenan tanto en Hbase como en HDF'S
+dependiendo de una estrategia basada en el tamaño. Los blobs más pequeños como
+las páginas HIML pueden ser almacenadas en Hbase, mientras que los blobs mas
+erandes serán manejados como flujos que se almacenan en HDF'S.
+
+La Capa de Presentación
+
+En la capa de presentación de datos, todos sus elementos constitutivos se soportan
+sobre el protocolo HT'TP y corre bajo el servidor de aplicaciones Apache. Este sistema de soporte al cliente implementa un OSWeb conocido como Oneye* construido
+sobre el lenguaje de programación PHP como núcleo principal de procesamiento de
+peticiones, las cuales usualmente se efectúan a través de un navegador Web y hacen
+uso de técnicas asincrónicas por medio de Javascript para la carga de información.
+En concordancia con los sistemas WCM, la plataforma posee un sistema de separación de contenido con relación a su presentación permitiendo manipular información
+sobre la capa de presentación en diferentes interfaces de trabajo para lo cual se usa
+un lenguaje de marcado extensible como capa de recuperación de datos.
+
+Oneye está basado en un micro-kernel. Éste, está pensado con el único propósito
+de unificar los servicios del sistema. En otras palabras, Oneye tiene muchos servicios
+para tareas específicas (manejo de usuarios, eventos, operatividad sobre ficheros,
+etc.) y el kernel es el responsable de su comunicación y localización. Los servicios
+en Oneye realizan tareas de bajo nivel. Por ejemplo, las aplicaciones no manipulan archivos directamente: en vez de esto, ellas usan un servicio diseñado para este
+propósito. De este modo, la seguridad se garantiza ya que los servicios aplican restricciones a las peticiones de la aplicación. Las aplicaciones son pequeños programas
+que se desarrollan en PHP, mediante el uso de un conjunto de bibliotecas y sobre
+los servicios del OSWeb”. En el sistema operativo Web utilizado, los controladores
+de documento y de búsqueda se ubican en el servicio de administración del sistema
+
+ 
+
+"En el año 2000, Roy Fielding, uno de los colaboradores clave para HT'T'P y URI, codificó la
+arquitectura de la Web en su tesis doctoral titulada “Architectural Styles and the Design of
+Network-Based Software Architectures.” En esta tesis, el introdujo el estilo de arquitectura
+Representational State Transfer (REST).
+
+Plataforma homogénea para el desarrollo de aplicaciones Web. Más información en: http://
+oneye-project.org/
+
+“Oneye posee ocho servicios básicos: extern, eyeX, log, mmap, proc, sec, um y vís
+
+29de archivos (VFS por sus siglas en inglés). Los principales cambios sobre el servicio
+VES se describen en la sección 3.4.1.
+
+Una característica importante de Oneye es que no requiere de ningún hardware
+o software especial para su funcionamiento. Esta plataforma, en su forma estándar,
+solo necesita de un servidor Web para su despliegue y el soporte para el lenguaje
+de programación PHP. Para el caso particular se hizo necesario contar, de forma
+adicional, con un extractor de metadatos en el front-end (Apache Tika) para el
+pre-procesamiento de ficheros digitales y el cumplimiento de unas condiciones especiales debido a la creación de nuevas aplicaciones en el OSWeb que utilizan servicios
+externos (ver el apartado 3.4.2).
+
+Consolidación de la Plataforma
+
+El producto final, como aplicación de red, utiliza el estilo arquitectural REST. Este
+estilo, en términos abstractos, describe el funcionamiento del World Wide Web. Las
+tecnologías que soportan su funcionamiento incluyen el Protocolo de Transferencia
+
+de Hipertexto (HTTP), el Identificador Uniforme de Recurso (URI), lenguajes de
+marca tales como HTML y XML, y formatos “web-friendly” como JSON.
+
+3.3. Diseño
+
+Durante la fase de diseño se implementaron tres tareas relacionadas con la definición de las operaciones realizadas por el sistema, el establecimiento de los patrones de
+comunicación entre componentes y la terminación del modelo estático del proyecto.
+Siguiendo este esquema de tareas, el primer producto de esta fase estuvo constituido
+por el conjunto de diagramas de actividad. La figura 3.5 ilustra este tipo de diagrama
+en relación a las acciones correspondientes para la creación de contenido.
+
+Usuario con permisos para crear contenido
+
+
+Tipo MIME: PDF, TXT,
+HTML, etc.
+
+ 
+
+Metadatos |
+Pnncipales
+
+Metadatos
+Secundarios
+
+  
+
+* Entrada Obligatona |
+
+del Usuario 4
+y
+
+Figura 3.5.: Diagrama de Actividad para la Creación de Contenido
+
+Los diagramas de actividad permiten representar los tres componentes estructurales existentes en todos los lenguajes de programación basados en procedimientos:
+secuencias, selecciones e iteraciones. Esta capacidad para modelar procesos en esta
+
+30forma resulta de gran ayuda durante la creación de los modelos de las operaciones
+de las clases. Los diagramas de actividad adicionales realizados en el proyecto se
+encuentran en el apéndice B.2.
+
+Una vez realizados los diagramas de actividad, se definieron los diferentes comportamientos del aplicativo a través de los diagramas de secuencia. Los diagramas
+de secuencia pertenecen a los diagramas de interacción que proporciona UML. Para
+el caso particular, estos diagramas brindaron el soporte a todo el modelo dinámico
+del sistema y ayudaron en la especificación de los patrones de comunicación entre un
+conjunto de objetos o sistemas participantes durante una secuencia de tiempo. La figura 3.6 describe las interacciones y objetos necesarios para la creación de contenido
+
+a través del Sistema ECM.
+
+T | pe | :Kemel | | ee, | Mm | lo | Seco | | .— |
+| lanzarinterfaz_ + |
+
+> cero
+—_—————— crab
+W E
+i Í | lanzarDialogo
+a |
+
+A hnzarDlialogo cuida
+. E
+
+| caplurarliados | guardartschivo 7
+! - >|
+
+ 
+
+ 
+
+al i [Operación No
+Aorizada]
+
+ 
+
+“erificarPermizo”
+
+  
+
+=>,
+
+"E
+
+ 
+
+z |] [Oparación
+confirmartcción - Autorizada]
+
+tresarArchlro >]
+
+ 
+
+Figura 3.6.: Diagrama de Secuencia para la Creación de Contenido
+
+Finalmente, se refinaron los diagramas de clases retroalimentados a través de las
+etapas de análisis y diseño preliminares. El argumento de uso para este tipo de
+diagramas en el proyecto se basa en que mediante iteraciones sucesivas, proporciona
+una base de alto nivel para la arquitectura del sistema y una base de bajo nivel para
+la adjudicación de datos y comportamiento a clases individuales. Además, resulta
+fundamental en la etapa de diseño de código del programa que implementa el sistema.
+La figura 3.7 muestra el diagrama de clases obtenido.
+
+Las clases en color azul oscuro representan las clases que están encargadas de las
+tareas de bajo nivel (el micro-kernel y los servicios complementarios del OSWeb),
+a las cuales no se les hizo cambio en su estructura y planteamiento original. Las
+clases que se presentan en color verde se caracterizan por sufrir algunos cambios
+importantes y en casos particulares por su creación y adición a las diferentes capas
+de la arquitectura base. Un ejemplo de transformación en la orientación de algunos
+métodos sucede en la clase relacionada con el servicio de administración del sistema
+de archivos, donde se modificó el modulo virtual (vfs) para consolidar la comunicación con el repositorio central de datos mediante una librería cliente para servicios
+Web RESTfull llamada PEST?%. A su vez se agregaron nuevos procedimientos a vís
+para facultar la interacción con la base de datos relacional y el motor de indexado,
+elementos que no se consideran en la funcionalidad original del Sistema Operativo
+Web. En el ámbito de las aplicaciones (apps), se crean nuevas funcionalidades y se
+mejoran las existentes con el objeto de potenciar las nuevas características que provee la capa de almacenamiento propuesta (búsqueda de archivos, gestor de archivos,
+
+ 
+
+10 más información en http://github.com/educoder/pest
+
+31+ loedStringlUibrary (void
++ selPhpinilDebug[jcvowd
++ selPhpinialues()
+
++ losdindexisting index)
+boolean
+
+ 
+
+Figura 3.7.: Diagrama de Clases del Sistema
+
+creación, eliminación y recuperación de documentos entre otras). Finalmente, las
+clases en color azul claro solo revisten unos cambios menores con el objeto de armonizar los cambios más profundos realizados al interior del sistema y anexar algunas
+propiedades específicas manipuladas en la capa de presentación.
+
+3.4. Implementación
+
+En esta etapa del proyecto, la existencia de una especificación de diseño eficaz
+permitió fácilmente determinar como se debía estructurar la producción de código.
+En los estados iniciales del proyecto, sin embargo, se presentaron algunos errores
+menores de diseño y algunas piezas de código no se alinearon con los diagramas.
+Posteriormente las nuevas iteraciones y los nuevos prototipos permitieron la convergencia incremental esperada entre los diagramas y la programación. Lograr la
+compatibilidad entre el modelo del diseño y el código permitió sistemáticamente ser
+ágiles y, por ende, alcanzar el desarrollo de los incrementos siguientes en intervalos
+de tiempo más cortos .
+
+3.4.1. Codificación
+
+Durante el proceso de producción de código se utilizó el esquema de pequeños
+“releases” basados en iteraciones cortas. Esta forma de trabajar en la consolidación de código fuente facultó la creación de prototipos funcionales a los cuales, en
+
+32periodos cortos de tiempo (1 o 2 semanas máximo), se les incrementaban nuevas
+funcionalidades y, secuencialmente se practicaban retroalimentaciones relacionadas
+con el diseño y la generación de código para verificar su calidad y cumplimiento
+con los requerimientos establecidos originalmente. Para codificar todas las funcionalidades del sistema se usó un editor de texto simple pero muy versátil conocido
+como Notepad ++, el cual tiene un entorno multilenguaje y ofrece las herramientas
+básicas para el desarrollo de tareas relacionadas con la elaboración de fuentes en un
+lenguaje interpretado.
+
+Para lograr la ejecución del sistema ECM fue necesario instanciar servidores con
+múltiples servicios. Además de utilizar un servicio para el despliegue del aplicativo Web, se hizo necesario contar con un repositorio de contenido heterogéneo, un
+gestor de bases de datos relacionales, un extractor de metadatos, un indexador de
+contenido y servicios “on the cloud” para la realización de mecanismos de creación
+y/o modificación del contenido digital en el Sistema de Información.
+
+En esta etapa de producción de código es importante resaltar tres núcleos fundamentales de trabajo, sobre los cuales se orientaron todos los esfuerzos de codificación.
+El primer núcleo de trabajo se basó en el mecanismo de almacenamiento. Como se
+refirió en apartados anteriores de este documento (ver sección 3.2.3), el sistema ECM
+cuenta con una capa de contenido, la cual se estructuró mediante el análisis de las características específicas de la información digital de carácter heterogénea producida
+y gestionada en el ámbito administrativo del área de las coordinaciones académicas
+de la Universidad del Valle - Sede Caicedonia. Guardando la coherencia con dichos
+requisitos, se utilizó como estructura de almacenamiento primaria un repositorio
+de contenido escalable caracterizado como un aplicativo de servidor distribuido que
+está diseñado para dar soporte a aplicaciones “front-end” (CMS, DMS, DAM, ...).
+En este repositorio no hay una jerarquía específica sobre los datos que se almacenan, por tanto, todo elemento de información se almacena como un registro que a
+su vez está constituido por una colección de campos. El trabajo realizado en este
+primer momento se enfocó en determinar una estructura “maestra” para la consolidación de contenido digital en diferentes formatos, enfocándose en poder efectuar
+sobre dicho registro las operaciones básicas de interacción (almacenamiento, búsqueda y recuperación). Una vez generado el primer conjunto de campos (atributos)
+más cercano a la definición de un fichero digital genérico se hizo uso del API REST
+proporcionado por el repositorio mediante PHP para la comunicación y utilización
+de la estructura de contenido. Así mismo, se resalta el desarrollo de los archivos de
+configuración del indexador, motor de búsqueda del subsistema de almacenamiento,
+ya que el repositorio cuenta con una integración especial hacia esta estructura que se
+utilizó posteriormente para la búsqueda de contenido basándose en la definición de
+campos y características con el objeto de enriquecer las funcionalidades en la capa
+de presentación.
+
+El segundo núcleo de codificación estuvo dirigido a transformar el sistema de trabajo de la plataforma Web sobre la cual se desarrollaron las aplicaciones del Sistema
+ECM. En relación a lo planteado en la etapa de análisis se decidió utilizar un WebOS conocido como Oneye. Oneye desde un punto de vista técnico es una plataforma
+homogénea para el desarrollo de aplicativos. Este “sistema operativo Web” ofrece
+la posibilidad de desarrollar aplicaciones usando únicamente código PHP y basa su
+funcionamiento en una especie de micro-kernel donde las funcionalidades se distribuyen estratégicamente en servicios, aplicaciones y bibliotecas. Oneye gestiona toda
+su estructura de almacenamiento en el servidor Web y no dispone de conexiones a
+servicios externos para tal fin. Si bien, Oneye ofrecía potencialidades muy atracti
+33vas desde su capa de presentación para la gestión centralizada de aplicaciones de
+diversos propósitos en una única interfaz, se hizo necesario una re-implementación
+en su funcionamiento para lograr una integración con un repositorio de datos mucho
+más especializado que el originalmente establecido. Un aporte importante de este
+proyecto en el proceso de codificación fue lograr transformar el servicio del sistema
+de archivos virtuales (VFS), el cual define las funciones de interacción de todas las
+operaciones relacionadas con el almacenamiento y recuperación del contenido digital
+producido por los usuarios en el servidor web, estableciéndose una nueva fuente de
+almacenamiento escalable y distribuida para las unidades de contenido digital administradas a diferencia del tradicional mecanismo de almacenamiento de ficheros
+que utiliza el servidor de despliegue del aplicativo Web para dicho propósito.
+
+El tercer y último núcleo de trabajo estuvo direccionado a la construcción de todas
+las interfaces gráficas de usuario relacionadas con la administración de contenido
+Web y las diversas actividades de interacción con el contenido digital durante el
+ciclo de vida del mismo. "Todas estas interfaces hacen uso de AJAX para realizar
+peticiones de forma asíncrona hacia el servidor Web quien internamente se encarga
+de procesar acciones en los servicios adicionales de la plataforma (repositorio de
+contenido, extractor de metadatos, base de datos, motor de búsqueda, etc.) si fuese
+necesario y genera la respuesta empaquetada en formato XML para ser enviado a la
+capa de presentación. Es así, como finalmente el usuario a través de su navegador
+Web obtiene acceso a múltiples funcionalidades con diversidad de propósitos (acceso
+a contenido digital multiformato, gestión de usuarios, herramientas colaborativas,
+etc.) en una sola ventana con un ambiente lo más cercano posible al de un sistema
+operativo de escritorio convencional.
+
+3.4.2. Instalación
+
+Para garantizar las condiciones necesarias en la ejecución integral de la plataforma Web se tuvieron en cuenta el uso de diferentes tecnologías de soporte. A
+
+continuación listamos las herramientas necesarias para el correcto funcionamiento
+
+de la plataforma!!:
+
+= Servidor Apache 2.2.22 o superior.
+
+= Soporte en el servidor Apache para PHP 5.4.3 o superior.
+
+e Extensión CURL para soporte de conexión y comunicación con servidores
+externos en PHP.
+
+e Extensión MYSQL para soporte de conexión con servidores MySQL en
+PHP.
+
+= Servidor de Bases de Datos MySQL 5.5.24 o superior.
+
+= Sistema Operativo de 64 bits basado en Unix con soporte para Hadoop.
+= Oracle Java JDK 1.6 (JDK 1.7 también es soportado).
+
+= Servidor SSH.
+
+= Cloudera Manager Free Edition*? 4.5.0 o superior
+
+ 
+
+MTa configuración de componentes puede variar si se opta por la personalización de configuraciones
+y la estructuración de un cluster para el motor de indexado
+
+12Cloudera Manager Free Edition automatiza la instalación y configuración de la distribución de
+Hadoop de Cloudera (CDH) sobre un cluster completo, requiriendo únicamente acceso SSH del
+root a sus máquinas en el cluster. Más información en http: //www.cloudera.com/
+
+34= Repositorio de Contenido Lily 2.0.
+= Servidor Apache Solr 4.3.0 o superior
+= Extractor de Metadatos Tika 1.5 (versión servidor).
+
+Es importante indicar que para la instalación desarrollada se utilizó el software Cloudera Manager con el objeto de utilizar una herramienta de instalación centralizada
+del cluster conformado por las tecnologías utilizadas por el repositorio de contenido
+Lily (HDFS, Hadoop, Hbase, Zookeeper) descritos en el apartado relacionado con la
+capa de contenido en la sección 3.2.3
+
+Como una exigencia adicional a las ya mencionadas, el sistema debió contar con
+una conexión directa a Internet y un dominio público legalmente establecido. Esta
+exigencia se deriva de la implementación de APIs remotas de los servicios relacionados con la facultad de generar contenido digital mediante la utilización de editores
+WYSIWYG (What You See Is What You Get) haciendo uso de los servidores que
+la compañía ZOHO* destina para tal fin. Este aspecto, durante el proceso de codificación, fue uno de los más complejos de llevar a cabo debido a la falta de la
+infraestructura mencionada; finalmente, se pudo desarrollar las pruebas pertinentes
+en las instalaciones de las sedes de la Universidad del Valle en Tuluá y Caicedonia.
+
+Es importante destacar que durante el desarrollo del proyecto se consolidaron dos
+ambientes de implantación diferentes. El primero, utilizando una única computadora,
+consistió en la construcción de la arquitectura del sistema ECM haciendo uso de
+técnicas de virtualización para la consolidación del repositorio de documentos Lily y
+logrando la comunicación entre los distintos componentes a través de una red LAN
+virtual entre los sistemas operativos de 64 bits, Microsoft Windows 7 (anfitrión)
+y Ubuntu 12.04.04 (invitado). Inicialmente, este ambiente garantizó la ejecución
+del conjunto de pruebas de integración sin mayores inconvenientes. Las dificultades
+presentadas en este ambiente se relacionaron con la adquisición continua de una
+dirección Ip pública para el testing de los servicios externos que se integraron al
+sistema y que posteriormente se redefinió a la obtención de un dominio de Internet
+legalmente constituido. Además, esta configuración basada en una sola maquina
+imposibilitó la capacidad de desarrollar un repositorio escalable y distribuido a través
+de la construcción de un cluster.
+
+El segundo ambiente de implantación se desarrolló con el objeto de eliminar las
+dificultades presentadas con el ambiente anterior. Esta configuración del sistema
+se instaló en la Universidad del Valle - Sede Caicedonia previa autorización de los
+entes administrativos correspondientes. El Sistema ECM utilizó para el despliegue
+de sus componentes un total de 6 máquinas de computo. En lo que respecta a la
+arquitectura, la capa de presentación se configuró en el servidor principal de la
+institución, el cual posee un dominio legalmente establecido y dos segmentos de red
+(público y privado). La capa de almacenamiento (incluyendo el motor de indexado)
+se desplegó sobre un segmento LAN conformado por 5 equipos. La figura 3.8 describe
+el entorno de ejecución de pruebas configurado en las instalaciones de la Univalle
+Caicedonia incluyendo la integración con los servidores de servicios externos.
+
+ 
+
+13Mayor información en https: //apihelp.wiki.zoho.com/
+
+30Servidores Z¿OHO
+
+Sala de Sistomas NF 1 Univallo al Sede Caicedonía
+
+ 
+
+' BB
+
+Jl Router Media |
+
+pS Commerce
+
+ 
+
+Servidor Univalle - Sede :
+Caicedonia
+
+Figura 3.8.: Diagrama de red del segundo ambiente del implantación
+
+En el diagrama de red presentado se ilustra el uso de un conjunto de equipos de
+computo cuya finalidad fue consolidar el cluster que conformó la capa de almacenamiento. Estos equipos hacen parte de la Sala de Sistemas N” 1 y cuentan con las
+siguientes propiedades a nivel de hardware:
+
+Tipo de Computadora: Equipo basado en ACPI x86
+
+Tipo de CPU: Dual Core Intel Core 2 Duo E7200, 2533 MHz (9.5 x 267)
+Nombre del motherboard: Dell OptiPlex 330
+
+Chipset del motherboard: Intel Bearlake G31
+
+Memoria del sistema: 4 GB
+
+DIMM1: Samsung M3 78T5663RZ3-CF7, 2 GB DDR2-800 DDR2 SDRAM
+(6-6-6-18 Q 400 MHz) (5-5-5-15 QA 333 MHz) (4-4-4-12 O 266 MHz)
+
+DIMM2: Samsung M3 78T5663RZ3-CF7, 2 GB DDR2-800 DDR2 SDRAM
+(6-6-6-18 U 400 MHz) (5-5-5-15 QA 333 MHz) (4-4-4-12 Q 266 MHz)
+
+Tipo de BIOS: Phoenix (08/31/08)
+Controlador IDE: Controladora ATA de serie AHCI 1.0 estándar
+Disco rígido: WDC WD1600AAJS-75B4A0 ATA Device (149 GB, IDE)
+
+Placa de red: Broadcom NetXtreme 57xx Gigabit Controller
+
+En cuanto a las propiedades de hardware del servidor principal (servidor de despliegue de la capa de presentación) tenemos:
+
+Tipo de CPU: Intel Xeon E5-2440, 2.40 GHZ (6 nucleos)
+
+Memoria del sistema: 8 GB RDIMM, 1600MT/s, Low Volt, Single Rank,
+x4 Data Width
+
+RAID: RAID 1 for H710P/H710/H310 (2 HDDs) with Cabled Chassis
+
+Disco rígido: Disco duro SATA 1TB 7.2K RPM 3Gbps 3.5 inch Cabled
+
+36En referencia a los sistemas operativos utilizados para la configuración final, se contó
+con Fedora 20 (Heisenbug) instalado en el servidor principal y Ubuntu 12.04 LTS
+(Precise Pangolin) para los equipos que conformaban el cluster. Ambos sistemas
+operativos corrían bajo la arquitectura de 64 bits.
+
+Los equipos del cluster fueron posteriormente configurados con todos los servicios
+y el software necesario para la puesta en marcha del repositorio de contenido Lily. La
+figura 3.9 presenta las características más importantes en cuanto al ámbito operativo
+y tecnológico de las cinco máquinas utilizadas.
+
+Nombre: cluster-noda-0. lan Nombre: cluster-nodo-1 lan — Nombre: clusternodo-2 lan Nombre: clusternodo-3 lan Nombre: cluster-nodo-4. lan
+[p:192. 168.0.69 p:192 163.0.68 [p.192.163.0.6 [p:192 158.0.66 Ip:192.168.0.65
+Servicios: Servicios: Servicios: Servicios: Servicios:
+
+- 5H - 55H - 55H - 85H - 83H
+
+- Hbase Master - Cloudera Agen - Cloudera Agen - Cloudera Ager - Cloudera Agent
+
+- ¿pokeeper] - Hbase Region-1 - Hbase Region-2 - Hiase Region-3 - Hbase Region-<
+
+- Hadoop JobTracker - Jookeeper-2 - Zookeeper-3 - Zookeeperd - ¿o0keepers
+
+- Hadoos Namenode - Hadoop TaskTracker-1 - Hadoop TasiTracker-2 - Hadoop TaskTracker-3 - Hadoop TaskTracker-4
+- Cloudera Manager - Hadoop Datanoda- - Hadonp Datanode-2 - Hadoop Datanode-3 - Hadoop Datanode-4
+
+- Postgre SOL - Servicio Apache Solr Sofware: Sofware: Sofware:
+
+- Cloudera «Agant - Sarvicio Lily 2.0 Oracle JD 16 Oracle JOX 1.6 Oracle JOE 1.6
+
+- Cloudera honitaring Serices Sofware:
+
+Software: Oracle JDX 16
+
+Gracie JOK 1,5
+
+Figura 3.9.: Perfil operacional de los equipos instalados en el cluster
+
+De forma análoga, se logró implantar la capa de presentación en el servidor principal de la Universidad del Valle - Sede Caicedonia contando para ello con los características, servicios y aplicaciones denotadas en la figura 3.10.
+
+Nombre: weew, univallecaicedonia, edu. co
+Ip privada:192,165.0, 1
+Dominio público:
+http: ¿Aun univallecaicedonia. edu. co
+Servicios:
+- S5H
+- MySQL
+£ | Apache con soporte para PHP
+- Tika (versión servidor)
+Software:
+Open JOK
+Firewrall
+SELIinux
+
+ 
+
+Figura 3.10.: Perfil operativo del servidor principal
+
+Es importante mencionar que la puesta a punto de todos los componentes necesarios para este segundo ambiente de implantación tomó cerca de tres meses debido a
+intromisiones de terceros en los equipos del cluster, traduciéndose esto en daños irreversibles en las configuraciones realizadas (formateos imprevistos de las máquinas y
+eliminaciones de los discos virtuales de las instalaciones de Ubuntu). Por ende los
+procesos de consolidación de la arquitectura ECM propuesta para la plataforma se
+debieron reiniciar en dos ocasiones, hecho que retrasó en un alto grado la ejecución
+del plan de pruebas previsto.
+
+Al termino de esta etapa y como sugerencia metodológica se utilizó el diagrama
+de despliegue con el objeto de describir la configuración de los elementos en proceso
+de ejecución y los componentes de software, artefactos y procesos que se encuentran
+en ellos. También se utiliza este tipo de diagrama para mostrar tipos de máquina o
+instancias particulares. "Tomando en cuenta esta recomendación, y de acuerdo a los
+componentes de software desarrollados e implementados se definió el diagrama de
+despliegue para la plataforma ECM (ver figura 3.11).
+
+yÍNodo de Procesamiento (Cliente)
+
+borre rr rr rr rr rr rr rr rr rr rr rr rr
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+ 
+
+Nodo de Almacenamiento
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figura 3.11.: Diagrama de Despliegue del Sistema ECM
+
+3.4.3. Descripción general del aplicativo Web
+
+En este apartado se define de forma breve y concisa los elementos gráficos más
+importantes que presenta el sistema ECM para las coordinaciones académicas de las
+Universidad del Valle - Sede Caicedonia. En la figura 3.12 se presenta la pantalla
+principal de interacción del sistema.
+
+Docementos - Gestor de archivos
+
+6 $ ” Gl 3 Gqgj¡2£ a, E 43
++ z
+lena he" Calp mesa | Grupot Papelera Ureariee Len! Ebro cs
+
+¡ter onrrertoa >
+
+- —
+> |
+
+Don ES rta
+
+Z£
+
+Seur
+
+ 
+
+Figura 3.12.: WebOS del sistema ECM
+
+Una vez el usuario se loguea en el sistema, se le presenta un “escritorio” donde
+encuentra elementos que asisten su experiencia en un ambiente de trabajo similar
+al de un ordenador personal. En este contexto se presenta una barra de tareas en
+la parte inferior donde se concentran las aplicaciones abiertas y elementos visuales
+de apoyo y configuración, un espacio de trabajo central donde se disponen accesos
+directos a diferentes aplicaciones con las que cuenta la plataforma, se despliegan los
+aplicativos y una barra superior donde se clasifican algunos accesos directos entre
+
+38los que se incluye el cierre de sesión del usuario. Durante el desarrollo de esta sección
+se enuncian las principales aplicaciones con las que cuenta el sistema Web.
+
+Gestor de Archivos
+
+Este aplicativo es quizás el más importante dentro del compendio de interfaces
+con que cuenta el sistema Web. Este explorador de archivos gestiona en tiempo real
+las operaciones de interacción con los ficheros digitales, permite la creación de archivos planos y desarrolla operaciones de tipo “Drag and Drop” con el contenido del
+usuario. Esta herramienta proporciona, adicionalmente, la capacidad de despliegue
+de archivos de una carpeta en diferentes presentaciones (Iconos, Lista y Detalles) y
+su integración con la papelera de reciclaje del usuario faculta la eliminación de contenido. De igual forma permite subir archivos desde fuentes externas al repositorio.
+A nivel técnico, esta interfaz soporta la mayoría de operaciones del ciclo de vida del
+contenido y gestiona esencialmente las interacciones con el servicio VF'S.
+
+La estructura de funcionamiento a nivel interno de la interfaz de gestión de archivos se concentra en un módulo específico (administrado por el servicio VFS) que
+gestiona la comunicación con el repositorio central de datos y lleva a cabo actividades de creación, lectura, actualización y eliminación de contenido entre otras. Es
+importante aclarar que el contenido del repositorio cuenta con unos descriptores especiales de identificación y caracterización en el servidor de despliegue del sistema
+Web. En consecuencia todo fichero digital que esté en el repositorio contará con
+dos ficheros planos para definir su cuerpo de contenido y sus metadatos, los cuales
+identifica el gestor de archivos para su respectiva presentación al usuario como una
+sola entidad. La figura 3.13 muestra algunos de los elementos gráficos derivados de la
+interacción con el gestor de archivos, permitiendo evidenciar el listado de archivos,
+el asistente de carga de ficheros externos al repositorio, las ventana de propiedades
+de un fichero y su carga a través de una aplicación predeterminada.
+
+a
+
+ 
+
+COACCIÓN AL CO DE
+
+ 
+
+ 
+
+FE Debo
+
+Pl Dexumertos
+7 rrbgeres
+arts
+
+PA visera
+
+ 
+
+gaer pl - Propiedades
+
+XA SET pa
+ena Porra Deer Epa
+
+Pia rra tan
+
+Puto hana / Documertsa”
+te E]
+En 117 08 Kn
+Autos oa
+
+Candi in
+
+Crean de NY 119
+
+ 
+
+Figura 3.13.: Gestor de Archivos
+
+Interfaces de Producción de Contenido Multiformato
+
+Otro conjunto importante de interfaces gráficas lo constituyen las aplicaciones de
+creación de contenido digital ofimático. En este rango de aplicaciones se destacan las
+utilizadas como procesador de texto, hoja de cálculo y creador de presentaciones. Su
+
+39funcionamiento se efectúa mediante la correlación de tres componentes fundamentales: el repositorio de datos, el servidor Web y las APIs remotas de ZOHO. Todo el
+contenido que se extrae del repositorio siempre se presenta mediante una aplicación
+específica dentro del aplicativo Web, en este caso las aplicaciones que permiten crear
+y/o modificar contenido digital con extensiones *.doc, *.xls, *.ppt y similares hacen
+uso de un servicio Web gratuito de edición proporcionado de forma gratuita. Si bien,
+las APIs cuentan con algunas limitaciones en sus funcionalidades, estas no alteran
+las herramientas básicas necesarias para la producción de contenido y permiten cumplir a cabalidad con los requisitos especificados. Además, es importante mencionar
+que todo el contenido que se produce o se edita mediante estas interfaces siempre se
+almacena en el repositorio y no se generan copias adicionales en servidores externos.
+
+Adicionalmente, dentro del grupo de herramientas ofimáticas se incluyen un visor
+de documentos en formato portable (*.pdf) y un editor de texto plano. A diferencia
+de las interfaces descritas en el apartado inmediatamente anterior, estas aplicaciones
+no usan servicios externos y se implementan mediante técnicas de programación
+que incluyen solo elementos del navegador del cliente y el WebOS. A continuación,
+en las figuras 3.14 y 3.15 se presentan, a modo de ejemplo, las interfaces gráficas
+correspondientes al editor de texto y la hoja de cálculo.
+
+E
+
+ 
+
+Figura 3.14.: Interfaz del Editor de Texto
+
+Búsqueda y Versionado de Archivos
+
+El sistema ECM desarrollado cuenta con los elementos funcionales necesarios para
+proporcionar al usuario un modo más completo de trabajar con contenido digital
+multiformato en el ámbito Web. Siguiendo la perspectiva de administración holística
+de contenido digital en todo su ciclo de vida, la búsqueda de contenido digital y el
+versionado de archivos también tienen un lugar en esta plataforma. La búsqueda
+de archivos se desarrolla con una interfaz gráfica que permite ingresar términos de
+búsqueda que se tratan en dos grandes conjuntos: los metadatos y el contenido. Su
+principal atractivo lo constituye el motor de búsqueda con el que interactúa, SOLR,
+el cual basa su funcionamiento en Lucene**, una poderosa biblioteca de búsqueda.
+
+ 
+
+14 Apache Lucene es un compilado de clases en Java que proporciona unas construcciones básicas
+las cuales, en conjunto, forman un mecanismo flexible y poderoso para implementar búsqueda.
+Más información en http://lucene.apache.org/
+
+40Figura 3.15.: Interfaz gráfica de la Hoja de Cálculo
+
+Los elementos de la interfaz gráfica para la búsqueda de archivos permiten definir
+parámetros generales y específicos de operación, términos relacionados con el nombre, la fecha de creación, el autor, el estado de versionado y el contenido del fichero,
+que se transmiten en forma de consulta codificada. Es importante mencionar que el
+usuario administrador tiene la capacidad de realizar consultas acerca de los archivos eliminados por parte de los usuarios regulares y que cada resultado (realizando
+un doble clic sobre este) puede llevar a su ubicación original mediante el gestor de
+archivos. La figura 3.16 ilustra la ejecución de la aplicación de búsqueda de archivos.
+
+Dingerda de Archivos
+
+:
+
+Parimetros Nombre Cel Asitero Crescón Tomada ho Pts
+
+e SEE et M0M3 10 —Dertrármato root home Documentos DEE pe
+Cararteriaticasr de Euireds
+
+» Carecteraicas Cererses
+
+L verperata
+
+UL Cortere (pava e trase)
+
+ 
+
+Figura 3.16.: Búsqueda de Archivos en el Repositorio
+
+En cuanto a la capacidad de versionado, se definió una interfaz derivada de una
+opción en el menú contextual que se genera sobre cada fichero (mediante clic derecho) en el gestor de archivos. Esta aplicación brinda la capacidad de generar un
+crecimiento secuencial del contenido de un archivo identificándolo por versiones numéricas que indican el grado de cambios realizados. En la figura 3.17 se muestra la
+interfaz de versionado de archivos.
+
+El versionado de documentos, se concibe mediante cargas incrementales de contenido que se clasifican mediante su grado de cambios en el fichero. Por defecto, todos
+los archivos del repositorio no tienen versionado, siempre se inicia desde la versión
+l cuando se decide versionar y opcionalmente el usuario decide si la nueva versión
+
+41Caja errada Gerli de eh
+
+cé. n/b  3;: 8,0 4sm1[,1,| 0
+
+Marbs a De Ve iu] Gaos Pepita rentes Bas Dodo pride cs Arda
+
+— Docerento dor - Versamado
+
+Dirt e do
+O
+
+tna
+
+191-2413 -5105 pe
+
+Tao de Cerna
+
+D vemica mari (69.38 -+ 15) O verca mayor leg 54 -» 20)
+a Garma. se ba raleccanado ringón serbia.
+—
+
+ir]
+
+ 
+
+Figura 3.17.: Versionado de Documentos en el Sistema
+
+tiene cambios menores o mayores en contenido que se traducen en un aumento en
+décimas o unidades respectivamente. Todas las versiones del documento se pueden
+verificar en modo lectura a través de un visor basado en Google Docs Viewer. La última versión será siempre la accesible por parte de todas las aplicaciones que puedan
+interactuar con su contenido.
+
+Flujos de Trabajo (Workflows)
+
+Los flujos de trabajo constituyen la principal herramienta colaborativa en el sistema ECM de las coordinaciones académicas de la Universidad del Valle - Sede
+Caicedonia. En esencia, un flujo de trabajo consiste de una asignación de funciones mediante la consolidación de información básica acerca del tipo de Workflow
+a crear, un mensaje opcional, una fecha de culminación, el personal encargado, el
+contenido digital a trabajar y su respectiva notificación. La imagen 3.18 ilustra los
+componentes visuales de la aplicación encargada de la administración de flujos de
+trabajo.
+
+Fispos de Trabajo
+
+r
+
+i
+Propiedades del Workihow Pa
+
+Flujo de Trabajo: Reviván y aprobacán nárrdua! Astoria tes Perra dr reos Perra de Pesiracón
+Mensaje Adjunto: 1% Jamiados por mr Rrvdn y apro rcdn nario RADAR MUOras
+
+» un fiuja de trabajo de preste
+
+PO pracerarmiento del rrorhilesa
+
+ 
+
+Foc
+Reviión y aprobación máreidual
+
+Pra
+
+Emaco Tranacario: Conpierajo [e]
+
+Notas:
+- Faisan Dates
+
+ 
+
+Figura 3.18.: Interfaces gráficas en la gestión de Workflows
+
+Los flujos de trabajo facultan el control de tareas específicas y los estados transitorios de las acciones pre-determinadas exclusivamente en activos digitales hetero
+42géneos. Dicha herramienta proporciona un nuevo enfoque de ayuda principalmente
+en procesos de revisión y aprobación de contenido digital.
+
+Aplicativos Adicionales
+
+Oneye dispone de múltiples aplicaciones que promueven aspectos de productividad, enlace con servicios externos, comunicación interna, administración de configuraciones, entretenimiento y otros elementos adicionales que sustentan un ambiente
+amigable al usuario. Entre los aplicativos que más se destacan en estos aspectos se
+tienen:
+
+= Mensajería Interna
+
+= Navegador Interno
+
+= Reproductor de Audio
+
+= Calendario de Eventos
+
+= Lector RSS
+
+= Cliente de Sincronización de Correo Electrónico
+= Visor de Imágenes
+
+= Preferencias del Sistema
+
+La implementación de un WebOS, proporcionó en definitiva una plataforma homogénea para el desarrollo de todos los elementos estructurales de la interfaz gráfica
+del usuario. La distribución sistemática fue indispensable para la adición de nuevas
+funcionalidades (e.g., procesador de texto, editor de presentaciones, hoja de cálculo, herramientas de búsqueda, capacidad de versionado, etc.) y su cohesión con los
+diferentes elementos de la arquitectura definida.
+
+434. Pruebas y Discusión de los Resultados
+
+La consolidación de la calidad en el software resultó una tarea que implicó el
+desarrollo integral de actividades como el análisis, el diseño, la codificación y la
+prueba en todos los ámbitos de la realización del proyecto. La calidad, como factor
+determinante, se logró fundamentar sobre ciertas pruebas (validación y verificación)
+que se realizaron de acuerdo a parámetros completamente particulares tales como
+los requerimientos de software.
+
+Los procedimientos realizados en esta etapa de pruebas del proyecto estuvieron
+direccionados a:
+
+= Diseñar pruebas que sistemáticamente sacaran a la luz diferentes clases de
+errores, haciéndolo con la menor cantidad de tiempo y esfuerzo.
+
+= Verificar la interacción de componentes.
+= Verificar la integración adecuada de los componentes.
+= Verificar que todos los requisitos se hubiesen implementado de forma correcta.
+
+= Identificar y asegurar que los defectos encontrados fuesen corregidos antes de
+entregar el software.
+
+4.1. Pruebas de Unidad
+
+Las pruebas de unidad se configuraron como un proceso para evaluar los subproegramas, las subrutinas, los procedimientos individuales y las clases del sistema. En
+este orden de ideas, el plan de pruebas del proyecto inició probando primero los bloques más pequeños desarrollados en la plataforma. Las motivaciones para desarrollar
+este tipo de pruebas fueron tres:
+
+= Primera, las pruebas de unidad son una manera de manejar los elementos de
+prueba combinados, puesto que se centra la atención inicialmente en unidades
+más pequeñas del programa.
+
+= En segundo lugar, la prueba de una unidad facilita la tarea de eliminar errores
+(el proceso de establecer claramente y de corregir un error descubierto), puesto
+que, cuando se encuentra un error, se sabe que existe en un módulo particular.
+
+= Finalmente, las pruebas de unidad introducen paralelismo en el proceso de
+pruebas del software presentándose la oportunidad de probar los múltiples
+módulos simultáneamente.
+
+Durante las pruebas de unidad se hizo un uso intensivo de las pruebas de caja blanca
+ejercitando caminos específicos de ejecución y estructura de control de cada pieza de
+código para asegurar un alcance completo y una detección máxima de errores. Las
+pruebas, orientadas al enfoque de la caja blanca lograron:
+
+= Garantizar que se ejercitaran por lo menos una vez todos los caminos independientes de cada módulo.
+
+44= Ejercitar todas las decisiones lógicas en sus vertientes verdadera y falsa.
+
+= Ejecutar todos los bucles en sus límites y con sus límites operacionales.
+
+= Ejercitar las estructuras internas de datos para asegurar su validez.
+
+El cuadro 4.1 describe algunas de las pruebas de unidad realizadas sobre los métodos
+contenidos en el módulo encargado del sistema de archivos virtuales del sistema ECM
+de las coordinaciones académicas de la Universidad del Valle - Sede Caicedonia.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Fichero Método Técnica Resultado Aprobado
+lilyCrud.eyecode | leerArchivo Prueba de El método genera las si
+(Sruta_file) frontera variables necesarias para la
+carga de datos y sus
+metadatos
+lilyCrud.eyecode doBLOB Prueba de Se crea satisfactoriamente si
+(Sruta_file) frontera el registro del contenido
+digital (formato binario) en
+el repositorio de contenido
+Lily
+solrQuery.eyecodg consulta Prueba de Se procesa la consulta en el si
+Solr($q) frontera motor de indexado Solr
+dataBase.eyecode crear Prueba de Se crea una interfaz de si
+ADOBD() frontera acceso a la base de datos
+dataBase.eyecode|  cerrarBD Prueba de Se destruye la interfaz de si
+(Sbd) Camino acceso a la base de datos
+virtual.eyecode service __vís Prueba de Crea un archivo abstracto si
+Create frontera (define los descriptores del
+(Sparams) archivo y crea el registro en
+el repositorio)
+
+ 
+
+Cuadro 4.1.: Pruebas unitarias del modulo del sistema de archivos virtuales
+
+Con la ejecución de este segmento de pruebas, en las etapas iniciales de codificación, se pudo desarrollar un contexto de “espiral” para la estrategia de pruebas. En
+este sentido, las pruebas de unidad comienzan en el vértice de la espiral y se centra
+en cada unidad del software, tal como esta implementada en el código fuente. La
+prueba avanza hacia fuera de la espiral, hasta llegar a la prueba de integración, donde el foco de atención es el diseño y la construcción de la arquitectura de software.
+Posteriormente al avanzar se llega a la prueba de validación, donde se validan los
+requisitos establecidos previamente. Finalmente se llega a la prueba del sistema en
+la que se prueba el software en su totalidad.
+
+4.2. Pruebas de Integración
+
+El objetivo de las pruebas de integración consistió en verificar el correcto ensamblaje entre los distintos componentes una vez que hubiesen sido probados unitariamente
+con el fin de comprobar que interactuarán correctamente a través de sus interfaces,
+tanto internas como externas, cubriendo la funcionalidad establecida y ajustándose
+a los requisitos no funcionales especificados en las verificaciones correspondientes.
+
+Este tipo de pruebas se plantearon desde un punto de vista estructural y funcional. Las pruebas estructurales de integración fueron similares a las pruebas de
+
+45caja blanca; pero trabajaban a un nivel conceptual superior. En lugar de referirse a
+sentencias del lenguaje, se refirieron a llamadas entre módulos. Se trató, entonces,
+de identificar todos los posibles esquemas de llamadas y ejercitarlos para lograr una
+buena cobertura de segmentos o de ramas. Las pruebas funcionales de integración
+se enfocaron sobre pruebas de caja negra. Aquí se trató de encontrar fallos en la
+respuesta de un módulo cuando su operación depende de los servicios prestados por
+otro(s) módulo(s). En la medida en que se consolidaba el sistema total, estas pruebas
+se basaban más y más en la especificación de los requisitos del usuario.
+
+Es importante recordar que la utilización de las prueba de caja negra se hizo con
+el objeto de encontrar errores de las siguientes categorías:
+
+= Funciones incorrectas o ausentes.
+
+= Errores de interfaz.
+
+= Errores en estructuras de datos o en accesos a fuentes de datos externas.
+= Errores de rendimiento.
+
+= Errores de inicialización y de terminación.
+
+A continuación, el cuadro 4.2 describe la plantilla donde se consignan la información
+relacionada con el desarrollo de la prueba a parte del caso de uso relacionado con
+la gerencia del contenido y específicamente a la funcionalidad de carga de contenido
+digital heterogéneo en el Sistema ECM.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Título Carga de Contenido Externo al Repositorio
+Caso de Uso Gerenciar contenido digital
+Objetivo Verificar que la carga de contenido digital heterogéneo hacia el
+
+repositorio de datos se lleve a cabo exitosamente.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tipo de Prueba Prueba de causa-efecto.
+Hardware Requerido Portátil Asus Pantalla de 14”, Procesador intelS core'M 5, 8
+GB de RAM, 1 TB de almacenamiento.
+Software Requerido Servidor Apache, Máquina Virtual, Repositorio Lily y
+Plataforma ECM.
+Personal Requerido 1 Persona
+Datos de Prueba Documento en formato PDF (denominado “1.pdf”), alojado en
+
+el disco duro del computador.
+
+ 
+
+Procedimiento de Prueba Se despliega el aplicativo Web y se abre el Gestor de Archivos,
+donde se selecciona la opción de subir archivos y se procede a
+
+seleccionar los datos de prueba para validar el requerimiento.
+
+ 
+
+Resultado Esperado La plataforma Web envia el archivo externo al repositorio (se
+hace una copia del contenido), se genera un registro con su
+respectiva información (incluyendo metadatos), se indexan sus
+propiedades principales y posteriormente se generan los
+descriptores que lo identifican dentro del repositorio para su
+
+uso por otras aplicaciones de la plataforma.
+Resultado Obtenido Prueba Exitosa SI(X) No()
+
+Comentarios El sistema ECM carga y administra apropiadamente los
+
+ 
+
+ 
+
+archivos de fuentes externas generando los descriptores
+
+correspondientes en el servidor Web.
+Realizado Por / Fecha Armando Acosta Guerrero / Octubre 04 de 2013
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cuadro 4.2.: Pruebas de carga de contenido digital al repositorio
+
+46Adicionalmente se describen tres pruebas relacionadas con el caso de uso correspondiente a la gerencia de contenido digital en las funcionalidades referidas a la
+creación /almacenamiento, acceso y actualización de activos digitales multiformato.
+El cuadro 4.3 denota la plantilla con los datos recolectados en el desarrollo de la
+prueba realizada sobre el segundo ambiente de implantación (ver sección 3.4.2).
+
+ 
+
+Título Creación de Contenido en el Repositorio
+
+ 
+
+ 
+
+Caso de Uso Gerenciar contenido digital
+
+ 
+
+Comprobar la capacidad del sistema ECM para crear y
+Objetivo almacenar contenido digital multiformato utilizando diversas
+
+interfaces de la capa de presentación.
+
+ 
+
+Tipo de Prueba Prueba de causa-efecto.
+
+- 1 Portátil Asus Pantalla de 14”, Procesador intelO core'M j5,
+8 GB de RAM, 1 TB de almacenamiento.
+Hardware Requerido - 1 Servidor Dell PowerEdge 'T'320
+
+- 5 Equipos Dell OptiPlex 330
+
+Servidor Apache, Cluster del repositorio Lily y Plataforma
+Web.
+
+Personal Requerido 1 Persona
+
+ 
+
+ 
+
+Software Requerido
+
+ 
+
+ 
+
+Documento de texto, Presentación de Diapositivas, Hoja de
+Datos de Prueba ,
+Cálculo,
+
+ 
+
+Se despliega el aplicativo Web y se abre las interfaces para la
+respectiva creación del documento de texto, las diapositivas y
+Procedimiento de Prueba | la hoja de cálculo donde, posteriormente, se ingresa contenido
+y se verifica que el sistema actúa en conformidad con lo
+
+estipulado en el requerimiento.
+
+ 
+
+La plataforma Web hace contacto con el servicio remoto que
+proporciona las interfaces de edición para los tipos de
+documento empleados durante la prueba y gestiona la creación
+Resultado Esperado
+de los descriptores respectivos para cada fichero y
+posteriormente crea el registro específico en el repositorio de
+
+contenido.
+Resultado Obtenido Prueba Exitosa SI(X) No()
+
+El sistema ECM no solo faculta la creación de archivos
+
+ 
+
+ 
+
+multiformato, también permite su inmediata indexación en el
+Comentarios motor de búsqueda y su posterior recuperación gracias a la
+integración de servicios que gestiona el repositorio de
+contenido.
+
+Realizado Por / Fecha Armando Acosta Guerrero / Mayo 15 de 2014
+
+Cuadro 4.3.: Pruebas de creación de contenido digital multiformato al repositorio
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+A continuación, el cuadro 4.4 presenta los detalles de la prueba realizada con el
+objetivo de comprobar las funcionalidades de recuperación y acceso de contenido
+digital en la plataforma.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+, Recuperación de Contenido Almacenado en el
+
+Título o,
+
+Repositorio
+Caso de Uso Gerenciar contenido digital
+
+Comprobar la capacidad del sistema ECM para crear,
+
+Objetivo almacenar, indexar, versionar, buscar y eliminar contenido
+digital multiformato.
+
+Tipo de Prueba Prueba de causa-efecto.
+
+ 
+
+47- 1 Portátil Asus Pantalla de 14”, Procesador IntelO core'M j5,
+8 GB de RAM, 1 TB de almacenamiento.
+Hardware Requerido - 1 Servidor Dell PowerEdge T320
+
+- 5 Equipos Dell OptiPlex 330
+Servidor Apache, Cluster del repositorio Lily y Plataforma
+
+ 
+
+Software Requerido
+
+ 
+
+ 
+
+Web.
+Personal Requerido 1 Persona
+Datos de Prueba Documento de texto (Objeto.txt)
+
+ 
+
+Se despliega el aplicativo Web y se abre el gestor de archivos,
+se procede a crear un archivo de texto plano, se abre en el
+editor predeterminado y se ingresa contenido al documento.
+Acto seguido se guardan los cambios, se cierra el editor y se
+ingresa al buscador de archivos del sistema; el proceso de
+búsqueda se ejecuta ingresando un término de búsqueda (e.g.
+la extensión), se verifican los resultados y se concluye la
+interacción con este aplicativo abriendo la ubicación del
+Procedimiento de Prueba | archivo a través del gestor de archivos. En este punto lanzamos
+la aplicación de versionado, generamos una versión del
+documento (versión mayor o menor a través de consecutivos
+numéricos) y cargamos un archivo de texto desde una fuente
+externa. Verificamos las versiones a través del visor que se
+implementó para tal fin y finalizamos la ejecución del
+versionado. En la etapa final del test procedemos a, realizar un
+envio del documento a la papelera de reciclaje y luego se
+
+procede a eliminar el fichero virtual.
+
+ 
+
+La plataforma Web cumplió satisfactoriamente todos las fases
+del ciclo de vida del contenido digital predefinidas en la
+prueba. la creación y almacenamiento a través de una interfaz
+local se logró sin ningún problema. los aspectos de indexado y
+recuperación de resultados soportados por el motor de
+búsqueda Solr en su integración especial con el repositorio Lily
+Resultado Esperado funcionan como se esperaba a través de su servicio REST. El
+proceso de versionado hace un uso adecuado de los “campos
+versionados” del repositorio, la carga de contenido digital
+externo y presentación vía un servicio externo (Google Docs
+Viewer). La operación de eliminación en el sistema ECM se
+realiza en conformidad con lo estipulado en los requerimientos
+
+(se lleva a cabo una pseudo-eliminación).
+Resultado Obtenido Prueba Exitosa SI(X) No()
+
+El sistema ECM da un soporte robusto a la mayoría de las
+
+ 
+
+ 
+
+Comentarios actividades desarrolladas durante el ciclo de vida del contenido
+digital en múltiples formatos.
+Realizado Por / Fecha Armando Acosta Guerrero / Mayo 15 de 2014
+
+Cuadro 4.4.: Prueba de recuperación de contenido digital
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Finalmente, se relaciona en el cuadro 4.5 la plantilla con los datos obtenidos en
+la realización de la prueba concerniente a garantizar la correcta funcionalidad en
+materia de actualización de contenido.
+
+48Actualización de Contenido Almacenado en el
+
+ 
+
+ 
+
+ 
+
+ 
+
+Título
+Repositorio
+Caso de Uso Gerenciar contenido digital
+Comprobar la capacidad del sistema ECM para recuperar,
+Objetivo presentar y modificar unidades de contenido digital
+multiformato almacenado previamente en el repositorio
+Tipo de Prueba Prueba de causa-efecto.
+
+ 
+
+- 1 Portátil Asus Pantalla de 14”, Procesador intelO core'M j5,
+8 GB de RAM, 1 TB de almacenamiento.
+Hardware Requerido - 1 Servidor Dell PowerEdge T320
+
+- 5 Equipos Dell OptiPlex 330
+Servidor Apache, Cluster del repositorio Lily y Plataforma
+
+ 
+
+Software Requerido
+
+ 
+
+ 
+
+Web.
+Personal Requerido 1 Persona
+Datos de Prueba Documento de texto (Presentación.ppt)
+
+ 
+
+Se despliega el aplicativo Web y se abre el contenido del
+documento con su interfaz de trabajo correspondiente haciendo
+uso de servicios externos y se valida que el contenido que
+
+o proviene del cluster se visualice correctamente. Una vez se
+Procedimiento de Prueba ,
+produzca una orden de guardar los cambios realizados por
+parte del usuario, el sistema debe actualizar el contenido
+binario en el repositorio proveniente del servicio externo que
+
+proporciona las capacidades de actualización de contenido.
+
+ 
+
+La plataforma Web hace contacto con el servicio remoto que
+proporciona las interfaces de edición para los tipos de
+documento empleados durante la prueba y gestiona la
+recuperación de contenido mediante el uso de los descriptores
+Resultado Esperado respectivos para el fichero. En consecuencia se accede al
+registro específico en el repositorio de contenido y se sustrae el
+contenido binario a presentar. Toda vez que el usuario efectue
+cambios en el archivo y los guarde, el sistema debe actualizar
+el flujo binario del mismo.
+
+Resultado Obtenido Prueba Exitosa SI(X) No()
+
+Una vez el sistema ECM permite la correcta actualización de
+
+ 
+
+ 
+
+archivos, también se desarrollan actualizaciones en materia de
+Comentarios o , _
+indexación en el motor de búsqueda garantizando la fiabilidad
+de contenido en otras aplicaciones del sistema.
+Realizado Por / Fecha Armando Acosta Guerrero / Mayo 15 de 2014
+
+Cuadro 4.5.: Prueba de actualización de contenido digital
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+4.3. Pruebas de Validación
+
+Tras la culminación de las pruebas de integración, el software quedó totalmente
+ensamblado como un paquete, se encontraron algunos detalles (e.g. la estructuración
+de la información proveniente de la extracción de los metadatos) que se solucionaron
+rápidamente y se dio paso a una serie final de pruebas del software: la prueba de
+validación.
+
+La prueba de validación proporcionó una seguridad final de que el software cumplía con todos los requerimientos funcionales, de comportamiento y de rendimiento.
+Durante la validación se utilizaron exclusivamente técnicas de prueba de caja negra.
+
+49El cuadro 4.6 resalta los datos consignados en una prueba de causa - efecto para el
+caso de uso de gerenciar contenido implementando la mayor parte de funcionalidades
+expresadas en el ciclo de vida del contenido.
+
+ 
+
+Gestión de contenido digital en diversas etapas del
+
+ 
+
+ 
+
+ 
+
+ 
+
+Título
+ciclo de vida
+Caso de Uso Gerenciar contenido digital
+Comprobar la capacidad del sistema ECM para crear,
+Objetivo almacenar, indexar, versionar, buscar y eliminar contenido
+digital multiformato.
+Tipo de Prueba Prueba de causa-efecto.
+
+ 
+
+- 1 Portátil Asus Pantalla de 14”, Procesador intelO core'M j5,
+8 GB de RAM, 1 TB de almacenamiento.
+Hardware Requerido - 1 Servidor Dell PowerEdge 'T'320
+
+- 5 Equipos Dell OptiPlex 330
+Servidor Apache, Cluster del repositorio Lily y Plataforma
+
+ 
+
+Software Requerido
+
+ 
+
+ 
+
+Web.
+Personal Requerido 1 Persona
+Datos de Prueba Documento de texto (Objeto.txt)
+
+ 
+
+Se despliega el aplicativo Web y se abre el gestor de archivos,
+se procede a crear un archivo de texto plano, se abre en el
+editor predeterminado y se ingresa contenido al documento.
+Acto seguido se guardan los cambios, se cierra el editor y se
+ingresa al buscador de archivos del sistema; el proceso de
+búsqueda se ejecuta ingresando un término de búsqueda (e.g.
+la extensión), se verifican los resultados y se concluye la
+interacción con este aplicativo abriendo la ubicación del
+Procedimiento de Prueba | archivo a través del gestor de archivos. En este punto lanzamos
+la aplicación de versionado, generamos una versión del
+documento (versión mayor o menor a través de consecutivos
+numéricos) y cargamos un archivo de texto desde una fuente
+externa. Verificamos las versiones a través del visor que se
+implementó para tal fin y finalizamos la ejecución del
+versionado. En la etapa final del test procedemos a, realizar un
+envio del documento a la papelera de reciclaje y luego se
+
+procede a eliminar el fichero virtual.
+
+ 
+
+La plataforma Web cumplió satisfactoriamente todos las fases
+del ciclo de vida del contenido digital predefinidas en la
+prueba. la creación y almacenamiento a través de una interfaz
+local se logró sin ningún problema. Los aspectos de indexado y
+recuperación de resultados soportados por el motor de
+búsqueda Solr en su integración especial con el repositorio Lily
+Resultado Esperado funcionan como se esperaba a través de su interfaz de servicio
+REST. El proceso de versionado hace un uso adecuado de los
+“campos versionados” de Lily, la carga de contenido digital
+heterogéneo y la presentación vía un servicio externo (Google
+Docs Viewer). La operación de eliminación en el sistema ECM
+se realiza en conformidad con lo estipulado en los
+
+requerimientos (se lleva a cabo una pseudo-eliminación).
+Resultado Obtenido Prueba Exitosa SI(X) No()
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+90El sistema ECM da un soporte robusto a la mayoría de las
+Comentarios actividades desarrolladas durante el ciclo de vida del contenido
+
+digital en múltiples formatos.
+
+ 
+
+ 
+
+ 
+
+Realizado Por / Fecha Armando Acosta Guerrero / Mayo 15 de 2014
+
+ 
+
+Cuadro 4.6.: Prueba de gestión de contenido digital
+
+ol5.
+
+Conclusiones y Proyecciones
+
+A continuación, se presentan las conclusiones derivadas del desarrollo de los diferentes objetivos del proyecto e igualmente se proponen algunos conceptos sobre
+los cuales se pueden abordar futuros trabajos en materia de Enterprise Content
+Management.
+
+5.1.
+
+Conclusiones
+
+= Se consolidó un sistema de administración de contenido Web enfocado a la
+
+gestión del contenido digital de carácter heterogéneo. La arquitectura de esta
+plataforma se estructuró con base en un análisis profundo del contexto de la
+problemática y su correlación exhaustiva con los aspectos teóricos más relevantes del área de investigación de los Sistemas de Información.
+
+El sistema ECM desarrollado en este proyecto cumple con las características
+necesarias para soportar las principales tareas del ciclo de contenido digital
+no estructurado. El sistema gestiona actividades relacionadas principalmente
+con el ámbito de la administración de contenido Web (WCM por sus siglas
+en inglés) y faculta entre otras actividades, la creación y edición de contenido
+multiformato en forma controlada, el almacenamiento centralizado de contenido digital, la presentación y visualización de contenido mediante una única
+interfaz gráfica, el versionado de contenido y los procedimientos de búsqueda
+y generación de flujos de trabajo.
+
+Las tecnologías utilizadas en el desarrollo del proyecto para las diferentes capas
+que componen el sistema de administración de contenido digital para el área de
+las coordinaciones académicas de la Universidad del Valle - Sede Caicedonia,
+promovieron la construcción de una plataforma Web robusta, partiendo desde
+una capa de almacenamiento centralizada, de carácter escalable y orientada, al
+tratamiento y soporte de enormes cantidades de datos, con la posibilidad de
+procesamiento funcional, adoptando un enfoque principalmente no relacional,
+pasando por herramientas de indexado y extracción de metadatos, hasta llegar
+a la capa de presentación precedida por un WebOS como soporte flexible para
+el desarrollo de las aplicaciones “front-end” y bajo el estilo arquitectural REST
+como principal estrategia de comunicación entre los diversos componentes asociados.
+
+En el ámbito de los Sistemas Operativos Web, el proyecto resalta unas transformaciones importantes dirigidas a potenciar algunas características ya existentes y a desarrollar algunas nuevas con el objeto de enriquecer la experiencia
+del usuario y hacerla lo más cercana posible a los Sistemas Operativos tradicionales. Entre los valores agregados se destacan la capacidad de indexado,
+búsqueda de información y la creación de un repositorio especializado en el
+tratamiento de contenido digital no numérico multiformato.
+
+Durante el tiempo en que se realizó el proyecto, se evidenció una carencia
+importante de literatura académica relacionada con los Sistemas ECM, lo cual
+
+925.2.
+
+obligó a recurrir a un número relativamente bajo de investigaciones realizadas,
+especialmente en Estados Unidos y Europa, y a los proveedores de este tipo
+de software como principal fuente de conceptos teóricos. En Colombia, en las
+consultas realizadas, difícilmente se pudo encontrar algún tópico relacionado
+con esta área perteneciente a los Sistemas de Información.
+
+En los estados iniciales del proyecto, donde se llevó a cabo el análisis del
+contexto, se logró identificar una falencia considerable en algunos aspectos
+relacionados con el manejo y el conocimiento acerca de las Tecnologías de la
+Información y las Comunicaciones, TICs, que en alguna forma hacen complejo
+la adopción de nuevas herramientas y estrategias tecnológicas en los procesos
+organizacionales de la institución.
+
+La adopción de un sistema ECM debe considerarse más allá de un concepto
+plano y sustancialmente técnico. Se debe articular dentro de las estrategias de
+desarrollo organizacional y debe incluir el talento humano (usuarios finales)
+como un elemento de primer nivel en los procesos de “customización”, manejo
+y adopción de este tipos de sistemas de información al interior de la institución.
+
+Trabajos Futuros
+
+La consolidación de un repositorio centralizado de contenido digital representa
+una oportunidad interesante para iniciar desarrollos enmarcados en potenciar
+el valor de la información allí consignada a través de la adhesión de sistemas de
+información multipropósito. A futuro se puede consolidar un sistema de administración de conocimiento, por ejemplo, que utilice las capacidades de almacenamiento que suministra la arquitectura ECM desarrollada para facultar,
+entre otras características, la administración de directorios de conocimiento
+“explícito”.
+
+A futuro se puede mejorar las estructuras de los campos y los registros utilizados para el almacenamiento de las propiedades más importantes de los
+contenidos digitales con el objeto de permitir la integración de contenido en
+nuevos formatos y por consiguiente, desarrollar nuevas interfaces que soporten
+sus procesos de administración.
+
+Resulta imperativo extender el plan de pruebas presentado inicialmente en el
+proyecto e incluir el desarrollo de las Pruebas de Sistema. Debido a las limitaciones impuestas por factores como el tiempo, la dimensión de la plataforma y
+las condiciones básicas para la ejecución integral de tests relacionados con la
+seguridad, resistencia y recuperación del sistema, es importante a futuro llevar
+a cabo un marco de pruebas más amplio que propenda a verificar con mayor
+rigurosidad estas propiedades en la plataforma.
+
+Es importante desarrollar investigaciones posteriores que permitan validar los
+beneficios ECM en términos empíricos y cuantitativos. Este aspecto resulta
+fundamental para contrastar la cohesión del sistema dentro de los procesos
+organizacionales con los que interactúa y determinar los impactos reales de la
+implementación de un sistema ECM enfocándose esencialmente en sus usuarios.
+
+93Bibliografía
+
+1]
+
+110]
+
+11)
+
+12)
+
+Gómez Vieities Alvaro, Suárez Rey Carlos. “Sistemas de Información Herramientas prácticas para la gestión empresarial”. Cuarta Edición. España: Edito
+rial RA-MA, 2011.
+
+Tero Páivárinta, Bjorn Erik Munkvold. “Enterprise Content Management: An
+Integrated Perspective on Information Management”, en la edición 38 de la
+Conferencia Internacional sobre Ciencias de Sistemas realizada en Hawaii - 2005.
+
+Tim A. Rickenberg, Markus Neumann, Bernd Hohler, Michael Breitner, "Enterprise Content Management - A Literature Review”, Julio 29, 2012 [Online].
+Disponible: AMCIS 2012 Proceedings. Paper 10. http: //aisel.aisnet.org/
+amcis2012/proceedings/DatalInfoQuality/10 .
+
+ATIM. Association for Information and Image Management, “What is ECM,
+Enterprise Content Management”, Agosto 10, 2012 [Online]. Disponible: http:
+//“www.aiim.org/What-is-ECM-Enterprise-Content-Management.aspx.
+
+ATIM Industry Watch, “Process Revolution - moving your business from paper
+to PCs to tablets”, Agosto 20, 2012 [Online]. Disponible: http: //www.aiim.
+org/Research/.
+
+Tom Jenkins. “Enterprise Content Management Technology: What you need to
+know”. Canada: Open Text Corporation, 2004.
+
+Tom Jenkins, Walter Kóhler, John Shackleton. “Enterprise Content Management Methods: What you need to know”. Canada: Open Text Corporation,
+2005.
+
+Stig Nordheim, Tero Páaivarinta. “Customization of Enterprise Content Management Systems: An Exploratory Case Study”, en la edición 37 de la Conferencia
+Internacional sobre Ciencias de Sistemas realizada en Hawaii - 2004.
+
+Alessandro Zardini, Lapo Mola, Cecilia Rossignoli. “The Enterprise Content
+Management can develop the Organizational Value through Knowledge Mana
+gement”, International Journal of Information and Communication Technology
+Research, vol. 1 no. 1, Mayo 2011.
+
+Bjorn Erik Munkvold, Tero Páivárinta, Hodne, A.K., Stangeland, E. “Contemporary Issues of Enterprise Content Management: The Case of Statoil”. Procedi
+mientos en la edición 11 de la Conferencia Europea de Sistemas de Información
+(ECIS 2003) en Napoles, Italia - 2003.
+
+Rosenberg Doug, Scott Kendall. “Applyng use case driven object modeling whit
+UML, An Annottated E-Commerce Example”. Addison Wesley, 2001.
+
+Simon Bennett, Steve McRobb, Ray Farmer. “Análisis y diseño orientado a
+objetos de sistemas usando UML”. Tercera Edición. Mc Graw Hill 2007.
+
+94[113] Potts Jeff. “Alfresco Developer Guide Customizing Alfresco with actions, web
+scripts, web forms, workflows, and more”. Packt Publishing Company. Octubre,
+2008.
+
+[14] Karambelkar Hrishikesh. “Scaling Big Data with Hadoop and Solr”. Packt Publishing Company. Agosto, 2013.
+
+99Anexos
+
+96A. Elementos de Análisis del Proyecto
+
+A.1. Cuestionario para la búsqueda de hechos
+
+1. En su ámbito laboral, considera que la información digital y su actual administración, maximiza la eficiencia en los procedimientos y actividades que realiza.
+¿sí o no? ¿Por qué?
+
+ 
+
+ 
+
+ 
+
+ 
+
+2. ¿Qué tipo de información digital usa con más frecuencia en su trabajo?
+= Información Digital NO Estructurada (contenido digital multiformato como
+documentos, presentaciones, hojas de cálculo, material multimedia, etc.). O
+
+= Información Digital Estructurada (contenido digital que se almacena en bases de datos específicas, con frecuencia en forma de registros de tipo alfa
+numéricos). O
+
+= Ambos tipos de información. O
+
+3. En caso de utilizar un sistema de información para un propósito específico,
+¿Cuáles son sus principales características?
+
+ 
+
+ 
+
+ 
+
+ 
+
+4. Cuáles tipos de formatos digitales usa con más frecuencia en sus labores cotidianas de trabajo. (opción múltiple)
+
+= * doc, *. docx (]
+= “odt, *.sxw
+. par (O
+
+2. * xls, *.xlsx [O
+
+= *ods, *.sxc Ll]
+
+= * ppt, *.pptx []
+
+= “.odp, *.sxi O
+
+37* ips, *.bmp [O
+* html, *.htm [
+* tex, *lix (]
+txt, “rtf
+
+* xml Ud
+* sql O
+
+Otro(s), ¿Cuál(es)?:
+
+ 
+
+. ¿Cuáles son las ubicaciones que usa con más regularidad para conservar los
+contenidos digitales que genera en los diversos procesos de su entorno de trabajo?
+
+Discos extraíbles (USB, Discos externos, etc.). O
+
+Unidades de Red. O
+
+Repositorio de datos centralizados (si existen en la organización). 0
+
+El computador. O
+
+Internet (Correo electrónico, servicios de almacenamiento, etc.). O
+
+Discos compactos (CD, DVD, Blue-ray, etc.). O
+
+Otra, ¿Cuál”:
+
+ 
+
+ 
+
+. Considera relevante el uso de herramientas colaborativas por ejemplo, Google
+Docs dentro de los procesos organizacionales que usted desarrolla: ¿SI o No?
+¿Por qué?
+
+ 
+
+ 
+
+ 
+
+. En sus actividades laborales considera que el volumen de contenido digital
+creado (en cualquier formato) es:
+
+Bajo (Menos de 20 documentos por mes). 0
+Medio (Entre 20 y 100 documentos por mes). (0
+
+Alto (Más de 100 documentos por mes). mm
+
+98A.2.
+
+. ¿Desdé su perspectiva, la Institución donde labora cuenta con una infraestruc
+tura TIC, es decir, los Sistemas y las tecnologías de la información, adecuada
+para la correcta administración de contenidos digitales? ¿SI o NO? ¿Por qué?
+
+ 
+
+. De acuerdo a su criterio, considera que las prácticas que se llevan a cabo en
+
+su institución con relación al manejo de contenido digital son:
+
+Deficiente ¿porque?
+
+ 
+
+ 
+
+Regular ¿porque?
+
+ 
+
+Buena ¿porque?
+
+ 
+
+ 
+
+Excelente ¿porque?
+
+ 
+
+ 
+
+Requerimientos sobre Disponibilidad y Desempeño
+del Sistema
+
+El sistema de administración de contenido digital debe estar disponible en la
+plataforma Web las 24 horas del día, en normal funcionamiento.
+
+Cada activo digital no numérico que se ingrese al sistema por parte de los
+funcionarios de la organización o los diferentes efectos, producto de los procedimientos inherentes al ciclo de vida que sobre los mismo existen, deben
+permitir su disponibilidad en un tiempo de respuesta razonable (de 10 a 30
+segundos máximo para interfaces Web dinámicas).
+
+La previsión sobre el volumen de datos debe ajustarse de forma tal que permita
+el almacenamiento de datos con perspectiva de crecimiento (preferiblemente
+del orden de Gigabytes) y su futura conservación.
+
+El sistema de información ECM debe proveer los mecanismos necesarios para
+garantizar la seguridad de la información en el contexto donde subyace (repositorios, bases de datos, servidor de despliegue) y en su administración por
+parte de los diferentes usuarios con los que interactúa.
+
+El sistema de administración de contenido digital debe permitir el uso simultáneo por parte de sus diferentes usuarios y a través de diversos navegadores
+Web (tales como Mozilla Firefox, Google Chrome e Internet Explorer).
+
+El sistema de información ECM debe proporcionar una estrategia de comunicación de los estados y eventos realizados con el objeto de clarificar la interacción
+del usuario con la plataforma (por ejemplo, mensajes de confirmación, error y
+advertencia).
+
+99A.3. Diagnóstico del Contexto
+
+En el ámbito de las Coordinaciones Académicas de la Universidad del Valle - Sede
+Caicedonia, la situación actual en materia de gerencia de contenido digital no es la
+mejor. Según el personal consultado, no existe una fuente de almacenamiento central
+de datos heterogéneos y la ubicación que usan con más regularidad para conservar los
+contenidos digitales generados en los diversos procesos de su entorno de trabajo es el
+computador. En consecuencia, se evidencia la presencia y proliferación masiva de lo
+que algunos autores denominan “islas de información” o compartimientos estancos,
+que finalmente dificultan la operativa empresarial al no poder disponer de una visión
+global de organización.
+
+Todos los requerimientos que se han tomado, se basan en la consideración de las
+necesidades de un grupo específico de personas que tienen un alto nivel de interacción con contenido digital. De acuerdo a técnicas de búsqueda de hechos para la
+investigación de requisitos (Lecturas Preparatorias, Entrevistas, Observación, Muestreo de Documentos y Cuestionarios) es importante resaltar que la importancia de la
+información digital es alta, facilita el acceso y la distribución de contenido, promueve
+el trabajo distribuido (en el aspecto geográfico, elimina las barreras de distancia y
+tiempo) y la generación de mayor eficiencia.
+
+El contenido digital, en el contexto de análisis, se presenta en diferentes formatos
+(información no estructurada), siendo los de más regular uso los formatos .doc, .docx,
+«ppt, .pptx, .pdf, .xls, .xlsx y en procesos especialmente académicos son administrados por un sistema de información basado esencialmente en el ámbito de las bases
+de datos relacionales (información estructurada). Es importante mencionar que la
+cantidad de contenido digital de carácter no estructurado siempre es mucho mayor
+que la que se almacena en cuanto a información digital estructurada se refiere. En
+este punto también es importante analizar cuáles son los espacios de almacenamiento
+específicos que con frecuencia utilizan los usuarios de contenido digital heterogéneo.
+De acuerdo a los aspectos teóricos en los cuales se apoyan los desarrolladores de
+sistemas ECM, contar con una estructura de datos común y un conjunto de tecnologías combinadas resulta fundamental. La realidad observada en la Universidad
+del Valle — Sede Caicedonia, dista mucho del modelo de datos centralizados; por el
+contrario se observa una diversificación importante de medios de almacenamiento independientes como los discos extraíbles, los servicios de almacenamiento en la nube
+(correo electrónico, servicios gratuitos de almacenamiento, etc.), Discos compactos
+(CD y DVD), entre otros. La falta de una estrategia efectiva de administración de
+contenidos digitales en la organización fomenta la inexistencia de repositorios centralizados de datos e incluso, a nivel de soporte básico, la no adopción de unidades
+de red para tal fin.
+
+En adición a la situación descrita anteriormente, no es menos grave el hecho
+de que potencialmente las personas que laboran en las distintas dependencias de
+la institución asumen en términos generales una producción de contenido digital
+no estructurado de nivel medio (una tasa que denota un volumen de contenido
+digital multiformato de entre 20 y 100 documentos por mes). Si consideramos los
+diversos procesos de administración de contenido digital no estructurado desde un
+punto de vista sistémico podemos asumir que estas situaciones proliferan “el caos del
+contenido” y una entropía importante que propicia situaciones nocivas con respecto
+a la gerencia de la información digital.
+
+Continuando con el análisis de los hechos más trascendentales derivados de la
+búsqueda y recolección de requerimientos llegamos al punto de vista del personal
+
+60con referencia al uso de las herramientas colaborativas. En un mundo cada vez más
+centralizado las herramientas tecnológicas que facultan el trabajo en grupo fomentan
+el desarrollo de habilidades y mejoras continuas en los diversos procesos organizacionales. Para el talento humano de la Universidad del Valle — Sede Caicedonia, es
+importante la adopción y el uso masivo de herramientas colaborativas en sus labores
+específicas. Si bien, las referencian como un elemento importante dentro del ecosistema institucional, también se observa que el conocimiento sobre estas es muy básico
+como para implementarlas.
+
+Entre los factores más trascendentales para la correcta gestión de contenido digital
+se encuentra la infraestructura tecnológica. De acuerdo a la información obtenida en
+la institución, las opiniones son diversas pero no son las mejores. En la ejecución de
+los diversos instrumentos de búsqueda de hechos realizados con el objeto de entender
+el modelo de dominio que tiene el flujo de información digital en la Universidad del
+Valle — Sede Caicedonia, se pudo establecer que quienes tienen un concepto favorable
+sobre la infraestructura TIC, tienden a utilizar Sistemas de Información para la gestión de contenido digital estructurado. Por otra parte quienes con mayor frecuencia
+interactúan con contenido digital no estructurado piensan que la infraestructura TIC
+no es la mejor, expresan la ausencia de herramientas tecnológicas para el personal
+administrativo, la falta de políticas de manejo de información digital, la perdida de
+información, la escasa o casi inexistente cultura sobre el uso de nuevas tecnologías.
+
+Finalmente, se resalta también en este análisis el criterio que tiene el personal que
+labora en la organización con respecto a las prácticas relacionadas con el manejo de
+contenido digital. En una escala que recoge estas apreciaciones (en niveles Deficiente,
+Regular, Bueno y Excelente) se pudo observar que no hay un criterio generalizado,
+por el contrario, varias son las perspectivas sobre el tema. Algunas personas consultadas estiman que es regular el nivel, dado que no hay sistemas y/o tecnologías
+de información que centralicen la información digital. Para otra parte del personal
+encuestado se considera deficientes las prácticas por que se pierde información y en
+ocasiones no se sabe “quién tiene la información”. Otro segmento de la población
+objetivo que labora en la institución consideran que el nivel de prácticas sobre el
+manejo de contenido digital es bueno, debido a la adopción de sistemas de información (en el caso del Sistema de Información de Registro Académico SIRA), ya
+que la mayor parte de sus actividades laborales hacen uso de los estándares implementados por dicha herramienta. En términos generales se puede expresar que aún
+faltan esfuerzos para lograr un nivel integral para la gestión de contenido digital,
+especialmente, el no estructurado.
+
+Al termino de la etapa de análisis sobre elementos fundamentales para el desarrollo
+del proyecto, es importante mencionar la falta de una “educación” y un afianzamiento
+sobre los Sistemas y las Tecnologías de Información en el ámbito organizacional. De
+acuerdo a las evidencias encontradas se puede fundamentar la idea de una carencia
+considerable de definiciones y contenidos relacionados con la dinámica y el papel que
+desempeñan los sistemas de cómputo en la administración de información digital
+dentro de los diversos procesos institucionales que se realizan.
+
+61B. Elementos de Diseño del Proyecto
+
+B.1. Diagramas de Casos de Uso
+
+Gestión de Personal
+
+Crear un muevo
+¡usuario O grupo en |
+5. elsistema
+
+e Atceder a—.
+¿Antomecion de un,
+| USO 0 grupo |
+*. especifico del
+
+—sisiema —
+
+Manejar
+
+ 
+
+Ingresar al Sistema integralmente los |
+/ *, Usuarios ECM.
+
+- A
+
+Administrador ECM .
+Modicar un usuario,
+
+lso grupo especifico
+= del sistema
+
+“Eliminar
+E A a] grupo
+|, especifico del
+
+“BEBA
+
+ 
+
+Figura B.1.: Casos de Uso Gestión de Personal.
+
+ 
+
+Actor:
+
+Caso de Uso: Ingresar al Sistema. Administrador
+ECM
+
+ 
+
+ 
+
+Pre-Condiciones: Pre-Condiciones: El Administrador ECM debe ser generado
+desde el inicio de operaciones del sistema ECM con su grupo respectivo. Además se
+garantiza la generación de su acceso (autenticación) al sistema vía Web
+
+ 
+
+ 
+
+ 
+
+Curso Básico: Curso Alterno:
+
+1. El usuario Administrador ECM ingresa al 1. Si el usuario trata de ingresar
+
+sistema a través de sus credenciales de acceso (login | a algún servicio del sistema y no
+
+o nombre de usuario y contraseña), previamente ha iniciado su correspondiente
+
+almacenados, y a través de una interfaz de inicio sesión, el sistema lo debe
+
+expuesta a través del protocolo HTTP/S. re-direccionar a la página de
+
+2. El sistema verifica que los datos aportados por el | inicio para poder autenticarse
+
+usuario sean correctos y permite su posterior acceso | PrIMero.
+
+(sesión) registrando la hora de entrada y salida del | 2: Si el usuario ingresó los datos
+
+sistema. de forma errónea el sistema
+debe alertarlo.
+
+ 
+
+ 
+
+Post-Condiciones: El usuario Administrador ECM es re-direccionado al panel de
+control del sistema para permitirle ejecutar actividades pertinentes a la administración
+de contenido web (WCM), basado en subsistemas de gestión.
+
+ 
+
+Observaciones: Tanto el mecanismo de autenticación como el de ayuda para
+recordar los datos pueden diferir de acuerdo a la tecnología utilizada. Esto es, puede
+pre-establecerse el uso de credenciales ya existentes en sistemas de uso por parte de la
+compañía (Single Sign On) u optar por la generación específica de credenciales y
+mecanismos de ayuda propias del sistema ECM. De igual manera, este caso de uso se
+puede replicar en el marco de interacciones del Usuario ECM.
+
+ 
+
+ 
+
+Cuadro B.1.: Descripción Casos de Uso Ingresar al Sistema
+
+62Actor: Administrador
+
+Caso de Uso: Manejar Integralmente los usuarios ECM. ECM
+
+ 
+
+ 
+
+Pre-Condiciones: Pre-Condiciones: El Administrador ECM debe haber
+iniciado sesión en el sistema.
+
+ 
+
+ 
+
+Curso Básico: Curso Alterno:
+1. El usuario Administrador ECM, puede crear nuevos 1. Ninguno
+
+grupos en el sistema, ingresando a través de un formulario
+web el nombre del grupo, su descripción y estableciendo el
+nivel de permisos dentro del sistema. El sistema verifica
+que no existan grupos duplicados y crea el grupo con sus
+respectivas características.
+
+2. El usuario Administrador ECM, puede crear nuevos
+usuarios en el sistema, ingresando a través de un
+formulario web los datos personales, laborales, de acceso
+al sistema y de contacto respectivos. El sistema verifica
+que no existan usuarios duplicados y crea el usuario con
+sus respectivas características.
+
+3. El usuario Administrador ECM, puede realizar la
+consulta, eliminación y modificación de los diversos grupos
+creados por él, para lo cual cada interacción anteriormente
+descrita tendrá su previa confirmación vía un mensaje de
+advertencia. La interacción de eliminación tiene un efecto
+“cascada” sobre los usuarios contenidos, es decir, se
+eliminan los usuarios adscritos al grupo.
+
+4. El usuario Administrador ECM, puede realizar la
+consulta, eliminación y modificación de los diversos
+usuarios creados en el sistemal, para lo cual cada
+
+interacción anteriormente descrita tendrá su previa
+
+ 
+
+confirmación vía un mensaje de advertencia.
+
+ 
+
+Post-Condiciones: Los cambios realizados en el subsistema de gestión de personal
+debe tener efectos correspondientes e inmediatos sobre los demás subsistemas y
+usuarios de la arquitectura ECM.
+
+ 
+
+ 
+
+Observaciones: Hay que tomar en consideración los flujos de trabajo cuando se
+procede a la eliminación de grupos y/o usuarios.
+
+ 
+
+Cuadro B.2.: Descripción Casos de Uso Ingresar al Sistema
+
+Gestión de Colaboración
+
+[Activar un Woriow |
+
+¿Habilitar >,
+| Herramientas |
+> Colaboralivas
+
+| ————— Ingresar al Sistema )
+
+Acministrador ECM ÑÑ ú Modificar un
+L Wario A
+
+Eliminar un
+Word co
+
+ 
+
+Figura B.2.: Casos de Uso Gestión de Colaboración.
+
+63Actor: Administrador
+
+Caso de Uso: Gestionar aspectos de colaboración. FOM
+
+ 
+
+ 
+
+Pre-Condiciones: Pre-Condiciones: El Administrador ECM debe haber
+iniciado sesión en el sistema.
+
+ 
+
+ 
+
+Curso Básico: Curso Alterno:
+1. El usuario Administrador ECM, puede activar un 1. Ninguno
+workflow (flujo de trabajo), lo cual permite, entre otros
+aspectos, movimiento de contenido digital entre locaciones
+(regularmente carpetas), establecimiento de tareas de
+revisión y verificación. Esta interacción se realiza
+mediante la especificación de la tarea a realizar, su
+descripción, prioridad, los tiempos de inicio y terminación
+y, los usuarios ECM a intervenir para tal fin. Todas estas
+configuraciones se realizan mediante un formulario web.
+2. El usuario Administrador ECM, tendrá la potestad de
+habilitar herramientas colaborativas basadas en
+comentarios y discusiones sobre ficheros mediante
+mecanismos en tiempo real. El criterio de activación de
+estas herramientas se basará en el workflow y el número
+de usuarios involucrados.
+
+3. El usuario Administrador ECM, puede realizar
+modificaciones específicas sobre un workflow, mediante su
+selección de una lista de flujos de trabajo existentes, y
+redefiniendo sus características (tiempos establecidos,
+usuarios involucrados, etc.) a excepción de su nombre
+específico.
+
+4. El usuario Administrador ECM, tendrá la opción de
+eliminar un workflow ya iniciado, lo cual se llevará a cabo
+a través de un formulario web (selección del workflow) con
+
+ 
+
+su posterior confirmación y ejecución.
+
+ 
+
+Post-Condiciones: Los cambios realizados en el subsistema de gestión de
+colaboración debe tener efectos correspondientes e inmediatos (notificaciones y alertas)
+sobre los demás subsistemas y usuarios de la arquitectura ECM.
+
+ 
+
+ 
+
+Observaciones: Debe determinarse a profundidad que mecanismos se deben adoptar
+para cubrir la comunicación entre Usuarios ECM (notificaciones vía e-mail, mensaje
+interno, etc.) dentro del sistema.
+
+ 
+
+Cuadro B.3.: Descripción Casos de Uso Gestionar aspectos de colaboración.
+
+Gestión de Información
+
+| Actualizar Parfil !
+| MS
+Fo Ingresar al La '
+A] l :
+p Sistema Información —— + ———— Consultar Workfñomws.
+
++. Personal.
+
+Usuario ECM
+
+ 
+
+Figura B.3.: Casos de Uso Gestión de Información.
+
+64Caso de Uso: Gerenciar Información Personal. Actor: Usuario ECM
+
+ 
+
+ 
+
+Pre-Condiciones: Pre-Condiciones: El Usuario ECM debe haber iniciado sesión
+en el sistema.
+
+ 
+
+ 
+
+Curso Básico: Curso Alterno:
+1. El Usuario ECM, tendrá la capacidad de 1. Ninguno
+actualizar sus datos de índole personal y laboral,
+como también podrá cambiar su contraseña de
+acceso al sistema.
+
+2. El Usuario ECM, tendrá la facultad de consultar
+los flujos de trabajo a los cuales está vinculado para
+determinar aspectos de cumplimiento y control de
+su gestión (tareas, vencimiento, prioridad).
+
+3. El Usuario ECM, puede listar los contenidos que
+ha generado en el sistema. A través de este listado
+podrá llevar a cabo actividades propias del
+subsistema de gestión de contenido y con la debida
+coherencia en los niveles de permisos establecidos.
+
+ 
+
+ 
+
+Post-Condiciones: Los cambios realizados en el subsistema de gestión de
+información debe tener efectos correspondientes e inmediatos sobre los demás
+subsistemas de la arquitectura ECM.
+
+ 
+
+ 
+
+Observaciones: Debe determinarse a profundidad que mecanismos se deben adoptar
+para cubrir la comunicación entre Usuarios ECM (notificaciones vía e-mail, mensaje
+interno, etc.) dentro del sistema. Resulta útil y práctico para el sistema ECM tener un
+número específico de categorías en la formación de grupos, los cuales potencialmente
+tendrían los niveles de permisos necesarios para que a cada usuario en el sistema se le
+denoten sus limitaciones específicas e inherentes al grupo al cual pertenece.
+
+ 
+
+Cuadro B.4.: Descripción Casos de Uso Gerenciar Información Personal.
+
+B.2. Diagramas de Actividad
+
+Usuario ECM - Administrador ECM
+
+[Los datos no se
+
+recuperan]
+[Los datos se recuperan]
+
+4
+á
+di , L
+É , H
+]
+
+ 
+
+)
+
+(Los datos ingresados son erroneos |
+
+ 
+
+[Los datos ingresados son correctos ]
+
+Y
+
+Figura B.4.: Diagrama de Actividad para el Caso de Uso Ingresar al Sistema.
+
+ 
+
+65Administrador ECM
+
+[El usuario existe en el
+sistema]
+
+    
+   
+ 
+
+[El usuario no existe en el
+
+ 
+
+ 
+
+Figura B.5.: Diagrama de Actividad para el Caso de Uso Acceder Información Usuario.
+
+Administrador ECM
+
+[Los datos no son
+válidos]
+
+los procesos de
+Validación incluyen la
+integridad de los datos
+y la no existencia del
+usuario
+
+O [Los datos son válidos]
+
+ 
+
+Figura B.6.: Diagrama de Actividad para el Caso de Uso Crear Usuario.
+
+ 
+
+Administrador ECM
+
+DA
+
+Antes de Eliminar
+el usuario se pide
+confirmación
+
+[El usuario existe en el
+
+ 
+
+Figura B.7.: Diagrama de Actividad para el Caso de Uso Eliminar Usuario.
+
+66Administrador ECM
+
+ 
+
+ 
+
+[Los dat no son
+wálidos]
+
+ 
+
+los procesos de
+“alidación incluyen la
+integridad de los datos
+
+ 
+
+  
+
+ 
+
+   
+
+ 
+
+<= [Los datos son válidos]
+
+ 
+
+Figura B.8.: Diagrama de Actividad para el Caso de Uso Modificar Usuario.
+
+Usuario con permisos para capturar y/o almacenar comtenido
+
+Los o Metadatos
+
+[El fichero se subió
+satisfactoriamente]
+
+Es,
+
+Tipo MIME: PDF, TXT, e
+HTML, etc. * Entrada Obligatoria
+
+Figura B.9.: Diagrama de Actividad para el Caso de Uso Capturar y/o Almacenar Contenido.
+
+ 
+
+ 
+
+Usuario con permisos para eliminar contenido
+
+   
+
+[Buscar mediante [Validar
+Motor de Busqueda]
+
+Operación]
+
+ 
+  
+ 
+ 
+     
+    
+
+[Buscar
+manualmente]
+
+   
+
+[No Validar
+Operación]
+
+ 
+ 
+ 
+
+[Fichero
+Encontrado]
+
+     
+
+[Fichero No
+Encontrado]
+
+po
+
+La operación de eliminaión no es
+exacta (real) y requiere privilegios
+
+Cuando no se encuentra el fichero
+
+ 
+
+mediante el motor de busqueda se
+
+be info mar 3 2 4
+
+Figura B.10.: Diagrama de Actividad para el Caso de Uso Eliminar Contenido.
+
+67Usuario con permisos para accesar y/o actualizar contenido
+
+las opciones de interacción se
+relacionan con la Edición,
+
+Eliminación, Administración de
+Permisos, publicación, etc. La
+[Buscar mediante disponibilidad de las mismas
+
+£ >, Motor de Busqueda] depende del nivel de permisos
+
+ES] +
+
+[Buscar
+manualmente]
+
+   
+  
+  
+ 
+
+ 
+
+    
+ 
+ 
+  
+         
+   
+
+ 
+   
+    
+
+[Fichero
+LA Encontrado]
+
+[Fichero No
+Encontrado]
+
+ 
+
+200 MIT? al
+
+[Actualizar Fichero] a [No Actualizar
+
+ 
+
+Figura B.11.: Diagrama de Actividad para el Caso de Uso Acceder y/o Actualizar Contenido.
+
+Usuario con permisos para versionar contenido
+
+[Cambios Mayores
+al Fichero]
+
+    
+ 
+
+[Buscar mediante
+Motor de Busqueda]
+
+[Buscar
+
+manualmente] [Fich
+ichero
+
+Encontrado] Capturar y/o
+
+ 
+    
+
+[Fichero No
+Encontrado]
+
+ 
+
+Figura B.12.: Diagrama de Actividad para el Caso de Uso Versionar Contenido.
+
+68Usuario con permisos para buscar contenido
+
+o muros,
+
+ 
+ 
+  
+  
+  
+
+ 
+
+    
+
+  
+
+[Busqueda
+Avanzada]
+
+[Existen
+Hallazgos]
+
+ 
+
+ 
+ 
+   
+
+[No Existen
+Hallazgos]
+
+ 
+
+Figura B.13.: Diagrama de Actividad para el Caso de Uso Bucar Contenido.
+
+Usuario con permisos para publicar contenido
+
+ 
+     
+    
+   
+ 
+    
+ 
+   
+ 
+
+[Buscar mediante
+Motor de Busqueda]
+
+[Buscar
+manualmente]
+
+[Fichero
+Encontrado]
+
+[Fichero No
+Encontrado]
+
+ 
+
+Cuando no se encuentra el ficherc Los canales de distribució
+mediante el motor de busqueda se pueden ser redes sociales...
+
+debe informar al usuario configuración previa del servicio
+
+ 
+
+Figura B.14.: Diagrama de Actividad para el Caso de Uso Publicar Contenido.
+
+ 
+
+Usuario con permisos para activar workflows
+
+ 
+
+ 
+
+Figura B.15.: Diagrama de Actividad para el Caso de Uso Activar Workflows.
+
+69

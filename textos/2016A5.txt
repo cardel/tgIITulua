@@ -1,0 +1,3588 @@
+DESARROLLO DE FUNCIONALIDADES PARA LOS
+PRODUCTOS CLOUD DEFENDER Y CLOUD INSIGHT DE LA
+EMPRESA
+
+ALERT LOGIC INC COLOMBIA
+Modalidad Pasantía Informe Final
+
+FAIR ANDRÉS TARAPUÉS HIDALGO
+CÓDIGO: 1356194
+fair.tarapues Ocorreounivalle.edu.co
+
+Director en la Empresa
+JOSÉ JULIÁN REINA MATERÓN *ING
+
+Magister en Administración
+jmateron O alertlogic.com
+
+Directora EISC Universidad del Valle sede Tuluá
+YURI MERCEDES BERMUDEZ MAZUERA *ING
+Magister en Administración
+yuri.bermudez Ocorreounivalle.edu.co
+
+Facultad de Ingeniería
+Escuela de Ingeniería de Sistemas y Computación
+
+Programa Académico de Ingeniería de Sistemas
+Tuluá, Junio de 2017Nota de aceptación:
+
+Firma del Coordinador
+
+Firma del Jurado 1
+
+Firma del Jurado 2
+
+Tuluá, Mayo de 2017Resumen
+
+El presente trabajo tiene como objetivo dar un informe completo sobre las
+actividades realizadas durante un año en la empresa Alert Logic Inc.
+Colombia, en la modalidad de pasantía.
+
+Gracias a la iniciativa de esta compañía en conjunto con la Universidad del
+Valle nace el programa /Intership el cual tiene como objetivo la
+capacitación de estudiantes del programa de Ingeniería de sistemas en las
+
+tecnologías usadas por la empresa.
+
+Palabras Clave: Pasantía, Pruebas Unitarias, Defectos, AngularJS,
+
+Dunkirk.Abstract
+
+The present work aims to give a complete report on the activities carried
+out during a year in the company Alert Logic Inc. Colombia, in the form of
+internship.
+
+Thanks to the initiative of this company in conjunction with the
+Universidad del Valle, the Intership program is born, which aims to train
+students in the systems engineering program in the technologies used by
+
+the company.
+
+Key Words: Internship, Unit Tests, Defects, AngularJS, Dunkirk.Agradecimientos
+
+A la profesora Yuri Mercedes Bermúdez por su entrega, apoyo, dirección y
+acompañamiento en este proceso el cual me ha ayudado a crecer como
+
+persona y como profesional.
+
+A mis Managers Jose Reina, Pablo Vélez y Diego Ruiz que me guiaron
+durante este proceso y me brindaron la oportunidad de desarrollarme como
+profesional y como persona en la empresa Alert Logic Inc Colombia,
+Gracias por enseñarme el valor del trabajo en equipo, la comunicación y el
+
+cumplimiento en cada una de las actividades desarrolladas.
+
+A mis compañeros de trabajo Maryit Sánchez, Andrés Artunduaga, Carlos
+Orozco, Cristhian Fuertes, Jiovanny Ibarguen, Cristian Rendón, Julián
+Mondragón, Juan Pablo León, Juan Kremer, Rowinson Gallego, Gisler
+Garcés, Julián Galvis y Jorge Mario Valencia los cuales me brindaron su
+guía, su conocimiento y su acompañamiento en cada una de las actividades
+
+desarrolladas durante la pasantía.
+
+A la Universidad del Valle junto con sus destacados docentes por
+
+brindarme la oportunidad de formarme como profesional.CONTENIDO
+
+1 Introducción
+
+1.1 Descripción General
+
+1.2 Descripción de la Empresa
+
+1.3 Objetivos de la pasantía
+1.3.1 Objetivo general
+1.3.20bjetivos específicos
+
+2 Marco Referencial
+2.1 Marco Teórico
+2.1.1 Productos de la empresa
+2.1.1.1 Cloud Defender
+2.1.1.2 Cloud Insight
+2.1.2 Modelos de Negocio
+2.1.2.1 Cloud Computing
+2.1.2.2 Software as a service
+
+2.1.3 Herramientas de desarrollo web
+
+2.1.3.1 AngularJS
+2.1.3.2 PHP
+2.1.3.3 PHPUnit
+2.1.3.4 Rally Software
+2.1.3.5 Git
+2.1.3.6 GitHub
+2.1.4 Metodología de Desarrollo
+2.1.4.1 Scrum
+
+ÚUÓO UU UU NN Rs spa
+
+AIADODODOQAO AAA
+
+> 2d ad a a 2 2 2 2
+UU UU UU =m2m 2. — 2.2.0) O O2.1.4.1.1 Equipos del Scrum
+2.1.4,1.2 Actividades del Scrum
+2.1.4.1.3 Artefactos de Scrum
+
+3 Desarrollo del Proyecto
+
+3.1 Desarrollo objetivo específico I
+3.1.1 Entrenamiento en Cloud Defender y Cloud Insight
+3.1.2 Entrenamiento en Git y GitHub
+3.1.3 Entrenamiento en PHPUnit y Jasmine
+
+3.2 Desarrollo objetivo específico H
+
+3.3 Desarrollo objetivo específico III
+
+3.4Desarrollo objetivo específico IV
+
+4 Conclusiones
+5 Trabajos Futuros
+
+6 Referencias
+
+14
+15
+177
+
+18
+19
+20
+20
+22
+23
+26
+30
+
+36
+37
+38ÍNDICE DE FIGURAS
+
+2.1. Áreas de funcionamiento del SaaS.
+
+2.2. Principales comandos de Git.
+
+3.1. Flujo de trabajo con Git.
+
+3.2. Reporte de cobertura al inicio de la pasantía de ScanAPIBundle.
+3.3. Reporte de cobertura al inicio de la pasantía de CoreBundle.
+
+3.4. Reporte de cobertura al final de la pasantía de ScanAPIBundle.
+3.5. Reporte de cobertura al final de la pasantía de CoreBundle.
+
+3.6. Defecto DE47631 función de validación de fechas en Cloud Defender.
+4.1. Interfaz gráfica de Log Manager actualmente en Cloud Defender
+4.2. Diseño de la Interfaz Gráfica de Log Manager v2 implementada en
+AngularJS
+
+4.3. Formulario actual de Password type credentials en Log Manager
+4.4. Formulario de Password type en Credentials en Dunkirk
+
+4.5. Datos del API de Schedules en el ambiente de producción
+
+4.6. Datos del API de Schedules en la interfaz de usuario en Dunkirk
+4.7. Interfaz gráfica del sub-módulo Updates en Log Manager versión 1
+
+4.8. Interfaz gráfica del sub-módulo Updates en Log Manager versión 2Capítulo 1
+
+Introducción
+
+1.1. Descripción General
+
+El presente trabajo de grado en modalidad pasantía tiene como objetivo presentar un
+informe detallado de las actividades realizadas dentro de la empresa Alert Logic Inc.
+Esta, es una empresa de desarrollo de software enfocada a prestar servicios de seguridad
+en la nube por medo del modelo Security as a Service, la cual, tuvo la iniciativa de crear
+un programa de pasantía en acuerdo con la Universidad del Valle para adquisición de
+nuevos talentos dentro de su personal dando así origen al programa de pasantía descrito
+en el presente documento. Este, consiste en la capacitación de estudiantes del programa
+de Ingeniería en Sistemas de la Universidad del Valle en las tecnologías, lenguajes de
+programación, frameworks y forma de trabajo de la empresa durante un periodo de un
+año. Es importante mencionar que el desarrollo de la pasantía se realizó en conjunto con
+los estudiantes Carlos Orozco y Andrés Artunduaga los cuales conforman el “equipo de
+
+desarrollo” mencionado a lo largo del documento.
+
+Al inicio de la pasantía, el “equipo de desarrollo” y los jefes encargados planearon una
+serie de actividades las cuales consistieron en la contextualización de la empresa
+respecto a sus políticas, modelo de trabajo, herramientas de desarrollo usadas, lenguajes
+de programación y reglamento interno, la implementación de pruebas unitarias sobre
+los productos de la empresa, la solución a defectos reportados por los clientes de la
+empresa y la creación de nuevos componentes de software. Cabe mencionar que por
+fuera de estas actividades, el “equipo de desarrollo” brindó apoyo en la automatización
+de tareas requeridas por la empresa tales como la generación automática de
+documentación de historias de usuario y la creación de scripts para la ejecución de
+
+comandos en consola.Todas las actividades anteriormente mencionadas únicamente se limitaron al desarrollo
+de la interfaz gráfica de usuario de los productos de la empresa y fueron supervisadas
+por el equipo de User Interface de la empresa Alert Logic a cargo de los Managers José
+Reina Materón y Pablo Andrés Vélez. Quienes se encargaron de verificar el
+
+cumplimiento de cada una de las actividades y de los objetivos propuestos.
+
+1.2. Descripción de la empresa
+
+Alert Logic es un proveedor de soluciones de seguridad en la nube y pionero en la
+implementación del modelo Security as a Service dentro de sus productos. Esta
+compañía fue fundada en 2002 por Misha Govshteyn y Matthew Harkrider y tiene su
+sede principal en Houston Texas con oficinas en Seattle, Cardiff, Cali y Belfast
+Londres.
+
+Esta compañía tiene más de una década de experiencia, perfeccionando y redefiniendo
+soluciones seguras, flexibles, diseñadas para trabajar con proveedores de servicios en
+modalidad de hosting o en la nube ya que cuenta con la capacidad de ofrecer soluciones
+de detección de intrusiones, análisis de vulnerabilidad y gestión de registros que se
+complementan con el servicio de monitoreo y vigilancia 24 x 7 ofreciendo así,
+soluciones de seguridad y cumplimiento normativo para la nube, también, ofrece
+soluciones de Seguridad como Servicio (SaaS, Security as a Service) especialmente
+indicadas para ser implementadas en infraestructuras con instalaciones dedicadas o
+datacenters, en la nube, o en infraestructuras híbridas, entregando a los clientes una
+visión profunda de seguridad y protección continua.
+
+En la actualidad la empresa cuenta con dos productos de software llamados, Cloud
+Defender y Cloud Insight, los cuales se encuentran construidos con distintas
+tecnologías. En el caso de Cloud Defender, fue construido sobre Symfony (Framework
+de PHP) y AngularJS para el caso de Cloud Insight. [3] Dada la diferencia en
+tecnologías, Alert Logic está llevando paulatinamente a Cloud Defender a que adopte la
+tecnología AngularJS. Este proceso de migración implica un gran esfuerzo dentro del
+equipo de User Interface convirtiéndose en una de las motivaciones para iniciar el
+
+programa de pasantía debido a que es necesario que las personas implicadas en esteProceso conozcan el funcionamiento de los productos y puedan realizar los cambios
+
+requeridos.
+
+1.3. Objetivos en la pasantía
+
+1.3.1. Objetivo General
+
+Desarrollar nuevas funcionalidades utilizando las metodologías y tecnologías de
+
+desarrollo web, de acuerdo a los requerimientos definidos para la convergencia de
+
+Cloud Defender y Cloud Insight.
+
+1.3.2. Objetivos Específicos
+
+Y” Apropiar metodologías y tecnologías de desarrollo web utilizadas en los
+
+productos en Alert Logic.
+
+Y” Implementar pruebas unitarias específicas para incrementar la cobertura de
+
+código en los productos Cloud Defender y Cloud Insight.
+
+Y” Implementar soluciones a defectos en los productos Cloud Defender y Cloud
+
+Insight reportados por los clientes de Alert Logic.
+
+Y” Implementar funcionalidades específicas en los productos Cloud Defender y
+
+Cloud Insight utilizando la tecnología AngularJS.Capítulo 2
+
+Marco Referencial
+
+A continuación se definen los conceptos que hacen parte de las tecnologías involucradas
+en el desarrollo de la pasantía las cuales definen del alcance y la aplicabilidad dentro del
+trabajo realizado. En primera instancia, se explicará detalladamente el funcionamiento
+de los productos principales de la empresa en este caso, Cloud Defender y Cloud
+Insight. Y a continuación se profundizará en los conceptos propios del desarrollo de la
+pasantía como: el modelo de negocio de la empresa, herramientas de desarrollo web y
+
+metodología de desarrollo utilizada.
+
+2.1 Marco Teórico
+
+2.1.1. Productos de la Empresa
+2.1.1.1. Cloud Defender
+
+Alert Logic Cloud Defender es un servicio de seguridad informática que provee
+monitoreo 24x7 por expertos en seguridad junto con detección de amenazas en red,
+gestión de registros (logs), evaluación de vulnerabilidades y protección de aplicaciones
+web. Gracias a la automatización y análisis integrado se obtiene un monitoreo continuo
+para proteger la información del cliente ofreciendo así un producto que cumple con
+todas las exigencias de seguridad requeridas. Las siguientes son características que
+
+provee este producto. [4]
+
+e Gestión de seguridad centralizada: Protege los datos y aplicaciones localmente,
+en la nube y en ambientes híbridos a través de múltiples capas, redes, sistemas y
+
+aplicaciones web.
+
+e Administración de detección de amenazas y respuesta: Detección proactiva de
+
+amenazas 24x7, monitoreo y rápida notificación por expertos en seguridad.Despliegue rápido: Expertos se encargan del despliegue, configuración,
+calibración y capacitación por lo que la solución es activada rápidamente4
+Cumple con los estándares: Es conforme con las regulaciones de ley: PCI DSS
+(Payment Card Industry Data Security Standard), HIPAA(Health Insurance
+Portability and Accountability Act), and Sarbanes-Oxley.
+
+Visibilidad dentro de la infraestructura TI: Evalúa el estado de la seguridad para
+
+entender a qué riesgos se enfrenta.
+
+2.1.1.2. Cloud Insight.
+
+Alert Logic Cloud Insight es una solución para la configuración y administración de
+
+vulnerabilidades de los servicios web de Amazon (AWS) nativos. Está diseñada para
+
+reducir la complejidad de proteger las cargas de trabajo realizadas por estos. Posee
+
+automatización integrada y monitoreo continuo, por tanto provee visibilidad a través del
+
+entono AWS identificando vulnerabilidades a medida que surgen. Entre las
+
+características de este producto se encuentran las siguientes.
+
+Nativo de AWS: Cloud Insight usa la API de AWS y datos de CloudTrail para
+mantener un inventario correcto y actualizado de los activos y topologías de red.
+Gracias a su detección automática integrada y su capacidad de auto-despliegue,
+puede detectar nuevos activos que son desplegados, todo esto sin necesidad de
+intervención manual.
+
+Protección continúa en un entorno cambiante: Cloud Insight monitorea
+constantemente el entorno en búsqueda de vulnerabilidades desde la cuenta hasta
+el host, descubriendo automáticamente los puntos débiles en el entorno sin
+ningún esfuerzo por parte del cliente. Cuando el entorno cambia, Cloud Insight
+lo detecta y escanea los activos nuevos, cambiados o modificados para buscar
+
+vulnerabilidades.e Foco en la solución y no en la vulnerabilidad: En vez de construir una larga lista
+de vulnerabilidades a investigar, priorizar y determinar cómo resolver, Cloud
+Insight da al cliente la información que necesita para eliminarlas rápidamente y
+disminuir el riesgo. Esto permite que el cliente enfoque sus esfuerzos en resolver
+
+las brechas de seguridad que tienen más impacto.
+
+2.1.2. Modelos de Negocio
+
+A Continuación se mencionan los conceptos más relevantes relacionados con la forma
+en que la empresa ofrece sus productos y la arquitectura utilizada en la implementación
+
+de los mismos.
+
+2.1.2.1. Cloud Computing.
+
+Cloud computing se refiere a la entrega bajo demanda de recursos informáticos y
+aplicaciones a través de internet con un sistema de precios basado en el consumo
+realizado. [5] La importancia de usar los servicios “Cloud” por parte de las empresas
+radica en que estos proporcionan acceso rápido y flexible a recursos informáticos de
+bajo costo. Gracias a Cloud Computing, las compañías no necesitan realizar grandes
+inversiones en la adquisición de equipos ni en la administración de los mismos. En lugar
+de eso, podrá aprovisionar exactamente el tipo y el tamaño de recursos informáticos que
+
+necesite para hacer realizad el propósito de la empresa.[5]
+
+Cloud Computing ofrece un método sencillo de obtener acceso a servidores,
+almacenamiento, bases de datos y una amplia gama de servicios de aplicaciones a través
+de internet. [5] Los proveedores de Cloud computing, son propietarios y responsables
+del mantenimiento de los equipos para el funcionamiento de las aplicaciones, mientras
+
+el cliente se dedica a usar los recursos por medio de una aplicación web.2.1.2.2. Software as a Service.
+
+Software as a Service, es una arquitectura de desarrollo en la que se pueden distinguir
+
+dos categorías:
+
+e Servicios orientados al negocio: estos, se ofrecen en las empresas de todos los
+tamaños y generalmente son soluciones destinadas a procesos propios del
+negocio, tales como, finanzas, gestión de cadenas de suministros y relaciones
+
+con los clientes.
+
+e Servicios orientados al consumidor: estos, se ofrecen al público en general y
+son servicios orientados al consumidor como por ejemplo, correos electrónicos.
+
+Generalmente son gratuitos y soportados por la publicidad.
+
+El SaaS basa su funcionamiento en tres pilares fundamentales que son: el modelo de
+negocio, arquitectura de las aplicaciones y la estructura operacional. Tal como lo
+
+muestra la figura 2.1.
+
+  
+
+Business
+Model
+
+    
+  
+
+Software
+Services
+
+    
+ 
+ 
+
+     
+
+(Operational
+Structure
+
+p Application |
+| Architecture
+
+    
+
+Figura 2.1: Áreas de funcionamiento del SaaS [2]l. Modelo de negocio de SaaS
+
+Hoy en día, la mayoría de productos de software se sigue vendiendo mediante la
+modalidad de “software as a product”. Esto consiste en que el cliente compra
+una licencia para su uso y lo instala en su hardware. Convirtiéndose así en
+“dueño” del producto.
+
+Con el modelo SaaS, la idea de ser “dueño” del producto se torna un tanto
+extraña para el cliente ya que en lugar de poseer el producto, se ofrece acceso a
+este mediante una suscripción. Esto, implica que la aplicación se ejecuta en un
+servidor externo a la empresa reduciendo así los costos de mantenimiento y
+
+soporte.
+
+2. Arquitectura de la aplicación
+Dentro de la arquitectura SaaS hay tres factores claves para asegurar el éxito del
+producto: La escalabilidad, la eficiencia para atender a múltiples clientes y la
+
+configuración.
+
+e Escalabilidad: Significa, maximizar la concurrencia y uso de recursos de la
+aplicación de manera eficiente. Por ejemplo, la distribución de recursos tales
+como hilos, conexiones de red, almacenamiento en caché y particiónamiento
+
+de bases de datos.
+
+e Multitendencia: Puede ser el cambio más significativo en comparación con
+la arquitectura de desarrollo tradicional, ya que los usuarios comparten en
+cierta manera la misma aplicación pero esto no debe afectar el
+funcionamiento de sus servicios. Para hacer posible esto, se requiere de una
+arquitectura capaz de maximizar el intercambio de recursos a través de los
+usuarios pero diferenciando los datos de cada uno. Por tanto no se puede
+simplemente escribir código personalizado para un solo cliente ya que
+
+cualquier cosa que se modifique afecta directamente a los demás clientes.e Configuración: En lugar de la personalización, el modelo SaaS plantea el uso
+de metadatos para configurar la forma en que aparece la aplicación y se
+comporta para los usuarios. El reto para implementar esta arquitectura es
+asegurar que la configuración por parte del cliente sea simple y que no tenga
+
+que incurrir en costes de desarrollo adicional.
+
+3. Estructura Operativa.
+
+Otro aspecto importante a tener encuentra dentro del modelo SaaS, es la
+estructura operativa de la aplicación, es decir, lo que se necesita para mantener
+disponible la aplicación.
+
+Proporcionar software como servicio añade una capa adicional en función de
+
+ejecutar el plan de negocios de la compañía, esto consisten en:
+
+e Seguimiento a los clientes y uso de recursos.
+e Restringir el acceso en ciertos momentos del día.
+e Vigilar el acceso al sitio.
+
+e Realizar otras funciones con el fin de garantizar una experiencia perfecta
+
+para los clientes.
+
+2.1.3. Herramientas de Desarrollo web
+
+2.1.3.1. AngularJS
+
+AngujarJS es un Framework de JavaScript soportado por Google para el desarrollo de
+aplicaciones web dinámicas bajo el modelo MVW (Model View Whatever Works for
+you). [7] Esta herramienta, contiene un conjunto de librerías útiles para el desarrollo de
+aplicaciones web del lado del cliente que permiten el intercambio de datos con el
+servidor de forma que este se libera de cargar complemente la página y solo se limita al
+
+envío de datos.2.1.3.2. PHP
+
+El lenguaje de programación PHP (Personal Home Page históricamente, oficialmente
+acrónimo recursivo de PHP: Hypertex Preprocessor). Fue diseñado en 1994 por
+Rasmus Lerdorf. [8] bajo la licencia GNU de software libre.
+
+Actualmente, PHP es un lenguaje de programación de uso general de código del lado
+del servidor originalmente diseñado para el desarrollo web de contenido dinámico. Fue
+uno de los primeros lenguajes de programación del lado del servidor que se podría
+incorporar directamente en el documento HTML en lugar de llamar a un archivo
+externo. El código PHP es interpretado por un servidor web con un módulo de
+procesador propio del lenguaje, el cual genera la página web resultante.
+
+PHP se considera uno de los lenguajes más flexibles, potentes y de alto rendimiento
+conocido hasta el día de hoy para el desarrollo de scripts [9] del lado del servidor, de
+hecho es usado por empresas como Facebook para saciar la demanda de tráfico en el
+
+servidor.
+
+2.1.3.3. PHPUnit
+
+PHPUnit es un entorno de desarrollo creado para realizar pruebas unitarias en el
+lenguaje de programación PHP, este es un Framework de la familia xUnit y fue creado
+por Sebastian Beremann. PHPUnit se creó con la idea de crear una herramienta que
+detecte los errores de código de forma rápida y sencilla, permitiendo así que se integre
+con el flujo de trabajo del equipo de desarrollo. Como todos los Frameworks de pruebas
+unitarias, PHPUnit utiliza assertions para verificar que el comportamiento de una
+unidad de código es el esperado [12]. Permitiendo así detectar el comportamiento de la
+
+función y los datos que esta arroja.
+
+2.1.3.4, Rally Software
+
+Rally Software Development Corp es un proveedor de soluciones de software y
+servicios de clase empresarial que facilita el desarrollo ágil de productos de software.
+Esto, con el objetivo de acelerar el ritmo de la innovación, mejorar el rendimiento, y
+responder eficazmente a la evolución de los mercados competitivos y necesidades del
+
+cliente por parte de las compañías que desarrollan de software.
+
+10Rally ofrece una plataforma SaaS que transforma la manera en que las organizaciones
+gestionan el ciclo de vida de desarrollo de software mediante la alineación de los
+
+objetivos estratégicos de negocio, colaboración entre los equipos, y transparencia en el
+
+desarrollo [13].
+
+2.1.3.5. Git
+
+Git es un servicio de control de versiones distribuido diseñado para la gestión eficiente
+de flujos de trabajo distribuido no lineales. Git fue diseñado y desarrollado inicialmente
+por Linus Torvalds en 2005 para el desarrollo del kernel de Linux. La licencia de GI'T
+es libre y existen distribuciones oficiales para los sistemas operativos Mac OS X,
+
+Windows, Linux y Solaris. [10] La siguiente figura muestra los principales comandos
+
+de GIT (véase figura 2.2).
+
+  
+   
+
+Remoto pit clone
+repositorio
+
+remoto
+
+git init
+
+  
+ 
+
+Local
+repositorio
+local
+
+git branch
+
+ 
+     
+
+git remote
+
+git commit
+
+    
+  
+
+Local git merge
+area de
+
+preparación git checkout
+
+Local
+directorio de
+
+trabajo
+
+git pull = git fetch + git merge
+
+Figura 2.2: principales comandos de GIT [10]
+
+11La experiencia de Linus Torvalds en la gestión de la integración de diferentes aportes en
+un proyecto distribuido de la magnitud del kernel de Linux determino las siguientes
+
+decisiones de implementación. [10]
+
+e Versiones no incrementales. Git almacena cada cambio como una
+
+instantánea de todos los archivos del proyecto. Para ser eficiente, si el
+archivo no ha sido modificado, solo se almacena un enlace al archivo
+
+idéntico previamente almacenado.
+
+e Autenticación criptográfica de la historia. El identificador de cambio se
+computa utilizando un algoritmo criptográfico que utiliza como entrada el
+cambio y la historia completa de cambios. Esto permite que cualquier
+
+cambio sea detectado por Git
+
+e Trabajo fuera de línea. Por ser un distribuido, cada repositorio Git es un
+repositorio completo capaz de funcionar sin acceso a la red o al resto de
+
+repositorios.
+
+2.1.3.6. GitHub
+
+GitHub es un servicio comercial de alojamiento de repositorios Git remotos creado en el
+año 2008. GitHub proporciona una interfaz Web que permite al usuario registrado crear
+repositorios vacíos o por clonación de otro repositorio hospedado en GitHub, enviar
+solicitudes de cambio entre repositorios y gestionar dichas solicitudes. Además, los
+repositorios en GitHub pueden actuar como repositorios remotos de repositorios locales.
+Los repositorios que se crean en GitHub son por defecto de acceso público. [11] Sin
+embargo por medio de una cuenta de pago se pueden alojar repositorios privados. Cada
+repositorio es propiedad de una cuenta de usuario o de organización. Las
+modificaciones a un repositorio solo se pueden realizar por usuarios que ha iniciado
+sesión y que estén autorizados a modificar su contenido.
+
+Además del alojamiento, GitHub proporciona a cada repositorio una wiki, un gestor de
+tareas, un completo sistemas de gestión de comentarios, un cuadro de control con grafos
+sociales e, incluso una página web propia. Finalmente, todo este contenido puede ser
+
+accedido y manipulado mediante un API web.
+
+122.1.4. Metodología de Desarrollo.
+
+2.1.4.1. Scrum.
+
+Scrum es una metodología de desarrollo ágil dentro de la cual las personas pueden
+abordar problemas adaptativos y complejos ofreciendo productos del más alto valor
+posible. Esta metodología de desarrollo se ha venido usando como una herramienta útil
+dentro de los equipos de desarrollo desde los 90”s. Aunque es necesario aclarar que
+Scrum no es un proceso o una técnica para construir productos. Sino más bien, es una
+
+metodología que se puede aplicar a varios procesos y técnicas.
+
+La metodología Scrum consiste en equipos, roles, actividades, artefactos y reglas las
+cuales tienen un propósito específico dentro del éxito del Scrum y que trabajan de forma
+
+conjunta en pro de lograr el objetivo del proyecto.
+
+2.1.4.1.1. Equipos del Scrum.
+
+Los equipos Scrum se componen de el Product Owner, el equipo de desarrollo y el
+Scrum master. Estos son auto-organizados e inter-funcionales lo cual permite que cada
+equipo escoja la mejor forma de trabajar en sus actividades sin afectar el trabajo de los
+demás equipos, este concepto es una característica fundamental del Scrum ya que
+
+permite mejorar la productividad y la retroalimentación del equipo.
+
+1. Product Owner.
+
+El product owner es el responsable de maximizar el valor del producto y el trabajo del
+equipo de desarrollo. Este, se compone de una sola persona y es el encargado de
+
+gestionar el product backlog y otras tareas tales como:
+
+e Expresar claramente los elementos del backlog.
+e Ordenar los elementos del backlog buscando alcanzar los objetivos propuestos.
+
+e Optimizar el valor del trabajo del equipo de desarrollo.
+
+13e Asegurarse de que el product backlog es claro, trasparente y mostrar los ítems
+
+que serán trabajados por el equipo.
+
+e Asegurarse de que el equipo entiende los ítems y el nivel de necesidad de cada
+
+uno de estos.
+
+2. Equipo de Desarrollo.
+
+El equipo de desarrollo consiste en profesionales que trabajan sobre los incrementos del
+producto en cada uno de los Sprints. Y son los encargados de entregar el producto
+“hecho” al product owner. El equipo de desarrollo cuenta con las siguientes
+características:
+
+e Es auto-organizado.
+
+e  Esinter-funcional.
+
+e Los miembros del equipo de desarrollo individual pueden tener habilidades
+especializadas y áreas de enfoque, pero la rendición de cuentas pertenece al
+
+Equipo de Desarrollo en su conjunto.
+
+3. Scrum Master.
+
+El Scrum Master es la persona encargada de asegurar el aprendizaje y adaptación del
+Scrum dentro del equipo. Enseñando la teoría respecto a la metodología, las practicas
+que lo componen y las reglas. Se puede describir al Scrum Master como un líder que
+sirve al equipo potencializando las capacidades de los miembros en cada una de las
+iteraciones y asegurando la calidad en cada uno de los incrementos. Las características
+
+principales del Scrum master son:
+
+e Dirigir al equipo de desarrollo.
+e Ayudar al equipo a incrementar la calidad del producto final.
+
+e Trabajar con otros scrum masters en mejorar la implementación de la
+
+metodología dentro de la compañía.
+
+142.1.4.1.2. Actividades del Scrum.
+
+Las actividades del Scrum son usadas dentro de la metodología como una herramienta
+para la organización del equipo. Todas estas, tienen un tiempo límite dentro del cual se
+tienen que realizar y cada una cumple un propósito específico dentro de la metodología,
+
+entre las que se destacan:
+
+1. Sprint.
+
+El Sprint es una de las actividades más importante dentro del Scrum, esta, tiene una
+
+duración no mayor a un mes y su importancia radica en que durante el tiempo planeado
+
+Se debe entregar un producto “hecho” al product owner. Dentro del Sprint se destacan
+otras actividades tales como el Sprint planning, el Daily Scrum y el Sprint
+
+Retrospective. [11].
+
+2. Sprint Plaming.
+
+Esta actividad se planea junto con el equipo de desarrollo y consiste en planificar todas
+las actividades que se van a realizar durante el Sprint.
+
+Esta actividad del Sprint tiene un tiempo máximo de 8 horas por mes de trabajo y es el
+Scrum Master quien se asegura de que la reunión se realice y que se entienda el
+
+propósito de la misma. El Sprint Planning responde básicamente a estas dos preguntas.
+
+e ¿Qué se puede entregar en el Incremento resultante del próximo Sprint?
+
+e ¿Cómo se llevará a cabo el trabajo necesario para lograr el Incremento?
+
+3. Daily Scrum.
+
+El Daily Scrum es una reunión que toma cerca de 15 minutos en la cual el equipo de
+desarrollo sincroniza sus actividades y crea un plan para las siguientes 24 horas. Esto
+con el objetivo de inspeccionar el trabajo desde el ultimo Daily y planear el trabajo que
+
+será realizado hasta la siguiente reunión.
+
+15Durante la sesión el equipo de desarrollo responde a las siguientes preguntas.
+
+e ¿Qué actividades realicé ayer en pro del objetivo del proyecto?
+e ¿Qué actividades realizaré el día de hoy?
+
+e ¿he tenido impedimentos o problemas en la realización de las actividades”?
+
+4. Sprint Retrospective.
+
+El Sprint Retrospective es la oportunidad que tiene el equipo de Scrum (Scrum master y
+Equipo de desarrollo) para revisarse y crear un plan de mejoramiento según lo hecho en
+el anterior Sprint y pensando en el siguiente.
+Esta actividad del Scrum toma aproximadamente l hora y es el Scrum Master quien se
+Asegura que la reunión sea realizada y entendida por los miembros del equipo de
+Desarrollo. Cabe aclarar que la labor del Scrum Master en la reunión es imparcial y
+siempre velando por el logro de los objetivos. Durante el Sprint Retrospective se tratan
+los siguientes ítems.
+
+e Revisar el anterior Sprint en términos de: Personas, Relaciones, Procesos y
+
+Herramientas.
+
+e Crear un plan de mejoramiento teniendo en cuenta los aspectos malos y buenos
+
+del anterior Sprint por medio de compromisos adquiridos por el equipo.
+
+2.1.4.1.3. Artefactos de Scrum
+
+1. Product Backlog
+
+Es el inventario en el que se almacenan todas las funcionalidades o requisitos del
+cliente. Estos, serán los que tendrá el producto al final del ciclo de desarrollo. Los
+requisitos serán ordenados en una lista de prioridad por el cliente y el Scrum Master, el
+cual indicará el coste estimado de los requisitos.
+
+Es necesario que antes de empezar el primer “Sprint” se definan cuáles van a ser los
+objetivos del producto y tener la lista de requisitos ya definida, no es necesario que sea
+
+muy detallada pero si lo suficiente para que el equipo pueda trabajar.
+
+16Finalmente, el Product Backlog irá evolucionando mientras el producto exista en el
+
+mercado. [11]
+
+2. Sprint Backlog
+
+Es la lista de tareas que elabora el equipo durante la planificación de un sprint. Se
+asigna las tareas a cada persona y el tiempo que queda para terminarlas. De esta manera,
+el proyecto se descompone en unidades más pequeñas y se puede determinar o ver en
+que tareas no se está avanzando.
+
+El sprint backlog, se muestra como una lista ordenada por prioridades para el cliente y
+
+puede existir independencia entre una tarea u otra.
+
+3. Incrementos
+
+Representa los requisitos que sean completado en una iteración y que son perfectamente
+operativos. Segundo los resultados obtenidos, el cliente puede realizar cambios cuando
+
+estos sean necesarios. [11]
+
+17Capítulo 3
+
+Desarrollo del proyecto
+
+Para el desarrollo de la pasantía fue de suma importancia la implementación de la
+metodología de desarrollo ágil Scrum. La cual permitió al equipo coordinar las
+actividades durante cada sprint y fortalecer el trabajo grupal para el logro de los
+objetivos propuestos. Muchas actividades y/o elementos de  scrum fueron
+implementadas en pro del cumplimiento de los objetivos planteados anteriormente,
+
+entre los que se encuentran:
+
+e Scrum Daily Meeting: tal como se menciona anteriormente, esta es una
+actividad del scrum que se realiza diariamente junto con el “equipo de
+desarrollo” y en ella se habla acerca de las tareas que se están trabajando.
+Esta actividad fue importante durante el desarrollo de la pasantía ya que brindó
+un espacio para resolver dudas con el Scrum Master y solicitar ayuda si era
+necesario a otros miembros del equipo de User Interface. Esto, con el objetivo
+de mantener la comunicación con el equipo y resolver bloqueos o impedimentos
+que podrían retrasar el cumplimiento de los objetivos propuestos durante el
+
+sprint.
+
+e Sprint Planning: esta actividad consiste en realizar una planeación sobre las
+tareas que se van a ejecutar durante el sprint y permite al equipo estimar el
+tiempo de duración de cada tarea. Durante el desarrollo de la pasantía esta
+actividad permitió al equipo saber exactamente en cuales tareas se iba a trabajar.
+Esto, con el objetivo de realizar una planeación acertada de los objetivos del
+sprint teniendo en cuenta los tiempos establecidos en el cronograma de trabajo y
+
+el ritmo de trabajo del equipo.
+
+18e Demo Meeting: esta actividad aunque no hace parte del Scrum es de suma
+importancia para la compañía ya que permite realizar una serie de
+presentaciones de todas las tareas realizadas durante cada sprint por medio de
+diapositivas y pruebas en vivo a los Managers y Scrum Masters. Esto, con el
+objetivo de mostrar el trabajo realizado y dar constancia de que el equipo esta
+dando cumplimiento a los objetivos planteados Sprint a Sprint. Cabe resaltar que
+
+esta actividad se realiza el ultimo día de cada sprint.
+
+e Retrospective Meeting: esta actividad consiste en evaluar el sprint
+inmediatamente anterior destacando aspectos a mejorar de todas las tareas
+realizadas por el “equipo de desarrollo”, esta actividad ayudó a encontrar
+falencias al momento de ejecutar el Sprint y comprometer al equipo a superar
+
+aspectos que dificultaron el logro de los objetivos propuestos.
+
+Tal como se mencionó en los anteriores ítems, la aplicación de Scrum fue indispensable
+en el éxito de la pasantía y en el cumplimiento de los objetivos propuestos, cabe
+destacar el trabajo de los Managers José Reina y Pablo Vélez y los Scrum Masters
+Diego Ruiz, Rowinson Gallego y Gisler Garcés los cuales brindaron apoyo al “equipo
+de desarrollo” en cada etapa de la pasantía y facilitaron la comunicación entre las partes.
+También, aspectos como el cumplimiento, puntualidad, y profesionalismo de todas las
+partes involucradas facilitaron el logro de los objetivos propuestos.
+
+Como resultado de las actividades desarrolladas durante la pasantía en la empresa Alert
+Logic Inc. Se presenta a continuación evidencias del cumplimiento de cada uno de los
+
+objetivos específicos propuestos.
+
+3.1.1. Desarrollo Objetivo específico 1.
+
+Para el desarrollo del objetivo específico I (Apropiar metodologías y tecnologías de
+desarrollo web utilizadas en los productos en Alert Logic.) la empresa brindó una serie
+de capacitaciones en: los productos Cloud Defender, Cloud Insight, Seguridad
+Informática, Cultura de Trabajo, Normas se seguridad aplicadas al desarrollo de
+
+software, flujo de trabajo con Git y GitHub, Pruebas unitarias con PHPUnit y Pruebas
+19Unitarias en Jasmine las cuales fueron importantes no solo en el cumplimiento del
+objetivo como tal sino en la adaptación al ambiente de trabajo y filosofía de la empresa.
+Estas actividades se llevaron a cabo entre las fechas del 6 Julio 2016 al 29 de Julio de
+
+2016 de la siguiente manera:
+
+3.1.1.1 Entrenamiento en los productos Cloud Defender y Cloud Insight.
+
+Entre las fechas 6 al 15 de Julio de 2016, el equipo de User Interface a través de sus
+desarrolladores senior Diego Ruiz, Rowinson Gallego y Gisler Garcés ofreció una
+capacitación en el funcionamiento, arquitectura y lenguajes de programación de los
+productos Cloud Defender y Cloud Insight facilitando así la adquisición de
+
+conocimiento por parte del equipo en el funcionamiento de estos productos.
+
+Esta capacitación fue fundamental en el desarrollo de la pasantía ya que facilito al
+“equipo de desarrollo” conocer que características tienen los productos sobre los que se
+iban a trabajar, por ejemplo: para el desarrollo sobre Cloud Defender, los
+programadores acceden por medio de una IP a una máquina virtual personalizada en la
+nube donde se encuentra almacenado el código de la aplicación para de esta manera
+mantener aislado el trabajo de cada desarrollador. Por el contrario, para Cloud Insight
+
+todo el código se encuentra almacenado localmente.
+
+3.1.1.2. Entrenamiento en Gíit y GitHub.
+
+Entre las fechas 18 al 22 de Julio de 2016 la empresa ofreció una capacitación en la
+herramienta de control de versiones Git con el objetivo de instruir al “equipo de
+desarrollo” en comprender el flujo de trabajo de la compañía y las reglas al momento
+de desarrollar nuevas funcionalidades dentro de los productos de la empresa.
+
+Dentro de la capacitación se trataron temas de suma importancia para la compañía tales
+
+como:
+
+20e Modelo de ramas de Git
+
+En la figura 3.1 se muestra el flujo de trabajo de GIT usado dentro de la compañía, este
+consta de una rama principal llamada “Master” en la cual se encuentra la versión final
+del producto, es decir, el código que se está ejecutando del lado del cliente. Este
+también es conocido como ambiente de producción. En el siguiente nivel se encuentra
+la rama de “Integration” la cual funciona como soporte para “Master”. En esta se
+realizan todas las pruebas necesarias antes de realizar cambios a master. Gracias a esto
+el ambiente de producción no se ve afectado por los cambios realizados por los
+desarrolladores. Uno de los aspectos más interesantes dentro del flujo de trabajo de Git
+son los “Hot Fixes”. Estos se definen como reparaciones “en caliente” sobre el código
+de producción y solamente suceden cuando el ambiente de producción no trabaja de la
+forma correcta afectando directamente a los clientes de la compañía.
+
+A continuación se encuentra la rama “Develop” la cual se nombra de la siguiente
+manera, ejemplo: 2017-Q1-Sprint6-S, este formato está compuesto por el año actual, el
+cuarto de mes actual, el sprint actual y el uso de la rama, es decir; si la rama está hecha
+para nuevas funcionalidades termina en “S” (Service Pack) por el contrario cuando la
+rama se usa para realizar pruebas unitarias termina en “U” (Unit Test). Durante el
+desarrollo del sprint, cada desarrollador crea sus ramas “Feature” basándose en la rama
+“Develop”, esto con el fin de mezclar los cambios de cada desarrollador en una misma
+rama, gracias a esto, el equipo evita conflictos entre los archivos o afectar el ambiente
+
+de producción de la compañía.
+
+p 0 “O
+Feature ¡p-o—-Q
+
+¿“pp o, -0
+
+y P | | o -0 2
+
+/ | <- Peer reviews
+Develop Pp 0 “Ley -Q OO) »
+Hotfix pS.-o -0
+
+| | | <- Integration
+
+Master 8 —>B- -9 ) —» Tests
+
+Figura 3.1: flujo de trabajo con Git
+
+21e Code Reviews
+Otro aspecto relevante tratado durante la capacitación en Git fue la implementación de
+Code Reviews durante el proceso de desarrollo del equipo, esta, es una tarea que
+consiste en la revisión del código de otro desarrollador antes de ser mezclado en la rama
+“Develop”. Gracias a esta tarea el equipo mantiene un control constante de todos los
+cambios realizados en el código y facilita la comunicación entre los miembros del
+
+equipo.
+
+En conclusión, esta capacitación facilito el conocimiento del flujo de trabajo del equipo
+durante los sprints así como también, los compromisos que adquiere cada desarrollador
+dentro de la compañía al momento de desarrollar nuevas funcionalidades o atender
+
+alguna solicitud de los clientes.
+
+3.1.1.3 Entrenamiento en PHPUnit y Jasmine para la implementación de pruebas
+unitarias en Cloud Defender y Cloud Insight
+
+Entre las fechas 25 al 29 de Julio de 2016 la empresa ofreció una capacitación en
+PHPUnit y Jasmine para implementar pruebas unitarias en los productos de la empresa
+por medio de talleres prácticos y ejemplos previamente preparados por los ingenieros
+
+Jiovanny Ibarguen y Gisler Garcés.
+
+Esta capacitación facilitó el conocimiento del código de los productos de la empresa y la
+manera en que están implementados todos los componentes de estos. Gracias a esta
+capacitación se logró comprender la dimensión del trabajo que se llevaría a cabo
+durante la pasantía ya que en el caso de Cloud Defender, la implementación de pruebas
+unitarias permitirá al todo el equipo de User Interface hacer modificaciones al código
+sin tener que consultar con las altas directivas de la empresa debido a que el reporte de
+
+cobertura de pruebas unitarias serviría como sustentación para dichas modificaciones.
+
+Para dar constancia del trabajo realizado, la empresa entregó un certificado el cual se
+
+encuentra en el anexo (Anexos_Tesis/Anexo_Objetivol1/CertificadoTraining)
+
+223.1.2. Desarrollo Objetivo específico II.
+
+El desarrollo de este objetivo (Implementar pruebas unitarias específicas para
+incrementar la cobertura de código en los productos Cloud Defender y Cloud Insight).
+Fue de gran importancia dentro de la pasantía debido a que permitió adquirir
+conocimiento en el código del producto y ayudar al equipo de User Interface a aumentar
+la cobertura de pruebas unitarias principalmente en Cloud Defender, cabe aclarar que
+Cloud Insight cuenta con una cobertura de pruebas cercana al 90%, razón por la cual el
+equipo tomó la decisión de no implementar pruebas en dicho producto.
+
+Para el caso de Cloud Defender, es importante mencionar que este producto esta
+implementado en Symfony PHP y está divido en módulos independientes llamados
+Bundles. Cada uno de estos módulos tiene asignados procesos independientes dentro del
+funcionamiento del producto y permitió al “equipo de desarrollo” trabajar de forma
+aislada en cada componente. El objetivo principal de la implementación de pruebas fue
+lograr una cobertura superior al 60% en cada Bundle ya que de esta manera el equipo
+puede realizar cambios en el código sin contar con la aprobación del comité de cambios
+de la compañía, cabe resaltar que este comité se encarga de revisar todas las
+actualizaciones de software hechas sobre el ambiente de producción. Teniendo en
+cuenta esto, la implementación de pruebas unitarias sobre Cloud Defender es una tarea
+
+significativa para la compañía.
+
+Durante el desarrollo de la pasantía se trabajaron los Bundles ScanAPlIBundle y
+CoreBundle respectivamente. El primero se encarga de manejar el proceso de disputa de
+vulnerabilidades entre el cliente y la compañía, este proceso se define como la
+aceptación por parte del cliente de las vulnerabilidades encontradas por Cloud Defender,
+por otra parte CoreBundle es el Bundle principal de la aplicación el cual se encarga de
+almacenar componentes usados por todos los demás Bundles tales como APPs,
+servicios de Autenticación de usuarios, navegación, formularios, notificaciones, re
+
+direccionamiento, zona horaria y traducción
+
+23En las figuras 3.2 y 3.3 se muestra el estado inicial de ScanAPIBundle y CoreBundle
+
+antes de empezar a implementar las pruebas Unitarias. Cabe mencionar que este reporte
+
+es generado por PHPUnit por medio de comandos en consola.
+
+Lines
+Total == 38.55% 705 / 1829
+My Controller EA 44,09% 533/1209
+Me Sorvcos En 27,74% 172/0620
+M AlertLogicScanAPIBundle.php == 100.00% 0/0
+Figura 3.2: Reporte de cobertura al inicio de la pasantía de ScanAPIBunadle.
+Fuente: elaboración propia.
+Lines
+Total | 1.75% 98 / 5589
+My Controller i 8,34% 93/1115
+MY EventListener 0.00% 0/65
+E Form 0.00% 0/148
+My Security 0.00% 0 /436
+> Services 0.13% 5 /3743
+Te wo 0,00% 0/57
+Me Utilities 0.00% 0/20
+Á AlertLogicCoreBundle.php 0.00% 0/7
+
+Figura 3.3: Reporte de cobertura al inicio de la pasantía de CoreBunadle.
+Fuente: Elaboración propia.
+
+Al finalizar el presente objetivo, los resultados obtenidos fueron los siguientes: para el
+
+caso de ScanAPIBundle la cobertura alcanzó un 60.69% mientras que CoreBundle logró
+
+una cobertura de 63.02%. Las figuras 3.4 y 3.5 muestran el reporte de cobertura de cada
+
+Bundle.
+
+24Lines
+
+Total EE 60.69% 1167 / 1923
+
+> Controller EE») 60.51% 852 / 1408
+MY Services IA | 61.17% 315/515
+h AlertLogicScanAPIBundle.php | 100.00% 0/0
+
+Figura 3.4: reporte de cobertura al final de la pasantía de ScanAPIBunadle.
+Fuente: Elaboración propia.
+
+var/alertiogic/ui/src/AlertLogic - CoreBundie - (Dashboard)
+
+Lines
+
+Total E 63.02% 2901 / 4603
+
+Figura 3.5: reporte de cobertura al final de la pasantía de CoreBundle.
+Fuente: Elaboración propia.
+
+Tal como se muestra en las imágenes, el objetivo inicial fue alcanzado logrando un gran
+impacto en el equipo de User Interface debido a que cualquier cambio en el código de
+alguno de los Bundles trabajados implicaba mantener la integridad de las pruebas
+unitarias es decir, si se añadía código al Bundle debía ser probado para evitar que la
+
+cobertura descendiera o que las pruebas fallaran.
+Para más información sobre el cumplimiento del presente objetivo, ver el anexo
+
+(Anexos_Tesis/Anexos_Objetivo2) en el cual se encuentran documentadas las
+
+presentaciones hechas por el “equipo de desarrollo” al final de cada Sprint.
+
+253.1.3 Desarrollo Objetivo específico TIL
+
+El desarrollo de este objetivo (Implementar soluciones a defectos en los productos
+
+Cloud Defender y Cloud Insight reportados por los clientes de Alert Logic.) consintió
+
+en trabajar sobre los defectos reportados por los clientes de la empresa. Es decir,
+
+participar activamente en el proceso de resolución de casos para dar solución a las fallas
+
+presentadas por el producto, estas fallas consisten en “bugs” que los clientes encuentran
+
+sobre la interfaz de la aplicación tales como: fallas en la generación de reportes,
+
+indexación de tablas, problemas en los filtros de búsqueda y demás. Para la solución de
+
+defectos, la empresa sigue un proceso el cual se explica a continuación:
+
+Customer service: como primera instancia, los clientes cuentan con canales de
+comunicación que les permite reportar fallas del producto o recibir
+instrucciones sobre el mismo, estos pueden ser por vía telefónica, email o por
+chat. Todas estas solicitudes son atendidas por un equipo llamado Technical
+Operations Center (TOC) El cual se encarga de recibir las solicitudes de los
+clientes y dar solución al problema, dicha solución es llamada Work Around
+debido a que está al alcance del cliente y no requiere modificar el código de la
+aplicación. Cuando el equipo de TOC determina que el problema del cliente
+debe ser resuelto desde el código, el caso debe ser escalado a otro nivel en la
+jerarquía gestión de casos.
+
+Virtual Triage Team (VTT): una vez se determina que el caso no puede ser
+resuelto desde la interfaz de usuario, este pasa al equipo de VTT el cual se
+compone de todos los representantes del área de ingeniería entre los que se
+encuentran: recolección y acceso de datos, servicios de incidentes, interfaz de
+usuario y experiencia de usuario, infraestructura de automatización y
+
+arquitectura.
+
+User Interface: una vez el caso es estudiado por el equipo que componen el área
+de ingeniería y es asignado al equipo de User Interface este pasa a convertirse
+formalmente en un defecto a resolver, cabe resaltar que toda la información
+relacionada con el caso se documenta en una historia de usuario en Rally y pasa
+
+a ser adicionada al Sprint Backlog.
+
+26Coding: en este paso, el desarrollador se encarga de leer la documentación
+correspondiente del caso y pasa a reproducir el problema en el ambiente de
+desarrollo del equipo. A continuación, el programador soluciona el problema y
+mezcla su código en el repositorio de la empresa a espera de la instalación final.
+Release: al final del Sprint el equipo de User Interface se encarga de instalar los
+cambios realizados por todos los miembros en los servidores donde se
+
+encuentra la aplicación, los cuales se encuentran en United Kingdom, Denver y
+
+Ashburn.
+
+27A continuación en la figura 3.6 se muestra la documentación de uno de los defectos
+trabajados durante la pasantía, este consiste en una descripción del defecto (la cual se
+
+toma desde Rally), la solución aplicada al defecto y las capturas de pantalla mostrando
+
+el antes-después.
+
+ 
+
+'DE47651: As Altair Advisers 1 want the date filters to work as expected with
+single digits for days.
+
+Description:
+
+Customer is experiencing unreliable results when filtering by date and single digits
+are entered for the day value. A validation or conversion must be developed for this
+filter.
+
+Solution:
+A validation function was added to "webroot/¡s/monitor.js” to check the date and time
+
+frame for the Date filter.
+
+Behavior Before Fix:
+There is not a validation for wrong dates.
+
+Search Filters Saved Filters: Select a Filter ---- £
+
+Date 2  ¡sbefore + 01/03/2017 df00:00:0( Use Range= =ermove
+
+$ Add another filter
+
+ 
+
+Apply Filters Save filters as: ENS
+
+ 
+
+Showing: 0 - 0 of O incidents Type: All | Events | Logs
+
+ID Date +» Customer Summary Events
+No incidents could be found.
+
+ 
+
+%_ Mark as acknowedged Select al
+
+ 
+
+ 
+
+28Search Filters Saved Filters: Select a Filter ---- $
+
+Date 2 isbefore* 0df1/03/201 Pf % 00:00:00 Use Range==="=0we
+
++ Add another filter
+
+| Apply Filters Save filters as: EN
+
+Showing: 1 - 25 of 1,645 incidents Type: All | Evans | Logs
+ID Date - Customer Summary Events
+1719 Jan 2.2017 21:20:44 GMT opio CID2 Testiog incident Druiz 2 0
+1718 Jan22017 16:32:08 GMT ira CID2  Testiog incident Druiz 0
+
+ 
+
+Behavior After fix:
+Search Filters Saved Filters: Select a Filter ---- £
+
+Date 2  isafter 4 tartDate: — 12/30/2016 f% 00:00:00 EjUse Range= Remove
+EndDate: — baddate  P% 00:00:00
+
+Date must be in the format mm/dd/yyyy.
+
+«+ Add another filter
+
+| Apply Filters Save filters as:
+
+ 
+
+ 
+
+Search Filters Saved Filters: Select a Filter --—- 4
+Date 2% isafter + StartDate: 12/30/2016 0dfd0:00:( MUse Range== “emos.
+End Dele: OdffdO:00:
+
+Time must be in the format hh/mm/ss.
+
+++ Add another filter
+
+TAS Save filters as:
+
+ 
+
+ 
+
+Figura 3.6: Defecto DE47651 Función de validación de fechas en Cloud Defender
+Fuente: Elaboración propia.
+Esta documentación se adjunta a Rally para dar constancia de que el defecto fue
+solucionado y revisado por el equipo de User Interface dando por terminado el caso.
+Durante la pasantía se logró trabajar en seis defectos los cuales se encuentran
+
+documentados en el anexo (Anexos_Tesis/Anexos_Objetivo3).
+
+293.1.4 Desarrollo Objetivo específico IV.
+
+Para el desarrollo del objetivo específico cuatro (Implementar funcionalidades
+específicas en los productos Cloud Defender y Cloud Insight utilizando la tecnología
+AngularJS.), el “equipo de desarrollo” participó en el proyecto Dunkirk, este, es un
+proyecto del equipo de Ul que consiste en migrar la interfaz gráfica de usuario de Cloud
+Defender de PHP Symfony a AngularJS, esto; con el fin de mejorar la experiencia de
+usuario y establecer convergencia con Cloud Insight el cual encuentra actualmente
+implementado en AngularJS (por esta razón no se trabajará sobre él durante el
+proyecto).
+
+Cloud Defender se compone de sub-productos entre los que se destacan Thread
+Manager, Incidents Monitor y Log Manager. Este último fue seleccionado para la
+primera etapa del proyecto y sobre él se desarrolló el cuarto objetivo de la pasantía. En
+
+la Figura 4.1 se muestra la interfaz gráfica de Log Manager actualmente.
+
+? ALERT LOGIC LOG MANAGER + ELO. PAD TAMAPLA
+
+A co
+
+Defauh Dasticard
+
+Plat Expresa 00
+
+Monitoring Lag Message Trata O Top 14 Log Message Types
+
+Sarna an bres. dry (Y dl ar " Vega sp e rd
+
+ES
+
+Collecton
+
+Hasta
+ECurces
+Luoeciorn
+
+Crodemals
+
+  
+
+cid. son
+
+Decpioyrenta
+
+Figura 4.1: Interfaz gráfica de Log Manager actualmente en Cloud Defender
+
+Fuente: Elaboración propia.
+
+30Para el desarrollo del proyecto Dunkirk fue necesario la incursión del equipo de User
+Experience el cual se encargó de crear los diseños de las vistas y verificar que la
+experiencia del usuario no fuera afectada por la implementación de la nueva interfaz, el
+
+diseño de Log Manager versión 2 se muestra en la Figura 4.2.
+
+py ALERT LOGIC en Dr a
+
+Log Manager
+
+Marranr; Depiupreairia tubdertada Some. Prboes Ajari Mopes Niozpuat
+
+Deployments
+
+¡hase 41 pots iméryrrarta. Vias car Taala a use uc rra A pare a ra
+
+O Deployments Q
+
+ 
+
+ 
+
+Figura 4.2.Diseño de la Interfaz Gráfica de Log Manager v2 implementada en
+AngularJS
+
+Fuente: Elaboración propia.
+
+Durante el desarrollo del presente objetivo se trabajaron tres tareas las cuales fueron:
+1. Implementar los formularios web del módulo Credentials en Log Manager:
+
+Al inicio del proyecto Dunkirk los managers del equipo de User Interface, Jose
+Reina, Pablo Vélez y Diego Ruiz establecieron la distribución de las tareas entre
+los demás miembros del equipo, dando como resultado la asignación de la
+
+presente tarea. La figura 4.3 muestra el estado actual del formulario de
+
+Credentials en Log Manager.
+
+31Fill this form in to create a now credential.
+
+ 
+
+Credential Type e Password. w |
+
+Crudentuw Marne a o
+Host Lisermame a O
+Host Paraword a o
+
+Rotypo Paraword q
+
+ME
+
+Figura 4.3. Formulario actual de Password type credentials en Log Manager
+Fuente: Elaboración propia
+
+El objetivo principal fue implementar el formulario de la figura 4.3 en
+AngularJS basándose en los diseños entregados por el equipo de User
+
+Experience. El resultado se muestra en la figura 4.4.
+
+[3 Create a new credential
+
+ 
+
+Crocential Type *
+
+Password »
+
+Crodential Norne *
+
+CredentialPasswordTest
+
+Hont Lisarnatre *
+
+HostUsername
+
+Host Paseword *
+
+..enn.....
+
+Hot o Pa
+
+Figura 4.4 Formulario de Password type en Credentials en Dunkirk
+Fuente: Elaboración propia.
+
+322. Implementar una API desde el ambiente de desarrollo para el módulo Schedules
+
+en Log Manager:
+
+Durante el desarrollo del proyecto Dunkirk, el equipo de User Interface se vio
+en la necesidad de implementar un Bundle de Symfony llamado
+ConvergenceAPIBundle en el cual se encargó del enrutamiento, las APIs de Log
+Manager versión 2 y el intercambio entre Log Manager versión 1 y 2. Sobre este
+Bundle se desarrolló el presente ítem el cual tuvo como objetivo la
+implementación de un API para la programación de reportes. Los resultados se
+muestran en las figuras 4.5 y 4.6 en las cuales se puede observar que los datos
+
+del ambiente de desarrollo coinciden con los datos mostrados en la interfaz de
+
+Schedules de Log Manager V2.
+
+A ALERT LOGIC' LOG MANAGER »
+O ENZO
+o |- «HC
+Peral Express LD ó Na» reacios A Cuami By Crasted Cabo páerei Uy Jpentoer De Actirre
+
+Monitoring
+
+a”,
+
+E
+
+Figura 4.5 Datos del API de Schedules en el ambiente de producción
+Fuente: Elaboración propia.
+
+ALERT LOGIC Ene! Y
+A
+
+LOG MAMA FH
+
+Loretidns
+
+O Schedules
+
+o r
+o á
+6 E
+
+Figura 4.6 Datos del API de Schedules en la interfaz de usuario en Dunkirk
+Fuente: Elaboración propia
+
+33Implementar el controlador y los formularios del sub-módulo Updates en el
+
+módulo Policies de Log Manager:
+
+Al final de la pasantía, la tarea asignada fue implementar el controlador y la
+vista del sub-módulo Updates en el módulo Policies de Log Manager. La
+
+imagen 4.7 muestra el estado actual del sub-modulo.
+
+ALEMT LOGIC LOG MANAGER +
+hi
+
+ 
+
+Monitora
+
+Figura 4.7 Interfaz gráfica del sub-módulo Updates en Log Manager versión 1
+Fuente: Elaboración propia.
+
+34Al finalizar el presente ítem se logró migrar toda la interfaz de Updates a
+AngularJS tal como lo muestra la imagen 4.8. (Para más información ver
+
+Anexos_Tesis/Anexos_Objetivo4).
+
+A ALERT LOGIC
+
+ 
+
+em
+
+e Update
+
+a
+E
+
+Figura 4.8 Interfaz gráfica del sub-módulo Updates en Log Manager versión 2
+
+Fuente: Elaboración propia
+
+35Capítulo 4
+
+Conclusiones
+
+Como parte del cumplimento de los objetivos planteados en el presente trabajo es
+importante mencionar el papel que cumple la implementación de pruebas unitarias en el
+desarrollo de software a gran escala, ya que durante la pasantía, el “equipo de
+desarrollo” pasó dificultades en la implementación de algunas pruebas unitarias debido
+a que el código originalmente no fue programado pensando en las pruebas unitarias lo
+cual lleva a que la declaración de variables e instanciación de objetos quede a merced
+del programador generando problemas al diseñar pruebas unitarias.
+
+Otro aspecto importante en la organización de flujo de trabajo de los equipos de
+desarrollo es la implementación de un control de versiones estable y seguro como Git,
+por medio de este, el trabajo de cada miembro del equipo se mantiene aislado y permite
+un mayor control del código que se mezcla en cada repositorio.
+
+Por último, Cada una de las tareas realizadas durante la pasantía permitió al “equipo de
+desarrollo” conocer un ambiente trabajo real e involucrarse en cada uno de los procesos
+del equipo de User Interface, tales como reuniones, debates, trabajo en conjunto con
+otros miembros y demás procesos que ayudaron al crecimiento como profesionales del
+
+área de la informática a cada uno de los miembros del equipo.
+
+36Capítulo 5
+
+Trabajos futuros
+
+Durante el desarrollo de la pasantía se identificaron algunos aspectos los cuales pueden
+trabajarse en el futuro. En primer lugar, las pruebas unitarias no se completaron en todos
+los Bundles del producto debido a la cantidad de líneas de código que posee, de lograrse
+esto, el equipo podría solicitar al comité de cambios la pre-aprobación para realizar
+actualizaciones sobre el producto lo cual agilizaría el proceso de instalación y
+documentación durante los sprints. En segundo lugar, para el caso de los defectos; el
+equipo de User interface necesita personal para estudiar y reparar los casos que llegan al
+sprint backlog. Actualmente, la compañía cuenta con cerca de 4000 clientes lo cual hace
+
+que el proceso de resolver casos sea de suma importancia para el equipo.
+
+376. REFERENCIAS
+
+[1]. Alert Logic — About-us
+[Online]. Available:
+
+https://www .alertlogic.com/soluti
+ons/
+
+[2]. Microsoft - Architecture
+Strategies for Catching the Long
+Tail. us [Online]. Available:
+
+https://msdn.microsoft.com/enus/library/aa479069.aspx
+
+[3]. J.J. Reina Materón (Private
+Comunication), 2016.
+
+[4]. Alert Logic — Solutions
+
+[Online]. Available:
+
+https://www .alertlogic.com/assets/
+cloud
+defender/AlertLogic_CloudDefen
+der_HowItWorks.pdf
+
+[5]. Amazon web services - ¿what
+is cloud computing” [Online].
+Available:
+
+https://aws.amazon.com/es/whatis-cloud-computing/
+
+[6]. Alert Logic — Solutions
+[Online]. Available:
+
+https://www .alertlogic.com/assets/
+cloud-insight/Alert-Logic-CloudInsight-How-it-WorksDatasheet.pdf
+
+[7]. A. Basalo, M. Alvarez, P.
+Hurtado and X. Cerdá, “Tutorial
+de AngularJs”
+
+[8]. Spona, H. Programación de
+bases de datos con MYSOL y
+PHP; Ed, Marcombo, 2010
+
+[9]. Heurtel, O. PHP 5.3:
+Desarrollar un sitio Web
+
+dinámico e interactivo. Ed, ENI,
+2011
+
+[10]. Lopez-Pellicer, F. J., Béjar,
+R., Latre, M. A., Nogueras-Iso, J.,
+S£ Zarazaga-Soria, F. J. (2015,
+July). GitHub como herramienta
+docente. In Actas de las XXI
+Jornadas de la Enseñanza
+Universitaria de la Informática
+(pp. 66-73). Universitat Oberta La
+Salle.
+
+[11] Gallego, Manuel Trigas.
+"Metodología Scrum." Gestión de
+Proyectos Informaticos, 2012
+[Online]. Available:
+http://openaccess. uoc.
+edu/webapps/o2/bitstream/10609/
+175885/1/mtrigasTFC0O6 12memori
+a. Pdf.
+
+[12] BERGMANN, Sebastian.
+PHPUnit [Online].
+Available: http://www.  phpunit.
+de/pocket_guide/3.2/en/index.
+html, ce606, 2005.
+
+[13] Rally Software About us
+
+[Online]. Available:
+http: //www.ca.com/us/company/n
+
+Manual.
+
+ewsroom/press-releases/2015/catechnologies-agrees-to-acquirerally-software.html.
+
+38¿ ALERT LOGIC”
+
+ALERT LOGIC INC. COLOMBIA S.A.S
+NIT 900.666.093-8
+
+CERTIFICA QUE
+
+Fair Andres Tarapues, identificado con cédula de ciudadanía No. 1.113.655.833 de
+
+Palmira, estudiante del programa de Ingeniería de Sistemas de la Universidad del Valle,
+recibió capacitación en los siguientes temas:
+
+e Entrenamiento en los productos Cloud Defender y Cloud Insight. Realizado por
+el Ingeniero Rowinson Gallego, del 6 al 15 de Julio de 2016
+
+e Entrenamiento en Git y GitHub. Realizado por el Ingeniero Diego Ruiz, del 18 al
+22 de Julio de 2016
+
+e Entrenamiento en PHPUnit y Jasmine para la implementación de pruebas
+unitarias en Cloud Defender y Cloud Insight. Realizado por los Ingenieros
+Jiovanny Ibargúen y Gisler Garcés, del 25 al 29 de Julio de 2016
+
+Este certificado se expide a petición de la Coordinación del programa de Ingeniería de
+Sistemas de la Universidad del Valle sede Tuluá, a los 4 días del mes de Mayo de 2017.
+
+Si Alí Jr A e) PLERTLOGIC
+
+Security. Compliance. Cloud.
+
+JOSE JULIAN REINA MATERON
+Gerente de Ingeniería
+
+Alert Logic Inc. Colombia.
+
+Alert Logic, Inc.
+Calle 13A No. 100-35, Oficina 1001. Cali, Valle del Cauca | (57)2 3735111 (Conmutador) | www.alertlogic.com
+
+Alerta Logic y el logotipo de Alert Logic son marcas comerciales, marcas comerciales registradas o marcas de servicio
+de Alert Logic Inc. Todas las otras marcas que figuran en este documento son propiedad de sus respectivos dueños.
+
+O 2012 Alert Logic, Inc. Todos los derechos reservadosIMA OA ID lo
+
+AA
+
+Cloud Defender
+
+November 1, 2016
+
+Cloud Defender Ul Interns Team SN A Mora To
+Wednesday, Sep 21th 2016AN RATE tato plato lí
+
+Before
+ERRORS!
+Tests: 207, Assertions: 296, Errors: 36, Failures: 8, Warnings:
+50, Skippea: 1.
+Lines
+Total (] 9.50% 1602 / 16857
+After
+OK, but incomplete, skipped, or risky tests!
+Tests: 206, Assertions: 582, Skipped: 9.
+Lines
+Total Ml 17.16% 2889 / 16832
+
+IS ALERT LOGICComparison coverage CoreBundle
+
+Before
+/var/alertlogic/ui/src/AlertLogic / CoreBundle / (Dashboard)
+
+Lines
+Total AS] 50.65% 2422 / 4782
+
+After
+
+/var/alertlogic/ui/src/AlertLogic / CoreBundle / (Dashboard)
+
+ 
+
+Lines
+
+Total A 63.02% 2901 / 4603Guide Line about Unit Test - Wiki
+
+ 
+
+= A ALERT LOGIC” Alert Logic Wiki Spaces » People Questions Calendars Create Oz O
+
+(e, Blog / 2016 / October / 28 Á 4 Edit 5% Save for later O Watching 12 Share ..
+
+Tricks and recommendations when you are working on unit tests (NG)
+
+— Created by Carlos Orozco, last modified by cristhian.fuertes on Oct 28, 2016
+
+mM ]
+
+Accessing private and protected methods
+
+Sometimes when you are testing a class and it has some private or protected methods you need to access them, so you need to use the Reflection Class of php. In this case you can
+ea use the UnitTestUtilities Class fount at AlertLogiciCoreBundlelTestsIBaselUnitTestUtilities created by the Ul Interns. This class has the following methods:
+
+getPublicRefelectedMethod ($originalClassName, $methodName):
+
+Parameters:
+
+. SoriginalClassName: Object class or string path class to access
+. $methodName: String name method to access
+
+Return Value: ReflectionMethod object
+After you use this method, you can call the method and pass parameters to it.
+
+Example:
+
+$method = $this->getPublicRefelectedMethod('AlertLogiciXBundlel...!...1...',"Xmethod'");
+
+httos://alertlogic.atlassian.net/wiki/pages/viewpage.action?pageld=171508226
+
+ 
+
+IS ALERT LOGICAO TR AA EEES
+
+* The unit-test-skelgen command created on robo allows generate a
+basic template to make unit test for a class in NG only.
+
+(master)
+? Repository's name (CoreBundle, ScanAPIBundle, etc.,): CoreBundle
+
+7 Relative path to input file ../CoreBundle/: Controller/SignUpController.php
+Executing
+
+PHPUnit Skeleton Generator 1.2.0 by Sebastian Bergmann.
+
+Wrote skeleton for "SignUpControllerTest" to "/var/alertlogic/ui/src/AlertLogic/CoreBundle/Tests/Unit/Controller/SignUpControllerTest.php".
+Done in SRA ESA
+
+yyy
+
+ANT SNTE
+
+341110)
+
+SA A ALERT LOGICSCAN APl FIXED UNIT TEST
+DEMO
+
+Cloud Defender Ul Interns Team / A Mora To
+Wednesday, Aug 24th 2016AIN NAS AE E
+
+The php-unit deprecated function getMock() was replaced
+
+by getMockBuilder() Stories solved
+There was 1 warning: DE5290
+
+1) AlertLogiciScanAPIBundleXTestsWControlleriBaseScanAPITControllerTest::testEvaluatePreflightAction
+PHPUnit_Framework_TestCase: :getMock() 1s deprecated, use PHPUnit_Framework_TestCase: :createMock() or P DE5292
+
+HPUnit_Framework_TestCase: :getMockBui lder(> instead
+DE5293
+
+ests: 1, Assertions: 1, Warnings: 1. DE5294
+DE5296
+DE5297
+DE5299
+DE5300
+DE5302JAN IMEI
+
+The route of the service 'Logger' was replaced
+by 'MonologlLogger' because the mock didn't
+recognize the location of the service
+
+Before the fix
+
+There was 1 warning:
+
+Stories solved
+
+DE5303
+DE5304
+
+1) AlertLogicAScanAPIBundlexTestsiServicesNPermissionPermissionCheckerTest::testCanManagerCustomer
+Trying to configure method "addError" which cannot be configured because it does not exist, has not been specified, is final
+MS ae
+
+ 
+
+Tests: 1, Assertions: 0, Warnings: 1.
+
+Aíter the fixScan API Bundle Unit Tests Warnings
+
+The getMock() method was replaced for getMockBuilder() of PHP Unit.
+Replaced the (Ocovers and (WMvar in the header, and added a new
+variable for the Date data from Response Object. E5364
+
+15canAPIBundleiTestsiControllerxUti as A A e a y
+
+a GINA: 3 e AA RANAS
+
+cN RAE AAA AAA A
+
+qc EJE Ale AA SAA A A
+WARNINGS !
+
+ 
+
+Time: 1.16 minutes, Memory: 19.00MB
+
+Generating code coverage report in HTML format ... doneNM dE
+
+ 
+
+Solution: The missing parameter was added Stories solved
+to the constructor. The parameter is a mock
+of AttachmentsStorage. DE5301
+
+DE5306
+Af he f
+ter tne TIx DE5307
+
+DE5308
+
+ 
+
+Before the fix
+
+1) AlertLogicAScanAPIBundlexTestsiServicesWDatasourceWAnnotationServiceTest::testGetAnnotationsList
+
+IA ST AN RANA NASA AT ADN na TATI AO II ANNE
+Jo ANA NARDIN AT A Noa e IN IA TA A IA RR AVAST TA NE a oTo Ke
+/ScanAPIBundle/Tests/Unit/Service/DataSource/AnnotationServiceTest.php on line 76 and defined
+
+AAA ATARI ARAS NAAA ATT ATAN TA
+/var/alertlogic/ui/src/AlertLogic/ScanAPIBundle/Tests/Unit/Service/DataSource/AnnotationServiceTest.php:76e O NM dE
+
+ 
+
+Before the fix
+
+Failed asserting that two objects are equal.
+
+--- Expected . . .
+
+q Aete Adding the missing
+
+SymfonylComponent1HttpFoundationlResponse Object ( h dl
+'headers' => SymfonyWClomponentiBt£pFoundatoniResponselicaderBag parameters IN t e aumir
+
+Object (...)
+
+= 'content' => '[("annotations": request and replace the
+
+[("annotation 1d”":1,"exposure 1d”":null,"created”:
+
+("by":219276,"on" :1450072800]),"comment":"test”, "internal comment" :true deprecated fu nations fot
+
+"status" :"accepted”, "attachment":
+
+("name":"File test", "type":"file","size":10))])'
+
++ '"content* => *"("annotations”: [("annotation 1d":1,"created": N ewe r O N es.
+("by":21976,"on" :1450072800), "comment":"test", "internal comment" :true
+
+,¿ status” :"accepted”,"attachment”:
+
+("name”:"File test”, "type":"file","size":10))])'
+
+'verslon' ml '1.0' Stories solved
+LaustenE? => "OK DE5272
+
+'charset* => null
+
+] DE5305
+Aíter the fix
+
+DE ts T artde do dE
+
+Mock the correct methods and replace the deprecated functions for newer
+
+S.
+DE5291 Before the fix
+
+AlertLogic1ScanAPIBundlelTestsiController1ScanAPIControllerTest::test
+UpdateExposureListAction
+
+BadMethodCallException: Method User: :getCustomerld() does not exist
+on this mock object
+
+/var/alertlogic/ui/vendor/mockery/lib/Mockery/Mock.php:222
+
+Aíter the fix
+
+OK (1 test, 2 assertions)
+
+IS ALERT LOGICCoverage
+
+ 
+
+Before the fixes
+
+Code Coverage
+
+  
+
+Lines Functions and Methods Classes and Traits
+Total 38.55% 705 / 1829 29.09% 32 /110 QQ 28.57% 6/21
+'3 Controller 44.09% 533 / 1209 3.23% 1/31 0.00% 0/3
+' Services 27.74% 172 /620 39.24% 31/79 ¡A 29.41% 5/17
+5 AlertLogicScanAPIBundle.php 100.00% 0/0 100.00% 0/0 XT 100.00% de
+
+Aíter the fixes
+
+Code Coverage
+
+ 
+
+Lines Functions and Methods Classes and Traits
+Total >] 46.96% 849 / 1808 [>] 36.36% 28.57% 6/21
+a Controller E] 53.93% 652 / 1209 [ 6.45% 0.00% 0/3
+ar Services [7] 32.89% 197 / 599 |] 48.10% 29.41% 5117
+Ñ AlertLogicScanAPIBundle.php [A 100.009 0/0 IA 100.009 100.009 1/1
+
+IS ALERT LOGICSCAN API BUNDLE
+COVERAGE GROWTH
+
+»= [0
+
+Cloud Defender Ul Interns Team / A Mora To
+Wednesday, Sep 7th 2016JAN OS IES lio
+
+US42267 ScanAPIControllerTest - mock objects to be reusable in order
+to test the ScanAPIController
+
+IAS
+Y
+
+A |
+->shouldReceive ( IS ET E
+
+= m::mock(
+
+UR Before the fix
+
+SSA
+->andReturn
+
+(
+—>andReturn (
+AIN
+->andReturn (
+->andReturn (
+
+= m::mock(
+->shouldReceive (
+->andReturn(array( y:
+AN o clJAN OS IES lio
+
+JAEN O!
+
+ud ->getMockBuilder('Custome
+E ATA A o IA
+
+Aíter the fix
+
+ed
+
+= ->getMockBuilder (
+2 a AN
+ea O
+
+3 ed A
+SILA dE Dist
+
+IS ALERT LOGIC'Scan API Bundle Unit Tests Services
+
+ 
+
+US43062 CommunicationService - The desired goal is to reach 60% of
+
+coverage
+
+/var/alertlogic/ui/src/AlertLogic / ScanAPlBundle / Services / Communications / (Dashboard)
+Before the fix re
+Total 0.00% 0/175
+hh CommunicationService.php 0.00% 0/175
+/var/alertlogic/ui/src/AlertLogic / ScanAPlBundle / Services / Communications / (Dashboard)
+
+Code Coverage
+
+Lines Functions and Methods
+Total | 38.24% 39 / 102 Y 42.86% 3/7
+K_CommunicationService.php qu 38.24% 39/102 MN 42.85% 3/7
+
+Code Coverage
+
+Functions and Methods
+0.00% 0/7
+
+0.00% 0/7
+
+Classes and Traits
+0.00% 0/1
+
+0.00% 0/1
+
+Classes and Traits
+0.00% 0/1
+
+0.00% 0/1
+
+After the fix
+
+IS ALERT LOGICScan API Bundle Unit Tests Services
+
+ 
+
+US43059 AttachmentsStorage Service - The desired goal is to reach 60% of
+coverage
+
+/var/alertlogic/ui/src/AlertLogic / ScanAPlBundle / Services / AttachmentStorage / (Dashboard)
+
+Code Coverage
+
+Lines Functions and Methods Classes and Traits
+" Total 0.00% 0/60 0.00% 0/8 0.00% 0/1
+Before the fix O 000% 0/80 000% 0/8 000% 0/1
+
+Legend
+Low: 0% to 50% Medium: 50% to 90% High: 90% to 100%
+
+Generated by php-code-coverage 4.0.1 using PHP 5.6.23 with Xdebug 2.4.0 and PHPUnit 5.4.8 at Mon Aug 29 15:41:31 CDT 2016.
+
+/var/alertlogic/ui/src/AlertLogic / ScanAPlBundle / Services / AttachmentStorage / (Dashboard)
+
+Code Coverage
+
+Lines Functions and Methods Classes and Traits Aft e pr [ h e Í X
+
+Total 100.00% 22/22 100.00% 7/7 100.00% 1/1
+
+E AtachmentStorage.pho o
+
+Legend
+Low: 0% to 50% Medium: 50% to 90% High: 90% to 100%
+
+Generated by php-code-coverage 4.0.1 using PHP 5.6.23 with Xdebug 2.4.0 and PHPUnit 5.4.8 at Mon Aug 29 15:57:25 CDT 2016. IS ALERT LOGIC"Scan API Bundle Unit Tests Services
+
+ 
+
+US43064 PermissionChecker - The desired goal is to reach 60% of
+coverage
+
+Code Coverage
+
+Classes and Traits Functions and Methods Lines
+Total 0.00% 0/1 uu 40.00% 2/5 CRAP a 15.62% 10/64
+PermissionChecker 0.00% 0/1 ul] 40.00% 2/5 340.76 a 15.62% 10/64
+B e Í O re 1 h e Íix _ construct AAA 100.00% 111 |1 O) 100.00% 6/6
+assertUserAuthorization 0.00% 0/1 210 0.00% 0/32
+actingUserHasRole | 100.00% 1/1 1 A 100.00% 1/1
+customerbHasFeature 0.00% 0/1 6 0.00% 0/7
+canManageCustomer 0.00% 0/1 19.47 g 16.67% 3/18
+Code Coverage
+Classes and Traits Functions and Methods Lines
+Total 0.00% 0/1 005 60.00% 3/5 CRAP | 65.62% 42/64 Aft a ( t h a fix
+PermissionChecker 0.00% 0/1 (US 60.00% 3/5 44,49 au 65.62% 42 / 64
+__construct TS 100.00% 10 1 AS 100.00% 6/6
+assertUserAuthorization 0.00% 0/1 61.85 A] 37.50% 12/32
+actingUserHasRole TT 100.00% 111 |1 (00 100.00% 1/1
+customerHasFeature Eo) 100.00% 111|2 AA 100.00% 7/7
+canManageCustomer 0.00% 0/1 5.03 | 88.89% 16/18 ¿ ALERT LOGIC'Scan API Bundle Unit Tests Services
+
+ 
+
+US43067 AnnotationService - The desired goal is to reach 60% of
+coverage
+
+Code Coverage
+
+Classes and Traits Functions and Methods Lines
+Total 0.00% 0/1 12.50% 1/8 CRAP a 14.29% 3/21
+AnnotationService 0.00% 0/1 1 12.50% 1/8 48.30 q 14.29% 3/21
+
+construc E
+Before the fix E sl E o
+0.00% 0/1 2 0.00% 0/2
+
+getAnnotationsHistory
+repealAnnotation 0.00% 0/1 2 0.00% 0/2
+getAnnotationSummary 0.00% 0/1 2 0.00% 0/3
+addAnnotation 0.00% 0/1 2 0.00% 0/3
+getAnnotationByldentity 0.00% 0/1 2 0.00% 0/3
+claimUnassignedAnnotations 0.00% 0/1 2 0.00% 0/2
+Code Coverage
+Classes and Traits Functions and Methods Lines
+Total A 100.00% 1/1 100.00% 8/8 CRAP AA] 100.00% 21/21
+AnnotationService AS 100.00% 1/1 O 100.00% 8/8 8 A 100.00% 21/21
+_ construct AS 100.00% 1/1 1 uo» 100.00% 3/3 Afte [ í h e Íix
+getAnnotationsList ¡A | 100.00% 1/1 1 A 100.00% 3/3
+getAnnotationsHistory A 100.00% 1/11 |1 A 100.00% 2/2
+repealAnnotation ES 100.00% 1/1 1 (A 100.00% 2/2
+getAnnotationSummary A 100.00% 1/11 41 A 100.00% 3/3
+addAnnotation A 100.00% 1111 A 100.00% 3/3
+getAnnotationByldentity A) 100.00% 1/11 |1 A 100.00% 3/3 De A
+claimUnassignedAnnotations A | 100.00% 111 |1 (A 100.00% 2/2SAN RINA O
+
+ 
+
+Before the fix
+
+/Vvar/alertlogic/ui/src/AlertLogic / ScanAPlBundle / Controller / DisputeEvidenceController.php
+
+Code Coverage
+
+Classes and Traits Functions and Methods Lines
+Total 0,00% 0/1 0.00% 0/6 CRAP 0.00% 0/206
+U S A 3 A 6 / DisputeEvidenceController 0.00% 0/1 0.00% 0/6 1332 0.00% 0/206
+evaluatePreflightAction 0.00% 0/1 2 0.00% 0/7
+U S A 3 A 6 3 getDisputeEvidenceListAction 0.00% 0/1 110 0.00% 0/50
+addDisputeEvidenceAction 0.00% 0/1 110 0.00% 0/68
+U S A 3 A 6 5 deleteDisputeEvidenceAction 0.00% 0/1 20 0.00% 0/27
+getExposureldsByScanDispute 0.00% 0/1 6 0.00% 0/9
+getExposureldsByReportOutput 0.00% 0/1 90 0.00% 0/45
+
+/var/alertlogic/ui/src/AlertLogic / ScanAPlBundle / Controller / DisputeEvidenceController.php
+
+Code Coverage
+
+Classes and Traits Functions and Methods Lines
+
+Total 0.00% 0/1 E 16.67% 1/6 CRAP ul 27.17% 47 /173
+
+DisputeEvidenceController 0.00% 0/1 El 16.67% 1/6 536.70 a 27.17% 47 /173 .
+evaluatePreflightAction IU 100.00% 1/1 1 II 100.00% 5/5 Aft e p t h e f | X
+getDisputeEvidenceListAction 0.00% 0/1 13.98 AA 65.85% 27/41
+
+addDisputeEvidenceAction 0.00% 0/1 110 0.00% 0/59
+
+deleteDisputeEvidenceAction 0.00% 0/1 487 0 05.22% 15/23
+
+getExposureldsByScanDispute 0.00% 0/16 0.00% 0/7 ¿ NAO ces
+
+ 
+
+getExposureldsByReportOutput 0.00% 0/1 90 0.00% 0/38ScanAPlBundleControllerTest
+
+ 
+
+US43471 getSscanDisputeHistoryAction — New Unit Tests were created,
+The desired goal is to reach 60% of coverage
+
+/var/alertlogic/ui/src/AlertLogic / ScanAPlBundle / Controller / ScanApiController.php
+
+Code Coverage
+
+Classes and Traits Functions and Methods Lines
+Total 0.00% 0/1 | 3.85% 1/26 CRAP uu 40.63% 453/1115
+ScanApiController 0.00% 0/1 7.41% 2/27  10915.72 uN 40.63% 453/1115
+getScanDisputesListAction 0.00% 0/1 24.64 A] 85.42% 82 / 96
+getScanDisputeAction 0.00% 0/1 20.05 | 85.71% 72/84
+getScanDisputeHistoryAction 0.00% 0/1 42 0.00% 0/30 ,
+deleteScanDisputeHistoryAction 0.00% 0/1 42 0.00% 0/30 E a fo re [ h e Í | X
+updateScanDisputeAction 0.00% 0/1 82.31 Ea 41.67% 35 / 84
+getExposureListAction 0.00% 0/1 12.21 (IAN 88.68% 94 / 106
+updateExposureListAction 0.00% 0/1 1056 0.00% 0/103
+_annotateExposures 0.00% 0/1 240 0.00% 0/57
+_UnlinkAttachment 0.00% 0/1 6 0.00% 0/5
+getExposureAnnotationAttachmentAction 0.00% 0/1 25.13 sS 35.56% 16/45
+_switchExposuresLock 0.00% 0/1 112 0.00% 0/12
+_importPreviousResponses 0.00% 0/1 20 0.00% 0/13
+getExposureAnnotationListAction 0.00% 0/1 6.16 MS] 83.67% 41/49
+getReportSummaryAction 0.00% 0/1 72 0.00% 0/38
+_getReportSummary 0.00% 0/1 342 0.00% 0/114
+getUserDataAction 0.00% 0/1 4.11 (ION | 80.77% 21/26
+filterTabs 0.00% 0/1 9.45 1] 82.35% 14/17 ¿ 5 O lOsScanAPlBundleControllerTest
+
+ 
+
+/var/alertlogic/ui/src/AlertLogic / ScanAPlBundle / Controller / ScanApiController.php
+
+Code Coverage
+
+Classes and Traits Functions and Methods Lines
+Total 0.00% 0/1 | 3.85% 1/26 CRAP E) 53.63% 598 / 1115
+ScanApiController 0.00% 0/1 il 7.41% 2/27 5317.71 (E 53.63% 598 / 1115
+getScanDisputesListAction 0.00% 0/1 24.64 o] 85.42% 82 / 96
+getScanDisputeAction 0.00% 0/1 20.05 | 85.71% 72/84
+getScanDisputeHistoryAction 0.00% 0/1 8.30 | 60.00% 18/30
+deleteScanDisputeHistoryAction 0.00% 0/1 42 0.00% 0/30 .
+updateScanDisputeAction 0.00% 0/1 8231 E] 41.67% 35 / 84 Afte r [ h e Íix
+getExposureL istAction 0.00% 0/1 12.21 HE] 88.68% 94 / 106
+updateExposureListAction 0.00% 0/1 117.39 E] 56.31% 58 / 103
+_annotateExposures 0.00% 0/1 19.10 A 73.68% 42 / 57
+_unlinkAttachment 0.00% 0/1 6 0.00% 0/5
+getExposureAnnotationAttachmentAction espai 0/1 | 2213 al 35.56% 16/45
+_switchExposuresLock 0.00% 0/1 12 0.00% 0/12
+_¡mportPreviousResponses 0.00% 0/1 20 0.00% 0/13
+getExposureAnnotationListAction 0.00% 0/1 6.16 o] 83.67% 41/49
+getReportSummaryAction 0.00% 0/1 9.55 EE] 71.05% 27 / 38
+_getReportSummary 0.00% 0/1 342 0.00% 0/114
+getUserDataAction 0.00% 0/1 4,11 IIA | 80.77% 21/26
+filterTabs 0.00% 0/1 9.45 EE] 82.35% 14/17
+
+¿ ALERT LOGICCoverage
+
+ 
+
+Before the fixes
+
+/var/alertlogic/ui/src/AlertLogic ' ScanAPlBundle / (Dashboard)
+
+Code Coverage
+Lines Functions and Methods Classes and Traits
+Total un] 34.53% 700 / 2027 UU 26.36% 34 / 129 ( 26.09%
+'% Controller a 35.95% 518/1441 | 2.56% 1/39 0.00%
+'% Services ul 31.06% 182 / 586 Y] 36.67% 33 / 90 U] 27.78%
+Íh AlertLogicScanAPIBundle.php O 100.00% 0/0 (E 100.00% 0/0 (E 100.00%
+Aíter IX
+ter the fixes
+/var/alertlogic/ui/src/AlertLogic / ScanAPlBundle / (Dashboard)
+Code Coverage
+Lines Functions and Methods Classes and Traits
+
+Total uu 53.87% 1036 / 1923 ¡| 42.64% 55 / 129 ¡A 30.43% 7/23
+
+'3 Controller uu] 51.21% 721/1408 ( 5.13% 2/39 0.00% 0/4
+
+'» Services ul] 61.17% 315 /515 (o 58.89% 53/90 ¡A 33.33% 6/18
+
+Íh AlertLogicScanAPIBundle.php (0 100.00% 0/0 Quay] 100.00% 0/0 [E 100.00% 1/1
+
+6/23
+0/4
+5/18
+1/1
+
+IS ALERT LOGICCORE BUNDLE AND SCANAPI
+BUNDLE COVERAGE INCREMENT
+
+DEMO
+
+Cloud Defender Ul Interns Team / A Mora To
+Wednesday, Sep 21th 2016US43801
+
+As AlertLogic we want the unit test for
+CoreBundle/Services/APl/HttpRequest to be created
+
+Before
+
+/var/alertlogic/ui/src/AlertLogic / CoreBundle / Services / API / HttpRequest.php
+
+Code Coverage
+
+Classes and Traits Functions and Methods Lines
+Total 0.00% 0/1 0.00% 0/18 CRAP 0.00% 0/198
+
+After
+
+/var/alertlogic/ui/src/AlertLogic / CoreBundle / Services / API / HttpRequest.php
+
+Code Coverage
+
+Classes and Traits Functions and Methods Lines
+Total 0.00% 0/1 E] 44.44% 8/18 CRAP (E ] 59.06% 88 / 149
+
+IS ALERT LOGICUS43802
+
+ 
+
+As AlertLogic we want the unit test for CoreBundle/Services/APl/API to
+be created
+
+Before
+
+/var/alertlogic/ui/src/AlertLogic / CoreBundle / Services / API / APl.php
+
+Code Coverage
+
+Classes and Traits Functions and Methods Lines
+Total 0.00% 0/1 0.00% 0/13 CRAP 0.00% 0/125
+
+After
+
+/var/alertlogic/ui/src/AlertLogic / CoreBundle / Services / API / APIl.php
+
+Code Coverage
+
+Classes and Traits Functions and Methods Lines
+Total 0.00% 0/1 E] 30.77% 4/13  CRAP Lo] 49.60% 62 /125
+
+IS ALERT LOGICUS43803
+
+As AlertLogic we want the unit test for
+CoreBundle/Services/APIl/APlService to be created
+
+h APIService.php 0.00% 0/37 0.00% 0/2 0.00% 0/1
+bh APIService.php 7] 32.43% 12/37 0.00% 0/2 0.00% 0/1
+
+IS ALERT LOGICUS43806
+
+ 
+
+As AlertLogic we want the unit test for
+CoreBundle/Services/APl/APlCache to be created
+
+Before
+
+/var/alertlogic/ui/src/AlertLogic / CoreBundle / Services / API / APlCache.php
+
+Code Coverage
+
+Classes and Traits Functions and Methods Lines
+Total 0.00% 0/1 0.00% 0/6  CRAP 0.00% 0/47
+
+Aíter
+
+/var/alertlogic/ui/src/AlertLogic / CoreBundle / Services / API / APlCache.php
+
+Code Coverage
+
+Classes and Traits Functions and Methods Lines
+
+Total 0.00% 0/1 E] 50.00% 3/6  CRAP (7 61.76% 21/34
+
+IS ALERT LOGICUS43807
+
+As Alert Logic we want the unit tests EntitlementsService to be
+created
+
+Before
+
+Code Coverage
+
+Classes and Traits Functions and Methods Lines
+
+Total 0.00% 0/1 E 25.00% 1/4 CRAP (A) 74.42% 32 / 43
+
+Code Coverage
+
+Classes and Traits Functions and Methods Lines
+Total 0.00% 0/1 0.00% 0/4 CRAP 0.00% 0/61
+
+IS ALERT LOGICUS43810
+
+As AlertLogic we want the unit test for
+CoreBundle/Services/Datasource/SourcesService to be created
+
+Before
+
+Code Coverage
+
+Classes and Traits Functions and Methods Lines
+Total 0.00% 0/1 0.00% 0/13  CRAP 0.00% 0/275
+
+After
+
+Code Coverage
+
+Classes and Traits Functions and Methods Lines
+Total 0.00% 0/1 O] 15.38% 2/13  CRAP (>) 60.34% 143 / 237
+
+IS ALERT LOGICUS43811
+
+As AlertLogic we want the unit test for
+CoreBundle/Services/Datasource/StatsService to be created
+
+Before
+
+Code Coverage
+
+Classes and Traits Functions and Methods Lines
+Total 0.00% 0/1 0.00% 0/6 CRAP 0.00% 0/120
+
+After
+
+Code Coverage
+
+Classes and Traits Functions and Methods Lines
+
+Total 0.00% 0/1 >] 83.33% 5/6  CRAP PH] 92.94% 79/85
+
+IS ALERT LOGICAs AlertLogic we want the unit tests for
+CoreBundle/Services/Insight/CloudExplorerClientService to be created
+
+Before
+
+/var/alertlogic/ui/src/AlertLogic / CoreBundle
+
+Total
+'3y Exception
+
+K CioudExplorerClientService.php
+
+After
+
+Total
+'3 Exception
+
+K CioudExplorerClientService.php
+
+Services / Insight
+
+(Dashboard)
+
+Lines
+0.00%
+
+0.00%
+
+0.00%
+
+Lines
+16.22%
+
+100.00%
+
+100.00%
+
+Code Coverage
+
+Functions and Methods
+
+0/442 0.00% 0/32
+0/15 0.00% 0/2
+0/26 0.00% 0/2
+
+Code Coverage
+
+Functions and Methods
+
+61 /376 E] 21.88% 7/32
+13/13 E) 100.00% 279
+20/20 E) 100.00% 319
+
+Classes and Traits
+
+0.00% 0/7
+0.00% 0/2
+0.00% 0/1
+
+Classes and Traits
+57.14% 4/7
+
+100.00% 2/2
+
+100.00% 1/1
+
+IS ALERT LOGICUS43813
+
+As AlertLogic we want the unit test for
+CoreBundle/Services/Datasource/EdgarsService to be created
+
+Before
+
+Code Coverage
+
+Classes and Traits Functions and Methods Lines
+Total 0.00% 0/1 0.00% 0/5  CRAP 0.00% 0/72
+EdgarService 0.00% 0/1 0.00% 0/5 272 0.00% 0/72
+
+After
+
+Code Coverage
+
+Classes and Traits Functions and Methods Lines
+
+Total 0.00% 0/1 60.00% 3/5  CRAP (3 32.76% 19/58
+
+EdgarService 0.00% 0/1 (A) 60.00% 3/5 93.83 (7 32.76% 19 / 58
+
+IS ALERT LOGICUS43819
+
+As Alertlogic we want the unit test for
+CoreBundle/Services/Datasource/ClydeService to be created
+
+h CiydeService.php 0.00% 0/71 0.00% 0/4 0.00% 0/1
+h CiyaeService.php E) 98.00% 49 / 50 O] 75.00% 3/4 0.00% 0/1
+
+IS ALERT LOGICUS43820
+
+As AlertLogic we want the unit tests for
+CoreBundle/Services/Insight/StrawbossClientService to be created
+
+Before
+
+h StrawbossClientService.php 0.00% 0/37 0.00% 0/3 0.00% 0/1
+
+h StrawbossClientSerdice.php A
+
+IS ALERT LOGICURUISLS
+
+ 
+
+As AlertLogic we want the unit test for CoreBundle/Services/User
+and CoreBundle/Services/Insight exceptions to be created
+
+After
+
+/var/alertlogic/ui/src/AlertLogic / CoreBundle / Services / User / (Dashboard)
+
+Code Coverage
+
+Lines Functions and Methods Classes and Traits
+Total [ 4.95% 18 / 364 Ml 18.18% 6/33 HS 75.00% 6/8
+'3 Exception A. 100.00% 18/18 ¡II 100.00% 6/6 HS 100.00% 6/6
+5 MyAccount.php 0.00% 0/118 0.00% 0/10 0.00% 0/1
+
+/var/alertlogic/ui/src/AlertLogic / CoreBundle / Services / Insight / (Dashboard)
+
+Code Coverage
+
+Lines Functions and Methods Classes and Traits
+Total 2.95% 13 /440 ( 6.25% 2/32 ¡| 28.57% 2/7
+
+'a3 Exception AS 100.00% 13/13 NS 100.00% 2/2 MU) 100.00% 2/2
+
+IS ALERT LOGICComparison coverage CoreBundle
+
+ 
+
+Before
+
+/var/alertlogic/ui/src/AlertLogic / CoreBundle / (Dashboard)
+Code Coverage
+Lines Functions and Methods Classes and Traits
+Total | 1.75% 98 / 5589 0.45% 2/446 l 4.04% 4/99
+'3y Controller (] 8.34% 93/1115 1.32% 1/76 0.00% 0/12
+/ fte p Code Coverage
+Lines Functions and Methods Classes and Traits
+Total O 12.70% 682 / 5372 l 9.80% 44 / 449 M 14.00% 14 /100
+'3 Controller 7 8.34% 93/1115 | 1.32% 1/76 0.00% 0/12
+
+IS ALERT LOGICUS43800
+
+* As AlertLogic we want the Code Coverage of the ScanApiBundle to reach 60%
+
+ 
+
+Before
+
+/var/alertlogic/ui/src/AlertLogic / ScanAPlBundle + (Dashboard)
+
+Code Coverage
+Lines Functions and Methods Classes and Traits
+Total A] 53.87% 1036 / 1923 A] 42.64% 55 / 129 ta 30.43% 7/23
+'% Controller MA 51.21% 721 / 1408 l 5.13% 2/39 0.00% 0/4
+> Services | 61.17% 315/515 MN 58.89% s3/o0 EN 33.33% 6/18
+Mb AlertLogicScanAPIBundle.php MU) 100.00% 0/0 AN 100.00% 0/0 | 100.00% 1/1
+Aíter
+/var/alertlogic/ui/src/AlertLogic / ScanAPlBundle / (Dashboard)
+Code Coverage
+Lines Functions and Methods Classes and Traits
+Total ua 60.69% 1167 / 1923 A] 44.19% 57 /129 Al 30.43% 7/23
+'3y Controller mu] 60.51% 852 / 1408 q 10.26% 4/39 0.00% 0/4
+' Services ¡] 61.17% 315/515 AA 58.89% 53 / 90 ul 33.33%
+hh AlertLogicScanAPIBundle.php A) 100.00% 0/0 E 100.00% 0/0 MU 100.00%Date Nov 21th 2016
+
+ 
+
+Developer Fair Andres Tarapues H.
+
+ 
+
+IT Involve Link DE5550
+
+ 
+
+ 
+
+Fix Description (Before and After fix behavior)
+
+ 
+
+ 
+
+DE5550: Resizing of browser windows below a certain width causes the
+Detail button to disappear from the right side of the Deny Logs page on the
+WAF module.
+
+Description:
+
+When resizing the browser window on the 'Deny Logs' Page of the WAF Module, the Detail button
+disappears from view. When this occurs the user is unable to scroll horizontally to view the Detail
+button.
+
+Monitor Resolution set to 1920x1080
+The versions tested are as follows:
+Firefox - 49.0.1
+
+Chrome - 51.0.2704.103 (64-bit)
+Internet Explorer - 11.0.9600.18449
+
+T have tested this in Internet Explorer, Chrome and Firefox (in order from Back to Front in the below
+picture):
+
+Ó Mm fa le € NN Ms + e *PDODODT ->M mote mas mie
+
+ 
+
+Solution: "overflow-x: auto;" property was added to the "*wsm_content_holder" style locate in
+Resources/public/css/wsm.cssBefore the fix
+
+Google Chrome test.
+
+A Derry Logs - Wes Sect x
+
+— G de er” cod secprodiupportmarahonalertiogic net W a Y
+
+WAF + Z VE FAJA TARMA AE
+
+Deny Logs - Web Security Manager
+
+TH MG Es 104 ale 1 Range . DM Parr 1640911 00 00 1 D0400'1 300 (0
+
+TS A a
+
+ 
+
+ 
+
+ 
+
+ 
+
+ETS
+z 4H era es ” 10.207 Mar Dos -: MET A A A A AA A Vo AAA AO A
+Internet Explorer test.
+o TaTO|
+
+¡| ES Derry Logs Web Secunty «|
+
+WAF » MILE TAM TARAPLI
+
+Deny Logs - Web Security Manager
+
+Show resssgss tor Selec Ranger :w ar hom 11041206 053 ts NOE IM 1300 ES
+
+Ses Emir srarih MT
+
+ 
+
+ 
+
+ 
+
+Ma Tias”
+
+AMG Y 07 Y records
+
+O A e
+
+Class
+
+      
+ 
+
+ 
+
+Pn,D4 Mos wearieacom 1010707 113 Mon dos Dar ET A E A rut rd rr dr ras dr dis rn ir dnd e re
+201€ asbempt iegsi
+105 tamMozilla Firefox test.
+
+Deny Logs - Web Secunty Men... = | + cd
+
+E Dm lu seci poticarnon mertiogic.net terry log > A, Zo6J ROS
+
+WAF +» MELCIOME. PAL TARA UEL
+
+Deny Logs - Web Security Manager
+
+Show messages Far Seied Range e! e tom 11/04/2910 09 00 111042010 1300 E
+haa)
+
+A Ch
+
+”
+
+ 
+
+VWewng 4 6011 imtrás
+
+A Requexted
+
+          
+   
+
+Fn. Da May Wwwwiestconm 1310207 nihilista Ar A A A A A A
+
+ere ura Mos!
+
+148 HanAfter the fix
+
+Google Chrome test.
+
+FL; Dery tog: Web Sexi: M
+
+t COC A pe cdautrecprodsupport marsthor.alertiogir net bo 1
+> WAF +
+js
+
+Deny Logs - Web Security Manager
+
+Dc resgrs hor Metert Fl arre * "or i á $ 00 Pd
+
+ 
+
+ 
+
+ari? dir
+
+Wi A A e a
+
+    
+  
+
+e
+
+n Mii Wwamtro"r 1012207 19 y Ca 1501 SE” A A E E E E E E
+
+AAA
+
+ 
+ 
+
+Internet Explorer test.
+
+ 
+
+A
+
+,
+WAPF % 22005 aa tañnaaos
+
+Web Security Manager
+
+SsoctAarga | stem 1104/7016 05:00 te | 1O20%0 13:00 | 00 |
+hd
+
+Sam" Ertee sapo ti paro
+
+ 
+
+ 
+
+A
+
+e
+
+    
+   
+   
+ 
+
+ná inn ruin A nn rn ri inn
+unn epa Ms rd PE A par A AA LAA
+A A e o 1 dr A A rn A ray rd
+wiii inn ina inn ir rr
+URI AA A AA Ar
+
+vr ir rd y o 6Mozilla Firefox test.
+
+Deny Logs - Web Security Men...
+
+€ DA ht Get pporimarathon aertlogic.net!wcru der > Y ' ú BA O
+
+ 
+
+WAF v MELCCIME. FAR TARAPUES
+
+- Web Security Manager
+
+or tur 11042018 09.00 u VMUDAZ2II5 1304 | 60 |
+
+Search
+
+[
+or | SelediRangs e
+
+ 
+
+ 
+
+ 
+
+   
+  
+ 
+
+a
+wreorwiestcom 1010207 133 Migh Dos aliermpl Query GET nurybrulnut nubmana y brut Puntrateayt nubutiua mibrautrut sunuirritrish EN
+
+vin ribrubhut nunabriatrul nuin ind E
+
+     
+
+mega! nutdnd mibrubuB nurabers bend
+
+niDate Jan 17th 2016
+
+ 
+
+Developer Fair Andres Tarapues H.
+
+ 
+
+IT Involve Link DE5863
+
+ 
+
+ 
+
+Fix Description (Before and After fix behavior)
+
+ 
+
+ 
+
+DE5863: Unable to see manage_user.php and assets menu.
+
+Description:
+
+User can see the manage_sensor.php page because this line
+https://algithub.pd.alertlogic.net/alertlogic/php-interface/blob/master/webroot/manage sensors.php+L51
+
+return this
+Array
+(
+[13645] => Anahuac National Bank
+[54900] => Classic Bank
+[16033] => Community National Bank of Hondo
+[52910] => First Liberty National Bank
+[12772] => First National Bank of Bastrop
+[35694] => First State Bank of Bedias
+[48365] => First State Bank of Chico
+[11210] => Normangee State Bank
+[14347] => Plains State Bank
+[14552] => Post Oak Bank
+[17110] => Security State Bank of Anahuac
+[12866] => SouthStar Bank
+[9728] => State Bank of Texas
+
+[11088] => The Hondo National Bankwhen the only customers that should return should be
+
+Classic Bank
+
+First State Bank of Bedias
+First State Bank of Chico
+State Bank of Texas
+
+for that reason this function
+
+https://algithub.pd.alertlogic.net/alertlogic/php-interface/blob/master/webroot/manage_sensors.php*L67
+
+ 
+
+returns false and it will show the error
+
+print_r(User_Permission::isAllowedForThisCustomer(33864, 13645)); return empty
+
+Speaking with Clint over the phone he still did not have the 'Assets' section of the the Management module available.
+| noticed that the customer's user account had zone limitations, to test functionality, we removed the zone limitations
+for his user account momentarily (and set them back up after the test was completed per his request). After the zone
+limitations were removed from his user account, he was able to
+
+access https://console.clouddefender.alertlogic.com/manage_ user.php.
+
+Zone limitations for his accounts were/are set to:
+Classic Bank
+
+First State Bank of Bedias
+
+First State Bank of Chico
+
+State Bank of Texas
+
+Problem:
+
+Network Security Services has several child customers under their parent account. They have contractual obligations
+that prevent certain employees from seeing certain customer's data/environments. For example, Clint is only
+supposed to have access to the 4 accounts that he has access to above and some of those accounts have legacy
+IDS devices. As it stands now, when the customer has zone limitations set in place, he can not manage legacy
+appliances.
+
+As he currently can not manage the legacy appliances, | have asked that he contact customer care whenever they
+have to make changes to the appliances protected networks.
+
+Solution: the getAllowedCustomerIDs function was added in lib/class.customer.php.Before Fix
+
+'
+Compliance. LIoOuc
+
+A ALERT LOGIC MANAGEMENT + welcome TEST DES863
+Security Comp '
+
+General No access
+
+Branding You are not allowed to access this screen,
+Users 4 Groups
+
+Threat Manager
+
+Blocking Configuration
+Global Options
+
+ 
+
+After Fix
+
+A ALERT LOGIC MANAGEMENT +  weLcowe, tesT DEs8e3
+Security Come '
+
+ONASnCe L OLI
+
+General Appliances
+
+Branding
+
+Users £ Groups Customer: | Amazonia
+
+Appliance: amazonia-ngtm-sensor-01 $ (3
+
+Assets
+
+amazonia-ngtm-sensor-01
+
+| Appliances
+
+Devices Zone Membership
+IDS Whitelist
+
+Zone: Default Zone £
+
+Threat Manager
+
+Blocking Configuration
+Global OptionsDate Feb 17th 2017
+
+ 
+
+Developer Fair Andres Tarapues H.
+
+ 
+
+IT Involve Link DE6047
+
+ 
+
+ 
+
+Fix Description (Before and After fix behavior)
+
+ 
+
+ 
+
+DE6120: As a Alertlogic 1 need to modify the behaviour of '"Modify log
+policy" permission option in Log Manager
+
+Description:
+
+If the user has disabled the "Modify Log Policy" permission option, in Log Manager the S3 and Azure pages should
+not have access (Access denied), but they have it..
+
+"Action Taken
+The following behavior was verified as a bug by Barry Skidmore in the ticket +£56361. This is merely the requested
+separate ticket requested to be passed to VTT for tracking this bug.
+
+ 
+
+"3. Please confirm the respective results from the actions described below are proper behaviors.
+* Log Management>Uncheck "Moditfy log policy"
+
+Result : In Log Manager> Policies, S3 stayed visible while Flat File, Syslog, and Windows Eventlog were removed
+
+from the view.
+Answer: This is definitively a bug, S3 should not have remained visible, Azure should also disappear."
+
+Solution: a conditional was added in S3PolicyController, redirect to
+AlertLogicCoreBundle_misc_access_denied 1fthe user doesn”t have permissions.when the user doesn't have the “Modify log policy” option selected.
+
+Incident 8 Hosts
+E) Moaity incadente
+
+E) issue containment requests
+
+0 Modity Most
+Vulnerability Scans
+
+El Modtty scan settings
+E) Modty scan settings belonging to a chtd customer
+E) Validate PC! Data
+
+E) Hide Vulnorabilnes
+Usor Interface Branding
+
+E) Mocity user interface brancing
+
+Global Configuration
+
+E) Mocity global corfigurañor
+E) Modtty global corfigurañon belongirg to a child customer
+
+Ul Von Managernant Tab
+
+Log Management
+Moaity log potcy
+
+E) Mocty log poícy belonging la a chiki customer
+
+E Moaty log correlañon policy
+E) Mody lag correlañon policy belonging to a id customer
+
+1 view Log Credertais
+
+Zone Limitation
+
+Urmit agcnss orty to specific zones
+
+This form would have to disappear.
+
+Beloct arfons O MEVA
+
+ 
+
+ht 2
+
+Fest template +3
+
+Custumezd m
+
+23 asilom dual
+
+Tai BESEBI updated 1
+
+tmart 1
+
+WPC Flow Log
+
+WPE Flow Log
+
+Castomiend
+
+Cialomiand
+
+CGustamund
+
+Cuatomaend
+
+Ty Sewrtr Tarma
+
+Mutitno
+
+Mutiina
+
+Before Fix
+
+ll View ds wbitolist configuration belonging to a chie customer
+
+Notifications
+£) Manage Notácabors
+
+Other
+E) Mocity signature detaís
+E) Vow evort packet payicac
+
+E Moaity tags
+
+E) Moaity tags belanging to a chtd cusomer
+Access information rough public AP
+E) impersonate olher users vía he API
+
+O View Log Collection Status
+
+1) View Log Collection Status balanging a a child customer
+
+Manage custom parser rules
+
+£) Marage custom parser ruies belonging to a child customer
+
+O Cranto/Edt Casos
+
+E) Creste/Edt Custom Case Sistuses
+
+1) Close Cases
+
+Updated Date
+
+JH GRANMA 11:25:07
+
+Feb +3 2017 11:49:19
+Feb +3 2017 11:40:37
+Feb 1342017 09:47:38
+Feb 13 2017 094731
+Feb +3 2017 09:47 18
+Fob +3 2017 11:22:05
+Feb +3 2017 11:25:48
+
+Feb 132017 11:24:18
+
+VIARA
+
+0-4 ol approrimataty Y pusijtlaAfter Fix
+
+A Ms o pool rl lo cia dla is omg Tl
+
+ 
+
+Access denied
+Security Restrictions prevent access to the requested page.
+
+Please check your configuration and try your request again.
+
+the user doesn”t have access to S3 form.Date Feb 13th 2017
+
+ 
+
+Developer Fair Andres Tarapues H.
+
+ 
+
+IT Involve Link DE6120
+
+ 
+
+ 
+
+ 
+
+Fix Description (Before and After fix behavior)
+
+ 
+
+ 
+
+DE6120: As a developer I want that the delete saved view change from
+savedview to saved view.
+
+Description:
+
+In saved view when you are going to delete a save view change the word savedview by saved
+view.
+
+Confirm the deletion of
+savedview “maryit test
+3.
+
+Are you sure you want to delete
+this savedwiew? This action can
+
+not be undone.
+
+Solution: the ObjectType variable was changed in Save ViewsControllerBefore Fix
+
+Delete confirmation Test
+
+Saved View Details
+
+name: fair-test
+owner: Fair Tarapues
+
+sharing: all_children
+
+   
+
+o | want to delete
+
+eS
+
+ 
+ 
+
+U this savedview? This action can
+
+MIO
+
+Ae CATA
+
+Aa
+
+ 
+
+After Fix
+Saved View Details Delete confirmation Test
+name: fair-test
+owner: Fair Tarapues deletion of
+
+sharing: all_children lair-test”.
+
+* Load view
+
+E
+
+MITO
+
+ 
+
+A e AA
+
+Add scheduleDate Nov 24th 2016
+
+ 
+
+Developer Fair Andres Tarapues H.
+
+ 
+
+IT Involve Link DE47651
+
+ 
+
+ 
+
+Fix Description (Before and After fix behavior)
+
+ 
+
+ 
+
+DE47651: As Altair Advisers I want the date filters to work as expected with
+single digits for days.
+
+Description:
+
+Customer is experiencing unreliable results when filtering by date and single digits are entered
+for the day value.
+A validation or conversion must be developed for this filter.
+
+O . o. “ ¡Das | 1068 18 So - AP
+h- e > tija
+
+Fe Ez 3 Cx =
+
+—=
+
+Solution: A validation function was added to "webroot/js/monitor.js" to check the date and
+time frame for the Date filter.After the fix
+
+ 
+
+   
+
+FEREE SCAN DISPUTES V2 FINO SECURITY CONTENT CENTER
+MELP LOG OUT
+.secprodsupport.marathon.alertlog
+
+Date, in date frame, is not in a valid format. use (mm/dd/yyyy) EXA
+EE
+
+ 
+
+ 
+
+ 
+
+Date . is after
+
+ 
+
+«+ Add another filter
+
+| Apply Filters Save filters as: | Save |
+
+(O) Using this may cause DB slowdown
+
+ 
+
+ 
+
+Showing: 1 - 3 of 3 incidents Type: All | Events | Logs Enable range greater than 1 day 1 Range: 2 Months 4
+ID Date » Customer Summary Events Threat Status Class
+
+FT) 11692 Nov 23 2018 21:35:50 GMT a Express CID2 testto see the id | 1 High No Analysis Required  application-attack
+
+O) 1690 ¡Nov23 2018 14:178 GMT PlanetExpress CID2 test new incident CORC 1 Low No Analysis Required application-attack
+
+(T] 1688 |Nov 9 2018 18-27-27 GMT Planet Express CID2 test CORC alert debug 6 1 Critical Completed Analysis application-attack
+
+*_ Mark as acknowledged | Select all Show Incidents: (7) Closed EJ Acknowledged [7] In Analysis o
+
+EFEREE SCAN DISPUTES V2 FINO SECURITY CONTENT CENTER
+| HELP — — LOG OUT
+
+|| Search | Search Filters
+
+  
+ 
+
+ 
+
+p Search Filters Saved Filters: Select a Filter ---- 4.
+
+ 
+   
+
+Date 2 isafter + 11/01/2016 222:00:00 | Usg)Range= Remove
+
+«+ Add another filter
+
+Apply Filters | Save filters as:
+
+Showing: 1 - 3 of 3 incidents Type: All | Events | Logs Enable range greater than 1 day | | Range: 1 Hour 4
+ID — Date » Customer Summary Events — Threat Status Class
+
+O 14692 Nov23 2018 21:35:50 GMT Planet Express CID2 — testto see the id ll High No Analysis Required appilcatlon-alíack
+
+O) 1690 Nov23201814:178 GMT PlanetExpress CID2 test new incident CORC 1 Low No Analysis Required application-attack
+
+) 1888 ¡Nov9 2016 18:27-27 GMT Planet Express CID2 test CORC alert debug 6 1 Critical Completed Analysis application-attack
+
+*- Mark as acknowledged | Select all Show Incidents: (7) Closed EJ Acknowiedged 7) In Analysis Only IIADate Jan 10th 2016
+
+ 
+
+Developer Fair Andres Tarapues H.
+
+ 
+
+IT Involve Link DE47651
+
+ 
+
+ 
+
+Fix Description (Before and After fix behavior)
+
+ 
+
+ 
+
+DE47651: As Altair Advisers I want the date filters to work as expected with
+single digits for days.
+
+Description:
+
+Customer is experiencing unreliable results when filtering by date and single digits are entered
+for the day value.
+A validation or conversion must be developed for this filter.
+
+O . o. “ ¡Das | 1068 18 So - AP
+h- e > tija
+
+Fe Ez 3 Cx =
+
+—=
+
+Solution: A validation function was added to "webroot/js/monitor.js" to check the date and
+time frame for the Date filter.Search Filters
+
+Date
+
++ Add another Mies
+
+Apply Filters EN
+
+Showing: 0 - 0 of O incidents
+
+ID Date +
+No incidents could be found,
+
+%_ Mark as acknowledged
+
+is before 4
+
+Before Fix
+
+Saved Filters: Select a Filter --——- 4
+
+01/03/2017 f% dfoo:00:0c Use Range= Renove
+
+Save filters as:
+
+Type: All | Events ] Logs
+
+Customer Events
+
+ 
+
+Search Filters
+
+Date is before +
+
+«$ Add another filter
+
+| Apply Filters KES
+
+Showing: 1 - 25 of 1,645 incidents
+
+ID Date
+
+17140 Jan 2 2017 21:20:44 GMT
+
+171H
+
+Jan 2 2017 16:32:06 GMT
+
+Saved Filters: Select a Filter --—-- $
+
+Odf1/03/201 00:00:00 Use Range== “eros
+
+Save filters as:
+
+Customer Summary
+
+Planet Express CID2
+
+No Analysis
+
+Planet Express CID2
+No Analysis
+
+Test log incident Druiz 2
+
+Test log incident DrulzSearch Filters
+
+Date is after 4
+
+Sd Add another filter
+
+Search Filters
+
+Date is after $4
+
+eN Add another files
+
+After the fix
+
+Saved Filters: Select a Filter ---- $
+
+Start Date: 12/30/2016 f% 00:00:00 fUse Range= “emove
+
+bad date F% 00:00:00
+
+Date must be in the format mm/dd/yyyy.
+
+End Date:
+
+Save filters as:
+
+Saved Filters: Select a Filter ---- 4
+
+Start Date: 12/30/2016 f% 0dfdo:00:( EUse Range= Remove
+
+Odffd0:00:
+
+Time must be in the format hh/ímmi/ss.
+
+End Date:
+
+Save filters as:Á A L E R T LO G | G” LOG MANAGER y WELCOME, CRISTHIAN FUERTES | MY ACCOUNT  PCIREFEREE FINO SECURITY CONTENT CENTER
+
+Security. Compliance. Cloud.
+
+rr Me IE er A
+
+HELP
+
+ 
+
+LOG OUT
+OH
+
+€ E
+
+ 
+
+y Select options O MUSA | Asia 1] Search
+
+Planet Express CID2 v Name Timezone Blackout Periods Created By Created Date Updated By Updated Date Actions o
+Asia Pacific Log Schedule Midway 1 Pacific/Midway Enabled Maryit Sanchez Apr 27 2017 11:16:03 — Project Dunkirk  Apr27 2017 18:45:30
+Monitoring
+0-1 of approximately 1 results
+Summary
+Messages
+
+A ALERT LOGIC'
+
+Security. Compliance. Cloud.
+
+THREAT MANAGER SCANS LOG MANAGER WAF INCIDENTS CASES MANAGEMENT REPORTS WEB SECURITY
+
+PLANET EXPRESS CID2 a | WELCOME, PROJECT DUNKIRK [Po |
+
+ 
+
+Monitoring Deployments Credentials Schedules Policies Alert Rules
+
+ 
+
+E) Schedules
+
+AAA embebido test mvs
+US/Mountain
+
+Asia Pacific Log Schedule Midway 1
+Pacific/[Midway
+
+Delete Schedule Test
+Pacific/Midway
+
+enabled
+
+enabled
+
+disabledA A LE RT LO G | Cc” LOG MANAGER + WELCOME, CRISTHIAN FUERTES | MY ACCOUNT PCIREFEREE FINO SECURITY CONTENT CENTER HELP  LOGOUT
+
+Security, Compliance, Cloud.
+(e ERA O]
+
+asp tos Sea
+
+ 
+
+| Planet Express CID2 v) Name Default Updates Frequency Created By Created Date Updated By Updated Date Actions o
+o Fill in the form to modify Updates "ScheduledWeeklyTest".
+
+Monitoring
+
+a Updates Name 4  ScheduledWeeklyTest 0
+
+Messages Updates Frequency d+ () Automatic
+
+(a) Scheduled
+
+Collection 0
+
+Hosts
+
+from (2 |: 30 lo 5 30
+Sources
+Collectors
+Time Zone: j
+
+Credentials ime | (GMT-05:00) Bogota, Lima, Quito w]
+
+Schedules O Daily
+
+Deployments (a) Weekly
+
+O Monthly
+Policies
+Select days of week de : (4) Sunday [Y] Monday [%) Tuesday ¡%) Wednesday [4) Thursday ¡[v) Friday [|] Saturday
+
+Correlation
+
+Syslog
+
+Windows Eventlog PO pd 2000
+
+S3
+| Updates
+
+ALERT LOGIC” ES (O) ScheduledWeeklyTest
+% Security. Compliance. Cloud.
+CANCEL SAVE
+THREAT MANAGER SCANS LOG MANAGER WAF INCIDENTS CASES MANAGEMENT REPORTS WEB SECURITY
+] Updates Name *
+Monitoring Deployments Credentials Schedules Policies Alert Rules
+ScheduledWeekly Test
+
+Correlation
+
+li U pdate Updates Frequency
+
+Syslog O Automatic
+
+Windows Eventlog O Scheduled
+
+S3 O Never
+
+Daily TestDunkirk 3
+
+02 : 30 to 05 : 30
+Default Updates Policy
+
+Schedule Timezone *
+
+(GMT-05:00) Bogota, Lima, Quito +
+
+FilePutTest
+O Daily (8) Weekly (O) Monthly
+Select days of week
+NeverTestDunkirk
+Sunday
+Monday
+NeverTestFair1 Tuesday
+
+Wednesday

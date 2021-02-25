@@ -1,0 +1,3077 @@
+HEDAM - HERRAMIENTA DE APOYO PARA LA EVALUACIÓN DE TÉCNICAS
+
+APROPIADAS PARA REALIZAR FIGURAS ACROBÁTICAS, EN LA CREACIÓN
+DE DANZAS HECHA POR UNA MUJER.
+
+ 
+
+Universidad
+del Valle
+
+ 
+
+DANIELA ROLDAN QUIROGA
+
+CÓDIGO 201255183
+daniela.roldan.quiroga O correounivalle.edu.co
+
+JORGE ARLEY CASTAÑO RODRIGUEZ
+CÓDIGO 201153641
+
+jorge.arley.castano Ocorreounivalle.edu.co
+
+DIRECTOR
+ALBEIRO APONTE VARGAS, MS.ec
+
+UNIVERSIDAD DEL VALLE
+
+FACULTAD DE INGENIERÍA
+ESCUELA DE INGENIERÍA DE SISTEMAS Y COMPUTACIÓN
+TULUÁ
+2016NOTA DE ACEPTACIÓN
+
+Firma del Evaluador
+
+Firma del Director
+
+Tuluá, Valle del Cauca _/ /DEDICATORIAS
+
+Desde que tengo uso de razón
+
+siempre tuve en mi mente el gran objetivo de convertirme en el profesional que
+siempre soñaste. Hoy, cada palabra que impregno en este documento está dedicada a
+tu memoria, porque fuiste fuente de grandes valores y enseñanzas que han marcado
+cada paso que he dado, porque tu sabiduría ha alimentado mi vida, porque fuiste una
+persona intachable, hoy quiero dedicar este logro, el cual es más tuyo que mío a ti,
+Ancizar Rodríguez Ciro.
+
+También dedico este trabajo de
+grado a mis padres, María Belley Rodríguez Soto y Vicente Arley Castaño, a mis
+abuelas, María Trinidad Soto Buitrago y Ana Judith Castaño y demás familiares que
+creyeron en mi. De igual manera deseo dedicar este triunfo a mi novia, Luisa Fernanda
+Parra Rojas y amigos, que incondicionalmente siempre han estado pendiente de mi y
+siempre me apoyaron para que este proyecto se llevara a feliz término.
+
+Jorge Arley Castaño Rodriguez
+
+Dedico este trabajo de grado a cada
+una de las situaciones que se presentaron en mi vida para poder llegar hasta este punto,
+cada circunstancia y cada persona que ha nutrido mi
+
+proceso de formación y el desarrollo de este gran
+proyecto.
+
+Daniela Roldan Quiroga
+
+11AGRADECIMIENTOS
+
+El esfuerzo que requirió la realización del presente proyecto titulado: “Herramienta de
+apoyo para realizar figuras acrobáticas, en la creación de danzas hecho por una mujer”,
+no habría sido posible sin el apoyo incondicional de personas que confiaron en nosotros.
+
+Inicialmente agradecemos a Dios por brindar la posibilidad de tener un apoyo y una
+determinación para decidir adquirir una formación profesional, de rodearnos de
+nuestras familias y contar con su respaldo y comprensión.
+
+Como parte del proceso de formación, agradecemos a nuestros profesores por compartir
+con nosotros sus conocimientos, además cabe hacer un gran mérito al director Albeiro
+Aponte por su gran paciencia y compromiso para con nosotros, por su constante ayuda
+
+y guiarnos en esta culminación del proceso.
+
+Se resalta la colaboración de la asociación de baile Corpumentdanz y a sus miembros
+por el tiempo disponible. Además de la colaboración de los integrantes del laboratorio
+de multimedia y visión.
+
+Tambien a nuestros compañeros, quienes estuvieron durante casi todo el proceso de
+
+formación, además a cada una de las personas que directa o indirectamente aportaron en la
+realización y culminación de este proyecto.
+
+111TABLA DE CONTENIDO
+
+Página
+
+RESUMEN cncccccccccnnnnnnnnnnn nn RR RR RR RRE RR RR nn nn nnnnnmnnnnnna 1
+1. INTRODUCCIÓN coccccccncncnnnnncninnnnonnnnon cnc rr 2
+1.1 Descripción general ..ooooononinnnncincnnnnccnnnonocnennnnnnrnrnnnnnnnrnnnnnnnnnnrnnnnnnnrnrrrrrrrrrrnnennns 2
+1.2 Planteamiento del problema ....oooonoccccnncnnnnnononnnnnnnnenenenennnnnenenenenenennnnnnenenrnnnerennn 2
+1.2.1 Formulación del problema ....oooccconcccnnccnncccnnnnnnnncnnoncnnnnnnnnnnnnnnnnnnnnnrnnnnrennnnnns 4
+
+LL ODJELIVOS coccccccnnncnnnnancnnnnnnnononnnn nn rr n nn ener enn rrrrrrrrerinnns 5
+1.3.1 Objetivo general ..ocoooooncccnnconccnonencnnnnnnnnnnnnnnennnnnnnnnnnnnnnnrrrnnnnnnnrnnnnrrrrnnnnrrrrnrnnnnns 5
+1.3.2 Objetivos ESpecÍÍICOS .ccooooccccnonncinconnnennnnnnnnnnnnnnenrnnnnnnnnnnnnnnrrrnnnrrrnrnnnnrrrrnnnerrnnnnas 5
+1.3 Estructura del dOCUMENTO ..cccccccccncnnnnonnnannnnnenennnnnnnnnnnnnnnnnnnnnnnnn rn rre 6
+2. MARCO REFERENCIAL c0cccccconooocnncccnnnnnnnnncononnnnnnnnnnnnennnnnnnrnnnnnnnrnnnnnnnrrncrnnnnnerinnnnns 7
+2.1 Marco TeÓTICO coooccccnccconononnccnnnnncnonnnnnnnrrnnnnnnn rra ner r nn rn rn nen rnrnnner rn nnnnnnrrrrrrnrnnnnnnrenn 7
+IT 7
+2.1.2 Skeleton Tracking ..oocooonccconcccnonnnnnonanenonnnnncnnnnrnnnnrnnnnnnnnnnnrnrnnnrrrnnnrrrnnnrrrnnnnrnnnas 10
+2.1.3Librerias para el uso del KinNect ..ooooccconccconcconccnconcnnnncnnonencnnnncnnenonnnnnnnenrnnenennncnes 13
+2.1.4 Entorno de desarrollo ...oooonconccconnconncnncconcnoncnoncncnnnnoncnonnnonnronnrrnnnronnrenenenarnnnnnnns 14
+2.2 Marco Conceptual cnccccconononccnnnnnnnnnnnnonnnnnnnnnnnnnnnnnrrn rn nn nnnrrrrnrnnnnnrrnrnnnnnrrrrrrennnnecnnnnns 15
+II 15
+IRIS VA 15
+IIA 15
+A APP... PP... A 15
+IAN AN 15
+2.2.6 Middleware ..ccoocccocconcccnnnconccnncnonccnncnonnrrnnrnnnrrnnrrrnnrrnnrrnnrrnnrrnnrrrnnrrnnrrnnrennrrenaes 15
+2.2.7 Odometría visual ...ooccoocconncnncccncncnnncnncconcnonnnoncnnnncnoncnnnnrnnnronrrrnnrrnnnnenrrennrencnnns 15
+IAS 15
+2.2.9 Windows Presentation FOUNdAtiON ..occoooccccnonnccnnnnnncnnnnnnonnnnnnnnnnnnnnnrnnnnnnnnnnanennos 15
+2.3 Estado del art8 .ooocccccononccnnnnncnnonnnnncnnnnroncnnnrrnnnnnnrnnnnnnnrrnnnnrrnrnnnrrrrrnnnrrrnnnnrrrennnncrenns 16
+3. DESARROLLO DEL PROYECTO cnoooncccnnnnnnnnnnnnnnnnennnnnnnnncnnnnnnnnnrrrnnnnnrrnnnnnnnnnanernnan 18
+3 ANÁLISIS cocicononononncnnncnnncnnncncncnccc 18
+3.1.1 Figuras acrobáticaS ...cccooocccconccnconnnncnnnnnncnnnnncnnennnnnnnnnrnnnnrrnnnnrrnnnrrrrnnnrernnacinnnna 183.1.2 Modelamiento MateMáticCO ....oooocccnnnnnnnononono non arena rana r nro n ono nononanananoss 23
+
+3.1.3 Requerimientos funcionales ....ooocoonccnoccnoconocooncnononnnonnnonnconoco nono nono nonnnnnn non nnnnnnnnnnn ron nnnnnons 25
+AN 26
+3.2.1 ATQUÍteCtUIA coooooocnocononononooncoononnnonncon nono non nonn non nn non rnnrnnn ron nn nn rro nn nn nr nnnrnn naar rara nrnnn ran r naar rnnrnnnos 26
+3.2.2 Diagrama de COMPONENTES ccooooocccoconoconnconnnononncon nono nonnonnnco nono ncnn nono ron n ran nana rca nrnnrrnn narran 27
+3.2.3 Diagrama de Clases ....ooonoconooniccnocononononooncoononnnonncon nono nonn non nnonnnnn noo nono ron ran ron nn non rnnnrnn rra nnnanos 27
+3.2.4 Modelo de datOS ...cooconccicciccnocicccocccononnonncnncononnnonncnnonn nono cnnonncnnc conan n corran naar ron rnnc nr ran nnnnins 28
+
+3.3 IMPLEMENTACIÓN eocccocococoooocccoonoonnononcnnnnn conocen cenar 31
+3.3.1 CodifiCaciÓN....oconconooincnocnncnnonoononnconcnononncnnonncnnc nn nono nr nn non n coronan nano narran ran r an nnna nn ran nan ncnnnns 31
+AA AC 31
+3.3.3 Comportamiento del SiSteMa.....o.ooonccnncninnnnonnonncononononncnononnnco nono nono nonnnnnncnn nono non n ran rra nncnnos 31
+
+4 PRUEBAS Y DISCUSIÓN DE RESULTADOS eocococconiconinnconicioninconnneniononconcnnannaniocosenrenieninss 43
+AN 43
+LI ANN 45
+4.3 Prueba No ooococonicicccoconoconncononncnnnonnonncnnonn nono no nn cnn enn n one n enn Ran non no nn a nn Ran nana nn nn nann nn nrnnann nan nrnnanncnns 47
+LS IAN 49
+
+5 CONCLUSIONES Y PROYECCIONES cooccocccconocnonnonconcononncnonnonnonnonnonnonnoncnnnncnn cana nrnnnnncnncnnons 53
+S.1 CONCIUSIONES cocooocccccccoconncocnonononanononncononnnonocnnonn cnn on nono near nan n anno nan enn nan non n nan nn non nen nana nn nanrnnnannannss 53
+A NIN 54
+¡INTI 55
+INIA 58
+NI 58
+IN 59
+NI 60LISTA DE ILUSTRACIONES
+
+ 
+
+Ilustración 1 Equilibrio invertido en las manos 3
+Ilustración 2 Sensor Kinect. 7
+Ilustración 3 Diagrama del hardware de Kinect 208
+Ilustración 4 Funcionamiento del modelo RGBa. 9
+Ilustración 53 Funcionamiento de los bytes en la cámara de profundidad 9
+Ilustración 6 Skeleton Tracking. 10
+Ilustración 7 Posturas del Kinect. 11
+Ilustración 8 Rastreo del esqueleto con imágenes de profundidad. 12
+Ilustración 9 Interacción del softwares y el hardware con la aplicación 14
+Ilustración 10 Figura acrobática 19
+Ilustración 11 Sección fotográfica 19
+Ilustración 12 Triangularización y toma de ángulos 20
+Ilustración 13 Puntos estratégicos. 20
+Ilustración 14 Captación del esqueleto 23
+Ilustración 15 Formación de ángulo 23
+Ilustración 16 Arquitectura 26
+Ilustración 17 Diagrama de componentes 27
+Ilustración 18 Diagrama Conceptual 28
+Ilustración 19 Estructura del modelo de datos 29
+Ilustración 20 Diagrama de lectura y escritura de archivos 30
+Ilustración 21 Comportamiento de la aplicación 32
+Ilustración 23 Seleccionar ruta donde se guardan los resultados 34
+Ilustración 24 Creación del arreglo de esqueletos 35
+Ilustración 25 Detección del primer esqueleto A A 36
+Ilustración 26 Detección del segundo esqueleto a 36
+Ilustración 27 Detección del primer esqueleto _36
+Ilustración 28 Diagrama de flujo, proceso de detectar esqueletos 37
+Ilustración 29 Primer bailarín detectado 38
+Ilustración 30 List completa de bailarines _ 39
+Ilustración 31 Vectores resultantes 40
+Ilustración 32 Modelo general archivo pdf 42
+Ilustración 33 Archivo txt, con el calculo de los ángulos mediante el aplicativo. 43
+Ilustración 34 Interfaz de Geogebra, con el calculo de los ángulos mediante Geogebra. 44
+Ilustración 35 Cantidad de aciertos 44
+Ilustración 35 Cantidad de aciertos 49
+Ilustración 36 Representación de datos de los novatos 50
+Ilustración 37 Representación de datos de un novato y una bailarina 50
+Ilustración 38 Representación de datos de una novata y un bailarín 51
+Ilustración 39 Representación de datos de los bailarines 51
+Ilustración 40 Prueba para las condiciones de uso del Kinect 58
+Ilustración 41 Pruebas con expertor 59
+Ilustración 42 Pruebas con novatos 60
+
+viIlustración 43Pruebas con novato hombre, bailarina mujer 60
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Ilustración 44 bailarín hombre y novata mujer 3535
+Mustración 45 bailarines A 61
+LISTA DE TABLAS
+
+Tabla 1 Resultados esperados. 5
+Tabla 2 Representación de la triangularización de los ángulos en la mujer 21
+Tabla 3 Representación de la triangularización de los ángulos en el hombre 22
+Tabla 4 Siglas 29
+Tabla 5 Variables de los ángulos 39
+Tabla 6 Matriz 4]
+Tabla 7 Ángulos calculados por el aplicativo vs Ángulos calculados con Geogebra 44
+Tabla 8 Distancia entre el usuario y el Kinect, con respecto al suelo 45
+Tabla 9 Distancia entre el usuario y el Kinect, con una altura de 40 cm con respecto al suelo _____ 46
+Tabla 10 Pareja 1, prueba. Cantidad de aciertos 48
+Tabla 11 Pareja 1, prueba 2 48
+Tabla 12 Pareja 1, prueba 3 48
+Tabla 13 Pareja 2, prueba 1 48
+Tabla 14 Pareja 2, prueba 2 48
+
+ 
+
+Tabla 15 Pareja 2, prueba 3 48
+
+ 
+
+vilLISTA DE ECUACIONES
+
+Ecuación 1 Característica f para cada pixel x de la imagen de entrada.
+
+Ecuación 2 Ecuación de magnitud de un vector
+
+Ecuación 3 Ecuación de la norma de un vector
+
+ 
+
+ 
+
+ 
+
+Ecuación 4 Producto punto
+
+Ecuación 5 Ángulo resultante
+
+ 
+
+viil
+
+12
+24
+
+24
+24
+24RESUMEN
+
+El presente trabajo consiste en la evaluación de figuras acrobáticas que se usan en la creación
+de coreografias de baile. Tiene como objetivo principal, convertirse en una herramienta de
+apoyo para mujeres (docentes) que enseñan danzas, debido a que por su estructura fisica
+pueden versen limitadas en el momento en el que desee diseñar una coreografia que contenga
+alguna figura acrobática. El proyecto se desarrolló bajo la motodología de Proceso Unificado
+Ágil (AUP) adoptando una arquitectura Modelo, Vista, Controlador (MVC) junto al
+paradigma de programación orientado a objetos (POO).
+
+Para su implementación, se utiliza la tecnología del sensor Kinect que ayuda al
+reconocimiento del esqueleto y el movimiento de los usuarios. Además, se apoyó en
+el calculo de ángulos que se forman en algunas partes del cuerpo, empleando el
+software GeoGebra para el cálculo de ángulos que se forman en algunas partes del
+cuerpo. Por último, para obtener una evaluación, se creó un algoritmo que extrae
+coordenadas tridimensionales correpondientes a unas articulaciones especificas del
+usuario, agrupandosen por vectores, buscando con ello el calculo y la comparación de
+cada uno de los ángulos formados y así proporcionarle al usuario conocer si la figura
+acrobatica se esta realizando de manera correcta.1. INTRODUCCIÓN
+
+1.1 Descripción general
+
+La danza se toma como una forma de comunicación no verbal de la cual el instrumento
+esencial es el cuerpo y sus movimientos. Es reconocida a nivel mundial y en cada región se
+vive de una manera diferente y única. Aunque, existen bailes como el ballet que utiliza
+estructuras invariables independientemente del lugar donde se practique.
+
+La danza utiliza un elemento fundamental llamado coreografia. Esta consta de una estructura
+de movimientos que se planifican minuciosamente de acuerdo a la idea o el tema que el
+
+coreógrafo desee plasmar?. Muchas de las coreografías estan conformadas de una estructura
+
+bastante particular que son las figuras acrobáticas. Su enseñanza, requiere de esfuerzo físicos,
+por lo tanto pueden presentarsen complicaciones en su realización y su enseñanza cuando una
+mujer coreógrafa se enfrenta a instruir alguna de ellas, debido a su contextura física y las
+posibles limitaciones.
+
+Para facilitar este proceso, se busca desarrollar una herramienta tecnológica prototipo de lo
+que puede ser un evaluador de una figura acrobática que muestre la utilización de las TICS
+para apoyar el proceso de enseñanza y aprendizaje de los bailarines que se enfrentan a colocar
+una figura acrobática en una coreografía.
+
+1.2 Planteamiento del problema
+
+Una de las necesidades más grandes del ser humano y en general de los seres vivos es la
+comunicación; la cual, se emplea para expresar sus pensamientos. Por este motivo, el hombre
+ha ideado una variedad de formas que le permiten expresarse, estas pueden ser desde cosas
+tan simples como el lenguaje corporal, hasta formas más elaboradas como lo son las
+diferentes artes, los medios de comunicación, los aparatos electrónicos, entre otros.
+
+El método más importante que permite realizar todo este proceso de comunicación y el que
+
+sirve como punto de partida, es el lenguaje corporal?. Debido a esto, surge la danza como una
+forma de expresión de sentimientos y emociones. Este tipo de comunicación es realizada con
+
+todas las partes del cuerpo y normalmente de un acompañamiento musical?.
+
+! https://es.wikipedia.org/wiki/Coreograf.C3V% A Da Consultado el 21 de octubre de 2015 2
+https://habilidadsocial.com/el-lenguaje-corporal/ Consultado el 15 de enero de 2016
+
+3 www.danzaballet.com/tipos-de-danza. Consultado el 23 de octubre de 2015.
+2Según el artículo “las lesiones en la danza primera parte” publicada en la Revista de
+Colección Danza Ballet de Barcelona[1], que es especializada en el estudio de danza en
+Ballet Clásico, se resalta la importancia de tener en cuenta las características físicas de cada
+uno de los bailarines, debido a que pueden presentarse limitaciones y restricciones que
+impiden llevar a cabo una técnica perfecta, tales como la estatura, la contextura, el estado
+físico y en la edad del bailarin, además de la falta de conocimiento de la técnica. Esta ultima,
+puede que no plantee problemas por aquéllos en los que las condiciones de su cuerpo son
+ideales, pero para los que no las poseen, pueden presentarsen pequeñas lesiones que tienen la
+posibilidad de permanecer allí durante un largo tiempo convertirtiendose en una lesión
+crónica con períodos de dolor intenso y de malestar controlado. Sin embargo, es muy común
+encontrar bailarines que descuidan su posición en los ensayos lo que lleva a exponerse a una
+posible lesión. Ninguna persona, trabaja con la misma intensidad, existe siempre un sentido
+de movimiento facilitado y otro restringido que es justamente, el que merece más atención a
+la hora de la ejecución de algún ejercicio, teniendo en cuenta que sus conocimientos y el
+potencial físico no deben llegar más allá de sus límites debido a que poco a poco se pueden ir
+debilitando y así causando una posible fatiga muscular y otras complicaciones en su salud.
+
+Por lo tanto, cuando una persona del género femenino se dedica al arte de crear danzas, puede
+encontrar algunos obstáculos debido a la estructura de su cuerpo. Por esto, surge una
+problemática a la hora de diseñar alguna coreografía que cuente con figuras acrobáticas.
+Normalmente para poder realizar este tipo de actividad, se necesita como apoyo el
+acompañamiento de una persona del género masculino que cuente con la experiencia y el
+conocimiento suficiente de las técnicas que se van a llevar a cabo y esto debido, a que él
+puede con más facilidad realizar esfuerzos físicos. Si en algún momento no se cuenta con esta
+ayuda, es poco profesional tomar como apoyo a un estudiante que no posee el conocimiento
+adecuado, poniendo en riesgo la salud y la integridad física tanto del estudiante como del
+docente.
+
+En la ilustración 1, se evidencia que en una
+actividad aparentemente tan simple como la
+de pararse y sostener el peso del cuerpo en
+las manos, ya es un trabajo que necesita por
+lo menos un control del peso del cuerpo y
+la suficiente fuerza de en las manos para
+sostenerse. Si se realiza un análisis más a
+fondo de esta imagen, se puede notar que el
+cuerpo se encuentra arqueado y totalmente
+rígido, las manos están posicionadas hacia
+el frente y la cabeza hacia atrás, estas son
+técnicas para poder llevar a cabo este tipo
+de actividades y que no haya posibles
+lesiones.
+
+ 
+
+Ilustración 1 Equilibrio invertido en las manos.
+
+3Sin embargo, la enseñanza de la danza ha sido tradicionalista y el apoyo del desarrollo de
+software casi no es una opción viable a la hora de la creación de danzas, debido a lo
+contradictorio que puede ser, ya que el uso de tecnología puede causar sedentarismo y una
+limitante para la creatividad, teniendo en cuenta que algunas formas de danza tienen
+tradiciones antiguas, codificadas y registradas, que pueden ser fuente de inspiración. A su
+vez, otras son tradiciones folklóricas no registradas de las que se sabe muy poco, dice Judith
+Lynne Hanna, investigadora de la danza en Maryland. La tecnología de computación, aunque
+promisoria, está aún muy lejos de la mente de los bailarines. Vaslav Nijinsky, considerado
+uno de los más grandes bailarines del mundo, dijo una vez: Pienso poco y por lo tanto atiendo
+todo lo que siento... Siento a través de la carne, no del intelecto [2]. Aunque cabe mencionar,
+que por medio de la tecnología se han generado avances importantes a nivel creativo,
+permitiendo pensar, reflexionar y proponer nuevos lenguajes a la danza. Los aportes que la
+ciencia ha hecho a la danza, se pueden visualizar, por ejemplo, a través de las investigaciones
+realizadas por el coreógrafo Merce Cumingham][3], quien en conjunto con la universidad de
+Simon Fraser (Canadá) realiza una colaboración a travez del desarrollo del programa
+computacional Lifeform, dando origen a un importante software de creación de imagen 3D,
+que contiene interacciones con el público, captura de sonido y movimiento, realidad virtual,
+siendo estas algunas formas de observar y se reflexionar sobre la danza. Sin embargo, aunque
+este tipo de software es completo y a su vez robusto no soluciona la problemática
+anteriormente descrita, esto se debe a que no es asequible fácilmente por los bailarines.
+
+Es por ello que llevar un control meandite un software que realiza un análisis pertinente de
+imágenes, sería de gran ayuda en el proceso de la realización y evaluación de figuras
+acrobáticas para que una mujer pueda evitar posibles lesiones en sus bailarines estudiantes.
+
+1.2.1 Formulación del problema
+
+¿Cómo se puede apoyar a una mujer en la creación de danzas para que pueda realizar las
+
+técnicas adecuadas que se deben de llevar a cabo y lograr hacer una figura acrobática?1.3 Objetivos
+
+1.3.1 Objetivo general
+
+Desarrollar una aplicación prototipo de escritorio, que sirva de apoyo a la mujer en la
+explicación de la realización de técnicas de alguna figura acrobática, permitiendo la
+evaluación de las mismas durante el proceso de la creación de danzas.
+
+1.3.2 Objetivos específicos
+
+Tabla 1 Resultados esperados.
+
+Objetivo Resultado esperado
+
+Documentos de técnicas que se deben de
+llevar a cabo en una figura acrobática y
+
+Determinar las características| así seleccionar las que se van a servir
+
+2d : como guías, obteniendo el conocimiento e
+de máximo dos figuras] de la Sección
+
+acrobáticas, para una posterior] medición de ángulos y pendientes de la 3.1.1
+
+comparacion. posición de las
+
+diferentes partes del cuerpo de los
+bailarines.
+
+Codificación el modelo que ha diseñado
+
+Construir el modelo de datos |para obtener una representación
+para cada una de las  figuras|computacional que posteriormente se va | Sección
+
+acrobáticas determinadas. a comparar por medio de un algoritmo 3.2.4
+de matching.
+
+Determinar la correspondencial Documentos de análisis, selección e
+
+entre la estructura del modelo [implementación de un algoritmo que
+de la figura acrobática con lalidentifica, clasifica y compara las| Sección
+
+información capturada por el|características similares del modelo y los | 3.2.4
+
+kinect. datos dados por el kinect.
+
+Distribución adecuada de los elementos
+Integrar la codificación con la [que tendrá la interfaz gráfica; además de
+
+interfaz gráfica que valore los [las pruebas pertinentes, la realización del | Sección 3.3
+
+sesuMiados sados PO la de Ta documento final y la implementación del
+aplicación prototipo.
+sistema como tal.
+
+Probar la aplicación prototipo
+con diferentes figuras| Validaciones de la aplicación prototipo
+
+acrobáticas capturadas por| con diferentes Sección 4
+medio del kinect. figuras acrobáticas.1.3 Estructura del documento
+
+El presente documento es posible resumirlo en cuatro (4) apartados, los cuales plantean y
+describen un problema y muestra la solución propuesta con sus respectivos resultados. Estos
+apartados son:
+
+En el capítulo 1 se presenta una descripción general del contexto en el que se desarrollará el
+trabajo, la formulación del problema que se desea solucionar, además los objetivos
+pertinentes para su ejecución del trabajo.
+
+En el capítulo 2 se presentan los antecedentes y la situación actual de las soluciones
+propuestas para tratar el problema que tiene una mujer en la enseñanza de figuras acrobáticas
+en la danza, además contiene el marco teórico donde se evidencian los temas de estudio en
+los que se fundamenta el trabajo.
+
+En el capítulo 3 se describe la metodología que se empleó a lo largo del desarrollo del
+trabajo, se realiza un análisis y diseño del sistema, utilizando los conocimientos descritos en
+los capítulos previos, además, se describen los diferentes elementos que constituyen este
+sistema y los algoritmos aplicados en cada uno de ellos.
+
+En el capítulo 4 se evidencia la evaluación del sistema, las diferentes pruebas realizadas y los
+datos obtenidos que posteriormente serán analizados con el fin de obtener las conclusiones.2. MARCO REFERENCIAL
+
+2.1 Marco Teórico
+
+2.1.1 Kinect
+
+Kinect [4], conocido por el code name Project Natal, es un dispositivo creado por Alex
+Kipman y desarrollado por Microsoft para Xbox 360, que permite interactuar a los usuarios
+con la consola a través de gestos corporales y la voz. Es un periférico para videojuegos que
+prescinde de mandos gracias a un sensor de detección de movimientos. Este sensor está
+previsto para que sea utilizable en ordenadores que tengan un sistema operativo Windows 7
+en adelante, está basado en una cámara periférica que se conecta a la videoconsola Xbox 360
+reconociendo los gestos del jugador, su rostro, voz, así como sus movimientos y los objetos
+estáticos dentro un campo visual [5].
+
+AO 0
+
+ 
+
+Ilustración 2 Sensor Kinect. Tomado de?
+
+El Kinect se ha convertido en una herramienta moderna muy útil, el cual, gracias a la
+información que se captura por medio de este, se pueden crear aplicaciones de software
+diseñadas por desarrolladores para mejorar la interacción con elementos virtuales a través del
+movimiento del cuerpo humano, por ejemplo Dave et al. [6], ha desarrollado un sistema de
+interacción con un ordenador a través de gestos (teniendo en cuenta los típicos que se asocian
+a un ordenador, tales como el movimiento del ratón y el doble clic). De la misma forma se
+han creado aplicaciones NUI (Natural User Interface), con el fin de que los usuarios tengan
+una mejor experiencia al momento de interactuar con algunos dispositivos electrónicos, por
+ejemplo un Televisor que cambie de canal al detectar el movimiento de las manos hacia la
+derecha o izquierda.
+
+4 http://www.taringa.net/comunidades/xbox360/6769062/F-A-Q-Todo-lo-que-tenes-que-saber-sobre-Kinect.html.
+Consultado el 14 de Abril de 2016
+
+7Arquitectura de Kinect
+
+Estructuralmente, el sensor kinect se asemeja a una cámara web que es procesado por el
+PS1080 System-on-a-chip de PrimeSense, incluye un sensor de profundidad, cámara RGB,
+un arreglo de 4 micrófonos que aíslan las voces del ruido ambiental permitiendo utilizar al
+Kinect como un dispositivo para charlas y comandos de voz en la consola Xbox, además de
+
+un sensor de infrarrojos (emisor y receptor), que es capaz de capturar el esqueleto humano,
+
+reconocerlo y posicionarlo en el plano.?
+
+En la Ilustración N. 3, se observa la estructura del hardware del sensor kinect, cuyo
+procesador de imágenes es capaz de interpretar los movimientos que se registran en los
+objetos capturados por la cámara de Kinect en eventos con significado que aparecen en
+pantalla. Los movimientos buscados por el algoritmo son contextualizados. El chip ejecuta
+todos los algoritmos de adquisición de imágenes de profundidad de la escena a partir del
+sistema de proyección de un patrón de puntos infrarrojos llamado LightCoding.[7]
+
+OD US Mandatory
+ts Optonal
+
+vepth Image Conor image
+
+o e o
+
+li
+
+pOsyuo)
+Os yuo >
+P
+
+3
+¿
+
+tp
+
+ 
+
+— E
+Hash
+
+| | usezo
+
+6
+
+1 M4) Cry
+
+Ilustración 3 Diagrama del hardware de Kinect. Tomado de:
+
+Kinect funciona bajo un esquema maestro-esclavo, donde el maestro es la computadora y el
+esclavo es el Kinect. El chip genera y mantiene en memoria los cuadros de imagen de
+profundidad y color a una velocidad de 30 cps (cuadros por segundo). El acceso a estos datos
+se realiza a través de un puerto USB 2.0 especial. El procesamiento del audio y el control de
+USB es realizado por un microprocesador Marvell Technology que funciona independiente al
+procesamiento de imágenes.
+
+> http://www.kinectfordevelopers.com/es/2012/11/06/que-es-el-dispositivo-kinect/ Consultado el 15 de Abril
+de 2016
+
+9 http://ideasgeek.net Consultado el 15 de Abril de 2016
+8Cámara de profundidad
+
+Kinect utiliza una cámara RGB que obtiene imágenes en color y 2 cámaras de infrarrojos para
+medir la distancia a la que se encuentran los elementos que están en el campo de visión. [8]
+Gracias al SDK de Kinect para Windows se puede obtener los datos de las cámaras y trabajar
+con ellos para utilizarlos en diversas aplicaciones.
+
+Las imágenes que se obtienen del sensor se codifican en un vector de bytes. Para entender
+
+esta codificación hay que saber primero como se estructura una imagen.
+
+Una imagen se compone de un conjunto de píxeles. Cada pixel de la imagen tiene 4
+componentes que representan los valores de los colores rojo, verde y azul más una
+componente que corresponde con el valor de transparencia (alfa), así como se muestra en la
+Ilustración N. 4, en el caso de imágenes RGBa, o un valor vacío, si es de tipo RGB.
+
+Píxel 105 182 103 Vacio
+
+MES 4
+
+ 
+
+Ilustración 4 Funcionamiento del modelo RGBa. Tomado de. [7]
+
+Cuando se requiere el uso de las cámaras de profundidad el procedimiento varía. Al igual que
+con la cámara RGB también obtendremos un vector de bytes pero en esta ocasión estos no
+corresponden con los valores de los componentes de un píxel sino con la distancia del píxel al
+sensor.
+
+Al tener 2 cámaras de infrarrojos cada píxel se corresponde con 2 bytes en el vector, siendo
+
+éstos el valor de la distancia de ese píxel a cada cámara. La organización de los píxeles es la
+misma que con la cámara RGB, los 2 primeros bytes es la distancia del píxel de la posición de
+arriba a la izquierda al sensor y los 2 últimos son del píxel de abajo a la derecha, como se
+presenta en la ilustración N. 5.
+
+Organización de pixeles en el vector (cada pixel tiene 2 bytes)
+| y
+
+aaa - E]
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Ilustración 53 Funcionamiento de los bytes en la cámara de profundidad. Tomado de: [8]2.1.2 Skeleton Tracking
+
+El Skeleton Tracking [9], es una funcionalidad que logra identificar ciertas partes del cuerpo
+de las personas encontradas en el campo de visión del sensor, el cual está basado en un
+algoritmo. Obteniendo de esta funcionalidad puntos que referencian diferentes partes del
+cuerpo. Cada una de ellas es abstraída como una coordenada 3D o articulación. Un conjunto
+de articulaciones forman un esqueleto virtual para cada imagen de profundidad de Kinect, es
+decir, se obtienen 30 esqueletos por segundo. Las articulaciones generadas varían de acuerdo
+
+a la biblioteca del Kinect que se utilice. En OpenNI/NITE?, cada esqueleto está formado por
+
+15 articulaciones =f , ,  jcon> 0 cuyas coordenadas se encuentran expresadas en
+milímetros con respecto a la posición de Kinect. En el SDK de Microsoft y en la consola
+Xbox se añaden 5 articulaciones (los tobillos, las muñecas y el centro de la cadera) [10].
+
+HAND _RIGHT HEAD SHOULDER CENTER HAND LEFT
+
+WRIST_RIGHT WRIST_LEFT
+ELBOW RIGHT ELBOW LEFT
+SHOULDER_RIGHT SHOULDER_LEFT
+
+SPINE
+
+   
+   
+ 
+       
+
+HIP_CENTER
+
+HIP_RIGHT HIP_LEFT
+
+KNEE_RIGHT KNEE_LEFT
+
+ANKLE_ RIGHT ANKLE LEFT
+FOOT_RIGHT FOOT_LEFT
+
+Microsoft” Research
+
+Kinectfor Windows sDK beta
+Ilustración 6 Skeleton Tracking. Tomado de?
+
+Por otra parte el dispositivo Kinect es capaz de reconocer cuando una persona se encuentra
+sentada O parada y de esta forma el Skeleton Tracking reconoce diferentes articulaciones, por
+ejemplo, si la persona se encuentra de pie puede reconocer 20 articulaciones, a diferencia de
+cuando se encuentra sentada, tan solo reconoce 10 Como se muestra en la Ilustración N.7.
+
+/ OpenNI/NITE. Natural Interaction Middleware, es el más avanzado y robusto
+middleware de visión disponible en la actualidad, el cual cuenta con un host reducido, una
+carga mínima de la CPU y un soporte multiplataforma.
+
+8 https://blogs.msdn.microsoft.com/esmsdn/201 1/08/09/reto-sdk-de-kinect-detectarposturas-con-skeletal-tracking/
+
+10La detección y el seguimiento del usuario, se lleva a cabo por medio de la cámara de
+profundidad cuyas etapas se presentan en la ilustración N. 8. Cuando se adquieren datos a
+través de la cámara de profundidad, es decir, la imagen con la información de la distancia de
+los objetos o del usuario, es analizada para extraer información que esté relacionada con el
+usuario, su posición y la pose realizada. El sensor contiene dentro de su software un
+algoritmo de detección que consiste en dividir el cuerpo del usuario en 31 partes que son
+reconocidas en un plano tridimensional.
+
+Las imágenes de profundidad proporcionan mayor calidad en condiciones ambientales
+ligeras, es decir, en espacios en donde la luz solar no afecta de forma directa. Para segmentar
+la imagen del cuerpo del usuario se utiliza un clasificador de imágenes, cuyo algoritmo está
+basado en un árbol de decisiones. Este algoritmo utiliza una base de datos con una similar que
+contiene aproximadamente 100000 poses para cada imagen. Para establecer la decisión de
+que imagen corresponde a la imagen del usuario se establecen diferentes características. Las
+características están definidas como una función (., ) que define una imagen Í y una
+posición x, además de un parámetro 6 que describe las características de la imagen dentro del
+espacio tridimensional. A través de estas características, el algoritmo detecta que imagen se
+asemeja a la imagen almacenada dentro de la base de datos, del cual el sensor obtiene
+articulaciones o puntos específicos del cuerpo del usuario [10].
+
+Para obtener las articulaciones del cuerpo del usuario se llevan a cabo tres pasos:
+
+ 
+
+ 
+
+ 
+
+ 
+
+Un estimador de densidad por cada parte del cuerpo del usuario, basado en la
+probabilidad de la superficie del área de cada pixel
+
+Técnica para encontrar eficiencia en la densidad
+Algoritmo que obtiene la aproximada localización de los puntos o articulaciones
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+9 https: //blogs.msdn.microsoft.com/juank/2013/03/12/programar-en-k4w-kinectfor-windows/
+
+11La detección de articulaciones tiene una precisión alta la cual es de un 91,4% de probabilidad
+
+de ser localizados correctamente dentro del plano tridimensional.
+
+ 
+
+MM ——.
+Clasificación se
+Imagen de > Esqueleto
+9.1 4 3» de partes
+profundidad virtual
+
+del cuerpo
+
+Ilustración 8 Rastreo del esqueleto con imágenes de profundidad. Tomado de: [10]
+
+La técnica de rastreo del esqueleto inicia tomando una sola imagen de profundidad de Kinect
+(de 640 X 480 pixeles). Para clasificar un pixel x de la imagen de entrada, se comienza en la
+raíz de un árbol del clasificador y se evalúa repetitivamente según la ecuación 1 (que permite
+saber si un pixel x está cerca o lejos de Kinect) para seguir la rama izquierda o derecha de
+acuerdo al umbral T en el nodo. Si la ruta conduce a un nodo hoja, se sabe que el pixel x
+pertenece a la parte Cí del cuerpo.
+
+Para cada pixel x de la imagen de entrada, la característica f se calcula con
+
+Ga+ ( —>)2t —)
+
+Ecuación 1 Característica f para cada pixel x de la imagen de entrada. Tomada de: [10]
+
+Donde O es la profundidad del pixel x y los parámetros ( , ) son desplazamientos en coordenadas globales que al normalizarse por 1 ¿O
+permiten que la característica sea invariante a la profundidad y a la traslación en el espacio tridimensional.
+
+122.1.3Librerias para el uso del Kinect
+
+Microsoft Windows SDK
+
+El Microsoft Windows SDK[11] (Software Development Kit) es un kit de desarrollo de
+software de Microsoft que contiene archivos de cabecera, bibliotecas, muestras,
+documentación y herramientas que utilizan las API necesarias para desarrollar aplicaciones
+para Microsoft Windows y .NET Framework 3.0/.NET Framework 3.5. El actual Windows
+SDK se puede utilizar para escribir aplicaciones que se dirigen a Windows XP y Windows
+Server 2003, así como Windows Vista y Windows Server 2008, mientras que el más antiguo
+Platform SDK puede ser utilizado para desarrollar aplicaciones para Windows 2000,
+Windows XP y Windows Server 2003. El Windows SDK sustituye al Platform SDK, al
+WinFX SDK y al .NET Framework 2.0 SDK. El paquete contiene amplia documentación y
+cerca de 1000 ejemplos. Á pesar de que el propio SDK está disponible de forma gratuita, la
+obtención de los SDK requiere que la copia de Windows esté validada.
+
+SDK
+
+El SDK[10] para el Kinect de Windows, es un framework desarrollado por la empresa
+
+10
+
+PrimeSense”” que ofrece gran facilidad para el desarrollo de aplicaciones utilizando el sensor
+
+Kinect. Este SDK ofrece la manipulación de la mayoría de los dispositivos de hardware del
+Kinect, siendo esta compatible con la librería NIT'E de PrimeSense que contiene algoritmos
+
+para el procesamiento de imágenes, detección y seguimiento de individuos. Los lenguajes
+
+utilizados por el SDK son CA, C++ y las herramientas Matlab!' y Labview!?.
+
+El SDK incluye:
+
+ 
+
+Drivers para usar Kinect con Windows
+
+ 
+
+ 
+
+ 
+
+APY's, interfaces de los dispositivos con documentación para desarrolladores
+
+ 
+
+ 
+
+ 
+
+Ejemplos de código de fuente, como lo indica la ilustración N. 9.
+
+ 
+
+1 . ru Y ., . Y . . . . ru
+y PrimeSense Era una compañía de detección 3D israelí, era reconocida por licenciar el diseño de
+
+hardware y de chips usados para la detección de movimiento en el Kinect de Microsoft para Xbox 360
+en 2010.
+
+11 Matlab es una herramienta de software matemático que ofrece un entorno de desarrollo
+integrado (IDE) con un lenguaje de programación propio (lenguaje M).
+
+12 LabVIEW es una plataforma y entorno de desarrollo para diseñar sistemas, con un lenguaje
+de programación visual gráfico.
+
+13Sensor Array
+
+imags Siraam
+
+] De 01h) A NUI Library
+
+>
+
+pdio Siream
+
+    
+
+Ilustración 9 Interacción del softwares y el hardware con la aplicación. Tomado de: [10]
+
+Kinect Developer Toolkit
+
+El kinect para Windows Developer toolkit [12] contiene información actualizada y ejemplos
+de código fuente, Kinect Fusion, Kinect Interations, Kinect Studio y otros recursos que
+simplifican el desarrollo de aplicaciones usando el dispositivo Kinect
+
+ITextSharp
+
+¡TextSharp[13] es una librería, de código abierto (open source) y específicamente para .Net,
+que nos permite crear y modificar documentos PDF. Sirve para manipular archivos PDF,
+RTF, y HTML en Java y C. Esta librería es capaz de rellenar formularios, mover páginas de
+un PDF a otro, y otras cosas. Estas extensiones son a menudo mutuamente excluyentes. Una
+clase te permite rellenar en formularios, mientras una clase diferente e incompatible hace
+posible copiar páginas de un PDF a otro.
+
+El soporte de PDF de ¡Text es, sin embargo, bastante extensivo. Esto soporta firmas basadas
+en PKI de PDF, cifrado de 40-bit y 128-bit, corrección de colores, PDF/X, gestión de colores
+por perfiles ICC, y es anfitriona de otras características.
+
+2.1.4 Entorno de desarrollo
+
+Visual Studio
+
+Visual Studio [14] es un conjunto de herramientas y otras tecnologías de desarrollo de
+software basado en componentes para crear aplicaciones eficaces y de alto rendimiento. Es un
+entorno de desarrollo integrado (IDE, por sus siglas en inglés) para sistemas operativos
+Windows. Soporta múltiples lenguajes de programación tales como C++, C+, Visual Basic
+.NET, F*, Java, Python, Ruby, PHP; al igual que entornos de desarrollo web como ASP,
+NET, MVC, Django, entre otros.
+
+Visual Studio permite a los desarrolladores crear sitios y aplicaciones web, así como servicios
+web en cualquier entorno que soporte la plataforma .NET (a partir de la versión
+
+.NET 2002). Así se pueden crear aplicaciones que se comuniquen entre estaciones de trabajo,
+páginas web, dispositivos móviles, dispositivos embebidos, consolas, etc.
+
+142.2 Marco Conceptual
+
+2.2.1 Coreografía [15]: es el arte y la técnica de componer y dirigir bailes o danzas,
+siendo un conjunto pautado de pasos, figuras y movimientos de un baile o una danza.
+Representación de una idea por medio de unas exigencias corporales mayor como las de
+realizar un salto o alguna maniobra, donde intervienen dos o varias personas. Son figuras
+donde un compañero de baile ocasionalmente deja el piso completamente, con un
+soporte constante de otro compañero de baile.
+
+2.2.2 Danza [16]: Ejecución de movimientos al ritmo de la música, que permite
+
+expresar sentimiento y emociones.
+
+2.2.3 Elongación [17]: es el alargamiento de un músculo, asociado principalmente con
+la ejercitación física.
+
+2.2.4 Empeine (pie) [18]: parte superior del pie, ubicada entre la caña de la pierna y el
+principio de los dedos, además es una posición utilizada por bailarines.
+
+2.2.5 Matching [19]: Cuando se habla de Matching entre dos imágenes, lo que se
+
+persigue es calcular un valor que represente el grado de similitud entre ellas (error).
+
+2.2.6 Middleware [20]: software de computadora que conecta componentes de software
+o aplicaciones para que puedan intercambiar datos entre éstas. Utilizado para soportar
+aplicaciones distribuidas.
+
+2.2.7 Odometría visual [21]: proceso mediante el cual se determina la posición y la
+orientación de una cámara o de un sistema de cámaras por medio del análisis de una
+secuencia de imágenes adquiridas, sin ningún conocimiento previo del entorno.
+
+2.2.8 Split [22]: apertura de piernas, es una posición física en la cual las piernas están
+
+alineadas una con la otra y están extendidas en direcciones opuestas formando un ángulo
+de 180*.
+
+2.2.9 Windows Presentation Foundation [23]: proporciona un modelo de
+programación unificado, para crear modernas aplicaciones de escritorio empresariales en
+Windows, que permite el desarrollo de interfaces de interacción en Windows.
+
+152.3 Estado del arte
+
+Poco a poco se logra poner en manos del desarrollo de software y de la computación aquellos
+procesos que eran o que son controlados de forma manual, con excepción de algunas
+disciplinas que son más del contacto humano y es difícil su implementación por medio de las
+disciplinas de la computación. El uso de hardware como herramientas de apoyo puede
+producir que diversos procesos sean más sencillos de implementar y además de ser más
+interactivos para el usuario.
+
+El Kinect permite realizar captura de movimiento (MoCap) en un formato estándar
+BioVisionHierarchical (bvh) [24] que puede ser usado posteriormente en un software
+diseñado para el análisis biomecánico. Según avanza la tecnología van surgiendo mejores
+herramientas que aportan al usuario una manera natural de comunicación con la máquina, una
+Interfaz de Usuario Natural (Natural User Interface o NUI). Es así como existen diversos
+trabajos que hacen el uso de la herramienta kinect de la siguiente manera.
+
+Según Marco Luis García[21], en su proyecto de odometría visual aplicada a la localización
+de un robot con Kinect en interiores, permite medir la precisión de la odometría o la
+estimación de posiciones visual en interiores a través de sensores de profundidad utilizando
+modelos matemáticos y cálculos un poco complejos. De las características que posee el
+kinect, se puede aplicar para la robótica móvil, los sensores compactos y ligeros que
+proporciona imágenes RGB-D, frecuencias de trabajo de 30 HZ, un rango de trabajo desde
+1.2 hasta 3.5 metros.
+
+Según Lucia Vera, Jesús Gimeno, Inmaculada Coma, Marcos Fernández [25] en su trabajo de
+fin de grado: "Espejo aumentado: sistema interactivo de realidad aumentada basado en
+kinect", presenta un sistema basado en la realidad aumentada que permite conversar a un
+personaje virtual controlado por un actor en tiempo real con el público asistente a través de
+una pantalla de gran formato a modo de espejo aumentado. El sistema integra imágenes de
+vídeo reales con las imágenes virtuales del avatar y otros objetos animados incorporados
+como apoyo a la conversación. Para su implementación hemos optado por la exploración y
+combinación de tecnologías: dos sistemas kinect para captura de movimientos corporales,
+mapa de profundidad e imágenes reales, un giróscopo para detección de movimiento de la
+cabeza y algoritmos de control para gestionar las expresiones y emociones del avatar.
+
+Es así como el desarrollo de software y el uso de una herramienta tan completa como lo es el
+kinect, se puede aplicar en la optimización de procesos mecánicos, para así aumentar su nivel
+de calidad.
+
+Siendo la danza un tema poco tratado en el desarrollo de software, es un reto importante
+lograr plasmar aquellas técnicas que se deben de realizar para llevar a cabo una figura
+acrobática.
+
+Sin embargo, se han desarrollado aplicaciones para la creación de coreografías como es el
+“Lifeforms” o su nueva versión “DANCEFORMS” [26], que junto con un equipo de
+desarrollo, Merce Cunningham, uno de los coreógrafos contemporáneos más importantes,
+combinaron la danza y las nuevas tecnologías, para permitir a creadores de danza y a
+profesores desarrollar, editar y visualizar secuencias de danza en un entorno amigable,
+permitiendo llevar un análisis de estas sucesiones para explicar anatómicamente en el cuerpo
+[27], visualiza y organiza pasos de bailes o rutinas completas en un ambiente 3D. Aunque
+
+16existe este tipo de software, adquirirlo es un poco difícil, existe una versión que se puede
+utilizar gratis por un tiempo limitado de veinte (20) días [28]. Se pueden identificar casos
+donde la tecnología aporta a la creación artística, en su forma de pensarla y abona a la
+expansión del universo creativo. Interacciones con el público, captures de sonido y
+movimiento, realidad virtual e internet, son algunas formas desde donde la danza se observa y
+
+reflexiona. [3].
+
+173. DESARROLLO DEL PROYECTO
+
+Para esta fase se usó de la metodología ágil Unified Process (AUP) [29] o su equivalente en
+español como Proceso Unificado Ágil, de la cual se logra obtener una metodología de software
+que integra conceptos tradicionales bajo técnicas ágiles. La AUP es una versión simplificada del
+Proceso Unificado de Rational o RUP, de donde se utilizó el levantamiento de requerimientos en
+lugar de historias de usuarios, debido a que se ajustan a las necesidades del proyecto, lo que
+permite que la interacción del usuario y la aplicación como tal, se limita a dos funciones del cual
+se hizo necesario hacer especificaciones de requerimientos del sistema.
+
+3.1 ANÁLISIS
+
+La etapa de análisis se divide en dos subetapas, de las cuales, la primera consiste en el
+análisis de la figura acrobática que se estudió en el desarrollo del proyecto y las
+características de las mismas y la segunda en el levantamiento de requerimientos del sistema.
+
+3.1.1 Figuras acrobáticas
+
+Para la primera etapa, se identificó la figura acrobática en la que se enfocó el desarrollo del
+trabajo de grado, además se estudiaron las diferentes partes del cuerpo involucradas en ella,
+de los cuales, se realizó una medición aproximada de ángulos entre puntos previamente
+definidos, basados en una de las funcionalidades del sensor kinect, que es el seguimiento del
+esqueleto o Skeleton Tracking.
+
+En la ilustración N. 10, se evidencia la figura acrobática a la cual se realizó el respectivo
+seguimiento. La elección de esta figura fue debido a que no requiere de un estricto manejo del
+cuerpo por parte de los involucrados permitiendo que la figura y su visualización sean
+agradables sin estar restringida a una realización exacta de ella, considerado por el experto en
+
+danzas Gustavo Adolfo Ramírez Ruiz'”. Dicha elección, según el experto, la figura
+
+acrobática permite tener una holgura de aceptación de 12 grados en cada ángulo de esta. Este
+valor se determina por la estética de la figura a la hora de la realización de la figura, teniendo
+en cuenta criterios como: el empeine de los pies, el split de la mujer, la elongación del cuerpo
+de la mujer, la postura que tanto el hombre como la mujer deben de tener.
+
+13 Gustavo Adolfo Ramírez Ruiz, graduado del Instituto Departamental de Bellas Artes con el título de
+Técnico en Danzas, actual docente en danzas y fundador de la Asociación de baile Corpumentdanz.
+
+18Posteriormente con la orientación y aval del experto, se realizó la postura a estudiar
+correctamente y a partir de allí, se capturó tres fotografías como se muestra en la ilustración
+N. 11, además se estimaron características que representan una información aproximada de
+esta, enfocándose en doce (12) articulaciones situados en las extremidades superiores e
+inferiores del cuerpo que son captadas por el sensor Kinect, según como se presenta en la
+ilustración N.12, después de identificar estas articulaciones, el análisis se centró en cuatro (4)
+puntos estratégicos y a sus respectivos ángulos. Estos puntos estratégicos surgen porque en
+muchas ocasiones al realizar posturas complejas, algunas de estas articulaciones tienden a
+perderse dentro de la imagen o a confundirse con otras, por ejemplo el sensor Kinect es capaz
+de detectar el tobillo y el pie como dos articulaciones diferentes, pero si se dobla la planta del
+pie de tal manera que la distancia del punto del pie al del tobillo sea cercana a cero (0), el
+Kinect tiende a tomar estos dos (2) puntos como uno solo y por tal motivo si en el cálculo de
+algún ángulo interviene el punto del pie, el cálculo se verá afectado y lo más seguro es que de
+resultados erróneos.
+
+Además, estos ángulos, fueron calculados con el apoyo de la herramienta computacional
+Geogebra. Según el experto en danzas Gustavo Adolfo Ramírez Ruiz los ángulos
+seleccionados pertenecen a las partes del cuerpo más utilizadas al momento de realizar una
+figura acrobática.
+
+  
+
+Ilustración 11 Sección fotográfica
+
+19a
+
+   
+
+  
+
+k: e e Lis E
+
+A
+
+        
+           
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+>
+6: ¿00 b
+0. 183,0) a
+2h E-41:693 . 4
+% ¡Di 1471, 8.05). ? ,
+0 Ex(90,e7 4
+Sd asisto .
+Dd G=1641,870 E
+SH 000 ás $
+O: (1531506)
+O da :
+O (471,318 a
+O 16H y NS EE!
+0 MIA s ), ES
+MD (274, 30), ) PEOR,
+A Segre.
+> a=178 9 po
+es SD 1165
+2 ás J
+E NA
+$ (28
+$ ¡854
+d 1-18
+0 1053
+-D mts
+Dd a 16%
+Sd p=t32
+0 qa
+D 23M
+M melár
+ES
+gui
+Sd ¿nm
+Dd And 2 é
+Esgada. |
+
+Ilustración 12 Triangularización y toma de ángulos
+
+Después de la triangularización respectiva a estas doce articulaciones en cada una de las tres
+fotografías, se calcula los ángulos que se forman en los cuatro puntos estratégicos, cuyo
+proceso se detalla posteriormente en el modelo matemático y se realiza un promedio de ellos
+para así obtener un solo resultado, a partir de allí se creará el modelo de datos, cuya estructura
+se evidencia posteriormente en el documento.
+
+En general, la ilustración N. 13, muestra detalladamente los ángulos que se van a calcular
+
+por medio de la aplicación
+
+ 
+
+Ilustración 13 Puntos estratégicos. Tomado de!*
+
+14 http://vitruviuskinect.com/
+20A partir del proceso anteriormente descrito, se obtuvieron los siguientes datos que se
+
+muestran en la tabla N.1
+
+Tabla 2 Representación de la triangularización de los ángulos en la mujer
+
+ 
+
+Persona Ángulo
+
+Representación
+
+ 
+
+ 
+
+Mujer Hombro-Codo-Muñeca
+
+Derecha QU =159,042
+
+Hombro-Codo-Muñeca
+
+Izquierda QL = 251,852
+
+Cadera-Rodilla-Tobillo
+Derecho QU = 192,349
+
+Cadera-Rodilla-Tobillo
+Derecho QU = 173,849
+
+ 
+
+Muñeca
+
+  
+ 
+
+(A =159,04*
+
+  
+
+Hombro
+Codo
+Muñeca
+Codo
+QA = 251,852 Hombro
+Q, = 192,342
+
+  
+
+Cadera
+
+Rodilla Tobillo
+
+ 
+  
+  
+
+Cadera
+0, = 173,842
+
+Rodilla
+
+ 
+
+21Tabla 3 Representación de la triangularización de los ángulos en el hombre
+
+ 
+
+ 
+
+ 
+
+ 
+
+Persona Ángulo Representación
+Hombre Hombro-Codo-Muñeca
+Derecho Q = 145,012 Hombro
+aL = 145,012
+Codo
+Muñeca
+Hombro-Codo-Muñeca Hombro
+Izquierdo Ol = 119,92 AN
+Z al = 119,922
+Muñeca
+Codo
+Cadera-Rodilla-Tobillo- Cadera
+Pie Derecha Qu, =
+148,092
+QL = 148,092
+
+ 
+
+Cadera-Rodilla-Tobillo
+Izquierdo (UL = 178,08*
+
+ 
+    
+
+Rodilla
+
+8
+
+Tobillo
+
+Cadera
+
+ 
+ 
+   
+
+Rodilla
+(AL = 178,082
+
+Tobillo
+
+ 
+
+ 
+
+22
+
+QA = 178,08"3.1.2 Modelamiento matemático
+
+El modelamiento general del aplicativo parte del uso de un dispositivo que permite la
+interacción de movimientos gestuales del usuario y el sistema. Es así que mediante el
+Skeleton Tracking se puede reconocer a los usuarios y seguir cada una de sus acciones
+obteniendo diecinueve (19) huesos y veinte (20) articulaciones como se puede observar en la
+ilustración N. 14
+
+Ilustración 14 Captación del esqueleto
+
+A partir del reconocimiento y la unión de los diferentes huesos y articulaciones, se puede
+observar una formación de ángulos, los cuales se toman como referencia para una posterior
+comparación y evaluación aplicando conceptos de álgebra lineal. La ilustración N. 15
+muestra cómo se forma un ángulo entre articulaciones captadas por el sensor Kinect.
+
+Ángulo formado
+
+Articulación 1 Articulación 3
+
+Articulación 2
+
+Ilustración 15 Formación de ángulo
+
+La técnica de medición de ángulos utilizada, se basó en conceptos de algebra lineal, debido a
+que el aplicativo puede ser utilizado por personas que tienen diferente contextura corporal,
+es decir, tienen una altura o un tamaño distinto en su esqueleto, cuando se trabaja con
+ángulos independientemente de la distancia entre las coordenadas obtenidas, el resultado de
+este no varía [30].
+
+Teniendo en cuenta la ilustración N. 15 y con base en la información anterior, se determinó
+una sucesión de pasos a seguir para el cálculo de los ángulos utilizando los conceptos
+matemáticos de algebra lineal, los cuales son los siguientes:
+
+23Paso N. 1
+Inicialmente se obtienen las coordenadas de tres articulaciones
+
+Articulación: = [X] Y] Z1]
+
+Articulación = [X2, Y2, Z2]
+Articulación3 = [X3, Y3, Z3]
+
+Donde X7, Y1, Z1, X2, Y2, Z2, X3, Y3, Z3 corresponden a un punto en el plano tridimensional.
+
+Paso N.2
+Se hallan dos vectores: calculando la diferencia entre cada uno de los ejes del plano.
+
+Tomando como referencia del Vector, la Articulación] y la Articulación2 y para el Vector?,
+la Articulación2 y la Articulación3.
+
+Vi =fX1-X2, Y1 -Y2 Z1-Z2]
+Va =/(X2-X3, Yo - Y3, Z2-Z3]
+
+Paso 3
+
+Se halla la magnitud y la norma entre los vectores, donde la magnitud se halla elevando el
+resultado al cuadrado y sacar su raíz.
+
+E PRE E TE TE TT
+
+Ma
+
+Ecuación 2 Ecuación de magnitud de un vector
+
+IVill= :s= is ise
+IvV2 pl a? ra ep
+
+Chad
+
+Ecuación 3 Ecuación de la norma de un vector
+
+Paso N. 4
+A partir del paso anterior, se obtiene el producto punto.
+
+Resultado = |1V1x1| *11V2x11 + 11V2y11 *11V2y11 + 11Vz211 *11V22|
+
+Ecuación 4 Producto punto
+
+Paso N.5
+Por último se obtiene el ángulo que se requiere calcular
+
+180
+
+( ) —
+
+Ecuación 5 Ángulo resultante
+
+I]
+X%
+
+243.1.3 Requerimientos funcionales
+
+La segunda subetapa del análisis describe el comportamiento como tal del sistema de la
+
+siguiente manera.
+
+ 
+
+ 
+
+ 
+
+Requerimiento 1: El sistema debe tener almacenado el modelo que contiene la
+
+ 
+
+información de los ángulos de la figura a realizar, para realizar una posterior
+comparación con la figura captada por el kinect.
+
+ 
+
+ 
+
+ 
+
+Requerimiento 2: El sistema debe permitir al usuario almacenar los resultados de los
+
+ 
+
+ángulos obtenidos por el kinect.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Requerimiento 3: El sistema debe permitir al usuario ingresar un margen de holgura
+que puede tener la realización de la figura, el cual será en grados.
+
+ 
+
+ 
+
+ 
+
+Requerimiento 4: El sistema debe permitir al usuario cargar y visualizar la imagen
+de la figura acrobática que posteriormente realizará.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Requerimiento 5: El sistema debe permitir informarle al usuario de la correcta
+
+ 
+
+detección e inicialización del dispositivo Kinect.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Requerimiento 7: El sistema debe permitir identificar y visualizar el esqueleto de
+dos individuos.
+
+ 
+
+ 
+
+ 
+
+Requerimiento 8: El sistema debe permitir al usuario crear un modelo nuevo de la
+figura que él requiera.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Requerimiento 9: El sistema debe validar que el Kinect se haya inicializado antes de
+crear un nuevo modelo.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Requerimiento 11: El sistema debe permitir al usuario realizar la captura de la
+información de los esqueletos, con la realización de la figura acrobática
+correspondiente en tres diferentes intervalos de tiempo, los cuales se almacenaran
+independientemente.
+
+ 
+
+ 
+
+ 
+
+Requerimiento 12: El sistema debe de evaluar e indicarle al usuario si la figura es
+correcta o no.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Requerimiento 14: El sistema debe permitir al usuario obtener los resultados de la
+evaluación realizada de la figura acrobática desde un documento pdf.
+
+253.2 DISEÑO
+
+La información que se muestra en esta sección, corresponde a los diseños que se realizaron
+
+en el desarrollo del proyecto.
+
+3.2.1 Arquitectura
+
+Para el presente proyecto se usó un patrón de diseño que permite dividir la aplicación en
+diferentes módulos, logrando una arquitectura más sólida y estable. El Modelo Vista
+Controlador (MVC) es un estilo de arquitectura de software que separa los datos de una
+aplicación, la interfaz de usuario, y la lógica de control en tres componentes distintos [31]. El
+Modelo contiene una representación de los datos que maneja el sistema, su lógica de negocio,
+y sus mecanismos de persistencia, la Vista, o interfaz de usuario contiene la información que
+se envía al cliente y los mecanismos interacción con éste y el Controlador, que actúa como
+intermediario entre el Modelo y la Vista, gestionando el flujo de información entre ellos y las
+transformaciones para adaptar los datos a las necesidades de cada uno. Por este motivo se
+decidió implementar el patrón de diseño Modelo Vista Controlador MVC. Esta arquitectura
+permite la escalabilidad de la aplicación, dando la posibilidad de que se pueda optimizar,
+ajustar y/o adaptar a diferentes funcionalidades sin mayor complejidad gracias a la
+organización modular en que fue programado como se observa en la ilustración N. 16,
+teniendo como resultado una aplicación más robusta.
+
+Modelo de datos
+
+Controlador
+
+Archivos
+Calcular Angulo
+
+Vista
+
+MainWindows
+
+ 
+
+Mustración 16 Arquitectura
+
+263.2.2 Diagrama de componentes
+
+En la ilustración N. 17 se muestra el diagrama de componentes, el cual proporciona una
+visión global de cómo interactúan cada uno de los componentes del sistema, además, se
+evidencia la división de los módulos en tres capas, Modelo, Vista y Controlador (MVC),
+observándose que cada uno de ellos es independiente pero a su vez permite utilizar
+funcionalidades de otro módulo o paquete, como es el caso del paquete de Microsoft.Kinect.
+
+ 
+
+ 
+
+ 
+
+Modelo 2] Controlador >] Vista 2]
+
+Microsoft.kinect Dibujar | Archivos | O) MainWindow a |
+
+CalcularAngulo
+
+       
+
+!
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Ilustración 17 Diagrama de componentes
+
+3.2.3 Diagrama de clases
+
+La distribución de los módulos que componen la arquitectura del sistema se puede observar
+en la ilustración N. 18 mediante un diagrama conceptual que reemplaza al diagrama de
+clases, esto debido a tener una buena observación.
+
+Esta distribución se hace de la siguiente manera: la primera capa Modelo contiene la clase
+Dibujar que es la encargada de iniciar el sensor Kinect dada la orden desde la capa vista,
+además se encarga de dibujar el esqueleto de las personas que son detectadas por el mismo.
+En la capa Controlador contiene las clases Archivo y CalcularÁngulo, la primera de ellas
+carga el modelo de datos, la imagen de la figura a realizar y crea los archivos donde se van a
+presentar los resultados obtenidos de los respectivos cálculos en un lapso de tiempo
+determinado. En la capa controlador se reciben los datos de las coordenadas que se obtienen
+de la clase Dibujar, de los cuales se calculan los ángulos y se retorna la información a la clase
+Archivos para que sea almacenada en cada uno archivo de texto previamente creado. Por
+último, la capa Vista muestra al usuario una interfaz gráfica que le permite controlar todas las
+acciones que se pueden realizar en la aplicación
+
+27Microsoft Kinect
+
+ 
+
+Modelo Controlador
+
+Usa
+
+  
+ 
+
+Dibujar Obtener Archivos Cargar
+
+ángulos Archivos
+El
+
+Datos
+generados
+Calcular
+án
+ár gulos
+a
+a
+
+CalcularAngulo
+
+ 
+
+ 
+
+ 
+
+Ilustración 18 Diagrama Conceptual
+
+3.2.4 Modelo de datos
+
+Se tuvo la necesidad de emplear archivos para facilitar el proceso de evaluación de los
+resultados, que contienen un Modelo de Datos de los ángulos obtenidos de la figura
+acrobática y de los resultados de la evaluación. Este modelo consta de cuatro archivos
+“Modelo.txt” y “Resultados.txt”. La primera línea corresponde a los ángulos del hombre, la
+segunda línea los ángulos de la mujer y en cada una de las líneas tienen cuatro números en el
+cual el primero corresponde al ángulo del codo derecho, el segundo al ángulo codo izquierdo,
+el tercero al ángulo de la rodilla derecha y el cuarto al ángulo de la rodilla izquierda, esta
+estructura se puede observar de manera más detallada en la ilustración N. 19.
+
+28N
+
+90.3 126.9 130.7 157.9
+
+154,7 90.3 130.7 127.9
+
+ACD-h ACIHh ARD-h AREh
+
+old]
+90.3 126.9 130.7 157.9
+
+jos o po q
+
+ACD=-m ACI-m ARD-m ARI-m
+
+ 
+
+Modelo
+
+94.3 128.9 129,7 158.9
+155.7 89,3131.7 126.9
+
+ 
+
+ 
+
+ 
+
+Resultados
+Ilustración 19 Estructura del modelo de datos
+
+Donde:
+
+Tabla 4 Siglas
+
+ACD-h = ángulo codo derecho del hombre ACD-m = ángulo codo derecho de la mujer
+
+ACÍI-h = ángulo codo izquierdo del hombre | ACÍ- m = ángulo codo izquierdo de la mujer
+ARD-h = ángulo rodilla derecha del hombre | ARD-m= ángulo rodilla derecha de la mujer
+ARÍh = ángulo rodilla izquierda del AR Í-m = ángulo rodilla izquierda mujer
+hombre
+
+ 
+
+En la primera línea del modelo se van a leer los ángulos previamente calculados del hombre y
+en la segunda línea los de la mujer, se leen de izquierda a derecha teniendo en cuenta que el
+primer dato se refiere al ángulo que se forma entre el codo derecho, el hombro derecho y la
+muñeca derecha, el segundo entre el codo izquierdo, el hombro izquierdo y la muñeca
+izquierda, el tercero entre la rodilla derecha, la cadera derecha y el tobillo derecho, por último
+el cuarto dato hace referencia al ángulo entre la rodilla izquierda, la cadera izquierda y el
+tobillo izquierdo. De la misma forma se escriben los tres archivos de resultados, pero con los
+ángulos que se están calculando al momento de evaluar la figura.
+
+En la Ilustración N. 20 se muestra el flujo que lleva la aplicación con respecto a la lectura y
+
+escritura de los archivos.
+
+29=|
+
+Modelo Dibujar
+
+ 
+
+3] 3]
+
+Archivos CalcularAngulo
+
+ 
+
+IN
+
+Resultados 1| [Resultados 2 Resultados 3
+
+ 
+
+Ilustración 20 Diagrama de lectura y escritura de archivos
+
+El modelo de datos anteriormente detallado permite a la aplicación ser dinámica y escalable,
+ya que se está basando en cuatro (4) puntos estratégicos que se pueden obtener de cada
+
+esqueleto detectado como se especifica posteriormente en el análisis de la figura acrobática
+(Sección N. 3.1.1).
+Estos puntos estratégicos, permiten crear modelos y obtener características de cada figura que
+
+pueden ser evaluadas posteriormente, evitando recurrir a herramientas extras de apoyo para
+extraer el calculo de ángulos, como se realizó en el análisis por medio del software Geogebra.
+Por este motivo, se diseñó el modelo de datos que usa la aplicación, permitiendo realizar
+estos cálculos por medio de este.
+
+303.3 IMPLEMENTACIÓN
+
+En esta sección se hace mención al software y hardware utilizado en la implementación de la
+
+aplicación y el comportamiento de la misma.
+
+3.3.1 Codificación
+
+La aplicación se realizó en el sistema operativo Windows 10 con una arquitectura de 64 bits,
+fue escrita en el lenguaje CF y se codificó en el IDE Visual Studio 2012 de Microsoft, se hizo
+uso de la referencia Microsoft.Kinect. El programa se creó como una aplicación Windows
+Presentation Foundation (WPF), donde las referencias son las librerías que se pueden instalar
+en el sistema para posteriormente ser usadas en el proyecto. Para poder hacer uso de la
+referencia Microsoft.Kinect se instaló la herramienta KinectDeveloperToolkit en su versión
+1.8.0, además se instaló el SDK de Windows para Kinect en la versión 1.8.
+
+3.3.2 Instalación
+
+La aplicación ejecutó en un computador Samsung con una arquitectura de 64 bits, con una
+memoria Ram de 4Gb y un procesador Intel Pentium a 1.7 Ghz. Para la detección de las
+personas se utilizó Kinect de Xbox versión 1, el cual se conecta a una toma de corriente para
+obtener la energía necesaria para encenderlo y por medio de un puerto USB se conectó al
+computador para la transmisión de datos. Para conocer el detalle completo de la instalación y
+ejecución de la aplicación diríjase al manual del usuario.
+
+3.3.3 Comportamiento del sistema
+
+En esta parte del documento se va a presentar el comportamiento de la aplicación y las etapas
+que la conforman. Cini se nyestra en la ilustración N. 21
+
+ 
+
+ 
+
+ 
+
+Cargar archivo modelo, el archivo puede crearlo el usuario manualmente o desde la
+aplicación.
+
+Cargar figura modelo, este paso es opcional ya que el usuario decide si la desea
+mostrar o no. La figura debe ser un archivo de imagen (¡pg, png, bmp).
+
+Seleccionar la ruta donde se van a guardar los resultados y escribir el nombre del
+primer archivo.
+
+Escribir el margen de error de la figura.
+Iniciar el sensor Kinect.
+Capturar puntos de los esqueletos dibujados.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+31instantes de tiempo.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Escribir en los archivos de resultados los ángulos calculados.
+
+Teniendo en cuenta de que se hacen las validaciones de las datas
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+S lar án n ri
+Modelo Calcular ángulo necesarios
+
+(hombros, codos, rodillas y talones)
+
+ 
+
+ 
+
+ 
+
+Detección de cuerpos Detección de ángulos N Ne£— ox
+haeroo3 oras Comparación de archivos “*"**'"" hstrans 1087073
+¿E
+<¿<K———— 7
+Archivo modelo cargado Archivo modelo generado Resultado 1
+
+(promedio con los archivos
+resultados)
+
+ 
+
+Controlador
+
+ 
+
+—— E
+
+ 
+
+ 
+
+ 
+
+ 
+
+V
+Bien Hecho, la figura es correcta
+
+Pdf con el resumen de los resultados
+
+Ilustración 21 Comportamiento de la aplicación
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cargar archivo modelo
+
+Calcular los ángulos con los puntos capturados, este cálculo se realiza en diferentes
+
+ 
+   
+     
+
+Resultado 2 Resultado 3
+
+A continuación se detalla el proceso por el cual recorre el archivo modelo y
+elmacenamiento de los resultados que se evidencia mediante un diagrama de flujo en la
+
+ilustración N. 22.
+
+32El archivo no tiene contenido
+
+ 
+
+ 
+
+Ilustración 22 Flujo de de datos para cargar un archivo modelo modelo
+
+Cuando el archivo modelo se ha generado exitosamente y se ha plasmado la información
+
+calculada, se puede cargar para que el programa continúe.
+Es importante tener en cuenta que crear un archivo modelo y escribirlo desde la
+
+aplicación es una forma de extraer las características de la figura para posteriormente
+utilizar.
+
+33Cargar figura modelo
+El programa permite cargar una imagen que servirá de modelo para mostrar a los
+
+bailarines cuál es la figura que van a realizar, la aplicación despliega una ventana de
+diálogo donde el usuario puede buscar el archivo de imagen y seleccionarlo para mostrarlo
+en un lugar de la interfaz destinado para tal fin.
+
+Seleccionar la ruta donde se van a guardar los resultados
+Cuando el usuario ya ha cargado el archivo modelo y la figura, el programa le indica que
+
+debe proceder a seleccionar una ruta donde se van a guardar los archivos con los
+resultados que se capturen, para tal fin cuando se da click en la opción “Seleccionar ruta”
+la aplicación despliega una ventana de diálogo donde le permite al usuario navegar por
+todo el sistema para que elija la ubicación donde se van a almacenar los archivos con cada
+resultado, además le permite escribir el nombre del primer archivo que se va a generar,
+validando que sea un documento de texto (txt).
+
+En la ilustración N. 23 se puede observar con más detalle las opciones que el programa
+pone a disposición del usuario para facilitar el proceso de creación y guardado del primer
+archivo con resultados.
+
+Paso 1 aso
+
+en Dro
+Cargar Modelo | - ent Guardar resultado t 12 iniciar Kinect.
+
+| Crear Modelo |] [ Resultado 1
+
+¡Cargar figura de referencia |
+
+Paso de referencia Espectro
+
+ 
+
+Ilustración 23 Seleccionar ruta donde se guardan los resultados
+
+Escribir el margen de holgura de la figura
+Para continuar con el proceso, el usuario debe ingresar un margen de error en un
+
+“TextBox”, el cual representa el grado de holgura que puede tener la figura acrobática a
+realizar.
+
+34Iniciar el sensor Kinect
+Una vez se han configurado todos los pasos anteriormente mencionados, se procede a
+
+iniciar el sensor Kinect, para lo cual la interfaz habilita el botón “Iniciar Kinect”. Cuando
+el usuario presiona dicho botón se valida que el Kinect esté conectado a una toma de
+corriente e igualmente al puerto USB del computador, una vez validados todos los puntos
+entra en funcionamiento la clase Dibujar, la cual es la clase principal del sistema, ya que
+se encarga de inicializar todas las variables que se van a usar para capturar los bailarines y
+dibujar los esqueletos en la interfaz. Esta clase está todo el tiempo capturando información
+ya que debe detectar cuando un bailarín ingresa en la zona de detección, (la cual se
+especifica en la sección 2.1.3).
+
+Capturar puntos de los esqueletos dibujados
+Cuando se detectan los esqueletos y se dibujan las articulaciones, la aplicación está lista
+
+para empezar a realizar cálculos con base a los puntos detectados.
+
+En la clase Dibujar se hace uso de un arreglo esqueletos de tipo “Skeleton”, el cual se
+encuentra en la referencia Mircosoft.kinect y que por defecto tiene seis (6) posiciones en
+las que se van a almacenar los esqueletos detectados, por tal motivo la forma de ingresar
+los bailarines a la zona de detección es de uno en uno y de esta forma poder identificar el
+primer y segundo esqueleto que ingresa. Para garantizar que se conserve la estructura del
+modelo de datos (primera línea hombre y segunda línea mujer) debe primero ingresar el
+bailarín hombre y posteriormente ingresar la mujer, de esta forma cuando se ingresa el
+primer esqueleto al arreglo se le asignan las variables correspondientes a los ángulos del
+hombre y de la misma manera se realiza el procedimiento para la mujer cuando ingresa el
+segundo esqueleto.
+
+Para obtener la información de cada esqueleto se crea un arreglo donde la referencia
+(librería) agrega cada dato que se va detectando, pero lo guarda en un lugar aleatorio y con
+un Id igualmente aleatorio. A continuación se muestra con mayor detalle el proceso que
+lleva a cabo la referencia los esqueletos en el arreglo, en la clase Dibujar se crea un
+arreglo esqueletos que es de tipo Skeleton.
+
+Ilustración 24 Creación del arreglo de esqueletos
+
+Cuando se detecta el primer esqueleto, se guarda en una posición en el arreglo esqueletos
+
+con un Id, a ambos se les asigna un número aleatorio.
+
+35Primer
+esqueleto
+detectado
+
+Ilustración 25 Detección del primer esqueleto
+
+Cuando se detecta el segundo esqueleto se repite el procedimiento.
+
+ 
+
+Primer Segundo
+esqueleto esqueleto
+detectado detectado
+
+Ilustración 26 Detección del segundo esqueleto
+
+Los procedimientos anteriormente mencionados son ejecutados por la referencia
+Microsoft.kinect, la cual se encarga de detectar los esqueletos, dibujarlos y guardarlos en
+el arreglo, este esquema tiene algunas complicaciones como por ejemplo si el primer
+esqueleto que fue detectado se sale de la zona de detección y vuelve a ingresar, la
+aplicación lo reconoce como un nuevo esqueleto, ya que los métodos de la referencia
+detectan solo articulaciones. Por otra parte cuando se sale un esqueleto de la zona de
+detección en el arreglo sigue ocupada la posición con el Id y cuando vuelve a ingresar se
+asigna una nueva posición y un Id diferente. La ilustración N. 27 muestra claramente este
+proceso.
+
+O 1 2 3 + 5
+
+   
+
+Nuevo Primer Segundo
+esqueleto esqueleto esqueleto
+detectado detectado detectado
+
+Ilustración 27 Detección del primer esqueleto
+
+36En consecuencia se convirtió en una dificultad para el proyecto ya que siempre se espera
+tener solo dos bailarines con Id”s únicos que permiten identificarlos para extraer las
+características de cada uno y guardar los resultados, pero como se mencionó anteriormente, sí
+el primer bailarín se sale de la zona de detección y vuelve a ingresar se le asigna un nuevo
+espacio dentro del arreglo con un nuevo Id, es decir que el identificador anterior que en este
+caso es 65 ya no se va a seguir utilizando porque el nuevo Id es 103, por lo cual, se vuelve
+incontrolable saber realmente cual Id pertenece al hombre y cual a la mujer. Esto debido a
+que el sensor Kinect, solo es capaz de detectar las articulaciones de un cuerpo por medio de
+infrarrojos y por tal motivo, cuando el usuario vuelve a ingresar, el Kinect lo detecta como si
+fuese un nuevo esqueleto al cual debe dibujar y calcular puntos.
+
+En la ilustración N. 28 se presenta el diagrama de flujo que muestra claramente el proceso
+
+que se lleva a cabo cuando se dibujan los esqueletos y se inicia la captura de información.
+
+ 
+ 
+
+Valid
+
+    
+   
+
+Valida si detecta
+nuevo esqueleto
+
+ 
+
+.
+Invalid Valid
+Dibuja esqueletos
+Crea Arreglo esqueletos
+
+Guarda datos en arreglo
+
+ 
+
+Ilustración 28 Diagrama de flujo, proceso de detectar esqueletos
+
+37Para combatir esta problemática se diseñó una estrategia que permite capturar los datos de
+cada esqueleto diferenciando entre el hombre y la mujer. Se creó un nuevo arreglo llamado
+skell de tipo “Skeleton”, el cual se encarga de extraer la información de cada esqueleto y
+guardarla en variables que posteriormente son enviadas a la clase CalcularAngulo.
+
+El proceso que realiza la estrategia diseñada consiste en detectar cuando una persona ingresa
+a la zona de detección para recorrer el objeto esqueletos y obtener el primer Id que se
+encuentre en el arreglo, cuando se obtiene este dato se ingresa a un objeto de tipo List
+llamado bailarines, pero antes de ingresar el Id se recorre el objeto List para verificar si ese
+dato ya existe, en caso de que no exista se agrega a bailarines. El procedimiento se repite
+hasta que se completan los dos esqueletos que van a realizar la figura.
+
+Para diferenciar entre los ángulos del hombre y los de la mujer, se decidió que ambas
+personas inician por fuera del área de detección y cuando se inicie el sensor Kinect ingresa
+primero el hombre, entonces en el objeto bailarines se guarda en la primera posición el Id que
+se obtuvo del arreglo esqueletos, posteriormente ingresa la mujer y se guarda en la segunda
+posición de bailarines el Id del segundo esqueleto, validando que este fuese diferente al
+primero.
+
+A continuación se detalla el proceso que realiza la estrategia diseñada.
+
+Para mantener el esquema que se ha manejado durante todo el documento (Ver Hustración N.
+
+25), se retoma el ejemplo anterior donde el Id asignado al primer esqueleto detectado es 63.
+
+Cuando se detecta un nuevo esqueleto, se busca entre el arreglo esqueletos el Id que se ha
+
+asignado y se agrega en bailarina, como se muestra en la ilustración N. 29.
+
+0 1
+es
+Primer
+Esqueleto
+DNetectada
+
+Ilustración 29 Primer bailarín detectado
+
+La primera persona que debe ingresar a la zona de detección es el hombre, por lo tanto es
+
+el primer bailarín que se agrega a bailarines.
+
+Al momento que ingresa la mujer, el sensor detecta un nuevo esqueleto y lo guarda en un
+espacio dentro de esqueletos asignándole un Id, que de acuerdo a la ilustración N. 27, que
+hace referencia a la detección del segundo esqueleto es 95.
+
+38Después de haberse asignado el Id, se recorre de nuevo el arreglo esqueletos para detectar
+cambios, al momento se puede observar que el primer dato que se encuentra está en la
+posición tres (3) en la cual se encuentra el Id del primer esqueleto, como ya ha sido usado
+se continúa recorriendo el arreglo en busca de un nuevo dato, el cual se encuentra en la
+posición cinco (5) del arreglo, se comprueba si ya existe ese mismo dato en bailarines y de
+no ser así se agrega en la siguiente posición de la List. En la ilustración N.30, se muestra
+detalladamente como quedaría el objeto bailarín.
+
+0 1
+
+Primer Segundo
+Esqueleto Esqueleto
+Netectada Netectada
+
+Ilustración 30 List completa de bailarines
+
+Después de tener completa la List bailarines se procede a almacenar la información de los
+puntos, para tal fin se crean 24 vectores de tipo “Vector3 (vector de 3 dimensiones)”, las
+cuales se dividen 12 para el hombre y 12 para la mujer. A continuación se detallan las
+variables que se crean para guardar la información de los puntos.
+
+Cada vector es de 3 dimensiones, ya que se requiere almacenar las coordenadas X, Y y Z
+de cada articulación.
+
+Después de obtener las coordenadas de cada articulación, se procede a calcular los ángulos
+que se forman en cada postura, para ello se crean 8 variables adicionales, divididas de la
+siguiente forma:
+
+Tabla 5 Variables de los ángulos
+
+ 
+
+Variables para el Skell1 (hombre). Variables para el Skelll (mujer).
+
+anguloCodoDerechoSkelll; anguloCodoDerechoSkell?;
+anguloCodolzquierdoSkelll; anguloCodolzquierdoSkell?;
+anguloRodillaDerechaSkelll; anguloRodillaDerechaSkell?;
+anguloRodillalzquierdaSkelll; anguloRodillalzquierdaSkell?;
+
+ 
+
+En cada variable se almacenan los resultados que arroja la clase CalcularAngulo, pero
+antes se debe tener en cuenta que para calcular cada ángulo se deben enviar 2 vectores
+resultantes de las operaciones previas entre las distancias de cada uno. Por ejemplo, para
+
+39calcular el ángulo que se forma entre el hombro derecho, el codo derecho y la muñeca
+
+derecha, se deben realizar las siguientes operaciones entre vectores.
+
+Nuevo vector Nuevo vector
+resultante resultante
+
+pa, pao,
+
+(codoDerechoSkell1 - hombroDerechoSkell1, codoDerechoSkell1 - munecaDerechaSkell1)
+
+1 a / /
+
+Vector3 Vector3 Vector3 Vector3
+codoDerecho hombroDerecho codoDerecho muñecaDerecha
+
+Ilustración 31 Vectores resultantes
+
+Los vectores resultantes también son de 3 dimensiones y se envían a la clase
+CalcularAngulo por medio de una función denominada “angleBetweenTwoJoint”, la cual
+se encarga de calcular el ángulo entre 2 vectores.
+
+Calcular los ángulos con los puntos capturados
+Para calcular los ángulos se hace referencia a la clase CalcularAngulo, en la cual se
+
+encuentra una función denominada “angleBetweenTwoJoint” y que recibe dos vectores
+como se mencionó en el punto anterior.
+A continuación se presenta el Pseudocódigo que explica más detalladamente cómo se
+
+realiza el procedimiento para calcular ángulos
+
+ 
+
+angleBetweenTwoJoint(Vector3 vectorA, Vector3 vectorB)
+
+real productoPunto €
+0.0 Normalizar
+(VectorA) Normalizar
+
+(VectorB)
+
+productoPunto < producto_punto_entre (VectorA, VectorB)
+
+ 
+
+ 
+
+_ retornar Acos (productoPunto)/Pi* 180
+
+ 
+
+El anterior pseudocódigo muestra la implementación del modelo matemático descrito en la
+sección 3.1.1, en la cual se detalla cual es el procedimiento a seguir para calcular un
+ángulo entre dos vectores.40Es importante aclarar que esta función se activa cada vez que el usuario presiona botón
+crear resultado y por lo tanto la información se captura en diferentes instantes de tiempo
+causando que los resultados varíen levemente, esto con el fin de calcular el promedio de
+los ángulos y la desviación estándar.
+
+Escribir en los archivos de resultados los ángulos calculados
+Después de que la clase CalcularAngulo retorna los ángulos calculados a la clase Dibujar,
+
+esta se los envía a la clase Archivos para escribir cada documento generado de acuerdo al
+botón que se haya presionado, es decir, el primer botón que se debe presionar es
+“Resultados 1”, el cual va a escribir en el primer archivo de texto (txt) creado por el
+programa. Cuando se presiona el botón “Resultados 2”, se almacena en el segundo archivo
+de texto (txt). Por último, cuando se presiona el botón “Resultado 3” el programa captura
+los últimos ángulos y los guarda en el tercer documento de texto (txt) estos archivos son
+generados automáticamente por la aplicación. Adicionalmente, el programa calcula el
+promedio y la desviación estándar de la información guardada previamente en los archivos
+modelos y resultados respectivamente, para posteriormente evaluar la figura y mostrar una
+ventana con un mensaje indicando si la figura está bien hecha o no.
+
+Para escribir en los archivos txt, inicialmente se crean dos matrices de 3X4, una para
+almacenar los datos de la mujer y otra para los hombres. Cada matriz contiene hay tres
+filas y cuatro columnas, donde cada fila hace referencia a un resultado y cada columna
+representa a un ángulo diferente.
+
+Tabla 6 Matriz
+ACD ACI ARD ARI
+
+Resultado 1
+Resultado 2
+Resultado 3
+
+ 
+
+Los resultados se almacenan como se representan en la tabla N. 6, distribuyendo los datos
+
+de la siguiente manera:
+
+ 
+
+En la posición (0,0) fila O, columna O se almacena el ángulo del codo derecho.
+
+ 
+
+ 
+
+En la posición (0,1) fila O, columna 1 se almacena el ángulo del codo izquierdo.
+
+ 
+
+ 
+
+En la posición (0,2) fila O, columna 2 se almacena el ángulo de la rodilla derecha.
+
+ 
+
+ 
+
+ 
+
+ 
+
+En la posición (0,3) fila O, columna 3 se almacena el ángulo de la rodilla izquierda.
+
+ 
+
+Estos resultados se almacenan a medida que se da click a los diferentes botones Resultado:
+“Resultado 1”, “Resultado 2” y “Resultado 3”.
+
+41Después del almacenamiento de estos datos, se crea un archivo pdf con el resumen de los
+resultados capturados y que se puede visualizar cuando el usuario presiona el botón
+“Mostrar resultados”. El modelo general del archivo pdf se muestra en la ilustración N. 32
+
+ 
+
+Universidad
+del Valle
+
+Sede Tuluá
+HERRAMIENTA DE APOYO PARA LA EVALUACIÓN DE TÉCNICAS APROPIADAS PARA
+REALIZAR FIGURAS ACROBÁTICAS, EN LA CREACIÓN DE DANZAS HECHA POR UNA
+MUJER.
+Modelo
+Modelo para el hombre:
+Modelo para la mujer:
+Resultados
+Primer resultado del hombre: 00 00
+Primer resultados de la mujer. 0000
+Segundo resultado de la hombre: 0000
+Segundo resultados de la mujer: 000.0
+Tercer resultado de la hombre: 0000
+Tercer resultados de la mujer: 0000
+
+Margen de Error para la figura: 12
+
+Detalle de Resultados para el hombre
+La desviación estándar entre los ángulos del hombre fue: O
+
+La desviación estándar entre los ángulos de la mujer fue: O
+
+ 
+
+Ilustración 32 Modelo general archivo pdf
+
+424 PRUEBAS Y DISCUSIÓN DE RESULTADOS
+
+Para realizar las validaciones que requiere el sistema, se han efectuado diferentes pruebas las
+
+cuales se describen a continuación cada una de ellas.
+
+4.1 Prueba N. 1
+
+Esta prueba consiste en estimar las diferencias entre calcular los ángulos por medio del
+aplicativo y extraer los ángulos por medio de un software extra como Geogebra, para conocer
+cual de los dos metodos es más acertivo a la hora de realizar una evalución, para esto, se toma
+una figura simple como lo es el de una persona totalmente de pie con los brazos abajo y un
+margen de holgura de 5 grados, según experto en danzas.
+
+El proceso se divide de dos maneras:
+
+Inicialmente, se Crea un modelo nuevo por medio del aplicativo, el cual consiste en capturar
+las características de la figura (ángulos) mediante el aplicativo, fue así, como se inicializo el
+Kinect y el usuario se posicionó en frente del sensor Kinect. Al dar click en el botón “Crear
+Modelo”, se generó un archivo txt como se evidencia en la ilustración N. 33.
+
+ 
+
+0000
+
+    
+
+163,45 176,14 177,05 162,62
+
+ 
+
+Ilustración 33 Archivo txt, con el calculo de los ángulos mediante el aplicativo.
+
+Luego, se procede a calcular los ángulos mediante el software Geogebra, donde se toma una
+imagen de la figura abstraida desde el motor de busqueda Google, se aproximan los puntos de
+acuerdo a la ilustración N. 6 y a las articulaciones que decidimos a usar, obteniendo así cada
+uno de estos ángulos como se evidencia en la ilustración N. 35.
+
+43B'=
+C=(1.83,4.45)
+D= (1:63, 3.54)
+E=(1.72, 2.58)
+F=(2.63, 4:47)
+G=(2:85, 3.54)
+H= (2:93, 2.69)
+$
+
+1=(2.09, 2.98)
+(2, 1.69)
+
+corrcrrrroo
+
+¿ K=(2.12, 0.43)
+1. =(25,3)
+0): M=(2.57, 1.69)
+0) N=(2.39, 0.48)
+—. Segmento:
+
+co 1 = 0.94
+
+0] g =0,96
+
+¿0 ho 0.96
+
+550: 1= 0.85
+
+¿5 ¿k = 27
+1131
+00m 1.22
+
+=| Ángulo
+
+0) 0 162,12>
+> B=17202*
+0) ¡Y = 170,42"
+20 0 168.637
+
+ 
+
+ 
+
+Ef as a A5. PUES 1]
+
+Ilustración 34 Interfaz de Geogebra, con el calculo de los ángulos mediante Geogebra.
+
+ 
+
+En resumen, se obtuvo la siguiente información evidenciada en la Tabla N. 7
+
+Tabla 7 Ángulos calculados por el aplicativo vs Ángulos calculados con Geogebra
+
+Datos calculados con el aplicativo Datos calculados con Geogebra
+
+168,63
+
+ 
+
+Según la tabla y la ilustración anterior, se puede concluir que los ángulos tienen una
+diferencia de maximo siete grados entre las dos maneras de calcular los ángulos. Sin
+embargo, para terminar la prueba, se cargo el modelo del que previamente se calcularon los
+ángulos en la primera prueba capturada por medio del Kinect y para la segunda prueba, se
+cargo el modelo con los datos obtenidos desde Geogebra, con un margen de holgura de 5
+grados, midiendo el grado de acertividad de las pruebas donde uno (1) corresponde a esta
+bien hecho y cero (0) corresponde a está mal hecho. A partir de allí, se obtuvo lo siguiente:
+
+Prueba N. 1
+
+ 
+
+RESULTADO 1 RESULTADO 2 RESULTADO 3
+
+E Ángulos calculados por el aplicativo
+
+E Ángulos calculados con Geogebra
+
+Ilustración 35 Cantidad de aciertos
+
+44La ilustración N. 36, evidencia qué tan acertiva es la figura que se esta evaluando, de lo cual
+se puede concluir que es más preciso capturar los ángulos por medio del modelo creado por el
+aplicativo, sin embargo ambas formas son válidas debido a que proporcionan resultados muy
+similares con algunas diferencias, donde la diferencia mas significativa se evidencia en el de
+la rodilla izquierda.
+
+4.2 Prueba N. 2
+
+Esta prueba fue necesaria para verificar la distancia óptima entre el kinect y el usuario,
+además de la ubicación que debe tener este dispositivo con respecto al suelo. Con esta prueba,
+se busca de que las articulaciones del esqueleto de los individuos sea detectado por completo.
+Para ello, se tomó dos personas que cumplen con el promedio de la altura colombiano [32],
+donde el hombre tiene un promedio de altura 172 cm y la mujer de 160 cm.
+
+La tabla N. 8 muestra la información de la distancia entre el usuario y el kinect, el cual se
+
+encuentra a una altura de cero con respecto al suelo. Se probaron tres diferentes distancias del
+usuario con respecto al kinect y de ello se obtuvo:
+
+Tabla 8 Distancia entre el usuario y el Kinect, con respecto al suelo
+
+ 
+
+Distancia Evidencia Gráfica
+
+ 
+
+1 metro
+
+ 
+
+2 metros
+
+ 
+
+ 
+
+3 metros
+
+ 
+
+ 
+
+ 
+
+45La tabla N. 9 muestra la información de la distancia entre el usuario y el kinect, el cual se
+encuentra a una altura de 40 cm con respecto al suelo. Se probaron tres diferentes distancias
+del usuario con respecto al kinect y de ello se obtuvo:
+
+Tabla 9 Distancia entre el usuario y el Kinect, con una altura de 40 cm con respecto al suelo
+
+ 
+
+Distancia Evidencia Gráfica
+
+ 
+
+l metro
+
+ 
+
+ 
+
+3 metros
+
+ 
+
+4 metros
+
+o UN
+
+ 
+
+ 
+
+5 metrosSegún la prueba anterior, se puede concluir que a partir de los tres metros el usuario es
+detectado por completo sin que se observe alguna parte de su cuerpo por fuera del rango de
+espectro del Kinect, esto si cumple con una altura del promedio de los colombianos o menos.
+Aunque se recomienda realizar la evaluación a una distancia de 300 cm o mayor con respecto
+al usuario y que el Kinect se encuentre a una altura de 40 cm a 50 cm aproximadamente. Sin
+embargo, si el usuario desea saber si se encuentra en el rango del espectro del kinect, la
+aplicación orienta a los bailarines mostrándoles en color rojo el lado por donde no hay una
+buena captura del esqueleto, para que el individuo pueda ubicarse dentro del rango pertinente
+
+4.3 Prueba N.3
+
+Esta prueba involucra a personas que han tenido una experiencia previa en el arte del baile,
+buscando verificar qué tan acertado es el aplicativo a la hora de realizar la evaluación de la
+figura acrobática analizada en la sección 3.1.1. Para ello se hizo tres pruebas diferentes con
+dos parejas, donde cada prueba tiene a su vez tres resultados. El sistema se evaluó solamente
+si la figura estaba bien o mal hecha, con un margen de holgura de 12 grados por encima y por
+debajo del dato en el modelo, esto según el experto en danzas. Además, se ubicó el Kinect a
+una altura de 40 centímetros con respecto al suelo y que los bailarines se situaron a una
+distancia de 322 centímetros, donde la estatura de éstos variaba entre 1,50 a 1,70 centímetros.
+
+Para la información de cada tabla, se utilizaron diez columnas, donde la primera representa el
+nombre de los archivos txt que se tiene para la realización de la prueba y la última con el
+nombre de Acierto, representa la evaluación de la figura en ese archivo descrito donde uno
+(1) es porque está bien hecha y cero (0) es porque está mal hecha. Para el resto de columnas,
+se utilizan las siglas que se especificaron en la Tabla N. 4 (seccion 3.2.4) que contienen el
+ángulo de esa parte del cuerpo.
+
+ACD-h = ángulo codo derecho del hombre ACD-m = ángulo codo derecho de la mujer
+ACÍI-h = ángulo codo izquierdo del hombre ACL m = ángulo codo izquierdo de la mujer
+
+ARD-h = ángulo rodilla derecha del hombre ARD-m= ángulo rodilla derecha de la mujer
+ARÍ-h = ángulo rodilla izquierda del hombre | ARÍ-=m = ángulo rodilla izquierda mujerTabla 10 Pareja 1, prueba. Cantidad de aciertos
+
+ JACDHh [ACIh_[|ARD-h [ARIh_|ACD-m [ACEm | ARD-m | AREm | Acierto |
+Modelo [145.01 [119.92 |148.09 [178.08 [159.04 [251.85 | 19234 [17384 | |
+
+146,66 |112,87 |137,85 [179,87 [157,09 [241,51 | 199,42 |173,05
+130,35 |118,58 [147,65 |179,3  |157,12 |265,53 |197,87 [179,3
+140,92 [122,09 |147,41 |179,445 |157,16 [257,41 | 197,41 |173,52 1
+
+ 
+
+Tabla 11 Pareja 1, prueba 2
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+
+jj [ACD-h [ACIh [ARD-h [ARIh_ [ACD-m [|ACim
+251.85 | 192,34 |17384 | |
+260,16
+261,45
+205,05 | 1909 [17981 [ 0 |
+Creación propia
+Tabla 12 Pareja 1, prueba 3
+jj [ACD-h [ACIh [ARD-h [ARIh_ [ACD-m |ACEm
+251.85 | 192.34 |17384 [| |
+254,01
+253,72
+220,09 [196.09 [17848 [| 0 |
+Creación propia
+Tabla 13 Pareja 2, prueba l
+jj [ACD-h [ACIh [ARD-h [ARIh_ [ACD-m |ACm
+251.85 | 192,34 |17384 [| |
+256.67 | 191,14 [150,29 | 0 |
+256,34
+254,87
+
+Creación propia
+
+Tabla 14 Pareja 2, prueba 2
+
+ll JACD-h [ACIh |ARD-h |ARIh_ |ACD-m |ACEm Acierto
+251.85
+230,63
+241,04
+245,82
+
+Creación propia
+
+ 
+
+Tabla 15 Pareja 2, prueba 3
+
+y ¡ACDh [ACIh |[|ARD-h [ARIh_ |ACD-m |[ACEm | ARD-m [ARIm_| Acierto
+265,96 l
+
+|Resultado2 | 148,73 |114,64 |151,69 |186,91 [149,73 |259,58 | 192,33 |176,16
+'Resultado3 | 149,86 [129,15 |141,41 [179,02 |150,75 [258,95 | 192,42 |172,83
+
+Creación propia
+
+ 
+
+48A partir de la información de las tablas anteriores, se puede observar que la pareja 1 de 9
+evaluaciones de la figura realizada, 6 evaluaciones fueron aceptadas correctamente por la
+aplicación; en cambio en las tabla 9, 10 y 11, el programa para la pareja 2 indicó 5
+evaluaciones correctas de un total de 9 realizadas.
+
+Por último se realiza un resumen de la información las las tablas anteriores mediante un
+gráfico de barras que se representa en la ilustración N.36
+
+ 
+
+ 
+
+ 
+
+CORRECTAS INCORRECTAS
+
+MH Pareja 1 MPareja2 - Total
+
+Ilustración 35 Cantidad de aciertos
+
+En las ilustraciones N. 36 se muestra que hubo un total de 18 figuras realizadas, de las cuales
+11 fueron validadas correctamente por la aplicación, esto equivale a un 61,1% de aceptación
+de la aplicación
+
+4.4 Prueba N. 4
+
+Esta prueba involucra a personas con dos tipos de perfiles diferente, bailarín y novato
+haciendo una comparación entre parejas de novatos y expertos.
+
+Para realizar estas pruebas se ubicó el Kinect a una altura de 47,5 centímetros con respecto al
+suelo y los bailarines se situaron a una distancia de 3 metros con 22 centímetros, donde la
+altura de estos se encontraba en un rango de 1,50 a 1,72. Además se tuvo un rango de error de
+12 grados de holgura, dado por el experto en danzas.
+
+En el eje x de los gráficos cada uno de los numeros representan un ángulo a evaluar donde:
+l= ángulo codo derecho del hombre, 2 = ángulo codo izquierdo del hombre, 3 = ángulo
+rodilla derecha del hombre, 4 = ángulo rodilla izquierda del hombre, 5= ángulo codo derecho
+de la mujer, 6 = ángulo codo izquierdo de la mujer, 7 = ángulo rodilla derecha de la mujer y 8
+= ángulo rodilla izquierda de la mujer,
+
+49De este proceso se obtiene lo siguiente:
+
+El primer grafico, que se evidencia en la ilustración N. 37, donde la prueba la hacen
+bailarines novatos, se observa que cinco de los ángulos del promedio están por fuera del
+modelo, dos de ellos están muy cerca casi sobre ellos y solo uno de ellos está donde debe ir.
+El ángulo mas alejado es el del codo izquierdo de la mujer.
+
+ul
+
+E mr 5
+Modelo Promedio
+
+ 
+
+Ilustración 36 Representación de datos de los novatos
+
+El segundo gráfico, que se evidencia en la ilustración N. 38, donde la prueba la realiza un
+novato y una bailarina, Se observa que los puntos en general estan más cerca del modelo sin
+embargo seis de ellos tienen una ligera desviación.
+
+E Vodelo M Promedio
+
+ 
+
+Ilustración 37 Representación de datos de un novato y una bailarina
+
+SÓEl tercer gráfico, que se evidencia en la ilustración N. 39, donde la prueba la realiza una
+novata y un bailarín, aquí se observa a tres ángulos fuera del modelo, cuatro ángulos con
+una ligera desviación con respecto al modelo y uno de los ángulos esta muy cerca.
+
+Modelo M Promedio
+
+ 
+
+Ilustración 38 Representación de datos de una novata y un bailarín
+
+El cuarto gráfico, evidenciado en la ilustración N. 40, donde la prueba la realizan bailarines,
+se observa que hay una ligera desviacion en solo uno de los ángulos, el resto están cerca del
+modelo.
+
+4 5)
+
+¡AM Ao to
+
+ 
+
+Ilustración 39 Representación de datos de los bailarines
+
+La información de la ilustración N. 37, ilustración N. 38, ilustración N. 39 y la ilustración N.
+40, muestran que los valores del promedio de los resultados y el modelo, presentan una forma
+similar, a pesar de que en algunos vectores no haya una igualdad, esto ocurre porque puede
+
+51variar cada captura realizada y a los factores externos como características morfológicas,
+ubicación del kinect, elongación del cuerpo, la experiencia de las personas que realizaron la
+prueba, entre otros y el margen de error propio del kinect [33].
+
+Según los resultados de las gráficas anteriormente expuestas, las tendencias de los ángulos de
+las articulaciones, se dieron con respecto a la posición en general del cuerpo en especial las
+articulaciones evaluadas, las cuales requieren mucha precisión en su realización. En general
+los ángulos del codo izquierdo de la mujer y la rodilla izquierda del hombre presentan
+resultados alejados del modelo. Sin embargo, se puede decir que la aproximación al modelo
+original va de acuerdo a la experiencia que tiene el usuario en el arte del baile, siendo esta
+lineal en cuanto a su experiencia, es decir, a medida de que el usuario tiene una mayor
+experiencia, el resultado de la evaluación de la figura va a proporcionar información más
+exacta. Por ejemplo podemos observar en estos dos ángulos, los novatos obtuvieron en la
+rodilla izquierda del hombre una diferencia que equivale a 28.81% y los bailarines una
+diferencia de 8,7. En el ángulo del codo izquierdo de la mujer los novatos tuvieron una
+diferencia de 64,41 mientras que los bailarines 4,68. Sin embargo se puede observar que la
+mujer tiene más número de ángulos con variones con respecto al modelo, lo que quiere decir
+que tambien depende de la figura que se este evaluando, en este caso el mayor esfuerzo lo
+hace la mujer, la cual debe de permanecer en el aire haciendo un split, donde el peso de su
+cuerpo es sostenido en el empeine del pie lo que requiere de un buen manejo del cuerpo.
+
+525
+
+CONCLUSIONES Y PROYECCIONES
+
+5.1 Conclusiones
+
+En este capítulo se recogen las conclusiones más relevantes a las que se ha llegado durante el
+desarrollo del presente trabajo y se indican las líneas de trabajo futuras que se derivan de la
+realización de este trabajo de grado.
+
+Entre las conclusiones más relevantes:
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Como características principales de las figuras acrobáticas a evaluar, se determinó
+que este proceso se haría por medio del cálculo de los ángulos generados entre los
+hombros, codos y muñecas, además de la cadera, rodillas y tobillos tanto del lado
+derecho como del lado izquierdo, con el fin de garantizar que la aplicación sea usada
+por personas con el promedio de estura de los colombianos.
+
+Se realizó un modelo, el cual, consta de ocho valores que representan las
+características principales de una figura acrobática tanto del hombre como de la
+mujer, lo que permite que la aplicación sea mas rapida en tiempos de respuestas, le
+permite ser dinámica y escalable
+
+Para mostrar el esqueleto, obtener y calcular los resultados se utiliza una herramienta
+propia del kinect llamado Skeleton Tracking, el cual proporciona información
+detallada sobre la posición en el campo de visión de la cámara, específicamente de
+veinte articulaciones del cuerpo del usuario. De acuerdo a esta funcionalidad, se
+logro adaptar el modelo de datos propio, utilizando solo 12 de estas articulaciones
+que corresponden a las partes del cuerpo que representan mas movimiento, tanto
+extremidades superiores como las inferiores. Esto, facilita hacer una serie de
+operaciones básicas con lo que se lleva a cabo el modelo matemático, logrando
+exactitud en los resultados.
+
+Se creó una aplicación prototipo con una interfaz gráfica de usuario, capaz de valorar
+los resultados obtenidos y que cumpliera los requerimientos pertinentes, buscando
+que el usuario pueda asociarla con otro tipo de interfaces y así posiblementele sea
+más intuitiva.
+
+Se optó por utilizar el dispositivo kinect para capturar los datos pertinentes, debido a
+que este sensor ignora el entorno, lo que permite pasar por alto iluminación, efectos
+de sombra, y demás características que debe de tener una imagen para obtener
+resultados óptimos.
+
+La aplicación de este trabajo, está sujeto a una serie de restricciones como la posición
+que va a tener el kinect y la distancia entre el sensor y los usuarios para que puedan
+ser detectados por el completamente. Por ende, se recomienda que el kinect se
+encuentre a una altura entre 40 cm y 50 em, siendo la distancia entre el usuario y el
+kinect de aproximadamente tres metros con 22 centímetro (3,22), sin embargo esto se
+encuentra sujeto a la altura del usuario que utilizará el sistema.
+
+Además, el aplicativo solo cuenta con la evaluación de cuatro ángulos estratégicos,
+sin embargo al no tener en cuenta otros ángulos puede hacer que la evaluación
+repercuta en la estética de la figura acrobática, viéndose afectada. Como por ejemplo
+la evaluación del empeine.
+
+53El grado de holgura que se utiliza para la evaluación de figuras acrobáticas depende
+del experto y esta sujeta a la opinión de este, lo que puede generar que no sea exacto
+a la hora de lograr con su objetivo, siendo esta una limitante.
+
+Según el experto, el aplicativo permite realizar una oportuna evaluación de la
+realización de la figura acrobática que se va a realizar, debido a que el aplicativo,
+visualiza la figura que se va a realizar, captura los datos por medio del sensor, da una
+evalución correcta y proporciona una retoalimentación por medio del pdf, lo que
+permite hacer la figura de forma apropiada a la hora de realizar este tipo de
+ejercicios, esto se debe a que es dificil hacerle un seguimiento a la misma. Por
+último, esto mejora la estética de lo que se quiere mostrar en tarima, ya que cada vez
+la repetición de las cosas, hace que nos volvamos cada vez mejores en ello. Además,
+sirve de fundamento para ampliar investigaciones que involucren la creación de
+software enfocados a promover el uso de aplicativos en el arte.
+
+ 
+
+ 
+
+ 
+
+ 
+
+5.2 Proyecciones
+
+Actualmente como se encuentra el proyecto, brinda la oportunidad de realizar trabajos
+futuros, bien sea para optimizarlo O para agregar nuevas herramientas y extenderlo, es así
+como se puede realizar otros trabajos como los siguientes:
+
+ 
+
+ 
+
+ 
+
+Determinar el cálculo del margen de error, cuando se crea un modelo.
+
+ 
+
+ 
+
+Extender el reconocimiento mediante el movimiento.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Buscar alternativas diferentes de la manera en que se almacenan los datos para
+
+ 
+
+realizar un mejor seguimiento de la figura acrobática, como por ejemplo una base de
+datos, permitiendo llevar un registro histórico más robusto.
+
+ 
+
+ 
+
+ 
+
+Implementar una mejora para que se puede hacer una captura de datos no solo de dos
+
+ 
+
+usuarios.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Ampliar la detección de otras articulaciones para mejorar el proceso de evaluación de
+otros ángulos de la figura acrobática que actualmente no se tienen en cuenta, como
+por ejemplo para evaluar el empeine.
+
+54REFERENCIAS
+
+[1] F. Manzanera, (2006, Junio). Lesiones en la danza. Primera parte. Danza Ballet €£ Body
+Ballet. [En línea] disponible en: www.danzaballet.com/las-lesiones-en-la-danza-i-primeraparte.
+
+[2] Peggy Langrall (1993, Julio) “La danza: efímera y académica”. El Tiempo. [En línea].
+Disponible en: http://www.eltiempo.com/archivo/documento/MAM-164769
+
+[3] Pako Martinez (2013, Enero) La danza y las artes visuales 5” Grado. Bloque III. Danza y
+Expresión Corporal. Gobierno del Estado de México. [En línea] Disponible en:
+http://promotoreducacionartistica.blogspot.com.co/2013/01/la-danza-y-las-artesvisuales.html.
+
+[4] Microsoft, “Kinect para Windows”. [En — línea] Disponible en:
+
+https: //developer.microsoft.com/en-us/windows/kinect.
+
+[5] Wired Gadget, (2010, noviembre), “Funcionamiento del sensor de movimiento en
+Kinect”. [En línea] Disponible en: http://ideasgeek.net/2010/11/10/funcionamiento-delsensor-de-movimiento-en-kinect/
+
+[6] DAVE, Ankit et al. Project Mudra: Personalization of Computers using Natural Interface.
+En International Journal of Computer Aplications. 2012, pp. 42-46.
+
+[7]Sergio Herman Peralta Benhumea. (2012, Septiembre). Interfaz de lenguaje natural usando
+Kinect. Trabajo de maestría en ciencias de computación.
+
+[8] José Perona (2011, Julio). Reto Kinect: Usar las cámaras del sensor. Microsoft DX
+España. [En línea]. Disponible en:
+https://blogs.msdn.microsoft.com/esmsdn/201 1/07/20/reto-kinect-usar-las-cmaras-del-sensor/
+
+[9] Juan Carlos Ruiz (2013, Marzo) Programar en K4W: Kinect For Windows. Microsoft
+MSDN [En línea]. Disponible en:
+https://blogs.msdn.microsoft.com/juank/2013/03/12/programar-en-k4w-kinect-for-windows/
+
+[10] Olga P. Osorio y Francisco L. Peña (2015, Noviembre) Captura de movimiento
+utilizando el Kinect para el control de una plataforma robótica controlada de forma remota
+por medio de seguimiento de los puntos de articulación del cuerpo. [En línea] Disponible en:
+http://repositorio.utp.edu.co/dspace/bitstream/handle/11059/5136/6298083CB 108466.pdf?se
+
+quence=1
+
+55[11] Kinect. SDK de Windows 10. [En línea] Disponible en:
+
+https: //developer.microsoft.com/es-es/windows/downloads/windows-10-sdk
+
+[12] Microsoft. Kinect for Windows Developer Toolkit v1.8. [En línea] Disponible en:
+https://www.microsoft.com/en-us/download/details.aspx?id=40276
+
+[13] Roberto Torres (2014, Enero). Cf: Creando archivos PDF con ¡TextSharp. [En línea]
+Disponible en: http://desarrolladores.me/2014/01/c-creando-archivos-pdf-con-itextsharp/
+
+[14] Microsoft. Visual Studio. [En línea] Disponible en: https://msdn.microsoft.com/eses/library/aa718325.aspx
+
+[15] Wikipedia. “Coreografia”. [En línea]. Disponible en:
+https://es.wikipedia.org/wiki/Coreograf/oC3V/ADa
+
+[16] Definición  .de. “Definición de: Danza”. [En línea]. Disponible en:
+http://definicion.de/danza/
+
+[17] Glosario Educación física / Término. “Elongación”. [En línea]. Disponible en:
+http://glosarios.servidor-alicante.com/educacion-fisica/elongacion
+
+[18] Wikipedia. “Empeine (pie)”. [En línea]. Disponible en:
+https://es.wikipedia.org/wiki/Empeine_ (pie)
+
+[19] Universidad Complutense Madrid. “Matching”. [En línea]. Disponible en:
+http://eprints.ucm.es/22577/1/Procesado_de_imagenes_para_plataformas_moviles.pdf.
+
+[20] Dr. Victor J. Sosa Sosa. “Middleware: Arquitectura para aplicaciones distribuidas”.
+
+Cinvestav-Tamaulipas- [En línea]. Disponible en:
+http://www.tamps.cinvestav.mx/-vjsosa/clases/sd/Middleware_Recorrido.pdf
+
+[21]Marcos Luis Díaz García (2016, Marzo). Odometría visual aplicada a la localización de
+
+un robot con Kinect en interiores. Trabajo de fin de grado. [En línea] Disponible en:
+
+http://riull.ull.es/xmlui/bitstream/handle/915/1932/0dometria%20visualV%20aplicadaT20a7%
+20la7%20localizacionY20de%20un%20robot%20con%W%20KinectY%20enY%20interiores.pdf?seq
+
+uence=1«isAllowed=y
+
+[22] Wikipedia. “Split (ejercicio físico)”. [en línea] Disponible en:
+https://es.wikipedia.org/wiki/Split_(ejercicio_fYoC3%V%ADsico)
+
+[23] Microsoft. Windows Presentation Foundation. Developer Network. [En línea].
+
+Disponible en: https://msdn.microsoft.com/es-es/library/ms754130(v=vs.110).aspx
+
+56[24] J.F Villada, J.E Muñoz y J.D Hoyos. (2014, Noviembre). “Desarrollo de un software de
+análisis biomecánico a través de datos de captura de movimiento usando el sensor KINECT
+para rehabilitación asistida con videos juegos. Universidad Católica de Pereira. [En línea]
+Disponible en: http://biblioteca.ucp.edu.co/ojs/index.php/entrecei/article/viewFile/2499/2380
+
+[25] Lucía Vera, Jespus Gimeno (2011, Junio). Espejo Aumentado: sistema interactivo de
+realidad aumentada basado en kinect. [En línea] Disponible en:
+https: //www.researchgate.net/profile/Inmaculada_Coma/publication/260342692 _Espejo_Au
+
+mentado sistema interactivo de Realidad Aumentada basado en Kinect/links/5410032d0
+cf2df04e75a4b56.pdf
+
+[26] Credo interactive. DANCE FORMS 2.0 Información general del Dance Forms Software
+
+Shop. [En línea]. Disponible en: http://www .softwareshop.com/in.php?mod=ver_producto£zprdID=457
+
+[27] Olín Plácido Larrazábal, La casa que baila. (2008, Abril). “Merce Cunningham y sus
+coreografias”. Danza Ballet. [en línea] Disponible en: https: //www.danzaballet.com/wpcontent/cache/all/merce-cunningham-y-sus-coreografias/index.html
+
+[28] Christine (2010, Octubre). “Life Forms 5.0 and DanceForms 2.0”. Dance-tech. [en línea]
+Disponible en: http://www.dance-tech.net/group/ontoolsandtechnologies/forum/topics/lifeforms-50-and-danceforms
+
+[29] Universidad Unión Bolivariana. Metodologías ágiles “Proceso Unificado Ágil (AUP)”.
+[En línea] Disponible en: http://ingenieriadesoftware.mex.tl/63758_AUP.html.
+
+[30] Álvaro Alcolea. (Mayo, 2015) “Proyecto Kinect: Comparación de esqueletos”. Un
+mundo de ingeniería. [En línea] Disponible en:
+http://unmundodeingenieria.blogspot.com.co/2015/05/proyecto-kinect-comparacion-de.html
+
+[31] Universidad de Alicante. Servicio de Informática “Modelo Vista Controlador (MVC)y”
+[En línea] Disponible en: https://si.ua.es/es/documentacion/asp-net-mvc-3/1-dia/modelovista-controlador-mvc.html
+
+[32] Redacción vida de hoy. (2013,Octubre). “¿Esta usted dentro del rango de estatura
+promedio de los colombianos? [El tiempo. [En línea]. Disponible en:
+
+http://www.eltiempo.com/archivo/documento/CMS-13128617
+
+[33] Microsoft . Developer Network. “Skeletal Joint Smoothing While Paper”. [En líneal.
+Disponible en: https://msdn.microsoft.com/en-us/library/jj131429.aspx
+
+57ANEXOS
+
+Anexo 1
+
+Evidencia prueba N.2
+Evidencia fotográfica de la prueba realizada a un hombre con estatura promedio de 1,72 que
+
+se muestra en la ilustración N. 41, para conocer las restricciones del uso del kinect y la
+posición del mismo.
+
+ 
+
+Ilustración 40 Prueba para las condiciones de uso del Kinect
+
+58Anexo 3
+
+Evidencia fotográfica de la prueba realizada a personas con experiencia en el arte del baile
+que se muestra en la ilustración N. 41, para la validación de que tan acertada es la evaluación
+de la realización de alguna figura acrobática
+
+ 
+
+Se cuenta con tres bailarines un hombre y dos mujeres de los cuales, el hombre cuenta con
+una experiencia de un año con los talleres que presenta la casa de la Cultura en la ciudad de
+Tuluá, la bailarina de la imagen de la izquierda fue bailarina de danzas durante su
+adolescencia con un tiempo de tres años y la bailarida de la derecha tienen experiencia de
+cinco años donde uno de ellos la tuvo con Aires Antillado y el resto con Corpumentdanz.
+
+9Anexo 4
+
+Evidencia prueba N.4
+
+Evidencia fotográfica de la prueba realizada a cuatro personas que se muestra en las
+siguientes ilustraciones, para la validación del funcionamiento adecuado del sistema. Para la
+
+indumentaria utilizada se tuvo en cuenta una mesa en la cual se colocó el computador y el
+sensor kinect.
+
+ 
+
+Ilustración 42 Pruebas con novatos
+
+ 
+
+Ilustración 43Pruebas con novato hombre, bailarina mujer
+
+60Ilustración 44 bailarín hombre y novata mujer
+
+ 
+
+e ; 3 » Y d 7 w
+
+Ilustración 45 bailarines
+
+61

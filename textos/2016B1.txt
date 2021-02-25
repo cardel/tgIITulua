@@ -1,0 +1,3623 @@
+Implementación de un prototipo de simulación de non-player character utilizando
+emociones como regla para la vida artificial en entornos de simulación de multitudes
+
+Miguel Ángel Askar Rodríguez
+Danny Fernando Cruz Arango
+
+Universidad del Valle
+
+Facultad de ingeniería
+
+Escuela de ingeniería de sistemas y computación
+Tuluá
+
+2017Implementación de un prototipo de simulación de non-player character utilizando
+emociones como regla para la vida artificial en entornos de simulación de multitudes
+
+Miguel Ángel Askar Rodríguez
+Código 201355842
+miguel .askarfcorreounivalle.edu.co
+
+Danny Fernando Cruz Arango
+Código 201449949
+danny .cruzOcorreounivalle.edu.co
+
+Documento presentado como requisito parcial para la obtención de
+grado de Ingeniero de Sistemas
+
+Director
+Joshua David Triana Madrid, Ing
+joshua.trianalcorreounivalle.edu.co
+
+Universidad del Valle
+
+Facultad de ingeniería
+
+Escuela de ingeniería de sistemas y computación
+Tuluá
+
+2017Trabajo de grado presentado por
+Miguel Ángel Askar Rodríguez,
+Danny Fernando Cruz Arango
+Como requisito parcial para la obtención del título de Ingeniero de Sistemas
+
+ 
+
+Joshua David Triana Madrid
+Director
+
+ 
+
+ 
+
+Jurado JuradoII
+
+Agradezco a mis padres y a mi hermano por el apoyo incondicional durante la ejecución de este proyecto
+(sí Leo, ya lo terminé). A mi compañero Danny por su disposición y por compartir conmigo el equilibrio
+de trabajar sin estresarnos y no perder la vida social. A Joshua, mi director de Trabajo de Grado, quién
+es genial porque le gusta Star Wars... también porque sus conocimientos nos llevaron al éxito en este
+proyecto. Á mis amigos, en especial Jefferson y Juan Camilo por hacerse los que entendían lo que hacía.
+También agradezco a mis compañeros y la gente que conocí en la carrera, pues hicieron de esta una de
+las mejores experiencias de mi vida. Doy un agradecimiento especial a la profe Yuri, quien además de
+mi Coordinadora, se convirtió en mi amiga. Por último, agradezco a la Universidad del Valle por
+permitirme recibir este conocimiento tan útil durante estos 5 años.
+
+Agradecimiento especial a mi familia por su apoyo incondicional, especialmente a mis padres, a mi
+compañero Miguel por su entrega y dedicación, al igual que a nuestro director Joshua por ser un apoyo
+permanente más aún en momentos de duda; a nuestra institución por brindarnos no sólo el
+conocimiento y las herramientas académicas en nuestra formación profesional, sino también por los
+múltiples espacios sociales el los cuales he podido compartir con personas que ahora son parte importante
+en mi vida, a nuestra coordinadora Yuri por el apoyo constante en todas las etapas de este proceso y por
+último a nuestros compañeros ya que sin ellos el recorrer este camino no hubiese sido lo mismo.Tabla de Contenido
+
+1. Introducción
+
+LA Objetivos ......
+1.1.1. Objetivo general .........
+1.1.2. Objetivos especíÍtCOs .......
+
+1.2. Resultados esperados ........
+
+1.3. Formulación del problema ......
+
+1.4. Descripción del problema .......
+
+Li. Justilicación
+
+1.6. Metodología ........
+1.7. Información sobre los capítulos ...........
+
+. Marco referencial
+
+Dl. Marco Teórico...
+Zll. Antecedentes...
+2.2. Marco Conceptual...
+A
+. Alcance de la propuesta
+BA Aran
+. Modelo
+4.1. Modelo emocional .........
+4.1.1. Definición de NPC para la simulación ........ e...
+4.1.2. Transiciones de estado para los NPC ............. .... e...
+4.1.3. Aspectos de la interfaz conectados con el modelo emocional .............
+4.2. Estrategia evolutiva .....
+4.2.1. Definición del genoma ........
+4.2.2. Obtención del genoma Colectivo ..............
+4.2.3. Normalización de las emociones...
+424. Población .....
+ARA. Competencia
+AR. Reproducción
+BRA Mariación
+4.2.8. Definición de los eventos .......
+
+¡00
+
+Dd) UU OLA OA NRP
+
+RR
+NhoOoITABLA DE CONTENIDO
+
+5. Implementación
+
+5.1. Comportamientos de los NPC -.........
+9.1.1. MuertedeNPC.......
+5.1.2. Atracción entre NPC.......
+9.1.3. Tiempo de Teproducción
+AA E
+A Moreno
+
+5.2. Descripción de la aplicación ..........
+RL Tablero...
+5.2.2. Control de velocidad de simulación ............ e...
+5.2.3. Configuración de eventos .....
+5.2.4. Configuración de NPC -.......
+9.2.9. Información NPC.......
+
+5.3. Descripción de la Simulación
+5.3.1. Variables de entrada .......
+5.3.2. Variables de Salida . ...........
+3. Tipos de eventos...
+
+5.4. Creación de los NPC ..........
+
+DD. Aspectos técnicos...
+
+5.6. Análisis de la complejidad ........
+5.6.1. Complejidad temporal .......
+5.6.2. Complejidad espacial. ........
+
+6. Pruebas
+
+6.1. Software de Minería de Datos Weka[l] ........... o... o... e...
+
+6.2. Hardware donde se realizaron las pruebas ........
+
+3. Pruebas...
+6.3.1. Variables independientes: .....
+6.3.2. Variables Dependientes (Resultados) ........ o... . o... e... o...
+6.3.3. Pruebas Iniciales ........
+6.3.4. Pruebas después del filtro . ................ e...
+6.3.5. Análisis gráfico de los resultados ........... . ..
+6.3.6. Análisis setl......
+6.3.7. Análisis set 2...
+6.3.8. AMálisis set 3...
+6.3.9. Analisis seta...
+6.3.10. Análisis Global ..........
+
+7. Conclusiones
+7.1. Conclusiones y Análisis de Resultados .......... e...
+
+8. Trabajos futuros
+Bl. Trabajos futuras...
+
+9. Bibliografía
+
+Anexos
+
+IV
+
+23
+23
+23
+23
+23
+24
+24
+24
+25
+26
+26
+27
+28
+28
+28
+29
+29
+3Ú
+SU
+SU
+SU
+31
+
+33
+33
+33
+33
+33
+36
+31
+40
+42
+47
+48
+49
+90
+91
+
+53
+93
+
+55
+99
+
+57
+
+59Lista de Figuras
+
+2.1.
+
+4.1.
+4.2.
+4.3.
+4.4.
+4.5.
+
+9.1.
+9.2.
+9.9.
+9.4.
+9.0.
+9.6.
+
+6.1.
+6.2.
+6.3.
+6.4.
+6.5.
+6.6.
+6.7.
+6.8.
+6.9
+
+6.10.
+6.11.
+6.12.
+6.13.
+6.14.
+6.15.
+6.16.
+6.17.
+
+6.18.
+
+6.19.
+
+Representación de las 6 emociones básicas ...... 7
+Diagrama de cajas del Modelo Emocional ............. .. o... 15
+Ciclo de un NPC durante la simulación ....... 16
+Ejemplo de tablero poblado .......... 19
+Representación del evento de manera general .............. e... e... e... 21
+Representación del evento de manera detallada .................... . . . .. 22
+Interfaz del Proyecto SEA ......... 24
+Tablero Vacío... 25
+Tablero con NPC.. 20
+Control de velocidad de simulación ........ 26
+Apartado de configuración de eventos ...... 26
+Apartado de configuración de NPC-......... 27
+Configuración emocional del evento Fiesta y su respectiva afectación . ........... 34
+Configuración emocional del evento deporte y su respectiva afectación ............ 34
+Configuración emocional del evento primavera y su respectiva afectación . ......... 34
+Configuración emocional del evento inundación y su respectiva afectación .......... 34
+Configuración emocional del evento terremoto y su respectiva afectación .......... 34
+Configuración emocional del evento incendio y su respectiva afectación . .......... 30
+Ejemplo de un NPC y dos posibles configuraciones de Tadi0. .......... ..... .. 39
+Ejemplo de 2 diferentes configuraciones de lago pasos para un NPC............. 36
+Relación entre largo de pasos y tiempo de reproducción ......... ..... . o... 43
+Relación largo pasos y las otras varlables . .............. . . . +... o... 43
+Evidencia de un patrón en la relación tiempo de reproducción - tiempo de muerte... ... 44
+Relación tiempo de reproducción y tiempo de Muerte ........... e... 44
+Tamaño de radar en relación con las otras variables . . ............... . . . . . . . 0. 45
+Relación de tiempo de muerte con las otras variables . . ................... 45
+Relación de la dispersión con las otras variables . ............... .. . . . . .. 46
+Relación cantidad de NPC e intensidad eventos ......... e... 46
+Análisis de Weka para la variable Tiempo simulación con su valor máximo, valor mínimo,
+
+valor medio y desviación estándar para el Set l ............... . . .. . . . +... 47
+Análisis de Weka para la variable Población Final con su valor máximo, valor mínimo, valor
+
+medio y desviación estándar para el set l .............. . . . ... . e... e... 48
+Análisis de Weka para la variable Tiempo simulación con su valor máximo, valor mínimo,
+
+valor medio y desviación estándar para el Set 2 ............. . . . . .. . . . +. 48LISTA DE FIGURAS
+
+6.20.
+
+6.21.
+
+6.22.
+
+6.23.
+
+6.24.
+
+6.25.
+
+6.26.
+
+Análisis de Weka para la variable Población Final con su valor máximo, valor mínimo, valor
+medio y desviación estándar para el set 2 .............. . . e...
+Análisis de Weka para la variable Tiempo simulación con su valor máximo, valor mínimo,
+valor medio y desviación estándar para el set3 ......... o... . . . . . . . . . ..
+Análisis de Weka para la variable Población Final con su valor máximo, valor mínimo, valor
+medio y desviación estándar para el set 3 .............. . e...
+Análisis de Weka para la variable Tiempo simulación con su valor máximo, valor mínimo,
+valor medio y desviación estándar para el Set4 ............. .. . . . . .. . +.
+Análisis de Weka para la variable Población Final con su valor máximo, valor mínimo, valor
+medio y desviación estándar para el set 4 .............. .. e... o...
+Análisis de Weka para la variable Tiempo de Simulación con su valor máximo, valor mínimo,
+valor medio y desviación estándar para el análisis global . . .................
+Análisis de Weka de la variable Población Final con su valor máximo, valor mínimo, valor
+medio y desviación estándar para el análisis global . ........ o... .........
+
+VILista de tablas
+
+1.1.
+1.2.
+
+2.1.
+
+4.1.
+4.2.
+4.3.
+4.4.
+
+6.1.
+6.2.
+6.3.
+6.4.
+6.5.
+
+Relación entre los objetivos específicos y los resultados esperados . ............. 2
+Estructura de capítulos ....... 6
+Análisis de las seis emociones básicas postuladas por Paul Ekmadn.............. 8
+Permisibilidad - caso Empatía... 20
+NPC compatible - caso Empatía 20
+Permisibilidad - caso Complemento... 20
+NPC compatible - caso Complemento ...... 20
+Análisis desde la variable dependiente Tiempo de Simulación ................ 38
+Análisis desde la variable dependiente Población final. .................... 39
+Análisis desde la variable dependiente Tiempo Simulación .............. . . +. 41
+Análisis desde la variable dependiente Población final. ...................... 42
+Sets para las pruebas adicionales ............ 47
+
+VIIResumen
+
+En este proyecto, se hace una investigación acerca de los diferentes modelos emocionales para posteriormente relacionarlos con un modelo basado en el evolutivo tradicional [2]. Todo esto, con el fin de
+implementar un prototipo que permita realizar simulaciones con Non-Player Character [3] afectados por
+
+emociones, en aras de definir su relevancia a la hora de ser utilizadas en entornos de simulación de multitudes.
+
+A lo largo de este documento se presentan las distintas fases de su ejecución: Investigación, Implementación, Pruebas y Análisis. Así como los conceptos necesarios para su comprensión y las herramientas
+utilizadas para alcanzar los objetivos definidos.
+
+Por último, debido a la extensión del título proyecto, se hará referencia a sí mismo como el Proyecto
+SEA; donde SEA son las siglas para Ser Emocional Artificial, un nombre definido por su facilidad de
+pronunciación, poca extensión y pertinencia con las características y objetivos del proyecto.Capítulo 1
+
+Introducción
+
+1.1. Objetivos
+
+1.1.1. Objetivo general
+
+Desarrollar un prototipo que permita simular Non-player Character con características emocionales,
+dentro de un entorno virtual donde puedan generarse comportamientos emergentes y evolución de sus
+emociones.
+
+1.1.2. Objetivos específicos
+
+1. Determinar el modelo emocional computacional individual a implementar en cada NPC en conjunto
+con la cuantificación de las emociones dentro de la simulación.
+
+2. Especificar la estrategia de evolución para la computación emocional involucrada globalmente en la
+simulación.
+
+3. Determinar los eventos que podrán tener lugar en la simulación.
+
+4. Crear prototipo de simulación de multitudes con Non-Player Characters haciendo uso del modelo
+emocional definido, así como su respectivo escenario y ambiente de ejecución.
+
+5. Realizar un análisis de las características y cambios de las emociones resultantes, para definir la
+conveniencia de la simulación haciendo uso de estas en los NPC.Introducción
+
+1.2.
+
+Resultados esperados
+
+Tabla 1.1: Relación entre los objetivos específicos y los resultados esperados
+
+ 
+
+Objetivo específico
+
+Resultado esperado
+
+ 
+
+Determinar el modelo emocional
+computacional individual a implementar en cada NPC en conjunto con la cuantificación de las
+emociones dentro de la simulación.
+
+Documento donde figuren las emociones a implementar definidas, la relación entre las mismas y su importancia para la simulación de
+NPC. Anexando un método de cuantificación
+de dichas emociones.
+
+ 
+
+Especificar la estrategia de evolución para la computación emocional involucrada globalmente
+en la simulación.
+
+Documento que involucra los siguientes
+Ítems:
+
+"= Computación evolutiva aplicada a las
+emociones y definida para la simulación, junto con sus valores numéricos.
+
+= Evolución emocional (a través de técnicas de computación evolutiva) definida
+para cada individuo dentro de la simulación (simulación individual).
+
+= Evolución emocional (a través de técnicas de computación evolutiva) establecida para la creación de nuevos individuos dentro de la simulación (simulación generacional).
+
+ 
+
+Determinar los eventos que
+podrán tener lugar en la simulación.
+
+Documento que evidencia la definición de los
+eventos en los que se verán involucrados los
+Non-Player Character en la simulación, con
+su representación en valores numéricos y variables en el entorno virtual.
+
+ 
+
+Crear prototipo de simulación de
+multitudes con Non-Player Characters haciendo uso del modelo
+emocional definido, así como su
+respectivo escenario y ambiente
+de ejecución.
+
+Prototipo funcional donde se presentará la
+evolución emocional de los Non-Player Character, complejidad y emergencia. El prototipo arrojará datos acerca de la evolución emocional (valores numéricos de las emociones)
+de los NPC dentro del entorno virtual.
+
+ 
+
+ 
+
+Realizar un análisis de las características y cambios de las emociones resultantes, para definir la
+conveniencia de la simulación haciendo uso de estas en los NPC.
+
+ 
+
+Documento con un análisis de las características y cambios de las emociones en los resultados obtenidos con la simulación, evidenciando la repercusión sobre el comportamiento de
+los NPC al utilizar las emociones.Introducción 3
+
+1.3. Formulación del problema
+
+¿Cómo implementar Non-Player Character que utilicen emociones como regla para la vida artificial
+en entornos de simulación de multitudes?
+
+1.4. Descripción del problema
+
+Las simulaciones de escenarios son una de las más poderosas herramientas disponibles para tomar
+decisiones de diseño y operación en sistemas y procesos complejos. Estas hacen posible estudiar y analizar
+situaciones que por otros medios no sería posible evaluar. En el mundo actual, la simulación de escenarios
+se ha convertido en una herramienta indispensable para resolver problemas de ingeniería, diseño y administración [4].
+
+Hoy en día las simulaciones de escenarios involucran una gran cantidad de objetos o individuos para
+aproximarse más a la realidad y obtener resultados útiles para la interpretación [5]. A la hora de simular personas, se tienen en cuenta patrones de comportamiento definidos, bibliotecas de movimientos y
+reacciones aleatorias ante situaciones inesperadas. Es causal de que los individuos simulados reaccionen
+socialmente con conductas de manada y replica de movimientos, pero sin tener en cuenta que a causa de
+las emociones se generan patrones de reacción y comportamiento de la gente dentro del escenario [6].
+
+Si bien las simulaciones modernas ofrecen gran cantidad de variables para el estudio de diferentes factores
+del ambiente, existe la necesidad de aproximar los comportamientos de los individuos a la realidad, para
+que dichas simulaciones sean de mayor utilidad para la predicción de resultados, de manera independiente
+del área de estudio [7]. Uno de los ítems para lograr dicha aproximación es el comportamiento emocional,
+el cual se ha visto poco implementado en las simulaciones a falta de modelos que permitan la inclusión
+de este en ambientes virtuales, en cambio, se presentan comportamientos de interrelación social de las
+personas a través de patrones definidos o aleatorios [6|.
+
+A causa de la falta de uso de un modelo emocional en las simulaciones, se dejan de obtener resultados donde el comportamiento de la gente, tanto individual como colectivamente, se ve influenciado por
+sus emociones. Tal es el caso de las simulaciones de evacuación de escenarios con multitudes, en estos,
+se emplean modelos de comportamiento social para las conductas de las personas; pero se hace énfasis
+en las condiciones ambientales y las variaciones que el escenario pueda tener. En este orden de ideas, los
+individuos simulados reaccionarán entre ellos según sea su disposición inicial, llevando a que las simulaciones se basen principalmente en las diferencias en las condiciones iniciales que se pueden presentar en
+el ambiente y no se hace énfasis en los comportamientos que podrían generar las reacciones emocionales
+de los individuos simulados [8].
+
+Las emociones son esenciales en todos los aspectos que involucran la interacción de las personas con
+el medio y con otros individuos, pues estas determinan su forma de actuar, de tratar a otros individuos,
+de adquirir hábitos sanos o tomar las mejores decisiones en momentos de emergencia [9]. El hecho de no
+ser un componente ampliamente desarrollado en las simulaciones, hace que estas carezcan de un componente que agregaría patrones de comportamiento no sólo basados en lo que los grupos masivos de personas
+harían, sino que involucrarían también las decisiones basadas en el estado emocional de cada individuo
+dentro de la simulación. Es cierto que existen estudios acerca de cómo las emociones son parte de los
+individuos, pero su profundización en la simulación computacional de las mismas no es muy extensa.
+Todo esto conlleva a que la computación emocional sea un área con bastantes aspectos por cubrir y porIntroducción 4
+
+recibir aportes a través de la investigación en modelos de simulación de las mismas, más aún, en el comportamiento de Non-Player Character.
+
+En síntesis, la simulación de multitudes podría trabajar con más variables y obtener resultados diversos si se involucra un modelo emocional orientado a los individuos dentro de la misma. Hoy en día este
+aspecto no es ampliamente desarrollado y se utilizan técnicas que están más dirigidas al grupo de personas
+que al individuo como tal. La aplicación de emociones en las simulaciones es un aspecto que agregará
+mayor variabilidad en los resultados, así como opciones para el control de las multitudes y su desempeño
+durante la prueba virtual.Introducción 5
+
+1.5. Justificación
+
+La simulación de multitudes es un campo bastante estudiado en lo que respecta a las variables del
+entorno y los escenarios donde la misma ocurre [5]. Todo esto permite crear simulaciones que, aunque son
+muy buenas, no se centran en el apartado de comportamiento e interacción de las personas. Estos entes
+(llamados Non-Player Character en esta investigación) podrían presentar comportamientos emergentes
+tanto de forma individual como colectiva si se basa su conducta en emociones, fortaleciendo así la metodología para la simulación de masas en entornos virtuales. El proyecto SEA (Ser Emocional Artificial)
+pretende utilizar las emociones como regla para la vida artificial para dar la posibilidad de aparición de
+comportamientos emergentes en los entornos de simulación de multitudes. Esto permitirá, en enfoques
+prácticos, agregar más variables al comportamiento de los NPC en la simulación, lo cual se verá reflejado
+en resultados donde las acciones de los Non-Player Character adquieren relevancia (debido a que entran
+en juego las emociones). Desde el punto de vista teórico, la computación emocional es un campo poco
+explorado en el apartado de simular emociones independientemente del usuario humano que utiliza el
+software, pues los estudios se han centrado en comprender a las personas y cuantificar su estado emocional a través de patrones en el habla y/o expresiones faciales [8] [10] [11]. En adición, el desarrollo de esta
+investigación tiene como propósito servir de Trabajo de Grado para la carrera de Ingeniería de Sistemas,
+este será realizado por dos estudiantes ya que involucra varias áreas de estudio: Vida Artificial, Computación Emocional, Computación Evolutiva e Inteligencia artificial; todos necesarios para la ejecución del
+proyecto por su interrelación y sus características, pues son idóneas para alcanzar el objetivo del proyecto.
+
+1.6. Metodología
+
+Este trabajo de grado tiene un carácter investigativo más que de desarrollo de software en términos del
+área de Ciencias de la Computación, por lo tanto, aunque no se implementó una metodología de desarrollo
+específica, el proyecto se dividió en fases de acuerdo a los objetivos específicos del mismo:
+
+= Determinar el modelo emocional computacional individual a implementar en cada NPC en conjunto
+con la cuantificación de las emociones dentro de la simulación:
+Planificación: se definieron los modelos emocionales a implementar y su repercusión sobre los NPG.
+También se plantearon los porcentajes en que se ven afectados los Non-Player Character respecto
+a sus emociones al momento de evolucionar, ya sea de forma individual o generacional. Esta etapa
+comprendió 6 semanas.
+
+= Especificar la estrategia de evolución para la computación emocional involucrada globalmente en la
+simulación y determinar los eventos que podrán tener lugar en la simulación:
+Diseño: durante esta etapa se definieron los escenarios y su influencia sobre los NPC, así mismo
+se disenaron los eventos a ocurrir dentro de la simulación, definiendo sus respectivos valores de
+afectación sobre los Non-Player Character. También se establecieron los valores cuantitativos de los
+modelos emocionales definidos en la planificación junto con la evolución de los NPC. Esta etapa
+tuvo una duración de 4 semanas.
+
+= Crear prototipo de simulación de multitudes con Non-Player Characters haciendo uso del modelo
+emocional definido, así como su respectivo escenario y ambiente de ejecución:
+Codificación: para la codificación se tomaron los modelos establecidos en las etapas anteriores y se
+procedió a su implementación, esto corresponde al modelo de evolución de las emociones y por ende
+de los NPC, así como la implementación de escenarios y eventos. Después de codificar los aspectos
+mencionados, estos se recopilaron en un prototipo. La etapa de codificación tuvo una duración de
+14 semanas.Introducción 6
+
+= Realizar un análisis de las características y cambios de las emociones resultantes, para definir la
+conveniencia de la simulación haciendo uso de estas en los NPC.
+Pruebas: para la etapa de pruebas, se verificó la funcionalidad del prototipo y, principalmente, que
+estuviese presente suficiente información para establecer un análisis de las características presentes en
+los resultados de la simulación. Así mismo, durante esta etapa se creó el documento con el respectivo
+estudio proveniente de las observaciones de la simulación de NPG con técnicas de computación
+emocional.
+
+1.7. Información sobre los capítulos
+
+En la siguiente tabla se muestra una corta descripción de cada capítulo del documento y se explica
+qué objetivos específicos aborda.
+
+Tabla 1.2: Estructura de capítulos
+
+ 
+
+ 
+
+ 
+
+Capítulo Descripción Objetivo específico
+
+Capítulo 2: Marco referen- | Se presentan los conceptos básicos para que el lec- | Ninguno
+cial tor alcance una comprensión satisfactoria del pro
+yecto
+Capítulo 3: Alcance de la | En este capítulo se presenta de manera general lo | Ninguno
+propuesta que se pretende lograr a través de la ejecución del
+
+proyecto SEA
+Capítulo 4: Modelo Como primera instancia, se presenta la estrategia | 1 y 2
+
+evolutiva diseñada para el proyecto SEA y, por último, se describe el modelo emocional adaptado para
+
+ 
+
+la misma.
+Capítulo 5: Implementa- | En este capítulo se abordan temas acerca de la con- | 3 y 4
+ción ducta de los NPC, el tablero como escenario y am
+biente de ejecución, la definición de eventos y aspectos relacionados con el diseño y distribución de
+la interfaz gráfica.
+
+Capítulo 6: Pruebas Esta sección presenta las herramientas a través de | 5
+las cuales se ejecutaron y analizaron las pruebas,
+
+ 
+
+por otra parte, describe el proceso secuencial realizado para las pruebas y aporta premisas para la
+posterior generación de conclusiones
+
+Capítulo 7: Conclusiones Se presentan las conclusiones del proyecto, resulta- | 5
+do de la construcción y análisis del proyecto SEA
+Capítulo 8: Trabajos Futu- | Se presentan las distintas posibilidades considera- | 5
+
+ 
+
+ 
+
+ 
+
+ros das por los autores para la expansión del proyecto
+SEA en el futuro.
+Capítulo 9: Bibliografía Se presentan las referencias y fuentes de informa- | Ninguno
+
+ción del proyecto SEACapítulo 2
+
+Marco referencial
+
+En este capítulo se abordan los conceptos necesarios para el entendimiento de las estrategias implementadas y definiciones del proyecto SEA.
+
+2.1. Marco Teórico
+
+= Comportamiento de multitudes: | comportamiento de grupos colectivos, multitudes o masas ha
+sido ampliamente estudiado, sus inicios se remontan a filósofos griegos como Platón y Aristóteles,
+quienes expusieron teorías sobre la mejor manera de organizar las sociedades [8]. En la actualidad
+el objetivo de la psicología de masas es estudiar cómo preservan los individuos el poder de elegir
+frente a las presiones externas de grupos sociales o de la autoridad, por lo tanto, como menciona
+Gustave Le Bon “La masa es siempre intelectualmente inferior al hombre aislado. Pero, desde el
+punto de vista de los sentimientos y de los actos que los sentimientos provocan, puede, según las
+circunstancias, ser mejor o peor. Todo depende del modo en que sea sugestionada” [11].
+
+= Emociones básicas:
+
+. . em? > €
+nn 0 MW
+Miedo Sorpresa —Desagrado
+,( o e «Ko
+Ira Alegría Tristeza
+
+Figura 2.1: Representación de las 6 emociones básicas
+
+Varios estudios realizados por Paul Ekman [12] [10] aclararon el conflicto que había para la postulación de un conjunto de emociones básicas: miedo, rabia, alegría, tristeza, asco y sorpresa (Figura
+
+71Marco referencial
+
+2.1), se creía que las emociones estaban ligadas a la cultura y costumbres, por ende, se aprendían en
+sociedad, esto fue refutado al demostrar que dicho conjunto de emociones básicas era identificado
+por tribus que habían estado aisladas del mundo occidental y sin importar el lugar donde eran
+
+expuestas, estas emociones eran identificadas por las personas.
+
+Tabla 2.1: Análisis de las seis emociones básicas postuladas por Paul Ekman
+
+Sorpresa
+
+Desagrado
+
+Tristexra
+
+A manera de anotación, se informa al lector que la emoción Disgusto, puede verse mencionada como
+Desagrado en el prototipo y, por tanto, esto no implica que se haga referencia a otra emoción oO
+
+Anticipa una amenaza O
+
+peligro que produce
+ansiedad, incertidumbre
+e inseguridad.
+
+Sobresalto, asombro 0
+
+desconcierto. Es muy
+transitoria.
+Puede servir como una
+
+primera aproximación
+cognitiva a lo que está
+pasando.
+
+Aversión y disgusto hacia
+lo percibido.
+
+Rabia, enojo,
+resentimiento, furia e
+irritabilidad.
+
+Diversión, euforia,
+gratificación, sensación
+de bienestar y seguridad.
+
+Pena,
+pesimismo.
+
+soledad,
+
+Dispara mecanismos de
+
+protección.
+
+Sirve como ayuda orientadora
+
+ante la nueva situación
+percibida.
+
+Aleja del objeto que provoca la
+emoción
+
+Relacionada con la
+autoprotección.
+
+Estimula la repetición de las
+
+acciones que proporcionan
+placer, relacionada con el
+instinto reproductor.
+
+Desincentiva la repetición de |
+
+las acciones que causan pena.
+su expresión promueve el
+apoyo del grupo y la cohesión
+social.Marco referencial 9
+
+modelo afectivo diferente.
+
+= Simulación computacional: la simulación computacional pretende reproducir el comportamiento
+tanto de individuos como de grandes masas y de esta forma brindar una herramienta para hacer más
+fácil su respectivo estudio, Los usos de simulaciones en la actualidad abarcan una vasta cantidad
+de áreas, yendo desde simulación de microorganismo [13] hasta simulación de galaxias [14], dando a
+entender la versatilidad y utilidad de esta herramienta para comprobación de teorías y generación
+de conocimiento.
+
+= Vida Artificial: es un campo interdisciplinario siendo ampliamente reconocido en comunidades
+académicas y científicas, en el cual se presentan dos líneas paralelas de estudio, por un lado, estudio
+de fractales, la teoría o ciencia del caos, la adaptación o la selección, entre otras y por otra parte
+tenemos la determinación de las ciencias de la complejidad como tal, donde se han realizado estudios
+usando algoritmos genéticos en los cuales la evolución representa un rol central en los modelos
+aplicados [15], y de igual manera se ha usado como herramienta para investigación biológica [16].
+
+= Simulación de escenarios: en el campo de la investigación, de manera general para todas las
+áreas, siempre se ha contado con esta herramienta tan esencial (simulación). Dado que no siempre
+se cuenta con los recursos suficientes para estudiar casos en escenarios reales o no es posible tener
+disponibilidad de los mismos. Con la actual tecnología es posible simular casi cualquier escenario
+imaginable, desde vastas simulaciones del universo [17] que ayudan a entender el origen de todo,
+hasta simulación de colonias de hormigas que no solo ayudan a comprender su comportamiento, sino
+
+que también dan respuesta a problemas conocidos como The Travelling Salesman Problem (T'SP).
+[18]
+
+= Uso de NPC en computación |19]: los NPC son ampliamente conocidos en el campo de los
+videojuegos ya que suelen estar presentes en la gran mayoría de los mismos y es común que cumplan
+roles poco relevantes, tales como: vendedores, acompañantes, decoración de entornos, asignadores
+de misiones, entre otros, pero dada su característica más importante que sus acciones o comportamientos no pueden ser alterados por los jugadores, abre la posibilidad de crear aplicativos donde los
+encargados de llevar a cabo todos los procesos o funciones sean los mismos NPC sin intervención
+del jugador, dando así, la posibilidad de obtener resultados no programados.
+
+2.1.1. Antecedentes
+
+= Personalización automática de NPC”s usando el temperamento del jugador [20] Un estudio realizado en la Universidad Complutense de Madrid España tomó como base la personalidad del
+jugador humano para así moldear el comportamiento de su acompañante NPC, ya que los jugadores
+disfrutan más con companeros humanos y más aún, si la personalidad de dichos compañeros se
+asemeja a la del jugador. Esto fue realizado tomando como personalidad inicial un modelo obtenido
+de una sesión de juego previa.
+
+= Comportamientos en simulación de multitudes: revisión del estado del arte [21] Las
+grandes agrupaciones de personas son un fenómeno muy común, el cual es estudiado desde diferentes
+áreas. Pero se tiene que especialmente la de simulación de multitudes se encuentra siempre en
+evolución y constantemente se hacen múltiples aportes, todo esto porque esta área es abarcada
+desde múltiples disciplinas y se ha hecho claro que los avances en computación han ayudado en gran
+medida a poder simular de forma más acertada multitudes de mayor volumen y, de igual manera,
+con un comportamiento más cercano al presentado por los individuos en la realidad, pudiendo así
+alcanzar relevancia en múltiples áreas de la vida cotidiana.Marco referencial 10
+
+= Película “Intensamente” y el avance de las emociones básicas [22] Paul Ekman, quién
+postuló las seis emociones básicas (miedo, rabia, alegría, tristeza, asco y sorpresa) y ha trabajado
+en el estudio de las emociones por décadas, estuvo involucrado en el equipo tras la producción de
+“Intensamente”, una película de Disney — Pixar. Este largometraje permitió actualizar el modelo
+postulado por él mismo con anterioridad, pues ahora las emociones básicas sólo eran 5, ya que la
+sorpresa se convierte en una emoción de transición. Esto quiere decir que la sorpresa es la emoción
+presente durante un evento y capaz de transformar los estados anímicos de los individuos, como
+cambiar de tristeza a alegría en un instante por un estímulo del ambiente. Entre los estudios realizados para la producción, se encuentra que la madurez de los individuos influye en los valores con
+que cada emoción se presenta en ellos; llevando a considerar la adquisición de experiencia como la
+evolución de las emociones. Por todo esto, el modelo de emociones actual trabajado por Paul Ekman
+es un referente para estudios de computación, pues proporciona las bases para transición de estados
+e interrelación de emociones.
+
+= Computación emocional en inteligencia de personajes virtuales [23] Un proyecto realizado
+por el área de alta investigación de las instituciones de educación superior de la provincia de Hebei
+(China) usó el modelo de aprendizaje cognitivo y la teoría primaria de las emociones para asignar
+un comportamiento emocional a personajes de un entorno virtual. Mostrando en ellos la generación
+de mecanismos de emoción humanos, así mismo, diferentes procesos de migración y atenuación de
+las emociones.
+
+= Asignación de comportamiento emocional a agentes de presentación. [24] El uso de agentes
+de atención se ha visto incrementado en estrategias como la publicidad para productos comerciales y,
+por otro lado, se empiezan a utilizar en la presentación de noticias en internet, guías en mundos 3d,
+asesores en centros comerciales, entre otros. La interacción constante con usuarios ha hecho necesario
+mejorar el comportamiento de los mismos asignando emociones para una mejor comunicación e
+interacción con agentes humanos. Teniendo en cuenta esta finalidad, desde la universidad de Tokyo
+se hace uso de un modelo emocional de 5 factores, provisto por investigadores en psicología, siendo
+este meramente descriptivo y mayormente usado para perfilar una personalidad; con el objetivo
+lograr que los agentes alcancen una comunicación más natural con el usuario. Esta investigación
+está orientada a los agentes de comunicación y atención en general, por lo tanto no se desarrolla
+dirigida a un software en particular.Marco referencial 11
+
+2.2. Marco Conceptual
+
+= NPC (Non Player Character) [3]:
+
+Personaje no jugador o personaje no jugable hace referencia a Non Player Character por sus siglas
+en inglés, son los personajes de los videojuegos que forman parte del programa y son diseñados por
+el programador y no pueden ser controlados por un usuario humano.
+
+= Computación emocional |25]:
+
+La computación afectiva o emocional es el estudio y desarrollo de sistemas y dispositivos que pueden
+reconocer, interpretar, procesar y simular emociones humanas. Es un campo interdisciplinario donde
+se entrelazan ciencias como: computación, psicología y ciencias cognitivas.
+
+"= Multitudes (11):
+
+Se entiende por multitud o masa a “Una agrupación humana con los rasgos de pérdida de control
+racional, mayor sugestionabilidad, contagio emocional, imitación, sentimiento de omnipotencia y
+anonimato para el individuo” Gustave Le Bon.
+
+= Computación evolutiva [26]:
+
+En las ciencias de la computación, la computación evolutiva es una sub-área de la inteligencia
+artificial que se encarga de crear algoritmos tomando como base los principios de la teoría de la
+evolución de Charles Darwin. En esta técnica se toman como base cuatro puntos clave, primero una
+población inicial que suele competir y/o reproducirse, acudiendo de esta manera al segundo y tercer
+aspecto, competencia y reproducción respectivamente. Dejando como cuarto ítem la variación oO
+mutación, correspondiente a los cambios genéticos entre una generación y otra. En la implementación
+computacional, se cuenta con una función de desempeño o fitness que ayuda a determinar si se ha
+llegado a una solución o que tan bueno/apto es un individuo para un problema dado.
+
+= Emergencia [27]:
+Se entiende por emergencia como un suceso que corresponde a la acumulación de comportamiento
+de distintos entes, la cual al ser analizada corresponde a algo más que el comportamiento mismo de
+cada individuo. Teniendo esto claro se han presentado patrones emergentes en aplicaciones de vida
+artificial, debido a que al programar acciones independientes a los individuos, surgen patrones en
+las masas al momento de interactuar múltiples individuos.
+
+= Replica de movimientos:
+Es un término cómodo utilizado para señalar que un NPC imita los comportamientos o decisiones
+de otro.
+
+= Ambientes virtuales:
+
+Se refiere al entorno de ejecución, dónde se procesan los datos de la simulación.
+
+= Eventos:
+
+Sucesos que serán definidos para la simulación, donde se logra un balance entre las interacciones de
+los Non-Player Character y la evolución de sus emociones. Ejemplos de estos eventos son: terremotos,
+incendios, congregaciones, etc.
+
+= Complejidad [28]:Marco referencial 12
+
+2.3.
+
+Es una noción utilizada en diferentes campos tales como la filosofía y la epistemología, así como
+también la física, la biología, la sociología, la informática, la matemática, y también las llamadas
+ciencias de la información y de la comunicación o TICs. En términos generales, la complejidad tiende
+a ser utilizada para caracterizar algo con muchas partes que forman un conjunto intrincado y difícil
+de comprender.
+
+Glosario
+
+Vector emocional: hace referencia a la agrupación de los valores emocionales que pueden tomar un
+NPC o genoma, siendo estos los correspondientes a Miedo, Ira, Tristeza, Alegría y Disgusto.
+
+Vector de permisibilidad: es un conjunto de datos que establece qué tanta diferencia puede haber
+entre dos vectores emocionales, respecto a cada emoción, para que estos dos sean comparables.
+
+Vector de afectación a las emociones: es una agrupación de cinco datos, donde cada uno guarda la
+probabilidad de afectación a la correspondiente emoción.
+
+Ticks: en computación, principalmente en los lenguajes de la familia C, hace referencia a la cantidad
+de nanosegundos, en grupos de 100, que han transcurrido desde el inicio de la ejecución del programa.
+
+Unidad de tiempo: dentro del ámbito del proyecto SEA, la unidad de tiempo hace referencia a una
+transición de estado completa. Esta no tiene una duración fija, puesto que un estado puede tener
+mayor complejidad que otro.Capítulo 3
+
+Alcance de la propuesta
+
+3.1. Alcance
+
+El desarrollo del proyecto SEA (Ser Emocional Artificial) requiere investigar las áreas de Computación
+Emocional, Vida Artificial y Computación evolutiva. Por esto, una gran parte del desarrollo del mismo
+se centra en la búsqueda y adaptación de un modelo emocional a una forma discreta, utilizable con
+computación evolutiva y que sirva de regla para la vida artificial. El compendio de estas investigaciones
+será un prototipo que, a través de una interfaz sencilla, permitirá la apreciación de la evolución de los
+NPC individual y colectivamente, la forma de relacionarse con otros Non-Player Character, su interacción
+con los escenarios y la influencia de los eventos sobre sus porcentajes emocionales. El modelo emocional
+a diseñar para este proyecto involucrará las seis emociones básicas postuladas por Paul Eckman: rabia,
+disgusto, miedo, alegría, tristeza y sorpresa. Esto para proceder a estudiar cómo se interrelacionan y
+definir en qué medida los eventos afectarán a los porcentajes de cada emoción en los NPC. La evolución
+de estas emociones con el transcurso del tiempo de simulación, es la que permitirá que los Non-Player
+Character presenten características de Vida Artificial en el entorno virtual. Por lo tanto, la definición
+del modelo emocional es el aspecto más extenso del proyecto, teniendo en cuenta que involucrará la
+definición de: evolución de emociones y relación entre las mismas, influencia de eventos en las emociones,
+reacciones emocionales de los NPC ante los eventos y definición de escenarios idóneos para verificar los
+resultados del uso de computación emocional en simulación. El prototipo tendrá un aspecto minimalista,
+semejante a una matriz de puntos, donde cada uno representará un NPC. Dentro del aplicativo se podrá
+dictar cuándo inicia un evento, el cual, de acuerdo al escenario (representado por información interna del
+prototipo) alterará los valores emocionales asignados a cada Non-Player Character. Este aspecto visual
+permitirá centrar este trabajo de grado en la investigación, diseño y codificación del modelo, así como
+también logrará minimizar el uso de recursos computacionales en el apartado gráfico, para así utilizarlos
+en mayor medida para el procesamiento de variables de la simulación.
+
+13Capítulo 4
+
+Modelo
+
+4.1. Modelo emocional
+
+El modelo emocional utilizado para la Computación Afectiva en esta investigación se basa en el
+establecido por Paul Ekman [29]. En sus inicios este modelo suponía la existencia de 6 emociones básicas
+para cada ser humano: Alegría, Tristeza, Temor, Disgusto, Ira y Sorpresa; a esta última con el tiempo,
+aunque no fue eliminada del modelo, se le asignó el rol de emoción de transición, ya que se presenta al
+momento de un cambio emocional en el sujeto, más no se considera parte de su estado emocional. Esto
+representa una gran ventaja a nivel computacional, ya que la sorpresa se convierte en una herramienta
+para la evolución de las emociones desde el punto de vista de la simulación, pues el cambio de estado de
+cada NPC del proyecto SEA podrá ser sustentado bajo la existencia de la sorpresa. Con las características
+del modelo actual de Paul Ekman [29] es posible utilizar NPC emocionales en esta investigación, de tal
+forma que sus emociones sufran una evolución a lo largo de la simulación. Por tanto, un NPC creado en
+el estado inicial de la simulación, no será el mismo NPC al momento de finalizarla, dentro del contexto
+emocional. Todo esto, genera diferentes transiciones de estado del NPC posibles.
+
+14Modelo
+
+Entorno
+
+ 
+
+[Otros NPC]) “
+
+Evento
+A
+
+MODELO
+EMOCIONAL
+
+v v
+NPC
+
+o | Nuevo escenario
+evolucionados
+
+ 
+
+ 
+
+Nuevo Estado
+
+Figura 4.1: Diagrama de cajas del Modelo Emocional
+
+4.1.1. Definición de NPC para la simulación
+
+15
+
+Los Non-Player Character utilizados dentro de este proyecto, tienen la característica de ser emocionales, lo que conlleva a que en lugar de tener puntos de vida o de recompensa, posean porcentajes de
+
+emociones para cada uno. Los valores afectivos de cada NPC determinan con quién puede reproducirse y
+si busca alejarse o acercarse a grupos de otros Non-Player Character.
+
+4.1.2. Transiciones de estado para los NPC
+
+Adicionalmente, para efectos de la creación o desaparición de los NPC en la simulación, se crean las
+
+siguientes categorías para la transición de estado de los mismos:
+
+= Transición súbita: Un NPC se actualiza después de un cambio entre un estado de la simulación
+
+y uno inmediatamente posterior.
+
+= Transición global: hace referencia al estado de un NPC desde el momento de su creación al tiempo
+
+de finalización de la simulación o de su ciclo.Modelo 16
+
+NICIO DELA
+
+SIMULACIÓN
+
+NPC (creacion)
+
+Cambio de
+
+estado
+
+Muerte de
+
+NPC
+
+FIN DE LA
+SIMULACIÓN
+
+>
+Z
+DD
+a
+
+Figura 4.2: Ciclo de un NPC durante la simulación
+
+4.1.3. Aspectos de la interfaz conectados con el modelo emocional
+
+En relación al modelo emocional y su inclusión en la interfaz de la simulación del proyecto SEA, existen
+apartados que están estrechamente relacionados con el modelo emocional y, por tanto, es importante
+señalarlos.
+
+"= Configuración de eventos: este aspecto es clave del modelo emocional, pues es una extensión
+del mismo en la manera como es un factor relevante a la hora de modificar los valores emocionales
+de los NPC. Esto, ya que una determinada configuración de eventos y su oportuna utilización en
+la simulación, pueden modificar los NPC en cuadriculas donde estos habían decidido acercarse y,
+debido a esto, buscar alejarse y así encontrar otros NPC en el tablero.
+
+= Rango de Compatibilidad para la reproducción: Es sin duda uno de los elementos más
+importantes del modelo emocional, pues va ligado directamente con el modelo evolutivo, puesto que
+este rango establece que tan diferente debe ser el valor de cada emoción con las otras entre dos NPC
+para que estos se consideren compatibles, se exalta su importancia ya que al emparejarse dos NonPlayer Character, comienza su proceso de reproducción de acuerdo a los parámetros establecidos.Modelo 17
+
+= Tipo acercamiento: Esta es una variable que representa si los valores emocionales de dos NPC
+deben ser similares o complementarios para que se consideren compatibles. Desde el punto de vista
+emocional, establece las diferentes relaciones que pueden entablar los NPC, otorgándoles así un
+“Criterio” para la selección de pareja; esto último conlleva a una estrecha relación con el modelo
+evolutivo, el cual por sus características no es exactamente el tradicional [2|., puesto que no se
+pueden determinar lo más y menos aptos para la procreación, ya que al final se resumen a quien
+otro NPC considere compatible.
+
+= Criterios de movimiento (alejamiento y acercamiento): Aunque este sea un atributo orientado más hacia acciones de los NPC, sus fundamentos emocionales son altos, ya que de acuerdo
+a dos vectores, alejamiento y acercamiento respectivamente, un NPC decide si se acerca o aleja
+de sus vecinos. Esto, recordando que ambos vectores corresponden a valores emocionales definidos,
+los cuales permiten al Non-Player Character, de acuerdo a sus emociones, decidir cuál opción de
+movimiento debe emprender.
+
+4.2. Estrategia evolutiva
+
+En el proyecto SEA se busca simular multitudes con valores estocásticos, llevando esto a la posible
+aparición de comportamientos emergentes [30]. Acudiendo a las ciencias de la complejidad [31], se define
+que la Computación Evolutiva, como herramienta, es apropiada para basar la estrategia a implementar en
+esta simulación de acuerdo a los resultados que se esperan obtener. Por esto, se acude a parámetros basados
+modelo evolutivo tradicional [2], aunque es importante mencionar que no son una fiel representación del
+mismo y son presentados a continuación.
+
+4.2.1. Definición del genoma
+
+El genoma será un arreglo de 5 posiciones, diseñado así para almacenar las 5 emociones del modelo
+emocional de Paul Ekman en porcentajes que van desde O hasta 100, aclarando que la emoción Sorpresa
+no se incluye debido a que, como se mencionó en la sección anterior, se convirtió en una emoción de
+transición y no hace parte del estado emocional del individuo. Este genoma es suficiente para definir
+a cada NPC y que este interactúe con lo que sucede en el escenario. Para los eventos, se utilizará una
+variación de este genoma, pues en este caso la suma de sus valores no necesariamente alcanza un valor de
+100 y en cada una de las 5 posiciones se guardarán dos valores:
+
+= Porcentaje de la emoción (e): establece el porcentaje en el que la emoción puede afectar como
+máximo a un NPC y va desde O hasta 100.
+
+= Probabilidad de afectación de dicha emoción (x): establece la probabilidad de que el porcentaje de la emoción sea aplicado en su totalidad a un NPC. A manera de ejemplo, si se tiene
+un gen con 60% de felicidad y 25% de probabilidad de afectación a la emoción, significa que 1 de
+cada 4 veces un NPC podría ser afectado con dicho 60% de felicidad. Esto corresponde a la fórmula
+matemática:
+
+aleatorio(x) e
+antiguo
+Enuevo — y a (4.1)
+1=1
+
+Donde aleatorio es una función que genera un número aleatorio entre O y el x definido.Modelo 18
+
+Existe un genoma adicional, el genoma temporal. Este hace referencia al cromosoma establecido por
+una cuadrícula definida de NPC, se encarga de que exista evolución colectiva entre los NPC sin necesidad
+de acudir a algoritmos evolutivos multiobjetivo. Este tendrá las mismas características del genoma definido para los eventos.
+
+Es importante señalar que tanto la cuadrícula, el porcentaje de afectación a la emoción (valor inicial)
+y porcentaje de la emoción (valor inicial) de cada evento podrán ser definidos por el usuario, obedeciendo
+esto a los principios de control sobre la simulación.
+
+4.2.2. Obtención del genoma colectivo
+
+Es la pieza clave dentro de la variación, ya que se presenta entre cada transición de estados, a diferencia
+de la mutación con el genoma de evento, la cual tiene lugar sólo en las oportunidades que el usuario lo
+desee. Esta permite que los NPC vecinos sufran una mutación semejante más no igual, debido a los valores
+pseudo-aleatorios aplicados como variación de la afectación a las emociones en cada uno. Lo cual implica
+que se formen comunidades con tendencias emocionales similares, sin dejar a un lado que en cualquier
+momento, debido a casos fortuitos, uno o más NPC podrían buscar alejarse del grupo hasta encontrar uno
+en el cuál encuentren mayor compatibilidad. Por último, es necesario mencionar que este genoma puede
+ser complementado con una afectación por evento, lo cual generará un genoma colectivo que afectará las
+emociones con tendencias hacia los valores emocionales que el evento determina.
+
+4.2.3. Normalización de las emociones
+
+Respetando el modelo emocional de Paul Ekman [29], es necesario establecer una estrategia que asigne
+las emociones, de tal forma que la suma de estas genere 100%. Lo anterior, se debe a que los NPC del
+proyecto SEA son seres emocionales en su definición, por lo tanto, sus emociones deben representar la
+completitud del individuo; de esta manera se obtiene la siguiente función de normalización:
+
+ 
+
+_ EsinNormalizar X% 100 4.9
+Enormalizado — 5 ( . )
+
+¿=1 €i
+
+A esta función, dentro del proyecto SEA, se le llama función MITAD, haciendo alusión a las 5 emociones del modelo: Miedo, Ira, Tristeza, Alegría, Disgusto. En esta, se tienen los siguientes operandos:
+
+€normalizado: Hace referencia al valor de la emoción después de la normalización.
+EsinNormalizar: Hace referencia al valor de la emoción antes de la normalización.
+
+e; : es el operando dentro de la sumatoria para las 5 emociones básicas del modelo en la función MITAD.
+
+Debido al manejo de números enteros en la implementación del proyecto SEA, se pueden perder algunas
+unidades en la suma de los valores emocionales nuevos respecto a conseguir un 100%.Modelo 19
+
+4.2.4. Población
+
+En cada estado de la simulación, existe una cantidad de NPC vivos (Figura 4.1), estos son considerados
+como la población de este modelo evolutivo. Este parámetro se ve afectado al momento de muerte y
+nacimiento de NPG, lo que puede surgir los cambios de estado de la simulación o, en otras palabras, al
+avanzar el tiempo. La población de un estado respecto a su inmediatamente anterior está dada por la
+estrategia (A+1), lo cual implica que la cantidad de NPC totales en un estado estará dada por los padres
+no fallecidos y los hijos resultantes de la reproducción.
+
+ 
+
+ 
+
+ 
+
+Figura 4.3: Ejemplo de tablero poblado
+
+4.2.5. Competencia
+
+Este resulta uno de los aspectos menos evidentes dentro de la simulación, pues diferente a lo usual
+en los modelos evolutivos [2], el proyecto SEA presenta la competencia como la compatibilidad que se
+tenga con otro NPC de acuerdo al vector emocional definido para la misma. En otras palabras, un NPC
+resultará exitoso en la competencia sólo si encuentra pareja y se reproduce con esta mientras está vivo.
+Puesto que en este proyecto el tiempo de muerte resulta ser el mismo para cada individuo, las condiciones
+de competencia para todos los Non-Player Character son iguales.
+
+4.2.6. Reproducción
+
+En contraste con la Competencia, este es un aspecto bastante evidente en el modelo, pues es mencionado directamente e incluso cuenta con un vector que permite determinar qué tan permisible es que dos
+NPC diferentes sean compatibles. La Reproducción en el proyecto SEA se puede presentar por Empatía
+o por Complemento, la primera determinada como dos NPC cuyas emociones se encuentran distanciadas
+por un valor máximo definido por el usuario desde la interfaz al inicio de la simulación; de forma similar
+sucede con el emparejamiento por Complemento, pero en este caso, el valor máximo de distancia entre
+las emociones hace referencia a qué tan apartadas deben estar las emociones de un NPC y las inversas en
+su posible pareja. A manera de ejemplo, se presentan las siguientes tablas donde se puede apreciar dosModelo
+
+20
+
+NPC que se emparejarían de acuerdo los dos criterios presentados y un vector de permisibilidad para las
+emociones de los personajes:
+
+= Vector de permisibilidad (Caso Empatía):
+
+Tabla 4.1: Permisibilidad - caso Empatía
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Miedo Ira Tristeza Alegría Disgusto
+20 10 15 22 12
+
+= Pareja de NPC compatible por empatía:
+
+Tabla 4.2: NPC compatible - caso Empatía
+
+NPC Miedo Ira Tristeza Alegría Disgusto
+NPC 1 30 20 15 25 10
+NPC 2 15 30 25 17 13
+Diferencia 15 10 10 3 3
+
+= Vector de permisibilidad (Caso Complemento):
+
+Tabla 4.3: Permisibilidad - caso Complemento
+
+Miedo Ira Tristeza Alegría Disgusto
+45 90 70 70 50
+
+= Pareja de NPC compatible por Complemento:
+
+Tabla 4.4: NPC compatible - caso Complemento
+
+NPC Miedo Ira Tristeza Alegría Disgusto
+NPC 1 40 10 20 15 15
+NPC 2 15 20 10 15 40
+NPC 2 (in- | 85 80 90 89 60
+vertido)
+Diferencia 45 70 70 70 45
+Variación
+
+4.2.7.
+
+Al ser una simulación, el prototipo del proyecto SEA acude a la variación al permitir que los NPC
+cambien sus estados emocionales en consecuencia del transcurrir el tiempo de simulación o, dado el caso,
+al asignar valores emocionales a NPC nuevos basados en las emociones de sus padres. En este punto,
+se puede encontrar un aspecto clave del porqué esta no es una fiel implementación del modelo evolutivo
+
+tradicional [2], puesto que en este caso no ocurre un variación dentro del proceso de creación de un nuevo
+
+genoma, en cambio, ocurre una variación en los datos que componen al individuo, sin esto representar el
+fin o inicio de su existencia; acudiendo al símil, se puede relacionar esta situación con la evolución sufrida
+por las personas a través del tiempo, desde un punto de vista antropológico [32].
+Es importante resaltar que la afectación que sufren los NPC debido a sus vecinos, es una variable queModelo 21
+
+puede ser manipulada por el usuario al inicio de la simulación. En consecuencia, esta característica es una
+de las más amplias, así que la definición de su funcionamiento puede encontrarse en la siguiente sección
+“definición del genoma”.
+
+4.2.8. Definición de los eventos
+
+Los eventos dentro del proyecto SEA son bastante relevantes puesto que son la única intervención
+posible del usuario durante el desarrollo de la simulación, permitiendo afectar al genoma colectivo y
+así modificar, dependiendo de loa valores de emoción asignados, en pequeña o gran escala los vectores
+emociones que resultarán en la variación de cada NPC por cuadricula. De acuerdo a esto, se tienen las
+
+siguientes definiciones gráficas (Figura 4.2 y Figura 4.3).
+
+Evento General
+
+Estimulo emociona
+
+Positivo Megativo
+Fiesta. Terremoto.
+Deporte. nundación.
+Primavera de los NPC. ncendio.
+
+Figura 4.4: Representación del evento de manera generalModelo
+
+ 
+
+Evento Genérico
+
+ 
+
+ 
+
+   
+
+e y Ss o o AR *
+Referencia F
+Definido como positivo o negativo o! al evento Puede ser alterado por el
+eneral usuario
+ad L
+
+Se seleccionan grupos de NPC con ]
+cuadrícula establecida Contiene 5 genes
+Se crea un genoma temporal, por
+cuadrícula, para evolución colectiva Cada gen guardará dos valores
+de NPC
+Se cruza el genoma temporal con el ñ ii . Probabilidad de afectar a dicha
+definido para el evento orcentaje de la emocion (e) emoción (x)
+El genoma resultante se cruza con el
+dE de tics efe EaRy0O<e<100 x/x EaR yO0<x< 100
+
+Figura 4.5: Representación del evento de manera detallada
+
+ 
+
+ 
+
+22Capítulo 5
+
+Implementación
+
+5.1. Comportamientos de los NPC
+
+Con el fin de alcanzar comportamientos emergentes y datos relevantes en las simulaciones del proyecto
+SEA, se ha definido una serie de conceptos relevantes para la implementación.
+
+5.1.1. Muerte de NPC
+
+Es un parámetro muy simple dentro de la simulación, pero que a su vez, cobra gran relevancia. El primer señalamiento se hace ya que es sólo un número dentro la simulación, el cuál determina cuánto tiempo
+tardará un NPC en morir, sin ningún tipo de variación. Por otro lado, se tiene que es bastante relevante
+ya que permite la renovación de la población y la competencia justa de los NPC, pues un espacio vacío
+dejado por un NPC que acaba de morir puede ser aprovechado por un Non-Player Character resultado
+de una reproducción reciente, así mismo, torna la competencia más justa al dar condiciones iguales para
+todos los individuos de la simulación.
+
+Entre otras implicaciones, la muerte de los NPC permite que sus parejas busquen otras parejas compatibles y surjan nuevos individuos producto de nuevos emparejamientos. También permite que los Non-Player
+Character que se alejen o se acerquen, tengan espacios vacíos para hacer sus movimientos. En síntesis, la
+muerte de los NPC es la finalización del ciclo de estos personajes.
+
+5.1.2. Atracción entre NPC
+
+Este resulta el factor clave para la reproducción, puesto que un NPC sólo se reproduce con otro, si
+previamente fueron atraídos por sus cualidades emocionales, como se mencionó en el capítulo anterior. Es
+destacable cómo, después de unas cuantas ejecuciones y análisis, la atracción de NPC por Empatía supera
+a la atracción por Complemento, puesto que la cantidad de vectores compatibles dentro de la simulación
+es más elevada para la primera.
+
+5.1.3. Tiempo de reproducción
+
+Resulta el factor complementario a la atracción, pues determina cuantas unidades de tiempo de la
+simulación deben pasar para que nazca un nuevo NPC después de que dos se han emparejado. Es relevante
+señalar que este tiempo no es variable, puesto que no se permite asignar una desviación al mismo.
+
+23Implementación 24
+
+5.1.4. Sensor
+
+Uno de los aspectos determinantes en la conducta y reproducción de los NPC en la simulación es este,
+puesto que permite analizar las casillas cercanas para encontrar otros NPC. Esto permite que se encuentre
+un NPC compatible para emparejarse o, dependiendo del estado emocional, analice cuántos NPC hay a
+su alrededor y busque alejarse o acercarse de las agrupaciones de estos.
+
+5.1.5. Movimiento
+
+Es una de las características que más variedad agrega esta simulación, pues un NPC, de acuerdo a su
+estado emocional y los vectores de alejamiento o acercamiento definidos por el usuario, buscará alejarse o
+acercarse a un grupo de NPC, sin dejar de lado que también podría quedarse en su lugar. Esto, permite
+que los NPC cambien de cuadricula de afectación, sufriendo las influencias de estar dentro de un grupo de
+NPC con estados emocionales diferentes o, en casos excepcionales, se agrupen NPC de diferentes partes del
+tablero y generen sus propios agrupamientos con características emocionales únicas dentro de su ambiente.
+Por otra parte, se favorece a la reproducción, ya que un NPC que no encuentra pareja entre sus vecinos,
+al alejarse podría encontrar pareja en otro grupo. Otra consecuencia relevante de este comportamiento,
+implica que en el trayecto, un NPC podría alcanzar su tiempo de muerte y no encontrar pareja, por lo
+cual su genoma no sería heredado y se perdería, acudiendo esto a características de competencia dentro
+de la población de la simulación.
+
+5.2. Descripción de la aplicación
+
+Para alcanzar los objetivos propuestos dentro del marco de desarrollo del proyecto SEA, se diseñó un
+prototipo cuya interfaz permitiese la modificación de todas las variables necesarias y a su vez, un tablero
+con el tamaño adecuado para la simulación.
+
+ 
+
+sE SEA (Ser Emocional Artificial) =- Xx
+
+ 
+
+A Config Eventos
+Afectación 1
+
+4»
+mb
+4»
+an
+4»
+ml
+4»
+amb
+4»
+>
+
+Deporte Miedo ra Tristeza Alegia  Desagrado
+1 ARABE IÓ
+
+Afectación 1
+
+4»
+ak
+4»
+sb
+4»
+=h
+4»
+=b
+4»
+
+Primavera Miedo Ira Tristeza Alegia  Desagrado
+1A1Ai1apiaAn
+
+Afectación 1
+
+4»
+má
+
+=| |1
+
+4»
+7]
+4»
+ud
+4»
+£
+
+Info NPC Config NPC's
+
+Reproducción
+Miedo Ira Triste Alegia  Desag
+A O 1 0 1 a 1
+
+a
+
+Tiempo ¡2 ¿4
+
+ 
+
+ 
+
+ 
+
+Tipo acercamiento Empatia v
+
+ 
+
+Criterio Acercamiento
+
+Miedo Ira Triste Alegia  Desag
+1 Al Al Al E
+Variación
+
+11 REA Al e
+
+Criterio Alejamiento
+
+Miedo Ira Triste Alegia  Desag
+141 A Al Al $
+Variación
+
+191 REA Al
+
+ 
+
+ 
+
+py Largo pasos 2 5 v
+
+ 
+
+< >
+Control Simulación
+
+Lento Rápido
+
+ 
+
+ 
+
+Figura 5.1: Interfaz del Proyecto SEA25
+
+Implementación
+
+Tablero
+
+5.2.1.
+
+ 
+
+Figura 5.2: Tablero Vacío
+
+ 
+
+ 
+
+Figura 5.3: Tablero con NPC
+
+En las anteriores figuras se puede apreciar el tablero donde se visualizan los NPC (celdas en negro),
+desde aquí se puede seleccionar cada uno para ver su estado emocional. El tablero tiene un tamaño fijo de
+50x50 celdas, es decir, 2500 celdas en total. Con el fin de no hacer una interfaz demasiado grande y que
+funcionase cómodamente en pantallas con resoluciones desde 800px*600px, el tablero cuenta con barras
+
+de deslizamiento, una horizontal y otra vertical, lo cual da acceso a las casillas no visibles de la esquina
+
+inferior derecha durante la simulación en tiempo real.Implementación 26
+
+5.2.2. Control de velocidad de simulación
+
+Esta herramienta es muy útil para los casos en los que se desea alternar rápidamente entre una
+ejecución acelerada y otra lenta de la simulación. Esto, debido a que este control permite que, en su nivel
+más lento, se corra una unidad de tiempo aproximadamente cada 10 segundos y, para el nivel más rápido;
+lo que tarde la aplicación en hacer la transición entre el estado actual y el siguiente.
+
+Control Simulación
+
+Lento Rápido
+
+Figura 5.4: Control de velocidad de simulación
+
+5.2.3. Configuración de eventos
+
+Config Eventos
+
+Evento generico Miedo lra Tmisteza Alegia  Desagrado
+25 El (25 ¿4 125 Ed (25 ¿4 [25 E
+
+Terremoto Miedo lra Tristeza Alegia  Desagrado
+Y 4 125 4 120 E 5 ¿4120 E
+Enviar
+
+Afectación 80 ¿$ ¡60 50 ES 10 +4 125 E
+
+1»
+
+Inundacion Miedo Ira Tristeza  AMegíia  Desagrado
+mui H 15 a 10 AM E *%
+
+Figura 5.5: Apartado de configuración de eventos
+
+En esta sección se encuentran los diferentes modificadores para los valores emocionales de los eventos,
+es decir que se encuentran el vector emocional y la afectación posible a cada emoción en cada evento.
+Aunque el proyecto está ideado para que una vez iniciada la simulación los valores de las variables no
+puedan ser modificados, el apartado de los eventos sí puede ser alterado, lo cual permitiría modificar la
+“intensidad” de cada evento, a gusto del usuario. Los eventos incluidos en esta sección son: Terremoto,
+Inundación, Incendio, Fiesta, Deporte y Primavera de los NPC.
+
+Por otro lado, en esta sección se establecen los valores de afectación para el Genoma Colectivo.
+Como señalamiento adicional, se tiene que este genoma en ocasiones se menciona como evento genérico,
+principalmente por su ubicación en la interfaz, ya que se encuentra en el apartado de eventos.Implementación 27
+
+5.2.4. Configuración de NPC
+
+Config NPC's
+a A
+Cantidad SN E
+Dispersión [Media v|
+Tiempo Muerte Sensor
+
+25 E 3 >
+
+Rango compatibilidad (Reproducción)
+Miedo Ira Triste Alegia  Desag
+
+5 Els Eb lb Els E
+
+”
+
+4»
+
+Tiempo Reproducción /8
+
+Tipo acercamiento Empatia vw
+
+Criterio Acercamiento
+Miedo ra Triste Alegia  Desag
+
+10 ¡120 ¡25 40 (125 E
+Variación
+5 115 ¿20 ¿25 110 E
+
+Criterio Alejamiento
+
+Miadn Ira Triste  Alenñia — Macan Y
+
+Figura 5.6: Apartado de configuración de NPC
+
+De acuerdo a su nombre, esta sección contiene los diferentes modificadores de los NPC, con el fin de
+dar control al usuario sobre las condiciones iniciales de la simulación en lo que a los Non-Player Character
+y sus comportamientos respecta. Las variables aquí incluidas son:
+
+= Cantidad de NPC: determina la cantidad de NPC que habrá en el tablero en el momento de
+iniciar la simulación. Puede tomar como valor mínimo 1 y como máximo 600.
+
+= Dispersión: a través de esta variable se determina si los NPC tendrán una distribución baja, media
+o alta en el instante cero de la simulación.
+
+= Tiempo de muerte de los NPC: establece cuánto tiempo tardarán en perecer y desaparecer del
+tablero los NPC después de su momento de aparición. Puede tomar como valor mínimo 1 y como
+máximo 60.
+
+= Sensor: esta variable determina a qué distancia (en casillas) un NPC buscará cuáles vecinos tiene
+y, así mismo, una pareja. Puede asignarse un valor (en casillas a la redonda) de mínimo 3 y máximo
+
+10.
+
+"= Rango de compatibilidad: es un conjunto de variables (5 en total), que determinan los rangos
+de diferencia que puede haber por cada emoción entre dos NPC, para que estos se consideren
+compatibles. Va estrechamente relacionado con el tipo de acercamiento.
+
+= Tiempo de reproducción: este valor determina en cuánto tiempo, después del emparejamiento
+de dos NPG, nacerá un NPG nuevo. Puede tomar como valor mínimo 1 y como máximo 40.
+
+= Tipo de acercamiento: esta variable determina si un NPC se acerca a otro ya sea por Empatía o
+Complemento.
+
+= Criterio de acercamiento: este es un vector emocional con sus respectivas variaciones, donde se
+define a partir de cuáles emociones un NPC buscará acercarse a los grupos cercanos de individuos
+que detecte.Implementación 28
+
+= Criterio de alejamiento: este corresponde a un vector emocional con sus respectivas variaciones,
+donde se define a partir de cuáles emociones un NPC alejarse de sus vecinos, independientemente
+del estado emocional de los mismos.
+
+= Largo de pasos: esta variable determina la cantidad de casillas que se traslada un NPC cuando
+decide moverse, independientemente de si es para alejarse o acercarse. Está definida entre 1 y 3,
+con el fin de no permitir saltos abruptos entre cuadrículas a los Non-Player Character. Puede tomar
+como valor mínimo 1 y como máximo 4.
+
+5.2.5. Información NPC
+
+En esta sección de la interfaz, se encuentra el apartado que permite consultar el estado emocional del
+NPC en la simulación en tiempo real, esto es, cuando se selecciona una casilla con un NPC, esta muestra
+sus valores emocionales, tiempo de vida, contador de vida (comparable a edad), contador de reproducción,
+su pareja (en caso de tenerla) y el tiempo global de la simulación. Por otro lado, en caso de seleccionar una
+casilla vacía, se indica que se seleccionó una casilla vacía y se muestra el tiempo general de la simulación.
+
+5.3. Descripción de la Simulación
+
+El prototipo cuenta con la posibilidad de realizar simulaciones continuas debido a la posibilidad de
+lanzar eventos en intervalos irregulares y con valores diferentes. Pero para el caso de las pruebas, cuando
+se lanzan a intervalos regulares eventos sin cambiar sus valores, como terremotos, inundación, primavera,
+entre otros; la simulación se torna orientada a eventos ya que las variables de entrada no cambian a lo
+largo de la simulación, estas son descritas a continuación:
+
+5.3.1. Variables de entrada
+
+= Variación de las emociones del evento genérico: valores que corresponden a la variación de cada una
+de las 5 emociones (5 variables) para el genoma temporal obtenido de la cuadricula.
+
+= Valor emocional de los eventos: corresponde al valor afectivo de cada una de las 5 emociones de los
+eventos (6 eventos cada uno con 5 emociones, se obtiene un total de 30 variables).
+
+= Variación emocional de los eventos: valores que corresponden a la desviación de cada una de las 5
+emociones en los eventos (6 eventos cada uno con 5 variaciones, se obtiene un total de 30 variables).
+
+= Cantidad de NPC: Total de NPC con los que se dará a la simulación.
+
+= Dispersión: El tipo de distribución que tomarán los NPC en el tablero al inicio de la simulación.
+= Tiempo de muerte: El tiempo establecido para la muerte de los NPC.
+
+= Sensor: El tamano del radar con el que cuentan los NPC.
+
+= Variación emocional de reproducción: corresponde a la desviación o permisibilidad de cada una de
+las emociones al momento de seleccionar una pareja para reproducción (5 variables).
+
+= Tiempo reproducción: hace referencia al tiempo que 2 NPC deben permanecer en la simulación
+después de haberse emparejado para poder generar un NPC hijo.
+
+= Tipo de acercamiento: el tipo de criterio que se usara en la simulación para la reproducción de los
+NPC, ya sea por Empatía o por Complemento.Implementación 29
+
+= Valor emocional de los criterios de alejamiento y acercamiento: corresponde a los valores de cada
+una de las 5 emociones para el criterio de Alejamiento y el de Acercamiento (10 variables).
+
+= Variación emocional de los criterios de alejamiento y acercamiento: corresponde a la desviación o
+permisibilidad de las 5 emociones para los criterios de Alejamiento y Acercamiento (10 variables).
+
+= Largo pasos: hace referencia a la cantidad de casillas que se puede mover un NPC al momento de
+acercarse o alejarse de otros NPG.
+
+5.3.2. Variables de salida
+
+= Nacidos: cantidad de NPC nacidos a lo largo de la simulación.
+= Muertos: cantidad de NPC fallecidos a lo largo de la simulación.
+
+= Cantidad Cuadricula N: cantidad de NPC en cada una de las cuadriculas del tablero al finalizar la
+simulación (N = 0, 1, 2,3..., 25).
+
+= Tiempo de Simulación: tiempo total de la simulación.
+
+= Población Final: total de NPC vivos al momento de finalizar la simulación. Variables de estado
+= Vector emocional: el valor dado a cada una de las emociones en los NPC (5 variables).
+
+= Pareja: variable que determina si un NPC tiene pareja.
+
+= Tiempo de vida: la cantidad de estados que han transcurrido desde el momento de creación de un
+NPC en la simulación.
+
+5.3.3. Tipos de eventos
+
+= Evento de selección de pareja: haciendo uso del sensor y comparativas emocionales establecidas en
+la simulación por el usuario, dos NPC se seleccionan como pareja para posteriormente reproducirse.
+
+= Evento de reproducción: después de un NPC haber seleccionado una pareja y haber transcurrido un
+tiempo definido con ella, se presentará el evento de reproducción, el cual generará un nuevo NPG
+en la simulación.
+
+= Evento de acercamiento: teniendo como criterio el vector emocional base y su respectiva desviación,
+los NPG se acercarán a otros cuando su estado emocional así lo determine.
+
+= Evento de alejamiento: teniendo como criterio el vector emocional base y su respectiva desviación,
+los NPC se alejarán de otros cuando su estado emocional así lo determine.
+
+= Evento de muerte: al transcurrir el tiempo de muerte establecido por el usuario, un NPC desaparecerá
+de la simulación.
+
+= Evento general: corresponde a los cuales cuyos valores pueden ser definidos por el usuario y, así
+mismo, lanzados a su consideración durante la simulación, tales como: incendio, Fiesta, entre otros.Implementación 30
+
+5.4. Creación de los NPC
+
+Los Non-player Character son parte esencial en este proyecto, pues en ellos se ve representada la
+evolución emocional y su concepto permite que existan en la simulación sin la intervención directa del
+usuario, lo que conlleva a que exista la probabilidad de comportamientos emergentes y, como aspecto
+clave, que los estados de la simulación no sean predecibles a nivel de alto detalle.
+
+Para la creación de cada NPG, estos se asignan en la cuadrícula según el usuario lo defina:
+
+= Dispersión baja: los NPC se asignan en el tablero continuamente, no existe tipo alguno de aleatoriedad.
+
+= Dispersión media: los NPC se asignan en el tablero de manera intercalada, dejando así un espacio
+mínimo de una celda entre cada NPG, no existe tipo alguno de aleatoriedad en esta asignación.
+
+= Dispersión alta: los NPC se asignan de manera pseudo-aleatoria, sin repetir ninguna celda, de
+esta forma se garantiza una mejor dispersión y asignación total de los Non-Player Character en toda
+la extensión del tablero.
+
+Después de su distribución, los NPC son asignados con valores emocionales a través de un generador de
+números aleatorios, qué toma como semilla cantidad de nanosegundos (tics) a la fecha, garantizando así
+la variedad en la asignación de cada NPC.
+
+5.5. Aspectos técnicos
+
+El prototipo SEA presenta gráficamente los valores modificables para la simulación de manera agrupada de acuerdo al ámbito que estos afecten, tal y como se describe anteriormente en la sección 5.2.
+En lo que respecta a cómo está estructurado el aplicativo, se presenta una interfaz con subsecciones y
+sin ventanas emergentes, a excepción de la presentada al momento de guardar los datos después de una
+simulación. Aunque el prototipo esté orientado en mayor medida a la investigación y a público que no
+desconoce el manejo de software de simulación, se utilizan validaciones de datos dentro de la aplicación
+para que no surjan errores de tipos o de desbordamiento de variables.
+
+En lo que respecta al desarrollo, este se realizó a través del framework Visual Studio Community
+2017, en el lenguaje C++ haciendo uso del paradigma Orientado a Objetos. Se definen dos clases para
+su declaración e implementación: NPC y Vista, donde la primera tiene la capacidad de almacenar tanto
+genomas de NPC como de eventos y debido al manejo de clases administradas por parte de Visual
+Studio, la implementación de la misma tiene lugar en el archivo NPC.h. Por otro lado, Vista contiene la
+codificación de la interfaz del prototipo y, al ser la clase principal, de tipo administrado y con acceso a la
+interfaz, contiene la implementación de los métodos principales, es decir, los que dan lugar a la transición
+de estados y procesamiento de la información de la simulación.
+
+5.6. Análisis de la complejidad
+
+5.6.1. Complejidad temporal
+
+El análisis de la complejidad para el proyecto SEA se debe hacer desde el punto de vista de la cantidad
+de NPG que puede haber en el tablero en un estado. El tablero de la simulación tiene 2500 casillas, es
+decir que, en un estado poco probable, podría albergar 2500 NPC, este debe ser considerado el peor de los
+casos en cuestiones de procesamiento. Cada NPC hace un barrido a su alrededor de acuerdo al tamaño deImplementación 31
+
+su radar, en busca de otros NPC y seleccionando una pareja compatible; esto conlleva a que cada NPC
+podría hacer un reconocimiento de todo el tablero.
+
+Conociendo la cantidad máxima de NPC, 2500, se podría establecer que, si cada uno analiza todos sus
+semejantes, se tendría un total de 2.500.000 conjuntos de validaciones en cada estado. Conociendo este
+número máximo, se podría establecer una complejidad constante (O(1)), pero no estaría bien planteada
+conociendo las características de la implementación y que esta complejidad depende de una variable, en
+este caso la cantidad de NPC. De acuerdo a esto, se define la complejidad a continuación:
+
+Hay n NPC en el tablero.
+
+(O(n)) (5.1)
+
+Estos pueden interactuar con n-1 NPC.
+
+O(n(n—1)) (5.2)
+
+Cada NPC siempre hace las mismas validaciones, siendo estas una complejidad constante.
+
+O(1) (5.3)
+
+Por tanto, la complejidad resulta de la siguiente manera.
+
+O(n(n— 1)).0(1)
+
+5.6.2. Complejidad espacial
+
+En lo que respecta a la complejidad espacial, además de las variables que almacenan los datos de
+la interfaz, la memoria es utilizada para almacenar los NPC. Pero para este caso, a diferencia de la
+complejidad temporal, siempre habrá 2500 NPC, puesto que el tablero es un vector cuadrado de objetos
+de ese tipo. Para el caso en el que una casilla está vacía, internamente se tiene un NPC muerto, lo cual
+sigue ocupando espacio en memoria. Conociendo esto, se tiene que la complejidad está definida de la
+siguiente manera:
+
+Hay n NPC en el tablero.
+O(n) (5.5)
+
+Cada NPC guarda 5 valores para sus emociones.
+
+O(5*n) (5.6)Implementación 32
+
+Los genomas de los eventos almacenan 5 valores emocionales y un valor de afectación para cada uno
+de estos. Por tanto, tiene complejidad constante.
+
+O(1) (5.7)
+
+Existen genomas y vectores de permisibilidad que son variables de la simulación, estos tienen complejidad espacial constante.
+
+O(1) (5.8)
+
+Por tanto, la complejidad espacial del proyecto SEA es.
+
+O(5*n).0(D.0(1)
+
+Al establecer de esta manera la complejidad espacial, se define que en poblaciones y tableros más
+erande, el uso de memoria supondrá una complejidad lineal.Capítulo 6
+
+Pruebas
+
+En este capítulo se describe un proceso de pruebas a la aplicación creada dentro del marco del proyecto
+SEA. Aquí, se analizan los diferentes resultados arrojados por las simulaciones, desde cantidad de datos
+y su estructura, hasta los patrones que estos denotan en el uso de las variables iniciales de simulación.
+
+6.1. Software de Minería de Datos Weka|1]
+
+Weka es un conjunto de algoritmos de aprendizaje automático para tareas de minería de datos. Los
+algoritmos pueden ser aplicados directamente a conjuntos de datos o ser llamados desde su propio código. Este aplicativo cuenta con herramientas para el preprocesamiento de datos, clasificación, regresión,
+clustering, reglas de asociación y visualización. También es adecuado para desarrollar nuevos esquemas
+
+de aprendizaje automático.
+
+6.2. Hardware donde se realizaron las pruebas
+
+Debido a que en esta sección del documento se mencionan algunos tiempos de ejecución, a continuación
+se especifican las características del equipo donde se realizaron las pruebas:
+
+= Procesador: Intel Core i5 4460, 3,2 GHz
+= Memoria: SGB DDR3
+
+= GPU: GTX 960 4GB
+
+= HDD: 2T'B, 7200RPM
+
+6.3. Pruebas
+
+Para las simulaciones correspondientes a las pruebas, se asignaron los siguientes valores a las variables
+anteriormente descritas.
+
+6.3.1. Variables independientes:
+
+1. Intensidad de eventos: con el fin de automatizar las pruebas, se definió un conjunto de configuraciones que lanza eventos cada 4 unidades de tiempo (75 eventos por simulación), estas son Soft,
+Mid y Hard y son explicadas a continuación.
+
+33Pruebas 34
+
+= Soft: Esta configuración de lanzamiento de eventos está compuesta de aquellos que representan
+
+una afectación emocional positiva como se evidencia en las figuras 6.1, 6.2, 6,3, dichos eventos
+son fiesta, deporte y primavera
+
+Fiesta Miedo Ira Tristeza — Alegia  Desagrado
+10 E 5 E 0 — IN LI
+
+4 +
+
+Alectación 19 El io El No El [wo Elo E
+
+Figura 6.1: Configuración emocional del evento Fiesta y su respectiva afectación
+
+Deporte Miedo Ira Tristeza — Alegia  Desagrado
+AD E A 1 0 == 115 E
+
++ - 
+Piectación la El 9 El ho El (o El lo E
+
++ - + el
+
+Figura 6.2: Configuración emocional del evento deporte y su respectiva afectación
+
+Primavera — Miedo Ira Tristeza — Alegia — Desagrado
+15 += 5 E 110 E 80 115 E
+
++ E
+
+Afectación 25 2 E 2D LE Ud 410 E
+
+al
+
+Figura 6.3: Configuración emocional del evento primavera y su respectiva afectación
+
+= Mid: Esta configuración de lanzamiento de eventos está compuesta de todo el set, tanto los
+
+de afectación emocional positiva, usados en la configuración anterior como los de afectación
+negativa, terremoto, inundación e incendio.
+
+Inundacion Miedo Ira Tristeza — Alegia — Desagrado
+
+WEA EA pt 1 AE
+
+ll ll
+
+Figura 6.4: Configuración emocional del evento inundación y su respectiva afectación
+
+Termemoto Miedo Ira Tristeza Alegia  Desagrado
+q += 25 | AD E 5 RA E
+
+Aectación (80 + [60 HH (MM E 1 125 E
+
+Figura 6.5: Configuración emocional del evento terremoto y su respectiva afectaciónPruebas 35
+
+Incendio Miedo Ira Tristeza — Alegia — Desagrado
+60 E AD a (4D E 5 10 E
+
+e el o al Ls
+
+Mecación ly E ls E [o Els E
+
++ y e
+
+Figura 6.6: Configuración emocional del evento incendio y su respectiva afectación
+
+= Hard: Esta configuración de lanzamiento de eventos está compuesta sólo por los que representan
+una afectación emocional negativa como se evidencia en las figuras 6.4, 6.6. dichos eventos son
+inundación, terremoto e incendio.
+
+A manera de aclaración, los nombres soft, mid y hard hacen referencia a la dificultad de los eventos
+que sufrirán los NPC de acuerdo a la configuración de cada serie de sucesos. De ninguna manera
+esto hace referencia a algún trabajo externo, por tanto, esto debe ser tomado sólo como una vía
+para referenciar estos agrupamientos de eventos dentro del proyecto SEA.
+
+Es importante señalar que, acudiendo a los principios de la simulación [33], los valores emocionales
+presentados anteriormente son establecidos por los investigadores de acuerdo a su criterio, por tanto,
+pueden ser definidos de otra manera por un usuario diferente.
+
+2. Cantidad de NPC: después de realizar análisis con la parte gráfica de la simulación y su comportamiento, se llegó a la conclusión que los rangos que presentan diferencias dependientes de esta
+variable son 50,80,220,600; por ende, se utilizarán estas cantidades para las pruebas
+
+3. Dispersión: para esta variable, se utilizarán sus tres posibles valores: Baja, Media y Alta.
+
+4. Tiempo Muerte: siendo el menor tiempo de muerte 1 y el mayor 60, se estableció que, de acuerdo
+a la cantidad de posibles datos, los valores indicados a utilizar son 10, 25 y 60, esto teniendo en
+cuenta que no existe desviación para esta variable.
+
+5. Tamaño radar: también llamada radar, esta variable toma 10 como su valor máximo y 2 como el
+
+menor, debido a esto se definieron 3 valores aproximadamente equidistantes para las pruebas: 3, 6
+y 10.
+
+Radio 4
+
+ 
+
+Radio 2
+
+HPL
+
+ 
+
+Figura 6.7: Ejemplo de un NPC y dos posibles configuraciones de radio.Pruebas 36
+
+6.
+
+Tiempo de reproducción: teniendo en cuenta que un NPC no se puede reproducir después de
+haber muerto, se establecen valores relativos a los asignados para la variable Tiempo de muerte,
+estos son: 8, 20 y 40:
+
+. Tipo de acercamiento: para esta variable, se utilizan los dos valores posibles para la simulación
+
+Empatía, Complemento.
+
+. Largo pasos: esta variable sólo puede tomar 4 valores, teniendo en cuenta la complejidad temporal
+
+del proyecto, sólo se utilizarán los valores 1, 2 y 3 por su cercanía y no incrementar significativamente
+el número de pruebas:
+
+largoPasos 4
+
+MATINAL
+PELEA
+
+A A
+POP O E
+Me AE EY
+
+largoPasos 2
+
+ 
+
+Figura 6.8: Ejemplo de 2 diferentes configuraciones de lago pasos para un NPC
+
+La combinatoria de las variables presentadas, da como resultado 5832 diferentes configuraciones, las
+
+cuales fueron automatizadas en 3 diferentes grupos dados por las variables de eventos, SOFT, MID,
+HARD.
+
+6.3.2. Variables Dependientes (Resultados)
+
+En consecuencia de las simulaciones que toman los valores iniciales de las variables de la anterior
+sección, se tiene que existirán distintas variables dependientes, consideradas resultados de la simulación
+y son las siguientes:
+
+1.
+
+2.
+
+Nacidos: acumula la cantidad de NPC nacidos en el total del tiempo de simulación.
+
+Muertos: acumula la cantidad de NPC muertos en el total del tiempo de simulación.
+
+. Cantidad Cuadricula N: se cuenta con 25 diferentes variables de este tipo, ya que el área de
+
+simulación (50x50) se divide en 25 subcuadrículas de 10x10 cada una, distribuidas como se evidencia
+en la imagen x, estas variables tienen como función contar la cantidad de NPC que se encontraban
+en ellas al momento de finalizar la simulación.
+
+. Tiempo de Simulación: representa el momento en que la simulación finalizó. Dado en unidades
+
+de tiempo, puede tomar un valor mínimo que será igual al tiempo de muerte de los NPC (en caso de
+no lograr reproducirse), un máximo de 300, establecido como tiempo de aburrimiento, y un tiempo
+intermedio en caso de que toda la población muera, dando entonces por finalizada la simulación. Este
+tiempo de aburrimiento fue determinado a través de la observación, realizando múltiples pruebas,
+denotando que el tiempo 300 es alcanzado aproximadamente a un minuto y 30 segundos.
+
+. Población Final: acumula el valor total de NPC vivos al momento de finalizar la simulación.Pruebas 31
+
+6.3.3. Pruebas Iniciales
+
+Usando el software Weka [1], llevando a valores discretos las variables Tiempo de Simulación y Población Final a través de la función NumericToNominal y, analizándolas de forma independiente haciendo
+uso del algoritmo APRIORI, se obtienen las siguientes reglas de asociación; las cuales se presentan en
+tablas con la siguiente estructura:
+
+= Cantidad de casos: Hace referencia a la cantidad de casos donde se cumple la regla, teniendo en
+cuenta que en esta sección existen 5832 casos, siendo este el total de simulaciones realizadas.
+
+= Regla: Son los valores necesarios que deben tomar las variables especificadas, para que la regla se
+cumpla.
+
+= Confiabilidad: Es un dato que representa que tan veraz resulta que la Regla sea una configuración
+de datos que lleven a resultados similares en la simulación respecto a las variables de salida, esta se
+presenta en la tabla con el fin de establecer que tan frecuentemente la regla lleva a estos resultados
+
+en el grupo seleccionado.
+
+= Interpretación: Corresponde a la interpretación en lenguaje natural que los investigadores proporcionan acerca de la regla.
+
+Resultados de análisis desde la variable dependiente Tiempo de Simulación:Pruebas
+
+38
+
+Tabla 6.1: Análisis desde la variable dependiente Tiempo de Simulación
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cantidad | Regla Confiabilidad | Interpretación
+
+de Casos
+
+1496 Tiempo de  Simula- | 100% En un poco menos de la tercera parte de la
+ción=10 muestra el tiempo de simulación fue 10 y el
+Tiempo de Muerte=10 tiempo de muerte fue de 10, por lo cual no
+
+hubo lugar a reproducción antes de llegado
+el momento de muerte.
+
+1331 Tiempo de  Simula- | 100% En 1331 de los casos donde se obtuvo un tiemción=300 po de simulación máximo, se encontraba conTipo de acercamiento= figurado el tipo de acercamiento por empatía.
+Empatía
+
+1203 Tiempo de  Simula- | 100% El tiempo de simulación en 1203 de los casos
+ción=25 fue de 25, ligado directamente a un tiempo
+Tiempo muerte = 25 de muerte con el mismo valor, por lo cual no
+
+hubo lugar a reproducción antes de llegado el
+momento de muerte.
+
+963 Tiempo de Muerte=60 | 100% Un tiempo de muerte prolongado (60) y el
+Tiempo de  Simula- tipo de acercamiento empatía, permiten alción=300 canzar el tiempo de simulación máximo.
+Tipo de acercamiento=
+Empatía
+
+925 Tipo de acercamiento= | 100% En esta regla, se aprecia cómo la simulación
+Complemento terminó al alcanzar el tiempo de muerte de
+Tiempo de  Simula- los NPC iniciales; esto implica que el tipo de
+ción=60 acercamiento por “Complemento” no es muy
+Tiempo de Muerte=60 efectivo para la reproducción.
+
+920 Tipo de acercamiento= | 100% En esta regla, se aprecia cómo al alcanzar el
+Complemento tiempo de muerte, la simulación terminó; esTiempo de  Simula- to implica que el tipo de acercamiento por
+ción=25 “Complemento” no es muy efectivo para la
+Tiempo de Muerte=25 reproducción.
+
+902 Tipo de acercamiento= | 100% En esta regla, se aprecia cómo al alcanzar el
+Complemento tiempo de muerte, la simulación terminó; esTiempo de  Simula- to implica que el tipo de acercamiento por
+ción=10 “Complemento” no es muy efectivo para la
+Tiempo de Muerte=10 reproducción.
+
+972 Tiempo de Muerte=60 | 99% El tiempo de muerte, al igual que el tipo de
+Tiempo de  Simula- acercamiento por “Empatía”, se ven relacioción=300 nados de manera directamente proporcional
+Tipo de acercamiento= con el tiempo de simulación máximo.
+Empatía
+
+ 
+
+Resultados de análisis desde la variable dependiente Población final:Pruebas
+
+39
+
+Tabla 6.2: Análisis desde la variable dependiente Población final
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cantidad | Regla Confiabilidad | Interpretación
+
+de Casos
+
+2916 Tipo de acercamiento= | 100% En 2916 casos donde el tipo de acercamiento
+Complemento era complemento, la población final fue cero.
+Población Final= 0
+
+1944 Tiempo de Muerte=10 | 100% Si el tiempo de muerte está configurado en la
+Población Final= 0 variable más pequeña, en todos los casos se
+
+vio como resultado, población final cero (1944
+representa una tercera parte de la población).
+
+972 Intensidad eventos= | 100% Sin importar la intensidad de eventos selecsoft cionada, al combinarse con un tipo de acercaTipo de acercamiento= miento complemento da como resultado una
+Complemento población final de cero. Esto confirma la priPoblación Final= 0 mera regla generada.
+
+Tiempo muerte = 25
+
+972 Intensidad eventos= | 100% Sin importar la intensidad de eventos selecmid cionada, al combinarse con un tipo de acercaTipo de acercamiento= miento complemento da como resultado una
+Complemento población final de cero. Esto confirma la priPoblación Final= 0 mera regla generada.
+
+972 Intensidad eventos= | 100% Sin importar la intensidad de eventos selechard cionada, al combinarse con un tipo de acercaTipo de acercamiento= miento complemento da como resultado una
+Complemento población final de cero. Esto confirma la priPoblación Final= 0 mera regla generada.
+
+972 Dispersión= baja 100% Esta regla muestra que, al tener en cuenta
+Tipo de acercamiento= reglas anteriores, el tipo de acercamiento por
+Complemento complemento conlleva a una población final
+Población Final= 0 de cero.
+
+972 Dispersión= alta 100% Esta regla muestra que, al tener en cuenta
+Tipo de acercamiento= reglas anteriores, el tipo de acercamiento por
+Complemento complemento conlleva a una población final
+Población Final= 0 de 0.
+
+972 Dispersión= alta 100% Esta regla muestra que, al tener en cuenta
+Tipo de acercamiento= reglas anteriores, el tipo de acercamiento por
+Complemento complemento conlleva a una población final
+Población Final= 0 de 0.
+
+972 Tiempo de Muerte=10 | 100% Esta regla presenta que sin importar que esté
+Tipo de acercamiento= seleccionado el tipo de acercamiento por emEmpatía patía, el más exitoso de los dos acercamienPoblación Final= 0 tos, un tiempo de muerte muy bajo da como
+
+resultado una población final igual a cero.
+
+972 Tiempo de Muerte=10 | 100% En combinación con la regla anterior, se pueTipo de acercamiento= de observar cómo, sin importar el tipo de
+Complemento acercamiento, el tiempo de muerte igual a
+Población Final= 0 diez, conlleva a una población final igual a
+
+O.Pruebas 40
+
+Observando los diferentes resultados de las reglas obtenidas, se pueden obtener algunas conclusiones,
+pero no lo suficientemente claras para continuar la investigación. Por tanto, se procede a realizar un
+filtrado de información descartando las pruebas donde se cumplan las siguientes condiciones:
+
+1. Tipo de acercamiento igual a complemento.
+2. Tiempo de Muerte igual a Tiempo de Simulación.
+
+3. Población Final igual a cero y Tiempo de Simulación menor a 150.
+
+A través de este proceso de filtrado se descartarán poblaciones que se extinguieron, ya sea por no
+tener el tiempo suficiente para reproducirse o por condiciones desfavorables a lo largo de la simulación.
+Por medio de lo anterior, se pretende encontrar casos donde la población de NPC perduró en toda la
+simulación o más de la mitad de la misma, para así seleccionar casos particulares con el objetivo de
+estudiar su comportamiento e identificar patrones de simulación exitosos que puedan ser replicados.
+
+6.3.4. Pruebas después del filtro
+
+Después de aplicado el filtro mencionado en la sección anterior, se obtiene una muestra de 1546 casos.
+La cual fue procesada, nuevamente bajo los mismos parámetros, obteniendo los siguientes resultados:
+
+Resultados de análisis desde la variable dependiente Tiempo Simulación:Pruebas
+
+41
+
+Tabla 6.3: Análisis desde la variable dependiente Tiempo Simulación
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cantidad | Regla Confiabilidad | Interpretación
+
+de Casos
+
+648 Tiempo de Reproduc- | 100% Un tiempo de reproducción bajo está ligado a
+ción= 8 un tiempo de simulación máximo, apreciable
+Tiempo de Simulación en 648 casos de la simulación.
+= 300
+
+324 Tiempo de Reproduc- | 100% Regla poco relevante ya que relaciona dos vación= 40 riables independientes (Tiempo de ReproducTiempo de Muerte=60 ción, Tiempo de Muerte), las cuales no llevan
+
+a información de mayor interés.
+
+324 Dispersión= media 100% Una relación en dispersión media y tiempo
+Tiempo de Muerte=60 de muerte elevado, llevan a una simulación
+Tiempo de Simulación de tiempo máximo.
+= 300
+
+324 Tiempo de Muerte=25 | 100% Un tiempo de muerte en compañía de un
+Tiempo de Reproduc- tiempo de reproducción alejado del mismo,
+ción= 8 junto con una dispersión media, favorecen
+Tiempo de Simulación las simulaciones para que lleguen al tiempo
+= 300 máximo.
+
+324 Tiempo de Muerte =60 | 100% Un tiempo de muerte con valor de 60 y taTamaño del radar= 6 maño de radar en 6, favorece que las simulaTiempo de Simulación ciones lleguen al tiempo máximo.
+= 300
+
+324 Tiempo de Muerte =60 | 100% Un tiempo de muerte con valor de 60 y taTamaño del radar= 10 maño de radar en 10, favorece que las simuTiempo de Simulación laciones lleguen al tiempo máximo.
+= 300
+
+324 Tiempo de Muerte =60 | 100% Un tiempo de muerte igual a 60 en compañía
+Tiempo de Reproduc- con un tiempo de reproducción igual a 8, perción= 8 mite alcanzar el tiempo máximo en la simuTiempo de Simulación lación.
+= 300
+
+324 Tiempo de Muerte =60 | 100% Un tiempo de muerte igual a 60 en compañía
+Tiempo de Reproduc- con un tiempo de reproducción igual a 20,
+ción= 20 permite alcanzar el tiempo máximo en la siTiempo de Simulación mulación.
+= 300
+
+315 Tiempo de Reproduc- | 100% Un tiempo de reproducción por debajo del
+ción= 40 tiempo de muerte, permite alcanzar el tiempo
+Tiempo de Simulación máximo de simulación.
+= 300
+Tiempo de Muerte =60
+
+324 Tiempo de Muerte =60 | 100% Un tiempo de muerte igual a 60 en conjunción
+Largo de pasos= 3 con la cantidad de pasos tomando el valor de
+Tiempo de Simulación 3, hacen posible conseguir el tiempo máximo
+= 300 de simulación.Pruebas
+
+42
+
+Resultados de análisis desde la variable dependiente Población final:
+
+Tabla 6.4: Análisis desde la variable dependiente Población final
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cantidad | Regla Confiabilidad | Interpretación
+
+de Casos
+
+324 Tiempo de Reproduc- | 100% Regla poco relevante ya que relaciona dos vación= 40 riables independientes (Tiempo de ReproducTiempo de Muerte =60 ción, Tiempo de Muerte), las cuales no llevan
+
+a información de mayor interés.
+
+206 Tiempo de Reproduc- | 100% Un tiempo de reproducción mayor al tiempo
+ción= 40 de muerte, lleva a una población final igual a
+Población final= 0 Cero.
+
+Tiempo de Muerte =25
+
+206 Tiempo de Muerte =25 | 100% Un tiempo de reproducción muy cercano al
+Población final= 0 tiempo de muerte, lleva a una población final
+Tiempo de Reproduc- igual a 0.
+ción= 20
+
+216 Población final= 0 95% Debido a la congruencia de los datos, se reTiempo de Muerte =25 laciona el tiempo de muerte igual a 25 como
+
+causa de población final igual a 0. Se puede
+apreciar que tiene una confiabilidad menor al
+100%, puesto que analizando reglas anteriores, la extinción de la población requiere una
+conjunción de variables.
+
+216 Población final= 0 95% Debido a la congruencia de los datos, se relaTiempo de Reproduc- ciona el tiempo de reproducción igual a 20 coción= 20 mo causa de población final igual a 0. Se pue
+de apreciar que tiene una confiabilidad menor
+al 100%, puesto que analizando reglas anteriores, la extinción de la población requiere
+una conjunción de variables.
+
+6.3.5. Análisis gráfico de los resultados
+
+A través de Weka se pueden obtener gráficos, lo cual permite hacer un análisis global de datos e
+identificar diferentes relaciones entre atributos. Teniendo en cuenta las interpretaciones anteriores, se
+identificaron y confirmaron las relaciones presentadas a continuación. Es importante mencionar que para
+la interpretación de las siguientes figuras, se debe tener en cuenta que la tonalidad azul hace referencia a
+poblaciones escasas de NPC y la tonalidad naranja a poblaciones abundantes o máximas de los mismos.
+
+= La variable Largo de Pasos (sin importar su valor) en conjunción con tiempos de reproducción
+mínimos, favorece la obtención de poblaciones elevadas como se puede apreciar en la Figura 6.9.Pruebas
+
+ 
+
+[£) Weka Explorer: Visualizing PruebaSegundoFiltro-weka.filters.unsupervised.attribute.Remove-R7 = O Xx
+
+| X tiempoReproduccion (Nom) ) | Y: largoPasos (Nom) )
+| Colour: poblacionFinal (Num) y) | Select Instance y]
+
+Reset Clear Open ] Save | SO
+
+Plot: Prueba SegundoFiltro-weka.filters.unsupervised.attribute.Remove-R7
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+y 4 g]a
+] 3 Y 3
+5 ] É
+t E
+$ $ 3
+x 3 ' 3
+Yá 3 !
+A A]
+E oia
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+0 1250 2500
+
+ 
+
+Figura 6.9: Relación entre largo de pasos y tiempo de reproducción
+
+43
+
+= La variable Largo de Pasos sólo otorga resultados significativos al relacionarla con el tiempo de
+reproducción. Por ende, al analizar la cantidad de población como dependiente de estos datos, se
+
+encuentra una estrecha relación, tal y como se puede apreciar en la Figura 6.10.
+
+ 
+
+Plot Matrix intensidadEventos cantidadHPC dispersion tiempoMuerte tamanioRadar tiempoReproduccion
+
+El y CISPRA A O Y a e
+A E E E AER RD
+€ € AX SADA AY E £ Y
+
+CN
+Ss $ 2
+S.A
+
+Class Colour
+
+ 
+
+ 
+
+D 1250 2500
+
+Figura 6.10: Relación largo pasos y las otras variables
+
+ 
+
+= La variable tiempo de reproducción favorece a la población final en todos los casos donde su configuración está dada en el valor mínimo. Por otro lado, sólo se evidencia una relación directa con el
+tiempo de muerte, cuando la reproducción está configurada en su valor máximo, puesto que genera
+poblaciones escasas (Figura 6.11).Pruebas 44
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Plot Matrix intensidadEventos cantidadNPC dispersion tiempoMuerte tamanioRadar
+ccoo E EEE ” e
+Class Colour
+
+o 1250 2500
+
+ 
+
+ 
+
+Figura 6.11: Evidencia de un patrón en la relación tiempo de reproducción - tiempo de muerte
+
+= En la siguiente imagen, se aprecia cómo un tiempo de reproducción mínimo en conjunción con un
+tiempo de muerte prolongado, favorece a la existencia de grandes poblaciones
+
+ 
+
+L£) Weka Explorer: Visualizing PruebaSegundoFiltro-weka.filters.unsupervised.attribute.Remove-R7 - O X
+
+| X tiempoMuerte (Nom) y) | Y: tiempoReproduccion (Nom) y)
+| Colour: poblacionFinal (Num) y) | Select instance y)
+Reset | Clear | | Open | | Save | Jitter
+
+Plot: Prueba SegundoFiltro-weka.filters.unsupervised.attribute.Remove-R7
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+, 5 A
+x
+£
+1
+;
+y
+í
+2 30%]
+8
+8
+v
+L
+Class colour
+0 1250 2500
+
+ 
+
+Figura 6.12: Relación tiempo de reproducción y tiempo de muerte
+
+= La variable tamaño de radar no parece ser critica al momento de afectar ya sea de manera positiva
+o negativa la cantidad de población (Figura 6.13).Pruebas 45
+
+Plot Matrix intensidadEventos cantidadHPC dispersion tiempoMuerte
+
+A E E MEA * e
+
+     
+
+€ Y € RAS S Y Y e y
+
+ 
+
+Class Colour
+
+ 
+
+ 
+
+0 1250 2500
+
+Figura 6.13: Tamaño de radar en relación con las otras variables
+
+= La variable tiempo de muerte no presenta alguna relación adicional (Figura 6.14) distinta de la
+encontrada anteriormente con el tiempo de reproducción.
+
+ 
+
+Plot Matrix intensidadEventos cantidadHPC dispersion
+
+tiempoMuerte E E Y ISS ALAS E E
+
+ 
+
+Class Colour
+
+ 
+
+ 
+
+0 1250 ¿500
+
+Figura 6.14: Relación de tiempo de muerte con las otras variables
+
+= Igualmente, la dispersión no es una variable definitiva el momento de afectar negativa o positivamente la población final (Figura 6.15).Pruebas 46
+
+ 
+
+Plot Matrix intensidadEventos cantidadHPC
+
+dispersion
+
+ 
+
+ 
+
+Figura 6.15: Relación de la dispersión con las otras variables
+
+= Por último, la relación entre intensidad eventos y cantidad de NPC no presenta relación alguna, tal
+y como se puede apreciar en la distribución de la Figura 6.16.
+
+ 
+
+Plot Matrix —_intensidadbventos
+
+cantidadHPC
+
+ 
+
+ 
+
+Figura 6.16: Relación cantidad de NPC e intensidad eventos
+
+A través de los resultados que Weka otorga a partir de la información de las simulaciones de prueba,
+se evidencia que es necesario prestar atención particular a las siguientes variables, esto, buscando obtener
+poblaciones que perduran a lo largo de la simulación:
+
+= Tiempo de reproducción: alternando entre dos valores, 8 y 20.
+= Tiempo de muerte: tomando como valores posibles 25 y 60.
+
+= Tipo de acercamiento: solamente ejecutar las simulaciones con empatía.Pruebas 47
+
+Con este conjunto de variables se crearon 4 sets adicionales de pruebas, con el fin de verificar que estos
+valores son la clave de la existencia poblaciones que perduran a lo largo de la simulación.
+
+Tabla 6.5: Sets para las pruebas adicionales
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Set Tiempo de re- | Tiempo de | Tipo de acercaproducción muerte miento
+
+1 8 25 Empatía
+
+2 8 60 Empatía
+
+3 20 25 Empatía
+
+4 20 60 Empatía
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cada set fue evaluado con una intensidad de eventos diferente dada la irrelevancia de afectación que
+se evidenció en el análisis anterior por parte de las variaciones “soft”, “mid” y “hard”; sin embargo estas
+se incluyen porque hacen parte del proceso de simulación. La cantidad de posibles valores de las variables
+independientes generan un total de 108 pruebas por cada set y un total global de 432 pruebas.
+
+Para analizar la información de las simulaciones de cada set, se procede a revisar cada uno por separado y,
+a partir de los datos consecuentes, realizar un análisis global de la simulación. Por último, es importante
+señalar los posibles datos que pueden tomar las variables independientes a analizar:
+
+= Tiempo de Simulación: puede tomar un valor máximo de 300, ya que este es el punto de aburrimiento
+definido para las pruebas de la simulación.
+
+= Población final: puede tomar un valor máximo de 2500, dadas las características del área de simulación (50x50 casillas).
+
+6.3.6. Análisis set 1:
+
+= Tiempo de Simulación: En los 108 casos presentados en este set, se obtuvo como tiempo de simulación
+el valor máximo, es decir 300 (Figura 6.17).
+
+ 
+
+ 
+
+ 
+
+Current relation _ Selected attribute
+Relation: relation Attributes: 10 Name: tiempoSimulacion Type: Numeric
+Instances: 108 Sum of weights: 108 Missing: 0 (0%) Distinct: 1 Unique: 0 (0%)
+Attributes | | Statistic | Value
+o Minimum 300
+Maximum 300
+O Al || None || Invert || Pattem |] vara 300
+StdDev 0
+No. | | Name |
+[ 0 Ue te . . las .. .
+5 O IS da | Class: poblacionFinal (Num) pe]| Visualize All
+
+ 
+
+6 | ]tiempoReproduccion
+7 |) tipoAcercamiento
+
+8 | j larooPasos
+SE
+
+103
+
+   
+
+10 |] poblacionFinal Y
+
+300 300 300
+
+Figura 6.17: Análisis de Weka para la variable Tiempo simulación con su valor máximo, valor mínimo,
+valor medio y desviación estándar para el set 1Pruebas 48
+
+= Población Final: En este set el valor máximo obtenido fue de 2487, es decir, que un 99,48% del
+tablero se encontró ocupado al final de la simulación. Por otro lado, el valor mínimo es de 2326,
+
+lo cual representa un 93.04% de área ocupada. Con esto, se obtiene un valor medio de 2422,889 =
+2423, con una desviación estándar de 50,562 = 51 (Figura 6.18).
+
+ 
+
+ 
+
+ 
+
+ 
+
+Current relation Selected attribute
+Relation: relation Attributes: 10 Name: poblacionFinal Type: Numeric
+Instances: 108 Sum of weights: 108 Missing: 0(0%)  Distinct 64 Unique: 31 (29%)
+Miributes | Statistic | value
+f Minimum 2326
+Maximum 2487
+
+All None Invert | Pattern | Mean 2422 889
+
+s StdDev 50.562
+
+No. | | Name | ' ]
+| 5 8 tamanioRadar EQ | Class: poblacionFinal (Num) vw) | Visualize All
+| 6 L_] tiempoReproduccion |
+| 7 [ ] tipoAcercamiento
+| 8 |] largoPasos
+9 | | tiempoSimulacion
+
+MO IET y
+
+Remove 8
+
+50
+
+  
+
+22
+
+A al
+2326 2406.5 2487
+
+Figura 6.18: Análisis de Weka para la variable Población Final con su valor máximo, valor mínimo, valor
+medio y desviación estándar para el set 1
+
+6.3.7. Análisis set 2:
+
+= Tiempo de Simulación: En cada uno de los 108 casos presentados en este set, se obtuvo como tiempo
+de simulación el valor máximo, 300 (Figura 6.19).
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Current relation Selected attribute Ss
+Relation: relation Attributes: 10 Name: tiempoSimulacion Type: Numeric
+
+Instances: 108 Sum of weights: 108 Missing: 0 (0%) Distinct: 1 Unique: 0 (0%)
+Pr | Statistic | Value 1
+f 3 | Minimum 300
+
+: = —— Maximum 300
+
+All | None | Invert Pattern | Mean 300
+: : | StdDev 0
+
+ 
+
+   
+
+No. | Name |
+
+5 [ ] tamanioRadar | Class: poblacionFinal (Num) || Visualize All
+
+6 [| ] tiempoReproduccion |
+7 [_] tipoAcercamiento |
+8 | ] largoPasos
+A SM |
+10 [_] poblacionFinal Mi
+
+ 
+
+ 
+ 
+
+108
+
+   
+   
+
+Remove
+
+ 
+
+an aná an
+
+Figura 6.19: Análisis de Weka para la variable Tiempo simulación con su valor máximo, valor mínimo,
+valor medio y desviación estándar para el set 2
+
+= Población Final: En este set el valor máximo obtenido para esta variable fue de 2400, es decir, un
+96% de área ocupada. Alternamente, un valor mínimo de 2336, que representa 93.44% de área
+
+ocupada y, un valor medio de 2382,907 = 2383 con una desviación estándar de 18,342 = 18 (Figura
+6.20).Pruebas 49
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Current relation Selected attribute
+paa | o
+Relation: relation Attributes: 10 Name: poblacionFinal Type: Numeric
+Instances: 108 Sum of weights: 108 Missing: 0(0%) — Distinct 42 — Unique: 17 (16%)
+Attributes Statistic | Value
+f | Minimum 2336
+, Maximum 2400
+| All | None | Invert | Pattern | Mean 2382 907
+StdDev 18.343
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+     
+   
+   
+
+ 
+
+| Class: poblacionFinal (Num) al Visualize All |
+
+62
+
+| ,
+
+| 5 [ ] tamanioRadar
+
+6 U tiempoReproduccion
+7 [_] tipoAcercamiento
+
+8 [_] largoPasos
+
+9 [ ] tiempoSimulacion
+
+16
+Remove 7 — 10
+
+a A A A
+2336 2368 2400
+
+Figura 6.20: Análisis de Weka para la variable Población Final con su valor máximo, valor mínimo, valor
+medio y desviación estándar para el set 2
+
+6.3.8. Análisis set 3:
+
+= Tiempo de Simulación: En este caso, sólo 26 de las pruebas dieron como resultado un tiempo de
+
+simulación de 300. Se obtuvo un valor mínimo de 96, con un valor medio de 203,806 = 204 con una
+desviación estándar de 60,154 = 60 (Figura 6.21).
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Current relation Selected attribute
+pa a a
+Relation: relation Attributes: 10 Name: tiempoSimulacion Type: Numeric
+Instances: 108 Sum of weights: 108 Missing: 0(0%) — Distinct 72 Unique: 56 (52%)
+Attributes Statistic | Value
+pe 2 | Minimum 96
+Maximum 300
+| All | None | Invert | Pattern | Mean 203.806
+: : StdDev 60.154
+No. | | Name |
+
+ 
+
+  
+   
+
+U oremesier or | Class: poblacionFinal (Num) pm] | Visualize All |
+
+6 [| ] tiempoReproduccion
+7 L ] tipoAcercamiento
+8 [_] largoPasos 20 24
+SM
+10 [_] poblacionFinal
+
+26
+
+17 15
+
+ 
+
+Remove
+
+== — — — A A TA
+96 198 300
+
+Figura 6.21: Análisis de Weka para la variable Tiempo simulación con su valor máximo, valor mínimo,
+valor medio y desviación estándar para el set 3
+
+= Población Final: En este set el valor máximo obtenido fue de 13 — 0,52% de área ocupada, un valor
+
+mínimo de 0 — 0% de área ocupada y un valor medio de 0,72 = 1 con una desviación estándar de
+2,352 = 2 (Figura 6.22).Pruebas 50
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Current relation Selected attribute
+r a m
+Relation: relation Attributes: 10 Name: poblacionFinal Type: Numeric
+Instances: 108 Sum of weights: 108 Missing: 0(0%) — Distinct 10 Unique: 5 (5%)
+Attributes Statistic ¡| Value
+fF 3 | Minimum 0
+: : : Maximum 13
+| All | None | Invert | Pattern Mean 0.722
+o StdDev 2.352
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+
+ 
+
+   
+   
+   
+
+| 5 tamanioRadar | Class: poblacionFinal (Num) | Visualize All |
+6 [_] tiempoReproduccion
+7 L) tipoAcercamiento
+8 | ] largoPasos
+
+9 [ ] tiempoSimulacion
+
+ 
+
+Figura 6.22: Análisis de Weka para la variable Población Final con su valor máximo, valor mínimo, valor
+medio y desviación estándar para el set 3
+
+6.3.9. Análisis set 4:
+
+= Tiempo de Simulación: En los 108 casos presentados en este set, se obtuvo como tiempo de simulación
+el valor máximo, es decir, 300 (Figura 6.23).
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cu rrent relation a Selected attribute y
+Relation: relation Attributes: 10 Name: tiempoSimulacion Type: Numeric
+
+Instances: 108 Sum of weights: 108 Missing: 0 (0%) Distinct: 1 Unique: 0 (0%)
+Attributes Statistic | Value
+f 3 | Minimum 300
+
+a o - Maximum 300
+
+All | None | | Invert | | Pattern | Mean 300
+StdDev 0
+
+ 
+
+ 
+
+     
+ 
+   
+  
+ 
+
+ 
+
+ 
+
+Class: poblacionFinal (Num) 1) | Visualize All |
+
+108
+
+5 [| ] tamanioRadar
+6 [ ] tiempoReproduccion
+7 LJ tipoAcercamiento
+8 [ ] largoPasos
+ME
+10 | j poblacionFinal
+
+  
+ 
+ 
+
+ 
+
+ 
+
+Remove
+
+300 300 300
+
+ 
+
+Figura 6.23: Análisis de Weka para la variable Tiempo simulación con su valor máximo, valor mínimo,
+valor medio y desviación estándar para el set 4
+
+= Población Final: En este set el valor máximo obtenido fue de 2385, lo cual representa un 95,4% de
+
+área ocupada. Por otro lado, un valor mínimo de 268, es decir, 10,72% de área ocupada; generando
+así un valor medio de 1498,361 = 1498, con una desviación estándar de 664,931 = 665 (Figura 6.24).Pruebas 91
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Current relation Selected attribute
+Relation: relation Attributes: 10 Name: poblacionFinal Type: Numeric
+Instances: 108 Sum of weights: 108 Missin... O (0... Distinct: 1... Unique: 106 (98...
+Attributes | Statistic ¡| Value
+Po | Minimum 268 |
+; ; | Maximum 2385
+an | None Invert Pattern ' Mean 1498 361
+; | StdDev 664.931 |
+
+ 
+
+No. | | Name ||
+
+  
+    
+  
+ 
+
+5 [ ] tamanioRadar
+6 |] tiempoReproduccion
+7 [ ] tipoAcercamiento
+
+8 [ ] largoPasos
+9 |] tiempoSimulacion
+O E
+
+31
+
+ 
+   
+
+17 20
+
+ 
+
+ 
+
+268 1326.5 2385
+
+Figura 6.24: Análisis de Weka para la variable Población Final con su valor máximo, valor mínimo, valor
+medio y desviación estándar para el set 4
+
+6.3.10. Análisis Global
+
+Después de realizar el análisis de los 4 sets de manera individual, aprovechando las características
+de Weka para obtener valor medio con su respectiva desviación, se procede a analizar globalmente los
+mejores casos, es decir que los 4 sets se someten a evaluación de manera simultánea.
+
+= Tiempo de Simulación: De manera global en 432 pruebas, 343 — 79,40% obtuvieron el valor
+máximo de 300, se obtuvo un valor mínimo de 96, valor medio de 275,951 = 276 con una desviación
+
+estándar de 51,355 = 52 (Figura 6.25).
+
+ 
+
+ 
+
+ 
+
+ 
+
+Current relation Selected attribute Ñ
+Relation: relation Attributes: 10 Name: tiempoSimulacion Type: Numeric
+Instances: 432 Sum of weights: 432 Missing: 0(0%)  Distinct 72 Unique: 56 (13%)
+Attributes | Statistic | Value |
+i 1 | Minimum 96
+| Maximum 300
+| AI || None || invert || Patem | | Mean 275.951
+E — A | StdDev 31.355
+No. | | Name |
+
+.| Class: poblacionFinal (Num) MI Visualize All
+
+  
+ 
+ 
+ 
+
+5 L_)] tamanioRadar
+6 | ] tiempoReproduccion
+7 | j tipoAcercamiento
+
+ 
+ 
+
+ 
+
+8 [ ] largoPasos 3%
+10 |) poblacionFinal e
+na 5 14 yg 20 14 14 5 7
+Vis RR SRA AR PTA
+96 198 300
+
+Figura 6.25: Análisis de Weka para la variable Tiempo de Simulación con su valor máximo, valor mínimo,
+valor medio y desviación estándar para el análisis global
+
+= Población Final: de manera general, el valor máximo obtenido fue de 2487, es decir 99,48% de
+área ocupada. Por otro lado, el valor mínimo fue de O, lo que es igual a 0% de área ocupada y un
+
+valor medio de 1576,22 = 1576 con una desviación estándar de 1037,633 = 1037 (Figura 6.26). A
+pesar de esto, cabe resaltar que se cuenta 64 datos de poblaciones diferentes de O y menores al valorPruebas 32
+
+máximo, lo cual indica que hubo casos en los que los NPC seguían existiendo sin sobrepoblación al
+instante 300 de la simulación.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Current relation Selected attribute
+Relation: relation Attributes: 10 Name: poblacionFinal Type: Numeric
+
+Instances: 432 Sum of weights: 432 Missin... 0 (0... Distinct: 1... Unique: 125 (29...
+Altributes . | Statistic ¡Value
+f | Minimum 0
+
+- ñ - : Maximum 2487
+
+All | None | Invert | | Pattern | Mean 1576.22
+StdDev 1037.633
+No. | | Name
+
+ 
+
+5 Ss Class: poblacionFinal (Num) M Visualize All |
+
+6 [_ ] tiempoReproduccion
+
+7 [_] tipoAcercamiento
+252
+
+8 L_] largoPasos
+9 |] tiempoSimulacion
+DI El
+
+ 
+
+24 21 19
+
+¿E ———— A A A ll
+D 123,5 2487
+
+ 
+
+Figura 6.26: Análisis de Weka de la variable Población Final con su valor máximo, valor mínimo, valor
+medio y desviación estándar para el análisis global
+
+Por último, resulta relevante mencionar que aunque se encontraron los parámetros que llevan a una
+sobrepoblación del tablero, también se encontró que resulta posible asignar valores a estas variables,
+de tal manera que se logren casos intermedios, donde la población sea estable sin necesidad de
+extinguirse o, por otro lado, generar superpoblación.Capítulo 7
+
+Conclusiones
+
+1.1.
+
+1.
+
+Conclusiones y Análisis de Resultados
+
+Con base en los resultados analizados, se evidencia que el tipo de acercamiento por complemento
+resulta negativo para la reproducción dentro de la simulación; esto debido a que para que dos
+NPC sean compatibles, se requieren valores emocionales poco probables de acuerdo a los vectores
+de permisibilidad establecidos para las pruebas. Por otro lado, es evidente que la atracción por
+Empatía resulta ser favorecedora para el crecimiento de la población de NPC a lo largo de la
+simulación, aunque no implica que toda la población consiga reproducirse, ni que los hijos sean
+compatibles con sus NPC aledaños. A pesar de todo esto, no debe dejarse de lado que las variables
+de atracción son modificables desde la interfaz y, por tanto, los resultados de las pruebas sirven como
+guía, más no son representaciones absolutas de lo que se produce en las simulaciones del proyecto.
+
+. Un aspecto bastante evidente durante el análisis de las pruebas, resulta alrededor de la estrecha
+
+relación entre el tiempo de reproducción y el tiempo de muerte de los NPC. Es importante señalar
+que salta a la vista el hecho de que un tiempo de reproducción mayor al tiempo de muerte repercutirá
+en la no reproducción de los Non-Player Character. Pero, considerando las otras posibilidades, un
+valor de tiempo de muerte que casi doble el de tiempo de reproducción, permitirá que los NPC se
+reproduzcan varias veces antes de su muerte y, por tanto, incrementen su población rapidamente.
+El caso contrario se presenta cuando los valores no distan entre sí por más de 15 unidades, ya que
+la población continúa existiendo pero con un ritmo de crecimiento que no lleva a la sobrepoblación.
+En síntesis, tanto tiempo reproducción como tiempo muerte, deben ser consideradas como variables
+claves respecto a la cantidad de población que se quiere alcanzar en la simulación.
+
+. Aunque lo presentado en los resultados señala que algunas variables no son relevantes para los resul
+tados desde el punto de vista cuantitativo, al momento de realizar simulaciones y ver su ejecución
+eráfica, estas variables consideradas de poco impacto, cobran bastante relevancia. Esto, debido a
+que favorecen la aparición de comportamientos emergentes, apreciables por el lector al momento de
+ejecutar la aplicación que acompaña a este documento, como agrupamiento de NPC y migración
+masiva de los mismos. Por tanto, se debe afirmar que estas variables están orientadas a la generación
+de resultados cualitativos importantes.
+
+. Aunque los eventos dentro de las pruebas son poco relevantes, es de suma importancia mencionar
+
+que estos fueron automatizados para las mismas debido a la cantidad de ejecuciones a realizar. Se
+hace mención a esto, ya que el lanzamiento de eventos está orientado a ser utilizado en conjunto con
+la simulación gráfica, debido a que es la única interacción del usuario con la simulación mientras
+esta se encuentra en ejecución. En adición, lo eventos tienen la capacidad de alterar las emociones
+
+93Conclusiones 54
+
+y el genoma temporal que afectan a los NPC, así que su automatización conlleva a que no exista
+un criterio pertinente para su utilización y, por tanto, pierda relevancia en el análisis de las 5832
+simulaciones.
+
+5. El uso de emociones resulta una estrategia que arroja varios resultados a la hora de simular NPC
+y que estos presenten comportamientos emergentes. Por esto, se puede concluir que el uso de un
+modelo emocional, resulta una estrategia que podría presentar resultados variados, tanto negativos
+como positivos, en entornos de simulación de multitudes, donde se precisa considerar distintas
+posibilidades para el comportamiento de grupos, pudiendo así incorporar los NPC afectivos en
+simuladores de multitudes ya existentes. Por otro lado, los Non-Player Character con características
+afectivas resultan en una herramienta bastante útil para las ciencias de complejidad, es decir que
+las emociones resultan en un regla alternativa y a considerar ampliamente para la vida artificial.
+
+6. Es importante resaltar que el desarrollo del proyecto SEA en todas sus fases: investigación, implementación, pruebas y análisis es de gran importancia para nuestra formación como Ingenieros de
+Sistemas, ya que nos permitió hacer uso de una gran parte de los conocimientos adquiridos durante
+nuestros semestres de estudio en la carrera. Por otro lado, los resultados obtenidos son satisfactorios para nosotros como estudiantes y por tanto, consideramos este Trabajo de Grado como una
+experiencia enriquecedora para los conocimientos adquiridos a través de la Universidad del Valle y
+su proceso de formación.Capítulo 8
+
+Trabajos futuros
+
+8.1. Trabajos futuros
+
+Durante el desarrollo del proyecto SEA, la fase de pruebas y consignación de información, se advirtieron
+diferentes modificaciones que podrían dar mayor control de la simulación y /u otorgar diferentes resultados.
+A continuación, estas son consignadas para su consideración como futuras extensiones del proyecto:
+
+1. Agregar distintos modelos emocionales: si bien se obtuvieron resultados acordes a lo esperado
+a través del modelo emocional de Paul Ekman [12] [10], podrían darse la opción de ejecutar la
+simulación bajo otros modelos que consideren cantidad de emociones, relación entre las mismas,
+distintos niveles emociones, etc.
+
+2. Otorgar variación a más variables: dentro de las metas establecidas y el alcance planteado, el
+proyecto SEA alcanza las expectativas. Pero para una mayor variedad en la simulación, variables
+como tiempo de muerte, tiempo de reproducción y cantidad de pasos podrían estar determinadas
+por una desviación establecida por el usuario desde la interfaz.
+
+3. Asignación manual de NPC: aunque los mecanismos de distribución de los NPC a lo largo del
+tablero son útiles (distribución Alta, Media y Baja) de acuerdo a su descripción y lo que se pretende
+alcanzar con la simulación, dar la posibilidad al usuario que después de la asignación automática
+pueda colocar NPC en las casillas vacías del tablero que desee, otorgaría la posibilidad de inicializar
+estados y estudiar sus múltiples comportamientos al ser ejecutados en distintas simulaciones; algo
+semejante a las figuras definidas en la investigación del Juego de la Vida de Conway [34].
+
+4. Otorgar movimiento constante: desde el inicio, se planteó que los posibles movimientos de los
+NPC son alejarse y acercarse, ambos determinados por el estado de ánimo. A manera de extensión,
+podría asignarse a los NPC mayor libertad de movimiento, implicando esto que se muevan por el
+tablero de acuerdo ya sea a un patrón definido o con valores estocásticos. Esto permitiría que, con
+mayor probabilidad, los NPC fuesen afectados por genomas colectivos de distintos valores con mayor
+frecuencia a lo largo de la simulación.
+
+5. Poligamia de los NPC: en la manera que fue planteado y codificado el proyecto SEA, este hace
+que los NPC sean monógamos, puesto que no buscarán otra pareja hasta que la actual muera.
+Teniendo en cuenta esto, aprovechando el agregar movimiento constante a los NPC, el hecho de
+que fuesen capaces de tener múltiples parejas haría que sus hijos fueses la combinación de distintos
+genomas a lo largo del tablero.
+
+313Trabajos futuros 96
+
+6. Migración a aplicación web: teniendo en cuenta la tendencia actual del software a crear aplicaciones web y la facilidad de ejecución que otorga esta característica, llevar el proyecto SEA a
+un entorno web sería bastante útil para la divulgación del mismo. Por esto, en caso de emprender
+esta propuesta, no se debe olvidar que el desempeño de la ejecución es un factor clave debido a la
+complejidad temporal del proyecto SEA.
+
+7. Implementación en motor gráfico: Á inicios del proyecto, se planteó la posibilidad de llevar los
+NPC a un motor gráfico, donde se pudiese apreciar no sólo a través de datos su comportamiento.
+Como trabajo futuro representaría un reto bastante grande, pero de significativos resultados porque,
+aunque la intención no es caracterizar la experiencia de usuario, esta simulación podría llevarse a
+más personas de distintas áreas, más allá de la computación. Esto, a manera de especulación, podría
+favorecer la divulgación del proyecto SEA y, como es bastante necesario y citando el título, facilitar
+la compresión de la utilidad de la implementación de la Computación Emocional en entornos de
+Simulación de Multitudes.Capítulo 9
+
+Bibliografía
+
+11]
+(2,
+13]
+
+4,
+
+ 
+
+Cs.watkato.ac.nz.
+D. Dumitrescu, “Evolutionary computation,” 2000.
+
+G. Kacmarcik, “Using natural language to manage npc dialog,” American Association for Artificial
+Intelligence, June 2006.
+
+R. E. Shannon, “Introduction to the art and science of simulation,” in Proceedings of the 30th Conference on Winter Simulation, WSC *98, (Los Alamitos, CA, USA), pp. 7-14, IEEE Computer Society
+Press, 1998.
+
+S. N. W. W. D. M. Liang He, Jia Pan, “Dynamic group behaviors for interactive crowd simulation,”
+CoRR, vol. abs/1602.03623, 2016.
+
+O. De Gyves, L. Toledo, and I. Rudomin, “Comportamientos en simulación de multitudes: revisión
+del estado del arte,” vol. 64, pp. 319-334, 01 2013.
+
+“Modelado computacional,” National Institute of Biomedical Imaging and Bioengineerimng.
+
+O. Abreu Menéndez, M. Lázaro Urrutia, P. Espinas Santos, and A. Cuesta Jimenez, Modelado y
+simulación computacional de la evacuación en caso de emergencia en túneles ferroviarios. 2013.
+
+“Emotions in everyday life,” Yale Center for Emotional Intelligence, 2013.
+
+| E. Paul, “Darwin's claim of universals in facial expression not challenged,” HuffPost, 2014.
+| G. Le Bon, Psicologia de las masas. Morata, 2014.
+
+| P. Ekman, , and H. Oster, “Facial expressions of emotion,” Annual Review of Psychology, vol. 30,
+
+no. 1, pp. 527-554, 1979.
+
+D. Bray, R. B. Bourret, and M. I. Simon, “Computer simulation of the phosphorylation cascade
+controlling bacterial chemotaxis.,” Molecular Biology of the Cell, vol. 4, no. 5, pp. 469-482, 1993.
+
+R. M. Soneira and P. J. E. Peebles, “A computer model universe - simulation of the nature of the
+galaxy distribution in the lick catalog,” The Astronomical Journal, vol. 83, p. 845, 1978.
+
+S. F. Melanie Mitchell, “Genetic algorithms and artificial life,” Artificial Life, vol. 1, no. 3, pp. 267—
+289, 1994.
+
+37CAPÍTULO 9. BIBLIOGRAFÍA 58
+
+116)
+
+17)
+
+18]
+
+119]
+
+(25|
+26]
+27
+28]
+
+29)
+
+ 
+
+ 
+
+30]
+
+(31)
+
+[32]
+
+[33]
+
+34)
+
+C. Taylor and D. Jefferson, “Artificial life as a tool for biological inquiry,” Artificial Life, vol. 1,
+no. 12, pp. 1-13, 1993.
+
+R.G.L.5.G.I. J. R. Kim J., Park C., “he New Horizon Run Cosmological N-Body Simulations,”
+Journal of Korean Astronomical Society.
+
+L. M. G. M. Dorigo, “Ant colony system: a cooperative learning approach to the traveling salesman
+problem,” IEEE Transactions on Evolutionary Computation, vol. 1, pp. 53-66, Apr 1997.
+
+B. S. Lankoski Petri, “Gameplay design patterns for believable non-player characters,” in DiIGRA
+343907 - Proceedings of the 2007 DIGRA International Conference: Situated Play, The University
+
+of Tokyo, September 2007.
+
+H. Gómez-Gauchía and F. Peinado, Automatic Customization of Non-Player Characters Using Players Temperament. 12 2006.
+
+O. De Gyves, L. Toledo, and I. Rudomin, “Comportamientos en simulación de multitudes: revisión
+del estado del arte,” vol. 64, pp. 319-334, 01 2013.
+
+P. Eakman, “the science of “inside out* 2016,” Paul Ekman Group.
+
+X. G. Y. Z. L. Shi, Y. Guo, “Affective computing for intelligent virtual character,” in 2016 12th
+
+International Conference on Natural Computation, Fuzzy Systems and Knowledge Discovery (ICNCFSKD), pp. 294-298, Aug 2016.
+
+M. I. S. Descamps, “Bringing affective behaviour to presentation agents,” in Proceedings 21st International Conference on Distributed Computing Systems Workshops, pp. 332-336, Apr 2001.
+
+R. W. Picard, “Affective computing,” 1995.
+
+T. Back, Handbook of evolutionary computation. Inst. of Physics Publ. fu.a.]|, 2002.
+“Definición de complejidad,” Lexicoon.org, 2017.
+
+“Definición de emergencia,” Definición ABC, 2017.
+
+P. Ekman, “An argument for basic emotions,” Cognition and Emotion, pp. 169-200, 1992.
+
+W. K. Chan, “An analysis of emerging behaviors in large-scale queueing-based service systems using
+agent-based simulation,” in 2008 Winter Simulation Conference, pp. 872-878, Dec 2008.
+
+D. P. Darcy, S. L. Daniel, and K. J. Stewart, “Exploring complexity in open source software: Evolutionary patterns, antecedents, and outcomes,” in 2010 43rd Hawamn International Conference on
+System Sciences, pp. 1-11, Jan 2010.
+
+N. Moratalla, La Dinámica de la Evolución Humana: Más Con Menos. EUNSA, 2000.
+
+H. Kobayashi and B. L. Mark, System Modeling and Analysis: Foundations of System Performance
+Evaluation. Upper Saddle River, NJ, USA: Prentice Hall Press, 1st ed., 2008.
+
+J. H. Conway http: //www.ibiblio.org/lifepatterns/, 1970.Anexos
+
+Debido a la extensión de los anexos, estos se encuentran de manera digital en el CD entregado en
+conjunto con este documento. Igualmente, aquí se mencionan los anexos:
+
+= Pruebas iniciales: archivo para Weka, donde se encuentran las primeras pruebas realizadas.
+
+= Pruebas Filtro 1: archivo para Weka, correspondiente a las pruebas después de filtrarlas por primera
+vez.
+
+= Pruebas Filtro 2: archivo para Weka, correspondiente a las pruebas después de filtrarlas por segunda
+vez.
+
+= Sets de pruebas: archivos para Weka donde figuran los resultados de las simulaciones con cada uno
+de los 4 sets generados.
+
+= Pruebas global: archivo para Weka con la agrupación de los 4 sets generados.
+
+= Manual de Usuario: Manual de usuario con una sección de instrucciones de Instalación Rápida.
+
+99

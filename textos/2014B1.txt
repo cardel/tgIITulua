@@ -1,0 +1,2130 @@
+Aplicación web para apoyar las dinámicas de
+formación inherentes a la alegoritmia de los
+programas de Ingeniería de Sistemas y
+Tecnología en Sistemas de Información de la
+Universidad del Valle - Sede Tuluá, a través
+de procesos virtuales de
+enseñanza-aprendizaje.
+
+Miguel Angel Bernal Colonia
+miguel.angel.bernal0correounivalle.edu.co
+
+Aslhey Ramirez Rizo
+aslhey.ramirezQcorreounivalle.edu.co
+
+Universidad del Valle
+
+Programa académico de Ingeniería de Sistemas
+Tuluá, 2015Aplicación web para apoyar las dinámicas de
+formación inherentes a la alegoritmia de los
+programas de Ingeniería de Sistemas y
+Tecnología en Sistemas de Información de la
+Universidad del Valle - Sede Tuluá, a través
+de procesos virtuales de
+enseñanza-aprendizaje.
+
+Miguel Angel Bernal Colonia
+
+Código 1153852
+miguel.angel.bernalGcorreounivalle.edu.co
+
+Aslhey Ramirez Rizo
+
+Código 1153765
+aslhey.ramirezQcorreounivalle.edu.co
+
+Trabajo de grado para optar al título de
+Ingeniero de Sistemas
+
+Director
+Pável Franco Marín, MAE.
+
+Universidad del Valle
+
+Programa académico de Ingeniería de Sistemas
+Tuluá, 2015Agradecimientos
+A Dios, por brindarnos fuerza, voluntad y disciplina, por darnos las oportunidades y
+cualidades para desarrollar una etapa más en nuestras vidas.
+
+A nuestras familias, por sus esfuerzos, sacrificios y apoyo brindado en favor de consolidar nuestros objetivos y proyecto de vida.
+
+A nuestros compañeros de estudio y colegas ingenieros, por se parte significativa de
+nuestras vidas y permitirnos vivir excelentes experiencias.
+
+A nuestro director, por ser una gran persona y un gran profesional que siempre nos
+brindó el apoyo para realizar éste trabajo de grado.
+
+A la Universidad del Valle sede Tuluá, por permitirnos adquirir conocimientos de
+forma integral contribuyendo a nuestra formación profesional y personal.Nota de aceptación
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Firma del Presidente del Jurado
+
+ 
+
+Firma del Jurado
+
+ 
+
+Firma del Jurado
+
+Tuluá, Diciembre 2015Índice general
+
+1. Introducción
+
+2. Problema
+
+2.1. Descripción del problema ..........
+2.2. Formulación del problema .......... e...
+DIAL betis .....
+2.3.1. Objetivo general ..........
+2.3.2. Objetivos especÍtiCOS .............. . . . . ee
+
+3. Marco referencial
+3.1. Estado del arte ........
+JABRIMALCO ero
+3. Marco contextual...
+3.4. Marco conceptual...
+
+4. Desarrollo del proyecto
+Al Analisis...
+4.1.1. Lecturas preparatorias...
+4.1.2. Análisis de plataformas . ....... e...
+4.1.3. Análisis final .........
+Al Modelado...
+43. Desarrollo ........
+4.3.1. Análisis de requisitos ...... e...
+
+Aa. DS
+43.3. Implementación
+
+5. Conclusiones y trabajos futuros
+DL Conclusiones
+9.2. Trabajos futuros
+
+Referencias Bibliográficas
+
+Anexo A
+
+36
+36
+31
+
+38
+
+41Índice de figuras
+
+3.1. Arquitectura básica de un ITS [7] ......... o... ........ 8
+3.2. Esquema de un LMS [6] ....... 0... o... e... 10
+3.3. Esquema de un LOMS [183]... 0... o... e... 11
+4.1. Diseño preliminar de la aplicación ................ .... .. 18
+4.2. Product Backlog .............. e... 19
+4.3. Diagrama de despliegue... ....... e... 23
+4.4. Tests unitarios para Historia de usuario 24 ................. .. 26
+4.5. Historia de UsSUAriO 21... 28
+4.6. Historia de UsUArIO 24... 29
+4.7. Screenshot - Inicio visitante ..... 31
+4.8. Screenshot - Usuario autenticado ...... 32
+4.9. Screenshot - Inicio Módulo ......-.. o... 32
+4.10. Screenshot - Visualización de material ................... 33
+4.11. Screenshot - Temas de Wiki... ........ e... 33
+4.12. Screenshot - Solicitudes de Wiki ............... . .. . . .. 34
+4.13. Screenshot - Inicio Foro ...... 34
+4.14. Screenshot - Actividad ....-- 39
+4.15. Screenshot - Opciones para crear quices O preguntas ........... 39
+
+IICapítulo 1
+
+Introducción
+
+En la medida en que evoluciona la tecnología y la capacidad de las personas para acceder a ella, el concepto y las aplicaciones de educación virtual también han evolucionado,
+lo que les ha permitido adaptarse a las necesidades académicas actuales logrando inyectar
+dinamismo a las prácticas educativas.
+
+En este sentido, en este trabajo de grado se exploran los conceptos de educación
+virtual y sus respectivos procesos de enseñanza-aprendizaje, haciendo mayor énfasis en el
+concepto de e-learning, el cual se fundamenta en ser social e interactivo para fomentar un
+autoaprendizaje o aprendizaje dinámico dentro de los entornos virtuales de aprendizaje.
+
+Es así como éste proyecto de grado se realizó con el objetivo de apoyar las dinámicas
+de formación inherentes a la algoritmia de los programas de Ingeniería de Sistemas y
+Tecnología en Sistemas de Información de la Universidad del Valle - sede Tuluá, mediante
+el desarrollo e implementación de una aplicación web que soporta y apoya procesos de
+enseñanza-aprendizaje en relación a la algoritmia y a través de dinámicas virtuales.Capítulo 2
+
+Problema
+
+2.1. Descripción del problema
+
+La algoritmia, entendida como un conjunto de instrucciones precisas para resolver
+un problema específico, es importante ya que se convierte en la base de la programación como lo indicó Markov, mencionado en |1j. Teniendo en cuenta la importancia
+de esta para el estudio de las ciencias de computación, se es necesario garantizar buenas bases que permitan generar soluciones informáticas aplicando conceptos, principios
+y teorías esenciales, relacionadas con las Ciencias de la Computación en cualquier contexto.
+
+Sin embargo, se ha encontrado que los profesionales de las Ciencias de la Computación
+en sus procesos de formación, presentan insuficiencias que impiden ejecutar soluciones
+adecuadas desde la óptica de las Ciencias de la Computación, como lo afirman diversos
+estudios que han logrado identificar las siguientes limitaciones algorítmicas lógicas [2]:
+
+= Limitaciones en la comprensión de las situaciones problémicas que se les plantean y
+en su respectiva modelación desde la programación.
+
+= Selección y empleo inadecuado de estructuras computacionales que no permiten la
+verificación y validación de los algoritmos que se conciben y se implementan.
+
+= Imprecisiones en las soluciones computacionales que se dan a las situaciones problémicas, las cuales no siempre satisfacen las exigencias originales.
+
+= Escasas destrezas en la codificación de procedimientos computacionales en una
+diversidad de lenguajes computacionales.
+
+Ahora bien, los programas de Ingeniería de Sistemas y Tecnología en Sistemas de Información de la Universidad del Valle sede Tuluá, no son ajenos a las deficiencias planteadas,
+pues aunque en dichos programas académicos se procura cubrir la enseñanza de la algoritmia con asignaturas como Matemáticas Discretas y Álgebra Lineal, que tienen como
+objetivo desarrollar en el estudiante un pensamiento lógico-aleorítmico, no se logra desarrollar la totalidad de habilidades que los estudiantes necesitan para generar soluciones
+adecuadas a las situaciones problemáticas a las que se enfrentan en el área de las Ciencias
+de la Computación y en general, en cualquier área donde exista aplicación para este tipo
+de conceptos. Lo mencionado, además se puede sustentar en una encuesta realizada a losdocentes que intervienen durante el proceso de formación de dichos programas académicos,
+pues dentro de los resultados obtenidos, los docentes que han dictado o están dictando
+cursos relacionados con la algoritmia, coinciden en responder que notan deficiencias en
+los estudiantes tanto en el aprendizaje de los conceptos inherentes como en la aplicación
+de los mismos dentro de un lenguaje de programación determinado. Además, la gran
+mayoría de los docentes manifiestan que el proceso de aprendizaje de algoritmia dentro
+de la Universidad podría mejorarse, como se evidencia en el Anexo A.
+
+Así, es claro que la algoritmia es fundamental en la formación de Ingenieros y Tecnólogos, especialmente de la Universidad del Valle que tiene un enfoque de Ciencias
+de la Computación. De otro lado, es indispensable contar con una base muy sólida de
+conocimiento que permita desarrollar las habilidades necesarias para resolver problemas
+computacionales, pues de lo contrario los profesionales no estarán calificados para atender
+los requerimientos de la industria del software, desarrollando así soluciones de baja calidad,
+y por ende, convirtiéndose en una barrera para el desarrollo del sector, limitando su
+crecimiento [3].
+
+Por lo anterior, en este trabajo de grado se propuso apoyar los las dinámicas de formación inherentes a la algoritmia de los programas de Ingeniería de Sistemas y Tecnología
+en Sistemas de Información de la Universidad del Valle sede Tuluá a través de procesos
+virtuales de enseñanza enmarcados en un ambiente de comunidad que permitan contribuir
+a la formación de los estudiantes, mediante mecanismos que exploten las ventajas que
+brinda la educación virtual y el uso de las TIC.
+
+2.2. Formulación del problema
+
+¿Cómo apoyar los procesos de formación inherentes a la algoritmia de los estudiantes
+de los programas académicos de Ingeniería de Sistemas y Tecnología en Sistemas de
+Información de la Universidad del Valle sede Tuluá mediante el uso de las tecnologías de
+la información?
+
+2.3. Objetivos
+
+2.3.1. Objetivo general
+
+Implementar una aplicación web que permita apoyar las dinámicas de formación
+inherentes a la algoritmia para los estudiantes de los programas de Ingeniería de Sistemas
+y Tecnología en Sistemas de Información de la Universidad del Valle sede Tuluá, a través
+de procesos virtuales de enseñanza-aprendizaje.2.3.2. Objetivos específicos
+
+= Determinar cuáles son los elementos teóricos y prácticos que se requieren en procesos
+virtuales de enseñanza-aprendizaje inherentes a la algoritmia.
+
+= Desarrollar los distintos módulos de comunidad e interacción dentro de la aplicación
+web que generen una dinámica de aprendizaje colaborativo.
+
+= Desarrollar un sistema de co-creación y aprobación de contenidos.
+
+= Implementar la aplicación web en la Universidad del Valle sede Tuluá.Capítulo 3
+
+Marco referencial
+
+3.1. Estado del arte
+
+Dentro de las estrategias de enseñanza que se desarrollan para dictar un curso, es
+importante contar con herramientas de apoyo que complementen las sesiones de clase y
+logren involucrar a los estudiantes en diferentes niveles de compromiso con su aprendizaje
+16]. Es así como en la actualidad se han desarrollado aplicaciones que funcionan ya sea
+como apoyo o como eje central del proceso de aprendizaje referente a algoritmia y programación, con el fin de disminuir las dificultades que se tienen en su enseñanza y las
+deficiencias que presentan los estudiantes con los métodos tradicionales.
+
+Dentro de las aplicaciones más destacadas se encuentra Pselnt, la cual es una herramienta de escritorio que se encuentra bajo la licencia GPL y se enfoca en asistir a
+los estudiantes en sus primeros pasos dentro de la programación, mediante la tarea de
+escribir algoritmos en un simple e intuitivo pseudolenguaje en español, contando como
+complemento con un editor de diagramas de flujo, lo que permite centrar la atención del
+estudiante en los conceptos fundamentales de la algoritmia computacional, minimizando
+las dificultades propias de un lenguaje y proporcionando un entorno de trabajo con numerosas ayudas y recursos didácticos.
+
+Por otro lado, a partir del concepto de software educativo se encuentra a Alice, el cual
+permite a los estudiantes aprender los conceptos fundamentales de programación dentro
+del contexto de la creación de películas animadas y videojuegos simples. Fue desarrollado
+en la Universidad Carnegie Mellon y su diseño permite enseñar a los alumnos tanto la
+programación orientada a objetos como la orientada a eventos [7]. Alice busca resolver
+tres problemas fundamentales del software educativo:
+
+= La mayoría de los lenguajes de programación están diseñados para producir otros
+programas, cada vez más complejos. Alice está diseñado únicamente para enseñar a
+programar.
+
+= Alice está íntimamente unido a su IDE. No hay que recordar ninguna sintaxis
+especial. De todas formas, acepta tanto el modelo de programación orientada a
+objetos como la dirigida a eventos.= Alice está diseñado para el público que normalmente no se enfrenta a problemas de
+programación, tales como alumnos de secundaria, mediante un sistema de «arrastrar
+y soltar».
+
+Ahora bien, por el lado del concepto de e-learning sumado al auge del internet, se
+encuentra una gran cantidad de herramientas que están a disposición de cualquier persona
+permitiéndoles aprender lo que desean si se lo proponen. El ámbito de la programación y
+la algoritmia no ha sido ajeno a este tipo de desarrollos, es así como se encontró distintas
+plataformas de aprendizaje que cuentan con administración de usuarios, sistemas de comunicación, creación, edición y eliminación de contenidos, sistemas de evaluaciones y demás
+características que ayudan y hacen más interactivos los procesos de formación permitiendo
+catalogarlas como LCMS, a continuación se hace referencia a algunas de las más destacadas:
+
+Codecademy: Es una plataforma donde se ofrece un lugar para que cualquier persona
+pueda aprender, cambiando los estilos de enseñanza tradicionales y basándose en la
+premisa de aprender haciendo se busca obtener como resultado una mejor experiencia
+
+de aprendizaje, cabe resaltar que todos sus cursos son gratuitos y se puede aprender
+JavaScript, HTML/CSS, PHP, Python, Ruby entre otros.
+
+Edx: Es una plataforma de cursos masivos en línea fundada por el Instituto Tecnológico de massachusetts y la universidad de Harvard en mayo de 2012 para hospedar cursos
+online de nivel universitario con un amplio rango de disciplinas y sin costos para propiciar
+la investigación y el aprendizaje.
+
+CodeSchool: Code School fue creada con el objetivo de mejorar la manera en que el
+estudiante aprende a programar basándose en la premisa de aprender haciendo, combinando el uso de videos, juegos y la escritura de código directamente desde el navegador
+para ofrecer una experiencia que mantenga al estudiante activo y atento. Posee un amplio
+catálogo de cursos y varían desde principiantes hasta para avanzados.
+
+Platzi: Es la plataforma que utiliza la anteriormente llamada Mejorando.la para el
+desarrollo de sus cursos referentes a programación donde se dictan clases en vivo de
+manera muy interactiva y colaborativa para los estudiantes.
+
+A nivel de la educación superior en Colombia la Universidad de los Andes al evidenciar
+las dificultades de la enseñanza de la algoritmia y programación sumado a las deficiencias
+con las que los estudiantes salían de los cursos, empezó a desarrollar el proyecto Cupi2 el
+cual consta de una metodología de enseñanza que hace énfasis en la motivación de los
+estudiantes y tiene en cuenta todos los aspectos involucrados en la problemática girando
+alrededor de los siguientes ejes temáticos:
+
+= Modelaje y solución de problemas
+= Algorítmica
+= Tecnología y programación
+
+= Herramientas= Procesos de software
+= Arquitectura
+
+= Técnicas de programación y metodologías.
+
+Además de esto, el proyecto Cupi2 cuenta con una plataforma web donde converge el
+trabajo de todos los actores en Cupi2. Existen ejemplos, ejercicios, entrenadores, tutoriales y videos de apoyo, entre otros recursos, disponibles para los estudiantes. Para los
+profesores hay espacios exclusivos que les ayuda en la tarea de planear y organizar cursos.
+También provee espacios para coordinadores que se encargan de administrar y asegurar la
+disponibilidad de los recursos a la comunidad.
+
+Teniendo en cuenta las aplicaciones mencionadas dentro de los diferentes tipos de
+conceptos que han surgido durante el desarrollo de la educación virtual, se encontró
+que las soluciones web existentes, tienden a centrarse en la enseñanza de lenguajes de
+programación específicos, los cuales se orientan a generar habilidades de codificación en los
+estudiantes, cabe resaltar que la labor de programar implica la introducción de conceptos
+que pertenecen a distintos ejes temáticos donde el estudiante debería entender la programación como el equilibrio de muchos dominios, con relaciones entre ellos, que permiten
+construir una solución a un problema expresada como un programa de computador [5].
+
+Es así como el estudiante de dichas plataformas, le da entonces mucha más importancia
+a los elementos del lenguaje de programación que al proceso de modelado de una solución,
+de allí, que la solución que se desarrolló se centra principalmente en brindar mecanismos
+virtuales que faciliten el apoyo al estudiante con el cual se complemente sus conocimientos.
+
+En conclusión, contar con herramientas que ofrecen las TICs dentro de la enseñanza, ha
+permitido complementar los procesos tradicionales de aprendizaje, en especial dentro del
+campo de las Ciencias de la Computación donde se logra dar apoyo a la enseñanza tanto
+de la algoritmia como de la programación, los cuales son procesos difíciles, complicados
+y las deficiencias que se notan en estos campos no son sólo locales sino a nivel mundial,
+además es importante recalcar que las instituciones educativas ya sean de nivel medio o
+superior empiecen a adaptar este tipo de estrategias y tecnologías debido a los beneficios
+que se obtienen con los mismos.3.2. Marco teórico
+
+El desarrollo de aplicaciones de computadoras que apoyan el proceso de enseñanza es
+un concepto que se ha manejado desde los inicios de las computacion y que ha venido
+evolucionando gracias a los rápidos avances tecnológicos que se producen y al auge de
+las tecnologías web [8], a tal punto de vincular estrategias pedagógicas y otras ramas de
+las ciencias de la computación, permitiéndoles a dichas aplicaciones complementarse y
+adaptarse a las necesidades educativas que se presentan [9], (10).
+
+Durante todo este proceso de evolución se han presentado distintos conceptos de
+aplicaciones relacionadas con la educación, es así como se encuentra la enseñanza asistida
+por computador (CAI por sus siglas en inglés) , donde su principal objetivo es que el
+estudiante interactúe con sistemas educativos específicamente creados para guiarlos en la
+búsqueda de conocimiento [11|; y el cual hereda las técnicas de enseñanza desarrolladas por
+Skinner, quien propuso que el aprendizaje se daba al modificar la conducta del estudiante
+a través de un refuerzo y para probarlo adaptó una máquina para presentar la información,
+donde luego se le pedía al estudiante que diera una respuesta a una pregunta la cual era
+comparada con la respuesta correcta [8].
+
+A medida que el concepto de CAI fue creciendo se vio la necesidad de involucrar la
+inteligencia artificial dentro del software educativo dando paso al concepto de sistema tutor
+inteligente (IT'S) [8] el cual se caracteriza por adaptarse a las necesidades del estudiante
+ofreciéndole instrucciones personalizadas, directas y retroalimentación. Los IT'S constan
+normalmente de cuatro módulos: El módulo experto que se compone de hechos y reglas
+del dominio o conocimiento en particular que se desea transmitir al estudiante, el módulo
+tutor que diseña y regula las interacciones de enseñanza con los estudiantes, el Módulo de
+estudiantes que es una representación dinámica de los estudiantes y del estado actual de
+sus conocimientos y por último la interfaz de usuario que controla la interacción entre el
+estudiante y el sistema [12].
+
+Expert Tutoring Student
+Module Module Module
+
+User
+Interface
+
+ITS
+
+User
+
+Figura 3.1: Arquitectura básica de un IT'S [7]Así mismo se encuentra el concepto de software educativo el cual toma como referencia
+cualquier programa para ordenador creado con la finalidad específica de ser utilizados
+como medio didáctico, es decir, para facilitar los procesos de enseñanza y de aprendizaje,
+Esta definición engloba desde los tradicionales programas de Enseñanza Asistida por
+Computador (CAI), hasta los programas basados en inteligencia artificial como lo son los
+IT'S [7]. La mayoría del software educativo, igual que muchos de los programas informáticos
+nacidos sin finalidad educativa, tienen tres módulos principales claramente definidos: el
+módulo que gestiona la comunicación con el usuario (sistema input /output), el módulo
+que contiene debidamente organizados los contenidos informativos del programa (bases
+de datos) y el módulo que gestiona las actuaciones del ordenador y sus respuestas a
+las acciones de los usuarios (motor) [7]. Entre las principales características del software
+educativo se evidencian las siguientes:
+
+= Son materiales elaborados con una finalidad didáctica, como se desprende de la
+definición.
+
+= Utilizan el ordenador como soporte en el que los alumnos realizan las actividades
+que ellos proponen.
+
+= Son interactivos, contestan inmediatamente las acciones de los estudiantes y permiten
+un diálogo y un intercambio de informaciones entre el ordenador y los estudiantes.
+
+= Individualizan el trabajo de los estudiantes, ya que se adaptan al ritmo de trabajo
+cada uno y pueden adaptar sus actividades según las actuaciones de los alumnos.
+
+Hasta el momento se han descrito herramientas de Escritorio que apoyan la educación,
+pero con el desarrollo de las tecnologías web, sumado al gran impacto ocasionado por el
+internet, surge la web 2.0, donde se busca una web más personalizada y comunicativa,
+así como consecuencia han ido emergiendo nuevas tendencias en cuanto a la producción,
+distribución y consumo de la información, llevando a replantear la forma en cómo las
+computadoras pueden apoyar los proceso de formación y el alcance de los mismos [6],
+dando paso al concepto de e-learning el cual tiene componentes pedagógicos y tecnológicos.
+Pedagógicos porque no solo son contenedores de información digital, sino que ésta debe ser
+transmitida de acuerdo a unos modelos y patrones pedagógicamente definidos para afrontar
+nuevos contextos. Tecnológicos en cuanto que todo el proceso de enseñanza-aprendizaje se
+sustenta en aplicaciones, principalmente desarrolladas en ambientes web [11]. Su principal
+característica es que trabaja en red, lo que lo hace capaz de ser instantáneamente actualizado, almacenado, recuperado, distribuido y permite compartir instrucción o información [11].
+
+Dentro del concepto de e-learning se encuentran los sistemas gestión de aprendizaje
+(LMS) los cuales proporcionan varias herramientas interactivas para administrar, distribuir
+y controlar las actividades, es decir, en ellos es posible encontrar todo aquello que se
+requiere para desarrollar una acción formativa en línea; dentro de sus principales funciones
+se encuentran [6]:
+
+= Gestionar usuarios, recursos, materiales y actividades de formación.
+
+= Controlar y hacer seguimiento del proceso de aprendizaje, realizar evaluaciones y
+generar informes.= Gestionar servicios de comunicación.
+
+= Presentar materiales que han sido adaptados, realizados o seleccionados por el docente
+en función de las necesidades y características que presupone en su alumnado.
+
+= Generar feedback
+
+Asimismo se encuentra que los LMS permiten distribuir su información a través
+de la web pero no permiten consumir información de ésta, además, los contenidos se
+encuentran encapsulados es decir, no aparecen en los motores de búsqueda, y su orientación
+eminentemente administrativa, la cual genera un limitado impacto de éstos sobre los
+principios pedagógicos |6|.
+
+Curso 1
+( Tutor y
+Aprendices )
+
+Herramientas
+le ys s . ,
+Repositorio de Curso 2
+comunicación (Tutor y
+Aprendices )
+
+Generación Herramientas
+
+de Cursos de Gestión Curso 3
+(Tutor y
+Aprendices )
+
+Curso 4
+( Tutor y
+Aprendices )
+
+ 
+
+Figura 3.2: Esquema de un LMS [6]
+
+Siguiendo el concepto de e-learning también se encuentran los Sistemas de Administración de Contenidos de Aprendizaje (LCMS) los cuales integran funcionalidades de los
+CMS y de lo LMS; los LCMS están enfocados principalmente en la creación y administración de contenidos, a diferentes niveles, permitiendo de esa manera reestructurar la
+información y los objetivos de los contenidos, de manera dinámica, para crear y modificar
+objetos de aprendizaje que atiendan a necesidades y estilos de aprendizaje específicos;
+entre sus principales componentes se encuentran: Repositorio de objetos de aprendizaje,
+Interfaz dinámica, Herramientas de gestión o aplicaciones administrativas, Herramientas
+de comunicación o de colaboración, generación de cursos o Herramientas de autoría, entre
+
+otros [13].
+
+10Curso 1
+(Tutor y
+Aprendices )
+
+Herramientas
+
+de Comunica- Curso 2
+ción ( Tutor y
+
+Aprendices )
+
+Repositorios
+(Objetos de
+Aprendizaje)
+
+ 
+ 
+ 
+  
+
+Desarmlladores Generación
+de Cursos
+
+ 
+ 
+
+Herramientas
+de Gestión
+
+ 
+ 
+ 
+  
+ 
+    
+
+Curso 3
+(Tutor y
+Aprendices )
+
+ 
+ 
+
+ 
+
+  
+
+Curso 5 2. Curso 4
+( Tutor y
+Aprendices )
+
+Figura 3.3: Esquema de un LCMS [13]
+
+Actualmente se puede evidenciar cómo tanto las instituciones educativas de nivel
+medio como de nivel superior, han acogido estos diversos tipos de software que existen
+para apoyar los procesos de enseñanza, ya que son herramientas dinámicas que permiten
+obtener ciertas ventajas en cuanto a espacio, tiempo, personalización del aprendizaje y
+ritmo de aprendizaje frente al proceso de educación tradicional. Es así como la Universidad
+del Valle cuenta con moodle, una plataforma open source que entra en la categoría de
+LCMS, ya que su estructura básica se organiza en torno a los cursos, los cuales contienen
+actividades y recursos para los estudiantes y tiene como referente pedagógico que está
+basado en el constructivismo social y en el aprendizaje colaborativo [14].
+
+3.3. Marco contextual
+
+Dentro de la misión que se propone por la Escuela Ingeniería de Sistemas y Computación de la Universidad del Valle para sus programas, se encuentra que se busca formar
+profesionales en el área de Ingeniería de Sistemas y Computación que puedan -a través de
+la aplicación de conceptos fundamentales, de la algoritmia, lo técnico y el diseño- resolver
+problemas específicos reales. Lo anterior se evidencia en las mallas curriculares de los
+programas, donde el 39% de los créditos corresponden a asignaturas básicas, mientras
+que un 47% corresponden a asignaturas profesionales [15]. De esta manera, los cursos que
+la Escuela de Ingeniería de Sistemas y Computación presenta dentro de sus programas
+académicos, aportan a los estudiantes los conocimientos necesarios para el cumplimiento
+del objetivo general de dichos programas, los cuales buscan formar profesionales capaces
+de abordar el estudio de los procesos de transformación computacional de la información
+para dar soluciones a problemas reales.
+
+Es así, como contar con herramientas que apoyen los procesos de formación de modo
+que contribuyan a las proyecciones de la Escuela de Ingeniería de Sistemas y Computación
+de la Universidad del Valle sede Tuluá, puede llegar a marcar una diferencia al momento
+de revisar el desempeño de los estudiantes en un contexto académico, y desde luego, en
+un contexto profesional. De esta manera, proyectos como Cupi2 de la Universidad de los
+Andes, que se centra en la enseñanza de algoritmia y programación de una manera virtual,
+
+11ha obtenido los siguientes resultados al evaluar los siguientes indicadores: percepción del
+profesor, percepción del curso, nota promedio de los estudiantes del curso y el porcentaje
+de los estudiantes que perdieron el curso|5|:
+
+= La evaluación que los estudiantes hacen sobre la percepción de los profesores aumentó
+casi en un 6%.
+
+= La evaluación que los estudiantes hacen sobre la percepción del curso, aumentó en
+más de un 20%.
+
+= La nota promedio de los estudiantes aumentó en más del 11 %.
+
+= El número de estudiantes que pierde el curso disminuyó en un 50%.
+
+3.4. Marco conceptual
+
+Estrategias de aprendizaje: son el conjunto de actividades, técnicas y medios que
+se planifican de acuerdo con las necesidades de los estudiantes, los objetivos que se buscan
+y la naturaleza de los conocimientos, con la finalidad de hacer efectivo el proceso de
+aprendizaje[23).
+
+Plataforma educativa: es el calificativo que se le da al software enfocado en educación virtual, es decir los diferente tipos de entornos de formación que se puede encontrar
+un estudiante según la finalidad del software[24].
+
+Scrum: es una metodología en la que la gente puede hacer frente a los problemas
+adaptativos complejos, mientras que de manera productiva y creativa se entregan productos con el valor más alto posible. Se ha utilizado para gestionar el desarrollo de
+productos complejos desde principios de 1990. Scrum no es un proceso o una técnica para
+la construcción de productos; más bien, es una metodología en la que se pueden emplear
+varios procesos y técnicas 25).
+
+Product backlog: es una lista ordenada de los trabajos a realizar con el fin de crear,
+mantener y sostener un producto. Gestionado por la propietario del producto|26|.
+
+Sprint: es un bloque de tiempo (time-box) de un mes o menos durante el cual se crea
+un incremento de producto “Terminado”, utilizable y potencialmente desplegable. Los
+Sprints contienen y consisten de la Reunión de Planificación del Sprint (Sprint Planning
+Meeting), los Scrums Diarios (Daily Scrums), el trabajo de desarrollo, la Revisión del
+Sprint (Sprint Review), y la Retrospectiva del Sprint (Sprint Retrospective) [27].
+
+Sistema control de versiones: el control de versiones es un sistema que registra
+
+los cambios realizados sobre un archivo o conjunto de archivos a lo largo del tiempo, de
+modo que puedas recuperar versiones específicas más adelante[28].
+
+12Gunicorn: es un servidor HT'P'P de Python WSGlI para UNIX. Gunicorn es ampliamente compatible con varios frameworks web, es de fácil implementación y bastante rápido|29].
+
+Proxy inverso: es un dispositivo de seguridad el cual protege a los servidores H'T"T'P
+internos proporcionando un punto de acceso único a la red interna, lo cual ofrece ventajas
+de seguridad y características para el acceso a la red[30].
+
+Vagrant: es una herramienta por línea de comandos para la construccion y administracion de ambientes de desarrollo virtualizados desarrollada por Mitchell Hashimoto and
+John Bender. Vagrant administra máquinas virtuales hospedadas en Oracle VirtualBox,
+un virtualizador para arquitectura x86 que al igual que Vagrant, es open source[31].
+
+SSH: el Secure Shell (SSH) Protocol, es un protocolo para autenticación remota segura
+y otras servicios de red segura sobre una red insegura[32].
+
+13Capítulo 4
+
+Desarrollo del proyecto
+
+4.1. Análisis
+
+Debido a las diversas formas, técnicas y estrategias que se podían aplicar para llevar
+a cabo la solución que demanda el problema, como estrategia de apoyo a las diferentes
+actividades del proyecto y para tener una representación del espacio del problema y su
+fácil comprensión, se definió una etapa de investigación la cual constó de dos fases: hacer
+lecturas preparatorias en artículos y analizar plataformas de e-learning que se asemejan a
+la solución planteada. A continuación se detalla cada una de estas fases.
+
+4.1.1. Lecturas preparatorias
+
+Las lecturas preparatorias hacen parte del proceso de adquisición de conocimiento
+referente los elementos teóricos y prácticos que se requieren en procesos virtuales de
+enseñanza-aprendizaje, este componente investigativo permitió conocer las tecnologías,
+técnicas, ventajas y desventajas de diferentes herramientas utilizadas en procesos educativos virtuales.
+
+Como fuente primaria de información, se optó por los recursos electrónicos con los que
+cuenta la biblioteca de la Universidad del Valle, con especial énfasis en la base de datos
+de la IEEE Xplore, ya que cuenta con contenidos académicos de alto impacto a través de
+publicaciones técnicas, conceptos, conferencias y estándares, en el área de Ingeniería informática. De esta manera, a continuación se describen algunos de los recursos encontrados:
+
+Un modelo de enseñanza- aprendizaje virtual análisis, diseño y aplicación
+en un sistema universitario mexicano[16|: Es una memoria para optar por el título
+de doctorado en informática en la Universidad de Granada de España, donde se recogen
+los principales aspectos y beneficios de aplicar modelos de enseñanza-aprendizaje dentro de
+la educación superior en un contexto de educación virtual. Además, se analizan diferentes
+modalidades de formación virtual y los elementos que intervienen en esta.
+
+Las Redes Sociales y su aplicación en la educación 18]: Es un artículo para la
+
+revista digital universitaria de la Universidad Nacional Autónoma de México, donde se
+hace énfasis en cómo el auge de las redes sociales puede ser aplicado y beneficiado en
+
+14un contexto educativo, explicando sus principales ventajas, desventajas al momento de
+llevarlo a dicho contexto.
+
+Estrategias de aprendizaje en el entorno virtual|17|: Es una documento donde se
+sintetizan y amplían los contenidos de la conferencia impartida por el Guillermo Ballenato
+Prieto en la jornada de presentación de los estudios de Biblioteconomía y Documentación
+del Campus de Colmenarejo del año académico 2007-2008, acá se encuentra información
+sobre algunas estrategias usadas dentro de un entorno virtual enfocado en la enseñanza,
+explicando los principales aspectos que se deben tener en cuenta para garantizar un proceso
+de enseñanza, destaca la importancia de los factores psicológicos y propone alternativas
+para potenciar la motivación del estudiante.
+
+Analysis on Application of Computer Assisted Instruction in Modern Teaching[22|: Es un artículo académico donde se describe como la enseñanza asistida por
+computador puede solucionar problemas en los procesos de educación, plantea los principales problemas que enfrenta la enseñanza asistida por computador y posibles soluciones
+a dichos problemas existentes.
+
+Aproximación al estado del arte de procesos de aprendizaje en educación
+virtual[20]: Es un artículo donde se presenta una aproximación a una investigación de
+tipo descriptiva, donde se ha utilizado el método de análisis documental acerca de los
+procesos de aprendizaje en educación virtual, realizando un barrido en medios electrónicos
+e impresos a nivel nacional e internacional en los últimos diez años.
+
+Tutoring and Expert Modules of Intelligent Tutoring Systems|21|: Es un
+artículo donde se hace énfasis en el concepto de Sistema Tutor Inteligente, explica cuales
+son los módulos para la creación de uno y cómo es la interacción entre estos.
+
+LCMS Y objetos de aprendizaje|13] : Es un artículo para la revista digital universitaria de la Universidad Nacional Autónoma de México, donde se trata el tema de e-learning
+pasando por su historia y la explicación de los conceptos de LCMS y objetos de aprendizaje.
+
+El softwate educativo[6|: Es un artículo académico donde se profundiza en el
+concepto de software educativo, dando su definición características y tipos de software
+que se encuentran.
+
+4.1.2. Análisis de plataformas
+
+El análisis de plataforma se centró en observar aplicaciones educativas y herramientas
+que apoyen procesos de enseñanza bajo el concepto de e-learning, con la finalidad conocer
+el cómo se ha puesto en práctica la información y conceptos encontrados en las lecturas
+preparatorias y obtener una idea de cómo es la interacción del usuario en dichas plataformas.
+
+Entre la gran cantidad de aplicaciones desarrolladas bajo estos conceptos, el análisis
+se centró en las siguientes, por ser las más destacadas en éste campo:
+
+15Edx: Es una plataforma de cursos masivos en línea fundada por el Instituto Tecnológico de Massachusetts y la Universidad de Harvard en mayo de 2012 para hospedar
+cursos online de nivel universitario con un amplio rango de disciplinas y sin costos para
+propiciar la investigación y el aprendizaje.
+
+Khan Academy: Ofrece ejercicios de práctica, videos instructivos y un panel de
+aprendizaje personalizado que permite a los alumnos aprender a su propio ritmo, dentro y
+fuera del salón de clases.
+
+Coursera: Coursera es una plataforma educativa asociada con las universidades y
+organizaciones de todo el mundo, la cual ofrece cursos en línea que cualquiera puede
+realizar, basada en el aprendizaje para el dominio ayuda a los estudiantes a comprender
+plenamente un tema antes de pasar a otro más avanzado.
+
+Sakai: Es una plataforma de libre acceso, rica en características para el aprendizaje,
+la docencia, la investigación y la colaboración. Es una suite de software de código abierto
+desarrollado por una comunidad global.
+
+4.1.3. Análisis final
+
+Al realizar el análisis de plataformas, se comprendieron y reforzaron conceptos encontrados dentro del marco teórico como lo son LMS, LCMS, IT'S y Software Educativo,
+pues son el principal tipo de aplicaciones que se desarrollan en materia de educación,
+identificando así ventajas, desventajas y diferencias en los enfoques de cada uno de los
+tipos de plataformas mencionadas.
+
+En la búsqueda de aplicaciones educativas y herramientas que apoyen procesos de
+enseñanza, se observó que existe gran variedad de plataformas donde su principal objetivo
+es enseñar a programar en distintos lenguajes y lograr que un estudiante maneje de forma
+adecuada elementos básicos e intermedios de un lenguaje determinado. Así, son muy pocas
+las plataformas que se centran en la algoritmia o que poseen un curso referente a ésta,
+pues sólo plataformas como edX y Khan Academy poseen cursos de algoritmia, donde
+ambas cuentan con diferentes recursos como material escrito, videos, ejemplos didácticos
+y por supuesto, actividades y evaluaciones, donde hay una orientación a que el estudiante
+se centre en el modelado de las soluciones y en el manejo de las diferentes estructuras de
+datos que puede usar para resolver un problema.
+
+Por otro lado, al realizar las lecturas preparatorias se puede destacar que se obtuvo
+una gran cantidad de información sobre técnicas y conceptos que se pueden aplicar en
+entornos virtuales, teniendo como eje principal que en cualquier contexto de formación
+virtual se distinguen tres ámbitos: contenidos, evaluación y comunicación. Estos tres
+elementos debidamente coordinados garantizan el proceso de enseñanza-aprendizaje el
+cual puede ser enfocado en dos modalidades: autoinformación y colaborativo [16).
+
+16Además, se encontró que las estrategias de aprendizaje son eficaces en tanto que
+responden y se adaptan al contexto y condiciones en las que éste se produce. El entorno
+virtual presenta circunstancias especiales en las que cobran especial relevancia algunos
+aspectos concretos del proceso de enseñanza-aprendizaje [17], es así como las estrategias
+vinculadas a la autodirección del estudio, junto con la motivación para el aprendizaje, son
+dos de los elementos de mayor relevancia en el entorno virtual.
+
+Teniendo en cuenta lo anterior, surgen estrategias muy adoptadas actualmente como
+lo son la gamification y la social media donde la primera tiene los siguientes objetivos:
+
+= Metas cognitivas: Los sistemas de reglas de los juegos convierten a los alumnos en
+experimentadores activos que afrontan retos normalmente organizados por niveles
+de dificultad y varias vías de solución.
+
+= Metas emocionales: Los juegos evocan un rango de poderosas emociones desde la
+curiosidad a la frustración o a la diversión.
+
+= Metas sociales: Los juegos por un lado permiten a los alumnos asumir otros roles,
+
+identificarse con un avatar y por otro lado pueden facilitar la colaboración para
+conseguir una meta común.[19]
+
+mientras que la social media es una técnica que busca la interacción de los estudiantes
+basada en redes sociales, ya que estas favorecen la publicación de información, el aprendizaje autónomo, el trabajo en equipo, la comunicación, la retroalimentación y el contacto
+con otros expertos, entre otros elementos [18].
+
+Dentro del proceso de realizar las lecturas preparatorias cabe destacar la muy poca
+literatura e información que se puede encontrar sobre técnicas, estrategias o conceptos
+que se aplican a entornos virtuales enfocados en la algoritmia, ya que la mayoría de estas
+no se aplican según el conocimiento que el estudiante desea adquirir si no que se aplica
+según a las características que se deseen brindar dentro de un entorno virtual.
+
+En síntesis el proceso de enseñanza aprendizaje en entornos virtuales, al no requerir la
+presencia simultánea del estudiante y el profesor, debe contener mecanismos que garanticen
+los tres ámbitos y mantengan a los estudiantes motivados e interesados con las estrategias
+adoptadas.
+
+4.2. Modelado
+
+Teniendo en cuenta tres ámbitos: contenidos, evaluación y comunicación, que se
+encuentran en cualquier contexto de formación virtual y estrategias para los procesos de
+enseñanza-aprendizaje como: gamification y social media, se procedió a plantear un diseño
+preliminar, el cual recoge los aspectos más relevantes que se encontraron durante la etapa
+de investigación de plataformas, el cual constituye una estructura inicial de la solución y
+un punto de partida para iniciar el levantamiento de los requerimientos de la aplicación.
+
+17Figura 4.1: Diseño preliminar de la aplicación
+
+Dentro de éste diseño preliminar, se observa cómo por una lado se cuenta con los
+elementos de comunidad, como lo son: wikis, foros, chats y comentarios, que permiten
+enfocar al estudiante en un modelo colaborativo basado en la social media, donde el
+estudiante adquiera un carácter verdaderamente de protagonismo.
+
+Por otro lado se tienen los elementos académicos, como: contenidos, actividades, evaluaciones, los cuales permitirán al estudiante complementar a el conocimiento adquirido
+durante sus sesiones de clases a través de una interacción con la plataforma.
+
+Es así como bajo este esquema, se genera un entorno de interacción social, donde el
+aprendizaje se produce en términos de construcción compartida de conocimientos, a la
+vez, se genera un contexto de riqueza de información donde el estudiante actúe como un
+procesador de información y no como un mero receptor pasivo|17]
+
+4.3. Desarrollo
+
+4.3.1. Análisis de requisitos
+
+El análisis de requisitos es uno de los procesos más importantes dentro del desarrollo
+de software y durante el ciclo de vida del mismo, ya que es en éste proceso de análisis
+donde se identifican y plasman las necesidades del cliente.
+
+Teniendo en cuenta que con un requisito se pretende establecer qué se debe hacer,
+más nunca como hacerlo, se realizó esta etapa siguiendo los métodos sugeridos por Scrum
+
+con el objetivo de identificar las necesidades prioritarias con las que se puede empezar a
+trabajar.
+
+184.3.1.1. Definición del Product Backlog
+
+Como lo sugiere Scrum, antes de iniciar la primera iteración, es necesario definir el
+Product Backlog, siendo éste el primer artefacto para la gestión de requisitos. Este consiste
+en un lista ordenada que compone los requisitos funcionales y no funcionales que debe
+tener el producto terminado.
+
+Para la especificación de los requisitos del Product Backlog, se definió que estos se
+realizarán en forma de Historias de Usuario, puesto que solo hay que expresar a grandes
+rasgos en qué consiste el requisito, no es necesario un nivel de detalle muy elevado. Solo es necesario el nivel de detalle suficiente que permita estimar los requisitos y priorizarlos.
+
+Se definió trabajar sobre una hoja de cálculo compartida en Google Docs para la creación de las Historias de Usuario, las cuales mantiene la siguiente estructura: “Identificador
+de la HU”, es un código que identifica unívocamente a la historia en el Proyecto; seguido
+el “Rol”, es el rol que está desempeñando el usuario cuando utiliza la funcionalidad que
+se está describiendo; seguidamente la “Funcionalidad”, representa la función que el rol
+quiere o necesita hacer en el sistema; para finalmente tener un “Resultado”, en la cual
+se define lo que el rol necesita lograr al ejecutar la acción, dicho de otro modo éste es el
+resultado de ejecutar la acción desde el punto de vista del rol.
+
+AO LA AE A
+NM-CLIENTE-0000 Como un [Rol] necesito [Descripción de la Funcionalidad] con la finalidad de [Descripción razón o resultado]
+
+NM-CLIENTE-0001 Como un usuario que no me encuentro registrado en la aplicación necesito tener la posibilidad de registrarme suministrando
+la información del anexo 1 con la finalidad de crear una cuenta propia para acceder a la aplicación
+
+NM-CLIENTE-0002 Como un usuario registrado dentro de la aplicación necesito tener la posibilidad de recuperar la contraseña de acceso
+ingresando mi e-mail con la finalidad de recuperar mis datos para ingresar a la aplicación
+
+NM-CLIENTE-0003 Como un usuario autenticado en la aplicación necesito poder cambiar mi contraseña de acceso a la aplicación según los
+pos del anexo 2
+
+NM-CLIENTE-0004 Como un usuario que se ha registrado dentro de la aplicación necesito poder iniciar sesión en la aplicación por medio de un
+e-mail y una contraseña con la finalidad de acceder a las funcionalidades e interactuar con la aplicación
+
+NM-CLIENTE-0005 Como un usuario autenticado en la aplicación necesito poder cerrar la sesión dentro de la aplicación con la finalidad de
+terminar la interacción con la aplicación
+
+NM-CLIENTE-0006 Como usuario autenticado en la aplicación necesito poder editar mi información personal según el anexo 1 con la finalidad
+de actualizar mi información personal
+
+NM-CLIENTE-0007 Como usuario autenticado en la aplicación necesito tener un perfil donde se muestren las actividades realizadas en la
+aplicación según el anexo 3
+
+NM-CLIENTE-0008 Como usuario autenticado en la aplicación necesito poder ver el perfil de otros usuarios registrados en la aplicación con la
+finalidad de observar el registro de actividad de los otros usuarios
+
+NM-CLIENTE-0009 Como usuario administrador o docente autenticado en la aplicación necesito poder consultar a los usuarios registrados en la
+aplicación con la finalidad de observar su progreso dentro de la misma
+
+NM-CLIENTE-0010 Como usuario administrador o docente autenticado en la aplicación necesito crear módulos donde cada uno debe contener:
+una sección de foro, una sección de wiki, una sección de materiales, una sección de actividades y una sección de
+evaluaciones con la finalidad de agrupar los contenidos por temas
+
+NM-CLIENTE-0011 Como usuario autenticado en la aplicación necesito poder visualizar los módulos creados con la finallidad de acceder a
+ellos
+
+NM-CLIENTE-0012 Como usuario autenticado en la aplicación necesito acceder a una sección de materiales dentro de cada módulo
+
+ 
+
+ 
+
+Figura 4.2: Product Backlog
+
+Como resultado de ésta actividad, se obtuvieron 71 Historias de Usuario priorizadas
+según su orden de aparición, las cuales inicialmente permitieron tener una primera visión
+concreta de la solución que se quería dar. Al finalizar la ejecución de los Sprints, y debido
+a que el Product Backlog contiene requerimientos que pueden ser cambiantes a lo largo
+del proyecto al estar enmarcado en una metodología de desarrollo ágil, se obtuvieron 61
+
+19Historias de Usuarios las cuales se encuentran consignadas en el Anexo 1.
+
+4.3.1.2. Planificación de los Sprints
+
+Una vez definidas las Historias de Usuario del Product Backlog, se procedió a agruparlas
+por funcionalidad, dando como resultaron 11 módulos o grupos de Historias de Usuario,
+los cuales se describen cada uno a continuación:
+
+Autenticación
+Se refiere al registro y la gestión del acceso de los usuarios.
+
+Usuarios
+Se refieren a la gestión del perfil que lleva a cabo cada usuario dentro de la aplicación.
+
+Plataforma
+Define el punto de intersección de todos los módulos o grupos definidos para la
+aplicación, en el cual se define la integración de cada módulo.
+
+Wiki
+Se define un sistema para la creación, actualización y control de wikis, el cual
+permite a los usuarios autenticados en la aplicación, crear y editar páginas de una
+wiki, además de un sistema de control el cual permite la creación y edición de las
+páginas basado en permisos y roles.
+
+Foro
+Se define la creación de un foro donde los usuarios pueden interactuar en un ambiente
+de debate donde puedan expresar sus análisis, dudas, ideas o problemas y pueden
+recibir retroalimentación de otros usuario de la aplicación.
+
+Comentarios
+Se define un mecanismo de participación para los usuarios donde pueden expresar
+ideas, dudas o problemas dentro de las secciones en la aplicación.
+
+Evaluaciones y actividades
+Se definen mecanismos donde se pueden crear, editar, realizar y aprobar actividades
+y evaluaciones dentro de la aplicación dependiendo de los permisos y roles de los
+USUAarIos.
+
+Gamification
+Se define un sistema de insignias y puntos a medida los cuales se integran a las
+Evaluaciones y Actividades, pretendiendo generar en los usuarios un ambiente de
+motivación, sana competencia y superación.
+
+Notificaciones
+Pretenden informar a los usuarios de los eventos que están sucediendo en la aplicación
+y que él resulta involucrado.
+
+Luego, los grupos o módulos anteriores se desarrollaron en 6 Sprints priorizados por
+funcionalidad y distribuidos de la siguiente manera:
+
+20= Usuarios
+
+= Autenticación
+
+= Wiki
+= Foro
+
+= Comentarios
+
+= Evaluaciones
+
+= Actividades
+
+= Gamification
+
+= Notificaciones
+
+= Plataforma
+
+Sprint 6
+Este Sprint se dedicó a la ejecución de las pruebas e instalación.
+
+4.3.2. Diseño
+
+4.3.2.1. Definición de tecnologías
+
+Antes de comenzar con la ejecución de los Sprints, se probaron diferentes tecnologías
+con el fin de analizarlas y poder decidir cuál era la más apropiada teniendo en cuenta
+las necesidades de la problemática, el alcance y tiempo del proyecto, el manejo de la
+tecnología y los recursos de hardware. A continuación se detallan las tecnologías probadas:
+
+Sakai: Al ser una plataforma open source construida en Java, la cual se ejecuta por
+un servidor Apache Tomcat, rica en características para el aprendizaje, la docencia, la
+investigación y la colaboración, se tuvo en cuenta con la finalidad de tenerla como base
+y adaptarla a las necesidades encontradas, pero se descartó al notar que la puesta en
+ejecución era muy lenta y la aplicación era muy robusta y grande, lo cual traía problemas
+a la hora de entenderla, ésto sumado a la poca documentación existente sobre ella.
+
+Edx: Al ser una plataforma de cursos masivos en línea fundada por el Instituto
+Tecnológico de Massachusetts, cuenta con un repositorio público, donde se encuentra su
+código fuente construido en Python y cuya licencia permite la modificación del código,
+el objetivo al igual que con Sakai, tenerla como base y en torno a ésta, adaptarla a las
+
+21necesidades, pero fue imposible instalarla debido a que para el desarrollo utiliza un sistema
+de virtualización el cual no pudo ser puesto en servicio por limitaciones de hardware.
+
+Django: Al ver que era un framework basado en un lenguaje multiplataforma y
+adaptable al paradigma orientado a objetos como lo es python, además de contar con
+una amplia documentación, una gran comunidad de usuarios activos, con un ambiente de
+paquetes muy diverso, donde se pueden tratar aplicaciones de manera independiente e
+integrarlas, con soporte REST, se decidió optar por este tipo de tecnología.
+
+4.3.2.2. Modelado de datos
+
+Teniendo en cuenta que el framework Django se basa en un patrón de diseño MTV
+(Modelo - Plantilla - Vista ), es importante tener en cuenta que el 'Modelo.** una descripción de los datos en la base de datos, representada como clases en código de Python, es
+decir, esta capa permite contener y manipular toda la información sobre los datos como por
+ejemplo: acceso, validación, comportamiento y relaciones, es así como dicho "Modelo"tiene
+mayor relevancia en el servicio REST implementado. De la misma manera, la "Vista.* la
+encargada de presentar los datos, especificamente, define URLs en las cuáles los datos
+pueden ser creados, consultados y modificados, que en este caso, particularmente en el
+servicio REST, dichas URLs se presentan como API endpoints. Por último, se encuentra
+la "Vista", en la cuál se define cómo los datos son presentados, esto resultó principalmente
+útil en la implementación del servicio web, pues es aquí donde se definen las plantillas
+html, con las cuáles los usuarios interactúan directamente con la aplicación.
+
+De esta manera, la capa de "Modelo"permite el manejo de los datos de una manera
+más sencilla al hacer una equivalencia entre las clases que representan los Modelos y las
+sentencias SQL que manipulan los datos en el sistema gestor de base de datos dependiendo del sistema que se especifique, por otro lado, Django también permite la definición
+de Modelos para representar conceptos de alto nivel que no necesariamente deben ser
+manejados por un sistema de base de datos.
+
+Partiendo de esto, además de que la metodología usada para el desarrollo del proyecto
+fué una ágil y que se realizó la documentación estrictamente necesaria, la implementación
+de los modelos de realizó basado en las Historias de Usuario.
+
+4.3.2.3. Diseño de la arquitectura
+
+Teniendo en cuenta que se trabajó con una metodología ágil como lo es Scrum, la
+cual permitió flexibilidad en el cambio de los requerimientos, en la etapa de diseño se
+optó por realizar solo la documentación necesaria para el desarrollo del proyecto es por
+esta razón que se omite el realizar diagramas de casos de uso ya que parte de estos se
+encuentran detallados dentro del esquema utilizado al realizar de manera adecuada las
+Historias de Usuario. Por lo tanto, para el desarrollo de la aplicación solo se vió necesario
+la realización del diagrama de despliegue el cual permitió ir generando la arquitectura
+bajo la cual se desarrolló la aplicación, arquitectura que se describe a continuación:
+
+22A
+Servidor
+>] FP] Pp]
+activities evaluations material wiki
+rr >
+! Unix Socket comments forum modules
+| E]
+users | gamification notifications
+: front_activities front_evaluations front_material front_users
+y
+Unix Socket ] ]
+| Proxy [Eon Dl
+Navegador web HTTP front_chat front_forum front_modules front_wiki
+A Y) A
+FP] FP]
+front_comments | [front_gamification | [front_notifications
+A
+rn tmttttnass” > Chat
+HTTP
+A
+TCP/IP LAN : TCP/AP LAN
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+y ;
+MongoDB Postgresql
+
+Figura 4.3: Diagrama de despliegue
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+La arquitectura implementada en la aplicación se basa en un modelo cliente-servidor,
+enfocado en tres capas: una de presentación, una de servicios y una de datos. La capa de
+presentación, es la encargada de recoger la información tras la interacción del usuario y
+enviarla a la capa de servicios, a su vez también es la encargada de recibir la información
+de respuesta y presentársela al usuario. Esta capa está compuesta por 11 aplicaciones
+independientes.
+
+La capa de servicios se encarga de recibir la información tras la interacción del usuario,
+para posteriormente interactuar con la capa de datos y realizar operaciones, manejar la
+información de acuerdo una lógica y devolver una respuesta a la capa de presentación.
+Esta capa está compuesta por 10 aplicaciones independientes.
+
+Cabe resaltar que la capa de presentación y la de servicios interactúan mediante un
+estilo de arquitectura para desarrollar servicios llamado REST (Representational State
+Transfer) donde las funcionalidades de la aplicación se dividen en recursos que son accedidos a través de una URI (Universal Resource Identifier) y se usan métodos estándar
+
+HTTP como POST, GET, PUT, DELETE y OPTIONS, para realizar la transferencias
+de información principalmente en un formato ligero como lo es JSON.
+
+23Por último la capa de datos es la encargada de almacenar y mantener la integridad
+de la información alojada en la aplicación. Así, al dividir y tener tres capas, se hace más
+fácil reemplazar o modificar una capa sin afectar a los componentes restantes permitiendo
+tener una aplicación modular. Paralelamente la capa de presentación interactúa con un
+servidor de Nodejs para que los usuarios tengan una interacción en tiempo real dentro de
+un chat.
+
+4.3.3. Implementación
+
+4.3.3.1. Codificación
+
+Durante la ejecución de cada Sprint, se realizó el proceso de producción de código
+basados en iteraciones cortas de 2 o 3 semanas lo cual permitió ir consolidando el código
+fuente al irse agregando nuevas funcionalidades y obtener prototipos funcionales cada vez
+más robustos.
+
+Así, durante cada iteración de los Sprints, la codificación de la aplicación se centró en
+tres aspectos:
+
+El primero se enfocó en crear los modelos correspondientes para la representación de
+los datos en la aplicación, así, al definir los modelos se crearon los campos básicos y el
+comportamiento de los datos que serán almacenados, donde, por lo general cada modelo
+se convierte automáticamente por Django en una tabla de la base de datos.
+
+El segundo aspecto corresponde a implementar la capa de servicios, desarrollando los
+mecanismos para procesar la información que se maneja en la aplicación y la creación de
+los servicios REST mediante los cuales se interactúa con la capa de presentación, tanto
+en el primer aspecto como en el segundo se hizo uso del framework Django el cual tiene
+como base el lenguaje de programación Python.
+
+Y por último, el tercer aspecto se centró en desarrollar la capa de presentación, implementando las interfaces gráficas de usuario, creando los correspondientes componentes
+visuales y los diversos mecanismos de interacción pertenecientes a los módulos desarrollados, haciendo uso de HT'ML5 y del lenguaje Javascript, complementados con la biblioteca
+JQuery y el framework Bootstrap, cabe resaltar que las interfaces hacen uso de AJAX
+para realizar las peticiones de forma síncrona o asíncrona a la capa de servicios.
+
+Para realizar este proceso de codificación, se trabajó con el editor de texto Sublime
+Text en su versión gratuita, ya que es uno de los más completos al permitir integrar
+paquetes, entre los cuales se agregaron Jshint que permite verificar la sintaxis de código
+Javascript, Djaneiro para la sintaxis en Django y Python. Dichos paquetes fueron de gran
+ayuda para la estandarización del código, además de facilitar la integración entre el código
+implementado por los dos desarrolladores que participaron en el proyecto. Además, se
+hizo necesaria la utilización de un sistemas de control de versiones colaborativo, que para
+éste caso fue Github, el cual fue usado desde el primer Sprint, hasta el último y manejado
+
+24de la siguiente manera:
+
+= Un repositorio para el chat, desarrollado como un componente independiente en
+Nodejs y JavaScript que facilitan la comunicación directa entre usuarios en tiempo
+real.
+
+= Un repositorio para la capa de servicio (services), el cual cuenta con 10 aplicaciones
+independientes enfocadas en el manejo de información de cada módulo definido
+dentro de la etapa de análisis.
+
+= Por último, un repositorio para la capa de presentación (front), dentro del cual
+se encuentran 11 aplicaciones independientes análogas a las creadas en la capa de
+servicios y al chat, las cuales se enfocan en las interfaces de usuario.
+
+Así, los repositorios iban siendo actualizados a medida que se terminaba cada funcionalidad implementada dentro de alguna aplicación independiente.
+
+En esta etapa de producción de código, es importante resaltar que se usaron algunas
+aplicaciones ya creadas en Django cuyas licencias permiten la modificación del código, dentro de las cuales se encuentran: Waliki , Django-quiz, Django-badger, Django-notifications
+y Django-activity-stream, las cuales sirvieron de base para algunas funcionalidades que
+se necesitaban desarrollar dentro de la solución planteada. En estas aplicaciones los
+principales esfuerzos se orientaron en comprender la lógica utilizada para luego determinar
+si se ajustaba a las necesidades del proyecto para posteriormente crear las respectivas
+APIs REST para cada una de ellas, lo que permitió el manejo y envío de datos desde y
+hacia las mismas, para lograr la interacción con la capa de presentación. Además, se construyeron aplicaciones propias para generar las interacciones necesarias en relación a todas
+las funcionalidades propuestas en la solución, además de las integraciones correspondientes.
+
+De esta manera, se trabajó con la aplicación llamada waliki, la cual permite la creación,
+modificación y control de versiones de una wiki básica, a la cual se le complementó su
+funcionalidad al integrarse con el proyecto, desarrollando así un sistema que permitiera
+al usuario que cuente con los permisos necesarios dentro de la plataforma aprobar o
+rechazar el contenido creado o modificado por algún usuario, de esta manera se garantizó
+que el proyecto cuente con un sistema de co-creación ya que tanto estudiantes como
+docentes podrán crear material dentro de la wiki y aportar al crecimiento de la misma.
+A su vez la se cuenta con un sistema de aprobación ya que el docente tendrá la opción
+de filtrar el contenido de la wiki manteniendo el contexto de la misma y garantizando
+que la información sea idónea, obteniendo de esta manera una aplicación que permita la
+construcción compartida de conocimientos a través de la interacción social.
+
+Además, hay que tener en cuenta que se desarrolló un módulo que permite la inteeración y la correcta interacción tanto entre las aplicaciones de terceros como con las
+aplicaciones desarrolladas desde cero (foro, comentarios, actividades, materiales y gestión
+de usuarios). De esta manera se logró garantizar que la aplicación contara con aplicaciones
+independiente con un punto neurálgico dónde convergen todas, distribuidas a su vez en
+
+23las 3 capas de la arquitectura referenciada anteriormente.
+
+Paralelamente, durante la ejecución de cada Sprint, se implementaron los respectivos
+tests unitarios con la finalidad de mitigar errores para cada una de las url del servicio REST,
+verificando que el control de acceso a cada una de estas tiene un comportamiento adecuado
+según los roles y situaciones que se describen en las Historias de Usuarios, adicionalmente se
+verifica que los parámetros y respuestas que se intercambian en cada url sean los esperados.
+
+Como framework para la elaboración, desarrollo y ejecución de los test, se usó el
+módulo de test unitarios que Django provee para tal fin, dicho módulo hace uso de la
+biblioteca estándar de Python llamada unittest, el cual facilita la codificación de los distintos escenarios planteados en los criterios de aceptación y ejecución automática de los test.
+
+Ahora bien este tipo de pruebas y la forma como se trabajaron permiten la oportunidad
+de probar múltiples módulos de manera simultánea e independiente, de esta manera al
+aplicar los test unitarios facilitó el proceso de establecer claramente y de corregir un
+error descubierto, puesto que, al momento de encontrar un error, se sabe en qué módulo en particular existe, Además fomento el cambio y la refactorización del código de
+forma más controlada ya que si el cambio no estuviera realizado correctamente este
+tipo de pruebas informaba la situación y por último permitió reducir drásticamente los
+problemas y tiempos dedicados a la integración de la aplicación ya que posibilitó l]legar a esta fase teniendo conocimiento de que el código esta funcionando de manera correcta.
+
+En la siguiente imagen, se presenta el resultado de la ejeción de los test unitarios para
+la Historia de usuario 24, la cuál define la posibilidad de responder una pregunta en el
+foro:
+
+0 UE
+
+File Edit View Search Terminal Help
+IG ./manage.py test forum
+da e A A EUA A
+
+EN A
+
+Creating EA O
+Default Grou
+AAN AN O
+
+5 tests in 4.0105
+
+ji
+AA EA |
+¡GUY
+
+ 
+
+Figura 4.4: Tests unitarios para Historia de usuario 24
+
+264.3.3.2. Pruebas
+
+El procedimiento de pruebas se realizó con el objetivo de poder tener una medición
+y control de la aplicación durante la etapa de desarrollo de software y así asegurar que
+ésta se encuentre lista para ser utilizada cumpliendo diferentes características de calidad.
+De esta manera, una vez implementado el cien por ciento de la aplicación, se procedió
+a realizar las respectivas pruebas de funcionalidad con la finalidad de observar si se
+satisfacen los requerimientos cuando el software se utiliza bajo condiciones específicas y
+proporciona los resultados o efectos correctos. Para llevarlas a cabo, los procedimientos
+tomados en ésta etapa de pruebas del proyecto estuvieron direccionados a:
+
+= Diseñar los casos de pruebas teniendo como base las Historias de Usuario definidas
+y sus respectivos criterios de aceptación.
+
+= Verificar la interacción de componentes desarrollados.
+= Verificar la integración adecuada de los componentes desarrollados.
+
+= Identificar y corregir los defectos encontrados antes de entregar el software.
+
+Estas pruebas permitieron encontrar algunos fallos, principalmente relacionados con la
+asignación de permisos dentro de la aplicación, los cuales fueron solucionados rápidamente,
+con la finalidad de volver a aplicar las pruebas de funcionalidad y corroborar el correcto
+comportamiento de la aplicación.
+
+El siguiente cuadro resalta los resultados obtenidos tanto en las pruebas unitarias
+como en las pruebas funcionales para el caso de aprobación y rechazo de contenidos dentro
+de la sección de la wiki por parte de un docente o un administrador.
+
+GON TEA
+
+A DEE!
+HU
+
+       
+ 
+    
+
+NM-CLIENTE-0021 | Como usuario administrador o docente autenticado en la
+aplicación necesito aprobar o desaprobar el contenido
+editado o creado por los estudiantes en la wiki con la
+finalidad de poner a disposición de los usuarios el material
+actualizado
+
+ 
+
+ 
+
+27A
+
+AT
+
+E A (AS AO A
+TT
+
+1
+
+   
+
+       
+
+    
+
+   
+  
+ 
+
+Visualizar sugerencias de
+edición
+
+Cuando ingrese a la wiki debo ver las sugerencia de edicción
+
+  
+  
+ 
+ 
+
+     
+  
+
+ 
+
+hy
+
+Aprobar artículo Cuando ingrese a un artículo creado que no
+
+haya sido revisado
+
+debo tener la opción de aprobar su publicacion o rechazarlo
+
+ 
+
+     
+  
+   
+
+  
+
+ 
+
+3 Aprobar modificación Cuando ingrese a un artículo modificado debo tener la opción de aprobar su publicacion o rechazarla
+que no haya sido revisado
++ Contenido aprobado En caso de que apruebe el contenido éste podrá ser visualizado por todos los usuarios
+autenticados
+5 Contenido no aprobado En caso de que no apruebe el contenido ésta edicion no sera visible para los usuarios
+
+ 
+
+ 
+
+TO
+
+ATT
+pos . Pruebas ,
+ef IA MA its As Ae
+
+, AS
+A tN
+
+A A
+
+Aprobado no puedo ver la opcion Corregido Aprobado
+
+Aprobado
+
+    
+     
+ 
+   
+
+Aprobado
+
+     
+
+ 
+
+3 [ Aprobado Aprobado no puedo ver la opcion | Corregido Aprobado
+
+  
+
+Aprobado Aprobado no puedo ver la opcion no puedo aprobar | Corregido Aprobado
+
+  
+
+ 
+
+Aprobado Aprobado no puedo ver la opcion no puedo | Corregido Aprobado
+rechazar
+
+ 
+
+ 
+
+ 
+
+Figura 4.5: Historia de usuario 21
+
+A continuación, presenta los detalles de la prueba realizada con el objetivo de comprobar las funcionalidades de responder una pregunta de un tema de foro dentro de un módulo.
+
+Identificador de la
+
+A RE
+HU
+
+NM-CLIENTE-0024 | Como usuario autenticado en la aplicación necesito
+responder un tema dentro del foro con la finalidad de
+
+participar de las discusiones del tema
+
+ 
+
+Aa
+
+A
+
+rel AN AS Comportamiento esperado
+SEO
+
+  
+  
+   
+   
+  
+
+cuando acceda a un tema
+
+  
+  
+   
+ 
+ 
+
+     
+
+Visualizar opción En caso de que desee responder un tema
+
+de un foro
+
+el sistema deberá mostrarme el formulario para responder el
+tema
+
+      
+   
+
+ 
+
+ 
+
+ba
+
+Verificar los campos En caso de que el tipo de dato sea cuando se envíe información
+
+incorrecto o el campo este vacío
+
+el sistema deberá informar al usuario si los campos estan
+vacíos o estan llenados de manera incorrecta.
+
+   
+
+ 
+
+   
+
+ 
+  
+   
+
+Publicar respuesta En caso de que el formulario sea correcto el sistema deberá publicar mi nombre junto a mi respuesta
+
+del tema
+
+ 
+
+28Da
+AS ei
+IA MA its AS AS
+Funcionales
+
+A
+
+A AA
+
+Aprobado Aprobado
+
+ 
+
+Aprobado
+
+ 
+
+Figura 4.6: Historia de usuario 24
+
+Cabe resaltar que el formato utilizado permitió consignar los resultados tanto de las
+pruebas unitarias como de las pruebas funcionales, ambas teniendo como base los criterios
+de aceptación definidos en las Historias de Usuario, el resultado de todas la pruebas se
+encuentra consignado en el Anexo 1.
+
+De igual modo, es importante tener que no se realizaron pruebas con docentes y estudiantes, ni se analizaron resultados sobre la influencia de la aplicación en los estudiantes y
+su rendimiento, ya que estos escenarios no se contemplaron dentro del alcance del proyecto,
+debido a los tiempos que se necesitaban para realizar los estudios y análisis correspondientes. Además, vale la pena resaltar que se cuenta con poca información histórica que
+permitiera realizar un adecuado análisis de los resultados, donde la recopilación de dicha
+información tampoco estaba contemplada en el alcance del proyecto. Es así como este
+tipo de análisis se proponen como el punto de partida para estudios futuros que permitan
+mejorar la solución propuesta.
+
+4.3.3.3. Instalación
+
+Para realizar la instalación de la aplicación en un ambiente de producción, se realizó
+un conjunto de scripts en bash para sistemas GNU/Linux, los cuales automatizan la
+instalación de la herramientas de software necesarias para la configuración, instalación y
+ejecución de la aplicación.
+
+Dentro de las herramientas de software necesarias más relevantes se encuentran:
+
+= Sistema de control de versiones Git
+
+= Ambiente de ejecución para Python 2.7
+= Ambiente de ejecución para Node.js
+
+= Servidor web python Gunicorn 13.9
+
+= Servidor de base de datos PostgreSQL
+
+= Servidor de base de datos MongoDB
+
+29Para la correcta ejecución de la aplicación se requiere de tres servidores de aplicaciones,
+uno para los servicios REST, uno para el servicio web o archivos estáticos y uno para el servicio de mensajería instantánea, adicionalmente se requiere una base de datos PostereSQL
+y otra MongoDB, para lo cual la oficina de Recursos Tecnológicos de la Universidad
+del Valle sede Tuluá, facilitó un servidor virtualizado con sistema operativo Debian
+Y para la instalación y ejecución de la aplicación, además, facilitó el acceso a un servidor de base de datos con PostgreSQL y mongoDB, el cual es administrado por dicha oficina.
+
+Por la arquitectura de la aplicación que es REST y la limitación para el acceso a varios
+equipos de cómputo, inicialmente se pensó tener en ejecución un servidor proxy inverso
+en el equipo asignado para la instalación, donde dicho proxy permitirá la ejecución de
+los tres servicios: REST, web y chat, en un mismo equipo y un mismo puerto bajo un
+nombre de dominio.
+
+Debido a que la oficina de Recursos Tecnológicos de la Universidad del Valle no dió la
+posibilidad de usar un nombre de dominio interno, se tuvieron que hacer aleunos ajustes
+de configuración para que la aplicación funcionará dentro de la intranet de la Universidad
+del Valle sede Tuluá, dentro de los principales ajustes se omite el uso del servidor proxy,
+ya que las peticiones se realizarán a una misma IP pero a puertos diferentes, los cuales
+fueron asignados durante la configuración de los tres servicios.
+
+Antes de llevar a cabo la instalación de la aplicación en el servidor de la universidad,
+se recreó un ambiente similar al proporcionado por la Oficina de Recursos Tecnológicos,
+dicho ambiente se realizó localmente en los equipos de desarrollo, usando el software de
+virtualización Vagrant, con el cual se instaló una ISO del sistema operativo Debian 7, en
+el que se implementó el script de instalación de los requerimientos, mencionado anteriormente; conjuntamente se realizó la configuración para el daemon de cada servicio, el cual
+inicia cada servicio cada que el sistema se reinicie o alguno de los servicios se detenga
+accidentalmente. Dicho ambiente, permitió reducir el tiempo y posibles complicaciones de
+instalación en el servidor de la universidad.
+
+Para realizar el proceso de instalación de la aplicación en el servidor asignado por
+dicha oficina, se puso a disposición una sesión a través de SSH desde la LAN en un
+equipo de la sala de sistemas para la conexión con el servidor y así poder realizar las
+respectivas configuraciones y puesta en ejecución, se estimaba un día para este proceso,
+pero este tiempo no fue suficiente debido a que resultaron algunas complicaciones, como:
+dificultades durante la configuración de las rutas de algunos archivos, disponibilidad de
+la sala de sistemas, por lo que el proceso continuó el día siguiente, ésta vez, la Oficina
+de Recursos Tecnológicos permitió disponer de una sesión SSH desde fuera de la LAN
+a través de una conexión desde internet a una dirección IP pública administrada por la
+universidad para luego conectarse a la LAN desde la que posteriormente se podía acceder
+al servidor, para así concluir el proceso de instalación.
+
+SU4.3.3.4. Descripción de la aplicación
+
+Al terminar la etapa de desarrollo se obtiene una aplicación que parte de los contenidos
+de aprendizaje que carguen los docentes y que la comunidad en general alimenta, donde el
+dinamismo de los mismos y del manejo que ellos le den a la aplicación a través de medios
+como el foro, es parte de la clave del éxito del proceso de formación. Así, en esta sección
+se detallan los elementos gráficos más relevantes para los usuarios.
+
+El primer acercamiento que tienen el usuario es con la pantalla de inicio, la cual contiene un encabezado con el nombre de la aplicación y los campos para hacer la autenticación
+en la aplicación.
+
+Name app A
+
+OE
+
+ 
+
+Bienvenido
+[A 1 man
+4 WD e := Y
+Aprende Comparte Ayuda Comparte Pruébate Gana
+
+Aprender algoritmia nunca fue tan social como ahora
+
+Regístrate
+
+Figura 4.7: Screenshot - Inicio visitante
+
+Inicio
+Una vez el usuario se autentica, se encuentra con un conjunto de módulo de estudio,
+en los cuales puede acceder, cada módulo de estudio agrupa contenidos de una
+misma temática, que pueden ser creados por los usuarios con permiso para hacerlo.
+
+31Name app Miguel Angel Bernal 41  
+ 
+
+Módulos
+
+Miguel Angel Bernal
+
+Elementos
+
+Basicos
+Progreso: 0.00%
+
+ 
+
+ 
+
+ 
+
+9 Chat (conectado)
+
+ 
+
+Figura 4.8: Screenshot - Usuario autenticado
+
+Módulo
+
+En esta seccion, se encuentra con una descripción del módulo, y una barra de
+navegación, desde la cual puede acceder a las diferentes secciones, como lo son, Wiki,
+Foro, Materiales, Actividades, Evaluaciones.
+
+Name app Miguel Angel Bernal 41  
+A »
+
+Elementos Basicos
+
+L_—) 1 sas
+Hi W 0 PR 2= $
+Material Wiki Foro Actividades Quices 0.00 %
+Miguel Angel Bernal
+Módulos +)
+Elementos Basicos A un ordenador se le debe de indicar a través de un a serie de (
+
+mandatos cual es la información de entrada, como la procesa y
+cuáles la información de salida. Al conjunto de mandatos se le
+denomina programa, entonces, tendríamos un programa para jugar
+a "marcianitos”; un programa que realiza la contabilidad; un
+programa para escribir textos, etc.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+€) Chat (conectado) Y,
+
+Figura 4.9: Screenshot - Inicio Módulo
+
+32Materiales
+La primera sección que aparece en la barra de navegación dentro de cada módulo,
+
+es la sección de materiales, que en su pantalla de inicio, contiene una lista con todo
+el material subido al módulo en el que se encuentre el usuario, el material puede
+encontrarse en diferentes formatos, tales como pdf, txt, odt, tar, zip, e inclusive en
+links hacia otros sitios o contenidos.
+
+Name app Miguel Angel Bernal M4 +
+
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+1] 1 suas
+a] W ¡a Er. 2= $
+Material Wiki Foro Actividades Quices 0.00 %
+Observa el material 5 +
+Miguel Angel Bernal
+Simbolos 3
+Módulos o Principales representaciones a la hora de crear un flujo de un algoritmo
+Elementos Basicos
+OPERACIÓN O EXPRESIÓN
+FLUJO DE DATOS |
+pr
+ENTRADA DE DATOS
+SALIDA DE DATOS
+Leal
+DECISIÓN 0
+CONECTOR, INICIO Y FINAL O
+
+Figura. Simbolos más
+LLAMADA SUBPROGRAMA [_] utilizadosen algoritmia.
+
+ 
+
+£) Chat (conectado) Jr
+
+ 
+
+Figura 4.10: Screenshot - Visualización de material
+
+Wiki
+La segunda sección que aparece en la barra de navegación es la Wiki, que al ingresar,
+el usuario encuentra una lista de los temas creados, ademas encuentra opciones para
+crear un tema de la Wiki, para ver el historial de modificaciones, y finalmente para
+
+ver las solicitudes de modificación.
+
+Name =1D)D, Miguel Angel Bernal 44  
+ 
+
+Elementos Basicos
+
+== W Aa Pe = Y
+¡65 4 ES
+Material ALS Foro Actividades Quices 0.00 %
+
+Páginas de la wiki W +|0.:/
+
+ 
+
+Miguel Angel Bernal
+
+Módulos o Las operaciones.
+
+Elementos Basicos
+
+La información
+Elementos de los lenguajes de programación
+
+introduccion
+
+£) Chat (conectado) +
+
+ 
+
+Figura 4.11: Screenshot - Temas de Wiki
+
+93Cuando el usuario que se ha autenticado en la aplicación tiene el rol de Docente,
+éste tiene la facultad para aprobar o rechazar los temas creados o editados en la
+Wiki por otros usuarios, tal acción puede llevarla a cabo en la subsección de la Wiki
+llamada “Solicitudes”
+
+Name app Miguel Angel Bernal M4 +
+
+ 
+
+Elementos Basicos
+
+LL] 1 suas
+5 W 2 es. 2= $
+Material TS Foro Actividades Quices 0.00 %
+
+Miguel Angel Bernal
+
+Solicitudes de páginas wi|+¡i|o
+A o Instrucciones de control.
+Elementos Basicos Esta pagina tiene una solicitud de modificación y espera para ser aprobada ver
+
+£) Chat (conectado)
+
+ 
+
+Figura 4.12: Screenshot - Solicitudes de Wiki
+
+Foro
+La tercera sección que aparece en la barra de navegación, es la del Foro, que al
+ingresar, aparece una lista de temas creado por los usuarios, aquí todos los usuarios
+tienen la posibilidad de expresarse creando temas desde la opción para crear temas.
+
+NET app Miguel Angel Bernal 4A4  
+ 
+
+Elementos Basicos
+
+E S +
+
+Actividades Quices 0.00 %
+
+El W
+
+Material Wiki
+
+ 
+
+Miguel Angel Bernal
+Preguntas del foro a +
+
+Módulos o
+
+Duda conceptos Votos: 0 Respuestas: 0
+
+Elementos Basicos .
+david gomez
+
+Duda flujo de instrcciones Wet Retard
+
+Miguel Angel Bernal
+
+Duda simbolos Votos: 2 Respuestas: 1
+
+Miguel Angel Bernal
+
+4 Chat (conectado)
+
+ 
+
+Figura 4.13: Screenshot - Inicio Foro
+
+34Actividades
+La cuarta sección que aparece en la barra de navegación, es la de Actividades,
+aquí lo usuarios pueden ver la lista de Actividades creadas por el Docente, y la
+opción de realizar lo envios, en caso de que el usuario autenticado tenga el rol de
+Docente aparecerá la opción de listar las actividades, ver los envíos y las opciones
+de calificación.
+
+Name app Miguel Angel Bernal 42  
+ 
+
+actividad flujo y simbolos
+
+Con base en lo visto utilice los simbolos y cree el flujo para realizar una suma
+
+Fecha de entrega:
+
+Selecciona un archivo
+
+Miguel Angel Bernal
+
+Seleccionar archivo | No se eligió archivo
+
+Módulos o a.
+
+Elementos Basicos
+
+Solucion Enviadas
+
+ES
+
+Comentarios
+
+Comentar
+
+£) Chat (conectado) E
+
+Figura 4.14: Screenshot - Actividad
+
+Evaluaciones
+Otra de las secciones de cada módulo de estudio, es la de Evaluaciones, allí los
+usuarios pueden tomar Quices diseñados por los usuarios con rol Docente, al ingresar
+a la sección, aparece una lista con los (Juices creados y la opción de tomar alguno.
+En caso de que el usuario autenticado tenga un rol de Docente, aparecerá la opción
+de crear varios tipos de preguntas las cuales son el componente base de los Quices.
+
+NET app Miguel Angel Bernal 4A4  
+ 
+
+Elementos Básicos
+
+   
+
+3 1 sua
+LA W % É3- A $
+Material Wik For Actividades Quices 0.00
+Miguel Angel Bernal .
+Quices = + E Resul
+Módulos o Crear preguntas
+Elementos Basicos 5 a 5 Abierta
+Flujo de instrucción
+Aqui se evaluan los conocimientos adquiridos al tema de flujo de A
+instrucción Verdadero/Falso
+Crear quiz
+Test conceptos Quiz
+se evalúan los principales conceptos de algoritmia O
+
+£) Chat (conectado)
+
+Figura 4.15: Screenshot - Opciones para crear quices o preguntas
+
+9)Capítulo 5
+
+Conclusiones y trabajos futuros
+
+9.1.
+
+Conclusiones
+
+Contar con un ambiente colaborativo en un contexto académico produce una
+construcción compartida de conocimientos que permite obtener una retroalimentación
+constante de los mismos siempre y cuando se manejen mecanismos que permitan
+mantener la información dentro de los contextos de los procesos de enseñanzaaprendizaje.
+
+Las tecnologías y diseño utilizados durante el desarrollo de la aplicación permitieron
+la creación de una aplicación accesible por la comunidad estudiantil, modular
+y robusta con la que se pueden apoyar los procesos de formación inherentes a
+algoritmia de los estudiantes de los programas académicos de Ingeniería de Sistemas
+y Tecnología de Sistemas, contemplando estrategias virtuales como la social media y
+la gamification enfocadas en una dinámica de aprendizaje colaborativo que permiten
+motivar, participar e interactuar en comunidad.
+
+Al tener mecanismos de co-creación y aprobación dentro de la aplicación se obtiene
+un mayor dinamismo y participación social dentro de la misma, construyendo
+así un ambiente virtual colaborativo que esté dentro del contexto educativo, lo
+que posibilita el rompimiento de la barreras espaciales y temporales en el ámbito
+educativo.
+
+La aplicación web desarrollada cumple con los tres ámbitos: contenidos, evaluación y
+comunicación resaltados durante la etapa de investigación, debidamente coordinados
+y buscando garantizar el proceso de enseñanza-aprendizaje dentro de un ambiente
+virtual colaborativo entre docentes y estudiantes.
+
+Las TIC cumplen un papel importante a la hora de complementar la educación
+tradicional ya que pueden contrarrestar aleunas limitantes de esta, como lo son
+el tiempo, espacio y ritmo de aprendizaje de cada estudiante, abriendo nuevas
+posibilidades a las personas de fortalecer y adquirir nuevos conocimientos al explotar
+las ventajas que brinda la educación virtual.
+
+Fortalecer el uso de herramientas virtuales que permitan complementar la educación
+en las distintas instituciones ya sean universitarias o de formación media ya que
+
+36este tipo de herramientas bien estructuradas y manejadas tanto por profesores como
+por estudiantes pueden traer múltiples beneficios.
+
+5.2. Trabajos futuros
+
+= Consolidar la plataforma con métodos que permitan incrementar la interacción y el
+dinamismo con los usuarios como lo sería extender los mecanismos para la creación
+y aprobación de contenidos por parte de los estudiantes a la sección de materiales.
+
+= Desarrollar un sistema de recomendaciones basado en inteligencia artificial con la
+finalidad de mejorar la experiencia del usuario a la hora de querer profundizar en
+aspectos académicos de su interés.
+
+= Es importante desarrollar investigaciones posteriores que permitan validar los beneficios y el impacto que aporta la aplicación en el proceso de apoyo a las dinámicas
+de formación inherentes a la algoritmia, además dichas investigaciones permitirán
+observar y conocer en qué aspectos se puede mejorar la solución desarrollada.
+
+= Desarrollar una integración entre la aplicación creada y el LM$S con el cuenta la
+Universidad del Valle Sede Tuluá con la finalidad de unificar y centralizar las
+herramientas de apoyo virtuales con las que puedan contar los estudiantes.
+
+31Referencias Bibligráficas
+
+1]
+
+Alfonso Orantes Ariza, “Educación y computación: historias de este mundo y el otro
+mundo”, UPC, 2002, p. 101.
+
+"Lógica algorítmica para la resolución de problemas de programación computacional",
+DidascUlia, vol 4, no 1, pp. 59-60, Febrero 2013
+
+Estudio de la caracterización de productos y servicios de la industria de software y
+servicios asociados, 2012
+
+ICFES (Diciembre, 2013). COLOMBIA EN PISA 2012, Informe nacional de resultados,
+Resumen ejecutivo [online] Disponible en:
+
+Jorge A. Villalobos, Nadya A. Calderón. Proyecto cupi2 un enfoque multidimensional
+frente al problema de enseñar y aprender a programar
+
+Rodera, A.M. éz Barberá, E. (2010). LMS y web 2.0 una relación simbiótica en
+las aulas universitarias. Diseño e integración de actividades pedagógicas 2.0 en una
+plataforma Blackboard. Revista de Educación a Distancia. Sección de docencia
+universitaria en la sociedad del conocimiento
+
+Pere Marqués, Software Educativo, Universidad Autónoma de Barcelona, [online]
+Disponible en: http: //www.lmi.ub.es/te/any96/marques software
+
+Euler Hernández Contreras, “Sistema Multiagente para la Planificación y Supervisión
+del Aprendizaje”, Tesis de Maestría, Centro de Investigacion en Tecnologias de
+Informacion y Sistemas , Mexico, 2001
+
+LI Zhiping, SUN Yu, XU Tianwei, LIU Yang, “T'he Research of Classical Learner Models in Intelligent Tutoring Systems”, The 7th International Conference on Computer
+Science dz Education (ICCSE 2012)
+
+Diego Caviedes Pulido, Víctor Hugo Medina García, “Diseño de un sistema tutor
+inteligente basado en estilos cognitivos”, Universidad Distrital Francisco José de
+
+Caldas en Bogotá - Colombia, 2009
+
+Francisco Refugio Torres Chávez, “Modelo basado en la colaboración de facilitadores
+para apoyo al aprendizaje de sistemas tutores”, Tesis de Maestría en Ciencias con
+
+Especialidad en Ingeniería de Sistemas Computacionales, Universidad de las Americas
+Puebla, Mexico, 2009
+
+38112] Vyshnavi Malathi Ramesh, Prof. N. J. Rao “Tutoring and Expert Modules of Intelligent Tutoring Systems”, IEEE Fourth International Conference on Technology for
+Education, 2012
+
+113] Enríque Vázquez, Larisa. “LCMS y objetos de aprendizaje”. Revista Digital
+Universitaria. 10 de noviembre 2004, Vol. 5, No. 10. [online] Disponible en:
+http: //www.revista.unam.mx/vol.5/num10/art66/int66.htm
+
+114] Moodle 2.8 Documentation [online] Disponible en:
+https: //docs.moodle.org/28/en/Main_ page
+
+[15] RESOLUCIÓN No 070, Universidad del Valle, 2002
+
+116] Karina Anaya Rivera, Un modelo de enseñanza-aprendizaje virtual: analisis, diseño,
+y aplicación en un sistema universitario mexicano”, Doctorado, 2004.
+
+117] G. Ballenato Prieto, .F*trategias de aprendizaje en el entorno virtual", en IV Jornada
+de Innovación Pedagógica del Proyecto ADA, Madrid, 2009, pp. 1,2.
+
+118] R. Valenzuela Argielle, "Las redes sociales y su aplicación en la educación", Revista
+Digital Universitaria, vol. 14, 2013.
+
+119] The Oxford Centre for Staff and Learning Development, *"Learning and teaching”,
+Oxford Brookes University, Wheatley Campus Oxford 0X33 1HX, 2002.
+
+[20] Dignora Inés Páez, Giraldo María Eugenia Navas Ríos, .*proximación al estado del
+arte de procesos de aprendizaje en educación virtual", 2011.
+
+[21] Vyshnavi Malathi Ramesh, Prof. N. J. Rao, "Tutoring and Expert Modules of
+Intelligent Tutoring Systems”, 2012.
+
+[22] Weiguo Di, Shenwen Wang, Zenggiang Ma, .*nalysis on Application of Computer
+Assisted Instruction in Modern Teaching”, 2009.
+
+[23] Luz Amparo Noy Sánchez, Estrategias de aprendizaje.
+
+[24] Consuelo Belloch, Entornos Virtuales de Aprendizaje, Universidad de Valencia.
+
+[25] Serum Guide | Scrum Guides, 2015.  [fonlinel. Disponible en:
+http: / /www.scrumguides.org/scrum-guide.html
+
+[26] Scrum.org | The home of Serum >Resources >Scrum Glossary, 2015. [online]. Disponible en: https: / /www.scrum.org/Resources /Scrum-Glossary
+
+[27] Ken Schwaber and Jeff Sutherland, La Guía de Scrum. 2013, p. 9.
+
+[28] Git - Acerca del control de versiones, 2015. [online]. Disponible en: https: / /gitsem.com/book/es/v1/Empezando-Acerca-del-control-de-versiones
+
+[29] Gunicorn - Python WSGI HTTP Server for UNIX, 2015. [online]. Disponible en:
+http: //gunicorn.org/
+
+99130] IBM Knowledge Center, 2015. [online]. Disponible en:  http://www01.ibm.com/support/knowledgecenter/SSKTXQ_8.5.0/com.ibm.help.sametime.v85.doc/config/st_.
+
+[31] Introducing  Vagrant | Linux Journal, 2015. [onlinej. Disponible en:
+http: //www.linuxjournal.com/content /introducing-vagrant
+
+[32] RFC 4251 - The Secure Shell (SSH) Protocol Architecture, 2015. [online]. Disponible
+en: http: //www.rfc-base.org/rfc-4251.html
+
+133] Techdencias.net, '[T]echdencias | Serum con TFS", 2013. [online]. Disponible en:
+http: //www.techdencias.net/blog/2013/01 /24 /scrum-con-tfs/. [Accessed: 31- Jan2016].
+
+40Anexo A
+
+Esta encuesta contiene una serie de preguntas que tienen como finalidad determinar
+si los estudiantes de los programas de Ingeniería de Sistemas y Tecnología en Sistemas
+de Información de la Universidad del Valle sede Tuluá tienen deficiencias con temas
+relacionados a algoritmia.
+
+Nombres:
+
+Apellidos:
+Cargo:
+
+ 
+
+ 
+
+ 
+
+Marque con una X la respuesta.
+
+1.
+
+¿Dicta o ha dictado cursos relacionados con algoritmia”?
+
+a Si
+
+b No
+
+Si su respuesta es (b) por favor pase a la pregunta 4
+
+. ¿Dentro de los cursos que ha dictado o está dictando, ha notado o nota deficiencias
+
+dentro de los estudiantes para el aprendizaje de conceptos sobre algoritmia?
+
+a Si
+b No
+
+. ¿Dentro de los cursos que ha dictado o está dictando, ha notado o nota deficiencias
+
+dentro de los estudiantes en la aplicación conceptos sobre algoritmia”?
+
+a Si
+
+b No
+
+. ¿Cree que el proceso de aprendizaje de algoritmia podría mejorarse”?
+
+a Si
+b No
+
+. ¿Cuál de las siguientes herramientas cree que podría contribuir para mejorar el
+
+proceso de formación de los estudiantes referente a algoritmia?
+
+a Learning Management System (LMS).
+
+b Software educativo.
+
+41c Intelligent Tutor System (IT'S).
+
+d Otro. ¿cuál?
+
+ 
+
+6. ¿Cree que la Universidad brinda los espacios y medios suficientes para consultas y
+asesorías de materias referentes a algoritmia”?
+
+a Si
+b No
+
+Comentarios:
+
+Gracias
+
+42

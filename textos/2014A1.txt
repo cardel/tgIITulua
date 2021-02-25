@@ -1,0 +1,4650 @@
+Desarrollo de un Sistema de Información para los Procesos de Programación
+Académica, Seguimiento a la Ejecución de los Programas Académicos y Nómina
+Docente para la Universidad del Valle Sede Buga Como Apoyo a la Toma de
+Decisiones en el Área Académica y Financiera.
+
+Jonathan Guevara Agudelo
+201313012
+jonathan.guevaraOcorreounivalle.edu.co
+
+Universidad del Valle Sede Tuluá
+Programa Académico Ingeniería de Sistemas
+
+Abril de 2015Desarrollo de un Sistema de Información para los Procesos de Programación
+Académica, Seguimiento a la Ejecución de los Programas Académicos y Nómina
+Docente para la Universidad del Valle Sede Buga Como Apoyo a la Toma de
+Decisiones en el Área Académica y Financiera.
+
+Jonathan Guevara Agudelo
+201313012
+jonathan.guevaraOcorreounivalle.edu.co
+
+Proyecto de Ingeniería
+
+Trabajo de Grado para optar por el título de
+Ingeniero de Sistemas
+
+Director
+Julián Andrés Rodas Laverde, Esp.
+
+Universidad del Valle Sede Tuluá
+Programa Académico Ingeniería de Sistemas
+
+Junio de 2015Nota de aceptación
+
+ 
+
+Presidente del Jurado
+
+Jurado
+
+Jurado
+
+Tuluá, Agosto de 2015Dedicatoria
+
+A mis padres, quienes a pesar de las dificultades nunca dudaron de mi y sin su
+
+incondicional apoyo y sacrificio no hubiese podido alcanzar esta meta.
+
+IIAgradecimientos
+
+A los profesores que estuvieron involucrados en mi proceso de formación, especialmente al señor Dario Alfonso Payán Sanclemente quién siempre creyó en mis capacidades.
+
+A mis compañeros de Tecnología en Sistemas de Información e Ingenería de Sistemas por
+su apoyo y cariño durante el tiempo compartido.
+
+Y por último, pero no menos importante, al profesor Julian Rodas Laverde por se mi
+
+director de proyecto y por su constante motivación y apoyo durante todo el proceso.
+
+TIÍndice general
+
+1. Introducción 1
+1.1. Descripcion General .......... o... o... e... .. e... e... 1
+1.2. Planteamiento del Problema .......................... 2
+1.3. Justificación .... 3
+LA. ODJetiVOS ...... ooo... +
+
+1.4.1. Objetivo General ........... o... ............. 4
+1.4.2. Objetivos ESpecÍfiCOS . ........ o... o... .. ... ...... +
+1.5. Estructura del Documento .......... 5
+
+2. Marco de Referencia 6
+
+21. Marco Teórico ..... 6
+2.1.1. Sistemas de Información ....... e... 6
+2.1.2. Sistemas de Apoyo a la Toma de Decisiones ............. 7
+2.1.3. Data Warehouse ...... 7
+
+2.1.3.1. Modelo dimensional. ..................... 8
+2.1.4. DataMart 9
+2.1.5. Programación Académica ....... o... o... ....... . .. 10
+2.1.6. Plataforma de Desarrollo ........................ 11
+2.1.6.1. Apache HTTP Server .........o.o.o.ooooo coco... 11
+2.1.6.2. PostgreSQL .........o.o oo... e... . . . . .... 11
+2.1.6.3. PHP: Hypertext Preprocessor .... o... ...... 12
+2.1.6.4. Angula]fS............ ooo... oo... ..... 12
+
+2. Antecedentes ....... 13
+2.2.1. Enlainstitución 13
+2.2.2. Software comercial ......... e... 13
+
+BRA UnTMee o 13
+2.2.2.2. CELCAT Timetabler...................... 13
+2.2.2.3. Wise Timetable. ........................ 14
+RRA OS 14
+2.2.3. Análisis y COMparación ............ o... ... .. . . .. 15
+
+IV3. Desarrollo del Proyecto
+
+3.1. Análisis
+
+3.1.1.
+3.1.2.
+3.1.3.
+
+3.2. Diseño
+
+Requerimientos Generales ........... oo... ... .. ..
+
+Casosde Uso...
+Data Mart...
+
+3.2.1. Sistema transaccional .......... o... o... .. . . .. ..
+3.2.1.1. Modelo relacional ......................
+3.2.1.2. Diagrama declases .........o ooo... oo...
+3.2.1.3. Diagrama de Objet0S ..........o ooo... o...
+
+3.2.2. DataMart .......... e...
+3.2.2.1. Esquema estrella ............. o... ...
+
+3.3. Implementación ..................... o... sos
+
+3.3.1. Codificación ............... e...
+
+3.3.2. Descripción de la Interfaz ............. o... ......
+3.3.2.1.  Intefaz General ........... o... .........
+3.3.2.2. Interfaz de edición ........ o... o... .......
+3.3.2.3. Interfaz de nÓMmiNa ......................
+3.3.2.4. Interfaz de reportes ....... o... ooo... .....
+
+4. Pruebas y Discusión de los Resultados
+
+41. Pruebas Unitarias
+4.2. Pruebas de Funcionalidad ...............
+4.3. Pruebas de Integración y Verificación .......... ooo... o... ..
+
+5. Conclusiones
+
+BibliografíaÍndice de figuras
+
+2.1.
+2.2.
+2.3.
+2.4.
+
+3.1.
+3.2.
+3.3.
+3.4.
+3.5.
+3.6.
+3.7.
+3.8.
+3.9,
+3.10.
+3.11.
+3.12.
+3.13.
+3.14.
+3.15.
+3.16.
+3.17.
+3.18.
+3.19,
+3.20.
+3.21.
+
+Componentes de un Sistema de Información. ................. 6
+Esquema estrella. ..........o.o.o ooo... o... e... e... . . . o. 8
+Esquema COpO de Mieve............. e... 9
+Esquema COpO de Mieve....... o... .... e... 9
+Desarrollo iterativVO .......... o... o... e... . . +... e... 17
+Modelo relacional general ........... o... ooo... ... .. .. 28
+Modelo relacional para la administración de usuarlOS ............ 29
+Modelo relacional para la programación académica ............. 30
+Modelo relacional para el reporte docente y control de asistencia ..... 31
+Diagrama de clases .........o.o ooo... o... 32
+Diagrama de objetos para la administración de USUAariOoS........... 33
+Modelo dimensional ........... o... o... ... . ... e... 35
+Interfaz General ........... e... 37
+Formulario de acceso ....... ooo... 38
+Ejemplo de consulta que no depende del periodo académico ........ 38
+Edición de información básica ........ o... o... ... e... ... 39
+Edición de información COMpuésta ........ o... o... .. . . . .. 39
+Edición de información avanzada ....... o... oo... ...... . .. 40
+Visualización general dela nómina ............ o... o... .... 40
+Visualización detallada de la nómina por docente .............. 41
+Conteo de estudiantes ................... e... 42
+Semáforo de Salones ........ ooo... 42
+Resumen dehoraS................. e... 43
+MAÁtICOS o... 43
+Reporte personalizado .......o.o.o ooo... o... 44
+
+vIIndice de cuadros
+
+2.1.
+
+4.1.
+4.2.
+4.3.
+4.4.
+4.5.
+
+Comparación de funcionalidades principales del software comercial exis
+tente y el sistema propuesto. ....... o... o... ... +... . e... 15
+Pruebas unitarias para el componente Usuari0 ................ 46
+Pruebas unitarias para el componente Programación Académica. ..... 48
+Prueba de funcionalidad para el registro de un perfil de acceso. ...... 50
+Prueba de funcionalidad para el registro de una unidad académica .... 51
+Prueba de integración para la definición de la oferta académica ...... 52
+
+VIIResumen
+
+Las instituciones de educación superior juegan un rol muy importante en la sociedad,
+ya que tienen como uno de sus objetivos el formar los profesionales encargados de generar
+progreso en la región y el país. Para lograr este objetivo muchas de estas instituciones
+invierten gran cantidad de recursos en procesos de mejoramiento de la calidad de la
+formación, ampliación de cobertura y oferta académica acorde a las necesidades de su
+entorno. El presente proyecto se basó en una problemática presentada en la Universidad
+del Valle Sede Buga referente al proceso de programación académica y las actividades
+relacionadas a nivel académico y administrativo. Dichas actividades se estaban llevando a
+cabo de forma descentralizada, lo que representaba un problema en cuanto a la pertinencia
+y disponibilidad de esta información tanto para los encargados de realizar el proceso
+como para los usuarios finales tales como los estudiantes y docentes.
+
+Para dar solución al problema propuesto se realizó el análisis, diseño e implementación de
+un sistema de información para los procesos de programación académica, seguimiento a
+la ejecución de los programas académicos y nómina docente para la Universidad del Valle
+Sede Buga como apoyo a la toma de decisiones en el área académica y financiera. Como
+resultado se logró facilitar la gestión usuarios, perfiles de acceso, programas académicos,
+asignaturas, disponibilidad horaria, oferta y programación académica, reporte de asignaturas y control de asistencia, entre otros. Además de permitir la generación de reportes tales
+como semáforo y disponibilidad de salones, resúmenes de horas por programa académico
+y tipo de contratación, conteo de estudiantes y la navegación a través de la información
+almacenada en un Data mart diseñado para el análisis de las calificaciones reportadas por
+los docentes.
+
+El sistema propuesto se desarrolló orientado a la web, siguiendo la metodología del
+Proceso Unificado (UP) y el patrón arquitectónico Modelo-Vista-Controlador (MVC),
+permitiendo así la creación de componentes robustos e independientes que facilitaron
+la realización de pruebas a lo largo del proceso y garantizando un producto final que
+cumpliera con las funcionalidades requeridas.
+
+Palabras clave: Sistema de información, arquitectura, programación académica, centrali
+zación, consistencia, disponibilidad, proceso unificado, data warehousing.
+
+VIIICapítulo 1
+
+Introducción
+
+1.1. Descripcion General
+
+Las instituciones de educación superior juegan un rol muy importante en la sociedad,
+ya que tienen como uno de sus objetivos el formar los profesionales encargados de generar
+progreso en la región y el país. Para lograr este objetivo muchas de estas instituciones
+invierten gran cantidad de recursos en procesos de mejoramiento de la calidad de la
+formación, ampliación de cobertura y oferta académica acorde a las necesidades de su
+entorno.
+
+En muchas ocasiones dentro de este proceso de mejoramiento se ve la necesidad de
+incrementar la eficiencia en los servicios administrativos y académicos, tales como matrículas, solicitudes de certificados, programación académica, reportes, que debido a su
+naturaleza compleja y crucial dentro de la organización, se ejecutan de forma tradicional
+dentro de procesos manuales y repetitivos. Este tipo de manejo conlleva a que se presenten demoras en el procesamiento y consulta de información generada por los servicios
+mencionados, además de generarse duplicidad e inconsistencias dentro de los procesos
+que comparten características.
+
+Es por esto que se hace necesario iniciar actividades de análisis que permitan transformar estos procesos en sistemas de información que generen un manejo apropiado de la
+información, de manera integrada y que facilite su manipulación, sirviendo como fuente
+
+de análisis para la toma de decisiones dentro de la Universidad del Valle Sede Buga.1.2. Planteamiento del Problema
+
+La Universidad del Valle Sede Buga a lo largo de sus 27 años de funcionamiento ha
+logrado ampliar su oferta académica hasta 9 programas de formación en pregrado, lo
+que representa una gran oportunidad para la ciudad y los demás municipios de su zona
+de influencia, hecho que se refleja en los cerca de 1.300 estudiantes matriculados en los
+diferentes programas y alrededor de 100 docentes impartiendo aproximadamente 200
+
+cursos [1].
+
+Esta combinación de estudiantes, asignaturas y docentes requiere un considerable esfuerzo dentro del área administrativa para la correcta generación de la programación
+académica en la que se distribuyen los cursos impartidos por cada docente, los programas
+académicos y los respectivos semestres que recibirán dichos cursos. Desafortunadamente
+dicho proceso de programación académica se lleva dentro de la sede de forma descentralizada, a través de hojas de cálculo, lo que representa un problema en cuanto a la pertinencia
+y disponibilidad de esta información, tanto para los encargados de realizar el proceso
+
+como para los usuarios finales tales como los estudiantes y docentes.
+
+El proceso inicia en Secretaría Académica, donde se realiza la solicitud a los Coordinadores de Programa para que envíen las asignaturas a ofertar en el siguiente semestre
+académico. Posterior a esto los coordinadores, o responsables de las áreas académicas,
+asignan los docentes encargados de dictar cada una de las asignaturas y sus respectivos
+horarios. Finalmente, Secretaría se encarga de la asignación de grupos y espacios dentro
+de las instalaciones. Los dos últimos pasos se pueden repetir varias veces, ya sea debido
+a que se decide no ofertar una asignatura, hay un cambio de docente o existe un cruce
+de docente, semestre o salón, por lo que la información está bajo constante modificación
+y cada dependencia puede estar trabajando en diferentes versiones de esta, pudiendo
+generar inconsistencias en el proceso. Adicionalmente, otras actividades dentro de la institución dependen directamente de la información generada en este proceso para su análisis
+y la toma de decisiones, como lo es el caso del presupuesto horario de la sede, la carga
+horaria y prestacional de los docentes con sus respectivos contratos, el comportamiento
+de la oferta de programas respecto a la demanda de estudiantes, historial de docentes y
+asignaturas dentro de la institución. Todos estos son procesos que requieren que la información sea consistente y siempre se encuentre actualizada, disponible y sea de fácil acceso.
+
+Debido a lo anterior se hace necesario administrar la información correspondiente a
+la programación académica de la Universidad del Valle sede Buga, de tal forma que se
+encuentre actualizada y disponible para los demás procesos que la requieran, además de
+poder generar reportes en los diferentes procesos que ayuden en la toma de decisiones en
+las áreas de Secretaría Académica y Financiera de la Sede Buga.1.3. Justificación
+
+El desarrollo de sistemas de información dentro de las organizaciones representa un
+gran avance dentro de sus niveles de productividad, ya que les permite mejorar los tiempos de respuesta, eficiencia y confiabiliadad dentro de los procesos involucrados [2]. Es
+por esto que el desarrollar un sistema de información para los procesos de programación
+académica, reporte presupuestal y reporte docente para la Universidad del Valle Sede
+Buga le permite a la institución obtener estos beneficios, además de ser una base para la
+
+sistematización de otros procesos.
+
+Por otro lado, el contar con información centralizada y de fácil acceso permite a las
+diferentes dependencias realizar un análisis o control sobre los procesos que se realizan
+dentro de las actividades académicas y administrativas, sirviendo como base a la creación
+de procesos de DataWharehousing y Business Intelligence que permitan un análisis mas
+profundo y que sirvan de apoyo a la toma de decisiones [3].1.4. Objetivos
+
+1.4.1. Objetivo General
+
+Desarrollar un sistema de información para los procesos de programación académica,
+seguimiento a la ejecución de los programas académicos y nómina docente para la Universidad del Valle Sede Buga como apoyo a la toma de decisiones en el área académica y
+
+financiera.
+
+1.4.2. Objetivos Específicos
+
+= Desarrollar el módulo de programación académica para la asignación de docentes,
+
+asignaturas, espacios y horarios.
+
+= Desarrollar el módulo qué permita realizar el seguimiento a la ejecución de los
+programas académicos.
+
+= Desarrollar el módulo para la generación de la nómina docente a partir de la carga
+
+académica asignada.
+
+= Diseñar e implementar un Data Mart a partir de la identificación de los temas de
+
+interés en los módulos mencionados.
+
+= Desarrollar el módulo para la generación de reportes predeterminados y personalizados que ayuden en la toma de decisiones en el área académica y financiera.
+
+= Implantar el sistema de información en la Universidad del Valle Sede Buga.1.5. Estructura del Documento
+
+A continuación se da una descripción breve de la estructura del documento, la cual
+
+está conformada por 5 capítulos.
+
+En el capítulo 1, “Introducción”, se realiza una descripción general del contexto sobre el cual se desarrolló el presente proyecto, la justificación para emprender el proceso
+realizado, el problema que se abordó y los objetivos propuestos para dar solución a la
+problematica presentada. En el capítulo 2, “Marco de Referencia”, se encuentran los
+antecedentes y el marco teórico donde se describen los conceptos necesarios para el desarrollo del proyecto y los elementos necesarios para comprender el presente informe. En el
+capítulo 3, “Desarrollo del Proyecto”, se expone en detalle la metodología de desarrollo
+propuesta, cómo se utilizó durante la ejecución del proyecto, al igual que la descripción
+de las fases de análisis, diseño e implementación. En el capítulo 4, “Pruebas y Discusión
+de los Resultados”, se hace una descripción de los diferentes tipos de pruebas que se
+utilizarón para validar el software y los resultados obtenidos a lo largo del proceso. En
+el capítulo 5, “Conclusiones”, se presentan los puntos concluyentes a los que se llegaron
+al realizar el proyecto y un análisis de su importancia, aportes al conocimiento y una
+comparación de los objetivos propuestos con el resultados obtenidos. Finalmente en el
+capítulo “Bibliografía”, se listan las referencias bibliográficas que se tuvieron en cuenta
+
+en el desarrollo del proyecto y del documento.Capítulo 2
+
+Marco de Referencia
+
+2.1. Marco Teórico
+
+2.1.1. Sistemas de Información
+
+Un sistema en su estado mas simple, es un conjunto de elementos relacionados que
+trabajan juntos para lograr una serie de objetivos. De acuerdo a esto se puede definir un
+Sistema de Información como cualquier combinación organizada de personas, hardware,
+redes de comunicación y recursos de información que almacene, transforme, recupere y
+disemine información en una organización [2]. Este es un mecanismo de retroalimentación
+que facilita a las organizaciones alcanzar sus metas, tales como el incremento de ganancias
+o la mejora del servicio al cliente a través de la planificación, el control, la organización, la
+
+realización de los procesos y la toma de decisiones [4].
+
+Retroalimentación
+
+Entrada Procesamiento — Salida
+
+Figura 2.1: Componentes de un Sistema de Información.
+
+ 
+
+ 
+
+ 
+
+= Entrada: corresponde a las activada de capturar y reunir datos sin procesar. Por
+ejemplo el número de horas de trabajo de un empleado o las calificaciones de un
+
+estudiante.
+
+= Procesamiento: se encarga de convertir o transformar los datos en salidas de infor
+mación útil.= Salida: corresponde a la producción de información útil, usualmente en forma de
+
+documentos y reportes.
+
+= Retroalimentación: es aquella información del sistema que es usada para realizar
+
+cambios a los datos de entrada o cambios en el procesamiento.
+
+2.1.2. Sistemas de Apoyo a la Toma de Decisiones
+
+En el día a día las personas se enfrentan al proceso de toma de decisiones, ya sea desde
+algo tan simple como elegir que van a desayunar o que ropa usar, hasta algo tan complejo
+como decidir qué estrategia usar para aumentar las utilidades de una empresa. El éxito de
+estas decisiones dependerá del enfoque que se use, ya sea realizando el proceso de forma
+instintiva o recopilando información relevante (histórica o actual) que sirvan de base para
+
+realizar una buena toma de decisiones [5].
+
+Una forma de lograr esta recopilación es mediante el uso de Sistemas de Apoyo a la
+Toma de Decisiones, los cuales son un tipo de sistemas de información encargados de
+reunir información desde una variedad de fuentes (tales como los sistemas de procesamiento de transacciones), ayudando en su estructuración y análisis, permitiendo a los
+encargados de tomar decisiones acceder a información relevante dentro de la organización
+de forma sencilla e interactiva [6].
+
+2.1.3. Data Warehouse
+
+Un Data Warehouse es un conjunto de datos orientados a temas, integrados, no
+volátiles y variantes en el tiempo, los cuales soportan el proceso de toma de decisiones en
+la organización donde es utilizado [7]. La información almacenada abarca todas las áreas
+
+de la organización.
+
+= Orientado a temas: solo se almacenan los datos requeridos para el proceso de toma
+de decisiones.
+
+= Integrado: la información que provenga de diferentes fuentes debe ser convertida
+y reorganizada, para que cuando resida dentro del Data Warehouse sea un solo
+
+conjunto consistente.
+
+= No volátil: toda la información almacenada es cargada una sola vez, puede ser
+
+accedida para su consulta pero no puede ser modificada.
+
+= Variante en el tiempo: ya que se encarga de registrar información histórica e infor
+mación actual de la organización.2.1.3.1. Modelo dimensional
+
+Este tipo de modelo permite el diseño lógico de información sujeta a análisis de tal
+forma que la información proporcionada sea entendible para los usuarios encargados de
+la toma de decisiones y el desempeño de las consultas sea mas rápido y optimizado que
+en un modelo relacional [8]. Por tal motivo, dentro del modelo dimensional se pueden
+encontrar estructuras no normalizadas, con datos redundantes que generan una menor
+
+cantidad de entidades con pocas relaciones que facilitan su navegación y análisis.
+
+Su diseño consta de dos elementos principales:
+
+= Hechos: Son medidas o valores producto de las operaciones de la organización y
+que son objeto del análisis (1.e. cantidad de ventas, valor de las ventas, etc.).
+
+"= Dimensiones: Son estructuras de datos que definen un hecho, es decir, contienen la
+información descriptiva que le da significado a los hechos (i.e. vendedor, periodo de
+venta, lugar, etc.). Estos a su vez contienen una granularidad que es una jerarquia o
+nivel de detalle al que está representado el hecho (i.e. año ->trimestre ->mes, país
+->provincia ->ciudad).
+
+Al modelar estos elementos se puede realizar en dos tipos básicos de esquemas:
+
+Esquema estrella: Contiene una tabla de hechos central que a su vez se encuentra
+
+relacionada con una varias dimensiones a través de llaves foraneas.
+
+ 
+  
+ 
+
+  
+ 
+
+codigo
+nombre
+marca
+tipo
+
+proveedor
+
+   
+  
+
+dia
+dia_semana
+mes
+cuatrimestre
+año
+
+   
+
+    
+ 
+ 
+    
+ 
+    
+  
+
+     
+  
+
+     
+  
+
+tiempo
+producto
+sucursal
+ubicacion
+valor
+unidades
+
+  
+
+ 
+ 
+   
+  
+
+   
+
+codigo
+calle
+ciudad
+provincia
+pais
+
+   
+ 
+   
+
+Figura 2.2: Esquema estrella.
+
+Esquema copo de nieve: Es una variante del esquema estrella, ya que toma la misma
+figura de la tabla de hechos central y las dimensiones, pero estas últimas se encuentran
+normalizadas hasta cierto nivel.tipo
+
+proveedor
+
+ 
+
+ 
+
+     
+     
+   
+
+codigo
+dia
+dia_semana
+mes
+cuatrimestre
+año
+
+  
+
+tiempo
+producto
+sucursal
+ubicacion
+valor
+unidades
+
+A codigo
+ciudad
+
+ 
+
+provincia
+pais
+
+ 
+
+Figura 2.3: Esquema copo de nieve
+
+Esquema constelación de hechos:
+
+Este tipo de esquema puede contener múltiples tablas
+
+de hechos, las cuales pueden compartir dimensiones.
+
+  
+ 
+  
+   
+ 
+ 
+ 
+  
+
+tiempo
+producto
+sucursal
+ubicacion
+valor
+unidades
+
+  
+ 
+  
+  
+    
+   
+ 
+  
+  
+
+codigo
+calle
+
+ciudad
+provincia
+pais
+
+  
+  
+   
+   
+
+codigo
+
+ 
+ 
+
+dia_semana
+
+ 
+ 
+
+ 
+ 
+ 
+
+nombre
+mes a
+: ubicacion
+cuatrimestre :
+tipo
+
+año tiempo
+
+producto
+transportistá
+origen
+destino
+
+unidades
+
+   
+  
+  
+  
+  
+ 
+    
+    
+  
+   
+
+    
+   
+
+  
+
+nombre
+marca
+tipo
+proveedor
+
+    
+ 
+
+Figura 2.4: Esquema copo de nieve
+
+2.1.4. Data Mart
+
+Se puede considerar como una forma más simple de un Data Warehouse, puesto que
+
+el Data Mart es creado para cumplir sus funciones en un área o departamento específico
+
+dentro de la organización, como por ejemplo el área de ventas o mercadeo, siendo mas
+
+9factible su construcción dada su menor complejidad y costo. De acuerdo a la fuente de
+información que alimenta el Data Mart se puede clasificar en: dependientes, si se alimentan
+directamente de un Data Warehouse central; e independientes cuando toman información
+directamente de los sistemas de procesamiento de transacciones [9].
+
+2.1.5. Programación Académica
+
+La programación académica se define como el proceso a partir del cual se determinan
+y asignan grupos, horarios, salones y profesores de cada asignatura de acuerdo a la proyección de estudiantes [10].
+
+Dentro de la Universidad del Valle Sede Buga, este proceso se realiza de acuerdo a
+los siguientes pasos [11]:
+
+= Creación y modificación de asignaturas en el catálogo.
+
+= Determinación y difusión de horarios para asignaturas de servicio de franjas hora
+rias.
+= Reporte de necesidades de asignaturas.
+= Preprogramación de cupos a ofrecer por grupos o franjas horarias.
+= Matrícula académica.
+= Consolidación de la programación académica posterior a la matrícula.
+= Asignación de aulas.
+= Inicio de clases.
+= Solicitud de ajustes de cupos.
+= Ajuste de cupos en la oferta académica.
+= Adición de asignaturas a estudiantes en casos especiales.
+
+= Adiciones y cancelaciones.
+
+102.1.6. Plataforma de Desarrollo
+2.1.6.1. Apache HTTP Server !'
+
+Apache HTTP Server es un proyecto de software colaborativo enfocado en la creación
+de una implementación de un servidor HTTP robusto, de alcance comercial, con muchas
+funcionalidades y código fuente disponible de manera gratuita [12]. Apache es un servidor
+web flexible, rápido y de continuo desarrollo gracias a su naturaleza open-source que
+
+permite la colaboración de sus usuarios. Se caracteriza principalmente por:
+
+= Ser multiplataforma.
+= Su naturaleza modular que le permite ser adapatado a diferentes necesidades.
+
+= Posibilidad de extender su capacidad gracias al desarrollo de nuevas extensiones.
+
+2.1.6.2. PostgreSQL ?
+
+PostgreSQL es un sistema administrador de bases de datos objeto-relacional base en
+el sistema POSTGRES Version 4.2.1, desarrollado en la Universidad de California en el
+Departamento de Ciencias de la Computación de Berkeley, siendo este un sistema pionero
+en muchos conceptos que solo fueron implementados en otros sistemas mucho tiempo
+después [13].
+
+PostgreSQL es un descendiente de código abierto del sistema original POSTGRES. Gracias
+a esto puede ser usado, modificado y distribuido por cualquiera de forma gratuita y usarlo
+de manera privada, comercial o académica. Este sistema soporta gran parte del estándar
+SQL y ofrece características modernas tales como:
+
+= Queries complejos.
+
+= Llaves foráneas.
+
+= Disparadores.
+
+= Vistas.
+
+= Integridad transaccional.
+= Funciones de agregación.
+= Métodos de indexado.
+
+= Lenguajes procedimentales.
+
+ 
+
+https: / /httpd.apache.org
+“https: / /postgresql.org
+
+112.1.6.3. PHP: Hypertext Preprocessor *
+
+PHP es un lenguaje interpretado diseñado para la ejecución dentro de entornos web.
+Su principal uso es la implementación de páginas con contenido dinámico, teniendo la fácilidad de poder ser incrustado junto con código HTML [14]. Gran parte de su popularidad
+se debe a su fácilidad de uso, integración de caracteristicas procedimentales, orientación a
+
+objetos y naturaleza de código abierto.
+
+PHP es un acrónimo para “Preprocesador de Hipertexto”, indicando que PHP realiza cambios antes de que un página HTML sea cargada. Esto ayuda a los desarrolladores
+en la creación de aplicaciones robustas tales como la creación de blogs, controlar hardware
+remotamente o ejecutar sitios como Wikipedia o Facebook [14].
+
+2.1.6.4. AngularJS
+
+AngularJS es un framework JavaScript para la web que trabaja bajo el patrón de diseño Modelo-Vista-Controlador. Le permite a los desarrolladores implementar practicas
+estandarizadas de ingeniería de software que tradicionalmente son usadas en el lado del
+servidor, en el lado del cliente acelerando así su desarrollo. Prove una estructura escalable
+y consistente que facilita el desarrollo de aplicaciones complejas y grandes como parte de
+
+un equipo [15].
+
+Su funcionamiento consiste en la creación de plantillas HTML, en las cuales se pueden
+encontrar nuevos elementos creados a través de directivas facilitadas por el framework.
+Angular interpreta estos elementos y algunos atributos para la ligadura de partes de
+entrada o salida de la página a un modelo que es representado por variables estándar
+de JavaScript. El valor de estas variables puede ser asignadas manualmente a través del
+código u obtenidas a través de recursos JSON estáticos o dinámicos.
+
+ 
+
+https: / /secure.php.net
+
+122.2. Antecedentes
+
+2.2.1. En la institución
+
+Para solventar este problema se habían considerado diferentes propuestas, entre ellas
+el uso de hojas de cálculo colaborativas online como las ofrecidas por Google Docs * y
+Office Web Apps”, pero que representan una amenaza para la información manipulada,
+ya que cada involucrado en el proceso solo puede tener acceso a partes especificas de esta
+información tanto para consulta y modificación, además de que el manejo por este medio
+no permite una fácil manipulación de la información para su análisis por parte de personas
+poco especializadas, por lo que no es una solución viable. Otro tipo de propuestas se
+realizaron por medio de estudiantes de Tecnología en Sistemas de Información de la sede
+dentro de la formación por proyectos, los cuales debido a la falta de experiencia y al
+poco de tiempo de disponibilidad para realizar este tipo de actividades, no lograron dar
+solución adecuada y completa para el problema planteado [1].
+
+2.2.2. Software comercial
+
+2.2.2.1. UniTimef
+
+Sistema de programación educativa integral que soporta el desarrollo de horarios para
+cursos y exámenes, gestión de cambios, distribución de espacios con otros eventos y programación clases para estudiantes individuales. Es un sistema distribuido que permite a
+múltiples administradores de programación académica coordinar esfuerzos para construir
+y modificar un horario que cumpla con las necesidades de la institución, permitiendo la
+
+minimización de conflictos entre cursos.
+
+El sistema fue desarrollado originalmente como un esfuerzo de colaboración por el profesorado , los estudiantes y el personal de las universidades de América del Norte y Europa.
+El software se distribuye gratuitamente bajo licencia de código abierto ( GNU General
+Public License) , con la esperanza de que otros colegios y universidades pueden beneficiar
+a sus estudiantes a través de una mejor planificación o desean contribuir a la investigación
+
+en curso en esta área.
+
+2.2.2.2... CELCAT Timetabler”
+
+Sistema interactivo para la programación académica que permite la asignación de
+equipos, estudiantes, módulos, personal y espacios para eventos o parte de eventos e
+incluso modificar la duración de estos. Su interfaz permite el acceso a registros individuales
+
+ 
+
+* https: / /drive.google.com
+
+> http:/ /office.microsoft.com/es-es/web-apps/
+http: / www .unitime.org
+
+"http: / /www.celcat.com
+
+13permitiendo la modificación de detalles, además de permitir la impresión de programación
+y estadísticas para los diferentes recursos disponibles.
+El sistema completo se puede encontrar en 4 módulos:
+
+= Timetabler Live es un módulo que permite llevar el entorno Timetabler dentro de
+un navegador web. Este trabaja como un servidor web que permite la distribución
+de programaciones independientemente de la plataforma y a bajo costo.
+
+= Timetabler Automation es una adición a Timetabler que permite generar programación automatizada de cursos y exámenes, con la posibilidad de experimentar con
+
+escenarios “¿Qué pasaría si ...”.
+
+= Timetabler Attendance es un módulo que permite llevar control de la asistencia
+de estudiantes a un usuario administrador o a cada docente encargado. Además
+permite la generación de reportes para detectar variaciones importantes en los
+niveles de asistencia y monitorear el uso de espacios de acuerdo a la cantidad de
+estudiantes asistentes.
+
+= Timetabler Pay Claim es un servicio web que toma la actividad académica de
+los docentes a partir de la programación académica y provee un control sobre el
+cumplimiento de los contratos para garantizar un pago exacto de los salarios, además
+
+de permitir monitorear una correcta distribución de trabajo.
+
+2.2.2.3. Wise Timetable?
+
+Gestor de programación académica potente y de fácil uso. Permite ingresar información referente a profesores, salones y programas de estudio. Facilita el uso de horarios
+existentes, al igual que permite el bloqueo de secciones y generar automáticamente el
+resto de la programación.
+
+Características principales: interfaz gráfica amigable, fácil creación de reportes de horarios y publicación web, creación y combinación de un número ilimitado de horarios,
+reserva de espacios, creación personalizada de horarios para estudiantes, creación manual
+O automatizada de la programación académica.
+
+2.2.2.4. Otros
+
+Adicional a los ya mencionados, existen otras soluciones de software que se enfocan
+solo en la generación automática o manual de la programación académica, pero no van
+
+mas allá en cuanto a la generación de reportes, estadísticas o algún tipo de control sobre el
+
+ 
+
+Shttp: / /wisetimetable.com
+
+14desarrollo de la programación. Tal es el caso de software como Lantiv Scheduling Studio
+7”, Mimosa Scheduling Software *% y FET Timetabling Software ?*.
+
+2.2.3. Análisis y Comparación
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+UniTime | Timetabler | Wise Timetable Otros Sistema propuesto
+Múltiples usuarios Si Si Si Si Si
+Programación académica manual Si Si Si Si Si
+Programación académica automatizada Si Si Si Si No
+Control de asistencia docente No No No No Si
+Generación de nómina docente No Si No No Si
+Control sobre el desarrollo de las asignaturas No No No No Si
+Otros reportes No Si No No Si
+Capacidad de expansión No No No No Si
+Modo de distribución Licenciado | Licenciado Licenciado Libre y Licenciado Donación
+
+ 
+
+Cuadro 2.1: Comparación de funcionalidades principales del software comercial existente
+y el sistema propuesto.
+
+De acuerdo al cuadro 2.1 y a la descripción de los productos en los literales anteriores
+se puede observar que los elementos existentes en el mercado, orientados a dar solución
+al problema expuesto, poseen una alta complejidad y buenas características. Sin embargo,
+dichas características solo se enfocan en partes aisladas del problema, (e.g. programación
+académica, nómina docente y generación de reportes) y no permiten registrar todas los
+atributos e información extra que la institución requiere para estos procesos. Adicional a
+esto, el hecho de ser productos cerrados, debido a su licenciamiento limitan la posibilidad
+de hacer modificaciones sobre sus funcionalidades y expandir sus características para que
+se ajusten a las necesidades de la institución. Por lo tanto se consideró que los productos
+mencionados no eran viables para dar solución al problema planteado.
+
+ 
+
+? http: / /schedulingstudio.com
+19 http: / /www.mimosasoftware.com
+11 http: / /lalescu.ro /liviu/fet
+
+15Capítulo 3
+
+Desarrollo del Proyecto
+
+Como metodología de desarrollo de software para la ejecución del proyecto se eligió el Proceso Unificado (UP). Esta metodología tiene como características principales
+estar dirigida por casos de uso, centrada en la arquitectura y ser de naturaleza iterativa e
+incremental. Gracias a esto fue posible dividir el desarrollo del proyecto en iteraciones,
+donde en cada una se abordaron funcionalidades específicas que permitieron concentrar
+esfuerzos en su construcción y al final de cada una se conseguia un desarrollo mas robusto,
+mas funcionalidades y mas cercano a los objetivos propuestos.
+
+Dentro de cada incremento se encuentran las siguientes fases, que de acuerdo a la complejidad de los propuesto, se pueden ejecutar a través de varias iteraciones dentro de
+un mismo incremento con el objetivo de mejorar los resultados obtenidos y evitar la
+propagación de errores a las siguiente iteraciones:
+
+= Fase de inicio, donde se desarrolla una descripción general del producto a partir de
+una idea y se presenta el análisis de negocio. En esta fase se define cuales son las
+principales funciones del sistema, sus usuarios mas importantes, la arquitectura del
+sistema, el plan de proyecto y el costo.
+
+= Fase de elaboración, donde se especifica en detalle la mayoría de los casos de uso
+del producto y se diseña la arquitectura del sistema.
+
+= Fase de construcción, donde se crea el producto. En esta fase la línea base de la
+
+arquitectura crece hasta convertirse en el sistema completo.
+
+= Fase de transición, la cual cubre todo el período durante el cual el producto se
+convierte en versión beta, donde un reducido número de usuarios con experiencia
+prueba el producto e informa de defectos y deficiencias para la corrección de los
+
+mismos.
+
+Depedendiedo de la interacion en la que se encuentre el desarrollo del software, puede
+variar el tiempo dedicada a cada una de las fases tal como lo evidencia la figura 3.1.
+
+16Business value is delivered incrementally in
+time-boxed cross-discipline iterations.
+
+Elaboration Construction Transition |
+
+ojala jeje ie
+Business Modeling
+
+mm me O O O
+Requirements y» a
+EA
+
+Analysis € Design E O
+
+ml lodo | ed
+Daployment o | | O
+
+implementation
+
+ 
+
+Time
+
+ 
+
+Figura 3.1: Desarrollo iterativo.!
+
+3.1. Análisis
+
+El trabajo realizado en esta estapa se centro en la recolección de requisitos como elementos fundamentales para la guía del desarrollo hacia el sistema correcto. Posteriormente
+se desarrollaron los casos de uso que sirvieron como guía detallada de las interacciones
+del usuario con el sistema y los respectivos resultados esperados.
+
+Esta captura de requerimientos se logró a través de entrevistas con los encargados del
+proceso de programación académica, así como demostraciones en tiempo real de las
+actividades que se deseaban mejorar con este proyecto y de las nuevas funcionalidades
+esperadas.
+
+3.1.1. Requerimientos Generales
+
+A continuación se describen de forma general algunos requerimientos obtenidos.
+
+1. Permitir crear, editar, consultar y desactivar cuentas de usuario.
+
+2. Permitir crear, editar, consultar y desactivar Períodos Académicos.
+3. Permitir crear, editar, consultar y desactivar Planes Curriculares.
+4. Permitir crear, editar, consultar y desactivar Áreas Académicas.
+
+5. Permitir crear, editar, consultar y desactivar Programas Académicos.
+
+ 
+
+Tomado de http: //en.wikipedia.org/wiki/File:Development-iterative.gif
+
+1710.
+
+11.
+
+12.
+
+13.
+
+14.
+
+15.
+
+16.
+
+17.
+
+18.
+
+19.
+
+20.
+21.
+
+22.
+
+23.
+
+24.
+
+25.
+
+. Permitir crear, editar, consultar y desactivar Asignaturas.
+
+Permitir crear, editar, consultar y desactivar Sedes.
+
+. Permitir crear, editar, consultar y desactivar Salones.
+
+. Permitir la asignación de permisos de acceso a las diferentes funcionalidades del
+
+sistema para cada usuario. Estos permisos corresponden a crear, editar, consultar o
+eliminar registros de cada módulo.
+
+Permitir editar la información correspondiente a los datos personales de cada usua
+rio, incluida su contraseña, conformando una hoja de vida.
+
+Permitir definir los intervalos de tiempo en que estará habilitada la manipulación
+
+de información en los procesos que así lo requieran.
+Permitir el registro de la disponibilidad horaria de cada docente.
+
+Permitir seleccionar los semestres correspondientes a cada programa académico
+que se van a ofertar en el siguiente período académico. Esta selección debe cargar
+automáticamente las asignaturas correspondientes a cada semestre seleccionado,
+conformando así la oferta inicial de asignaturas por programa académico.
+
+Permitir la modificación de la oferta inicial de asignaturas por programa académico.
+
+Permitir la aprobación de la oferta académica para la asignación de los grupos por
+
+asignatura.
+
+Permitir la asignación y modificación de docentes, día y hora para cada una de las
+
+asignaturas programadas.
+Permitir la asignación de espacios para cada una de las asignaturas programadas.
+Permitir consultar la programación académica.
+
+Permitir la definición del contenido de la asignatura que se dictará durante el
+semestre.
+
+Permitir el registro de asistencia docente.
+Permitir el registro de las actividades realizadas en cada clase por cada asignatura.
+
+Permitir el registro de las calificaciones finales de los estudiantes por cada asignatura
+a partir del archivo exportado por el Sistema de Registro Académico.
+
+Permitir la generación de un reporte final por cada asignatura.
+
+Permitir el acceso a la información registrada por los docentes para realizar seguie
+miento a la ejecución de los programas académicos.
+
+Permitir generar un presupuesto por programa académico y docentes. Esto en
+terminos de total de horas asignadas y costos de nómina.
+
+183.1.2. Casos de Uso
+
+A partir de los requerimientos obtenidos, se continuó con la creación de los casos de
+uso para la identificación de los actores involucrados y la descripción de las interacciones
+de estos con el sistema de tal forma que se reflejen las funcionalidades requeridas [16],
+además de ser la entrada fundamental para la identificación de clases, subsistemas, inter
+faces, casos de prueba, las iteraciones y finalmente la integración del sistema [17].
+
+A continuación se muestra un extracto de los casos de uso mas relevantes.
+
+Caso de Uso 1: Crear Perfil de Acceso
+
+Requerimiento Asociado: RG-9.
+
+Actor: Administrador.
+
+Precondiciones: El Administrador debe estar autenticado en el sistema.
+Poscondiciones: Un nuevo perfil de acceso es creado.
+
+Escenario Principal:
+
+1. El Administrador selecciona la opción de crear nuevo perfil de acceso en el menú
+
+presentado por el sistema.
+2. El sistema despliega el formulario para la creación del perfil.
+
+= Los campos obligatorios para la creación del perfil corresponden a: nombre del
+perfil, modulos a lo que tendrá acceso el nuevo perfil, tipo de acceso que tendrá
+
+por cada módulo (crear, editar, consultar y eliminar) y estado.
+
+3. El Administrador diligencia el formulario y solicita almacenar el nuevo perfil de
+
+acceso.
+4. El sistema valida que la información presente el formato correcto.
+
+5. El sistema almacena la información del nuevo perfil y genera un mensaje de confir
+mación.
+
+Extensiones:
+
+3.a El nombre del perfil a crear ya existe:
+
+a) El sistema advierte al Adminstrador que el nombre de perfil ya existe y le
+
+solicita verificar la información ingresada.
+
+19Caso de Uso 2: Crear Usuario
+
+Requerimiento Asociado: —RG-1.
+
+Actor: Administrador.
+
+Precondiciones: El Administrador debe estar autenticado en el sistema.
+
+Poscondiciones: Un nuevo usuario es creado en el sistema, habilitando su acceso.
+
+Escenario Principal:
+
+1. El Administrador selecciona la opción de crear usuario en el menú presentado por
+
+el sistema.
+2. El sistema despliega el formulario para la creación del usuario.
+
+= Los campos obligatorios para la creación del usuario corresponden a: nombres,
+apellidos, tipo y número de identificación (este último define el nombre de
+usuario para ingresar al sistema), perfil de acceso y estado. La contraseña será
+generada automáticamente por el sistema y deberá ser cambiada por el usuario
+
+en el primer ingreso al sistema.
+3. El Administrador diligencia el formulario y solicita crear el nuevo usuario.
+4. El sistema valida que la información presente el formato correcto.
+
+5. El sistema almacena la información del nuevo usuario y genera un mensaje de
+
+confirmación.
+
+Extensiones:
+3.a El usuario a crear ya existe:
+
+a) El sistema advierte al Adminstrador que el usuario ya existe y le solicita verifi
+car la información ingresada.
+4.a La información ingresada no posee el formato correcto:
+
+a) El sistema advierte al Administrador que la información ingresada no posee el
+
+formato correcto y le solicita verificar la información ingresada.
+
+20Caso de Uso 3: Editar Usuario
+Requerimiento Asociado: RG-1, RG-10.
+
+Actor: Administrador, Usuario.
+
+Precondiciones: El Actor debe estar autenticado en el sistema. El Usuario a editar debe
+
+estar registrado en el sistema.
+
+Poscondiciones: La información del usuario es actualizada.
+
+Escenario Principal:
+
+1. El Actor selecciona la opción de editar información de usuario en el menú presentado
+
+por el sistema.
+
+a) El Administrador ingresa el nombre de usuario a editar (número de indentifi
+cación).
+2. El sistema despliega el formulario para la edición de la información del usuario.
+
+= Los campos que se pueden diligenciar corresponden a: tipo y número de identificación, nombres, apellidos, genero, direccion, ciudad (departamento y país)
+de residencia, fecha de nacimiento, ciudad (departamento y país) de nacimiento,
+teléfono fijo, teléfono móvil, correo electrónico personal e institucional, número
+y distrito de libreta militar (si aplica), perfíl profesional, área profesional (solo
+Administrador), formación académica básica, formación académica superior,
+
+publicaciones, reconocimientos y experiencia laboral.
+
+= Los campos obligatorios para la edición de la información del usuario corresponden a: nombres, apellidos, tipo y número de identificación (este último
+
+define el nombre de usuario para ingresar al sistema), perfil de acceso y estado.
+= Para la modificación de la contraseña:
+
+e El Administrador solo puede generar una nueva contraseña aleatoria para
+el usuario, el cual deberá modificarla al primer ingreso al sistema.
+
+e Se le solicitará al usuario que ingrese la contraseña actual y dos veces el
+
+ingreso de la nueva contraseña.
+
+3. El Actor diligencia el formulario y solicita almacenar la nueva información del
+
+usuario.
+
+4. El sistema valida que la información presente el formato correcto.
+
+215. El sistema almacena la información actualizada del usuario y genera un mensaje de
+
+confirmación.
+
+Extensiones:
+*a El Administrador solicita desactivar usuario:
+
+a) El Administrador solicita desactivar el usuario que se está editando en el
+
+momento.
+
+b) El sistema desactiva el usuario y genera un mensaje de confirmación.
+la.a El usuario a editar no existe:
+
+a) El sistema advierte al Adminstrador que el usuario no existe y le solicita verifi
+car la información ingresada.
+3.a El nombre de usuario ya existe:
+
+a) El sistema advierte al Actor que el nombre de usuario (número de identificación)
+
+ya existe y solicita verificar la información ingresada.
+3.b La contraseña no coincide:
+
+a) El sistema advierte al Usuario que la contraseña actual ingresada es incorrecta
+o que falló la confirmación de la nueva contraseña. En ambos casos solicita
+
+verificar la información ingresada.
+4.a La información ingresada no posee el formato correcto:
+
+a) El sistema advierte al Actor que la información ingresada no posee el formato
+
+correcto y le solicita verificar la información ingresada.
+
+ 
+
+22Caso de Uso 4: Registrar Disponibilidad Horaria
+
+Requerimiento Asociado: RG-12.
+
+ 
+
+Actor: Docente.
+Precondiciones: El Docente debe estar autenticado en el sistema.
+Poscondiciones: La disponibilidad horario del docente es registrada en el sistema.
+
+Escenario Principal:
+
+1. El Docente selecciona la opción de registrar disponibilidad horaria en el menú
+presentado por el sistema.
+
+2. El sistema despliega el formulario para el registro de la disponibilidad horaria.
+
+= Los campos obligatorios para el registro de la disponbilidad horaria corresponden a: días de la semana e intervalos de tiempo (en horas) en que estará
+disponible.
+
+3. El Docente solicita almacenar la disponibilidad horaria registrada.
+
+4. El sistema almacena la disponibilidad horaria registrada por el docente.
+
+Extensiones:
+
+No existen.
+
+Caso de Uso 5: Definir Semestres por Programas Académicos a
+Ofertar
+
+Requerimiento Asociado: RG-13.
+
+ 
+
+Actor: Coordinador de Programa.
+
+Precondiciones: El Coordinador de Programa debe estar autenticado en el sistema. El
+
+acceso se realiza en el intervalo de tiempo definido para este proceso.
+
+Poscondiciones: Se han definido los semestre a ofertar por programa académico y sus
+
+correspondientes asignaturas.
+
+Escenario Principal:
+
+231. El Coordinador de Programa selecciona la opción de definir los semestres académicos a ofertar en el menú presentado por el sistema.
+
+2. El sistema despliega el formulario para la definición de los semestres académicos a
+ofertar.
+
+= Loscampos obligatorios para la definición de los semestres académicos a ofertar
+corresponden a: programa académico, jornada, grupo semestre y el semestre a
+
+ofertar.
+
+3. El Coordinador de Programa diligencia el formulario y solicita almacenar la oferta
+de los semestres seleccionados.
+
+4. El sistema carga automáticamente las asignaturas correspondientes a cada programa
+académico y semestre seleccionado, de acuerdo al plan curricular.
+
+5. El sistema almacena la información de los semestres con las asignaturas a ofertar y
+
+genera un mensaje de confirmación.
+
+Extensiones:
+
+No existen.
+
+Caso de Uso 6: Asignar Docente, Día y Hora para las Asignaturas
+Ofertadas
+
+Requerimiento Asociado: RG-16.
+Actor: Coordinador de Programa.
+
+Precondiciones: El Coordinador de Programa debe estar autenticado en el sistema. El
+acceso se realiza en el intervalo de tiempo definido para este proceso.
+
+ 
+
+Poscondiciones: Cada asignatura programada tiene asignada docente a cargo, día y
+hora.
+
+Escenario Principal:
+
+1. El Coordinador de Programa selecciona la opción de asignar docente, día y hora en
+
+el menú presentado por el sistema.
+
+2. El sistema despliega el formulario para la asignación de docente, día y hora.
+
+243. El Coordinador de Programa selecciona la asignatura ofertada a modificar, diligencia
+
+el formulario y solicita almacenar la información de la asignatura actualizada.
+4. El sistema valida que la información presente el formato correcto.
+
+5. El sistema almacena la información actualizada de la asignatura y genera un mensaje
+
+de confirmación.
+
+Extensiones:
+3.a Se irrespeta la disponibilidad del docente:
+
+= El sistema advierte al Coordinador de Programa que la selección de día y hora
+provoca que el docente este asignado en una franja horaria en la que no se
+encuentra disponible, por lo tanto le solicita verificar la información ingresada.
+
+3.b Existe cruce de docente:
+
+= El sistema advierte al Coordinador de Programa que la selección de docente, día
+y hora provoca que el docente se encuentre dictando dos asignaturas al mismo
+tiempo, lo que no es posible, por lo tanto le solicita verificar la información
+ingresada.
+
+3.0 Existe cruce de semestre:
+
+= El sistema advierte al Coordinador de Programa que la selección de docente,
+día y hora provoca que los estudiantes de un mismo semestre asistan a dos
+asignaturas al mismo tiempo, lo que no es posible, por lo tanto le solicita
+
+verificar la información ingresada.
+
+Caso de Uso 7: Asignar Espacios
+Requerimiento Asociado: RG-17.
+Actor: Secretaria Académica.
+
+Precondiciones: La Secretaria Académica debe estar autenticada en el sistema. El acceso
+se realiza en el intervalo de tiempo definido para este proceso.
+
+Poscondiciones: Cada asignatura programada tiene un espacio asignado.
+
+Escenario Principal:
+
+251. La Secretaria Académica selecciona la opción de asignar espacios en el menú presentado por el sistema.
+
+2. El sistema despliega el formulario para la asignación de espacios.
+
+= Los campos obligatorios para la asignación de espacios corresponden a: sede y
+salón.
+
+3. La Secretaria Académica diligencia el formulario y solicita almacenar la información
+de la asignación de espacios.
+
+4. El sistema valida que la información presente el formato correcto.
+
+5. El sistema almacena la información de la asignación de espacios y genera un mensaje
+
+de confirmación.
+
+Extensiones:
+3.a El espacio seleccionado se encuentra ocupado:
+
+a) El sistema advierte a la Secretaria Académica que la combinación ingresada
+de día, hora, sede y salón ya se encuentra asignada y le solicita verificar la
+
+información ingresada.
+3.b El espacio seleccionado no posee la capacidad necesaria:
+
+a) El sistema advierte a la Secretaria Académica que la selección del espacio
+puede no contar con suficiente capacidad para los estudiantes matriculados y
+
+le solicita verificar la información ingresada.
+
+ 
+
+3.1.3. Data Mart
+
+Después de haber definido los requerimientos generales, se continuó con la identificación de los temas que fueran de interés para un análisis más detallado a partir de la
+información generada dentro del sistema transaccional. Gracias a este análisis se lograron
+
+establecer los siguientes:
+
+1. Comportamiento de las calificaciones reportadas por los docentes.
+2. Comportamiento de la ocupación de los salones y uso de su capacidad.
+
+3. Comportamiento de clases no dictadas en las fechas programadas.
+
+26Debido a la complejidad del sistema propuesto y a la disponibilidad de tiempo para la
+ejecución del proyecto, se decidió abordar solo uno de los temas listados. El elegido sería
+aquel que generará un mayor valor de análisis respecto a los demás, por lo tanto se optó
+por el tema 1, para el cual se identificaron las siguientes medidas o atributos que serían
+objeto de estudio:
+
+= Calificación promedio.
+= Calificación mínima.
+
+= Calificación máxima.
+
+= Estudiantes aprobados.
+= Estudiantes reprobados.
+
+= Total de estudiantes.
+
+3.2. Diseño
+
+En esta fase se trabajo sobre la extracción de las entidades, atributos, comportamientos
+y relaciones que mejor representaran las funcionalidades requeridas. También se buscó
+crear un diseño que facilitara la ejecución de los diferentes tipos de pruebas a los componentes de forma individual y agrupados por modulos o funciones principales.
+
+Para llevar a cabo la ejecución se optó por el patrón de arquitectura Modelo-VistaControlador (MVC) el cual permite la separación de responsabilidades en diferentes
+capas, facilitando la comunicación entre componentes, ejecución de pruebas y especialmente la escalabilidad requerida para la metodología de desarrollo elegida, además de ser
+la orientación mas recomendada para desarrollo de aplicaciones web.
+
+3.2.1. Sistema transaccional
+
+Debido a la naturaleza cliente-servidor de la aplicación web a desarrollar se debió
+tener especial cuidado al momento de diseñar los componentes. En este caso el servidor
+sería el encargado de manejar la persistencia de datos y las peticiones desencadenadas
+por el usuario. Por el lado del cliente, sería su reponsabilidad la correcta generación de la
+interfaz, interpretación de las acciones del usuario y su respectiva comunicación con el
+
+servidor.
+
+3.2.1.1. Modelo relacional
+
+A continuación se muestra el diagrama del modelo relacional creado para el almacenamiento persistente, el cual fue implementado en el sistema gestor de base de datos
+
+PostgreSQL. Debido a que se obtuvieron 67 tablas normalizadas, no es posible visualizar
+
+27de forma correcta el diagrama completo, por tal motivo, después del diagrama general
+se hace una separación de tablas a partir de las mas significativas y de sus relaciones
+inmediatas.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Powered by yFiles P
+
+ 
+
+Figura 3.2: Modelo relacional general
+
+28usuario institucion_academica estado_civil
+
+ 
+
+ 
+
+ 
+
+2 nombre CHARACTER VARYING 2 codigo INTEGER 2 codigo INTEGER
+contrasena CHARACTER VARYING nombre CHARACTER VARYING nombre CHARACTER VARYING
+
+perfilacceso INTEGER
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+   
+ 
+   
+ 
+   
+   
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+ 
+     
+    
+
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+  
+ 
+ 
+  
+  
+   
+  
+    
+
+ 
+
+ 
+
+   
+     
+       
+   
+     
+    
+ 
+ 
+  
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+        
+ 
+ 
+     
+ 
+
+   
+
+ 
+
+ 
+
+ 
+ 
+  
+
+ 
+
+ 
+
+ 
+
+  
+
+ 
+
+   
+
+ 
+
+    
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+     
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+formacion_academica_basica f codigo INTEGER genero
+codigo Ea nombre CHARACTER VARYING £ codigo INTEGER
+numero_identificacion CHARACTER VARYING nombre CHARACTER VARYING
+tipo_formacion INTEGER informacion_personal
+institucion_academica INTEGER tipo_identificacion INTEGER
+fecha_inicio DATE £ numero_identificacion CHARACTER VARYING tipo_identificacion
+fecha_fin DATE fecha_expedicion DATE 2 codigo INTEGER
+grado_inicio CHARACTER VARYING ciudad_expedicion INTEGER nombre CHARACTER VARYING
+grado_fin CHARACTER VARYING nombres CHARACTER VARYING
+apellidos CHARACTER VARYING
+- ! ! genero INTEGER clase_libreta_militar
+formacion_academica_superior o. 1 estado_civil INTEGER £ codigo INTEGER
+codigo INTEGER fecha_nacimiento DATE nombre CHARACTER VARYING
+numero_identificacion CHARACTER VARYING A INTEGER
+tipo_formacion INTEGER clase_libreta_militar INTEGER
+institucion_academica INTEGER numero_libreta_militar INTEGER
+nombre_estudio CHARACTER VARYING distrito_libreta_militar INTEGER area profesional
+fecha_inicio DATE direccion_residencia CHARACTER VARYING 2 codigo INTEGER
+fecha_fin DATE ciudad_residencia INTEGER nombre CHARACTER VARYING
+semestres_aprobados CHARACTER VARYING telefono_fijo CHARACTER VARYING
+numero_tarjeta_profesional CHARACTER VARYING telefono_movil CHARACTER VARYING
+correo_electronico CHARACTER VARYING ciudad
+mada mias oi e loaicaaian CHARACTER VARYING 2 codigo INTEGER
+- perfil_profesional TEXT provincia INTEGER
+numero_identificacion CHARACTER VARYING area profesional INTEGER nombre CHARACTER VARYING
+idiorna INTEGER
+habla INTEGER idioma modulo_acceso
+lee INTEGER
+escribe ES 2 codigo INTEGER perfil acceso INTEGER
+nombre CHARACTER VARYING modulo INTEGER
+crear BOOLEAN
+experiencia_laboral consultar BOOLEAN
+£ codigo INTEGER calificacion_cualitativa A BOOLEAN
+numero_identificacion CHARACTER VARYING — e codigo INTEGER eliminar BOOLEAN
+tipo_empresa INTEGER nombre CHARACTER VARYING
+empresa CHARACTER VARYING .
+ciudad INTEGER perfil_acceso
+direccion CHARACTER VARYING tipo_empresa £ codigo INTEGER
+telefono CHARACTER VARYING 2 codigo INTEGER nombre CHARACTER VARYING
+cargo CHARACTER VARYING ETE MOB estado BOOLEAN
+jefe_inmediato CHARACTER VARYING
+fecha_inicio DATE
+fecha_fin DATE modulo .
+E BOOLEAN y ra NTERER intervalo_acceso
+nombre CHARACTER VARYING perfilacceso INTEGER
+descripcion TEXT modulo INTEGER
+enlace CHARACTER VARYING fecha_inicio DATE
+tipo_modulo INTEGER hora_inicio TIME(6) WITHOUT TIME ZONE
+fecha_fin DATE
+hora_fin TIME(6) WITHOUT TIME ZONE
+
+ 
+
+Figura 3.3: Modelo relacional para la administración de usuarios
+
+29estructura_curricular |
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+cohorte
+plan_curricular INTEGER asi gnatura
+semestre INTEGER e INTEGER £ codi CHARACTER VARYING
+. programa_academico INTEGER go
+asignatura CHARACTER VARYING : E nombre CHARACTER VARYING
+jornada_programa_acadernico INTEGER :
+plan_curricular INTEGER Era . INTEBER
+a la a rricular AE INTEGER IS TIME(6) WITHOUT TIME ZONE
+AS BOOLEAN ipo_calificacion INTEGER
+e codigo INTEGER tipo_frecuencia INTEGER
+programa_academico INTEGER habilitable BOOLEAN
+numero_resolucion INTEGER oferta academica validable BOOLEAN
+fecha_expedicion DATE = AÑ descripcion TEXT
+TIREN INTEGER 2 periodo_academico INTEGER 4 a pere TEXT
+objetivo_general TEXT 4 cohorte IMERES objetivos_especificos TEXT
+objetivos_especificos TEXT P semestre INTEGER contenido TEXT
+perfil_ profesional TEXT 2 grupo_semestre INTEGER bibliografía TEXT
+A BOOLEAN 2 asignatura CHARACTER VARYING EA INTEGER
+L£ o area_academica INTEGER
+financiera BOOLEAN
+programacion_academica estado BOOLEAN
+2 periodo_academico INTEGER > £ programa_academico INTEGER A | programa_academico
+2 jornada programa_academico INTEGER E | 2 codigo INTEGER
+2 semestre INTEGER acronimo CHARACTER VARYING
+2 grupo_semestre INTEGER nombre CHARACTER VARYING
+2 asignatura CHARACTER VARYING > SN unidad_acadernica INTEGER
+2 grupo_asignatura INTEGER responsable CHARACTER VARYING
+e docente CHARACTER VARYING financiera BOOLEAN
+£ dia INTEGER HH estado BOOLEAN
+£ hora_inicio TIME(6) WITHOUT TIME ZONE
+hora_fin TIME(6) WITHOUT TIME ZONE
+a INTEGER periodo_academico semestre_academico
+salon INTEGER t Ci £ codigo INTEGER [<-> P codigo INTEGER
+cupo_asignatura INTEGER semestre_academico INTEGER mes_inicio INTEGER
+cupo_generico INTEGER fecha_inicio DATE mes_fin INTEGER
+cupo_real INTEGER fecha_fin DATE estado BOOLEAN
+sesion CHARACTER VARYING visibilidad BOOLEAN
+tipo_servicio INTEGER — AT estado BOOLEAN
+jornada
+informacion_personal - — , £ codigo INTEGER
+tipo_identificacion INTERER tipo_servicio acronimo CHARACTER VARYING
+£  numero_identificacion CHARACTER VARYING £f codigo INTEGER Tea ESPARTA
+fecha_expedicion DATE acronimo CHARACTER VARYING
+ciudad_expedicion INTEGER nombre CHARACTER VARYING | dia
+nombres CHARACTER VARYING 2 codigo INTEGER
+apellidos CHARACTER VARYING sede acronimo CHARACTER VARYING
+genero INTEGER 3», 2 codigo INTEGER nombre CHARACTER VARYING
+estado_civil INTEGER acronimo CHARACTER VARYING A
+fecha_nacimiento DATE nombre CHARACTER VARYING
+ciudad_nacimiento INTEGER direccion CHARACTER VARYING
+clase_libreta_militar INTEGER telefono CHARACTER VARYING
+numero_libreta_miltar INTEGER estado BOOLEAN disponibilidad_docente
+distrito_libreta_militar INTEGER —— Y periodo_academico INTEGER
+direccion_residencia CHARACTER VARYING PE CHARACTER VARYING
+ciudad_residencia INTEGER salon sl INTEGER
+telefono_fijo CHARACTER VARYING »|£ codigo INTEGER hora_inicio TIME(6) WITHOUT TIME ZONE
+telefono_movil CHARACTER VARYING sede INTEGER hora_fin TIME(6) WITHOUT TIME ZONE
+correo_electronico CHARACTER VARYING acronimo CHARACTER VARYING
+correo_institucional CHARACTER VARYING nombre CHARACTER VARYING
+perfil_profesional TEXT capacidad INTEGER
+area profesional INTEGER estado BOOLEAN
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figura 3.4: Modelo relacional para la programación académica
+
+30calificacion_reporte_programa_asignatura reporte programa asignatura programa_asignatura
+periodo_academico INTEGER INTEGER 2 periodo_academico INTEGER — |
+asignatura CHARACTER VARYING nigraltura CHARACTER VARYING £ asignatura CHARACTER VARYING 3
+grupo_asignatura INTEGER grupo_asignatura INTEGER £  grupo_asignatura — INTEGER
+estudiante INTEGER actitud_grupo "ENT docente CHARACTER VARYING
+nombre_estudiante CHARACTER VARYING cumplimiento_objetivos TEXT metodologia TEXT
+calificacion REAL ia TEXT evaluacion TEXT
+observaciones TEXT
+recurso bibliografia TEXT
+£ codigo INTEGER —Ñ recurso_reporte_programa_asignatura
+nombre CHARACTER VARYING periodo_academico INTEGER LJ] periodo_academico
+descripcion TEXT asignatura CHARACTER VARYING ———p| £ codigo INTEGER
+cantidad INTEGER grupo_asignatura INTEGER semestre academico INTEGER
+estado BOOLEAN >] recurso INTEGER fecha_inicio DATE
+fecha_fin DATE
+control_asistencia sesion programa_asignatura 'renleeias aaron
+3 . . estado BOOLEAN
+_—>+> 2 periodo_academico INTEGER A periodo_academico INTEGER
+P asignatura ES asignatura CHARACTER VARYING
+2 grupo_asignatura INTEGER grupo_asignatura INTEGER tipo_clase
+£ docente CHARACTER VARYING sesion INTEGER Pa P codigo INTEGER
+sesion INTEGER tipo_clase INTEGER nombre CHARACTER VARYING
+£ fecha DATE terna TEXT
+£ hora_inicio TIME(6) WITHOUT TIME ZONE
+hora_fin TIME(6) WITHOUT TIME ZONE
+sede INTEGER PE informacion personal
+salon INIEREa tipo_identificacion INTEGER
+tema INTEGER ——| £' numero_identificacion CHARACTER VARYING >
+actividad TEXT fecha_expedicion DATE
+e INTEGER iS INTEGER . gnatura
+ebueneacenes bl] nombres CHARACTER VARYING || _Í 5 codigo CORRER RRA
+apellidos CHARACTER VARYING nombre CHARACTER VARYING
+recurso control_asistencia oa INTEBER creditos INTEGER
+estado_civil INTEGER ; : ,
+periodo_acadernico INTEGER LJ Ela rad TE intensidad_horaria TIME(6) WITHOUT TIME ZONE
+asignatura CHARACTER VARYING a a EN INTEGER tipo_calificacion INTEGER
+grupo_asignatura — INTEGER ques diia : o tipo_frecuencia INTEGER
+Ki clase_libreta_militar INTEGER a
+docente CHARACTER VARYING . habilitable BOOLEAN
+numero_libreta_militar INTEGER ,
+validable BOOLEAN
+fecha DATE a .
+h o distrito_libreta_militar INTEGER a TEXT
+Es TAE ATA E ano direccion_residencia CHARACTER VARYING o
+recurso INTEGER , A : objetivo_general TEXT
+. ciudad_residencia INTEGER bieti if TEXT
+cantidad INTEGER . objetivos _especiticos
+telefono_fijo CHARACTER VARYING ida e
+telefono_movil CHARACTER VARYING bibaña TEXT
+correo_electronico CHARACTER VARYING E A INTEGER
+sede A =
+paren pebtcanal CHARACTER VARYING area_academica INTEGER
+2 codigo INTEGER perfil_profesional TEXT financiera BOOLEAN
+acronimo CHARACTER VARYING area_profesional INTEGER A BOOLEAN
+nombre CHARACTER VARYING
+direccion CHARACTER VARYING
+salon
+telefono CHARACTER VARYING
+estado BOOLEAN ——+3| f codigo INTEGER
+sede INTEGER
+acronimo CHARACTER VARYING
+nombre CHARACTER VARYING
+capacidad INTEGER
+estado BOOLEAN
+
+Figura 3.5: Modelo relacional para el reporte docente y control de asistencia
+
+3.2.1.2.
+
+Diagrama de clases
+
+ 
+
+ 
+
+A continuación se muestra el diagrama de clases correspondiente a las entidades que
+se encargarían de implementar las funcionalidades definidas en el área de análisis y que
+hacen parte de los componentes del lado del servidor.
+
+31Usuario
+
+- nombre
+
+- contrasena
+-perfil_acceso
+-informacion_personal
+-estado
+
++Usuario()
++set_atributos()
++crear()
+
++actualizar()
++eliminar()
+
++extraer()
++get_atributo()
++to_array()
+
++acceder()
++cambiar_contraseña()
+
+Perfil_Acceso
+
+-codigo
+-nombre
+-estado
+
++Perfil_Acceso()
++set_atributos()
++crear()
++actualizar()
++eliminar()
++extraer()
++get_atributo()
++to_array()
+
+Periodo_Academico
+
+-codigo
+
+-semestre_academico
+-nombre_semestre_academico
+-fecha_inicio
+
+“fecha_fin
+
+Visibilidad
+
+-estado
+
++Periodo_Academico()
++set_atributos()
++crear()
+
++actualizar()
++eliminar()
+
++extraer()
++get_atributo()
++to_array()
+
+-periodo_academico
+-fecha_inicio_intervalo
+-fecha_fin_intervalo
+-resultado_general
+-resultado_total_general
+-resultado_total_docente
+-resultado_ejecutada_docente
+-resultado_parcial_docente
+
++Nomina()
+-generar_resultado_general()
+
+-generar_resultado_total_general()
+-generar_resultado_total_docente()
+-generar_resultado_ejecutada_docente()
+-generar_resultado_parcial_docente()
+
+-generar_salida_parcial()
+-generar_salida()
+-to_array()
+
+Informacion_Personal
+
+tipo_identificacion
+-numero_ identificacion
+-fecha_expedicion
+-pais_expedicion
+-provincia_expedicion
+-ciudad_expedicion
+-nombres
+
+«apellidos
+
+-genero
+
+-estado_civil
+-fecha_nacimiento
+-pais_nacimiento
+-provincia_nacimiento
+-ciudad_nacimiento
+-clase_libreta_militar
+-numero_libreta_militar
+-distrito_libreta_militar
+-direccion_residencia
+-pais_residencia
+-provincia_residencia
+-ciudad_residencia
+-telefono_fijo
+-telefono_movil
+-correo_electronico
+-correo_ institucional
+-perfil_profesional
+-area_profesional
+-formacion_academica_basica
+
+-formacion_academica_superior
+
+-idioma_domina
+-publicacion
+-reconocimiento
+-experiencia_laboral
+
++Informacion_Personal()
++set_atributos()
+
++crear()
+
++actualizar()
+
++eliminar()
+
++extraer()
++get_atributo()
++to_array()
+
+-codigo
+-acronimo
+-nombre
+-direccion
+-telefono
+-salones
+-estado
+
++Sede()
++set_atributos()
++crear()
++actualizar()
++eliminar()
++extraer()
++get_atributo()
++to_array()
+
+-codigo
+-sede
+-acronimo
+-nombre
+-capacidad
+-recursos
+-estado
+
++Salon()
++set_atributos()
++crear()
++actualizar()
++eliminar()
++extraer()
++get_atributo()
++to_array()
+
+-periodo_academico
+-programa_academico
+
+Programacion_Academica
+
+-jornada_programa_academico
+
+-semestre
+-grupo_semestre
+-asignatura
+-grupo_asignatura
+-docente
+
+-dia
+
+-hora_inicio
+-intensidad
+-hora_fin
+
+-sede
+
+-salon
+-cupo_asignatura
+-cupo_generico
+-cupo_real
+-sesion
+-tipo_servicio
+-area_academica
+-eXCeso
+
++Programacion_Academica()
+
++set_atributos()
++crear()
++actualizar()
++eliminar()
++extraer()
+-validar()
+
+-validar_intensidad_horaria()
+-Vvalidar_disponibilidad_docente()
+
+-validar_cruce_docente()
+-Validar_cruce_cohorte()
+-validar_cruce_salon()
+
+-validar_capacidad_salon()
+-complementar_intensidad_horaria()
+
++get_atributo()
++Hto_array()
+
+Reporte_Programa_Asignatura
+
+-periodo_academico
+«asignatura
+-grupo_asignatura
+-actitud_grupo
+-cumplimiento_objetivos
+-evaluacion
+
+-recursos
+
+-calificaciones
+
++Reporte_Programa_Asignatura()
+
++set_atributos()
++crear()
++actualizar()
++eliminar()
++extraer()
++get_atributo()
+
+Programa_Asignatura
+
+-periodo_academico
+«asignatura
+-grupo_asignatura
+-docente
+-metodologia
+-evaluacion
+-observaciones
+-bibliografia
+-horario
+
+-lugar
+
+-sesiones
+
++Programa_Asignatura()
++set_atributos()
+
++crear()
+
++actualizar()
+
++eliminar()
+
++extraer()
++get_atributo()
++to_array()
+
+Area_Academica
+
+-codigo
+-acronimo
+-nombre
+-responsable
+-estado
+
++Area_Academica()
++set_atributos()
+
++crear()
++actualizar()
++eliminar()
++extraer()
++get_atributo()
++to_array()
+
+Disponibilidad_Docente
+
+-periodo_academico
+-docente
+-disponibilidad
+
++Disponibilidad_Docente()
++set_atributos()
+
++crear()
+
++actualizar()
+
++eliminar()
+
++extraer()
+
++get_atributo()
+
++to_array()
+
+Oferta_Academica
+
+-periodo_academico
+-programa_academico
+-cohorte
+
+-semesetre
+-grupo_semestre
+«asignaturas
+
++Oferta_Academica()
++set_atributos()
++crear()
+
++actualizar()
++eliminar()
+
++extraer()
++get_atributo()
++to_array()
+
+Control_Asistencia
+
+-periodo_academico
+«asignatura
+-grupo_asignatura
+-docente
+
+-sede
+
+-salon
+
+-sesiones
+
++Control_Asistencia()
++set_atributos()
++crear()
+
++actualizar()
++eliminar()
+
++extraer()
++get_atributo()
++to_array()
+
+Plan_Curricular
+
+-codigo
+-programa_academico
+-numero_resolucion
+-fecha_expedicion
+-semestres
+-objetivo_general
+-objetivos_especificos
+-perfil_profesional
+-estructura_curricular
+-estado
+
++Plan_Curricular()
++set_atributos()
++crear()
++actualizar()
++eliminar()
++extraer()
++get_atributo()
++to_array()
+
+Figura 3.6: Diagrama de clases
+
+32
+
+-codigo
+
+-nombre
+
+-creditos
+-intensidad_horaria
+-“tipo_calificacion
+-tipo_frecuencia
+-habilitable
+-Validable
+-descripcion
+-objetivo_general
+-objetivos_especificos
+-contenido
+-bibliografia
+-area_academica
+-Unidad_academica
+-prerrequisitos
+-correquisitos
+-recursos
+
+-estado
+
++Asignatura()
++set_atributos()
++crear()
++actualizar()
++eliminar()
++extraer()
++get_atributo()
++to_array()
+
+-codigo
+
+-programa_academico
+-jornada_programa_academico
+-plan_curricular
+-periodo_academico
+
+-estado
+
++Cohorte()
++set_atributos()
++crear()
++actualizar()
++eliminar()
++extraer()
++get_atributo()
++to_array()
+
+Programa_Academico
+
+-Ccodigo
+
+-acronimo
+
+-nombre
+-Unidad_academica
+-responsable
+-jornadas
+-planes_curriculares
+-estado
+
++Programa_Academico()
++set_atributos()
+
++crear()
+
++actualizar()
+
++eliminar()
+
++extraer()
+
++get_atributo()
++to_array()3.2.1.3. Diagrama de objetos
+
+A continuación se muestra uno de los diagramas de objetos correspondiente a las
+
+entidades que se encargarían de implementar las funcionalidades definidas en el área de
+
+análisis y que hacen parte de los componentes del lado del cliente.
+
++service +service
+
+-Usuario listado
+
+-promesa -listado_completar
+-menu -promesa
+
++acceder() +solicitar()
++salir() +solicitar_vacio()
+
++set_usuario() +completar()
++get_usuario() +get_promesa()
++get_permisos_modulo() +get_listado()
++get_promesa() +get_listado_completar()
++get_menu() +get_listado_condicional()
++get_perfil_acceso() +get_listado_atributo()
++get_nombre()
+
+ 
+
+ModuloUsuarioController
+
++self
+] -plantilla
++service +paginacion
+
+-ruta +listados
+-acceder
+
+-modulo_actual +get_paginacioin()
+-mensajes +get_plantilla()
+-intervalo +get_usuario_service()
+«actual +get_crear()
+-mensajes_genericos +get_consultar()
+
++get_actualizar()
++set_modulo_actual() +get_eliminar()
+
++get_enlace_modulo_actual() +editar_usuario()
+
++set_mensaje() +submit()
++get_mensaje()
+
++cerrar_mensaje()
+
++get_cantidad()
+
++get_ruta()
+
+modulo_usuario <Vista>
+
+informacion_personal <Vista>
+
+publicacion_reconocimientos <Vista>
+
+UsuarioService
+
++service
+
+-mensaje
+
+-Usuario_base
+
+-publicacion_base
+-reconocimiento_base
+-experiencia_laboral_base
+-formacion_academica_basica_base
+-formacion_academica_superior_base
+-idioma_domina_base
+
+-Usuarios
+
+-usuario_visible
+
+-usuario_activo
+
+-Usuario_crear
+
+-Uusuario_eliminar
+
+-permisos
+
+     
+
++get_permisos()
++get_permiso_especial()
++get_usuarios()
++get_usuario_base()
++get_publicacion_base()
++get_reconocimiento_base()
++get_experiencia_laboral_base()
++get_formacion_academica_basica_base()
++get_formacion_academica_superior_base()
++get_idioma_domina_base()
++set_usuario()
+
++drop_usuario()
+
++set_atributo()
+
++drop_atributo()
+
++get_usuario()
++get_usuario_visible()
++set_usuario_visible()
++set_usuario_activo()
++get_usuario_nombre()
++cambiar_contrasena()
++consultar()
+
++actualizar()
+
++reset()
+
+usuario <Vista>
+
+formacion_academica <Vista>
+
+experiencia_laboral <Vista>
+
+Figura 3.7: Diagrama de objetos para la administración de usuarios
+
+333.2.2. Data Mart
+
+Se optó por el esquema estrella para el diseño del Data Mart ya que es el más simple
+y el que mejor se adapta al tema seleccionado y a la estructura obtenida en el modelo
+relacional. Para este esquema se obtuvieron 3 dimensiones y 6 medidas a partir de lo
+
+establecido en la etapa de análisis.
+
+3.2.2.1. Esquema estrella
+
+Dimesiones
+
+= Periodo académico: Corresponde al periodo académico en el que se registran las
+
+calificaciones.
+
+= Docente: Corresponde al docente encargado de una asignatura y quien registra las
+
+calificaciones.
+
+= Academico: Corresponde a la asignatura sobre la cual se registran las calificaciones.
+Posee la siguiente granularidad:
+
+e Programa académico.
+e Jornada.
+
+e Semestre.
+
+e Grupo semestre.
+
+e Asignatura.
+
+e Grupo asignatura.
+
+Médidas
+= Calificación promedio.
+= Calificación mínima.
+= Calificación máxima.
+= Estudiantes aprobados.
+= Estudiantes reprobados.
+
+= Total de estudiantes.
+
+34programacion
+
+2 codigo INTEGER
+prograrna_academico INTEGER
+
+nombre _prograrmma_acadernico CHARACTER VARYING
+
+jornada _prograrna_acadernico INTEGER
+nombre jornada prograrnma_academico CHARACTER VARYING
+
+semestre INTEGER
+
+grupo sernestre INTEGER
+asignatura CHARACTER VARYING
+
+nombre_asignatura CHARACTER VARYING
+grupo asignatura INTEGER
+
+calificaciones
+
+2 periodo academico INTEGER
+2 programacion INTEGER
+
+¿2 docente INTEGER
+calificacion _prornecdio REAL
+calificacion_minirna REAL
+calificacion_rnaxima REAL
+
+estudiantes aprobados INTEGER
+estudiantes reprobados INTEGER
+
+total estudiantes INTEGER
+creacion TIMESTAMP(6)/ WITACGUTTIME ZONE
+
+periodo academico
+
+e codigo INTEGER 2 codigo INTEGER
+numero identificación CHARACTER WARYING nombre CHARACTER WARYING
+
+nombre CHARACTER VARYING
+
+ 
+
+Figura 3.8: Modelo dimensional
+
+3.3. Implementación
+
+Se decidió orientar la implementación a un entorno Web, ya que de esta forma se
+le permite al usuario final acceder a la plataforma desde cualquier parte con conexión
+a Internet y de forma independiente del sistema operativo, además de permitir futuras
+actualizaciones de forma transparente.
+
+Para llevar a cabo la ejecución se optó por el patrón de arquitectura Modelo-VistaControlador (MVC) el cual permite la separación de responsabilidades en diferentes
+capas, facilitando la comunicación entre componentes, ejecución de pruebas y especialmente la escalabilidad requerida para la metodología de desarrollo elegida, además de ser
+la orientación mas recomendada para desarrollo de aplicaciones web [18].
+
+39El sistema puede ser accedio ingresando al siguiente enlace:
+
+http://sii-univalle-buga.tk/ con nombre de usuario: 12345 y contraseña: 12345.
+
+3.3.1. Codificación
+
+Debido al patrón mencionado anteriormente se optó por siempre iniciar, en cada
+incremento, la codificación del modelo, ya que este es el encargado de manejar las funcionalidades del sistema. A apartir de allí se continuaba con la construcción del controlador
+en la parte del servidor que se encargaría de recibir y procesar las solicitudes de parte del
+cliente, en este caso el navegador web. Dicha implementación se realizó sobre un servidor
+Apache 2.2 bajo el lenguaje de programación PHP por ser un lenguaje especializado en
+desarrollo web y con una curva de aprendizaje baja.
+
+Por parte del cliente se realizó la implementación de la vista en el Lenguaje de Marcado de Hipertexto (HTML) con el uso de Hojas de Estilo en Cascada (CSS), sobre los
+cuales se definió la estructura general de la interfaz y las diferentes plantillas encargadas
+de mostrar el contenido solicitado por el usuario. Finalmente para la implementación del
+controlador se optó por trabajar con el lenguaje de Javascript pero utilizando el framework
+AngularjJS, el cual al ser especializado en aplicaciones de una sola página implementando el patrón MVC, facilitó el intercambio de información con el servidor, la generación
+dinámica del contenido en las vistas HTML y el procesamiento de las acciones del usuario.
+
+3.3.2. Descripción de la Interfaz
+
+3.3.2.1.  Intefaz General
+
+Los estilos y la estructura utilizada para la creación de la interfaz se realizaron siguiendo los lineamientos establecidos por la Universidad del Valle para la construcción de
+paginas web, de esta forma se busco ser fiel a la imagen institucional establecida ?.
+
+En la carga inicial de la aplicación se presenta por defecto la programación académica en
+caso de que no exista un usuario autenticado. Esto se hace debido a que el conocimiento
+de la programación es de interés general, por lo que estará disponible siempre en todo
+
+momento.
+
+Para la autenticación se cuenta con un formulario unificado a través del cual pueden
+
+acceder aquellos usuarios previamente registrados, esto sin importar el tipo de perfil o
+
+ 
+
+“http: //paginasweb.univalle.edu.co/
+
+36had Universidad del Valle 2
+
+>
+Buga - Colombia. Tnicio | Buscar | Directorio | Biblioteca |
+
+ 
+
+PROGRAMACIÓN ACADÉMICA
+
+Periodo académico: FEBRERO DE 2015 - JUNIO DE 2015 Y E
+
+v Jor. y Sem. y Gr.S. w Asignatura v Gr.A. y Docente v Dia vw Entrada v Intens. y Salida ww Sede Salon vv (
+
+N 1 1 101001F Z NO ASIGNADO 00:00 03:00 03:00
+N 1 1 101002F 2 NO ASIGNADO 00:00 03:00 03:00
+N 1 1 101005F 2 NO ASIGNADO 00:00 03:00 03:00
+N 1 1 201136M 2 NO ASIGNADO 00:00 03:00 03:00
+N 1 1 202146M - NO ASIGNADO 00:00 04:00 04:00
+N 2 1 202157M 50 NO ASIGNADO 00:00 02:00 02:00
+D 2 1 202140M 50 NO ASIGNADO 00:00 03:00 03:00
+D 2 1 750096M 50 NO ASIGNADO 00:00 05:00 05:00
+
+D 2 1 801331M 50 NO ASIGNADO 00:00 04:00 04:00
+
+Figura 3.9: Interfaz General
+
+tipo de usuario. Este formulario se despliega en la parte superior derecha como se observa
+en la figura 3.10, y en caso de acceder exitosamente, se mostrará en esa misma posición el
+nombre del usuario activo. Adicionalmente, dependiendo del perfil de acceso asignado,
+se desplegara en la parte izquierda los enlaces a las diferentes secciones de la aplicación
+como se observa en la figura 3.11.
+
+3.3.2.2. Interfaz de edición
+
+Dentro de las diferentes secciones de la aplicación se tienen dos despliegues básicos
+de información: aquellos que dependen de la selección del periodo académico deseado y
+los que no. En la primera categoria se encuentra la definición de la disponibilidad horaria,
+la oferta académica, programas de asignaturas, control de asistencia y programación
+académica como se observa en la figura 3.9. En la segunda categoría se encuentran la
+actualización de datos personales, perfiles de usuario, asignaturas, programas académicos,
+sedes, salones, entre otros tal como se observa en la figura 3.11.
+
+Para la edición de información se cuenta con tres estructuras: básico, compuesto y avanzado. En el primer tipo se encuentran aquellos elementos que cuentan con pocos atributos y
+cuya información puede ser editada en forma tabular al estilo hoja de calculo. Tal es el
+caso de la definición de las unidades académicas, áreas académicas, recursos, entre otros.
+Este tipo de edición se puede observar en la figura 3.12
+
+37ha 4 Universidad del Valle
+
+UNIVERSIDAD DEL VALLE - SEDE BUGA GENERAL
+
+ 
+
+ 
+
+" Jor. y Sem. y
+N 1
+N 1
+N 1
+N ]
+N 1
+N 2
+D 2
+D 2
+D 2
+
+<
+
+Copyrigar e 201.
+
+Periodo académico: FEBRERO DE 2015 - JUNIO DE 2015 o
+GS v Asignatura Gr.A. y Docente Entrada w Intens.
+1 101001F o NO ASIGNADO 00:00 03:00
+1 101002F 2 NO ASIGNADO 00:00 03:00
+1 101005F 2 NO ASIGNADO 00:00 03:00
+1 201136M 2 NO ASIGNADO 00:00 03:00
+1 202146M 4 NO ASIGNADO 00:00 04:00
+1 202157M 50 NO ASIGNADO 00:00 02:00
+1 202140M 50 NO ASIGNADO 00:00 03:00
+1 750096M 50 NO ASIGNADO 00:00 05:00
+1 801331M 50 NO ASIGNADO 00:00 04:00
+
+PROGRAMACIÓN ACADÉMICA
+
+Programación académica
+
+Figura 3.10: Formulario de acceso
+
+ 
+      
+
+ 
+
+ 
+
+ 
+
+ 
+
+03:00
+
+03:00
+
+03:00
+
+03:00
+
+04:00
+
+02:00
+
+03:00
+
+05:00
+
+04:00
+
+Desarrollado por J. 6. A.
+
+ 
+
+ 
+
+RÁ Universidad del Valle
+
+Colombi
+
+UNIVERSIDAD DEL VALLE - SEDE BUGA
+
+Individual
+
+» Control de asistencia
+» Disponibilidad horaria
+» Informacion personal
+» Programa de asignatura
+
+El
+
+» Áreas académicas
+
+» Asignaturas
+» Cohortes
+
+» Disponibilidad docente
+
+» Oferta académica
+
+» Perfiles de acceso
+
+» Periodos académicos
+
+» Programación académica
+» Programas académicos
+» Programas de asignaturas
+» Recursos audiovisuales
+» Sedes y salones
+
+» Seguimiento docente
+
+» Unidades académicas
+
+» Usuarios
+
+ 
+
+ 
+
+ASIGNATURAS
+
+Asignaturas
+Código Nombre
+om BIOLOGÍA GENERAL
+101001F LABORATORIO DE BIOLOGÍA GENERAL
+101002F QUÍMICA GENERAL
+101003F LABORATORIO DE QUÍMICA GENERAL
+101004F INTRODUCCIÓN A LA TECNOLOGÍA DE ALIMENTOS
+101005F FUNDAMENTOS DE FLUIDOS
+101006F INTRODUCCIÓN A LA GESTIÓN AMBIENTAL
+101007F IMPACTO AMBIENTAL DE LA TECNOLOGÍA
+101008F ECOLOGÍA Y MEDIO AMBIENTE
+ADAMNOE — MESTIÓN AMBIENTA! EMPRESARIAL
+
+Créditos
+
+icio Biblio a
+
+Estado
+
+ACTIVO a
+ACTIVO a
+ACTIVO a
+ACTIVO a
+ACTIVO a
+ACTIVO a
+ACTIVO a
+ACTIVO a
+ACTIVO a
+ACTIVO. 2 Mm e
+
+Desamollado por J. 6. A.
+
+Figura 3.11: Ejemplo de consulta que no depende del periodo académico
+
+En el segundo tipo se encuentran aquellos que cuentan con pocos atributos al igual
+
+que el anterior, pero que a su vez están compuestos por otros elementos básicos. Tal es el
+
+caso de las sedes que contienen información base, pero se componen de salones que a su
+
+vez cuentan con información básica. Otros ejemplos se observan en la definición de los
+
+perfiles de acceso, la oferta academica y el control de asistencia. Este tipo de edición se
+
+puede observar en la figura 3.13.
+
+38€ 9 sistema.com/s/recurso y cy 9 5 le r Uy O- 9 - - BM b =
+
+ 
+
+ 
+ 
+
+ 
+ 
+
+hi Universidad del Valle
+
+ 
+ 
+  
+
+LAA
+
+.
+Buga - Colombi [ | Buscar | Directorio | Biblioteca... GUEVARA AGUDELO OSPINA JONATHAN Sali
+UNIVERSIDAD DEL VALLE - SEDE BUGA GENERAL RECURSOS AUDIOVISUALES
+elizalde Recursos audiovisuales
+» Control de asistencia A
+» Disponibilidad horaria Recursos Audiovisuales
+
+» Informacion personal
+» Programa de asignatura
+
+Nombre Descripción Cantidad Estado
+
+» Áreas académicas
+» Asignaturas
+
+ 
+
+ 
+
+ 
+
+ 
+
+FILMADORA FILMADORA MARCA] 1 ACTIVO Y |
+» Cohortes J
+» Disponibilidad docente
+» Oferta académica HOME TEATHER HOME TEATHER 1 ACTIVO
+» Perfiles de acceso
+» Periodos académicos
+» Programación académica INTERNET INTERNET 1 ACTIVO
+
+» Programas académicos
+
+» Programas de asignaturas . e
+» Recursos audiovisuales PAPELOGRAFO PRA , ño
+
+» Sedes y salones
+» Seguimiento docente
+
+ 
+
+ 
+
+: 2. PC PC 1 ACTIVO
+» Unidades académicas
+» Usuarios
+PROYECTOR DE ACETATOS PROYECTOR DE ACETATOS 1 ACTIVO
+REPRODUCTOR DE CD/DVD REPRODUCTOR DE CD/DVD 1 ACTIVO
+TELEVISOR TELEVISOR 1 ACTIVO
+v
+Copiar e 2014 Desarmoñado por J. 6. A.
+
+Figura 3.12: Edición de información básica
+
+En el tercer tipo se encuentran aquellos que poseen gran cantidad de atributos que deben
+ser separados en diferentes formularios y que incluso pueden contener dentro de ellos
+atributos con edición compuesta O avanzada. Entre estos se encuentra la definición de
+la información personal, asignaturas y programas académicos que a su vez cuentan con
+planes curriculares que poseen edición avanzada. Este tipo de edición se puede observar
+en la figura 3.14.
+
+ 
+
+ 
+
+hal Universidad del Valle
+
+UNIVERSIDAD DEL VALLE - SEDE BUGA GENERAL SEDES Y SALONES
+
+Sedes y salones
+» Control de asistencia A
+» Disponibilidad horaria Sedes A - Sede Principal
+
+» Informacion personal
+» Programa de asignatura
+
+AI
+
+» Áreas académicas
+
+» Asignaturas
+
+» Cohortes
+
+» Disponibilidad docente
+» Oferta académica
+
+» Perfiles de acceso
+
+» Periodos académicos 01 Salón 01 50 ACTIVO
+» Programación académica
+» Programas académicos
+
+» Programas de asignaturas
+» Recursos audiovisuales
+
+» Sedes y salones 03 Salón 03 45 ACTIVO
+» Seguimiento docente
+» Unidades académicas
+» Usuarios 04 Salón 04 55 ACTIVO
+
+02 Salón 02 40 ACTIVO
+
+ 
+
+ACTIVO |
+
+ 
+
+Copyrighr e 2014 Desamoliado por J. G. A.
+
+Figura 3.13: Edición de información compuesta
+
+39hi Universidad del Valle
+
+UNIVERSIDAD DEL VALLE - SE
+
+Individual
+
+» Control de asistencia
+» Disponibilidad horaria
+» Informacion personal
+» Programa de asignatura
+
+dl
+
+» Áreas académicas
+
+» Asignaturas
+
+» Cohortes
+
+» Disponibilidad docente
+
+» Oferta académica
+
+» Perfiles de acceso
+
+» Periodos académicos
+
+» Programación académica
+» Programas académicos
+» Programas de asignaturas
+» Recursos audiovisuales
+» Sedes y salones
+
+» Seguimiento docente
+
+» Unidades académicas
+
+» Usuarios
+
+ 
+
+Copyrigár e 2014
+sistema.com
+
+DE BUGA GENERAL ASIGNATURAS
+
+Asignaturas OM - BIOLOGÍA GENERAL
+
+Información básica Requisitos Descripción
+
+Código:
+
+Nombre:
+
+Unidad académica:
+Área académica:
+Créditos:
+Intensidad horaria:
+Calificación:
+Frecuencia:
+
+Habilitable:
+
+ 
+
+nicio | Buscar | Direciono | Biblioteca o. GUEVARA AGUDELO OSPINA JONATHAN — Sali
+
+Objetivos Contenido Bibliografía Recursos
+
+om
+BIOLOGÍA GENERAL
+
+BIOLOGÍA v|
+BIO Y
+3
+
+03:00
+
+ALFANUMÉRICA
+
+NE<7]
+
+SEMANAL
+
+1 ca
+
+Si
+
+Desarrollado por J. 6. A.
+
+Figura 3.14: Edición de información avanzada
+
+3.3.2.3. Interfaz de nómina
+
+Para la visualización de la nómina se construyó una interfaz tipo “acordión” donde
+
+cada fila representa la información de un docente compuesta por: nombre, cantidad de
+
+asignaturas a su cargo, horas programadas para el rango de fechas especificado, horas
+
+ejecutadas o reportadas, horas reportadas que exceden las programadas y horas que no se
+
+reportaron pero que estaban programadas.
+
+ 
+
+5 Universidad del Valle
+
+ 
+
+UNIVERSIDAD DEL VALLE - SEDE BUGA GENERAL NOMINA
+
+Control de asistencia
+Disponibilidad horaria
+Informacion personal
+Programa de asignatura
+
+El
+
+Áreas académicas
+Asignaturas
+
+Programas académicos
+Programas de asignaturas
+Recursos audiovisuales
+Sedes y salones
+Seguimiento docente
+
+Tipo de contratación
+Unidades académicas
+Usuarios
+
+Análisis calificaciones
+Conteo de estudiantes
+Resumen de horas
+
+Semáforo de salones
+Viáticos
+
+ 
+
+AGUADO ÁLVAREZ CLAUDIA MILENA
+
+AGUDELO CASTAÑO LUZ ADRIANA
+
+AGUILAR MORENO JAIME
+
+ÁLVAREZ RAMÍREZ WILLIAM
+
+ 
+
+ARAGÓN SANCLEMENTE CARLOS ALBERTO
+
+E men
+
+Periodo académico: FEBRERO DE 2015 - JUNIO DE 2015 +] Pa |
+Fecha inicio: 2015-08-18 Fecha fin: 2015-12-11
+
+Docente Asignaturas Programada Ejecutada Exceso Déficit
+
+ABADÍA QUINTERO CAROLINA 3 180:00 00:00 00:00 180:00
+
+2 102:00 00:00 00:00 102:00
+2 99:00 00:00 00:00 99:00
+3 153:00 00:00 00:00 153:00
+1 51:00 00:00 00:00 51:00
+1 68:00 00:00 00:00 68:00
+
+ 
+
+Desamolado por J GA
+
+Figura 3.15: Visualización general de la nómina
+
+40Al dar clic sobre alguna de las filas se desplegara información mas detallada sobre
+el docente. En este caso se presenta una tabla por asignatura a cargo donde se hace una
+comparación entre las horas programadas y las horas ejecutadas para realizar un análisis
+rápido de la ejecución del docente.
+
+ 
+
+  
+   
+
+hi Universidad del Valle
+
+Buga - Colombia Inicio | Buscar | Directorio | Biblioteca GUEVARA AGUDELO OSPINA JONATHAN Salir
+
+NOMINA
+Individual
+
+Control de asistencia
+
+Disponibilidad horaria y desál
+. Periodo académico: FEBRERO DE 2015 - JUNIO DE 2015 +]
+Informacion personal
+
+Programa de asignatura
+
+Áreas académicas
+
+ 
+
+ 
+
+Asignaturas
+Cohortes
+Disponibilidad docente
+Nomina Docente Asignaturas Programada Ejecutada Exceso Déficit
+Oferta académica
+Perfiles de acceso
+Periodos académicos A
+s ABADÍA QUINTERO CAROLINA 3 180:00 00:00 00:00 180:00
+Programación académica
+
+Programas académicos
+Programas de asignaturas
+
+Recursos audiovisuales AGUADO ÁLVAREZ CLAUDIA MILENA
+Sedes y salones
+
+Seguimiento docente
+Tipo de contratación
+Unidades académicas
+
+Usuarios 202117M - 50 - EDUCACIÓN, LITERATURA Y ANTROPOLOGÍA CULTURAL
+
+Análisis calificaciones
+
+Ino
+
+102:00 00:00 00:00 102:
+
+3
+
+ 
+
+Programada Ejecutada
+
+Conteo de estudiantes
+Resumen de horas
+
+Semáforo de salones Día Fecha Intensidad Día Fecha Intensidad
+Viáticos
+
+JUEVES 2015-08-20 03:00 No hay ejecutada
+
+Cocwtoht 2014 Desarmolaco por. 1 GA
+
+localhost/sistema/
+
+Figura 3.16: Visualización detallada de la nómina por docente
+
+3.3.2.4. Interfaz de reportes
+
+Para la visualización de reportes, al igual que para algunas otras secciones de la
+aplicación, se requiere la selección del periodo académico. Dentro de estos reportes se
+cuenta con cuatro reportes predefinidos que son:
+
+= Conteo de estudiantes: donde se visualiza la cantidad de estudiantes en rotación
+dentro de la universidad distribuidos en los días de la semana y en las diferentes
+sedes.
+
+= Semáforo de salones: donde se especifica como se encuentran ocupados los salones
+de la sede especificada durante las jornadas de la mañana, tarde y noche. Adicionalmente se puede visualizar en que horarios se encuentran disponibles los salones
+para asignar alguna otra actividad.
+
+= Resumen de horas: donde se puede observar cuantas horas semanales han sido programadas en la sede distribuidas por programa académico, tipo servicio y docente.
+
+= Viáticos: donde se visualiza la cantidad de viajes semanales realizados por lo docentes de las diferentes ciudades de origen.
+
+41hi 4 Universidad del Valle LL AA
+
+ 
+
+. h C
+Buga Cr A MIGO | Buscar | Directorio | Biblioteca... GUEVARA AGUDELO OSPINA JONATHAN. $
+UNIVERSIDAD DEL VALLE - SEDE BUGA REPORTES CONTEO DE ESTUDIANTES
+
+Conteo de estudiantes
+
+Periodo académico: FEBRERO DE 2015 - JUNIO DE 2015 +]
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figura 3.17: Conteo de estudiantes
+
+ 
+
+ha 4 Universidad del Valle
+
+ 
+
+. C
+Inicio | Buscar | Directorio | Biblioteca... GUEVARA AGUDELO OSPINA JONATHAN
+UNIVERSIDAD DEL VALLE - SEDE BUGA / REPORTES / SEMÁFORO DE SALONES
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Semáforo de salones
+Periodo académico: FEBRERO DE 2015 - JUNIO DE 2015 +]
+: "Se!
+Sede: A - SEDE PRINCIPAL >
+Áreas académicas Semáforo Disponibilidad
+Asignaturas
+Cohortes
+Disponibilidad docente
+Nomina LUNES MARTES MIÉRCOLES JUEVES VIERNES SÁBADO
+Oferta académica Salón Cap.
+Peron: de oooO M T N mM T N M T N mM T N M T N M G Ñ
+Periodos académicos
+Programación académic:
+Programas académicos 03 «Mo A. E A > A. A 4-4 -MProgramas de asignaturas
+o A AA AA A LM
+Sedes y salones
+Ssquimiento docente 06 41 39 35 20 38 70 20 41 25 40 30 15 41 o 24
+Tipo de contratación
+ON 07 6 95 50 55 35 55 29 50 50 95 40 39 35 40 o
+Usuarios
+o -  M-M-M-  M-H-M--E-E-0-5-  M-E-No <- ]-U-U-0-5-5-0-0-5- 5-0 -5-0-5-5-E» -<1-U-M- 0 0-00 -5-E-Emo. M-0-0-0-5- M-M-5-5-5-5-5-5-E— —_ a] _— al
+Copyaight e 20: Desamolaco por GA
+
+Figura 3.18: Semáforo de salones
+
+Y se cuenta con un reporte personalizado que corresponde a la navegación de la
+información plasmada en el data mart. Para su visualización se permite la elección del
+orden en que se visualizaran las dimensiones y que medidas de la tabla de hechos se
+tomarán en cuenta. Para el caso particular de la dimensión “Académica” se cuenta con
+la posibilidad del elegir la granularidad con la que se desea representar la información.
+La interfaz cuenta con el estilo “acordión” donde cada fila representa la dimensión mas
+
+externa y al dar clic sobre alguna de estas, se podra visualizar los otros niveles de detalle.
+
+42hi Á Universidad del Valle
+
+ 
+
+UNIVERSIDAD DEL VALLE - SEDE BUGA REPORTES RESUMEN DE HORAS
+
+Í ETE Resumen de horas
+
+Control de asistencia
+Disponibilidad horaria
+Informacion personal
+Programa de asignatura
+
+Áreas académicas
+Asignaturas
+Cohortes
+Disponibilidad docente Programa Académico Programada Pregrado Nueva cohorte
+Nomina
+
+Oferta académica
+Perfiles de acceso o o
+Periodos académicos 1000 - OFICINA DE EXTENSION y PROYECCION SOCIAL 50:00 00:00 00:00
+
+Programación académica
+Programas académicos
+Programas de asignaturas
+Recursos audiovisuales
+Sedes y salones
+Seguimiento docente
+
+Tipo de contratación 1050 - BIENESTAR INSTITUCIONAL 03:00 00:00 00:00
+Unidades académicas
+Usuarios
+
+Periodo académico: FEBRERO DE 2015 - JUNIO DE 2015
+
+ 
+
+Programa académico Tipo servicio Docente
+
+1005 - DIRECCIÓN SEDE REGIONAL 06:00 00:00 00:00
+
+1060 - PREBÁSICO (MÚSICA) 15:00 00:00 00:00
+
+ 
+
+Resumen de horas 1070 - FORMACIÓN ARTÍSTICA (Extensión y Proyección Social 22:00 00:00 00:00
+
+ 
+
+ 
+
+2710 - TECNOLOGÍA EN ELECTRÓNICA 61:00 61:00 14:00
+
+ 
+
+ 
+
+ 
+
+ 
+
+Copyight c 2014 Desamolado per J GA
+
+Figura 3.19: Resumen de horas
+
+ 
+
+hi 4 Universidad del Valle
+
+Inicio | Buscar | Directorio | Bibl
+
+ 
+
+UNIVERSIDAD DEL VALLE - SEDE BUGA REPORTES VIÁTICOS
+
+Control de asistencia
+Disponibilidad horaria
+Informacion personal
+Programa de asignatura
+
+El
+Ciudad LUN MAR MIÉ JUE VIE SÁB C. V. T. Y. Semana Mes Semestre
+
+Áreas académicas
+Asignaturas
+Cohortes
+Disponibilidad docente CALI (40) 13 14 13 14 10 13 7 21,500 1,655,500 6,622,000 26,488,000
+Nomina
+
+Oferta académica
+Perfiles de acceso
+Periodos académicos
+Programación académica
+Programas académicos
+Programas de asignaturas EL CERRITO (2) 1 1 1 3 17,500 52,500 210,000 840,000
+Recursos audiovisuales
+Sedes y salones
+Seguimiento docente
+Tipo de contratación GUADALAJARA DE BUGA (41) 17 15 18 18 15 12 95 0 0 0 0
+Unidades académicas >
+Usuarios
+
+A PALMIRA (2) 1 2 1 4 21,500 86,000 344,000 1,376,000
+IS
+
+TULUÁ (5) 1 1 2 1 2 1 8 10,800 86,400 345,600 1,382,400
+
+Periodo académico: FEBRERO DE 2015 - JUNIO DE 2015
+
+ 
+
+CALIMA (1) 1 1 2 17,500 35,000 140,000 560,000
+
+ 
+
+ 
+
+ 
+
+ 
+
+91 32 30 37 34 28 28 189 1,915,400 1,915,400 7,661,600 30,646,400
+
+ 
+
+ 
+
+ 
+
+ 
+
+Copyright c 2014 Desamolado per GA
+
+Figura 3.20: Viáticos
+
+43Universidad del Valle
+
+ 
+
+ 
+
+UNIVERSIDAD DEL VALLE - SEDE BUGA
+
+Individual
+
+Control de asistencia
+Disponibilidad horaria
+Informacion personal
+Programa de asignatura
+
+Áreas académicas
+Asignaturas
+
+Disponibilidad docente
+
+Oferta académica
+Perfiles de acceso
+
+Programación académica
+Programas académicos
+Programas de asignaturas
+Recursos audiovisuales
+Sedes y salones
+
+Tipo de contratación
+Unidades académicas
+Usuarios
+
+ 
+
+ 
+
+ 
+
+Copyright c 2014
+
+REPORTES
+
+Docente
+
+Medidas
+
+4 Calificación promedio
+
+(Y Total estudiantes
+
+ANÁLISIS CALIFICACIONES
+
+Análisis calificaciones
+
+Dimensiones
+
+Y
+
+Periódo Académico
+
+O calificación mínima
+
+O calificación máxima
+
+   
+
+(Y Estudiantes aprobados
+
+(Y Estudiantes reprobados
+
+ 
+
+ 
+
+ 
+
+ro
+
+Inicio | Buscar | Directorio | Biblioteca... GUEVARA AGUDELO OSPINA JONATHAN Sal
+
+ 
+
+PROM. EA. ER. T.E.
+GUEVARA AGUDELO OSPINA JONATHAN 2.22 58 48 106
+NO ASIGNADO 2.22 29 24 53
+)
+Desamolade per GA
+
+44
+
+Figura 3.21: Reporte personalizadoCapítulo 4
+
+Pruebas y Discusión de los
+Resultados
+
+Con el proposito de garantizar la calidad del software desarrollado, fue indispensable
+la realización de diferentes tipos de pruebas de forma integral en cada etapa del desarrollo
+del proyecto. Esto permitió detectar errores en etapas tempranas y evitar su propagación
+a lo largo de los incremetos realizados, evitando así incoherencias con los requerimientos
+definidos y restrasos en las diferentes etapas.
+
+Gracias a la metodología de desarrollo de software elegida y al patrón arquitectónico implementado, se lograron crear componentes con estructuras e interfaces de comunicación
+simples, independientes y con funciones atómicas que facilitaron la realización de pruebas
+
+unitarias, de funcionalidad e integración de forma ágil a medida que se avanzaba.
+
+4.1. Pruebas Unitarias
+
+Estas pruebas son orientadas a verificar la funcionalidad de una sección específica del
+código, usualmente al nivel de funciones [19]. Este tipo de pruebas es realizó de forma
+continua durante toda la ejecución de la implementación, principalmente a los componentes del modelo y parte de los controladores en su proceso de creación y posteriores
+actualizaciones. El objetivo principal de estas pruebas fue comprobar la correcta creación,
+actualización y eliminación de objetos, su respectivo impacto en la base de datos y las
+funcionalidades individuales de cada componente.
+
+Para su realización se utlizó el framework de pruebas PHPUnit, el cual permitió la
+definición de caso de prueba donde se podía especificar atributos, objetos y resultados
+
+esperados, facilitando su ejecución cuantas veces fuese necesario.
+
+Los cuadros 4.1 y 4.2 ilustran algunas de las pruebas unitarias realizadas.
+
+45Componente Comportamiento Descripción Condición
+
+Usuario.php Usuario() Crear un objeto de la clase Objeto no vaUsuario cÍO
+
+Usuario.php crear() Crear usuario con número  Retornar verde identificación válido dadero
+
+Usuario.php crear() Crear usuario con número Retornar falde identificación existente so
+o no válido
+
+Usuario.php actualizar() Actualizar información del  Retornar verusuario con número de dadero
+identificación válido
+
+Usuario.php actualizar() Actualizar información del  Retornar falusuario con número de so
+identificación existente o
+no válido
+
+Usuario.php actualizar() Actualizar información del  Retornar verusuario con referencias a dadero
+entidades existentes
+
+Usuario.php actualizar() Actualizar información del  Retornar falusuario con referencias a so
+entidades inexistentes
+
+Usuario.php eliminar() Eliminar objeto usuario  Retornar vercuando no es referenciado  dadero
+por otra entidad
+
+Usuario.php eliminar() Eliminar objeto usuario Retornar falcuando es referenciado por so
+otra entidad
+
+Usuario.php acceder() Autenticar el usuario con  Retornar vernombre y contraseña regis- dadero
+trados
+
+Usuario.php acceder() Autenticar el usuario con  Retornar fal
+nombre o contraseña inco
+rrectos
+
+SO
+
+Cuadro 4.1: Pruebas unitarias para el componente Usuario
+
+46Componente
+
+Programacion
+
+Academica.php
+
+Comportamiento Descripción
+
+Programacion
+Academica()
+
+Crear un objeto de la clase
+
+ProgramacionAcademica
+
+Condición
+Objeto no va
+cío
+
+ 
+
+Programacion
+
+Academica.php
+
+Programacion
+
+Academica.php
+
+actualizar()
+
+actualizar()
+
+Actualizar la programación de una asignatura
+ofertada con una configuración de día, hora entrada, intensidad, docente y
+salón donde: la intensidad
+es igual o inferior a la establecida por la asignatura;
+la cohorte no se encuentra
+ocupada; el docente cuenta
+con disponibilidad horaria
+y no se encuentra ocupado;
+el salón se encuentra disponible
+
+Actualizar la programación de una asignatura
+ofertada con una configuración de día, hora entrada,
+intensidad, docente y salón
+donde en el día y el horario
+seleccionado el docente no
+tiene disponibilidad
+
+Retornar ver
+dadero
+
+Retornar falso
+
+ 
+
+Programacion
+
+Academica.php
+
+actualizar()
+
+Actualizar la programación de una asignatura
+ofertada con una configuración de día, hora entrada,
+intensidad, docente y salón
+donde en el día y el horario
+seleccionado el docente se
+
+encuentra ocupado
+
+47
+
+Retornar fal
+SOProgramacion
+
+Academica.php
+
+Programacion
+
+Academica.php
+
+Programacion
+
+Academica.php
+
+actualizar()
+
+actualizar()
+
+actualizar()
+
+Actualizar la programación de una asignatura
+ofertada con una configuración de día, hora entrada,
+intensidad, docente y salón
+donde en el día y el horario
+seleccionado la cohorte se
+encuentra ocupada
+
+Actualizar la programación de una asignatura
+ofertada con una configuración de día, hora entrada,
+intensidad, docente y salón
+donde en el día y el horario seleccionado el salón se
+
+encuentra ocupado
+
+Actualizar la programación de una asignatura
+ofertada con una configuración de día, hora entrada, intensidad, docente y
+salón donde la intensidad
+horaria supera la estableci
+da por la asignatura
+
+Retornar falso
+
+Retornar fal
+SO
+
+Retornar falso
+
+Cuadro 4.2: Pruebas unitarias para el componente Programa
+ción Académica
+
+484.2. Pruebas de Funcionalidad
+
+Estas pruebas son orientadas a verificar el correcto funcionamiento y comunicación
+entre los diferentes componentes después de haber realizado pruebas unitarias sobre estos
+
+(201.
+
+En cada iteración después de finalizada la construcción de un conjunto de componentes
+orientados a cumplir con una funcionalidad o requisito específico del sistema, se optó por
+realizar las pruebas de funcionalidad en dos etapas con un enfoque de caja negra: del lado
+del servidor y en conjunto cliente-servidor. La primera orientada en analizar las respuestas
+del controlador y del modelo en la parte del servidor simulando las solicitudes externas
+utilizando valores estáticos, tanto válidos como no válidos. La segunda etapa orientada
+en analizar las mismas funcionalidadas cubiertas en el servidor, pero incluyendo la parte
+del cliente, es decir, la vista y el controlador encargado de procesar las interacciones
+del usuario y comunicarse con el servidor, permitiendo así verificar que los valores in
+gresados y los resultados obtenidos correspondieran a lo establecido en los requerimientos.
+
+Los cuadros 4.3 y 4.4 ilustran algunas de las pruebas de funcionalidad realizadas.
+
+Nombre Registrar un perfil de acceso
+
+ 
+
+Objetivo Permitir al usuario registrar la información correspondiente a
+
+un perfil de acceso.
+Datos Información ingresada por el usuario desde la vista.
+
+Procedimiento
+
+= El usuario se auténtica en el sistema.
+
+= El usuario selecciona la opción “Perfiles de acceso” en el
+
+menú.
+
+= El usuario digita la información requerida para la crea
+ción de un nuevo perfil de acceso.
+= El usuario presiona el botón agregar.
+
+= El usuario selecciona los módulos o secciones a los que
+tendra acceso el perfil, mas sus respectivos permisos de
+
+modificación.
+
+49Resultado
+
+esperado o.
+= El sistema valida la información ingresada.
+
+= El sistema envía la información al servidor y se almacena
+
+de forma persistente en la base de datos.
+
+= El sistema notifica que el proceso se realizó exitosamente.
+
+Conclusión Prueba exitosa.
+
+Cuadro 4.3: Prueba de funcionalidad para el registro de un
+perfil de acceso
+
+Nombre Registrar unidad académica
+
+Objetivo Permitir al usuario registrar la información correspondiente a
+
+una unidad académica.
+Datos Información ingresada por el usuario desde la vista.
+
+Procedimiento
+
+= El usuario se auténtica en el sistema.
+
+= El usuario selecciona la opción “Unidades académicas”
+
+en el menú.
+
+= El usuario digita la información requerida para la crea
+ción de una nueva unidad académica.
+
+= El usuario presiona el botón agregar.
+
+Resultado
+esperado DN
+= El sistema valida la información ingresada.
+
+= El sistema envía la información al servidor y se almacena
+
+de forma persistente en la base de datos.
+
+= El sistema notifica que el proceso se realizó exitosamente.
+
+Conclusión Prueba exitosa.
+
+50Cuadro 4.4: Prueba de funcionalidad para el registro de una
+
+unidad académica
+
+4.3. Pruebas de Integración y Verificación
+
+Estas pruebas son orientadas a verificar el correcto funcionamiento y comunicación
+entre las diferentes secciones o módulos desarrollados, además de evaluar la concordancia
+entre los establecido en el análisis y diseño respecto a lo implementado [20].
+
+Esta etapa se orientó a la evaluación de la interacción de los diferentes componentes
+creados en cada incremento. Para ello se realizo la evaluación de los requerimientos
+establecidos, asi como las diferentes flujos especificados en los casos de uso, los cuales
+comprendian rutas simples cómo la creación de recursos audiovisuales, unidades académicas, hasta actividades mas complejas como la creación de la programación académica
+y control de asistencia que comprenden la definición de programas académicos, planes
+curriculares, asignaturas, cohortes, docentes y oferta académica.
+
+Nombre Proceso general de definición de la oferta académica
+
+Objetivo Permitir al usuario seleccionar las asignaturas a ofertar para el
+
+siguiente periodo académico.
+
+ 
+
+Datos Información ingresada por el usuario desde la vista.
+
+ 
+
+51Procedimiento
+
+Resultado
+esperado
+
+Conclusión
+
+El usuario se auténtica en el sistema.
+
+Si la asignatura requerida no existe, el usuario se dirige a
+la sección “Asignaturas” y procede con su creación.
+
+Si el programa académico no existe, el usuario se dirige
+a la sección “Programas académicos” y procede con su
+
+creación.
+
+Si la cohorte no existe, el usuario se dirige a la sección
+“Cohortes” y procede con su creación.
+
+El usuario selecciona la opción “Oferta académica” en el
+
+menú.
+
+El usuario selecciona el programa sobre el cual se va a
+
+realizar la oferta académica.
+
+El usuario selecciona la cohorte sobre la cual se va a realizar la oferta académica basado en el paso anterior.
+
+El usuario selecciona el semestre sobre el cual se va a
+
+relizar la oferta académica.
+
+El usuario presiona el botón agregar.
+
+El sistema valida la información ingresada.
+
+El sistema envía la información al servidor y carga automáticamente las asignaturas correspondientes al semestre seleccionado de acuerdo a lo establecido en el plan
+curricular de la cohorte.
+
+El sistema notifica que el proceso se realizó exitosamente.
+
+Prueba exitosa.
+
+Cuadro 4.5: Prueba de integración para la definición de la
+
+oferta académica
+
+592Capítulo 5
+
+Conclusiones
+
+= El desarrollo de presente proyecto permitirá a la Universidad del Valle Sede Buga
+contar con un sistema de información que le ayudará en la ejecución de varios procesos importantes dentro del desarrollo de la actividad académica en la institución.
+Este sistema a su vez servirá como base para la implementación de nuevas funcionalidades, integrando así otras dependencias y procesos que permitan el continuo
+mejoramiento dentro de la institución.
+
+= El contar con un sistema de este tipo, y teniendo en cuenta la conclusión anterior,
+permite a la Universidad del Valle Sede Buga contar con un repositorio central
+de información. Gracias a esto y al desarrollo inicial de un Data Mart como base
+para otros procesos, permitirá a la institución analizar (a través de procesos de
+Business Intelligence o Minería de Datos) una gran cantidad de información que
+se venía ignorando por la dificultad de consolidar y consultar los formatos de
+
+almacenamiento actuales.
+
+= Durante las etapa de análisis se observaron algunas funcionalidades que tomadas
+de manera individual genereban la impresión de ser fáciles de implementar o que
+tendrían un desarrollo aislado de los demás componentes. Al momento de llegar a la
+etapa de diseño se evidencio que en algunos casos la premisa anterior era totalmente
+equivocada, ya que algunas de esas funcionalidades tenian dependencias sobre otros
+componentes generando así rutas de desarrollo bastante extensas y complejas para
+funcionalidades elementales a simple vista.
+
+= A diferencia de lo que se puede experimentar en un trabajo final en una asignatura
+cualquiera, el trabajar en un proyecto de mayor envergadura, con procesos complejos
+y usuarios reales, se puede evidenciar las dificultades que se pueden presentar en
+terminos de comunicación y de estimación de las capacidades como desarrollador.
+Por un lado, el usuario al momento de comunicar las funcionalidades requeridas
+tiende a omitir elementos que son evidentes para él y que el desarrollador, por
+falta de experiencia, ignorará completamente terminando así con requerimientos
+
+incompletos.
+
+93Bibliografía
+
+[1] Darío Alfonso Payán Sanclemente, Coordinador de Tecnología en Sistemas de Información. Entrevista personal, Febrero 2014. 2, 13
+
+[2] J. A. O'Brien and G. M. Marakas, Sistemas de Información Gerencial. McGraw-Hill
+Interaméricana, 7 ed., 2006. 3,6
+
+[3] S. Williams and N. Williams, The Profit Impact of Business Intelligence. Elsevier, 2007. 3
+
+[4] R. Stair and G. Reynolds, Fundamentals of Information Systems. Cengage Learning,
+2012. 6
+
+[5] E. K. Huizingh and H. C. Vrolijk, Decision Support for Information Systems Management:
+Applying Analytic Hierarchy Process. 7
+
+[6] V. L. Sauter, Decision Support Systems for Business Intelligence. John Wiley and Sons,
+2010. 7
+
+[7] W. H. Inmon, Building the Data Warehouse. Wiley Publishing, 2005. 7
+
+[8] R. Kimball and M. Ross, The Data Warehouse Toolkit: The Definitve Guide to Dimensional
+Modeling. Wiley Publishing, 2013. 8
+
+[9] Universidad del Valle, “Business intelligence standard edition one tutorial.” http:
+//docs.oracle.com/htm1/E10312_01/dm_concepts.htm, 2007. Accedido: Marzo
+2014. 10
+
+[10] Universidad Nacional, “Manual operativo de la coordinación de carre
+ra, programación académica.” http: //www.enfermeria.unal.edu.co/descargas/
+coordinacion/pac801.pdf, 2008. Accedido: Marzo 2014. 10
+
+[11] Universidad del Valle, Vicerrectoría Académica, “Proceso de programación
+
+yr,
+
+académica, descripción de actividades.” http://registro.univalle.edu.co/
+
+guiasProcesos/programacion/Proceso_de programacion_academica.pdf, 2014.
+
+Accedido: Marzo 2014. 10
+
+[12] Apache Software Foundation, “About apache.” https: //httpd.apache.org/ABOUT_
+APACHE .html. Accedido: Marzo 2015. 11
+
+54[13] T. P. G. D. Group, PostgreSQL 9.1.4 Documentation. 2011. 11
+
+[14] M. Zandstra, PHP Objects, Patterns, and Practice. Apress, 2011. 12
+
+[15] S. Seshadri and B. Green, Angular]S Up é Running. O'Reilly, 2014. 12
+[16] 1. Sommerville, Software Engineering. Addison-Wesley, 9 ed., 2011. 19
+
+[17] IL Jacobson, G. Booch, and J. Rumbaugh, El Procesos Unificado de Desarrollo de Software.
+Addison-Wesley, 2000. 19
+
+[18] E. Gamma, R. Helm, R. Jhonson, and J. Vlissides, Design Patterns Elements of Reusable
+Object-Oriented Software. Addison Wesley, 1994. 35
+
+[19] R.S. Pressman, Ingeniería del Software, Un enfoque práctico. Mc Graw Hill, 2010. 45
+
+[20] D. F. e. a. Andreas Kaufmann, Introduction to Software Engineering. Wikibooks, The
+Free Textbook Project. 49, 51
+
+99

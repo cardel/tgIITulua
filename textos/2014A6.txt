@@ -1,0 +1,3001 @@
+DISEÑO E IMPLEMENTACIÓN DE UN SISTEMA DE APOYO PARA EL
+FORTALECIMIENTO COGNITIVO EN EL AREA DE LENGUAJE PARA LOS
+ESTUDIANTES DE GRADO CUARTO Y QUINTO DE PRIMARIA
+
+OSCAR ALEJANDRO MONEDERO POSSO
+CÓDIGO: 201056085
+oscar.monedero(Ocorreounivalle.edu.co
+
+JORGE ENRIQUE SANDOVAL VÉLEZ
+CÓDIGO: 201056264
+jorge_vizdhotmail.com
+
+UNIVERSIDAD DEL VALLE SEDE TULUÁ
+ESCUELA DE INGENIERÍA DE SISTEMAS Y COMPUTACIÓN
+ABRIL 2015DISEÑO E IMPLEMENTACIÓN DE UN SISTEMA DE APOYO PARA EL
+FORTALECIMIENTO COGNITIVO EN EL AREA DE LENGUAJE PARA LOS
+ESTUDIANTES DE GRADO CUARTO Y QUINTO DE PRIMARIA
+
+OSCAR ALEJANDRO MONEDERO POSSO
+CÓDIGO: 201056085
+oscar.monedero(Ocorreounivalle.edu.co
+
+JORGE ENRIQUE SANDOVAL VÉLEZ
+CÓDIGO: 201056264
+jorge_vizWdhotmail.com
+
+Trabajo de grado para optar al título de
+Ingeniero de Sistemas
+
+DIRECTOR
+JULIAN ANDRES RODAS LAVERDE, ING
+julrod_70(Wyahoo.com
+
+UNIVERSIDAD DEL VALLE SEDE TULUÁ
+ESCUELA DE INGENIERÍA DE SISTEMAS Y COMPUTACIÓN
+ABRIL 2015Notas de Aceptación
+
+ 
+
+ 
+
+ 
+
+ 
+
+Presidente del jurado
+
+ 
+
+Jurado
+
+Jurado
+
+Tuluá, Junio del 2015Dedicatoria
+
+Este trabajo de grado va dedicado en primera medida a Dios y a mi familia, quienes siempre me han apoyado incondicionalmente y me impulsan a mejorar cada
+día como persona tanto en la parte humana como en la profesional. También está
+dedicado a mis amigos y profesores quienes sin esperar nada a cambio compartieron su conocimiento y me han acompañado en este proceso estos cinco años.
+
+Jorge Enrique Sandoval Vélez
+
+Hoy culmina una etapa importante en mi vida, una de mis metas se ha visto cumplidas, y lo he logrado gracias a aquellas personas que incondicionalmente me
+han apoyado en este camino recorrido. Primero que todo a mi mamá, quien con
+un arduo esfuerzo permitió que estudiara y me apoyo en todas las formas en
+mi proceso académico aún en la distancia. Hoy me enorgullece dedicarle a mi
+mamá esta meta que juntos alcanzamos.
+
+También dedico este trabajo a mi esposa Yuri Sarej, quien con su paciencia amor
+y ternura me apoyo en cada momento y me alentó a continuar en los días difíciles. Gracias por todo, te amo.
+
+A mi abuela, tías, tíos, mi familia, amigos y docentes que me han apoyado de
+manera permanente en esta etapa que hoy termina.
+
+Oscar Alejandro Monedero PossoAgradecimientos
+
+Agradezco a Dios, a mi familia, amigos y todos los que hicieron parte de este
+proceso y me apoyaron cada día motivándome a seguir adelante en el cumplimiento de los objetivos propuestos.
+
+Agradezco a la universidad del valle sede Tuluá y a todos sus docentes quienes
+me brindaron su conocimiento, ayudándome en mi formación profesional moral y
+ética.
+
+Jorge Enrique Sandoval Vélez
+
+Agradezco a cada persona que en algún momento de mi carrera me apoyaron y
+aportaron para ser un buen profesional y mejor persona.
+
+También doy gracias a aquellos docentes que con sus enseñanzas y paciencia hicieron de mi proceso de aprendizaje una etapa inolvidable y cargada de
+conocimientos para mi vida profesional y personal.
+
+Oscar Alejandro Monedero PossoÍndice
+
+1. Introducción
+1.1. Descripción general ............... . . .. . . . . . . o.
+
+1.2. Planteamiento del problema
+1.2.1. Descripción del problema
+1.2.2. Formulación del problema
+1.3. ODJetIVOS| .........
+1.3.1. Objetivo general
+1.3.2. Objetivos específicos
+1.4. Estructura del dOCUMBNtO] . ............... . . . . . . o.
+
+    
+ 
+ 
+ 
+   
+
+ 
+
+  
+
+ 
+
+  
+
+BbOgd0un 2.
+
+2. Marco Referencial 5
+2.1. Marco conceptual 5
+2.1.1. Comprensión e Interpretación Lectora 5
+2.1.2. Producción Textual 6
+2.1.3. Literatural ............ e... 7
+2.1.4. Software EQUCAatIiVO!| ....................... 7
+8
+11
+13
+14
+
+ 
+ 
+      
+
+ 
+
+2.1.5. Tecnologías para la Web| ...................
+2.1.6. Metodología de Desarrollo] ..................
+2.2. AMTeCedentes|........
+2.2.1. Revisión del estado del arte]. . ................
+
+3. Aspectos del desarrollo
+
+3.1. Analisis
+3.1.1. Especificación de los requerimientos|. . ........... 18
+3.1.2. Historias de USUAMO! . ............ .. . . . . . .. 20
+3.1.3. Modelamiento de la SOlUCIÓN| . . ................. 24
+
+AR DBA 40
+3.2.1. Diagrama entidad relación|. . . ................ 40
+3.2.2. Diagrama de ClaSses| ...................... 44
+3.2.3. Diagrama de COMponenteS| .................. 46
+
+3.39. DeSarrQlOl. ........... 47
+
+AL PUBS... 50
+
+      
+
+4. Juego para el fortalecimiento cognitivo en el área de lenguaje 52
+
+5. Conclusiones y Trabajos futuros 61
+BA. GONClUSIONES ...... 61
+5.2. Trabajos TUÍUFOS| ......... 63Índice de figuras
+
+  
+  
+ 
+ 
+   
+    
+   
+
+ 
+
+    
+ 
+
+  
+
+  
+   
+
+   
+
+1. Interacción Backend-Frontend|. . .................... 9
+o 12
+3. Diagrama de COMpetenciaS|. ..................... 37
+4. Diagrama Entidad Relación| . ......... o... ........ 42
+5. Modelo Relacionall . .................. .. . . . . . .. 43
+6. Diagrama de Clases Backend|. . ................... 44
+7. Diagrama de Clases Frontend|. ............ o... .... 45
+8. Diagrama de COMPpOnNentesS|...................... 46
+
+o 52
+10. Crear Nuevo USUArlOl. . ............ .. +... . me...» 53
+
+o 53
+12. Sección 1 Docente (AlUMNOS)|. ........ o... ..... ... 54
+13. Sección 1.1 Docente (Actividades a Calificar] . . . . . . ...... . 55
+14. Página donde el docente puede agregar su calificación| . . .. ... 55
+15. Sección 1.2 Docente (Estadisticas Estudiante)| . .......... 56
+16. Sección 2 Docente (Agregar Alumnos). ............... 57
+17. Sección 3 Docente (Información Docente). ............. 57
+18. Formulario Reportes|. ............. . . . . . . . . . . . o. 58
+19. Resultado Reportes| ................ . . . .. . . . .o. 58
+20. Gráfica Reporte ......... 59
+2d, ACtIVIdaAd Bl... 59
+22. Aciertos y Errores Actividad 3|. . ....... o... .......... 60
+23. Calificación Obtenida Actividad 3]. . .................. 60Índice de tablas
+
+1. Definición de ROles.| .............. e... . . . . . . . . . 0 18
+2. Requerimientos no Funcionales.| ................... 19
+
+3. Requerimientos Funcionales.| . ................. ...
+
+4. Historia de usuario Autenticación - Usuario: Estudiante - Adminis
+   
+
+ 
+
+ 
+      
+
+o 21
+5. Historia de usuario para la Administración del sistema - Usuario:
+
+o 22
+6. Historia de usuario para la Actividad 1- Usuario: Estudiante]. .. ... 23
+7. Historia de usuario para los Reportes - Usuario: Docente| ...... 24
+o 38
+
+9. Caso de Prueba - Autenticar Docente! ................ 51Resumen
+
+El presente trabajo de grado tiene como objetivo, diseñar e implementar un software como herramienta de fortalecimiento educativo para los estudiantes de grado cuarto y quinto, en el área de lecto-escritura, el cual puede ser accedido a
+través de una página web, permitiendo al estudiante interactuar con el juego y
+al docente evaluar los avances y estadísticas de cada uno de los estudiantes.
+De esta manera el software se puede convertir en una estrategia de evaluación
+práctica y una opción alternativa de enseñanza en el espacio escolar.
+
+El constructivismo, en su dimensión pedagógica, concibe el aprendizaje como
+resultado de un proceso de construcción personal-colectiva de los nuevos conocimientos, actitudes y vida, a partir de los ya existentes y en cooperación con los
+Compañeros y el facilitador[34]. Además promueve el aprendizaje dinámico, interactivo, reconociendo los múltiples saberes de los estudiantes. Por lo anterior,
+el software implementado se ajusta a la metodología que implementa dicho modelo, puesto que le ofrece al docente y al estudiante una herramienta didáctica
+para abordar las temáticas escolares, promoviendo la autonomía y reconociendo
+en el estudiante sus saberes previos y múltiples formas de aprendizaje, acompañado de la versatilidad que ofrecen las nuevas tecnologías.
+
+IVAbstract
+
+The objective of this work is to design and implement a software as a tool to
+improve education for students who are in fourth and fifth school grade, in the
+area of literacy, which can be accessed through a webside, allowing the student
+to interact with game of the some time the teachers can review the statistics an
+this progress each student. This way the software can be converted into a practical assessment strategy and an alternative education option in the school space.
+
+Constructivism, in its educational dimension, conceives learning as a result of
+a collective process-staff of new knowledge, attitudes and life from existing and
+in cooperation with the schoolmate and the facilitator. lt also promotes dynamic,
+interactive learning, recognizing the multiple knowledge of students. Therefore,
+the implemented software conforms to the methodology that implements this model, since it provides teachers and students an educational tool for addressing
+school subjects, promoting autonomy and recognizing the student their previous
+knowledge and multiple forms of learning, together with the versatility offered by
+new technologies.1. Introducción
+
+1.1. Descripción general
+
+La calidad en la educación ha sido por excelencia una apuesta permanente para
+el estado colombiano. Por ello las estrategias estatales se han enfocado en ampliar la cobertura de la educación, y además han procurado fortalecer la calidad,
+mejorando los contenidos escolares, y aportando a que los estudiantes alcancen
+un alto rendimiento que posicione al país en los primeros puestos de las pruebas
+educativas que se realizan a nivel latinoamericano.
+
+Sin embargo, esta calidad está lejos de ser alcanzada, ya que en los estudiantes
+colombianos se evidencia un bajo rendimiento en las diferentes áreas de estudio;
+como se puede observar en los resultados de las pruebas PISA[S], por lo tanto
+se requiere la implementación de diversas estrategias que aporten a mejorar el
+rendimiento escolar.
+
+El presente proyecto constituye un aporte al fortalecimiento específico del área
+de lecto — escritura en los estudiantes, a través de la creación e implementación
+de un software educativo que mediante actividades interactivas y lúdicas, apoya
+la formación educativa realizada por el docente en las instituciones educativas.
+
+1.2. Planteamiento del problema
+1.2.1. Descripción del problema
+
+Uno de los objetivos propuestos para el desarrollo[9] en este milenio está relacionado con promover el derecho a la educación de la población, reconociendo
+que constituye un derecho social fundamental que debe ser garantizado de forma
+gratuita a todas las personas, como se estipula en el artículo 26 de la declaración
+universal de los derechos humanos]1]. Igualmente se vincula a la promoción de
+un desarrollo integral, ya que propicia una mejor calidad de vida de los individuos, la familia y la sociedad. Sin embargo, la calidad de la educación en este
+país se ha visto afectada por los bajos resultados que se vienen presentando con
+relación a las competencias en áreas como la matemática, la ciencia y la lectura, como se evidencia de manera contundente en los informes de las pruebas
+PISA[2], en los cuales Colombia ocupa en la actualidad los últimos puestos]3].
+
+El bajo rendimiento en las competencias de lecto — escritura, ha sido uno de los
+hechos mas preocupantes, ya que se considera esta competencia como un factor
+fundamental en el aprendizaje de todo ser humano. La lecto — escritura entendida como la relación comunicativa de leer y escribir es un proceso que permite lacomunicación, incluyendo actividades visuales, orales, auditivas y motrices|8].
+
+Este bajo rendimiento se hace evidente en diferentes instituciones educativas
+del país, al implementar proyectos de lecto — escritura. Las principales fallas encontradas obedecen a los bajos niveles de comprensión y producción textual,
+la dificultad interpretativa, la ausencia de vocabulario y la baja ortografía[10].
+Se anexa a dichos hallazgos, la precaria motivación de los estudiantes frente al
+proceso de lecto — escritura, lo cual asocian a la forma monótona que utilizan
+los docentes para generar este aprendizaje. Los estudiantes en algunos casos
+relacionan el leer y escribir con una tarea aburrida, que en muchos casos son
+castigos impuestos en clase.
+
+Igualmente, se encontró que muchos estudiantes llegan a graduarse conservando falencias graves en el proceso de lecto — escritura, lo cual les ocasiona
+dificultades para alcanzar logros en las otras áreas, afectando así significativamente su proceso formativo.
+
+De esta manera, se reconoce que el proceso de lecto — escritura al ser tan complejo e indispensable en el proceso formativo requiere de un acompañamiento
+total por parte del docente y necesita de una metodología asertiva que incluya actividades lúdicas, reflexivas y vivenciales que le permita al niño motivarse,
+aprender jugando y comprender lo aprendido de una manera integral, adquiriendo así las diferentes competencias que conforman el proceso de lecto — escritura.
+
+Por lo anterior, es pertinente implementar otro tipo de actividades pedagogicas
+que faciliten el aprendizaje de las competencias de lecto — escritura en las instituciones educativas. Por ello, se considera que un software educativo, debería
+reunir las características necesarias para fortalecer dicho proceso, ya que incluye elementos visuales, orales, escritos, didácticos que permitirían un abordaje
+integral de la lectura y la escritura, y además como componente adicional, motivaría a los estudiantes, los cuales se muestran interesados en las herramientas
+tecnológicas, ya que hacen parte de su cotidianidad.
+
+1.2.2. Formulación del problema
+
+¿Cómo mejorar los niveles de competencia argumentativa e interpretativa del
+proceso de lecto — escritura en los estudiantes de grado cuarto y quinto de primaria, a través de la implementación de un software educativo?1.3. Objetivos
+1.3.1. Objetivo general
+
+Diseñar e implementar un juego basado en estrategias y metodologías de aprendizaje como software de apoyo en el fortalecimiento de las competencias lectoras
+de los estudiantes de grado cuarto y quinto.
+
+1.3.2. Objetivos específicos
+
+= Definir las estrategias y metodologías de aprendizaje a utilizar en el juego.
+
+= Establecer los contenidos, literaturas o temas a incluir en los diferentes niveles o secciones que tendrá el juego.
+
+= Diseñar e implementar los módulos que garanticen el funcionamiento del
+juego.
+
+= Diseñar una interfaz gráfica de usuario que permita el aprendizaje de los
+estudiantes de manera dinámica e interactiva.
+
+= Generar estadísticas de rendimiento que permitan determinar el nivel de
+competencia lectora que han adquirido los estudiantes.1.4. Estructura del documento
+
+Con este apartado se da por finalizado el Capítulo 1 Introducción, continuando
+con el Capítulo 2 y demás; organizados de la siguiente manera:
+
+Capítulo 2: Marco Referencial: En este se encuentra el marco conceptual, marco contextual y el marco de antecedentes, donde se observan los objetivos de
+la comprensión e interpretación lectora, modelos de procesamiento, producción
+textual, software educativo, marco de trabajo y la definición de las tecnologías
+utilizadas para el desarrollo del sistema, también hay algunos antecedentes de
+software educativo, que han sido implementados anteriormente.
+
+Capítulo 3: Aspectos del desarrollo. En este capítulo se muestra como se realizó
+cada una de las etapas, para la implementación del software educativo y cuáles
+fueron las herramientas de desarrollo (Historias de usuario, requerimientos, entre
+otras) que se usaron para este mismo. Otro de los temas a tratar en este capítulo
+son los modelos de enseñanza sobre los que se investigó; así como las actividades que se plantearon para dar solución a los objetivos propuestos.
+
+Capítulo 4: Juego para el fortalecimiento cognitivo en el área de lenguaje, se
+presenta el software educativo obtenido a partir de todas las fases del proceso
+de desarrollo.
+
+Capítulo 5: Conclusiones y Trabajos Futuros.2. Marco Referencial
+
+2.1. Marco conceptual
+2.1.1. Comprensión e Interpretación Lectora
+
+La comprensión e interpretación tiene como objetivo despertar y fortalecer la capacidad de un individuo para entender lo que lee, cada letra, cada palabra, cada
+frase y el contexto de la lectura para que esto tenga un significado coherente.
+Los diferentes modelos[5] propuestos para la comprensión lectora coinciden en
+que es un proceso de varios niveles los cuales son el léxico, la segmentación e
+interpretación y el del contexto.
+
+Los modelos[5] de comprensión lectora se dividen en tres tipos:
+
+Modelos de procesamiento ascendente[5]: en este modelo el lector debe fijarse en cada detalle del texto desde su nivel inferior en la comprensión del vocabulario, después ir subiendo de nivel a la segmentación donde analiza las frases
+como va unido el léxico, para así llegar al nivel final donde encuentra el contexto
+para tener una comprensión global del texto.
+
+Modelos de procesamiento descendente[5]: en este modelo el lector ya tiene conocimientos sintácticos y semánticos en cuanto a niveles inferiores como el
+léxico y le es más fácil el proceso de segmentación del segundo nivel, lo que le
+permite tener un conocimiento previo del contexto de la lectura llevándolo a una
+buena comprensión de la idea que quiere expresar el autor en su texto.
+
+Modelos interactivos[5]: este modelo emplea los dos modelos anteriores, ya
+que el lector analiza lo que le está diciendo el texto como en el modelo de procesamiento ascendente pasando por cada uno de los niveles, pero a este análisis
+se le agregan los conocimiento previos del lector como en el modelo de procesamiento ascendente. En conclusión los dos modelos de procesamiento se
+efectúan en paralelo para así dejar una mejor comprensión del texto.
+
+La comprensión lectora es abordada en los grados cuarto y quinto de primaria.
+Tomando los estándares de competencial4] el proceso de comprensión lectora
+se fortalecería realizando los siguientes pasos.
+
+= Leer diferentes tipos de texto
+= Comprender los aspectos formales y conceptuales de cada tipo de texto
+
+= [|dentificar la intención comunicativa de cada texto= Determinar estrategias para buscar, seleccionar y almacenar información
+= Utilizar las estrategias de búsqueda, selección y almacenamiento de información para tener una mejor comprensión textual
+
+2.1.2. Producción Textual
+
+La producción textual tiene como objetivo comunicar una idea, un punto de vista
+o una hipótesis dependiendo del tipo de producción textual oral o escrita a realizar, de acuerdo a las teorías de aprendizaje del modelo de Hayes][6] planteado
+en 1996 la producción textual tiene tres etapas; la planificación en la cual se lleva
+a cabo una lluvia de ideas por parte del escritor; la redacción donde el escritor
+toma las ideas de la etapa anterior las procesa buscando agruparlas en un contexto coherente para así redactarlas y la revisión de lo redactado buscando una
+retroalimentación para darle una mejora al texto.
+
+En los grados cuarto y quinto de primaria cuando se aborda la producción textual
+oral y la producción textual escrita se toman como guía los siguientes pasos de
+los estándares de competencial4].
+
+Para la producción textual oral tenemos los siguientes pasos:
+
+= Organizar las ideas
+
+= Elaborar estrategias para la exposición de las ideas
+= Establecer el léxico apropiado
+
+= Adecuar la entonación y la pronunciación
+
+= Producir texto basado en los pasos anteriores
+Para la producción textual escrita tenemos los siguientes pasos:
+
+= Elegir temas sobre el cual se va a producir el texto
+
+= Elaborar estrategia para diseñar el texto
+
+= Producción de la primera versión del texto
+
+= Revisión de la primera versión del texto y sugerencias para mejorarlo
+
+= Rescribir el texto a partir de observaciones y sugerencias2.1.3. Literatura
+
+Según los estándares de competencia [4] el objetivo de la literatura en los estudiantes de grado cuarto y quinto de primaria es despertar el pensamiento cognitivo para la elaboración de hipótesis de la lectura, entre los elementos que
+constituyen un texto literario y el contexto en el cual se desarrolla, teniendo como
+guía los siguientes pasos:
+
+= Leer diversos tipos de textos literarios
+
+= Reconocer en los texto literarios elementos como el tiempo, espacio, acción
+y personajes
+
+= Proponer hipótesis del texto literario
+= Relacionar las hipótesis que surgen de los diferentes tipos de texto leídos
+
+= Comparar diferentes tipos de textos literarios
+
+2.1.4. Software Educativo
+
+El software educativo tiene como objetivo servir de apoyo y brindar fortalecimiento en las competencias básicas[12] en el proceso formativo. Según Pere
+Márquez[20] hay varios tipos de software educativo entre ellos se resalta los directos y los indirectos.
+
+Los directos son aquellos que hacen preguntas a los estudiantes y juzgan de
+acuerdo a su respuesta y los indirectos en los cuales el estudiante es quien pregunta con el fin de aprender sin ser juzgado por el software.
+
+Pere Márquezl20] resalta que un software educativo debe tener cinco características esenciales:
+
+= Finalidad didáctica
+
+= Utilizar el ordenador
+
+= Ser interactivo
+
+= Enfoque pedagógico
+
+= Suplir las necesidades del docente
+
+= Individualizar el trabajo de los estudiantes
+
+= Fácil de usarPere Márquez[20] sustenta que los términos software educativo, programas didácticos y programas educativos se pueden ver como sinónimos ya que fueron diseñados para ayudar en el proceso de construcción del conocimiento, por esto
+clasifica los programas didácticos en diferentes grupos:
+
+= Tutoriales
+
+= Simuladores
+
+= Entornos de programación
+= Herramientas de autor
+
+Según Alejandra Zangara[23] el docente es una parte fundamental en el proceso
+de fortalecimiento del software educativo, pero su rol se ve modificado ya que
+no será la fuente de información primaria sino que servirá de apoyo en el proceso de construcción de conocimiento del estudiante. De acuerdo con Squires
+y McDougall[24] el docente tendrá diferentes funciones para estimular el aprendizaje de sus alumnos, como proveedor de recursos organizando el material de
+clase, como organizador un ejemplo podría ser con las actividades de cara al
+software educativo estipulando en tiempo de realización, como tutor trabajando
+con cada alumno en mejorar los aspectos en los que demuestre más debilidad,
+como investigador el software educativo por lo general proveerá al docente de las
+debilidades de cada alumno lo cual le ayudara a implementar nuevos métodos
+de aprendizaje y como facilitador del aprendizaje de los estudiantes.
+
+2.1.5. Tecnologías para la Web
+
+El proyecto se desarrolla utilizando una arquitectura Backend-Frontend.
+
+Backend: es lo que se encuentra en el servidor el cual procesa las peticiones
+que el usuario envía, además de realizar la comunicación con la base de datos
+para ejecutar operaciones sobre ésta y devolver el resultado al Fronend. En este
+proyecto se utilizó en el Backend el motor de base de datos MySQL! y el Framework Djangd*|basado en Pythorfl|
+
+Frontend: Es lo que se encuentra en el cliente, se encarga de darle forma a
+lo que el usuario percibe en su ordenador además de tomar los datos de las
+peticiones realizadas para enviarlos al Backend a ser procesados, también provee todo el diseño de la interfaz gráfica y hace que sea más fácil e intuitiva la
+
+ 
+
+    
+
+Ver:
+
+https: //www.python.org/interacción con el usuario. En el Frontend se utilizó HTML3?*] JavaScripiP] AJAX?]
+ar Ad para darle el estilo a la interfaz gráfica se utilizó el Framework Boots
+trap y el lenguaje CSS]
+
+En la siguiente figura se muestra cómo se lleva a cabo la interacción entre el
+Backend y el Frontend.
+
+WISITORS
+
+FRONT BACK
+ENT: ENT:
+presentation presentation
+
+layer layer
+
+huisiness and
+data access
+layers
+
+ 
+
+Figura 1: Interacción Backend-Frontend
+
+DJANGO[25]
+
+Django es un framawork Modelo Vista Template (MTV[30]) basado en el lenguaje de programación python de código abierto. Django hace que sea más fácil,
+más rápido y con menos código la construcción de aplicaciones web, Django se
+encarga de procesar las peticiones del usuario además de la interacción con la
+bases de datos y enviar los valores a la interfaz gráfica (templates).
+
+JAVASCRIPT|[26]
+
+Javascript es un lenguaje muy popular para la programación web, su sintaxis es
+muy similar a la de los lenguajes de programación Java, C y C++, este permite
+el manejo de eventos, la manipulación de componentes de la interfaz gráfica y la
+construcción de animaciones o juegos con el objeto canvas de HTML5. También
+es un lenguaje interpretado por lo que no es necesario compilar el código para
+
+http: //ww.w3c.es/Divulgacion/html1/logo/
+http: Librosweb. es Libro http://librosweb.es/libro/javascript
+
+ 
+
+ 
+ 
+
+“Ver:
+Ver:
+Ver: Betp://Tibrosueb.esejecutarlo sino que se puede probar directamente en el navegador. Se utiliza por
+lo general del lado del cliente (frontend) pero también se usas del lado del servidor por medio del intérprete o entorno de programación Node js[31].
+
+JQUERY[27]
+
+JQuery es una librería de javascript que permite el manejo de validaciones, eventos, animaciones y la manipulación de los componentes de la interfaz gráfica de
+usuario de una manera más sencilla y corta (en cuanto al código) que con Javascript, posee una API fácil de utilizar que funciona a través de una gran multitud de
+navegadores, la aparición de JQuery simplifico y redujo[32] considerablemente
+la cantidad de código javascript en las aplicaciones.
+
+AJAX[28]
+
+AJAX es una técnica para el desarrollo de aplicaciones web, se ejecutan en
+el cliente (frontend) mientras mantienen una comunicación asincrónica con el
+servidor (backend) en un segundo plano. AJAX es una combinación de cuatro
+tecnologías:
+
+= XHTML(HTML) y CSS: HTML lo que se le muestra al cliente y CSS lo que
+le da el diseño a la información a mostrar al cliente.
+
+= DOM: utilizado para interactuar con la información mostrada en el HTML.
+
+= XMLHttpRequest: es un objeto que permite el intercambio de información
+de manera asincrónica.
+
+= XML, JSON y EBML: formatos utilizados para la transferencia de información solicitados al servidor.
+
+Entonces Ajax es un término que se refiere al trabajo conjunto de las cuatro
+tecnologías anteriores.
+
+BOOTSTRAP[29]
+Bootstrap es un framework basado en HTML y CSS para el diseño de aplicacio
+nes web. Bootstrap posibilita que la interfaz gráfica sea intuitiva para el usuario.
+Bootstrap es compatible con la mayoría de navegadores web modernos.
+
+102.1.6. Metodología de Desarrollo
+
+Marco de Trabajo SCRUM[22]:
+
+SCRUM es un marco de trabajo ágil y flexible para la gestión del desarrollo de
+software, en este se ejecutan varias iteraciones en lo cual cada iteración da como resultado un incremento del progreso del producto final y genera un sprint. En
+este marco de trabajo hay tres roles principales que se explicaran a continuación:
+
+= Product Owner: es el que representa el cliente, es el que realiza las historias de usuario para que el equipo SCRUM entienda lo que el cliente quiere.
+
+= ScrumMaster: es aquel que define con el equipo de desarrollo que se debe
+generar en el siguiente sprint asegurándose de que se cumpla este objetivo.
+
+= Equipo de desarrollo: son aquellos que tienen la responsabilidad de realizar y entregar el producto.
+
+Las iteraciones de los sprint tiene su orden de tareas; en el primer día se hace
+una selección de requisitos o requerimientos los cuales se van a desarrollar en
+el sprint, después se realiza un planificación de la iteración en la cual se genera
+un lista de tareas necesarias para cumplir con los requerimientos seleccionados,
+en una reunión con el ScrumMaster las tareas se asignan a cada miembro del
+equipo de desarrollo. Cada día del sprint se realiza una reunión en la que se
+analiza lo que cada miembro avanzo con sus tareas y que se dispone a hacer.
+
+Algunos beneficios del marco de trabajo SCRUM son el cumplimiento de expec
+tativas, flexibilidad a cambios, mayor calidad del software, mayor productividad,
+predicciones de tiempos y reducción de riesgos.
+
+11AMA
+la aplicación
+
+       
+
+  
+
+Reunion
+mensual*
+
+ 
+
+A Ia). Entregable
+(EIC
+
+Sprint
+
+(iteraciones)
+
+Figura 2: lteraciones SCRUM
+
+122.2. Antecedentes
+
+Según Pere Marqués (1999) un software educativo es un programa para ordenador creado con el fin de ser utilizado como medio didáctico, para facilitar el
+proceso de enseñanza y fortalecer el proceso de aprendizaje de los estudiantes.
+El software educativo ha evolucionado a través de la historia, aportando cada
+vez en la formación educativa. El software educativo comienza[11] en Europa en
+la década de los 80, cuando expertos en el campo de la educación vieron la posibilidad de usar el software como una herramienta de apoyo para la formación
+educativa.
+
+Con el tiempo el software educativo ha ido evolucionando a gran medida en cada
+una de las áreas de enseñanza de la educación básica, ayudando al cumplimiento de los estándares de competencia[12] impuestos por el ministerio de educación colombianol13].
+
+Para el caso de la comprensión e interpretación lectora, la producción textual
+y la literatura se ha visto una gran evolución en el campo del software educativo,
+lo cual expondrá a continuación:
+
+En el campo del software educativo se evidencian algunas teorías para el mejoramiento de las áreas del lenguaje (comprensión e interpretación lectora, la
+producción textual y la literatura). Como la propuesta por el 1.T.E[14] en 1995
+en su software educativo Cognitiva lectoescritura el cual se basa en la neuropsicología[21] utilizando técnicas de inteligencia artificial para el mejoramiento
+continuo del aprendizaje.
+
+Otro software educativo es el e-PELS[33] propuesto por el laboratorio de la universidad de Santiago de Chile VirtuaLab[15]. El e-PELS es un programa de entrenamiento en lectura significativa con el cual se realizo un estudio experimental[16]
+con 20 alumnos de 4 de primaria divididos en dos grupos ambos con problemas de comprensión lectora, los resultados del estudio realizado confirmaron la
+hipótesis de que el grupo de alumnos que utilizaron el e-PELS mejoraron significativamente su nivel de comprensión lectora. VirtuaLab también ofrece otros
+software educativos[17] para el fortalecimiento en la compresión lectora y la producción textual.
+
+También se encuentra el juego didáctico Fondo Lector[18] desarrollado por Mariano Vindel, el cual está dirigido a estudiantes en la fase de desarrollo, para el
+fortalecimiento de la comprensión lectora, de los estudios literarios y del análisis
+de razonamiento critico de textos.
+
+Por último se encuentra el tutor inteligente TuinLec|19] desarrollado por el gru
+13po Psicotext de la universidad de valencia España, este tutor inteligente el cual
+implementa estrategias de psicología y técnicas de inteligencia artificial para enseñar competencias lectoras. TuinLec[19] incluye profesores y estudiantes virtuales que interactúan con el estudiante para proporcionar explicaciones ayudas
+y retroalimentación en el proceso de enseñanza.
+
+2.2.1. Revisión del estado del arte
+
+En esta sección se llevara a cabo la revisión de los antecedentes en cuanto a
+software educativo o juegos didácticos en el campo de comprensión e interpretación lectora, producción textual y literatura.
+
+A continuación se presenta un análisis sobre los diferentes juegos didácticos
+o software educativos presentados en el marco de antecedentes, este análisis
+tiene como función obtener las ventajas y las desventajas que cada uno de estos
+software ofrece.
+
+1. Software: Cognitiva Lectoescritura.
+Creador(es): Investigación tecnológica educación nuevos medios (|.T.E).
+
+Descripción: este software educativo está basado en la neuropsicología
+y utiliza técnicas de inteligencia artificial para el mejoramiento continuo del
+aprendizaje. Para los contenidos de cuarto y quinto de primaria se establece quince unidades didácticas con los cuales se busca el mejoramiento
+de la comprensión lectora, la gramática, la ortografía y el vocabulario. Esto se lleva a cabo realizando diferentes actividades sobre textos literarios
+establecidos en cada unidad.
+
+Ventajas:
+
+= Guía y cronograma muy bien estructurado.
+
+= Tiene actividades para la estimulación cognitiva.
+= Mejora continuamente la forma de enseñanza.
+
+= Utiliza diferentes tipos de textos literarios.
+
+Desventajas:
+
+= Se enfoca más que todo en la comprensión lectora y la literatura dejando un poco de lado la producción textual.
+
+= El programa de aprendizaje es muy rutinario y poco dinámico.
+
+142. Software: e-PELS.
+Creador(es): VirtuaLab.
+
+Descripción: e-PELS es un software educativo para mejorar la comprensión lectora. El software trabaja las áreas como identificación de tipos de
+texto, paráfrasis y vocabulario. Este software permite tener un registro de
+actividades para así medir su progreso en la comprensión lectora.
+
+Ventajas:
+
+=_ Se han realizado estudios que demuestran su efectividad.
+= Buenas estrategias de aprendizaje.
+
+Desventajas:
+
+= Entorno grafico muy sobrecargado, aunque se ha mejorado respecto
+a versiones anteriores.
+3. Software: Fondo Lector.
+Creador(es): Mariano Vindel.
+
+Descripción: es un juego didáctico que ayuda el mejoramiento de la comprensión lectora y el análisis de textos, se centra más que todo en el desarrollo del vocabulario. Utilizando el clásico juego del ahorcado ayudando el
+vocabulario en cuanto a sinónimos y antónimos, trabaja también la acentuación, la clasificación de palabras (agudas, esdrújulas, llanas y sobresdrújulas) y la clasificación de diptongos e hiatos.
+
+Ventajas:
+
+= Utiliza el juego del ahorcado generando un poco de dinamismo en el
+aprendizaje del usuario.
+
+Desventajas:
+=_ Solo se centra en el vocabulario tiene un guía de enseñanza muy reducida.
+
+= Interfaz poco dinámica.
+= Algunos módulos no funcionan correctamente.
+
+4. Software: TuinLec
+Creador(es): Grupo Psicotext
+
+Descripción: tutor inteligente el cual implementa estrategia de psicología e
+inteligencia artificial para enseñar competencias lectoras. Es basado en el
+esquema del informe PISA, TuinLec posee ocho módulos y dos fases. Los
+
+15primeros cuatro comprenden la fase de aprendizaje la cual enseña estrategias de competencias lectoras, los otros cuatro módulos están comprendidos en la fase de práctica donde se toma lo aprendido en la primera fase
+para ponerlo en práctica.
+
+Ventajas:
+= El usuario puede medir du progreso basándose en las estrellas que da
+como calificación TuinLec.
+= Interfaz gráfica muy amigable para el usuario.
+= [Tiene personajes virtuales que interactúan con el alumno, lo cual hace
+su proceso de construcción de conocimiento más didáctico.
+Desventajas:
+
+= A pesar de tener tutores virtuales hay poco acompañamiento presencial del docente, lo cual podría generar problemas en el proceso de
+construcción del conocimiento.
+
+163. Aspectos del desarrollo
+
+En este capítulo se mostrara el proceso del desarrollo del software bajo el marco
+de trabajo SCRUM.
+
+En el desarrollo de un software por lo general siempre hay cuatro etapas fundamentales las cuales son las siguientes:
+
+= Análisis: se definen las necesidades a desarrollar.
+= Diseño: se definen los procesos para dar solución a cada necesidad.
+
+= Desarrollo: se da solución a las necesidades teniendo en cuenta los procesos definidos.
+
+= Pruebas: se comprueba que el resultado del desarrollo ofrezca la solución
+a las necesidades planteadas.
+
+Se eligió el marco de trabajo SCRUM porque ofrece una gran variedad de ventajas en el desarrollo de un software tales como; la iteración constaten entre el
+equipo de trabajo y el cliente, con lo cual se puede hacer una retroalimentación
+ayudando a mejorar cada vez más la calidad del software, una fácil adaptación a
+cambios además de ofrecer una mejora en la productividad y eliminar el trabajo
+innecesario.
+
+En este proyecto se utilizaron las directrices de SCRUM definiendo cada sprint
+(iteraciones) el cual daría como resultado una entrega. En la reunión de entrega
+de cada sprint se ejecutaba la validación de los resultados obtenidos en cuanto a
+los objetivos propuestos, se hacía una retroalimentación de la cual se generaba
+un entregable de lo realizado en el sprint y por último se planteaban los objetivos
+de la siguiente iteración.
+
+Roles
+
+A continuación se definen los roles básicos que tuvo cada participante en este proyecto.
+
+17Product Owner Jorge Sandoval, Oscar Monedero
+
+Equipo de Desa- Jorge Sandoval, Oscar Mo
+rrollo nedero
+
+Tabla 1: Definición de Roles.
+
+ 
+
+En el marco de trabajo SCRUM no se define o impone lo que se debe realizar
+en cada una de las etapas del proceso de desarrollo de un software, lo único
+que se plantea es que el proceso que se haga en cada etapa (Análisis, Diseño,
+Desarrollo y pruebas) debe ser iterativo y generar un sprint.
+
+3.1. Analisis
+
+En la etapa de análisis del proyecto se ejecutaron ocho sprint dentro de los cuales
+se realizaron historias de usuario y requerimientos además del modelamiento de
+la solución.
+
+3.1.1. Especificación de los requerimientos
+
+A continuación se muestran algunos requerimientos los cuales plantean las necesidades a suplir, hay dos tipos de requerimientos no funcionales aquellos los
+cuales definen como debe funcionar la aplicación o software y funcionales los
+que detallan que debe hacer el software.
+
+En la Tabla 2 se muestran algunos requerimientos no funcionales y en la Tabla 3
+algunos Funcionales.
+
+18El sistema debe guardar de forma per- No funcional
+manente toda la información necesaria
+para su funcionamiento.
+
+El sistema debe poder ser accedido a No funcional
+través de un navegador (Firefox v. 21 en
+
+adelante, Google Chrome v. 29.0 en ade
+lante).
+
+El sistema debe contener una breve des- No funcional
+cripción del juego, como método de información para el usuario.
+
+El sistema asignará deberá contar con No funcional
+dos tipos perfiles uno administrador y
+otro por defecto.
+
+ 
+
+Tabla 2: Requerimientos no Funcionales.
+
+19rima Jean Iago
+
+MODULO AUTENTICACIÓN
+
+El sistema en el módulo autenticación, Funcional
+debe permitir el ingreso al sistema de un
+usuario ya registrado (ver anexo 1).
+
+MODULO USUARIO
+
+El sistema debe contar con un usuario Funcional
+inicial para su manejo.
+
+El sistema en el módulo usuario debe Funcional
+permitir crear un usuario (ver anexo 3),
+solo para tipo de perfil administrador.
+
+El sistema en el módulo usuario debe Funcional
+permitir buscar a un usuario (ver anexo
+3), solo para tipo de perfil administrador.
+
+El sistema en el módulo usuario debe Funcional
+permitir eliminar a un usuario (ver anexo
+3), solo para tipo de perfil administrador.
+
+El sistema en el módulo usuario, debe Funcional
+permitir editar a un usuario (ver anexo 3),
+solo para tipo de perfil administrador.
+
+ 
+
+Tabla 3: Requerimientos Funcionales.
+
+3.1.2. Historias de usuario
+
+A continuación se muestran algunas de las historias de usuario realizadas, las
+cuales se utilizan para representar un requisito de software, en las siguientes se
+presentan dos tipos de usuarios:
+
+= Estudiantes: son aquellos que ingresan a la aplicación a fortalecer sus conocimientos realizando las diferentes actividades presentadas en el juego.
+
+= Docentes: son aquellos que ingresan a la aplicación ya sea a observar
+estadísticas de rendimiento o a asignar calificaciones a sus estudiantes.
+
+= Administrador: es aquel usuario que tiene permisos sobre todo lo que
+tenga el sistema el cual puede realizar cualquier acción (eliminar, consultar,
+agregar y modificar información) dentro de la aplicación.
+
+20Historia de Usuario
+Numero Historia: 3 Usuario: Estudiante — Administrador- Docente
+Nombre historia: Autenticación
+
+Prioridad en negocio: Riesgo en desarrollo:
+
+Alta Medio
+
+Requerimiento: RQO06 Iteración asignada: 1
+Programador responsable: Jorge Sandoval — Oscar Monedero
+
+Descripción:
+Todos los usuarios deben contar con un nombre de usuario, que
+será diferente por cada uno; para ingresar al sistema se cuenta
+
+con una pantalla donde deben ingresar el nombre de usuario.
+
+Observaciones:
+Si el nombre de usuario no es válido no permitirá el ingreso al
+sistema y mostrará al usuario un mensaje indicando que el usuario
+
+no está registrado.
+
+ 
+
+Tabla 4: Historia de usuario Autenticación - Usuario: Estudiante - Administrador Docente
+
+21Historia de Usuario
+Numero Historia: 4 Usuario: Administrador
+Nombre historia: Administración del Sistema (CRUD)
+
+Prioridad en negocio: Riesgo en desarrollo:
+Alta Medio
+
+Requerimiento: RQ07, RQO08, RQO9, RQÍ10 Iteración asignada: 1
+
+Programador responsable: Jorge Sandoval — Oscar Monedero
+
+Descripción:
+El usuario administrador del sistema podrá realizar acciones como
+
+agregar usuarios, buscar usuarios, modificar usuarios y eliminar usuarios.
+
+Observaciones:
+
+Tabla 5: Historia de usuario para la Administración del sistema - Usuario: Administrador
+
+ 
+
+22Historia de Usuario
+Numero Historia: 10 Usuario: Estudiante
+Nombre historia: A1 (Ver anexo 5)
+
+Prioridad en negocio: Riesgo en desarrollo:
+Alta Medio
+
+Requerimiento: RQ22 Iteración asignada: 1
+
+Programador responsable: Jorge Sandoval — Oscar Monedero
+Descripción:
+El usuario arrastra cada palabra de la lista a los lugares vacíos de la oración
+
+el sistema la deja en ese espacio con un color diferente, si el usuario arrastra
+
+la palabra puesta en la oración a la lista el sistema quita la palabra de la
+
+oración y la pone en la lista; al tener ya la oración completa el sistema
+
+evalúa que palabras quedaron bien ubicadas y, ofrece una calificación.
+
+Observaciones:
+Cuando se muestre la calificación debe mostrar,al usuario que palabras
+quedaron mal ubicadas poniéndoles un color rojo y cuales quedaron bien
+
+poniéndoles un color verde
+
+ 
+
+Tabla 6: Historia de usuario para la Actividad 1 - Usuario: Estudiante
+
+23Historia de Usuario
+
+Numero Historia: 56 Usuario: Docente
+
+Nombre historia: Reportes
+
+Prioridad en negocio: Riesgo en desarrollo:
+Alta Medio
+
+Requerimiento: RQ68 Iteración asignada: 1
+
+Programador responsable: Jorge Sandoval — Oscar Monedero
+Descripción:
+El usuario elige el reporte el cual quiere observar y cliguea en el botón
+
+enviar, entonces el sistema deberá mostrarle una tabla con los datos
+
+requeridos y una gráfica de barras de los datos devueltos.
+
+Observaciones:
+
+ 
+
+Tabla 7: Historia de usuario para los Reportes - Usuario: Docente
+
+El documento completo de historias de usuario está contenido en el archivo
+anexo en la carpeta Analisis en el documento llamado Historias de Usuario.
+
+3.1.3. Modelamiento de la solución
+
+3.1.3.1. Modelos de enseñanza
+
+Un modelo de enseñanza tiene como función configurar, orientar y estructurar
+el proceso de educación en las aulas. Los modelos de enseñanza poseen componentes como la teoría en el cual se basa, las fases del modelo, el sistema
+social, incentivos, sistema de apoyo, objetivos y la evaluación.
+
+En este apartado analizaremos tres modelos de enseñanza, el modelo tradicional, el modelo conductista y el modelo constructivista.
+
+3.1.3.1.1. Metodología didáctica
+
+Los procesos de enseñanza aprendizaje han representado un aspecto crucial
+en la historia de la humanidad siendo objetos de múltiples estudios y teorías que
+han intentado descifrar el camino acertado para obtener logros significativos en
+
+24dichos procesos.
+
+La escuela ha sido uno de los espacios en los cuales los procesos de aprendizaje se gestan a partir de diferentes metodologías que buscan formar un sujeto
+integral que pueda adaptarse a la sociedad con múltiples saberes.
+
+Una de las teorías tradicionalmente más utilizada en los procesos de aprendizaje ha sido la conductista la cual se basa en las ideas de Ivan P. Pavlov (18491936).Esta teoría propone que el principio fundamental de todo proceso de enseñanza-aprendizaje se ve representado por un reflejo condicionado, es decir,
+por la relación asociada que existe entre la respuesta y el estímulo que la provoca. En general se considera el conductismo como una orientación clínica que se
+enriquece con otras concepciones.
+
+La concepción de esta teoría ha sido de gran influencia en el ámbito educativo,
+ya que sus preceptos se han incluido en el modelo de enseñanza tradicional, que
+se utiliza en los espacios escolares. De esta manera el proceso de aprendizaje
+en las instituciones educativas ha estado condicionado por las características del
+conductismo, promoviendo en los estudiantes el aprender por aprender, en memorizar y realizar los deberes escolares para a cambio recibir una recompensa
+que se traduce en una nota, de lo contrario el no responder por las tareas estudiantiles representaría un castigo de inmediato.
+
+Es decir que esta teoría se acerca a lo que paulo Freire llama una educación
+bancaria, en la cual se desconoce al estudiante con sus saberes previos y se
+considera que la educación se desarrolla en una sola vía en la cual el docente
+enseña al estudiante y no recibe nada a cambio, cuando en realidad según el
+autor la esencia misma de los procesos de enseñanza aprendizaje está en la
+riqueza de dar y recibir de ambos actores educativos, creando un espacio de
+intercambio de saberes en el cual a creatividad , la reflexión y la crítica se convierten en los pilares del proceso formativo.
+
+Complementando esta idea se trae a colación el siguiente párrafo de Freire
+(1990):
+
+“la práctica educativa es el proceso concreto, no como hecho consumado, sino como movimiento dinámico en el cual tanto la teoría como
+la práctica se hacen y rehacen en sí mismas, dado el contexto en el
+que se desarrolla y la dialogicidad entre los intervinientes, educandos
+y educadores” (Freire;1990: 28).
+
+El autor destaca la importancia de percibir el proceso educativo como un camino
+constante e inacabado, que esta propenso al cambio y que no es estático; es
+
+25decir, que la acción de educar nunca termina, y siempre está en permanente
+construcción y reconstrucción en el marco del dialogo activo de quienes convergen en este proceso.
+
+Dichos preceptos aportados por freirer(1990), no han sido en su mayoría implementados en las instituciones educativas, por el contrario los escenarios educativos se han centralizado en una educación bancaria dirigida a los logros académicos y a la incapacidad de crear y reconocerse como sujetos críticos y activos en
+el espacio formativos, siendo coherente con uno de los preceptos pertenecientes
+a la teoría conductista.
+
+En este sentido, el conductismo ha generado que las prácticas escolares sean
+ajenas al estudiante, se desarrolle únicamente la memoria, cree dependencias
+del alumno a estímulos externos, la relación educando-educador sea sumamente pobre, la evaluación se asocie a la calificación y suele responder a refuerzos
+negativos.
+
+Por ello, a pesar del gran auge y aceptación que ha tenido la teoría conductista a
+lo largo de los años, han surgido críticas respecto a sus ideas, se ha cuestionado
+su uso en los procesos de aprendizaje, argumentando la necesidad de realizar
+la práctica de la enseñanza desde la interlocución del estudiante y el profesor,
+desde la participación activa de los alumnos, promoviendo en ellos la creatividad
+y la crítica reflexiva
+
+Dichas críticas han generado que emerjan nuevas alternativas para abordar los
+procesos de enseñanza, tal es el caso del constructivismo, el cual supone una
+opción diferente que reconoce en el estudiante sus saberes previos, su capacidad creativa y reflexiva, y promueven su activa participación en el proceso formativo. El modelo constructivista, permite además, la interacción permanente
+del sujeto con el conocimiento, y posibilitan que entre el estudiante y el docente
+exista una constante retroalimentación, que fortalece de manera importante la
+practica educativa. La educación desde la perspectiva de esta teoría, no se mide
+por logros cuantificables, si no que el estudiante se apropia de su formación y de
+manera autónoma maneja su ritmo de aprendizaje.
+
+Es así, como en muchas instituciones educativas se ha implementado la teoría
+constructivista en la práctica formativa, apostándole a nuevas formas de enseñar
+y aprender, proponiendo el fortalecimiento de sujetos diferentes que no solo sean
+receptores de información, si no que se conviertan en parte activa de su propia
+educación, que disfruten el aprender mediante lo vivencial, desde sus propias experiencias, teniendo nuevas formas de acercarse al conocimiento. Sin embargo,
+en la práctica educativa hacen falta estrategias pedagógicas que realmente per
+26mitan implementar la teoría constructivista, y aunque esta sea pilar del proceso
+educativo, a veces las metodologías siguen obedeciendo a la teoría tradicional,
+y no facilitan la interlocución de estudiante con su propio proceso. Además, se
+enfocan en medir al estudiante a través de logros académicos, de evaluaciones
+que no ven de manera integral el proceso educativo, desconociendo todas las
+dimensiones que se relacionan en este. Teniendo en cuenta este hecho y reconociendo que en la actualidad estamos abocados a una era informática en
+la cual las herramientas virtuales y digitales facilitan las actividades cotidianas
+y hacen parte del desarrollo personal de cada persona, se hace necesario entonces adoptar este tipo de herramientas informáticas también en los procesos
+formativos, desde una perspectiva constructivista , es decir desde la posibilidad
+de crear espacios de reflexión y critica y participación activa en el que hacer de
+la educación.
+
+De esta manera, las TICs, aparecen como una posibilidad, una nueva alternativa a la construcción del que hacer educativo, ofreciendo grandes ventajas para
+facilitar en los estudiantes la capacidad de aprender, de reconocer sus saberes
+previos, y de llevar su proceso al ritmo que lo requieran, de fortalecer habilidades
+comunicativas y además estar a la vanguardia de las nuevas tecnologías.
+
+Por lo anterior, el enfoque constructivista resulta coherente con el objetivo y la
+pedagogía utilizada en la creación del software educativo, ya que este software está diseñado para fortalecer el proceso de enseñanza aprendizaje desde la
+promoción permanente de la autonomía del estudiante , de su creatividad , de
+su reflexión, desde la constante interacción entre el estudiante y el conocimiento,
+haciendo del ejercicio de aprendizaje, un juego didáctico interactivo que reúne
+además las características versátiles y atractivas que ofrecen las herramientas
+informáticas de la actualidad.
+
+Es así como las ventajas de que el software parta de la mirada constructivista, se relacionan con el hecho de que permite dinamizar los procesos educativos
+en los espacios escolares, aportando una nueva forma de aprender y de consolidar los aprendizajes de lectura y escritura en los estudiantes. Además le permite
+al docente complementar su metodología, identificar las dificultades comunes en
+sus estudiantes y hacer más amena y divertida la clase, convirtiendo el escenario
+
+escolar en una verdadera educación interactiva, autónoma, recíproca e inacabada.
+
+3.1.3.2. Temas a desarrollar en el juego
+
+A partir de los estándares de competencias establecidos por el ministerio de
+educación en el área de lenguaje en los grados cuarto y quinto de primaria, se
+
+27establecen las competencias y contenidos a utilizar en el juego.
+
+A continuación se enumeran y se presentan las competencias elegidas para
+abordar en el juego.
+
+1. Descubrir las diversas funciones en las palabras.
+
+Las palabras tienen distintas funciones en la oración, pueden ser sustantivos, verbos, adjetivos, adverbios entre otros. También hay palabras con
+igual pronunciación pero con funciones gramaticales distintas.
+
+Actividades Planteadas:
+
+= Dar una oración incompleta con uno o varios campos en blanco, proveer de varias palabras al estudiante y que este arrastre a los espacios
+en blanco la o las que crea correctas, para generar una oración coherente.
+
+= Dar una oración desordenada al estudiante y que este la ordene de
+manera coherente.
+
+2. Reconocer las funciones de las palabras sinónimas y antónimas, y diferenciarlas.
+
+Palabras sinónimas son aquellas que tienen un significado similar aunque
+su pronunciación sea diferente. Las antónimas son aquellas que tienen un
+significado contrario u opuesto.
+
+Actividades Planteadas:
+
+= Se mostrara al usuario una lista de palabras las cuales van pasando
+a una determinada velocidad por la pantalla en el campo de texto el
+usuario deberá escribir ya sea su sinónimo o antónimo y el sistema
+eliminara la palabra de la pantalla.
+
+= Juego del ahorcado a partir de una imagen hallar ya sea su sinónimo
+o antónimo, jugando con las reglas del ahorcado.
+
+3. Establecer semejanzas y diferencias entre las palabras homófonas y
+homónimas.
+
+Palabras homófonas son aquellas que se pronuncian de la misma manera
+aunque su ortografía o significado sea diferente. Las palabras homónimas
+son aquellas que se pronuncian o escriben de igual manera pero su significado es distinto.
+
+28Actividades Planteadas:
+
+= Elegir ya sea el homónimo o el homéfono de una palabra, a partir de
+una opción de múltiples respuestas.
+
+. Reconocer las partes del texto: inicio, nudo y desenlace.
+
+El inicio es donde se presentan todos los personajes y sus propósitos. Pero
+fundamentalmente, donde se presenta la normalidad de la historia.
+
+El nudo es la parte donde se presenta el conflicto o el problema de la historia, toma forma y suceden los hechos más importantes.
+
+El desenlace es la parte donde se suele dar la solución a la historia y finaliza la narración.
+
+Actividades Planteadas:
+= Reproducir el sonido de un cuento corto al estudiante y realizarle preguntas cerradas para que identifique el inicio, nudo y desenlace.
+
+= Dar un cuento corto con sus párrafos desordenados y que el pinte de
+diferente color el inicio, nudo y desenlace.
+
+= Entregar al estudiante el nudo de un cuento y que él se encargue de
+escribir el inicio y el desenlace.
+
+. Reconocer elementos narrativos como espacio, tiempo, acción y personajes.
+
+El espacio es el lugar donde se desarrollan los acontecimientos narrados
+en el texto.
+
+El tiempo puede ser tiempo verbal e indicador de tiempo, estos tienen en
+cuenta la duración sucesión y ordenación en que se producen los acontecimientos en el texto.
+
+La acción es la trama es decir el conjunto de acontecimiento en los cuales
+se centra el texto.
+
+Los personajes son los que llevan a cabo la acción del texto.
+
+Actividades Planteadas:
+
+= Dar un texto al estudiante, a partir de este identifique ya sea el tiempo
+la acción, el espacio y lo personajes.
+
+= Preguntas de múltiple respuesta sobre personajes, tiempo, acción o
+espacio en el texto.
+
+29= Ahorcado con preguntas sobre personajes, tiempo, acción o espacio
+del texto.
+
+6. Identificar la acentuación de las palabras teniendo en cuenta aspectos
+ortográficos (clasificación de las palabras según su acento: agudas,
+graves y esdrújulas).
+
+El acento es la intensidad de la voz para destacar una sílaba respecto a las
+demás. Algunas palabras llevan una tilde identificando el acento ortográfico.
+Todas las palabras llevan acento pero no todas llevan tilde.
+
+Agudas son las palabras que llevan la acentuación en la última sílaba
+Graves, palabras que llevan la acentuación en la penúltima sílaba.
+
+Esdrújulas son las palabras en las que la acentuación está en la antepenúltima sílaba (siempre llevan tilde).
+
+Actividades Planteadas:
+= Entregar un listado de palabras en el cual el estudiante se encargue
+de marcar las tildes en los casos que sea necesario.
+
+= Entregar al estudiante un listado de palabras y que el estudiante las
+encierre en un cuadrado, circulo o triangulo según su acentuación
+(agudas, graves y esdrújulas).
+
+7. Leer e interpretar textos descriptivos, narrativos, liricos o poéticos.
+
+El texto narrativo hace referencia a contar o referir una historia, puede ser
+verídica o ficticia.
+
+En la lírica habitualmente el poeta expresa sus sentimientos, pensamientos,
+estados de ánimo o vivencias, aunque también las puede atribuir a otro
+sujeto diferente.
+
+El texto descriptivo tiene como finalidad informar de temas de interés general para un público no especializado, sin conocimientos previos.
+
+Actividades Planteadas:
+
+= Dar un texto narrativo, lírico o expositivo y acerca de este hacer preguntas con varias opciones de respuesta.
+
+= Dar 3 textos al estudiante y que este se encargue de unir cada uno
+con el tipo de texto correspondiente.
+
+8. Identificar las características de los textos descriptivos, narrativos, liricos o poéticos.
+
+30Los textos narrativos poseen características; representan una sucesión de
+acciones en un tiempo y espacio determinado, poseen una estructura en los
+cuales se ven reflejados los momentos de narración inicio, nudo y desenlace siguen secuencias entre otros.
+
+En los textos descriptivos se detalla un objeto una persona, un espacio o
+un animal consiste en mostrar las distintas partes y circunstancias de lo
+que se haya tomado como tema, en estos textos se evidencian dos tipos de
+descripción la objetiva en la que se describe la información incuestionable
+de un objeto y conocida universalmente, la subjetiva en la cual se agregan
+las valoraciones o impresiones que se tienen del objeto.
+
+En los textos liricos el autor trata de transmitir un estado de ánimo es decir
+trata de expresar su sentimiento, no desarrolla una historia, también poseen
+cierta brevedad además de un lenguaje bastante elaborado.
+
+Actividades Planteadas:
+= Poner las características de cada uno de los textos y que el estudiante
+los una con el tipo de texto al que corresponde.
+
+= Dar un texto incompleto en el cual se esté describiendo las características de cada uno de los textos y poner palabras para que el estudiante
+rellene la información faltante.
+
+. Diferenciar el tipo de lenguaje utilizado en diversos textos.
+
+En la sociedad se encuentran múltiples formas, modos y costumbres de
+hablar y de escribir.
+
+Lenguaje Oral: Hablar es la forma de comunicación más usada por los seres humanos, independientemente del idioma.
+
+Lenguaje Escrito: Es la representación del pensamiento por medio de signos gráficos convencionales.
+
+Lenguaje Gráfico o Visual: Dentro de estos tipos de lenguajes, depende
+de la interpretación que le da cada individuo al percibir ciertas imágenes o
+gráficos.
+
+Lenguaje Gestual: Es la expresión de un rostro que es el reflejo de un estado anímico.
+
+Actividades Planteadas:
+
+= Juego del ahorcado a partir de una imagen hallar el tipo de lenguaje
+utilizado (gestual, oral, escrito o gráfico), jugando con las reglas del
+ahorcado.
+
+31= Dar una lista con imágenes y textos y al frente una lista de tipos de
+lenguajes unir cada imagen o texto con su correspondiente tipo de
+lenguaje.
+
+10. Identificar la intención comunicativa de los textos que leo.
+
+Es el objetivo que se persigue cuando se habla, escribe o emite algún tipo
+de mensaje.
+
+Texto argumentativo: Defiende ideas y expresa opiniones.
+
+Texto descriptivo: Cuenta cómo son los objetos, personas, lugares, animales, sentimientos.
+
+Texto informativo: Explica de forma objetiva unos hechos.
+Texto dialogado: Reproduce literalmente las palabras de los personajes.
+Texto literario: Relata hechos que suceden a unos personajes.
+
+Actividades Planteadas:
+
+= Dar unas cajas con cada uno de los tipos de intención comunicativa y
+varios textos los cuales deben ser arrastrados a la caja correspondiente.
+
+= Ofrecer un texto, vídeo o audio y unas opciones de las cuales el estudiante puede seleccionar varias según la intención comunicativa del
+material.
+
+11. Caracterizar el resumen y el esquema conceptual como estrategias
+que selección de información.
+
+El resumen es la redacción de un texto nuevo a partir de otro texto, exponiendo las ideas principales o más importantes del texto original de manera
+abreviada.
+
+Los esquemas conceptuales son Organizadores Gráficos que caracterizan,
+jerarquizan y relacionan información, recurriendo a descripciones detalladas y breves explicaciones.
+
+Actividades Planteadas:
+
+= Se enseñan varios párrafos numerados cada uno, y luego se pide al
+alumno que organice de acuerdo a un esquema conceptual, teniendo
+en cuenta la numeración. Si se equivoca sonara una alarma.
+
+= Se pone el título de un determinado tema y se colocan en columnas
+dos resúmenes del mismo. Uno de ellos es válido, y el otro no cumple
+
+32con las características del resumen. El alumno debe señalar cuál es el
+correcto.
+
+= Se entregan unas palabras para que el estudiante complete 3 resúmenes rellenando los espacios vacíos. Al frente se colocan nombres de
+
+varios temas que él debe relacionar con flechas de acuerdo al resumen realizado.
+
+12. Enriquecer mi vocabulario para producir textos orales y escritos cada
+vez mejores.
+
+Conjunto de palabras que forman parte de un idioma específico, conocidas por una persona.
+
+Actividades Planteadas:
+
+= Dar una palabra y tres significados. Uno de ellos será el correcto. El
+estudiante debe señalar cuál es el significado que corresponde a dicha
+palabra.
+13. Reescribir los textos a partir de las propuestas de corrección.
+
+En este tema el alumno mejorara su habilidad para la redacción, ya sea
+organizando textos o reescribiéndolos de manera coherente, también se
+trabajar un poco el fortalecimiento del vocabulario del estudiante.
+
+Actividades Planteadas:
+
+= Ofrecer un texto que contenga unas incoherencias y que el estudiante
+mediante sus conocimientos reescriba u organice el texto de la manera
+correcta.
+
+= Dar un texto con palabras subrayadas, el estudiante debe reescribir el
+texto poniendo los antónimos de cada una de las palabras subrayadas.
+
+14. Reconocer algunas de las partes que conforman un trabajo escrito.
+
+Las partes de un trabajo escrito según las normas Icontec son:
+
+Cubierta: contiene el título del trabajo, nombre de los autores, institución y
+la ciudad y el año.
+
+Portada: contiene los mismos elementos que la cubierta y se le agrega el
+tipo de texto realizado.
+
+Contenido: contiene un índice los títulos de las respectivas partes del trabajo.
+
+Glosario: lista de términos poco comunes con sus definiciones.
+
+3915.
+
+16.
+
+Resumen: presentar de manera concisa y abreviada el contenido.
+
+Referencias bibliográficas: presentación de las fuentes documentales consultadas.
+
+Actividades Planteadas:
+
+= Dar un texto al usuario y que este saque las palabras desconocidas o
+que crea poco común y realizar un glosario con ellas.
+
+= Dar al usuario un trabajo con imágenes que contenga una cubierta,
+una portada, un contenido, un glosario, un resumen y unas referencias
+bibliográficas organizados aleatoriamente y que el usuario lo organice
+de acuerdo como debe ir cada parte en el trabajo escrito.
+
+Consultar y recopilar información de manera eficaz para el desarrollo
+de un tema.
+
+Para la recopilación de información se conocen dos tipos de fuentes
+Primaria la cual consta con información original no abreviada ni traducida.
+
+Secundaria la cual se basa en las referencias que ayudan en el proceso de
+investigación.
+
+Esta información se puede reunir por medio de fichas bibliográficas, encuestas cuestionarios y entrevistas.
+
+Actividades Planteadas:
+
+= Dar varias situaciones de investigación al usuario y varias opciones de
+respuesta (métodos de recopilación de información) y que este decida
+cuál será el más acertado a implementar.
+
+= Proveer al usuario ya sea con una fuente de información primaria o secundaria y que este seleccione la información valiosa (lluvia de ideas);
+este punto deberá ser calificado por el docente.
+
+Utilizar adecuadamente los signos de puntuación en mis producciones escritas.
+
+Los signos de puntuación son una parte muy importante en cualquier redacción o construcción textual ya que errar en la ubicación u omitirlos en el
+texto podría cambiar el significado de lo que se quiere expresar. Dentro de
+los signos de puntuación se en encuentran el punto que tiene como función
+señalar el final de un párrafo separar ideas o finalizar un texto, la coma la
+cual representa una breve pausa en el relato, el punto y coma que se utiliza para realizar una pausa más grande que la de la coma, los dos puntos
+
+34centra la atención en lo siguiente que se mencionara, las comillas aquellas
+que citan ideas de tipo investigativo entre otros.
+
+Actividades Planteadas:
+
+= Dar un párrafo al usuario y que en diferentes partes este escoja el
+signo de puntuación que debe ir teniendo la opción de 4 signos de
+puntación basándose en el método de elección múltiple.
+
+= En este punto el usuario debería producir un párrafo con una adecuada
+implementación de los signos de puntuación; este párrafo deberá ser
+calificado por el docente.
+
+17. Escribir, en forma coherente, un informe a partir de la información consultada.
+
+Para escribir un informe de forma coherente, no solo se debe consultar la
+información acerca del tema que va a tratar, se deben tener en cuenta los
+siguientes pasos:
+
+= Entender la información dada inicialmente y tener claridad sobre lo que
+debe cubrir el informe.
+
+= Saber que tanto se conoce del tema, buscar más información y tomar
+nota de lo más relevante.
+
+= Tener en cuenta la estructura del informe:
+e Introducción: Breve descripción del tema que se va a tratar.
+
+e Desarrollo: Se da a conocer la información investigada para la realización del informe y se muestra su debido análisis.
+
+e Conclusión: Se presentan los resultados obtenidos.
+
+Actividades Planteadas:
+
+= Dar al usuario varias ideas y un tema y que este elija las ideas que
+servirían para redactar un texto sobre el tema.
+
+= Dar al usuario un texto desorganizado y que este organice las ideas
+de manera coherente.
+
+= Dar información consultada al usuario y que este realice un texto a
+partir de la información teniendo en cuanta que el orden de ideas sea
+coherente. este punto deberá tener el acompañamiento del docente el
+cual debe asignar una calificación.
+
+3918. Producir textos descriptivos a partir de la observación y la organización coherente de las ideas.
+
+En este tipo de texto se trata de describir todos los aspectos de la realidad a través del lenguaje se pueden distinguir dos tipos de descripción la
+objetiva y la subjetiva. Descripción objetiva: el autor permanece imparcial
+frente a lo descripto. Descripción subjetiva: el autor refleja sus sugerencias
+en el objeto descripto. La estructura de un texto descriptivo está compuesta
+por idear ordenar y redactar.
+
+Actividades Planteadas:
+= Dar al usuario párrafos de textos y que este elija el tipo de descripción
+en ellos.
+
+= Dar al usuario varios temas y que a partir de este lleve a cabo una
+producción textual de un texto descriptivo; este punto deberá tener el
+acompañamiento del docente el cual debe asignar una calificación.
+
+A continuación en la figura se muestra el orden en el que se abordara cada
+competencia dentro del juego.
+
+36Figura 3: Diagrama de Competencias
+
+3.1.3.3. Método de calificación
+
+A Cada actividad se le asignara una puntuación de entre cero y cien, una actividad se aprobara con una puntuación mayor o igual a setenta y cinco en la
+siguiente tabla se muestra cada método de calificación que se utilizó en estas
+actividad.
+
+3/ACTIVIDADES MÉTODO DE CALIFICACIÓN
+
+Cuatro En esta actividad habrá tres factores palabras erróneas (e), palabras
+acertadas (a) y palabras faltantes
+(f). En la cual cada palabra mostrada en la actividad tendrá el mismo
+peso (porcentaje p), para calcular
+la calificación se utilizara la fórmula 1.
+
+Cinco, Diez, Veinte En esta actividad habrá dos factores letra erróneas (e), letra acertadas (a). En la cual cada letra en
+la actividad tendrá el mismo peso
+(porcentaje p), para calcular la calificación se utilizara la fórmula 2.
+
+Uno, Tres, Siete, Ocho, Nueve, Habrá dos factores aciertos (a) y
+Once, Doce, Catorce, Quince, errores (e), para calcular la califiDieciséis, Diecisiete, Diecinue- cación se utilizara la fórmula 3.
+
+ve, Veintidós, Veintitrés, Vein
+ticuatro, Veintiséis, Veintisiete,
+
+Veintiocho, Veintinueve, Treinta
+
+y dos, Treinta y tres, Treinta seis,
+
+Treinta y siete, Treinta y nueve,
+
+Cuarenta y tres, Cuarenta y cin
+CO
+
+Trece, Treinta y cuatro, Treintaio- Esta calificación será emitida por el
+cho, Cuarenta y uno, Cuarenta y docente desde la aplicación.
+cuatro, Cuarenta y seis
+
+Dieciocho En esta actividad habrá tres factores errores (e), aciertos (a) y palabras faltantes (f). En la cual factor
+tendrá en mismo peso (porcentaje
+p), para calcular la calificación se
+utilizara la fórmula 4.
+
+ 
+
+Tabla 8: Métodos de Calificación.
+
+38Cl = (px a) — z
+Cl= (pxa) — [ex 7]
+100
+Cl=ax aro
+Cl = (px a) — SEE
+
+393.2. Diseño
+
+En la etapa de diseño del proyecto se ejecutaron ocho sprint en los cuales se
+realiza el diseño de la base de datos que contiene el diagrama entidad relación
+y el modelo relacional, además del diagrama de clases.
+
+3.2.1. Diagrama entidad relación
+
+El diagrama entidad relación es un componente fundamental dentro del desarrollo de una aplicación, ya que permite establecer cómo será el manejo del flujo
+de datos, además de garantizar la integridad referencial y proveer herramientas
+que garantizan evitar la duplicidad de registros en la base de datos, este también proporciona una visión muy detallada y fácil de entender de la relación de
+la información teniendo una mejor disponibilidad y una mayor coherencia de los
+datos.
+
+Para este trabajo de grado se diseñó la base de datos con su respectivo modelo entidad relación, para la administración de la información de los distintos
+usuarios (Estudiante, Docentes y Administrador) y permitir la realización de las
+acciones de cada usuario de una manera segura tales como:
+
+= La creación, edición, búsqueda y eliminación de información en el caso de
+usuario administrador o docente.
+
+= Permitir la generación de reportes del desempeño de estudiantes para los
+docentes.
+
+= Permitir la realización de actividades de los estudiantes y guardar registro
+de estas.
+
+3.2.1.1. Finalidad de la base de datos
+
+La base de datos de este trabajo de grado contiene:
+
+= La información de los diferentes usuarios para proporcionar el perfil correspondiente con sus respectivos permisos, esta información es útil para
+gestionar en caso de perdida de contraseña de los docentes además de establecer la relación entre los estudiantes y su docente, también permite que
+el docente asigne calificaciones a sus estudiantes en las actividades que
+sea requiera emitirla, además de permitir a los docentes ver estadísticas de
+rendimiento de los estudiantes.
+
+40= La información de las actividades y de los tipos de actividad, esta es utilizada para a partir de un identificador único que posee cada actividad obtener y proveer al estudiante con exactitud la actividad a realizar, además
+de obtener y validar los datos para que el sistema emita la calificación correspondiente de la actividad, esto solo en caso de que esta calificación no
+necesite ser emitida por el docente.
+
+= La información de progreso de los estudiantes en cada una de las distintas
+actividades, la cual es utilizada para generar estadísticas de rendimiento
+(por actividad, por estudiante, por tipo de actividad o por competencia) y
+diferentes tipos de reportes los cuales el docente puede revisar para encontrar fortalezas o debilidades de sus estudiantes.
+
+3.2.1.2. Almacenamiento y obtención de información
+
+Los datos para los docentes serán escritos por los mismos docentes o por el
+usuario administrador y para los estudiantes por el docente o por el usuario administrador a través de los formularios que ofrece la aplicación; la información
+podrá ser modificada, accedida y eliminada por el usuario administrador o por
+los docentes.
+
+El juego tendrá acceso a la información de las actividades, la cual utilizara para
+probar los conocimientos del estudiante; también guardara registro de cada actividad realizada por el estudiante con su respectiva calificación, información la
+cual se empleara para la generación de reportes que se mostrara a los docentes.
+
+La información particular de las actividades, los tipos de personajes y los recursos de la actividad (textos, preguntas y respuestas) como tal solo podrán ser
+agregados, modificados y eliminados por el usuario administrador.
+
+A continuación en la figura se muestra el diagrama entidad relación del proyecto.
+
+411
+1 . Cora
+Estudiante
+Calificada
+
+1
+1
+Juego_Estado
+
+  
+
+Actividades
+
+AN
+Estudiante_progreso Actividades_tipo
+
+Figura 4: Diagrama Entidad Relación
+
+  
+
+El diagrama entidad relación completo se puede encontrar en el archivo anexo
+en la carpeta Diseño en la imagen llamada Diagrama Entidad Relacion.
+
+A continuación en la figura se muestra el modelo relacional resultante del diagrama entidad relación de la figura anterior.
+
+42Personaje
+
+ 
+
+Color_cabello
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+forma_cara Forma_cabello Ropa
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Estudiante
+Nick Nombre Apellidos
+Actividades
+ID Tipo Recurso Respuesta
+Docente
+ick Nombre Apellidos Contrasena
+Estudiante_Actividad
+ld Nick_usuario ID_actividad Puntaje Tipo_actividad
+Docente_Estudiante
+ld Nick_docente | Nick_estudiante
+Estudiante_Personaje
+| ld | Nick estudiante ID_personaje |
+Actividades_Calificacion_Docente
+ld Nick_docente | Nick_estudiante Id_actividad Tipo_actividad Respuesta Calificada
+Actividades _Tipo
+ld | Tipo Competencia Descripcion Tipo_actividad
+Estudiante_Progreso
+ld | Id_actividad | Nick estudiante Calificacion Respuestas_buenas | Respuestas_malas Fecha_hora
+
+ 
+
+ 
+
+ 
+
+ 
+
+Juego_Estado
+
+ 
+
+Nick_estudiante | Numero_mapa Coordenada_y
+
+Figura 5: Modelo Relacional
+
+433.2.2. Diagrama de clases
+
+El diagrama de clases es fundamental dentro del desarrollo de un proyecto, ya
+que ayuda a tener una visión más estructurada del sistema además de mostrar
+cómo se relaciona cada clase o subsistema.
+
+El diagrama de clases de este proyecto está divido en dos partes Backend (se
+encarga de la comunicación con el servidor) y Frontend (se encargar de la comunicación con el usuario) las cuales mantienen una comunicación constante.
+
+A continuación en la figura 23 se muestra el diagrama de clases del Backend
+y en la figura 24 el diagrama de clases del Frontend.
+
+ 
+
+Modelo
+
+Personaje | Estudiante |
+
+-id_personaje - nick
+- genero - nombre
+- color_piel - apellidos
+
+- color_cabello
+-forma_cara
+-forma_cabello
+
+ 
+
+  
+ 
+
+-id_actividad
+- tipo
+
+- recurso
+
+- respuesta
+
+Docente_Estudiante
+
+- nick_docente
+- nick_estudiante
+
+Actividades_Tipo
+
+- tipo
+
+- competencia
+- descripcion
+- actividad
+
+Estudiante_Personaje
+
+- nick_estudiante
+-¡d_personaje
+
+Vista Controlador
+
+Subir_Archivo - index()
+bruta E - inicial_estudiante()
+- inicial_docente()
+PA - agregar_calificacion_actividad()
+
+- Obtener_actividades_estudiante()
+-inicial_reportes()
+
+ 
+  
+ 
+ 
+
+Estudiante_Actividad
+
+- nick_estudiante
+-id_actividad
+
+- apellidos -tipo_actidad
+
+- COrreo - puntaje
+
+- contrasena
+
+Consultas
+
+- obtener_actividad()
+- cuenta_nueva_estudiante()
+
+ActividadesAdmin
+- list display
+-list_filter
+- search_fields
+
+- ordering
+
+- cuenta_nueva_docente()
+-ingresar()
+- guardar_calificacion_estudiante()
+
+ 
+
+Estudiante_Progreso Actividades _Calificacio
+-id_actividad n_Docente
+
+- nick_estudiante nick_docente
+
+- calificacion nick_estudiante
+- respuestas_buenas -id_actividad
+
+- respuestas_malas - tipo_actividad
+
+-fecha_hora - respuesta
+- calificada
+
+Estudiante_Personaje
+
+- nick_estudiante
+- numero_mapa
+- coordenada_x
+
+- guardar_actiidad_a_emitir_calificacion_docente()
+- emitir_calificacion_docente()
+- guardar_registro_calificaion_estudiante()
+
+- editar_estudiante()
+
+- eliminar_estudiante()
+- editar_docente()
+
+- eliminar_docente()
+
+- salir()
+
+- verificar_nick()
+
+ 
+  
+
+- editar_calificacion_emitida()
+
+- enviar_correo()
+- obtener_reporte()
+
+ 
+
+ 
+
+ 
+
+ 
+
+- coordenada_y
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figura 6: Diagrama de Clases Backend
+
+44A Á guardar_calificacion_docente
+
+Almacenimagenes
+
+ 
+
+Figura 7: Diagrama de Clases Frontend
+
+El diagrama de clases completo se puede encontrar en el archivo anexo en la
+carpeta Diseño en las imagenes llamadas respectivamente Diagrama de Clases
+Back-End y Diagrama de Clases Front-End.
+
+453.2.3. Diagrama de componentes
+
+A continuación en la figura se muestra el diagrama de componentes.
+
+Usuario
+
+E
+
+Si
+
+cio de Trabajo
+
+ 
+
+ 
+
+E |
+
+ 
+
+Navegador
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Modelo Estudiante
+
+ 
+
+Estudiante_Actividad
+
+ 
+
+ 
+
+Actividades_Califiacion
+_Docente
+
+Modelo Archivo
+
+Front-End
+Componentes Templates
+XAMPP 5] Bootstrap Vista de 5] Vista de pocos
+Autenticación
+HTMLS5 JavaScript Vista de Usuarios Vista de Esta
+JQuery Vista de acid Vista de Calificacion
+Controladores
+Controlador Controlador de
+Autenticación Docente
+Controlador ll Controlador 7
+Usuarios Estudiante
+Controlador de Controlador de
+Actividades Calificacion
+Back-End
+Componentes Vista Controlador
+DJango Base de Datos Datos vistán Datos vista
+de Autenticacion de Docente
+My SQL > Datos visté2] Datos vistes]
+de Usuarios de Estudiante
+Python Datos vii] Datos vistes
+de Actividades de Calificacion
+Modelos
+, Modelo Modelo
+Modelo Personaje Modelo Boceste Estudiante_Personaje Actividades_Tipo
+5 Modelo Modelo
+
+ 
+
+ 
+
+ 
+
+E |
+
+Modelo Actividades
+
+ 
+
+ 
+
+ 
+
+ 
+
+E]
+
+Modelo
+Docente_Estudiante
+
+ 
+
+ 
+
+ 
+
+E]
+
+ 
+
+Modelo
+Estudiante_Progreso
+
+ 
+
+ 
+
+Modelo
+
+Juego_Estado
+
+E]
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figura 8: Diagrama de Componentes
+
+463.3. Desarrollo
+
+Durante la etapa de desarrollo se tuvieron en cuenta las distintas etapas de creación de un software análisis, diseño, desarrollo y pruebas bajo las instrucciones
+del marco de trabajo Scrum, cada etapa tuvo un lugar fundamental en el desarrollo ya sea sirviendo como base o pasos a seguir para el caso de análisis y
+diseño o como implementación en la etapa de desarrollo además de las respectivas pruebas para validar la aplicación.
+
+En la etapa de análisis apoyado en el problema propuesto se generan los requerimientos de la aplicación, estos requerimientos se producen en varias reuniones
+(sprints propuestos por el marco de trabajo Scrum) entre el cliente y el Product
+Owner en las cuales se originan las historias de usuario, estas son basadas en
+los requerimientos, además de las reuniones entre el ScrumMaster y el equipo
+de desarrollo para controlar o supervisar cada sprint de los requerimientos y las
+historias de usuario que se producen en esta etapa.
+
+En la etapa de diseño se definió la arquitectura que tendría el sistema o las
+diferentes estrategias que se van a utilizar para dar solución a los requerimientos
+propuestos en la etapa de análisis. Esta etapa se produce como resultado el diagrama de la base de datos (diagrama entidad relación y modelo relacional) para
+garantizar la fiabilidad de los datos, el diagrama de clases para obtener u ofrecer
+una visión más estructurada del sistema y por último el diagrama de componentes.
+
+Durante la etapa de implementación se definen librerías, lenguajes de programación, frameworks o herramientas a utilizar en el desarrollo de la aplicación,
+además de las tecnologías web a utilizar dentro de las cuales están:
+
+= Para el Backend:
+
+e Lenguajes de programación: Python, SQL.
+e Framework: Django.
+
+= Para el Frontend:
+
+e Lenguajes de programación: HTML5, JavaScript.
+e Framework: Bootstrap.
+e Librerías: JQuery.
+
+También se utiliza la tecnología Ajax para el manejo de la comunicación entre los
+elementos del Backend y el Frontend.
+
+47El Framework Django se utilizó para el manejar la iteración con la base de datos,
+este se encarga de realizar inserción, modificación, eliminación y adquisición de
+datos, todo esto apoyándose en los lenguajes de programación Python y SQL,
+también se emplea para retornar datos a las vistas del software.
+
+En la aplicación se utiliza el módulo xlrd el cual permite a Python leer un archivo Excel en el cual se cargaran las actividades (preguntas, respuestas) y la
+información de las actividades (nombre, tipo y competencia) además del módulo
+send_email el cual ayuda a enviar correos electrónicos utilizado para la recuperación de contraseña de los docentes.
+
+Los lenguajes de programación HTML5 y JavaScript son utilizados en la aplicación para la programación del juego como tal, utilizando el objeto canvas de
+HTML5 y agregándole elementos con JavaScript y JQuery, la librería JQuery
+también tiene como función el manejo de eventos de la interfaces gráficas y la
+colaboración en algunos estilos con el Framework Bootstrap.
+
+Del Framework Bootstrap se utiliza el complemento DataTables el cual ofrece
+una mejor visión de las tablas aportando a la interfaz gráfica una mejor iteración
+con el usuario, DataTables también ofrece un método de búsqueda en las tablas,
+un método de ordenamiento por los diferentes ítems de las columnas de la tabla
+y un método de paginación en el cual ofrece también un método de redimensión
+de la cantidad de registros por cada paginación; también se utiliza el complemento Bootstrapselect el cual ofrece un mejor diseño de las listas desplegables
+de HTML ofreciendo un método de búsqueda que hace más fácil e instintiva la
+iteración con el usuario.
+
+JqPlot es un complemento de la librería JQuery el cual produce diferente tipos
+de graficas de barras, circulares entre otras; este complemento es utilizado en
+la aplicación en el momento que se generan reportes para el docente, en estas
+graficas se acota la información resultante de los diferentes tipos de reportes elegidos por el docente para ofrecerle una mejor visualización de la información y
+de las estadísticas resultantes.
+
+Al principio se planteó utilizar la librería multiplataforma pygame de Python para
+realizar la implementación, pygame contiene y utiliza diferentes módulos de Python para la creación de videojuegos, al empezar a realizar la implementación se
+encontró la desventaja de que la API de pygame no era muy completa además
+de la cantidad de código que había que realizar para programar una actividad era
+bastante grande, sin contar con el hecho de que había que realizar una curva de
+aprendizaje ya que no se tenía experiencia con la utilización de esta librería. Con
+pygame se alcanzaron a ejecutar cuatro sprints.
+
+48Una vez se habían ejecutado los cuatro sprints al ver los pocos resultados obtenidos utilizando pygame se toma la decisión de utilizar el lenguaje JavaScript
+junto con el objeto canvas de HTML5, lenguajes con los que ya se tenía experiencia de proyectos anteriores. Después de ver resultados más prometedores
+en la implementación del juego se plantea la posibilidad de usar una arquitectura de programación Backend y Frontend momento en el cual se decide hacer el
+Backend con el Framework Django y realizar la comunicación de ambos con Ajax.
+
+Con el Framework Django no se tenía ninguna clase de experiencia, razón por la
+cual hubo algunos inconvenientes al principio con la configuración pero gracias
+a la muy buena API y documentación que ofrece Django la curva de aprendizaje
+no fue tan compleja, el inconveniente más grande se presentó cuando se inició
+la implementación de la comunicación entre el Backend y el Frontend, este inconveniente se solucionó investigando varios documentos sobre el tema; en los
+cuales se encontró que Django al ser un Framework con el paradigma modelo
+vista template ofrece desde la vista el envió de datos a las paginas HTML en
+el momento en que estas se cargan en el navegador todo esto por medio del
+objeto HTTPResponse, lo anterior se hace de manera automática ya que solo
+tiene como requisito que la pagina este en ejecución haciendo una llamada al
+servidor, pero en el caso de obtener, eliminar, editar y modificar información en
+la cual se requiera un formulario o llenar algún tipo de requisito no se puede utilizar el mismo método entonces para dar solución a este problema se utiliza la
+tecnología AJAX que se encarga de hacer llamadas sincrónicas o asincrónicas
+al servidor en un segundo plano para realizar las respectivas operaciones sobre
+la información.
+
+493.4. Pruebas
+
+En esta etapa se realizaron casos de prueba en cuanto a la usabilidad de la aplicación desde el punto de vista del docente y el estudiante; también se realizaron
+pruebas unitarias a nivel del código en el backend utilizando la herramienta de
+testing que ofrece Django para probar que cada modelo de la aplicación funcione
+correctamente y verificar que cada template devuelva una respuesta correcta.
+
+A continuación se muestra el caso de prueba de la autenticación del docente.
+
+90CASO DE
+AUTENTICAR DOCENTE
+PRUEBA
+
+PROPOSITO Permitir acceso del docente al sistema.
+
+e Haberse registrado como un docente.
+PREQUISITOS
+
+e Ingresar a la página de autenticación.
+DATOS DE e Nick
+PRUEBA e Contraseña
+
+1. Ingresar a la aplicación.
+2. Ingresar el Nick
+3. Seleccione la opción Docente.
+
+4. Ingresar la Contraseña.
+
+5. Clic en Entrar.
+
+DATOS A DATOS Nick docente_prueba
+PROBAR VALIDOS Contraseña 12345
+
+DATOS
+VALIDOS
+
+RESULTADO Debe mostrar el mensaje
+DATOS 
+ESPERADO lError¡. El Nick o la Contraseña
+INVALIDOS
+
+Ingresa a la aplicación.
+
+es incorrecta.
+
+RESULTADO DATOS o
+El docente ingresa a la aplicación.
+OBTENIDO VALIDOS
+
+Tabla 9: Caso de Prueba - Autenticar Docente
+
+ 
+
+El documento completo de casos de prueba está contenido en el archivo anexo
+en la carpeta Pruebas en el documento llamado Casos de Pruebas.
+
+914. Juego para el fortalecimiento cognitivo en el área
+de lenguaje
+
+En este capítulo se propone VELMON; como una herramienta de apoyo para
+los estudiantes de grado cuarto y quinto, en el proceso de aprendizaje del área
+de lecto-escritura. VELMON utiliza una metodología constructivista y ha sido diseñado para ser accedido a través de la Web.
+
+VELMON consta de dos tipos de usuario (Estudiante y Docente); los cuales dependiendo de sus permisos tienen acceso a diferentes partes de la aplicación,
+por ejemplo el estudiante solo tendrá acceso al juego y el docente podrá revisar
+los avances de cada estudiante y realizar otras funciones de administración que
+se describirán en otra sección.
+
+Cuando se accede a la aplicación, inicialmente se muestra una pantalla solicitando el acceso a los usuarios, en la cual se le pide que ingrese su Nick; si el
+usuario es un docente podrá seleccionar un checkbox y el sistema le indicara que
+debe ingresar la contraseña. En esta sección de la aplicación también se puede
+encontrar una opción para ingresar nuevos usuarios en caso de que estos aún
+no estén registrados, solicitando los datos necesarios para el nuevo estudiante o
+docente.
+
+Tienes una cuenta?
+
+Ingresar Crear Cuenta
+
+Ingresar
+
+Nickname
+
+L] Docente
+
+Olvide mi contraseña
+
+Figura 9: Login
+
+92Tienes una cuenta?
+
+Ingresar Crear Cuenta
+
+Nickname
+
+Nombre
+
+Apellidos
+Rol Estudiante ad
+
+Docente docente1 >
+
+Figura 10: Crear Nuevo Usuario
+
+Cuando un estudiante realiza el proceso de logueo, ingresa a una nueva interfaz donde se despliega el juego, allí el usuario puede desplazarse por la escena
+encontrándose con otros personajes que forman parte del sistema, pero no corresponden a otros usuarios, con los cuales se interactúa para realizar las actividades.
+
+ 
+
+Figura 11: Juego
+
+La página inicial del usuario docente muestra una interfaz que se divide en 3
+secciones:
+
+99Sección 1 (Alumnos): Muestra los estudiantes que el docente tiene a cargo,
+permite ver la información de cada uno, borrar un estudiante de su listado, ver
+los avances que ha tenido cada uno de sus alumnos a cargo. Para esta última
+opción, el sistema dirige al docente a una nueva página en la que se le enseñan
+dos nuevas secciones que le permiten ver más detalladamente los avances de
+los estudiantes.
+
+julrod O SALIR
+Alumnos Agregar Alumnos Información Docente
+Q
+julrod2, julian rodas2, Rodas >
+
+Figura 12: Sección 1 Docente (Alumnos)
+
+En la sección 1.1 (Calificar) se muestran las actividades que deben ser calificadas por el docente, el docente puede seleccionar la actividad, seguido a esto
+revisar el contenido y por último, asignar la calificación.
+
+Otra opción que se ofrece en esta sección es la de ir a la página reportes de
+la cual hablaremos más adelante.
+
+94€ julrod
+
+(O) SALIR
+
+Calificar Estadisticas
+
+julian rodas2 Rodas (julrod2)
+
+*X Sin Calificar
+
+Figura 13: Sección 1.1 Docente (Actividades a Calificar)
+
+En la siguiente figura, se muestra un ejemplo de una actividad realizada por un
+estudiante, la cual requiere la calificación del docente a cargo, donde este puede
+
+observar las respuestas del estudiante y allí dar una calificación según su criterio
+de evaluación.
+
+ 
+
+€ docentel
+
+O SALIR
+
+Calificar Actividad
+
+Actividad 13
+Reconocer las partes del texto: inicio, nudo y desenlace.
+
+Entregar al estudiante el nudo de un cuento y que el se encargue de escribir el inicio y el desenlace
+
+Inicio
+
+Me encontraba de vacaciones en una granja
+
+Nudo
+
+ERA VERANO Y EL CAMPO ESTABA PRECIOSO CON LOS TRIGALES AMARILLOS, LOS PRADOS VERDES Y EL CIELO AZUL
+CERCA DEL BOSQUE HABIA UNA GRANJA Y ALLI SE ENCONTRABA LA SEÑORA PATA EMPOLLANDO SUS PATITOS
+
+Desenlace
+
+Figura 14: Página donde el docente puede agregar su calificación
+
+99En la sección 1.2 (Estadísticas) se muestran todas las actividades realizadas
+por el estudiante y permite ver el tipo de actividad, la calificación que obtuvo, y
+toda la información detallada por cada uno de los intentos que ha realizado en
+cada actividad.
+
+Calificar Estadisticas
+
+Registro de actividades del estudante: julian rodas2 Rodas (julrod2)
+
+Al: Arrastrar Palabras led
+
+Descubrir las diversas funciones en las palabras.
+
+Dar una oración incompleta con uno o varios campos en blanco, proveer de varias palabras al estudiante y que este arrastre a los
+espacios en blanco la o las que crea correctas, para generar una oración coherente.
+
+Respuestas Buenas Respuestas Malas Calificacion Fecha hora
+1 0 100 March 6, 2015, 8:19 p.m.
+A5: Ahorcado v
+AT: Selección Multiples w
+A8: Selección Multiples e
+A9: Selección Multiples v
+
+Figura 15: Sección 1.2 Docente (Estadisticas Estudiante)
+
+Sección 2 (Agregar Alumnos): En esta sección el docente puede agregar nuevos alumnos al listado que tiene a cargo, para realizar esto dispone de un botón
+que le permite cargar un archivo en formato Excel, también se provee al docente
+de una plantilla, la cual puede descargar para ver el formato que debe contener
+el archivo a cargar.
+
+96julrod O SALIR
+
+Alumnos Agregar Alumnos Información Docente
+
+Agregar alumnos por medio de un Excel
+
+Para realizar la accion por favor descare la siguinte Pantilla de ejemplo
+
+Selecciona un archivo:
+
+Examinar... | Ningún archivo seleccionado.
+
+Guardar
+
+Figura 16: Sección 2 Docente (Agregar Alumnos)
+
+Sección 3 (Información Docente): Muestra la información del docente y permite
+actualizarla o eliminar la cuenta.
+
+julrod O SALIR
+
+Alumnos Agregar Alumnos Información Docente
+
+Información Personal
+
+En este modulo el Docente podra modificar su información personal y su contraseña, tambien podra pedir la eliminación de su cuenta.
+
+Nombre Julian Rodas
+Apellidos Julian Rodas
+Contraseña
+
+Ver contraseña
+
+SNA
+
+Figura 17: Sección 3 Docente (Información Docente)
+
+Reportes: En esta vista el docente, puede visualizar la información de todos sus
+estudiantes, de manera ordenada; permitiéndole elegir por medio de filtros, que
+datos desea observar. También puede observar una gráfica que se genera a par
+9/tir de información seleccionada en los filtros. A continuación se puede observar
+un ejemplo de cómo funcionan estos reportes.
+
+€ docente1 Ae
+Reportes
+Alumnos jorge sandoval velez v
+Actividad Todas v
+ON
+Competencia OFF
+Tipo Actividad OFF
+
+El
+
+Figura 18: Formulario Reportes
+
+Ver 10 w | resultados Buscar:
+Nombre lz Actividad Promedio
+jorge sandoval velez Al 83.33
+jorge sandoval velez A3 16.67
+jorge sandoval velez A4 56.76
+jorge sandoval velez A5 62.13
+jorge sandoval velez AT 50
+jorge sandoval velez A8 64.29
+jorge sandoval velez A9 0
+jorge sandoval velez A 0
+jorge sandoval velez A12 33.34
+jorge sandoval velez A13 LS
+
+Encontrados 1 de 10 de 27 resultados Anterior 2 | 3 | Siguiente
+
+Ver Grafica
+
+Figura 19: Resultado Reportes
+
+98En la siguiente gráfica se puede observar, el promedio que ha tenido el estudiante en cada una de las actividades que ha finalizado vs el número de intentos
+realizado en estas.
+
+Grafica de Promedios para el Alumno jorge sandoval velez en cuanto a Actividades
+
+ 
+
+ 
+
+Ai A3 =- AB AT AB A9 AT A12 A13 A14 A15 A16 A17 A18 A19 A22 A23 A33 ¿434 438 439 A44 446 441 AO AZ
+
+ 
+
+Figura 20: Gráfica Reporte
+
+En las siguientes imágenes se muestra el proceso donde se presenta una actividad, seguido de esto se procede a realizarla, mostrando los aciertos y errores;
+y por último, se efectúa la calificación correspondiente.
+
+ORDENAR ORACIÓN
+
+bueno quieras, como siempre sinónimo sea La que de que lo
+que música es y quieras de tocar la libertad, música pasión,
+
+tenga y sea el alimento del amor.
+
+CALIFICAR
+
+ 
+
+Figura 21: Actividad 3
+
+99ORDENAR ORACIÓN
+
+CALIFICAR
+
+ 
+
+Figura 22: Aciertos y Errores Actividad 3
+
+ESTADISTICAS DEL JUEGO
+
+Aciertos: 8
+Errores: 21
+
+Peso Cada Respuesta: 3.45 %
+
+Calificacion: 27.59
+
+JUEGO PERDIDO
+
+ontinuar
+
+ 
+
+Figura 23: Calificación Obtenida Actividad 3
+
+605. Conclusiones y Trabajos futuros
+
+5.1. Conclusiones
+
+Al inicio del presente trabajo se trazaron metas y objetivos que constituyeron
+una directriz asertiva para la construcción y desarrollo del software diseñado. La
+consecución de dichos objetivos evidencia claramente los logros alcanzados del
+trabajo y el acertado abordaje del mismo.
+
+A continuación se expone de manera detallada el desarrollo y logro de cada
+objetivo durante el proceso de construcción del trabajo.
+
+= Definir las estrategias y metodologías de aprendizaje a utilizar en el juego.
+
+Para definir la estrategia y metodología a utilizar se llevó a cabo un rastreo
+de las teorías de aprendizaje para definir la que se ajustará a la dinámica
+del juego, y que permitiera el fortalecimiento de las competencias lectoras
+mediante la promoción de la autonomía, experiencia y habilidades propias
+de cada estudiante. De esta manera la definición de la metodología genera nuevos alcances y expectativas en el espacio escolar, al construir una
+herramienta de aprendizaje que está a la vanguardia de las nuevas metodologías de la enseñanza.
+
+= Establecer los contenidos, literaturas o temas a incluir en los diferentes niveles o secciones que tendrá el juego.
+
+Para el desarrollo de un juego este objetivo es indispensable, porque se
+deben definir los temas acordes tanto para cada actividad del juego como
+para los niños a los cuales va dirigido, procurando que cada uno de los temas abordados tenga un léxico acorde a la edad, temas y conceptos que
+ellos puedan manejar y sobre todo que los textos literarios permitan crear
+dinámicas para que mejoren el proceso de aprendizaje. Para este objetivo
+se incluyeron asesorías de pedagogos especializados que aportaron desde su experiencia a la construcción de actividades creativas, innovadoras,
+asertivas y acordes a las necesidades de los estudiantes.
+
+= Diseñar e implementar los módulos que garanticen el funcionamiento del
+juego.
+
+Para el cumplimiento de este objetivo, se hizo uso del resultado de los 2
+
+anteriores, lo cual permitío realizar la construcción de cada una de las partes que componen este software educativo, como lo son:
+
+61e Base de Datos: La información obtenida en los objetivos previamente
+mencionados permitio, definir las tablas necesarias para almacenar
+los datos que competen al juego y al resto del sistema que permite al
+docente obtener reportes sobre los avances de los estudiantes.
+
+e Lenguaje de Programación: Para elegir el lenguaje de programación
+se basó en el tipo de juego (rpg) que se planeó realizar. En este paso
+se cometieron algunos errores, ya que mediante la investigación inicial se eligió Python como lenguaje y pygame como librería, pero no
+se tuvo en cuenta que la información para desarrollar con esta librería
+es muy poca y la curva de aprendizaje es muy alta, por lo tanto tiempo
+después de haber iniciado el desarrollo del juego se realizó una migración a JavaScript, debido a que es un lenguaje de programación del
+cual se puede obtener mucha información en la Internet y es orientado
+a la web, hecho que se mencionó inicialmente.
+
+e Estilo del juego: Este se seleccionó con base a muchos juegos que se
+encontraron como antecedentes durante el proceso de rastreo e investigación, los cuales iban dirigidos a niños de las edades seleccionadas
+para el presente trabajo.
+
+Teniendo en cuenta las modificaciones enunciadas anteriormente, se puede percibir el correcto funcionamiento y utilidad del juego, ya que tanto la
+base de datos y el lenguaje de programación empleados permiten que los
+datos arrojados y desarrollo de las actividades sean exactas, y por ende el
+resultado sea más eficiente y productivo.
+
+Generar estadísticas de rendimiento que permitan determinar el nivel de
+competencia lectora que han adquirido los estudiantes.
+
+El software diseñado incluye la posibilidad de generar estadísticas que permiten al docente reconocer, analizar, y evaluar el rendimiento que ha tenido
+el estudiante en el juego, lo cual posibilita al docente fortalecer las debilidades encontradas con relación a las competencias lectoras, de manera
+personalizada, agilizando el proceso de aprendizaje en el proceso escolar.
+Además, le da la posibilidad al docente de participar activamente en el juego, compartiendo el aprendizaje con sus estudiantes de manera dinámica
+y creativa.
+
+Diseñar una interfaz gráfica de usuario que permita el aprendizaje de los
+estudiantes de manera dinámica e interactiva
+
+Al ser un software educativo dirigido a estudiantes de grado cuarto y quinto,
+se necesita que la interfaz sea llamativa e intuitiva, para que logre cautivar
+la atención de los alumnos, logrando así que al interactuar con el juego se
+pueda generar un aprendizaje de manera divertida e innovadora.
+
+629.2.
+
+Generar estadísticas de rendimiento que permitan determinar el nivel de
+competencia lectora que han adquirido los estudiantes.
+
+El software diseñado incluye la posibilidad de generar estadísticas que permiten al docente reconocer, analizar, y evaluar el rendimiento que ha tenido
+el estudiante en el juego, lo cual posibilita al docente fortalecer las debilidades encontradas con relación a las competencias lectoras, de manera
+personalizada, agilizando el proceso de aprendizaje en el proceso escolar.
+Además, le da la posibilidad al docente de participar activamente en el juego, compartiendo el aprendizaje con sus estudiantes de manera dinámica
+y creativa.
+
+Trabajos futuros
+
+Crear nuevos mapas, los cuales permitan aumentar los temas que se tratan
+en el juego.
+
+Investigar acerca de otras áreas a las que pueda aportar el software educativo desarrollado; como por ejemplo Ingles, Ciencias Naturales, entre otras.
+
+Ampliar el alcance del proyecto, permitiendo así llegar a un número mayor de estudiantes de diferentes grados y con diferentes conocimientos,
+logrando que sea más genérico en cuanto a la temática y pueda ser usado
+prácticamente por cualquier persona, que quiera aprender o fortalecer sus
+conocimientos en el área de lecto-escritura.
+
+63Referencias
+
+[1]
+
+[2]
+
+[S]
+
+[4]
+
+[5]
+
+[6]
+
+[7]
+
+[8]
+
+[9]
+
+[10]
+
+Declaración universal de los derechos humanos, Articulo 26. [En
+
+línea]. Disponible: https: //www.un.org/es/documents/udhr/
+
+Yolanda Monge. (2013, Dic). América latina ocupa los últimos
+puestos del informe PISA sobre la educación. [En línea]. Dispo
+nible: http://internacional.elpais.com/internacional/2013/12/
+03/actualidad/1386090227_110509.html
+
+OECD/PISA, Informe PISA 2012. [En línea]. Disponible: http : / /www.|
+
+Estándares básicos de competencias del lenguaje. [En línea]. Disponi
+ble: (http: //www.eduteka.org/pdftdir/MENEstandaresLenguaje2003.
+
+pdí
+
+Virginia Jiménez Rodríguez. (2004). Metacognición y comprensión de
+
+la lectura. [En línea]. Disponible: http: //biblioteca.ucm.es/tesis/
+psi/ucm-t27494.pdf
+
+Verónica Sánchez Abchi, Ana María Borzone. Enseñar a escribir textos: desde los modelos de escritura a la práctica en el aula. [En línea].
+
+Disponible: http: //www.lecturayvida.fahce.unlp.edu.ar/numeros/
+a31n1/31_01_Sanchez.pdf
+
+Diana Guerrero Garzón, Johana Torres Ceballos, Liz  Andrea Restrepo Micán. (2006). Animación a la lectura: estrategias pedagógicas para niños y niñas de 3 a 5 años. [En
+
+líneal. Disponible: http://intellectum.unisabana.edu.co:
+8080/jspui/bitstream/10818/1576/1/121737 .pdf
+
+Dajaira Andrea Rivas Moreno, Yissela Copete Maturana. (2012).
+
+E-LECTOR, ambiente de aprendizaje apoyado con un software
+educativo especializado en la lectoescritura para estudiantes de
+tercer grado de la institución educativa BYRON GAVIRIA. [En
+
+línea]. Disponible: http: //recursosbiblioteca.utp.edu.co/tesisd/
+textoyanexos/37235886132R618.pdf
+
+PNUD (programa de las naciones unidas para el desarrollo). (2013).
+
+[En línea]. Disponible: http: //www.undp.org/content/undp/es/home/
+mdgoverview/mdg_goals/mdg2/
+
+Proyecto de Lecto — Escritura Fantasía y Fantadu. Institución educativa
+Carlos Montufar Guadalajara de Buga. Quipos Arte y Pedagogia.
+
+64[11] Origen del software educativo y su relación con la tecnología educati
+va. (2012, Oct) . [En línea]. Disponible: http: //goo.g1/1HnXup!
+
+[12] Estándares básicos de competencia en el lenguaje, matemática, cien
+cia y ciudadanas. [En línea]. Disponible: http: //ww.mineducacion.
+
+gov.co/1621/w3-article-116042.html
+
+[13] Ministerio de educación. [En línea]. Disponible: http://www.
+mineducacion.gov.co/1621/w3-channel.html
+
+[14] |.T.E. investigación tecnológica educación nuevos medios. [En línea].
+
+Disponible: http: //www.cognitiva.es/
+
+[15] VituaLab, laboratorio universidad Santiago de chile. [En línea]. Dispo
+nible: http: //www.virtualab.cl1/web/portada.php
+
+[16] Hector Ponce, Mario López, Juan Labra, jean-Pierre Brugerolles, Cristian Tirado. (2007). Evaluación experimental de un programa virtual de entrenamiento en lectura significativa (e-PELS).
+
+[En línea]. Disponible: http://www. investigacion-psicopedagogica.
+org/revista/articulos/12/espannol/Art_12_169.pdf
+
+[17] Otros software educativos desarrollados por VirtuaLab. [En línea]. Dis
+ponible: http: //www.virtualab.cl1/web/productos.php
+
+[18] Mariano Vindel. (2012). Juego didáctico fondo lector. [En línea]. Dispo
+nible: http://www. juegoseducativosvindel.com/fondolector.php
+
+[19] Grupo Psicotext. Tutor inteligente TuinLec. [En línea]. Disponible:
+
+http://dl.dropboxusercontent.com/u/29930794/TuinLEC_Texto.
+
+pdf
+
+[20] Pere Marqués. El software educativo. [En línea]. Disponi
+ble: http://recursos.salonesvirtuales.com/assets/bloques/
+educativo_de_pere_MARQUES. pdf
+
+[21] Laurent Auclair, Isabelle Jambaqué. Qué es la Neuropsicolo
+gia. [En línea]. Disponible: [http://www.iaeu.edu.es/estudios/
+neuropsicologia/que-es-la-neuropsicologia/
+
+[22] Ken Schwaber y Jeff Sutherland. La guía de Scrum. [En
+
+línea]. Disponible: http: //www.scrumguides.org/docs/scrumguide/
+v1/Scrum-Guide-ES.pdf
+
+65[23]
+
+[24]
+
+[25]
+[26]
+
+[27]
+[28]
+
+[29]
+
+[30]
+
+[31]
+
+[32]
+
+[33]
+
+[34]
+
+María Alejandra Zangara. La incorporación de las nuevas tecnologías
+de la información y la comunicación a los diseños curriculares. Algunos temas críticos. [En línea]. Disponible: http: //www.ufrgs.br/
+
+niee/eventos/RIBIE/1998/pdf/com_pos_dem/116.pdf
+
+David Squires y Anne McDougall. Cómo elegir y utilizar software educativo: guía para el profesorado. [En línea]. Disponible:
+http: //books.google.com.co/books?id=IwXbRjhn-TsCé«printsec=
+
+ 
+
+frontcovergsource=gbs_ge_summary_rgcad=0fv=onepaged«quf=false
+
+Framework. Django. [En línea]. Disponible: http: //django.es/
+Lenguaje de programación. Javascript. [En línea]. Disponible:
+
+//librosweb.es/libro/javascript/
+
+Libreria. JQuery. [En línea]. Disponible: https: //jquery.com/
+Libreria. AJAX. [En línea]. Disponible: (http: //librosweb.es/libro/
+
+Framework. Bootstrap. [En línea]. Disponible: http: //getbootstrap.
+
+Patron de Diseño Modelo Vista Template [En línea]. Disponible:
+https://librosweb.es/libro/django_1_0/capitulo_5/el_patron_
+de_diseno_mtv.html
+
+Node js [En línea]. Disponible: https : //nodejs .org/
+Ventajas JQuery [En línea]. Disponible: http: //1ibrosweb.es/libro/
+
+ajax/capitulo_10/la_libreria_jquery.html
+
+Hector Ponce, Mario López, Mauricion Gallardo. Desarrollo de
+software educativo basado en componentes: el caso e-pels.
+[En línea]. Disponible:
+Hector_Ponce2/publication/237648428_Desarrollo_de_software_
+
+educativo_basado_en_componentes_el_caso_de_e-pels/links/
+0c96052a62a4356579000000. pdf
+
+Modelo  Constructivista. [En línea]. Disponible:
+
+modelospedagogicos.webnode.com.co/modelo-constructivista
+
+66

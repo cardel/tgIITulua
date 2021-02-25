@@ -1,0 +1,3297 @@
+SISTEMA DE INFORMACIÓN WEB BASADO EN LA ARQUITECTURA
+ORIENTADA A SERVICIOS (SOA) PARA LA GESTIÓN DE USUARIOS,
+PACIENTES, PROVEEDORES, HISTORIAS CLÍNICAS Y REPORTES DE LA
+FUNDACIÓN IPS PARA LA SALUD FÍSICA Y MENTAL FIME.
+
+JOSÉ MANUEL CONDE ESCOBAR
+Código: 1356431-3743
+
+jose.condeOcorreounivalle.edu.co
+
+Universidad del Valle Sede Tuluá
+Facultad de Ingeniería Sistemas
+Escuela de Ingeniería de Sistemas y Computación
+Ingeniería de Sistemas
+Tuluá
+2017SISTEMA DE INFORMACIÓN WEB BASADO EN LA ARQUITECTURA
+ORIENTADA A SERVICIOS (SOA) PARA LA GESTIÓN DE USUARIOS,
+PACIENTES, PROVEEDORES, HISTORIAS CLÍNICAS Y REPORTES DE LA
+FUNDACIÓN IPS PARA LA SALUD FÍSICA Y MENTAL FIME.
+
+JOSÉ MANUEL CONDE ESCOBAR
+Código: 1356431-3743
+
+jose.condeOcorreounivalle.edu.co
+
+Trabajo de grado para optar al título de Ingeniero de Sistemas
+
+Directora: DIANA LORENA VELANDIA VANEGAS. MSc.
+
+Universidad del Valle Sede Tuluá
+Facultad de Ingeniería Sistemas
+Escuela de Ingeniería de Sistemas y Computación
+Ingeniería de Sistemas
+Tuluá
+2017AGRADECIMIENTOS
+
+Agradezco principalmente a mi familia, a mis padres por el apoyo, los consejos y
+los regaños que me mantuvieron firme a lo largo de estos años, también a Diana,
+por el regalo más grande que puede recibir un hombre, un hijo. Juan Manuel tú me
+
+has dado impulso para continuar luchando por mis metas. Los amos.
+Agradezco a todos y cada uno de mis profesores, compañeros, amigos que día a
+día contribuyeron de una u otra forma en mi crecimiento personal y profesional.
+
+Especialmente, mi agradecimiento y admiración quiero dirigirlos a la profesora
+
+Diana Lorena Velandia por su inmensa colaboración durante este proceso.
+
+Mil gracias.CONTENIDO
+
+ 
+
+AGRADECIMIENTOS o TT
+GLOSARIO a X
+1 PLANTEAMIENTO DEL PROBLEMA .0oocococcococnonoococo nara 17
+RD OBS as 21
+2,1. OBJETIVO GENERAL aca 21
+2.2 OBJETIVOS ESPECÍFICOS cnc arenas 21
+3 ORGANIZACIÓN DEL DOCUMENTO ccoo rocas 22
+CAPÍTULO 1 -— MARCO DE REFERENCIA oococcocoococoncnoconconnnonononronnnnno roer noanocnoroo 23
+4 ENTIDADES PRESTADORAS DE SALUD (IPS)..coccocoococicccononnonincnononnocnocnaroos 23
+5 FUNDACIÓN IPS FlME o eos 25
+6 CONCEPTOS Y HERRAMIENTAS DE INGENIERÍA DE SOFTWARE .......... 26
+6.1 SISTEMAS DE INFORMACIÓN WEB ..cccccconnoconnnoonmncecnnnnnsennennnnrrncerrnnereccens 26
+
+6.2 ARQUITECTURAS PARA EL DESARROLLO DE SISTEMAS DE INFORMACIÓN
+WEB 29
+
+6.3 ARQUITECTURA ORIENTADA A SERVICIOS SOA ..oooonccccccccccccocccnnncnananaanannnnnnnnnnnos 35
+6.3.1 ARQUITECTURAS DE SERVICIOS WEB DEL W3C ...occoocccccccoccnncnccnnnncnnoncnnnonannnnnnnnnnnnonnnons 35
+6.3.2 (CONSIDERACIONES DE SEGURIDAD EN LA ARQUITECTURA SOA ..ccccccccnnoccnnnncnonanonnnnnnnos 37
+6.4 IMPLEMENTACIONES PARA APLICACIONES SOA cccccccccccccccconcnnnnnnnnannannannnnnnnnnnos 38
+
+6.4.1 SOAP. COMO SE MENCIONÓ ANTERIORMENTE SOAP ES UNA TECNOLOGÍA
+
+RECOMENDAD POR W3C QUE ESTABLECE LA COMUNICACIÓN ENTRE CLIENTE Y SERVIDOR POR
+IVMEDIO DE MENSAJES ESTRUCTURADOS EN XML SOBRE PROTOCOLOS DE LA CAPA DE
+
+APLICACIÓN COMO LO ES HTTP. doccoccnccnconconconccnconconcnnconcnnnonnnnnonnrnrr nr nro nn rn rr nrrnrrnrnnrrnrrnreninncon 38
+64.2 REST 00m erre 41
+6.5 METODOLOGÍAS PARA EL DESARROLLO DE SISTEMAS DE INFORMACIÓN
+
+WEB SA e 42
+6.6 PLATAFORMA DE DESARROLLO JAVA eccoccocccnococonnnnconncnennnncncnnen corners 46
+APLICACIONES JAVA J2EE ...ooococcncoccnccnconcnconcononnoncn none r nn nan nennnnnnes 46
+6.6.1 ORM (MAPEO OBJETO RELACIONAL) rr rr nn nana n anna n ana nnnnnnanananans 47
+6.6.2 DAO (DATA ACCESS OBJECT) ooccccnncccnnnccnnnncnncnnnnnnnnonononnnononnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnns 47
+6.6.3. JPA YÍPOL cm eras 48
+[A 48
+6.6.5 MANAGED BEAN ocncoccccc erre nana 48
+6.6.6 JSF (JAVA SERVER FACES) occcccccccnnccnnnnncnnnnnnnonononononnnonnnnononnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnenanenos 48
+6.6.7 PRIMEFACES. omic rra nnnnn 49
+6.6.8 SERVIDOR DE APLICACIONES GLASSFISH ..0occoccncnnccnnnnccnnnnccncnnnoncnnronnnnrnnronrnnrnnrennenznnnos 49
+¡A AU 50
+6.6.10 SERVICIOS WEB. ..ocoocooccnconccnconconconnn occ erre r nar nrrnnennnnos 50
+7 DESARROLLO DEL PROYECTO coooccccocncocnninncnnnnnonnnronon anno r arena nenas ona nc nr aer nas 52
+7.1 DESARROLLO DE METODOLOGÍA SOMA .cccocccococonononconocnnnnnecnnnne nro rrnerennrecennnso 54
+7.1.1 DISCIPLINA MODELADO DE NEGOCIO .0coconconcnccncnncnconcnncnconcnncnnnnrnnonnonnnnrnnnnrnnenrennnrininnnn 54
+7.1.2 DISCIPLINA ANÁLISIS Y DISEÑO ..coccoccnconccnconconconconconconconnnnronnnnronnrnrrnrrnrrnrenrrnnrnrrnreninnos 57
+7.1.3 DISCIPLINA IMPLEMENTACIÓN .coocooccnccnconconconconconcnnconnnnronnrnrr nr nnr nr ren rnrr re nrrnrrnrrnreninnces 61
+7.2 HERRAMIENTAS USADAS oocococococonoccnn een 62
+7.3 IMPLEMENTACIÓN DEL PROYECTO .cooccccocococoninnncononnononncnnnnnn neceser rre 65
+CAPÍTULO 3 - RESULTADOS Y ANÁLISIS .ococccocccocnnonncnononinnn canon cnn nannnnanonanonas 68
+8 RESULTADOS oo eee rene 68
+8.1 RESULTADOS IMPLEMENTACIÓN PROYECTO EN LA FUNDACIÓN IPS FIME............... 69
+
+V8.2 RESULTADOS USO DE ARQUITECTURA ORIENTADA A SERVICIOS SOA.............. 70
+
+CAPÍTULO 4 -—- CONCLUSIONES Y TRABAJOS FUTUROS .ccccccccconnccnccnccncnncnoss 71
+13 CONCLUSIONES. cooccccooconcccnccnonccncnonanennnnnnnnennnnnannncnnnnancennnnnnnennncnnnnnnnnnananenoss 71
+14 TRABAJOS FUTUROS oooccccooocnccnccoconnccnnnannnnnnnnnnenonnnnnnnonnnnanernnncnanenennananennoss 72
+
+15 REFERENCIAS BIBLIOGRÁFICAS ..ccccocccocnconconcocnoncnasnnsensnrsnrsnrsenscrscnsensorss 73
+
+viLISTA DE FIGURAS
+
+Ilustración 1 Organigrama Fundación IPS FIME ..oooooooociccnnncconoconnconnncnnnnonnnonnnnnononannnnnnnnnnnnonennnennnnnos 25
+Ilustración 2 Modelo de 3 Capas FÍSICAS.....ooooocicccccccononnncnonononnnonnnonnnnnnnnnnnnnnnnnnnono nn nnnnnnnnnnnnnnnanennnnnos 30
+Ilustración 3 Modelo de 3 Capas LÓJQICAS.....ooooccccccccconoonncoconcconononocnnnononononnnnnnnnnononnnnnnnnnnnnnnnnnnnnnnnnnnos 30
+Ilustración 4 Los servicios Web (SOAP) en FUNCIONAMIeNTO ..ooooncccncccccccoonnonnnononononnnonnnncnononanannnnnnnos 34
+Ilustración 5 Modelos de arquitectura de servicios del W3C.....occcccconncinococooncnnnonoononncononnnonononanonnnnnns 37
+Ilustración 6 Mensaje SOAP Aplicacion agencia de viajes............ccccccccoconnnononononononononnnncnononananonnnnnos 40
+Ilustración 7 Fases clave de la metodología SOMA ...oooooccccccccocconoconononononannonnnononononanonnnnonnnnnnnannnnnnnns 45
+Ilustración 8 Arquitectura de las Aplicaciones Web....oooooooncccccoconccoconoonconnonanconnnonannonnnonannnnnnonannnnnnnnas 47
+Ilustración 9 Servicios de aplicación web para FIME -.oooooooccoocononccononononononononnocononanocnnnnnnnnonannnonnnnnnnns 53
+Ilustración 10 Caso de uso MS1-USUAriOS ...oooocicicocccooonnncnonoconnnonononnnononononanonnnonononnnnnnnnnnnnnnnanarennnnnos 56
+Ilustración 11 Diagrama BMP MS1 Pacientes...ooooooooooonnncccnnccnnononnconnnnnnnonannnnnnnnononnnnnnnnnnnnnnnnnarnnnnnnos 59
+Ilustración 12 Base de Datos MS1-USUATIOS.....ococccccononcncconoccnnononnconnnnnnononanonnnnnono nana nnnnnnnnnnnnnnannnnnnnos 60
+Ilustración 13 Conjunto de Tecnologías Java EE....oooooocccccccoconoconoconononnnnnnnnonnnnnononnnnnnonnnnnnnnanannnnnnnos 62
+Ilustración 14 Relación de módulos con respecto al consumo de ServiciOS........oooocccccconncnccccoonnononoo 65
+Ilustración 15 Captura de pantalla Gestion de USUAFriOS ..........ococccccccconcninccoonnnnonononnnnnnononnnnnnonononnnnnns 66
+Ilustración 16 Captura de pantalla Gestión de proveedores, registro de empresas. .......ccccccccnccnnc..o. 66
+Ilustración 17 Captura de patanlla Gestion de pacientes ...........occccccoconccncccconnnnnccoonnnnononononnnnononnnnnnnos 67
+
+viiLISTA DE TABLAS
+
+Tabla 1 Procesos de la Fundación FIME ......oocoooncnicocnnccccononononononononnonononnononnnonononnnnnnnnonannnnonaninonanens 20
+Tabla 2 Aplicaciones de escritorio Y WED .........oooncccconncccconncnononononononnonononnnnnnnnnnnononnnnnnonanennnnaninonanens 28
+Tabla 3 Recursos REST Agenda TelefÓniCa......ooooooocicinoccconnonncoconccononannconnnnnnnnnnnnonnnnnnnnnnnnnnennnnnnnnnnas 41
+Tabla 4 Disciplinas metodología SOMA ....oooncccccconccinccoconncncoooonnnnnononnnonononnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnannns 44
+Tabla 5 Requerimientos MS1-Usuarios Elaboración PrOpÍA .......oocoooconnciconocononononononncnonnnnnnnonnnnnnnnnnas 56
+Tabla 6 Descripción de ServiciOS .......oooooonniciconcconononononncnonononnnonnnnnnnonannrrnnnn nn orar nn nn nn nn nn nnnnnnnnnnnnnnannos 58
+Tabla 7 Prueba funcional RFO5-MS4 Historias ...........ooocccccccocnnonccoonnnncnononononnononononnnnonnnnnnnnnnnnnnnonanons 62
+Tabla 9 Objetivo vs Resultados Obtenidos ........oooooocccciccccconconncconononnnononononnnnnnonannononnnnnnnnnnnnnnnnnnnnnnnos 68
+
+viiiLISTA DE ANEXOS
+
+Anexo 1 Formato HC-Consulta EXÍerMa....ooooooonicinincccccooonnoononcnononnnnnnnnnnnnnonnnnnnnnnnnnnnnnnnnnnnnnnnonenannnnns 19
+Anexo 2 Formato HC-AudiOMetrÍa. ..ooocccccccconocnnnccnnconononanononononononannnnnnnnnnnnnnnnnnnnnnnn rra nnnnnnnnnnnnnnannnnnnos 19
+Anexo 3 Formato HC- OptoOMetrÍa. c.oooccccccccooconncccnnccnnnonanonnnononononannnnnnnnnnnn nan nennnnnnnnnnnnnnnnnnnnnnnnnannennnos 19
+Anexo 4 Formato HC-Salud Ocupacional c.ooooocicccccccooconnnononoconononconnnnnnnnnnnnnonnnnnononnannnnnnnnnnnnnnannnnnnnnos 20
+Anexo 5 Requerimientos para MS2-Pacientes.....ooooooooniciconcconoconnconncnnnononanonononononannnnnnnnnnnnnnnannnnnnnnos 54
+Anexo 6 Requerimientos MS3-Proveedores. ...ooooooooooooncccconcconoconocononnnnnnonanonnnnnnnnnnannnnnnnnnnnnnnannnnnnnnos 54
+Anexo 7 Requerimientos MS4-Historias CIÍNICAS........ooocccccconncconnnonnoccononannononnnnnononnnonnnnnnnnnnnannnnnnnnos 54
+Anexo 8 casos de uso MS2-Pacientes.....ooooooociccccccconconncoconoconononconononnnonnnanennnnnnnnnnnnnnnnnnnnnnnnnannnnnnnnos BF
+Anexo 9casos de uso MS3-Proveedores Y cooococccccccoococococonoconoconoconnononononanonnnnnnnononannnnnnnnnnnnnnnnennonnos EZ
+Anexo 10 casos de uso MS4-Historias CIÍNICAS........oooocccccccconoconncononnnnononanonnnnnnnonnnnnnnnnnnnnnnnnannennnnnos 57
+Anexo 11 diagrama BPM MS 1-USUAFrIOS. ...ooooociciniccconoonnnoconoconononconononononnnnnonononnnnnnnnnnnnnnnnnnnnnannnnnnnnos 58
+Anexo 12 diagrama BPM MS3-Proveedores...oooooooocoooooccccnccccncoooocoonononononanonnnnnnnononannnnnnnnonnnnannnnnnnnos 58
+Anexo 13 diagrama BPM MS4-HistoriaS.......ooooocococccooconncoconoconononocnnncnnnononnnonnnnnnnonnnnnnnnnnnnnnnnannnnnnnnos 58
+Anexo 14 modelo de base de datos MS1-USUAFriOS, ....oococccccccoooconnnononccnnnonanonnnnnnnonananonnnnnnonnnnnanennnos 61
+Anexo 15 modelo de base de datos MS2-Pacientes.....ooococccccooconocononcconononnonnnnnononnanonnonnnnnnnnnannnnnnos 61
+Anexo 16 modelo de base de datos MS3-Proveedores. ..ooooooooooconiconoccccncooocoonnonononannnnnnnnnonononannnnnnos 61
+ANEXO 17 PrUBb2S..occccconcnnccoconccconnnnnnnnncnnononn nn nn nn nn n nn nn nn nnnnnnnnaninnnnnns 61
+
+IXGLOSARIO
+
+FRAMEWORK: se refiere a una estructura de software compuesta de componentes
+personalizables e intercambiables para facilitar y agilizar el desarrollo de
+
+aplicaciones web. [1]
+
+JAVA SERVER FACES: es un framework basado en el modelo vista controlador
+para aplicaciones java basadas en web, permitiendo que cada miembro del equipo
+de desarrollo pueda enfocarse en su parte del proceso, y proporciona un sencillo
+
+modelo de programación para enlazar las piezas. [2]
+
+SERVIDOR DE APLICACIONES GLASSFISH: como su nombre lo indica es un
+servidor de aplicaciones con una licencia de código abierto (open source) que ofrece
+un dominio de ejecución donde se valida la llamada y ejecución de métodos
+
+definidos en los beans. [3]
+
+ENTERPRISE BEANS: proporciona un estándar para el desarrollo de clases que
+encapsulan la funcionalidad y las reglas de negocio que luego serán accedidas
+
+desde aplicaciones clientes. [3]
+
+USUARIO: Su definición es utilizada en el campo de la informática para referirse a
+la persona que utiliza un hardware o software con determinados privilegios para
+
+interactuar con él sistema. [4]
+
+PACIENTE: persona que recibe tratamiento médico. [5]
+
+HISTORIA CLÍNICA: es un documento privado, obligatorio y sometido a reserva,
+en el cual se registran cronológicamente las condiciones de salud del paciente, los
+actos médicos y los demás procedimientos ejecutados por el equipo de salud que
+intervienen en dicha atención. Dicho documente solo puede ser conocido por tercero
+
+previa autorización del paciente o por la ley. [6]
+XAUDIOMETRÍA: es una prueba para valorar la capacidad auditiva a través de la
+estimulación del sistema auditivo por medio del uso de sonidos puros de diferentes
+
+tonos a una misma intensidad o de igual tono a diferentes intensidades. [7]
+
+OPTOMETRÍA: Evaluación del sistema visual permitiendo realizar diagnósticos de
+los defectos visuales presentes en el trabajador, así como la necesidad del uso de
+corrección óptica de forma permanente o preventiva, con la determinación de la
+
+fórmula de corrección óptica necesaria para dicho defecto de refracción.[8]
+
+PROVEEDOR: persona o empresa encargada de suministrar servicios o productos
+
+a otra empresa.
+
+SERVICIO WEB: Un servicio web es una interfaz de software que describe un
+conjunto de operaciones a las cuales se puede acceder por la red a través de
+mensajería XML estandarizada. Usa protocolos basados en el lenguaje XML con el
+objetivo de describir una operación para ejecutar o datos para intercambiar con otro
+servicio web. Un grupo de servicios web que interactúa de esa forma define la
+
+aplicación de un servicio web específico en una arquitectura orientada a servicios
+(SOA) [9].
+
+EPS: Entidad prestadora de salud donde la mayoría de ciudadanos se afilian según
+la ley. [10]
+IPS: Es una institución prestadora de servicios de salud, como hospitales, clínicas,
+
+consultorios o laboratorios. [10]
+
+FIME: Fundación IPS para la salud física y mental.
+
+XiSOA: Es un estilo de arquitectura basada en servicios reutilizables, con interfaces
+publicas bien definidas, donde consumidores y proveedores de servicios interactúan
+en forma desacoplada para realizar los procesos de negocio. [11]
+
+SOAP: es un protocolo de comunicaciones que encapsula los mensajes y permite
+la comunicación entre dos servicios. Se basa en XML definiendo como el cliente
+
+puede invocar una operación del servicio web y obtener resultados. [12]
+
+REST: es un modelo para construir servicios web empleando las operaciones del
+protocolo HTTP, básicamente Post, Get, Put, Del [12]
+
+WSDL: es un lenguaje basado en XML para definir y describir un servicio web. [12]
+
+SDA: Documento de Arquitectura de Software.
+
+XiiRESUMEN
+
+En este proyecto se diseñó e implementó una aplicación web basada en la
+arquitectura (SOA). Una arquitectura que junto a la metodología de desarrollo
+SOMA, un hibrido entre la metodología RUP[13] y un enfoque basado en modelo de
+negocios, exigió un análisis tanto de los requerimientos de la aplicación, como del
+modelo de negocio de la fundación IPS FIME. En el análisis del modelo de negocio
+se identificaron políticas de la organización claves para establecer el alcance del
+proyecto y también, se clasificaron actividades en procesos de negocio con el fin de
+detectar los servicios a implementar. El siguiente paso, fue diseñar los servicios de
+acuerdo a los objetivos de la empresa, es decir a su modelo de negocio y políticas
+internas apoyándose en casos de usos y diagramas de Modelos y Notación de
+Procesos de Negocio (BPMN). Por otra parte, en la implementación se tomó como
+base la tecnología REST [12], una alternativa a SOAP [14] recomendado por W3C
+para aplicaciones robustas, la cual establece criterios para la comunicación entre
+servicios web empleando el protocolo HTTP. Una vez implementados los servicios
+en módulos de usuarios, pacientes, proveedores e historias clínicas, se integraron
+cada uno de estos módulos en una aplicación web desarrollada haciendo uso del
+framework Java Server Faces (JSP), el servidor de aplicaciones web GlassFish
+V4.0, el gestor de base de datos MySQL y la biblioteca de componentes
+
+PrimeFaces.
+
+Palabras claves: SOA, SOAP, Web Service, Servicios, RestFULL,, REST, JSF,
+SOMA, RUP, BPMN.
+
+xiiiABSTRACT
+
+In this project, a web application based on architecture (SOA) was designed and
+implemented. An architecture that in conjunction with the SOMA development
+methodology, a hybrid between the RUP methodology [13] and a business model
+approach, requires an analysis of both, the application requirements and the
+business model of the IPS Fime Foundation. In the analysis of the business model,
+key organizational policies were identified to establish the scope of the project and
+also, there were classified activities in business processes in order to detect the
+services to be implemented. The next step was to design the services according to
+the objectives of the company, that is to say its business model and internal policies
+supported on cases of use and Business Process Model and Notation (BPMN)
+diagrams. On the other hand, the implementation was based on REST technology
+[12], an alternative to SOAP [14] recommended by the W3C for robust applications,
+which establish criteria for communication between web services by implementing
+the HTTP protocol. Once the services were implemented in users, patients,
+providers and clinical histories modules, each of these were integrated into a web
+application developed using the Java Server Face (JSF) framework, the web
+application server GlashFish V4.0, the database management system MySQL and
+
+the PrimeFaces component library.
+
+Keywords: SOA, SOAP, Web Service, Service, RestFULL,, REST, JSF, SOMA,
+RUP, BPMN.
+
+XIVINTRODUCCIÓN
+
+En temas de salud el gobierno ha generado una estructura jerárquica para la
+prestación de servicios de salud, pasando por las entidades promotoras de salud
+(EPS) hasta su nivel más bajo que son los centros médicos, los hospitales o las
+
+instituciones prestadoras de salud más conocidas como IPS.
+
+La fundación IPS para la salud física y mental FIME es una institución privada sin
+ánimo de lucro la cual se encuentra certificada en el nivel de atención lll, este nivel
+define los niveles de responsabilidad y complejidad en la atención de pacientes.
+Con una experiencia de más de dos años prestando los servicios de salud en el
+municipio de El Cerrito, ya cuenta con un flujo diario de más de 15 pacientes
+generando datos de todo tipo en relación a los servicios prestados, sin embargo, a
+pesar de la buena calidad del servicio han generado problemas en el manejo de
+
+información entorpeciendo algunos procesos.
+
+Debido a esto, se buscó sistematizar las actividades de registro de pacientes, y
+proveedores, de gestión de historias clínicas y de reportes con el fin de disminuir
+problemas en la integridad y seguridad de los datos que son generados a diario por
+la fundación, ya que se ha evidenciado que estos datos en su mayoría son de
+carácter privado y se encuentra en distintos formatos como hojas de cálculo, correos
+electrónicos, memorias usb, cd's o papel, siendo accesibles para cualquier
+empleado.
+
+Teniendo en cuenta el problema que se detectó en la fundación, se determinaron
+una serie de objetivos con el fin de desarrollar un conjunto de cuatro módulos, un
+módulo para el registro y validación de usuarios con el fin de establecer criterios de
+
+seguridad al acceso de la aplicación, un módulo para el registro de pacientes yproveedores, un módulo para la gestión de historias clínicas: audiometría, consulta
+
+externa, optometría y salud ocupacional y otro para reportes.
+
+Finalmente, se especificaron claramente las funcionalidades de dicho sistema, el
+cual se desarrolló bajo la metodología SOMA (Service Oriented Modeling and
+Architecture), que a pesar de ser pesada permitió realizar el análisis y diseño de
+este proyecto contando con un proceso base solido soportado en casos de uso y
+
+diagramas para un mejor control durante el desarrollo.
+
+161 PLANTEAMIENTO DEL PROBLEMA
+
+La IPS FIME (Fundación para la salud física y mental) brinda atención médica en El
+Cerrito-Valle y sus alrededores desde hace más de dos años, con más de 10
+empleados y una planta física compuesta por tres consultorios médicos y uno
+odontológico, donde se viene prestando los servicios de medicina general,
+psicología, psiquiatría, ginecología, urología, medicina laboral, fonoaudiología,
+fisioterapia y laboratorio clínico.
+
+Cada uno de estos servicios genera información de carácter administrativo y
+financiero, como el registro de usuarios o pacientes, ordenes médicas, asignación
+de citas, registro de especialistas, e información de los costos y gastos de
+funcionamiento. Se atienden aproximadamente un promedio de 15 pacientes
+diarios, y la información es almacenada en diferentes formatos como hojas de
+
+cálculos, papel y correos electrónicos.
+
+Con la información en diferentes formatos, se hacía difícil consultar una determinada
+historia clínica y cualquier otro tipo de información. Por ejemplo, en la gestión de los
+pacientes se evidenciaba redundancia en los datos, encontrándose varios registros
+del mismo paciente, y registros incompletos de proveedores. Por otro lado, en la
+gestión de las historias clínicas se relacionaban especialistas que no se encuentran
+registrados, y órdenes médicas de las que no se conocía su estado actual. En los
+reportes que se generaban en hojas de cálculos se exponían inconsistencias con
+respecto a los soportes físicos, como la cantidad de citas que no concordaba con
+los pacientes atendidos. Además, no se podía garantizar la integridad de la
+información registrada, los resultados que reflejaba un reporte, ni la seguridad de
+la información, ya que la IPS estaba expuesta a la manipulación de cualquier
+empleado, porque no se contaba con mecanismos que controlarán el acceso de la
+información, reflejando un problema de seguridad, como ocurre en el diagnóstico de
+
+un paciente que puede ser alterado en una historia clínica al igual que los resultados
+
+17de un examen ya que se encuentran en carpetas compartidas en la red donde todos
+los empleados tienen acceso.
+
+Debido al creciente número de pacientes que se ha evidenciado en los últimos dos
+meses se estimaba que el volumen de información afectaría la integridad de los
+datos y el tiempo de ejecución en las tareas de asignación de citas, registro y
+consulta de pacientes/proveedores, la gestión de historias clínicas, y la elaboración
+
+de reportes estadísticos de las dichas tareas.
+
+Finalmente, y teniendo en cuenta los aspectos nombrados, se implementa una
+solución informática que apoye la gestión de información de los pacientes e historias
+clínicas, agilizando procesos y llevando un control total sobre la información
+generada. En la tabla 1 se muestran los principales procesos manejados por la
+
+empresa y como se desarrollaban antes de la implementación del sistema
+
+ 
+
+ 
+
+propuesto.
+Proceso Desarrollo
+Gestión de usuarios Total ausencia en el control de usuarios. Se evidenciaban
+
+archivos en red de carácter privado como ordenes médicas o
+historias clínicas, donde cualquier persona con acceso a un
+computador conectado a la misma, podría consultarlos,
+
+manipularlos y eliminarlos.
+
+ 
+
+Gestión de información Se generaba una base de datos en un libro de Excel donde
+de pacientes se registraban los datos personales del paciente por cada
+cita. Es decir, si el paciente requería citas de control
+periódicas, este se registraba una y otra vez en el libro
+creando una base de datos con información redundante. Por
+otro lado, esos datos registrados tenían que volverse a
+
+diligenciar al momento de generar la historia clínica.
+
+ 
+
+Gestión de información La información de los proveedores de insumos, servicios de
+
+de proveedores laboratorio o radio-x, no se encontraban en una base de
+
+ 
+
+ 
+
+ 
+
+ 
+
+18datos que permitiera gestionarla. Cuando se necesitaba
+consultar la información de un proveedor o hacer contacto
+con él, se remitían al historial del correo electrónico para
+buscar dicha información, o en el peor de los casos en
+
+facturas archivadas físicamente.
+
+ 
+
+Gestión de información
+de Historia Clínica de
+
+Consulta externa
+
+Para el registro de la historia clínica de consulta externa se
+contaba con un formato hecho en un procesador de texto el
+cual se imprimía y se diligenciaba a mano. Posteriormente se
+
+almacenaba en un archivador.
+
+Para observar el formato, Ver Anexo 1 Formato HC-Consulta
+
+Externa
+
+ 
+
+Gestión de información
+de Historia Clínica de
+
+audiometría
+
+Para el registro de la historia clínica de audiometría se
+contaba con un formato hecho en un procesador de texto el
+cual se imprimía y se diligenciaba de forma manual. Este
+formato además de los datos del paciente y el examen,
+requería dibujar una gráfica de líneas para reflejar el
+resultado de la audiometría. Posteriormente se almacenaba
+
+en un archivador.
+
+Para observar el formato, Ver Anexo 2 Formato HC
+Audiometría.
+
+ 
+
+ 
+
+Gestión de información
+de Historia Clínica de
+
+Optometría
+
+ 
+
+Para el registro de la historia clínica de Optometría se
+contaba con un formato el cual se imprimía y se diligenciaba
+de forma manual. Posteriormente se almacenaba en un
+
+archivador.
+
+Para observar el formato, Ver Anexo 3 Formato HC
+Optometría.
+
+ 
+
+19Gestión de información
+de Historia Clínica de
+
+Salud Ocupacional
+
+ 
+
+Para el registro de la historia clínica de Salud ocupacional se
+contaba con un formato diseñado y diligenciado en una hoja
+de cálculo, el cual se imprimía para almacenarse en un
+archivador. Esta historia requería de otras historias clínicas o
+exámenes diagnóstico del paciente para consultar
+antecedentes, resultados, o la misma información del
+
+paciente haciendo demorada la consulta.
+
+Para observar el formato, Ver Anexo 4 Formato HC-Salud
+
+Ocupacional
+
+ 
+
+Tabla 1 Procesos de la Fundación FIME
+
+Fuente: Elaboración propia.
+
+202 OBJETIVOS
+
+2.1 OBJETIVO GENERAL
+
+Desarrollar un sistema de información web basado en la arquitectura orientada a
+servicios para la gestión de usuarios, historias clínicas y generación de reportes
+para la IPS FIME.
+
+2.2 OBJETIVOS ESPECÍFICOS
+
+e  Modelar los procesos de gestión de usuarios, pacientes, proveedores,
+
+historias clínicas y reportes.
+
+e Especificar los servicios definiendo los contractos funcionales en el
+
+desarrollo de la aplicación web orientada a servicios.
+
+e Implementar módulo para la gestión de usuarios y privilegios en el sistema,
+
+pacientes y proveedores de servicio de la IPS.
+
+e Implementar módulo de historia clínica que permita la gestión de información
+de las áreas de salud ocupacional, psicología, audiometría, optometría y
+medicina general.
+
+e Desarrollar módulo para generar reportes relacionados con los pacientes,
+proveedores e historias clínicas de la IPS FIME.
+
+e Validar módulos del sistema teniendo en cuenta los servicios, sus interfaces
+
+y la interacción con otros servicios.
+
+213 ORGANIZACIÓN DEL DOCUMENTO
+
+A continuación, en el Capítulo | se describen los conceptos teóricos que aportan al
+trabajo: metodología SOA del plug-in SOMA, Framework JSF Prime Faces,
+Arquitectura de Aplicaciones Multinivel, Glassfish. En el Capítulo 2 se presenta el
+desarrollo del proyecto, donde se describe la metodología utilizada incluyendo la
+fase de pruebas e implementación. En el Capítulo 3 se describen los resultados
+obtenidos en cada uno de los objetivos propuestos. En el Capítulo 4 se presentan
+las conclusiones, además de los trabajos futuros que se pueden emprender.
+
+Finalmente, se presenta la lista de referencias bibliográficas que soportan el
+desarrollo del trabajo.
+
+22CAPÍTULO 1 - MARCO DE REFERENCIA
+
+En esta sección se presenta el marco teórico del trabajo, la cual aborda 4 temas: en
+primer lugar, se lleva a cabo la revisión acerca del estado actual de los procesos en
+la fundación IPS FIME. En segundo lugar, se abordan las bases conceptuales del
+proceso de usuarios, pacientes, proveedores e historias clínicas. En tercer lugar, se
+aborda las bases conceptuales de los modelos y herramientas usados para el
+desarrollo del proyecto como son, los sistemas de información, la ingeniería de
+requisitos y su importancia en el desarrollo de software, la metodología SOA del
+plug-in SOMA y finalmente el uso de plataforma Java con el Framework JSF
+
+PrimeFaces.
+4 ENTIDADES PRESTADORAS DE SALUD (IPS)
+
+En Colombia el sistema general de salud cuenta con una estructura de tres niveles,
+en el primer y más alto nivel encontramos al gobierno que a partir del Ministerio de
+Salud actúa como ente de control y regulador mediante leyes y resoluciones frente
+a los siguientes niveles. En el siguiente o segundo nivel se ubican todas las
+entidades promotoras de salud, estas entidades son conocidas como EPS y no
+prestan directamente servicios de salud, su función es promover servicios
+relacionados con la salud por medio de un mecanismo de aseguramiento vinculante
+que se define por un régimen contributivo o subsidiado por el gobierno. Ahora como
+último nivel y parte fundamental de esta estructura de salud se encuentran las
+instituciones prestadoras de salud (IPS). Dentro de estas instituciones tenemos
+clínicas, hospitales, centros de salud, laboratorios y/o consultorios, estos deben
+cumplir con unos exigentes requerimientos del gobierno para certificarse como (IPS)
+y poder ofrecer sus servicios a las entidades promotoras de salud [15], aunque las
+IPS pueden contar con un carácter privado y pueden ofrecer sus servicios de salud
+de manera independiente.
+
+En las IPS interfieren varios actores los cuales podemos agrupar en los siguientes
+
+grupos:
+23e Usuarios o pacientes: Se caracterizan por solicitar un servicio
+relacionado con la salud como un examen de sangre ante la IPS. Los
+pacientes son de vital importancia y se deben considerar sus
+derechos y deberes, entre ellos el manejo de la información que los
+
+relaciona con la IPS como las historias clínicas.
+
+e Proveedores de servicios de salud: Aquí podemos encontrar
+laboratorios clínicos, especialistas en medicina, oftalmología,
+pediatra, entre otros. También centros de salud con los que se
+
+contratan algún tipo de equipamiento médico como radiografías.
+
+e Y como intermediario, toda la infraestructura física y humana de la
+IPS.
+
+Las IPS al ser una entidad que tiene contacto directo con los usuarios y como
+prestadora de salud ante el gobierno debe buscar mecanismos para garantizar el
+acceso, la disponibilidad y la pertinencia de los servicios ofrecidos. Uno de los
+factores claves para cumplir con estas características se enfoca en el manejo de
+información, en la gestión de los datos que genera la IPS en relación a los actores
+mencionados. El gobierno es consciente y fomenta el uso de las TIC [16].
+
+En la actualidad el sistema general de salud busca que todas las IPS públicas y
+privadas participen de los cambios tecnológicos apoyándose en las TIC en busca
+de mejorar el rendimiento y la calidad en la atención de los pacientes. Con los
+diferentes medios tecnológicos y el acceso a diferentes fuentes de información
+entidades como las IPS deben exigirse la implementación de nuevas formas de
+comunicación por la cuales puedan divulgar información y ofertas. El uso de las TIC
+en las instituciones trae beneficios importantes como señalan algunos libros: el
+mejoramiento de los sistemas de información sobre servicios sociales, el
+intercambio de información entre instituciones, la prestación de servicios públicos
+con mayor eficiencia, y el incremento en la trasparencia de las políticas sociales de
+
+la misma institución [17].
+
+245 FUNDACIÓN IPS FIME
+
+La fundación IPS para la salud física y mental FIME es hoy la infraestructura de una
+institución prestadora de servicios de salud, privada sin ánimo de lucro, ubicada en
+la zona urbana del municipio de El Cerrito Valle, con fácil acceso a toda la población;
+la IPS cuenta con profesionales calificados que garantizan la prestación del servicio
+con calidad oportuna y eficacia. Á continuación, se describe la organización de la
+fundación con respecto a sus funciones. En la ilustración 1 se muestra el
+
+organigrama de la empresa.
+
+Comites
+
+Junta Directiva
+
+Revisor Fiscal
+
+Departamento | | Contadora y Auxiliar
+Contable | contable
+Psicologia
+Fonodiologia
+
+T. Ocupacional
+
+| Departamento
+Asamblea General -——— Gerente General |-- Pc
+y o Laboratorio
+Auxiliares
+a General
+Medicina
+Especializada
+
+Recepcion
+Facturacion
+
+Departamento
+
+o . Atencio al usuario
+Admisnitrativo
+
+| Servicios Generales
+
+Archivo
+
+Ilustración 1 Organigrama Fundación IPS FIME
+
+Fuente: Elaboración propia a partir de datos obtenidos en la empresa.
+
+25La fundación fue reconocida por la gobernación del valle del cauca con personería
+jurídica el 14 de agosto de 2014 por medio de la resolución No. 055, registrada con
+el número de identificación tributario Nit. 900.764.401 -3 y habilitada en salud con el
+código del prestador No 762480978001 por la secretaría de salud de este mismo
+departamento.
+
+Como fundación hace dos años viene desarrollando programas de apoyo social y
+orientación psicológica, brigadas de salud entre otras; gracias a su cuerpo médico,
+personal administrativo y profesionales de la salud, la fundación es reconocida como
+la institución con la oferta en salud física y mental que trabaja por el bienestar del
+
+ser humano, dando respuesta a las necesidades de salud.
+
+6 CONCEPTOS Y HERRAMIENTAS DE INGENIERÍA DE SOFTWARE
+6.1 SISTEMAS DE INFORMACIÓN WEB
+
+En el desarrollo de software los sistemas de información web representan la
+tendencia a la hora de escoger sobre que plataforma diseñar un software. Entre los
+factores que determinan este fenómeno podemos mencionar la alta compatibilidad
+entre plataformas, es decir entre diferentes sistemas operativos y dispositivos
+electrónicos, otro factor es la disponibilidad de acceso inmediato ya que, si se
+dispone de un navegador web, una conexión a internet y en su defecto de una
+cuenta de usuario valida se puede acceder a la aplicación desde cualquier ubicación
+geográfica, por otro lado, el soporte y mantenimiento de estos SIW es más eficaz
+pues de manera rápida se pueden corregir bugs y aplicar actualizaciones, ya que
+se trabaja sobre un mismo sistema operativo y unas características de hardware
+claramente definidas.
+
+Para entender el concepto de sistema de información, debemos tener en cuenta la
+definición de un sistema. Con base en autores como Alarcón (2006) que concibe el
+concepto como “un conjunto de componentes que se interconectan entre sí para
+
+lograr un objetivo en común” (p. 11), se toma como definición para un sistema de
+
+26información el aporte de los autores Laudon y Laudon que establecen: Un sistema
+de información (Sl) como un conjunto de componentes interrelacionados que
+recolectan (o recuperan), procesan, almacenan y distribuyen información para
+apoyar los procesos de toma de decisiones y de control en una organización.
+Además de apoyar la toma de decisiones, la coordinación y el control, los sistemas
+de información también pueden ayudar a los gerentes y trabajadores del
+conocimiento a analizar problemas, visualizar temas complejos y crear nuevos
+
+productos [18].
+
+Además, podemos agregar que los sistemas de información son los encargados de
+contener y gestionar la información referente a la organización. Esta información a
+diferencia de los datos ha sido modelada con el objetivo de que sea fácilmente
+interpretada por el ser humano, mientras que los datos son elementos que
+representan acciones dentro del contexto o piezas que conforman el mismo. Por
+ejemplo, se tiene una lista de usuarios con atributos como la identificación, nombre,
+teléfono la cual recibe la etiqueta de datos, pues no representan nada más. Una vez
+que se toman esos datos y se ajustan a un modelo factura de venta, que también
+se relaciona con una lista de productos, ahora se podría decir que se está
+generando información, ya que se dependiendo de la interpretación se puede
+determinar que usuarios han realizado compras, que productos se han vendidos o
+
+que no.
+
+Tanto los datos como la información pueden hacer parte de un sistema de
+información basado en ordenadores o un sistema de información manual a lápiz y
+papel. En este caso consideremos únicamente los sistemas basados en
+ordenadores los cuales hacen usos de las tecnologías de la información.
+
+La forma en que se requiere gestionar la información, es decir, los criterios de cómo
+voy a obtener los datos, como voy a moldearlos, que tan accesibles van a ser, la
+
+calidad de los mismo, y la forma de representar los resultados determinan que tipo
+
+27de sistema de información es el más viable. De manera general podemos tener dos
+opciones para enfocar un desarrollo, sistemas de información basados en
+aplicaciones de escritorio o basados en aplicaciones web.
+
+Ambas opciones tienen sus ventajas y desventajas, teniendo en cuenta que una
+aplicación es un programa informático diseñado para automatizar una o varias
+tareas con un solo objetivo. Podemos encontrar aplicaciones de escritorio o web.
+En la tabla 2, se muestran las características de los dos tipos de aplicación que
+
+podemos encontrar.
+
+ 
+
+Sistemas de información
+
+ 
+
+Aplicaciones de escritorio
+
+Aplicaciones web
+
+ 
+
+Su desarrollo se enfoca a un sistema
+operativo definido y características
+Se debe
+
+requerimientos en el
+
+específicas de hardware.
+ajustar los
+desarrollo de la aplicación si se quiere
+usar en más de un sistema operativo
+diferente.
+
+Se debe realizar una instalación por cada
+computador donde se quiera ejecutar.
+Limitando su acceso.
+
+Difícilmente tiene protocolos de
+actualización para todas las instancias
+de la aplicación, y dependiendo del
+tamaño de la aplicación, así mismo se
+dificulta su actualización.
+
+Tienen un rendimiento muy bueno, sus
+
+tiempos de respuestas son más rápidos.
+
+Su desarrollo se enfoca a un servidor web que
+se ajuste a las características definidas por los
+requerimientos de la aplicación. Al contrario de
+una aplicación de escritorio estas aplicaciones
+no necesitan ser programadas para un sistema
+operativo u otro.
+
+Solo es necesario acceso a internet, un
+navegador web y un usuario para ingresar a la
+aplicación. Brindando un acceso mucho mayor.
+De la aplicación solo existe una instancia, la
+que se encuentra en el servidor a la cual
+pueden acceder muchos computadores. Esto
+hace que la actualización y el mantenimiento
+sea más rápido. Se corrige solo una vez.
+Actualmente con la velocidad de internet y la
+capacidad de procesamiento de los servidores
+web en aumento, los tiempos de respuesta
+frente a las aplicaciones de escritorios son muy
+
+similares.
+
+ 
+
+Tabla 2 Aplicaciones de escritorio y web
+
+286.2 ARQUITECTURAS PARA EL DESARROLLO DE SISTEMAS DE
+INFORMACIÓN WEB
+
+Las aplicaciones web son un tipo especial de aplicaciones cliente/servidor [5], es
+decir son programas que sirven o consumen recursos de otro dentro de una red. A
+partir de esta premisa se define la arquitectura cliente/servidor la cual implica que
+existe una relación entre un proceso llamado cliente que solicita un servicio y otro
+proceso que responden a esta solicitud con el nombre de servidor. La arquitectura
+cliente/servidor es la base de muchos paradigmas de programación web que dan
+origen a otras, como por ejemplo arquitecturas de N-capas.
+
+En arquitectura de n-capas encontramos modelos de dos capas donde una capa
+hace las veces de servidor de datos y la otra capa llamada cliente contiene la
+presentación y la lógica de negocio de la aplicación web. Por otro lado, encontramos
+modelos con características similares que contienen una capa de más, es decir tres
+capas (modelo, vista, controlador), una capa para el cliente con la presentación, una
+capa destinada para la lógica de negocio y finalmente otra para el servidor de datos.
+A partir de esta cantidad de niveles el concepto de capa no se limita a la
+organización lógica del código, si no que se expande a niveles físicos donde cada
+capa puede representar un servidor totalmente independiente, como se muestra en
+
+la Ilustración 2.
+
+29¡NOR
+
+07 E ONAA
+Navegador IT TAN
+
+Sel
+Bases de
+Datos
+
+ 
+
+Ilustración 2 Modelo de 3 Capas Físicas
+
+Fuente: Elaboración propia
+
+¡CT eee ell
+
+Capa de Acceso a
+Datos
+
+Capa de
+Presentación
+
+Capa de Negocios
+
+ 
+
+Ilustración 3 Modelo de 3 Capas Lógicas
+
+Fuente: Elaboración propia
+
+Como se mencionó anteriormente, a partir de modelos con 3 capas se toman en
+cuenta otros paradigmas, ya no solo se habla de una organización lógica del código,
+
+sino de una física, dando pie a modelos de sistemas distribuidos, pues la aplicación
+
+30web ya cuenta con una arquitectura descentralizada que incluye más de un servidor
+para realizar las tareas del sistema.
+
+En un sistema distribuido el procesamiento de información se distribuye en varios
+computadores [6], donde uno de estos computadores puede ser un servidor de
+datos, un servidor de impresión y otro un servidor de correo. La comunicación entre
+estos servidores se realiza por medio de un programa llamado Middleware, [6] el
+cual se identifica como el intermediario de peticiones de objetos que permite
+gestionar datos sobre diferentes computadores que hacen parte del mismo sistema.
+A continuación, se mencionan los principales estándares [7] Middleware para la
+comunicación entre objetos distribuidos; CORBA!' ligado a la gestión de objetos
+remotos, DCOM? ligado a sistemas operativos Windows y JAVA RM? ligado a java,
+donde cada uno de estos estándares aportan una API (interfaz de programación de
+aplicaciones) para el diseño de aplicaciones distribuidas.
+
+Por otra parte, los sistemas distribuidos involucran un concepto Llamadas de
+Procedimientos Remotos (RPC, Remote Procedure Calls) [7] . RCP es un protocolo
+que permite ejecutar programas que están alojados en servidores. Este protocolo
+facilita las tareas en un sistema distribuido donde, por ejemplo, el servidor de datos
+es el encargado de compartir los datos como un recurso del sistema, y sobre este
+recurso se pueden realizar operaciones o procedimientos para agregar, modificar,
+o eliminar datos. Este protocolo facilita que el cliente no solo solicite un recurso, sino
+un procedimiento o la ejecución de un programa a dicho servidor. Cuando un cliente
+solicita un procedimiento a un servidor, realmente está solicitando que el servidor
+
+ejecute determinada aplicación web y le devuelva unos resultados.
+
+A medida que los sistemas distribuidos fueron creciendo también se incrementaron
+
+las llamadas a procedimientos remotos, ya que al existir más recursos compartidos
+
+1 http://www.corba.org/
+2 https://msdn.microsoft.com/es-es/library/cc201989.aspx
+3 https://docs.oracle.com/javase/7/docs/plattorm/rmi/spec/rmiTOC.html
+
+31las operaciones para gestionarlos, aumentaron. Esto evidenció problemas de
+compatibilidad entres plataformas, pues si bien el sistema garantizaba la
+disponibilidad de los recursos compartidos en él, no podría asegurar la
+comunicación entre servidores ya que cada servidor podría representar una
+plataforma y lenguaje de programación diferente, y los estándares actuales como
+DCOM de Microsoft se veían limitados frente a otros sistemas. Por otro lado, las
+RCP también exponían sus limitaciones frente a componentes físicos instalados
+para aumentar la seguridad de la red como un firewall, este componente bloquea el
+acceso a puertos en los servidores evitando establecer una conexión.
+
+Frente a las limitaciones de los estándares y protocolos que se presentaban en los
+sistemas distribuidos a la hora de gestionar recursos, y la necesidad de crear un
+estándar para la comunicación entre distintas plataformas y lenguajes de
+programación, aparece el concepto de Web Service (Servicio Web) que integra el
+significado de servicio como procedimiento y lo que implica el termino web. Un
+Servicio Web [8] se puede definir como la referencia a una tecnología que permite
+que las aplicaciones se comuniquen entre sí a través de internet. Esta comunicación
+se logra por medio del intercambio de mensajes que no dependen de la plataforma
+ni del lenguaje de programación ya que se estructuran para usarse con protocolos
+de internet mediante un estándar XML.
+
+Los servicios web se pueden considerar como la evolución de las RCP, pues estos
+no se apoyan únicamente en protocolos TCP/IP, sino, también en protocolos
+estándar de internet como HTTP Y SMTP para enviar y recibir mensajes a través
+de la internet. Para una red el tráfico que genera el intercambio de mensajes entre
+servicios web es trafico normal, como si se tratase del tráfico durante el intercambio
+de correos electrónicos. Finalmente, los servicios web superan las limitaciones de
+sus antecesores estableciendo un conjunto de estándares para el intercambio de
+
+datos entre aplicaciones web.
+
+4 http://www.w3c.es/Divulgacion/GuiasBreves/TecnologiasXML
+
+32Estándares como WSDL (Web Service Description Language) definen una interface
+de servicio, REST (Representational State Transfer) define un servicio basado en
+recursos y SOAP (Simple Object Access Protocol) define un servicio basados en
+mensajes. Estos estándares son los más usados en la actualidad a la hora de
+
+implementar servicios [7].
+
+WSDL [9]: basándose en XML describe la forma en que los clientes se van
+comunicar con los servicios web existentes en un servidor. En general, establece
+un contrato entre el cliente y el servidor definiendo como, donde y que hacer
+
+dependiendo del mensaje que envía y recibe.
+
+REST [7]: utiliza métodos HTTP para comunicarse con un servicio web, por ejemplo,
+usa POST para crear un recurso en el servidor, GET para obtener un recurso, PUT
+para cambiar el estado de un recurso o actualizarlo y DELETE para eliminar un
+
+recurso.
+
+SOAP [7]: es un estándar recomendado por W3C para la comunicación entre cliente
+y servidor, donde esta comunicación se caracteriza por el intercambio de mensajes
+basados en XML sobre algunos protocolos como HTTP, SMTP o FTP. SOAP es el
+estándar más utilizado a la hora de implementar un mecanismo para comunicar dos
+servicios o más, ya que este además ofrece un encapsulamiento del mensaje con
+XML y, brinda seguridad desde el origen al destino aplicando el protocolo de
+seguridad WS-Security (Web Service Security).
+
+En la siguiente ilustración se puede observar el funcionamiento de distintos servicios
+web, estos servicios se comunican por medio de un estándar SOAP manteniendo
+
+un contrato de servicio definido WSDL.
+
+33P
+La
+y
+
+Aplicación
+de cliente
+
+ 
+
+Servicio Web |
+
+Ilustración 4 Los servicios Web (SOAP) en Funcionamiento
+
+Fuente: http://www.w3c.es/Divulgacion/GuiasBreves/ServiciosWeb
+
+Por otro lado, en la ilustración anterior podemos observar cómo interactúan varios
+servicios. Este fenómeno se describe como un proceso de negocio, donde varios
+servicios totalmente independientes entre sí se orientan en una secuencia definida
+para alcanzar un objetivo concreto. Este fenómeno se basa en una arquitectura de
+software orientada a servicios (SOA) [10].
+
+SOA (Service Oriented Architecture) se identifica como una arquitectura orientada
+a servicios que abstrae el modelo de negocio de una organización en sus servicios
+más básicos, estos servicios son reutilizables mediante una interfaz que genera un
+contrato, es decir la condiciones para que los proveedores (servidores) y
+consumidores (clientes) de dichos servicios interactúen para realizar procesos de
+negocios. Para lograr una mejor abstracción de un proceso de negocio SOA clasifica
+los servicios en básicos [10], intermedios, centrados en procesos y públicos dentro
+de un nivel denominado backend.
+
+Precisando de una vez, SOA considera dos niveles: frontend que se encuentra en
+la parte del cliente iniciando y controlando la secuencia de un proceso de negocio
+
+suministrando datos de entrada, y backend del lado del servidor llevando a cabo los
+
+34procesos para obtener un resultado y devolverlo al nivel frontend. El nivel frontend
+se pueden ubicar estructuras HTML, estilos CSS y el lenguaje JavaScrit, ya que
+este nivel interactúa directamente con el usuario, al contrario de lo que pasa en el
+nivel backend donde se estructura la lógica de negocio (trasparente para el usuario)
+usando lenguajes como PHP, gestores de base de datos y frameworks para
+
+procesar la información suministrada por el usuario.
+
+6.3 ARQUITECTURA ORIENTADA A SERVICIOS SOA
+
+La arquitectura orienta a servicio es un modelo conceptual que permite el desarrollo
+de aplicación web distribuidas usando servicios de terceros o propios a través de la
+red.
+
+El paradigma SOA es bastante complejo y está en constante desarrollo. La
+organización encargada de crear estándares SOA se llama OASIS (Organization for
+the Advancement of Structured Information Standards).
+
+Ahora este modelo no hace referencia a que tecnología utilizar para implementar un
+servicio web, si asocia las siguientes: W/SDL (Web Services Description Language),
+SOAP (Simple Object Access Protocol), REST (Respretational State Transfer).
+
+6.3.1 Arquitecturas de servicios web del w3c
+
+El W3C propone una arquitectura de servicios web teniendo en cuenta modelos,
+conceptos y relaciones a modo de guía para los diseñadores de servicios web. Esta
+
+propuesta cuenta con cuatro modelos[12]:
+
+6.3.1.1 Modelo orientado a mensaje
+
+En este modelo de arquitectura se centra en los aspectos relacionados con los
+mensajes y su procesamiento, definiendo una estructura en los mensajes de tal
+manera que relacione los emisores y receptores. Entre las tecnologías que emplean
+
+este modelo podemos encontrar,
+
+35SOAP. que estructura los mensajes por medio de XLM y el trasporte se lleva
+a cabo por protocolos HTTP, FTP, SMTP, etc. [12]
+
+JMS API (Java Message Service). Componente de Java EE que permite
+crear aplicaciones distribuidas donde sus elementos se comunican de forma
+asíncrona por medio de mensajes. [12]
+
+AMQGP API (Advanced Message Queruing Protocol). Es un protocol que
+permite el paso de mensajes que incluyen una capa de seguridad en
+aplicaciones distribuidas.[12]
+
+MSMQ (Microsof Message Queuing). Es un protocolo desarrollado por
+Microsoft que se encuentra presente en sistemas operativos Windows Nt 4.0
+
+y permite la comunicación de forma asíncrona de aplicaciones
+distribuidas.[19]
+
+6.3.1.2 Modelo orientado a recursos
+
+Se considera que el servicio web es un recurso, por lo tanto, se apoya en el
+
+protocolo HTTP para acceder a los recursos almacenado en los servidores a través
+
+de la url por medio de los métodos del protocolo (GET, POST, PUT...). El ejemplo
+
+más extendido de este tipo de modelo es la arquitectura REST.
+
+6.3.1.3 Modelo orientado políticas y contratos de servicios
+
+Este concepto hace referencia a la seguridad, el control de acceso, la calidad del
+
+servicio que deben considerarse en el desarrollo de la aplicación SOA. Por otro lado,
+
+se habla de un contrato que define como funciona el servicio a detalle, además de
+
+que acciones se pueden realizar para accederlo y consumirlo. Entre los estándares
+
+conocidos se pueden mencionar:
+
+WSDL (Web Services Description Language)|12]
+WADL (Web Application Description Language) [20]
+RAML (RESTful API Modeling Language) [12]
+
+366.3.1.4 Modelo orientado a micro servicios
+
+Es un concepto que ha generado polémica dentro de la arquitectura SOA, ya que
+hablar de este término no aporta nada nuevo debido a que la idea de servicio ya se
+encuentra presente en el modelo SOA. Este modelo consiste en la construcción de
+software a partir de numerosos micro servicios que representan cada una de las
+
+tareas más básicas del sistema. De esta manera busca minimizar las dependencias
+
+y maximizar la reutilización de software. [12], [21]
+
+  
+
+Policy Model
+
+  
+  
+
+Resource Oriented Model
+
+Resource
+
+   
+   
+ 
+
+Service Oriented Model
+
+ 
+
+== Partially layered on >
+
+Message Oriented Model
+
+Ilustración 5 Modelos de arquitectura de servicios del W3C. Fuente: www.w3.org
+
+6.3.2 Consideraciones de seguridad en la arquitectura soa
+
+La seguridad es uno de los aspectos más importantes de una aplicación web por lo
+tanto debe representar el nivel de importancia de la información que será
+
+administrada por el sistema.
+
+37Los siguientes son criterios de seguridad que debe garantizar la aplicación orientada
+
+a servicio:
+
+6.4
+
+Autenticación; Que el usuario que acceda al sistema es quien dice ser.
+
+Autorización. Un usuario puede realizar en el sistema solo lo que sus
+
+privilegios o credenciales le permitan.
+
+Confidencialidad. Garantizar que los datos y las comunicaciones no son
+
+accedida por persona no autorizadas.
+
+Integridad. Conservan la información en su estado original sin
+
+modificaciones.
+
+No repudio. Debe garantizar que la comunicación se envié y reciba
+
+correctamente.
+
+Disponibilidad. El servicio debe estar disponible en todo momento.
+
+Audibilidad. Todas las acciones que se realizan en el sistema deben ser
+
+registradas y revisadas para determinar posibles o futuras fallas.
+
+IMPLEMENTACIONES PARA APLICACIONES SOA
+
+Actualmente se consideran dos tecnologías para el desarrollo de aplicaciones
+
+orientadas a servicios, SOAP y REST. Estas son muy diferentes entre ellas,
+
+mientras que SOAP se centra en el intercambio de mensajes en XML para
+
+comunicar cliente y servidor, REST ofrece pautas para implementar servicios web
+
+sobre el protocolo HTTP permitiendo recursos accesibles por los clientes. A
+
+continuación, se describe con más detalle cada tecnología mencionada.
+
+6.4.1 SOAP. Como se mencionó anteriormente SOAP es una tecnología
+
+recomendad por W3C que establece la comunicación entre cliente y
+
+38servidor por medio de mensajes estructurados en XML sobre
+
+protocolos de la capa de aplicación como lo es HTTP.
+
+6.4.1.1 Elementos de SOAP.
+
+La base para la implementación SOAP se compone de una estructura fuertemente
+definida para dar origen a un mensaje. Esta estructura se debe centrar en cuatro
+
+elementos:
+e Envelepe: Es elemento principal que identifica el mensaje como SOAP
+
+e Header: Es un elemento opcional, pero, puede extender la funcionalidad del
+
+servicio ya que se pueden contener información de control y procedimientos
+
+para el tratamiento del mensaje por los clientes.
+
+e Body: Contiene la información que se desea compartir con el cliente. Es de
+
+carácter vital para la comunicación entre cliente y servidor.
+
+e  Fault: Se detallan errores que hayan podido ocurrir.
+
+En la ilustración 6 se puede observar un ejemplo claro de la estructura de un
+
+mensaje.
+
+39<2xml version='1.6' Encoding="UTF-8'* ?>
+<cenv:Envelope xmlns:env="http:/ aww.w3.org 2803/05 /so0oap-envelope”>
+<env:Header>
+<m:reservation xmlns:m="http:/'travelcompany.example.org/reservation”
+env:role="http: wwe. w3.org/ 2003 '95'soap-envelope'role/next”>
+<m:reference>uvid:09322da31 -345-7391-ba5d-pqif958fe8]7d<'m:reference>
+<m:dateándTime>2007-11-297T13:20:00.000-05:B0</'m:dateAndTime>
+<fm:¡reservation>
+<n:passenger xmlns:n="http:/'mycompany.example.com'employees”
+env:role="http:/www.w3.org/2003/05/soap-envelope'role/next">
+<n:name>FPred Bloggs<'n:name>
+</n:passenger>
+<fenv:Header>
+<env:Body>
+<p:itinerary xmlns:p="http:/'travelcompany.example.org/reservation/travel">
+<p:departure>
+<p: departing>New York<fp:departing>
+<p:arriving>los Angeles<'p:arriving>
+<p:departureDate>2007-12-14<'p:departureDate>
+<p:departureTime>late afternoon<'p:departureTime>
+<p:seatPreference>aisle<'p:seatPreierence>
+<fp:departure>
+<p:ieturn>
+<p:departing>los Angeles</p:departing>
+<p:arriving>=New York<'p:arriving>
+<p:departureDate>20087-12-208<'p:departurelate>
+<p:departureTime>mid-morning<'p:departureTime>
+<p:seatPreference><fp:seatPreference>
+</p:ieturn>
+<fp:itinerary>
+<fenv:Body>
+
+<fenv:Envelope>
+
+Ilustración 6 Mensaje SOAP Aplicacion agencia de viajes
+Fuente: https: //www.ibm.com/support/knowledgecenter/es/SSMKHH_9.0.0/com.ibm.etools.mft.doc/ac55780_.htm
+
+Los elementos contenidos en el interior de header body están definidos por la
+aplicación en su propio XML. La cabecera contiene dos bloques, reservation y
+passenger, con información de control, la fecha y hora de la reserva y su referencia,
+así como el nombre del pasajero. El cuerpo del mensaje contiene los datos del
+itinerario en el elemento itinerary, que contiene la información de ida y vuelta del
+viaje. Este documento XML puede ser generado de manera automática por medio
+
+de librerías o frameworks durante la implementación del servicio.
+406.4.2 REST.
+
+Respresentational State Transfer o REST se diferencia de SOAP por su enfoque a
+recursos. Propone una implementación más simple empleando métodos del
+protocolo HTTP para comunicarse con un servicio web ya que no define una
+
+estructura para representar la información pues esta se puede encontrar en formato
+
+XML o notación JSON.
+
+iq]
+
+https://play.google.com/books/reader?id=AZ3gDAAAQBAJ8printsec=frontcovergáoutput=readerghl=esgépg=GBS.PA33
+
+En el diseño de servicios REST se tienen en cuenta una serie de restricciones, para
+
+RES
+
+0
+
+NE A
+
+Devuelve el listado completo de usuarios de la agenda telefónica. En lugar
+de devolver los identificadores, un diseño RESTful devolvería las URI de
+cada uno de estos usuarios.
+
+Añade un nuevo usuario. Los datos
+del mismo irán en el cuerpo de la petición.
+
+Reemplaza la lista de usuarios con
+
+otra completamente nueva enviada
+en el cuerpo de la petición.
+
+PATTI GTA Te)
+
+Devuelve la información del usuario
+de la agenda telefónica identificado
+en la URI.
+
+A veces se emplea también para modificar los datos [PUT], aunque sería
+un error de diseño.
+
+Reemplaza este usuario por uno nuevo enviado en la petición.
+
+ 
+
+Elimina todos los usuarios de la agenda.
+
+Elimina este usuario de la agenda.
+
+ 
+
+Tabla 3 Recursos REST Agenda Telefónica
+
+Fuente:
+
+considerarlo REST.[12]
+
+e GCliente-Servidor. la aplicación debe tener como arquitectura cliente
+servidor
+
+permitiendo el
+
+independiente.
+
+e Sin estado. El cliente es el encargado de enviar la información necesaria
+
+para procesar correctamente una solicitud, el servidor no almacena ninguna
+
+información de sesión.
+
+41
+
+desarrollo de ambas partes de manerae GCachable. la implementación de la aplicación cliente debe permitir
+almacenar datos en una memoria cache, estos datos se caracterizan por la
+demandan de solicitudes. La idea no es sobre cargar el servidor con solicitud
+
+de información que es constantemente requerida.
+
+e Interfaz uniforme. definir estándares que permitan cierta uniformidad en el
+desarrollo la interfaz de la aplicación, con el fin de identificarlos fácilmente
+
+sin necesidad de conocer previamente el servicio.
+
+e Sistema en capas. El sistema debe contar con numerosas capas, por
+ejemplo, lógica, modelo o vista, la idea es que el cliente no identifique con
+que capa esta interactuando, permitiendo establecer políticas de seguridad
+
+y control.
+
+6.5 METODOLOGÍAS PARA EL DESARROLLO DE SISTEMAS DE
+INFORMACIÓN WEB SOA
+
+SOA trae un nuevo paradigma de programación. Durante el desarrollo debemos
+identificar un modelo de negocio y cada uno de los procesos (procesos de negocio)
+que intervienen en él. Seguidamente, como si se tratara de un juego de bloques se
+descomponen estos procesos en sus piezas más pequeñas, para clasificarlas y
+detectar patrones. Al final cada pieza se implementa de manera individual como un
+procedimiento (servicio) independiente con características claras para comunicarse
+e interactuar con otros procedimientos estructurando nuevamente el proceso. El
+éxito de este paradigma radica en un buen análisis y diseño del modelo de negocio
+donde las metodologías de desarrollo tradicionales como XP, SCRUM o RUP no
+consideran un enfoque de negocio.
+
+Como resultado de estas limitaciones, se han planteado diferentes metodologías de
+desarrollo orientadas a servicios, algunas son nuevas, otras construidas a partir de
+metodologías tradicionales orientadas al desarrollo de sistemas centralizados o
+distribuidos. Como ejemplo, SOMA [11] añade actividades enfocadas a estructurar
+
+el modelo de negocio, ajustando la metodología pesada RUP [10] (Rational Unified
+
+42Procces) para SOA. También, Stojanovié [12] una propuesta que deriva de una
+metodología basada en componentes, y finalmente, Sod-M [13] una ligera diseñada
+específicamente alrededor del concepto de servicio.
+
+Para el desarrollo del proyecto se trabajó con SOMA. La visión SOMA presenta
+cuatro fases para el desarrollo de servicios, denominadas: Identificación,
+Especificación, Realización y Despliegue de servicios [11]. Estas fases se realizan
+dentro de las del RUP, por ej. la identificación y especificación de servicios son *
+principalmente actividades de la fase de Elaboración, y las tareas asociadas se
+asignan a las Disciplinas del RUP. Requiere la realización de las actividades
+definidas en las Disciplinas del RUP, agregando Disciplinas y actividades
+específicas para SOA, así como entregables y roles, también en las Disciplinas de
+
+Modelado del Negocio, Diseño e Implementación. La tabla 4 describe brevemente
+SOMA del RUP.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Disciplina Actividades Roles Entregables
+Modelado de | Identificar objetivos del Analista de | Visión del negocio
+Negocio Negocio/desempeño, para identificar procesos del | y objetivos del
+
+objetivos del negocio y gestionarlo con | negocio Negocio.
+los indicadores definidos. Modelo de Casos
+Refinar Caso de Uso del Negocio para de Uso del
+obtener Casos de Uso del Sistema que Negocio.
+puedan realizarse como procesos de Especificación
+negocio. suplementaria del
+Análisis de Área Funcional, para negocio
+relacionar funciones del negocio con
+áreas funcionales.
+Análisis y | Analizar los procesos del Negocio para | Arquitecto de | Modelo de Análisis
+Diseño identificar servicios, su especificación, | Software del negocio.
+dependencias y comunicaciones. Analista de | Modelo de
+Analizar Casos de Uso del Negocio procesos del | Servicios que
+(SOA) identificando servicios | negocio contiene toda la
+candidatos para realizarlos.
+
+ 
+
+43Analizar activos existentes para | Diseñador e información de los
+identificar posibilidades de reutilización. | Implementador | servicios.
+
+Aplicar test de filtro sobre los servicios
+candidatos evitando el “síndrome de
+proliferación de servicios”.
+
+Especificar servicios categorizándolos y
+definiendo orquestaciones y
+coreografías entre servicios.
+
+Diseñar subsistemas (SOA).
+
+ 
+
+ 
+
+Implementación | Documentar decisiones de realización | Diseñador, Modelo de
+
+de servicios indicando en el Modelo de | Implementador | Servicios, y otros
+Servicios, los componentes de software | y Arquitecto de | como el SAD y el
+
+asociados que ejecutaran. Software Modelo de Diseño
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 4 Disciplinas metodología SOMA
+
+En la tabla anterior se describió cada una de las disciplinas involucradas en esta
+
+metodología. Ahora, para identificar la base de dichas disciplinas es importante
+
+recalcar de manera general las fases que intervienen e influyen en toda la
+
+metodología. A continuación, se exponen las fases la metodología SOMA detallando
+
+tareas a seguir:[13]
+
+Identificación del servicio. En esta fase se deben identificar los posibles
+servicios que serán candidatos a la implementación. Tengamos en cuenta
+que cada servicio es visto como un proceso de negocio o un activo
+
+empresarial que lleva a cabo tareas específicas como reportes, facturación,
+
+rutinas de control, entre otros en la organización. Básicamente la
+
+identificación de servicio invita a descomponer todos los procesos de la
+empresa, definir un modelo de servicios y finalmente analizar el estado actual
+de la misma con el fin de deputar el modelo definido. En esta fase se
+recomienda como tarea realizar un análisis de proceso empresarial, un
+modelo de uso empresarial (SOA), análisis del estado actual de la empresa,
+
+también señala definir y consolidar los objetivos y reglas empresariales.
+
+44e Especificación de servicios. Esta fase es de vital importancia en el
+desarrollo, ya que es aquí donde se deben seleccionar, clasificar y asignar a
+módulos o subsistemas los servicios candidatos a implementar. En esta fase
+se recomienda como tareas, aplicar pruebas para la selección de servicios,
+especificar claramente los servicios y subsistemas, diseñar mensaje y
+especificar los componentes.
+
+e Realización del servicio. Se establece el desarrollo de los servicios a
+
+implementar teniendo en cuenta los análisis, los modelos, y los subsistemas
+
+estudiados en las fases anteriores. Además, de una clara documentación.
+
+Influencias Actividades Productos de trabajo
+o o] | ES [|]
+Requisitos I Identificación Modelo inicial
+¡ funcionales Ñ del servicio Pa. 4 del servicio
+
+   
+
+E TA nd
+Il Requisitos Especificación
+ño funcionales ¡y / ' del ser+*icio
+
+  
+
+Modelo detallado
+del servicio
+
+Implementación
+
+Requisitos PA ¿Realización
+| de plataforma ¡> |
+
+del servicio
+
+del ser+*icio
+
+ 
+
+Requisitos Despliegue | servicios en
+
+ 
+
+' de disponibilidad 1 del servicio ejecución
+AAA ! ? LJ
+
+Ilustración 7 Fases clave de la metodología SOMA
+
+Fuente:
+http://cgrw01 .cgr.go.cr/rup/RUP.es/LargeProjects/index.htmifsoa.rup_soma/guidances/concepts/developing_serviceoriented_solutions_38D3FA86.html
+
+456.6 PLATAFORMA DE DESARROLLO JAVA
+
+Aplicaciones Java J2EE
+
+Java Enterprise Edition, define un conjunto de estándares que habilita soluciones
+para manejo y desarrollo de aplicaciones empresariales multicapa que son
+centralizadas en el servidor. Su fin principalmente es ser utilizado en desarrollo de
+aplicaciones empresariales, ya que sus especificaciones y funcionalidades son
+orientadas a negocios. Sus grandes ventajas son: robustez, fiabilidad, estabilidad y
+seguridad. El objetivo principal es simplificar las aplicaciones empresariales,
+basándolas en componentes modulares y estandarizados, para proveer un
+completo conjunto de servicios] 14].
+
+En la ilustración 8 se muestra la arquitectura de las aplicaciones web, el primer nivel
+que corresponde al cliente y la vista, es donde está la interfaz de usuario y se realiza
+una iteración con el mismo (en aplicaciones o en páginas web). El segundo nivel
+que es la lógica, está referido habitualmente a algún tipo de programa o script y es
+el encargado de realizar todas las validaciones desde los procesos manejados en
+el sistema, según reglas de negocio establecidas por los stakeholder. El tercer nivel,
+denominado de persistencia o de objetos de acceso a datos, son los encargados de
+
+permitir la interacción con la base de datos a través del mapeo de clases generadas
+
+en la capa de modelo.
+
+46Ilustración 8 Arquitectura de las Aplicaciones Web
+
+Fuente: Elaboración Propia.
+
+6.6.1 ORM (Mapeo Objeto Relacional)
+
+El mapeo objeto-relacional es una técnica de programación para convertir datos del
+sistema de tipos utilizado en un lenguaje de programación orientado a objetos al
+utilizado en una base de datos relacional. En la práctica esto crea una base de datos
+virtual orientada a objetos sobre la base de datos relacional. Esto posibilita el uso
+de las características propias de la orientación a objetos (esencialmente la herencia
+
+y el polimorfismo)[22].
+
+6.6.2 DAO (Data Access Object)
+
+El DAO implementa el mecanismo de acceso requerido para trabajar con la base de
+datos. Se utiliza para abstraer y la encapsular todos los accesos a la base de datos.
+El DAO gestiona la conexión con la fuente de datos para obtener y almacenar datos.
+
+Esencialmente, la DAO actúa como un adaptador entre el componente y la base de
+datos[23].
+
+476.6.3 JPA y JPQL
+
+La API de persistencia de Java (JPA) es una solución basada en estándares Java
+para la persistencia. La persistencia utiliza un enfoque de mapeo objeto / relacional
+para cerrar la brecha entre un modelo orientado a objetos y una base de datos
+relacional. La API de persistencia de Java también se puede utilizar en Java SE
+aplicaciones, fuera del entorno Java EE. Java Persistence consiste en lo siguiente
+áreas[24]:
+
+e La API Java Persistence
+
+e Ellenguaje de consulta (JPQL)
+
++ Objeto / metadatos de mapeo relacional.
+
+6.6.4 EJB
+
+Los Entreprise Java Beans son componentes del lado del servidor que encapsulan
+
+la lógica del negocio de una aplicación[25].
+
+6.6.5 Managed Bean
+
+Son objetos gestionados por contenedor de peso ligero (POJO) con requisitos
+mínimos, para apoyar a un pequeño conjunto de servicios básicos, como la
+inyección de recursos, las devoluciones de llamada de ciclo de vida, y los
+interceptores. Estos representan una generalización de los beans gestionados
+especificados por la tecnología JavaServer Faces y se puede utilizar en cualquier
+
+lugar de una aplicación Java EE, no sólo en la Módulos Web [26].
+
+6.6.6 JSF (Java Server Faces)
+
+La tecnología Java Server Faces establece el estándar para la construcción de
+interfaces de usuario del lado del servidor. Con los aportes de un grupo de expertos,
+la API Java Server Faces fue diseñados para que puedan ser aprovechados por las
+herramientas que harán que el desarrollo de aplicaciones web sea incluso más
+fácil[27].
+
+486.6.7 PrimeFaces
+
+Es una librería de componentes visuales de código abierto para el conjunto Java
+Server Faces 2.0 desarrollada y mantenida por Prime Technology. Su objetivo
+principal es ofrecer un conjunto de componentes para facilitar la creación y diseño
+
+de aplicaciones web]|2].
+
+6.6.8 Servidor de Aplicaciones Glassfish
+
+GlassFish es un servidor de aplicaciones desarrollado por Sun Microsystems
+
+destacado por su fiabilidad y estabilidad. Sus principales características son:
+
+e Compatibilidad con las tecnologías de interoperabilidad de Web Services
+(WSIT) — Sun trabaja estrechamente con Microsoft para garantizar la
+interoperabilidad de las tecnologías de empresa de los servicios web, como
+la optimización de mensajes, la mensajería fiable y la seguridad.[28]
+
+e Compatibilidad con JBl: Java Business Integration (JBl) amplía Java EE con
+Service Provider Interfaces (SPI) de integración empresarial. Estas interfaces
+(SPI) permiten a los desarrolladores crear o implementar el entorno de
+
+integración empresarial Java para especificaciones como WSCI, BPEL4WS
+y W3C Choreography Working Group.[29]
+
+e Admite la replicación "en memoria" — La replicación "en memoria" en otros
+servidores proporciona un almacenamiento ligero de los datos del estado de
+la sesión sin necesidad de obtener una base de datos aparte. Este tipo de
+duplicación utiliza memoria de otros servidores para el almacenamiento de
+alta disponibilidad de datos de sesión HTTP y de beans de estado de la
+sesión.[29]
+
+e Mejoras en el equilibrio de la carga — Se han añadido algunas mejoras en el
+plugin del equilibrio de la carga.[29]
+
+e Comunidad Open Source y GlassFish : En junio de 2005, Sun estrenó la
+comunidad GlassFish cuyo propósito es desarrollar un servidor de
+
+aplicaciones libre, de código abierto y de nivel comercial que implemente las
+
+49funciones más recientes de la plataforma Java EE 5 y de las tecnologías de
+
+empresa relacionadas.[29]
+
+6.6.9 MYSQL
+
+El servidor de base de datos MYSQL es muy rápido, fiable y fácil de usar. Este
+ofrece una serie de características entre ellas, la capacidad de tratar grandes bases
+de datos mientras registra un alto rendimiento.
+
+Por otro lado, MYSQL un gestor de base de datos de código abierto basado en
+leguaje de consulta estructurado (sql) puede ejecutarse en la mayoría de sistemas
+operativos conocidos como Windows y Linux, también presenta interfaces de
+
+programación para acceder a sus bases de datos desde lenguaje de programación
+
+c,C+, java, perl, php, python, entre otros. [30]
+
+6.6.10 Servicios Web
+
+Se considera servicio web a la evolución de la tecnología RPC (llamada de
+procedimiento remotos) que hace uso de la web para diseñar software distribuido e
+interoperable. RPC es una técnica de programación donde un programa que se
+ejecuta en una maquina puede realizar llamadas a procedimientos en otras
+máquinas diferentes como si estos procedimientos estuvieran disponibles en la
+misma máquina. [12]
+
+Un servicio web debe cumplir con las siguientes características:
+
+e Visibilidad. Es la capacidad del servicio de ser conocido por aquellos que
+
+desean usarlo.[12]
+
+e Reusabilidad. Puede ser usado una y otra vez en diferentes escenarios.
+
+e Interactividad. Mediante paso de mensajes el servicio debe interactuar
+
+con otros servicios o multitud de clientes. [12]
+
+e Interoperabilidad. Su comunicación es estándar. Además, debe mostrar
+independencia al lenguaje de programación o sistema operativo del cliente
+
+y el servidor.[1.2]
+
+50e Seguridad. Un servicio debe atender solo las peticiones de aquellos
+
+usuarios con las credenciales o privilegios adecuados.|12]
+
+51CAPÍTULO 2. DESARROLLO DEL PROYECTO - METODOLOGÍA
+
+En esta sección se presenta el desarrollo del trabajo, a través de la descripción de
+cada una de las fases de la metodología SOMA. Se presenta también las
+herramientas usadas para el desarrollo y como se realizó la fase de pruebas e
+
+implementación del sistema.
+
+7 DESARROLLO DEL PROYECTO
+
+Una metodología para desarrollo con servicios no implica necesariamente un nuevo
+proceso, es posible utilizar el de la Organización, agregando elementos para
+servicios. Teniendo en cuenta la naturaleza cambiante de los requerimientos y el
+hecho de trabajar con SOA en este trabajo, se utilizó un proceso base adaptación
+del RUP [31], que prevea entregables intermedios para seguimiento y control del
+proyecto.
+
+El proceso utilizado, tiene como el RUP dos dimensiones, el tiempo y las disciplinas,
+manteniendo en la del tiempo sus cuatro fases: Inicial, Elaboración, Construcción y
+Transición, en las disciplinas: requerimientos, diseño, implementación y verificación;
+más gestión del proyecto, calidad, configuración e implantación. Además, según [11]
+también se definieron actividades y entregables de entrada y salida, así como
+iteraciones y una agenda semanal de actividades y entregables. Los roles que se
+proponen en [11] no se tuvieron en cuenta, como se expuso también en la tabla 3,
+dado que el proyecto se desarrolló por una sola persona.
+
+La Extensión SOA en la metodología SOMA, requirió cumplir con el proceso base,
+agregando elementos específicos para desarrollo SOA. Siendo así, se hizo énfasis
+en el Modelado del Negocio, Diseño e Implementación para modelar procesos de
+negocio e identificar servicios para realizarlos, diseñarlos y construirlos. A
+continuación se describe la metodología usada para los 4 módulos o servicios
+
+principales del proyecto como se muestra en la ilustración 6, en donde de aquí en
+
+92adelante se referenciarán como MS1-Usuarios para el caso de la gestión de
+usuarios, MS2-Pacientes para la gestión y consumo de información de pacientes,
+MS3-Proveedores para los servicios propios de información de proveedores y MS4Historias para el módulo principal de la aplicación que consume los servicios para
+el control de información en las historias de consulta externa, audiometría,
+optometría y salud ocupacional.
+
+En la identificación de requerimientos se dividieron los módulos como servicios
+independientes y bajo estos, se inicia con la metodología aplicando para cada uno
+cada una las disciplinas de la metodología como iteraciones que iban generando
+cada aplicación de manera independiente.
+
+Según las características del sistema, se inició por el módulo de usuarios,
+
+posteriormente pacientes y proveedores y finalmente el de historias.
+
+me m7 Servicio
+Servicio Servicio A .
+FIME DIS DIAS roveedo Servicio Historias
+
+Gestión de Historias
+clínicas de: Consulta
+
+ 
+ 
+  
+
+  
+ 
+
+   
+
+¡Cie MelS
+
+Información 24 externa, audiometría,
+els TENA
+
+Proveedores ocupacional
+
+¡CRilS
+ml Información hom!
+
+Usuarios de Pacientes
+
+ 
+
+SEU ErlS
+
+Hoiioldag tol lelA! e
+Pérfiles.
+
+Servicio Servicio
+
+Web para
+AE
+
+Servicio
+
+[efg Web para
+Logueo y Mam] consulta [ms
+
+ooo Ola
+usuarios
+
+  
+ 
+
+Se consumen servicios
+web de usuarios,
+proveedores, pacientes
+
+de
+eel
+
+tel] gll
+acientes E
+
+ 
+
+Ilustración 9 Servicios de aplicación web para FIME
+
+5937.1 DESARROLLO DE METODOLOGÍA SOMA
+
+7.1.1 Disciplina Modelado de Negocio
+
+En la primera disciplina o fase de la metodología trabajada, se evaluó la
+organización identificando los requerimientos generales del sistema para luego
+definir aspectos como detalles de funcionalidades y roles de usuario a través de
+casos de uso del negocio. Para modelar los procesos de negocio se usó los
+diagramas de Casos de Uso del Negocio incluyendo notación grafica UML.
+
+La tabla 5 muestra los requerimientos para el MS1-Usuarios.
+
+Ver Anexo 5 Requerimientos para MS2-Pacientes.
+
+Ver Anexo 6 para Requerimientos MS3-Proveedores.
+
+Ver Anexo 7 para Requerimientos MS4-Historias Clínicas.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Requerimientos módulo de usuarios
+Identificación del RFO1
+requerimiento:
+Nombre del Autentificación de Usuario.
+Requerimiento:
+Características: Los usuarios deberán identificarse para acceder a cualquier parte del sistema.
+Descripción del El sistema deberá pedir un usuario y contraseña con el fin de validar el usuario y
+requerimiento: sus permisos. Á su vez deberá direccionar al usuario a una ventana acorde a
+sus privilegios.
+Requerimiento NO e  RNFO1
+funcional: e  RNFO2
+e  RNFO5
+e  RNFO8
+Prioridad del requerimiento: Alta
+Identificación del RFO2
+requerimiento:
+Nombre del Registrar Usuarios.
+Requerimiento:
+Características: Los usuarios deberán registrarse en el sistema para acceder a cualquier parte
+del sistema.
+Descripción del El sistema permitirá al Gerente registrar uno o más usuarios. Cada usuario debe
+requerimiento: suministrar datos como: C.C, Nombre, Apellido, Dirección, Fecha de nacimiento,
+E-mail, Teléfono, Cargo o Profesión, Usuario y Password.
+Requerimiento NO e  RNFO1
+funcional: e  RNFO2
+e RNFO5
+e  RNFO8
+Prioridad del requerimiento: Alta
+Identificación del RFO3
+requerimiento:
+
+ 
+
+ 
+
+94Nombre del
+Requerimiento:
+
+Modificar y actualizar usuarios del sistema.
+
+ 
+
+Características:
+
+El sistema permitirá al usuario gerente modificar y actualizar los datos de los
+
+usuarios
+
+ 
+
+Descripción del
+requerimiento:
+
+El sistema ofrecerá al usuario Gerente modificar los usuarios registrados en el
+sistema, actualizar sus datos personales, contraseñas y privilegios de usuario.
+
+ 
+
+Requerimiento NO
+funcional:
+
+e  RNFO1
+e  RNFO2
+
+ 
+
+Prioridad del requerimiento: _ Alta
+
+ 
+
+Identificación del
+requerimiento:
+
+RFO4
+
+ 
+
+Nombre del
+Requerimiento:
+
+Eliminar usuarios del sistema.
+
+ 
+
+Descripción del
+requerimiento:
+
+El sistema permitirá al gerente eliminar un perfil de usuario.
+
+ 
+
+Requerimiento NO
+funcional:
+
+e  RNFO1
+e  RNFO2
+
+ 
+
+Prioridad del requerimiento: Alta
+
+ 
+
+Identificación del
+requerimiento:
+
+RFOS5
+
+ 
+
+Nombre del
+Requerimiento:
+
+Consultar Usuarios.
+
+ 
+
+Características:
+
+El sistema permitirá al administrador consultar la información del registro de cada
+
+ 
+
+ 
+
+usuario.
+Requerimiento NO e  RNFO1
+funcional: e  RNFO2
+
+ 
+
+Prioridad del requerimiento: _ Alta
+
+ 
+
+ 
+
+Identificación del
+requerimiento:
+
+RFO6
+
+ 
+
+Nombre del
+Requerimiento:
+
+Registro de acciones en el sistema.
+
+ 
+
+Características:
+
+El sistema deberá garantizar una bitácora de acciones de cada usuario.
+
+ 
+
+Descripción del
+requerimiento:
+
+El sistema proporcionara el registro automático de acciones u operaciones
+
+realizadas por acá usuario del sistema, relacionando la fecha y la hora del evento.
+
+ 
+
+Requerimiento NO
+funcional:
+
+RNFO01
+RNFO2
+RNFO5
+RNFOG
+
+ 
+
+Prioridad del requerimiento: _ Alta
+
+ 
+
+Identificación del
+requerimiento:
+
+RFO7
+
+ 
+
+Nombre del
+Requerimiento:
+
+Consultar registro de acciones en el sistema
+
+ 
+
+Características:
+
+El sistema deberá permitir al usuario gerente consultar la bitácora de acciones o
+eventos.
+
+ 
+
+Descripción del
+requerimiento:
+
+Se podrá consultar el registro de eventos de todos y cada uno de los usuarios de
+manera general o individual. También se podrán consultar los eventos por fecha.
+
+ 
+
+ 
+
+Requerimiento NO
+funcional:
+
+ 
+
+RNFO01
+RNF02
+RNFO5
+RNFOG
+
+ 
+
+99Prioridad del requerimiento: _ Alta
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Identificación del RFO8
+requerimiento:
+Nombre del Mantenimiento de usuarios del sistema.
+Requerimiento:
+Características: El módulo de usuario del sistema deberá ofrecer un mecanismo para el
+mantenimiento de usuarios.
+Descripción del El sistema deberá notificar al gerente sobre los usuarios que llevan más de un
+requerimiento: oo o o a
+mes inactivos (sin ingresar al sistema), y periódicamente solicitar la actualización
+de datos.
+Requerimiento NO e  RNFO1
+funcional: e RNFO2
+e  RNFO5
+e  RNFO06
+
+ 
+
+ 
+
+ 
+
+ 
+
+Prioridad del requerimiento: — Alta
+
+ 
+
+Tabla 5 Requerimientos MS1-Usuarios
+
+Elaboración Propia
+
+La ilustración 10 muestra el diagrama de casos de uso para el MS1-Usuarios en el
+
+cual se muestra los actores involucrados y las funcionalidades que ofrecerá el
+
+módulo
+Registrar Usuario
+Modificar
+Inicio de sesion
+E
+SS . a cliiminar
+Gestion de Usuario
+Consulta de Eventos
+Consultar <<incluir>> de Usuarios
+Gerente : :
+Monitoriar Usuarios
+<< incluir>>
+<<Actor>> - : Cc;
+Gestion del Ssitema
+Sistema
+Registrar eventos de
+
+usuario
+
+Ilustración 10 Caso de uso MS1-Usuarios
+
+96Ver Anexo 8 para casos de uso MS2-Pacientes.
+Anexo 9 para casos de uso MS3-Proveedores.
+
+Anexo 10 para MS4-Historias Clínicas.
+
+7.1.2 Disciplina Análisis y Diseño
+
+En la segunda disciplina trabajada, se validaron y categorizaron los servicios para
+realizar los procesos del negocio y especificar las funcionalidades que iba a permitir
+cada servicio definiendo los contratos funcionales incluyendo interfaces y métodos.
+Además, se establecieron las funcionalidades a reutilizar o aquellas que iban a ser
+consumidas desde los demás módulos.
+
+Los servicios de cada uno de los módulos se muestran en la tabla 6, en donde se
+indica las funcionalidades que cada uno va a permitir y los módulos que harán uso
+
+de los mismos.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Módulo que consume el
+Módulo Servicio Ofrecido | Métodos 7
+servicio
+MS1-Usuarios Validación e  find() e  MS2-Pacientes
+de usuario. e  create() e  MS3-Proveedores
+Registro de e  edit() e — MS4-Historias
+usuarios e  findRange()
+Consulta de e.  remove()
+usuario/s
+Actualización
+de usuario
+Eliminación
+de usuarios
+MS2-Pacientes Registro de e  find() e  MS2-Historias
+pacientes e  findAll()
+Consulta de e  create()
+paciente/s e  edit()
+Actualización e  findRange()
+de paciente e  remove()
+Eliminación
+de paciente
+MS3-Proveedores Registro de e  fina() e  MS2-Historias
+proveedores e  findAll()
+Consulta de e  create()
+proveedor/es e  edit()
+Actualización e  findRange()
+de proveedor e  remove()e Eliminación
+de proveedor
+
+ 
+
+MS4-Historias e Registro de
+Historias
+
+ 
+
+ 
+
+ 
+
+Créate()
+
+ 
+
+Este servicio dentro de la
+
+aplicación solo es consumido por
+
+sí mismo.
+
+ 
+
+Tabla 6 Descripción de Servicios
+
+Para la definición de cada una de las funcionalidades de los módulos y
+
+características de los servicios, se utilizó BPM, a través del BPMS Bonita Soft. La
+
+ilustración 11 muestra el diagrama BPM para el caso del módulo de Pacientes MS2
+Pacientes. Ver: Anexo 11 para diagramas BPM MS1-Usuarios. Anexo 12 para
+
+diagrama BPM MS3-Proveedores. Anexo 13 para diagrama BPM MS4-Historias.
+
+98Plengresar datos
+
+el ant
+del paciente paciente
+
+       
+
+Find
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+  
+ 
+
+    
+    
+
+   
+
+        
+
+Asignar seguridad social Listo
+É
+E
+S .
+33
+£ 7
+7
+BA
+7
+E
+EZ Datos de
+paciente no
+validos No
+Aqui se puede determinar si se
+llas un solo paciente o
+varios
+Listo para consulta
+f 2 Ingrese: detos ” ZO a Consultar
+para consuñta de Regutros de
+4
+recia EZ pacientes 4
+Tipo de consulte 2
+.
+¿g 2
+$13 Telelono de Registrar
+¿3 paciente Evento
+¿2
+a 5
+RF >
+3 2
+55 Z
+ds Empresa de No
+pacientes
+r
+EN Y)
+
+ 
+
+se quiere
+¡consultar
+mas de Ut,
+
+Paciente/s encontrada?
+
+(Y. No
+
+Fina
+
+ 
+
+Aqui debena apoyarse en el serca
+para consultar el usuario, como puedo
+
+hacer ezo?
+si
+
+  
+     
+
+Datos Yalidos?
+
+ee
+papente detos de
+la paciente No
+
+  
+
+DD Actualizar
+registro de
+pauente
+
+)
+
+ 
+
+5
+
+O
+
+  
+
+Modificar Pacientes
+Gerente y Secretaria
+
+Se trato de relacionar una llamada al
+proceso Consultar paciente os de SS
+
+velidos
+
+ 
+
+ 
+
+  
+
+ 
+
+   
+
+É Aqui debera apoyarse en el servicio
+IE para dear el usuario,
+5 $ hacer ezo?
+E
+33
+- e
+8 (y Consultar
+Evento
+Inicio Fin
+
+ 
+
+   
+
+9 e
+
+Ínicio2 Tipo de Consulta?
+Detalle a Consultar?
+
+  
+
+ensulta
+por Evento
+
+ 
+
+ 
+
+tar eventos del sistem
+Gerente
+
+Defecto
+iii Foraaliad
+Tipo de Evento Defiroda consulta?
+si
+Consultar
+Er An?
+
+Y) Consultar
+Registro de
+Eventos
+
+Consulta
+
+ 
+  
+ 
+
+      
+    
+
+Consulta generada?
+
+Ilustración 11 Diagrama BMP MS1 Pacientes
+
+Finalmente, en esta disciplina se define el modelo de base de datos de cada
+
+componente de la aplicación. La ilustración 12 muestra el modelo de base de datos
+
+599para MS4-Historias, el cual consumirá los servicios que ofrecen MS1-Usuarios,
+
+MS2-Pacientes y MS3-Proveedores.
+
+* num ero_riesgo_ocupacion INT rr t idtipoExamen INT
+
+% antecedentes_ocupacionales_numero_antecedente INT % tipo_idtipo INT
+rmmbor_ riesgo MARCARLA) % riesgo_numero_riesgo INT % examen_salud_ocupacional_numero_examen INT
+
+* numero_riesgo INT
+
+“5 tipo_riesgo VARCHAR(45) % valor_riesgo BOOLEAN % examen_salud_ocupacional_cedula_paciente_examen V ARCHAR(45)
+
+  
+
+* numero_antecedente INT
+“ ocupacion_antecedente VAROHAR(45)
+
+  
+ 
+
+* numero_accidente INT
+% fecha_accidente VAROHAR(45)
+
+    
+
+% empresa_antecedente VARCHAR(45) === ====== J
+
+9 tiempo_antecedente VARCHAR(45) 2 tipo_lession_accidente VARCHAR(45)
+
+“> equipos_antecedente VARCHAR(45) TT < 9 parte_afectada_accidente VARCHAR(45)
+2 materia_prima_insumos_antecedente VA... | + dias_incapacidad_accidente VARCHAR(45)
+< tipo_antecedente VARCHAR(45) HO- === Z % secuelas_accidente VARCHAR(45)
+
+9 turno antecedente VARCHAR(45) % antecedentes_ocupacionales_numero_antecedente INT
+
+% actividad_realizada_antecedente V ARCHA...
+“ tiempo_exposon_riesgo VARCHAR(45)
+> elementos_proteccion VARCHAR(45)
+
+E
+Me ii
+
+* numero_examen INT
+
+* cedula paciente_examen VARCOHAR(45)
+9 fecha_exam en VARCHAR(45)
+
+% accidentes_trabajo_examen VARCHAR(45)
+“enfermedades_profesionales_examen VARCHAR(45)
+2 enfermedades_actuales VARCHAR(45)
+
+“2 medicam entos_examen VARCOHAR(45)
+
+% toxicos_examen V ARCHAR(45)
+
+% alergicos_examen VARCHAR(45)
+
+“5 habitos_examen VAROHAR(45)
+
+9 diagnostico_examen VARCHAR(200)
+
+“> concepto_examen VARCHAR(200)
+
+* id_antecedentes_ familiares INT % recomendaciones_examen VARCHAR(200)
+“nombre_antecedente_ familiar VARCHAR(45) “> estado_mmss_fuerza VARCHAR(45)
+
+% estado_mmss_movilidad Y ARCHAR(45)
+
+% examen_salud_ocupacional_cedula_paciente_examen V ARCHAR(45) “> estado_mmss_flexibilidad Y ARCHAR(45)
+% antecedentes_familiares_numero_antecedente_familiar INT estado_mmi_fuerza VARCHAR(45)
+Gestado_mmi_movilidad VARCHAR(45)
+“Sestado_mmi_flexibilidad VARCHAR(45)
+“estado_columna_fuerza VAROHAR(45)
+
+* id_antecedentes personales paciente INT “%estado_columna_movilidad VARO4AR(45)
+% nombre_antecedente-personales Y ARCHAR(45) “%estado_columna_flexibilidad VAROHAR(45)
+
+% examen_salud_ocupacional_numero_examen INT “ estado_phalen VARCHAR(45)
+2 mae... “> estado_finkelstein VARCHAR(45)
+
+“%estado_tinnel VARCHAR(45)
+% estado_lassegue VARCHAR(45)
+
+ 
+
+ 
+
+* numero_sintomas_pacientes INT
+“2 padece_sintoma_paciente BOOLEAN
+
+% examen_salud_ocupacional_numero_examen INT
+
+% examen_salud_ocupacional_cedula_paciente_examen VARCHAR(45)
+
+* numero_antecedentes_personales INT
+“> valor VARCHAR(45)
+
+ 
+
+ 
+
+% antecedentes ocupacionales_numero_antecedente INT
+
+A
+
+ 
+ 
+ 
+
+* num ero_sintomas_sistemas INT
+* cedula paciente_sintom as VARCHAR(45)
+ frecuencia_respiratoria_sintoma Y ARCHAR(45)
+ frecuencia_cardiaca_sintoma V ARCHAR(45)
+ tension_arterial_sintom a VAROHAR(45)
+
+9 sintoma_observacion_general Y ARCHAR(200)
+“> estado_marcha BOOLEAN
+
+% estado_sensibilidad BOOLEAN
+“estado_fuerza BOOLEAN
+
+ estado_rot BOOLEAN
+
+   
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+? examen_salud_ocupacional_numero_examen INT
+
+? examen_salud_ocupacional_cedula_paciente_examen V ARCHAR(45)
+
+ 
+
+Ilustración 12 Base de Datos MS1-Usuarios
+
+60Ver:
+
+Anexo 14 para modelo de base de datos MS1-Usuarios,
+Anexo 15 para modelo de base de datos MS2-Pacientes.
+Anexo 16 para MS3-Proveedores.
+
+Anexo 17 para MS4-Historias Clinicas.
+
+7.1.3 Disciplina Implementación
+
+En la fase o disciplina de implementación, se codificó cada uno de los módulos de
+manera independiente y se crearon los servicios web para usuarios, pacientes y
+proveedores, teniendo en cuenta las funcionalidades de cada servicio, sus
+interfaces y la interacción entre cada uno de ellos.
+
+Finalmente, para cada módulo y servicio se establecieron las pruebas de
+aceptación. Estas pruebas se realizaron al final de cada módulo para verificar que
+se cumpliera con los requerimientos de los usuarios. Las pruebas de aceptación
+que fallarán fueron analizadas para evaluar su corrección. La tabla 7 muestra la
+plantilla usada de pruebas, en donde se establecen elementos como las condiciones
+de ejecución y los pasos para la misma, identificados el resultado esperado y si fue
+positiva o no. El Anexo 18 Pruebas muestra el total de pruebas realizadas en cada
+
+módulo.
+
+ 
+
+Prueba funcional
+
+ 
+
+Número de prueba: 1 Requerimiento: RFO5 — Consulta de pacientes
+
+ 
+
+ 
+
+Nombre de la prueba: Consulta de Paciente desde módulo MS4-Historias.
+
+ 
+
+Descripción: En el módulo MS4-Historias se ingresa el número de cedula del paciente. Una vez se cuente
+con el número se procede a consultar la información del paciente consumiendo el servicio consultar paciente
+
+del módulo MS2-Pacientes.
+
+ 
+
+Condiciones de ejecución: Red local
+
+ 
+
+Entrada/Pasos de ejecución:
+
+e Entrada: Numero de cedula del paciente.
+
+ 
+
+ 
+
+ 
+
+61e Proceso: Consultar paciente por número de cedula.
+Resultado esperado: Si la consulta es válida debe cargar la información del paciente en cada uno de los
+
+ 
+
+campos de textos de la interfaz de historia clínica, en caso contrario, deberá aparecer un mensaje indicando
+
+que la consulta no se realizó.
+
+ 
+
+Evaluación de la prueba: Positiva.
+
+ 
+
+ 
+
+Tabla 7 Prueba funcional RFO5-MS4 Historias
+
+7.2 HERRAMIENTAS USADAS
+
+La ilustración 13 muestra el conjunto de tecnologías de Java EE que se utilizaron
+
+para el desarrollo del sistema de información. Todas estas tecnologías serán
+
+descritas a continuación.
+
+Capa del Capa E Capa
+Cliente Presentación Capa Lógica Persistencia
+
+   
+
+ 
+
+Base de
+Datos
+
+Ilustración 13 Conjunto de Tecnologías Java EE
+
+Fuente: Elaboración Propia.
+
+En primer lugar, desde la capa del cliente y capa presentación, se hizo uso de JSF
+que es un estándar de Java hacia la construcción de interfaces de usuario para
+aplicaciones web que simplifican el desarrollo de aplicaciones web del lado del
+
+cliente. En las páginas JSF se utilizó la extensión *.xhtml, es decir, una combinación
+
+62de XML con HTML, en donde se pudo incluir componentes como CSS, JavaScript,
+
+entre otros.
+
+La especificación de JSF define seis fases distintas en su ciclo de vida:
+1. Restauración de la vista: Crea un árbol de componentes en el servidor
+para representar la información de un cliente.
+2. Aplicar valores de la petición: Actualiza los valores del servidor con
+datos del cliente.
+3. Proceso de validación: Valida los datos del usuario y hace la conversión.
+4. Actualización de valores del modelo: Actualiza el modelo del servidor con
+nuevos datos.
+5. Invocar la aplicación: Ejecutar cualquier lógica de aplicación para cumplir
+
+con la solicitud.
+
+6. Procesar la respuesta: Guarda un estado y da una respuesta al cliente.
+
+Para facilitar el uso de los componentes se hizo uso de PrimeFaces que es una
+librería de componentes visuales de código abierto para el conjunto Java Server
+Faces 2.0 desarrollada y mantenida por Prime Technology. Su objetivo principal es
+ofrecer un conjunto de componentes para facilitar la creación y diseño de
+aplicaciones web [32]. Los componentes de PrimeFaces fueron conectamos con el
+servidor a través de los ManagedBean que no son más que beans que reciben la
+
+información del html para enviarlos a la capa de lógica.
+
+En segundo lugar, para la capa de lógica, se hizo uso de los JavaBeans
+empresariales (Enterprise JavaBeans [1, 6], EJB), que son una tecnología (API) que
+forma parte del estándar de Java EE. Están diseñados para desarrollo y despliegue
+de aplicaciones (distribuidas) de negocio basadas en componentes del lado del
+servidor. Una vez que se desarrolla una aplicación, ésta puede ser desplegada en
+
+cualquier servidor que soporte la especificación de EJB [2].
+
+63En tercer lugar, para la capa de persistencia se hizo uso de JPA que es, una
+abstracción que está por encima de JDBC lo que permitió ser independiente de
+SQL. Todas las clases y anotaciones de esta API se encuentran en el paquete
+
+javax.persistence.
+
+Los principales componentes de JPA son:
+* Mapeo de base de datos relacionales (ORM). Es el mecanismo para mapear
+objetos a los datos almacenados en una base de datos relacional.
+* Un API administrador de entidad para realizar operaciones en la base de
+datos tales como crear, leer, actualizar, eliminar (CRUD).
+* El Java Persistence Query Language (JPQL) que permite recuperar datos
+con un lenguaje de consultas orientado a objetos.
+e Las transacciones y mecanismos de bloqueo cuando se accedan a los datos
+
+concurrentemente, la API Java Transaction (JTA).
+
+El motor de base de datos usado fue MYSQL. Que sin dudas es uno de los mejores
+gestores en el mercado, destacando características como: su portabilidad para
+ejecutarse en diferentes sistemas operativos, API disponibles en los lenguajes de
+programación más comunes como C, C++, java, php, python o ruby, escalabilidad
+permitiendo base de datos robustas, seguridad y autenticación de usuarios.
+
+La implementación de los servicios web durante el proyecto se enfocó en la
+comunicación cliente/servidor para realizar las tareas de persistencia en cada
+módulo. En ese sentido, un módulo es capaz de acceder a la base de datos de otro
+módulo de manera trasparente, como si se tratara de su propia base de datos.
+
+La implementación de los servicios permite consumir las operaciones CRUD como
+recursos, es decir, los métodos para insertar, modificar, consultar o eliminar se
+diseñaron para ser consumidos por el mismo u otros módulos a través del protocolo
+HTTP. Entre los servicios implementados podemos mencionar el servicio findAll()
+
+del módulo usuario, el cual permite acceder a la base de datos que contiene
+
+64almacenados los usuarios del sistema y consultar sus registros para su posterior
+procesamiento. Con este servicio se realizó el diseño e implementación del control
+de usuarios y privilegios de la aplicación facilitando que un usuario puede
+autenticarse en el sistema con un nivel de acceso determinado.
+
+Todos los módulos de la aplicación se pueden comunicar entre sí, pero teniendo en
+cuenta los requerimientos (ver Tabla 8 Requerimientos MS1-Usuarios) se
+establecen reglas de funcionamiento que limitan el consumo de estos servicios, por
+ejemplo, el modulo Usuario es totalmente independiente con respecto a los demás
+modulo, mientras que el módulo de historias clínicas debe relacionarse con otros
+módulos. En la siguiente grafica se ilustra la relación de cada módulo de la
+
+aplicación con respecto al consumo de los servicios implementados.
+
+Modulo Modulo
+
+Usuario Proveedor
+
+LS
+
+Modulo Modulo
+Historia m
+
+Clínicac
+
+Pacientes
+
+ 
+
+Ilustración 14 Relación de módulos con respecto al consumo de servicios
+
+Fuente: elaboración propia
+
+7.3 IMPLEMENTACIÓN DEL PROYECTO
+
+Finalizados los módulos y servicios en la metodología, el siguiente paso fue la
+implementación del proyecto. Para ello, se hizo uso de un servidor el cual tenía
+instalado el motor de base de datos MYSQL y el servidor Glassfish. En las siguientes
+
+graficas podemos observar pantallazos de la aplicación.
+
+65. . . A o o
+Fundacion IPS para la salud fisica y mental Bienvenido, Administrador
+
+Menu O Gestion de Usuarios
+
+Agregar o actualizar Z
+a de Vomnelo Cuenta de Usuario
+
+Perfiles de usuario :
+
+ceso CD ¡ E
+Usuario
+
+Nombre [>] apetido E Dll corsa HE)
+
+oieccion [> ) teefono Co Jlliveiarconrsea |)
+
+ceuler [>>] remadenaimino ([_) :
+Perfil: SER
+
+mal) roteion E )
+
+Datos de Usuario
+
+Buscar usuario: | Ingrese un criterio de busqueda
+(of 1) O Ex
+
+(ME AS SE Direccion Telefono ME Le) Profesion
+8419324 Medico 1 654 64 64 64 646 64646 a
+646546 Secretaria 1 464 64 64 64 13 313
+1234 Administrador dasdasd sadas dsadas dasd asdasdas dasd a
+
+Trabajo de grado - Jose Manuel Conde
+
+Ilustración 15 Captura de pantalla Gestion de Usuarios
+
+. e . . .
+Fundacion IPS para la salud fisica y mental Bienvenido, Secretaria 1
+
+Menu O Gestion de Proveedores
+
+Í
+Volver Datos de la empresa
+
+«o OO spore E
+
+Listado de Empresas
+
+Buscar empresa | Ingrese un criterio de busqueda
+(of 1) << MED As v|
+
+Razon Social
+
+1114819324 Revyman Pc cra 13 *9-45 3177498512 revymanpcQO hotmail.com
+
+(1of1) (a [5 v|
+
+ 
+
+Ilustración 16 Captura de pantalla Gestión de proveedores, registro de empresas
+
+66su“ Fundacion IPS para la salud fisica y mental a Bienvenido, Secretaria 1
+
+Menu O Gestion de pacientes
+
+Pension
+_ Datos del paciente
+
+Arl
+
+«wo CO OOO
+EPS
+Telefono Direccion
+Ciudad Departamento
+
+Fecha de Nacimiento Lugar Nacimineto
+Masculino
+
+sexo estado t
+
+1
+
+ 
+
+Ocupacion Empresa Revyman Pc
+
+ 
+
+escolaridad Foto paciente
+
+Seguridad Social
+
+Salud Pension
+
+ 
+
+   
+
+ 
+
+ 
+
+Arl
+
+Trabajo de grado - Jose Manuel Conde
+
+Ilustración 17 Captura de patanlla Gestion de pacientes
+
+Los pasos para montar la aplicación se muestran en el Anexo. Se utilizó el servidor
+de aplicaciones Glassfish que implementa las tecnologías definidas en la plataforma
+
+Java EE y permite ejecutar aplicaciones que siguen esta especificación.
+
+67CAPÍTULO 3 — RESULTADOS Y ANÁLISIS
+
+En esta sección se presentan los resultados obtenidos por cada uno de los
+
+objetivos.
+
+8 RESULTADOS
+
+En la tabla 8 se muestra por cada objetivo los resultados obtenidos.
+
+ 
+
+Objetivo Resultado Obtenidos
+
+ 
+
+Modelar los procesos de gestión de usuarios, | Visión del negocio y objetivos del negocio.
+pacientes, proveedores, historias clínicas y | Requerimientos funcionales y no funcionales
+
+reportes. Casos de uso
+
+ 
+
+Especificar los servicios definiendo los | Diagramas BMP
+contractos funcionales en el desarrollo de la
+
+aplicación web orientada a servicios.
+
+ 
+
+Implementar módulo para la gestión de | Código fuente del módulo y servicios implementados
+usuarios y privilegios en el sistema, pacientes y
+
+proveedores de servicio de la IPS.
+
+ 
+
+Implementar módulo de historia clínica que | Código fuente del módulo y servicios implementados.
+permita la gestión de información de las áreas
+de salud ocupacional, psicología, audiometría,
+
+optometría y medicina general.
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 8 Objetivo vs Resultados Obtenidos
+
+Fuente: Elaboración Propia.
+
+Los resultados del proyecto fueron medidos desde dos puntos de vista, el primero
+es en cuanto a la mejora en la ejecución de los procesos en la fundación IPS FIME
+a partir de la implementación del proyecto. Y el segundo, desde el aporte del uso de
+
+una arquitectura orientada a servicios en el desarrollo de sistemas de información.
+
+688.1 RESULTADOS IMPLEMENTACIÓN PROYECTO EN LA FUNDACIÓN IPS
+FIME
+
+Al implementar esta aplicación basada en la arquitectura orientada a servicios se
+expone a la Fundación IPS FIME a un desarrollo de vanguardia y competitivo a nivel
+empresarial, esta arquitectura ha creado una tendencia en el desarrollo de este tipo
+de aplicaciones web debido a que no se limita solo al desarrollo si no que se
+
+extiende al modelo y los procesos de negocio de la empresa.
+
+Durante el análisis y diseño de la aplicación se estudió el modelo y los procesos de
+negocio que se llevaban a cabo en la IPS, en dicho estudio se detectaron fallas en
+procesos como el registro de los pacientes, datos importantes del personal
+(usuarios) de la IPS, consulta de proveedores, almacenamiento de documentos
+clasificados, entre otros. Una vez detectadas esas fallas se diseñaron e
+implementaron procesos para complementar el modelo de negocio de la IPS. La
+
+atención médica.
+
+Por lo tanto, al finalizar este proyecto se optimizaron procesos como el registro,
+actualización, consulta y eliminación de información, con criterios estandarizados
+de la propia IPS. Por ejemplo; los usuarios ya cuentan con un nivel de acceso que
+les permite acceder únicamente a la información autorizada. Entre los resultados
+
+obtenidos podemos listar:
+
+e Una disminución a la mitad del tiempo la consulta de información.
+
+e Una reducción de la redundancia en los datos registrados.
+
+e Una transición de formatos físicos a formatos digitales y bases de datos
+relacionales.
+
+e Un conjunto de restricciones como políticas de seguridad informáticas para
+almacenar información confidencial.
+
+698.2 RESULTADOS USO DE ARQUITECTURA ORIENTADA A SERVICIOS SOA
+
+El desarrollo de esta aplicación basada en la arquitectura orientada a servicios (soa)
+presenta un paradigma de programación. La mayoría de aplicaciones se caracteriza
+por base de datos centralizadas, por módulos dependientes o una estructura
+jerárquica que obliga a generar líneas de códigos redundantes, en cambio SOA se
+define en todo el sentido opuesto, exigiendo bases de datos distribuidas, módulos
+independientes, reutilización de código, protocolos de seguridad y el análisis del
+modelo de negocio de la organización.
+
+En otras palabras, con SOA se estableció la independencia de todos sus
+componentes. Y se definieron fuerte criterios de comunicación empleando
+tecnologías como SOAP y REST para que estos se puedan comunicar y llevar a
+cabo procesos de negocio. La comunicación es un punto clave dentro de esta
+arquitectura.
+
+Durante el desarrollo de este proyecto se tuvo en cuenta la tecnología REST para
+diseñar, implementar y principalmente, comunicar los servicios web de la aplicación,
+ya que esta trabaja sobre el protocolo más conocido de internet, HTTP.
+Básicamente, el resultado de esta decisión resalto la facilidad con la que un módulo
+o servicio establece comunicación con otro por medio de la red sin configuraciones
+adicionales. Por otro lado, separa realmente el cliente del servidor, permitiendo
+establecer capas de seguridad o persistencia adicionales en la aplicación.
+
+70CAPÍTULO 4 —- CONCLUSIONES Y TRABAJOS FUTUROS
+
+En esta sección se describen las conclusiones del trabajo realizado y se plantean
+
+algunos trabajos futuros que pueden ser abordados.
+
+13 CONCLUSIONES
+
+Analizar el modelo de negocio de la fundación IPS FIME, desglosarlo en actividades
+O procesos de negocio permitio tener una visión clara de la organización durante el
+desarrollo del proyecto. Esta visión no se solo se extiende a nivel de software, si no
+
+de administración.
+
+El desarrollo de aplicaciones orientadas a servicios es un claro ejemplo de los
+modelos de negocio actuales. La evolución de estos, ha sido tal, que ya no se
+
+centran solamente en ofrecer productos si no, en la calidad y mejoramiento de un
+
+servicio.
+
+Identificar y diseñar un servicio, permite explorar de cerca los procesos que se llevan
+
+a cabo en una empresa.
+
+La arquitectura SOA no solamente implica un desarrollo de software, también
+incluye un restructuramiento a nivel organizacional de la empresa, ya que el objetivo
+principal de esta arquitectura es alinear los procesos de la empresa con las políticas
+
+de la organización.
+
+71Ciertamente SOA no es un paradigma de desarrollo nuevo, pero es una tendencia
+
+que actualmente suma más seguidores debido a su flexibilidad para integrarse con
+
+nuevos procesos y modificar los ya existentes.
+
+El concepto de aplicación de escritorio se puede definir obsoleto, frente a las
+ventajas de mantenimiento y actualización que plantea una aplicación orientada a
+servicios. El mantenimiento de una aplicación de escritorio requiere de todos los
+componentes de la misma para actualizarse, mientras que, una aplicación SOA
+puede experimentar rutinas de mantenimiento en uno o más módulos sin acaparar
+
+toda la aplicación ya que su diseño lo permite.
+
+14 TRABAJOS FUTUROS
+
+Durante el modelado de negocio se encontraron procesos que no estaban
+contemplados en los objetivos, evidenciando que si tomamos como partida este
+
+desarrollo los alcances del proyectó serán mucho más grandes.
+
+En otras palabras, al concluir este proyecto se podría retomar en un futuro cercano
+
+e implementar:
+
+e Módulo de facturación.
+
+e Módulo de contabilidad.
+
+e Módulo de asignación de citas.
+
+e Módulo de gestión documental.
+
+e Una interfaz para plataformas móviles.
+e Citas online.
+
+Las implementaciones nombradas anteriormente serian viables y factibles gracias a
+
+la arquitectura y metodología de desarrollo que se aplicó en este proyecto. Ya que
+es una arquitectura que agrupó los servicios en módulos, donde muchos de estos
+
+servicios podrán ser reutilizados en el desarrollo de nuevos módulos.
+
+72CAPÍTULO 6 — REFERENCIAS BIBLIOGRÁFICAS
+
+En esta sección se presenta una lista de referencias bibliográficas que soportan este
+
+trabajo.
+
+[1]
+
+[2]
+
+[3]
+
+[4]
+
+[5]
+
+[6]
+[7]
+
+[8]
+
+[9]
+
+[10]
+
+15 REFERENCIAS BIBLIOGRÁFICAS
+
+|. Mendoza Vázquez, “Definicion De Un Framework Para Aplicaciones Web
+
+Con Navegacion Sensible a Concerns.”
+
+F. Pech-May, M. A. Gomez-Rodriguez, L. A. de la Cruz-Diaz, and S. U. Lara
+Jeronimo, “Desarrollo de Aplicaciones web con JPA, EJB, JSF y PrimeFaces””
+
+p. 9.
+
+D. S. Manchado and D. F. Puntes, “Estudio del servidor de aplicaciones
+
+Glassfish y de las aplicaciones J2EE,” 2010.
+
+“Usuario (Informática) - EcuRed.” [Online]. Available:
+
+https://www.ecured.cu/Usuario (Informática). [Accessed: 16-Oct-2017].
+
+O. M. de la Salud, “Marco Conceptual de la Clasificación Internacional para la
+Seguridad del Paciente,” 2009.
+
+Ministerio de Salud, Resolución numero 1995. 1999.
+
+“Audiometría - Medilaboral.” [Online]. Available:
+
+http://www.medilaboral.com/audiometria/. [Accessed: 16-Oct-2017].
+
+“Optometría - Medilaboral.” [Online]. Available:
+
+http://www.medilaboral.com/optometria/. [Accessed: 16-Oct-2017].
+
+IBM, “IBM developerWorks en español : Introducción a SOA y servicios web.”
+[Online]. Available:
+https://www.ibm.com/developerworks/ssa/webservices/newto/service.html.
+[Accessed: 16-Oct-2017].
+
+R. De Colombia and R. Contributivo, “Sistema de Seguridad Social en Salud
+
+73[11]
+
+[12]
+
+[13]
+
+[14]
+
+[15]
+
+[16]
+
+[17]
+
+[18]
+
+[19]
+[20]
+[21]
+
+[22]
+
+Ministerio de la Protección Social Sistema de Seguridad Social en Salud.”
+
+A. Delgado and F. Ruiz, “Metodolog” las de desarrollo para Service Oriented
+
+Architectures con Rational Uni ed Process,” Business.
+
+J. L. Berenguel Gómez, Desarrollo de aplicaciones web distribuidas UF1846.
+Paraninfo, 2016.
+
+“Classic RUP for SOMA.es.” .
+
+J. A. Rodríguez, J. González Moreno, and T. Murillas Herrera, “Software
+
+basado en arquitectura de Java EE y estándar SOAP para la validación en
+
+línea de listas de sancionados,” J. Technol., no. 1, pp. 21-26, 2008.
+
+M. Chico Fernández et al., “Seguridad del paciente y sistemas de
+comunicación de incidentes,” Rev. Calid. Asist., vol. 20, no. 4, pp. 228-234,
+2014.
+
+A. Ca'Zorzi, “Las TIC en el desarrollo de la PyME: Algunas experiencias de
+América Latina,” Cent. Int. Investig. para el Desarro. (IDRC)- BID, pp. 1-92,
+2011.
+
+E. S. Balado, Estrategia para la implantación de nuevas tecnologías en
+PYMES: obtenga el máximo rendimiento aplicando las TIC en el ámbito
+
+empresarial. 2005.
+
+Escuela Neijing et al., Introducción a la gestión de sistemas de información en
+
+la empresa, vol. 2010. 2011.
+“Message Queuing (MSMAQ).”.
+“Web Application Description Language.” .
+
+M. A. Chaves, “Gestión de Procesos de Negocios en Función de una
+
+Arquitectura Orientada a Servicios,” no. 1, pp. 297-312, 2010.
+
+H. del Busto and O. Enriquez, “Mapeo Objeto/Relacional (ORM).,” Rev.
+Telemó tica, vol. 10, no. 3, pp. 1-7, 2012.
+
+74[23]
+[24]
+[25]
+
+[26]
+[27]
+[28]
+
+[29]
+[30]
+[31]
+
+[32]
+
+O. Corporation, “Core J2EE Patterns - Data Access Object.” .
+O. Corporation, “The Java EE 6 Tutorial,” no. January, 2013.
+
+H. del Busto and O. Enriquez, “Mapeo Objeto/Relacional (ORM).,” Rev.
+Telemó tica, vol. 10, no. 3, pp. 1-7, 2012.
+
+O. Corporation, “The Java EE 6 Tutorial,” no. January, 2013.
+O. Corporation, “JavaServer Faces Technology.”
+
+Oracle, “Funciones de Sun GlassFish Enterprise Server.” [Online]. Available:
+https://docs.oracle.com/cd/E19879-01/821-1040/gidij/index.html.
+
+Oracle, “Funciones de Sun GlassFish Enterprise Server.” .
+“MySQL 5.0 Reference Manual.”
+
+J. Chavarriaga, H. Arboleda, and G. Lidis, “Modelo de Investigación en
+
+Ingeniería del Software: Una propuesta de investigación tecnológica,” Ing. del
+Softw. y Sist., 2004.
+
+“Prime Faces.” [Online]. Available: http://primefaces.org/.
+
+79

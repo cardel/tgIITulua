@@ -1,0 +1,1362 @@
+Desarrollo de modulos para el registro de ventas,
+contactos y agendamiento de clientes de software
+
+de ventas para la empresa IPSOFT S.A
+Proyecto de grado modalidad pasantía
+
+David Ernesto Gómez Gutierrez
+Código. 1153681
+
+Universidad del Valle Sede Tuluá
+
+Programa Ingeniería de Sistemas
+Octubre 2016Desarrollo de modulos para el registro de ventas,
+contactos y agendamiento de clientes de software
+
+de ventas para la empresa IPSOFT S.A
+Proyecto de grado modalidad pasantía
+
+David Ernesto Gómez Gutierrez
+Código. 1153681
+
+Trabajo de grado para optar por el titulo de ingeniero de sistemas
+
+Director:
+Federico Lopez Gomez, Ing
+
+Universidad del Valle Sede Tuluá
+
+Programa Ingeniería de Sistemas
+Octubre 2016Dedicatoria
+
+A Norberyra, Dagoberto, Gabriela, Karen y Ricardo, a Luz Maria, Judith y a
+mis abuelos. A mis familiares, los seres que el destino puso en mi camino y a ti.
+“El recordatorio de una nueva vida para todos ustedes”.
+
+DavidAgradecimientos
+
+A los profesores por transmitirnos conocimiento tan valioso, a Federico por su
+tiempo y apoyo.
+A mis familiares por haberme dado todo lo necesario para ingresar a la universidad, por haberme dado todas las herramientas para sobrevivir, por la paciencia y
+por el carino
+A mis compañeros por las risas, los consejos, los regaños.
+A todos, inmensa gratitud.Índice general
+
+1. Introduccion 1
+1.1. Descripcion General .............. e... 1
+1.2. Problema ..... 2
+
+1.2.1. Descripción General del Problema ................. 2
+1.3. Objetivos ...... 4
+1.3.1. Objetivo General .............. . . o... 4
+1.3.2. Objetivos EsSpecÍfiCOS . ........ . . . . . +... 4
+
+2. Marco Referencial 5
+
+2.1. Marco Conceptual ........ e... 5
+2.1.1. Programación Orientada a Objetos ................. 9
+2.1.2. Modelo Vista Controlador ............... . o... 6
+2.1.3. Patrón Abstract Factory . ........... . . . . . . . . . . «o. 7
+2.1.4. Frameworks de desarrollo aplicaciones Web ............ 7
+
+3. Módulos para la gestión y reserva de beneficios y venta de membresías 9
+
+3.1. Módulo de gestión de beneficios . ............ . . +... +... . . +. 9
+3.1.1. Diagnóstico Inicial ............. o... . . . . . . . ..... 9
+3.1.2. Resultado del proceso de rediseño ........... . . . . . . 0. 12
+
+3.2. Módulo Venta de Membresías ...... e... 12
+3.2.1. Diagnóstico Inicial .................. . . . . . . . ..... 12
+3.2.2. Resultado del Proceso de Rediseño ............. . . . 0. 14
+
+3.3. Módulo de Reserva de beneficios .............. . . . . .. . . .. 16
+3.3.1. Fase de Análisis ....... 16
+3.3.2. Fase de Diseño ...... 16
+3.3.3. Fase de Codificación ..... 16
+3.3.4. Pruebas de aceptación ....... e... 17
+
+3.4. Manuales de usuario para los módulos: venta de membresías, gestión de
+beneficios y reserva de beneficiOs ........... . .. ... ... .. 19
+
+4. Aspectos del desarrollo de software 21
+
+4.1. Fase de Andlisis 22
+
+All. Actas... 22BA AMOS 22
+
+4.1.3. Requerimientos... 22
+
+4.1.4. Historias de Usuario ...... 22
+
+4.2. Fase de Diseño ..... 23
+4.2.1. Modelo de Datos ........... o... 23
+
+4.3. Diseño de la arquitectura ....... 23
+4.4. Fase de Codificación 24
+4.5. Pruebas de Aceptación ....... 25
+4.6. Despliegue de la aplicación ............ e... 25
+
+5. Conclusiones 26Índice de figuras
+
+2.1.
+
+3.1.
+3.2.
+3.3.
+3.4.
+3.0.
+3.6.
+3.
+3.8.
+
+Diagrama MVUC 6
+Diagrama de flujo proceso registro beneficiOS .................. 10
+Diagrama de flujo carga archivos planos .................. 11
+Vista principal modulo archivos planos . ................... 12
+Diagrama flujo registro Venta ............ e... 13
+Vista principal modulo ventas .......... e... 15
+Vista principal modulo Teserva ........... e... 18
+Vista principal WIKI. ............... ..... e... 19
+Detalle WIKI ........... 20Capítulo 1
+
+Introduccion
+
+1.1. Descripcion General
+
+En los últimos años en la ciencia de la medicina se han logrado notables avances
+especialmente en el área de la cirugía, esta ha evolucionado a un ritmo vertiginoso apoyandose en el desarrollo tecnológico de otras areas como la anestesiología, la tomografía,
+la resonancia magnética, entre otras. Permitiendo asi que se practiquen procedimientos
+quirúrgicos menos invasivos y con menor morbilidad * [2]. Por otro lado la transmisión
+del conocimiento científico y tecnológico es una tarea con una importancia cada vez
+mayor. La apropiación de este conocimiento por parte de la población en general es
+una necesidad obvia, pero resulta mucho más obvia y natural para quienes se dedican
+en forma profesional a la investigación, la enseñanza y la comunicación en las diversas
+áreas de la ciencia y la tecnología [1], por ejemplo resulta una necesidad obvia y necesaria que los profesionales de la salud se capaciten y aún más importante difundan su
+conocimiento. Si las anteriores premisas se cumplen la calidad de vida de la población
+en general aumentaria de forma importante y se extendería la expectativa de vida de
+pacientes, entre otros logros orientados al bienestar de la humanidad.
+
+El proyecto IMEKT CLINIC (International Medical Knowledge Transmission) que
+se proyecta como una clínica de alta especialidad y centro de capacitación internacional, fundado en 2010 y actualmente en etapa de ejecución, nació como una propuesta
+enfocada en la difusión del conocimiento médico, específicamente el relacionado con
+procedimientos quirúrgicos permitiendo a médicos especialistas extranjeros dedicados a
+la investigación o precursores en algún nuevo procedimiento quirúrgico capacitar a sus
+homólogos colombianos por medio de congresos, seminarios, procedimientos quirúrgicos
+didácticos y conferencias. Este proyecto pretende ser un referente en lo que se refiere a
+la difusión del conocimiento médico.
+
+Para sistematizar todos sus procesos, la clínica ha decidido encomendar la tarea de
+desarrollar un aplicativo a la empresa IPSOF'T-SA. En el presente trabajo de grado se
+aborda el rediseño y desarrollo de algunos módulos pertenecientes al aplicativo con el
+fin de proveer a la clínica IMEK'T' una herramienta infomatica apropiada que facilite su
+
+ 
+
+cuantía de personas que están enfermas en un sitio y tiempo determinadofuncionamiento.
+
+1.2. Problema
+
+1.2.1. Descripción General del Problema
+
+La clínica IMEKT contará con diversos espacios físicos entre ellos: doce quirófanos,
+un centro de convenciones, múltiples auditorios interactivos, oficinas, salas de eventos
+y salas de prensa para albergar los eventos destinados a la difusión del conocimiento
+médico (congresos, seminarios, procedimientos quirúrgicos didácticos y conferencias),
+los servicios que la clínica ofrecerá en estos espacios son denominados beneficios y se
+dividen en dos categorías, “beneficios de intercambio” que permiten a los terceros tener
+cupos en los eventos anteriormente mencionados, y “beneficios de mercadeo y servicio”
+que le dan la posiblidad a los terceros de situar su publicidad en los espacios fisicos
+y usar los anteriores para sus propias actividades o eventos. El modelo de negocio de
+la clínica consiste en la comercialización de beneficios. Los clientes de la clínica tienen
+la opción de obtener un grupo de beneficios, comprando una membresía que tiene una
+duración de cinco años, los terceros que podrán obtener estas membresías serán:
+
+= Universidades: Instituciones de educación superior que deseen usar los quirófanos
+interactivos para contar una herramienta adicional en el proceso de aprendizaje
+de sus estudiantes o capacitar a sus docentes ofreciendoles cupos en los eventos
+de la clínica.
+
+= Empresas: Compañias que deseen realizar sus eventos o situar su publicidad en
+los espacios físicos de la clínica y que ademas quieran obtener descuentos en otros
+servicios de la clínica.
+
+= Profesionales de la salud: Médicos, especialistas, enfermeros entre otros profesionales que estén interesados en obtener nuevo conocimiento asistiendo a los eventos
+organizados por la clinica.
+
+Para hacer efectivo el uso de sus beneficios los terceros tendrán la posibilidad de
+programar su uso, para esto deberán especificar claramente la fecha en la que usarán
+el servicio y un conjunto de requisitos que dependen del beneficio que desee reservar,
+por ejemplo al reservar un beneficio para el uso de un espacio publicitario dentro de la
+clínica el tercero deberá proporcionar la fecha en la que quiere desplegar su publicidad
+y un archivo con los elementos publicitarios de su marca. Además el tercero tendra la
+posibilidad de gestionar sus beneficios, por ejemplo, visualizarlos, consultar la fecha de
+reserva, mover la fecha y cancelar la reserva de un beneficio.
+
+Adicional a eso la clínica IMEK'T reúne sus beneficios en grupos para facilitar su
+gestión, por ejemplo un grupo llamado “beneficios publicitarios” agrupa los beneficios
+que permiten pautar una marca en cualquier espacio de la clínica, a cada uno de estos
+grupos se le asigna un encargado, esté encargado o administrador del grupo, tendrá a
+su cargo las actividades relacionadas con la gestión de beneficios como su reserva y larecepción de requisitos para su reserva, cancelación de la reserva, movimientos de la
+reserva, entre otras actividades.
+
+Por todo lo anterior, la clínica IMEKT pacto una alianza con la empresa IPSOF'TSA para proveer un aplicativo que permita sistematizar los procesos de venta de membresías, y reserva y gestión de beneficios, asimismo los procesos propios de la clínica
+como gestión de usuarios e historia clínica electrónica, este aplicativo aún en etapa de
+desarrollo tiene como base el “framework” “SIIS (Sistema de Información Integral para
+la Salud)”, que solo cubre los procesos propios de la clínica, la sistematización de los
+proceso de venta, gestión y reserva no están al alcance de SIIS. Por lo tanto se hizo necesario iniciar un nuevo proyecto de desarrollo dentro de IPSOF'T-SA donde se planeó
+el desarrollo de tres nuevos módulos que permitieran la sistematización de los siguientes
+procesos:
+
+1. Ventas de membresias.
+2. Gestión de beneficios.
+3. Reserva de beneficios.
+
+A1 momento de iniciar el presente trabajo se tenian desarrollados los dos primeros módulos: módulo de ventas de membresías y módulo de gestión de beneficios, sin embargo,
+debido a factores externos los directivos del proyecto IMEK'T decidieron hacer cambios
+en su modelo de negocio. Con base a lo anterior se hace necesario el rediseño de los
+módulos de ventas de membresías y de gestión de beneficios, además iniciar el desarrollo del módulo de reserva de beneficios, y su integración al aplicativo desarrollado por
+
+IPSOFT-SA, asegurando así la correcta sistematización de la totalidad de los procesos
+de la clínica IMEKT.1.3. Objetivos
+
+1.3.1. Objetivo General
+
+Desarrollo de módulos para la gestión y reserva de beneficios y venta de membresías
+como extensión al framework SIIS para la clínica IMEKT
+
+1.3.2. Objetivos Específicos
+1. Rediseñar módulo de ventas de membresías para IMEK'T CLINIC.
+
+2. Redisenar módulo de gestión de beneficios para IMEK'T CLINIC.
+3. Desarrollar módulo de reserva de beneficios para IMEKT CLINIC.
+
+4. Construir manuales de usuario para los módulos: venta de membresías, gestión de
+beneficios y reserva de beneficios.Capítulo 2
+
+Marco Referencial
+
+En este capitulo se definen los conceptos usados en el presente trabajo de grado
+
+2.1. Marco Conceptual
+
+2.1.1. Programación Orientada a Objetos
+
+La programación orientada a objetos es un paradigma de programación donde los
+conceptos de clase y objeto son los más importantes, un objeto es cualquier cosa tangible
+o intangible que se pueda imaginar, que posea atributos [4], por ejemplo, una paciente,
+un quirófano, un edificio, entre otros. Una clase es una plantilla que permite definir un
+grupo de objetos con atributos y funciones en común [4|, por ejemplo, persona es una
+clase de objeto caracterizado por tener nombres, apellidos , edad, fecha de nacimiento
+entre otros. Para diseñar un programa siguiendo estilo o paradigma es necesario identificar cuáles son los objetos de un sistema, las clases en que se pueden agrupar y las
+relaciones que tienen entre ellos [4]. La Programación orientada a objetos tiene ciertas
+características fundamentales:
+
+= Modularidad: Proceso de dividir un objeto en piezas más pequeñas, evitando un
+alto acoplamiento y aumentado la reusabilidad.
+
+= Abstracción: Permite extraer las propiedades más importantes de un objeto, estas
+propiedades varían dependiendo del contexto en que usara el objeto.
+
+= Encapsulación: Permite empaquetar la funcionalidad de un objeto, de forma que
+s e puede modificar la funcionalidad interna sin afectar la visión externa de un
+componente del sistema.= Ocultación de la Información: Consiste en no mostrar al exterior los datos o las
+funciones que no sean necesarias, un módulo bien encapsulado solo muestra la
+información necesaria.
+
+En cuanto a sus ventajas se destacan:
+
+= Reusabilidad: Reutilizar componentes de software, al ser modular permite agrupar
+funcionalidades por clases, para reutilizar estos componentes basta con instanciar
+un objeto de esta clase.
+
+= Mantenibilidad: Debido a la sencillez para abstraer el problema, los programas
+orientados a objetos son más sencillos de leer y comprender, pues nos permiten
+ocultar detalles de implementación dejando visibles sólo aquellos detalles más
+relevantes.
+
+= Modificabilidad: La facilidad de añadir, suprimir o modificar nuevos objetos nos
+permite hacer modificaciones de una forma muy sencilla.
+
+= Fiabilidad: Al dividir el problema en partes más pequeñas podemos probarlas
+de manera independiente y aislar mucho más fácilmente los posibles errores que
+puedan surgir.
+
+2.1.2. Modelo Vista Controlador
+
+Es un patrón de arquitectura de software para diseñar aplicaciones, que separa la
+lógica de la aplicación de la capa de presentación o GUI (Graphic User Interface), esta
+arquitectura consta de tres capas:
+
+MODELO
+
+ACTUALIZA MANIPULA
+
+   
+ 
+
+CONTROLADOR
+
+Figura 2.1: Diagrama MVC - Fuente: Elaboracion Propia
+
+1. Modelo: Capa encargada de la lógica del negocio, la persistencia de los datos y la
+representación del modelo de datos.2. Vista: Capa responsable de la presentación de los datos en un formato adecuado y
+amigable para el usuario final [6], además provee elementos gráficos que permiten
+hacer determinado grupo de acciones sobre los datos.
+
+3. Controlador: Responde a los eventos provocados por el usuario en la vista en el
+modelo, también se encarga de enviar datos del modelo a la vista [6], por ejemplo
+el registro de una forma.
+
+Este patron de arquitectura es bastante ventajoso para aplicaciones a gran escala
+porque permite mayor desacople entre los componentes de la misma.
+
+2.1.3. Patrón Abstract Factory
+
+El Objetivo del patrón Abstract Factory es la creación de objetos agrupados en
+familias sin tener que conocer las clases concretas destinadas a la creación de estos
+objetos[3]. La estructura tipica de este patron es la siguiente:
+
+= Cliente: La clase que llamará a la factoria adecuada.
+
+= Abstract Factoy: Es la definicion de las interfaces de la factoria. Debe de proveer
+un metodo para la obtencion de cada objeto, por ejemplo: “crearTipoObjeto1()”.
+
+= Factorias Concretas: Estas son las diferentes familias de objetos, proveen la instancia concreta que se creara.
+
+= Clase Abstracta: Definicion de las interfaces para la familia de objetos genericos.
+
+= Clase Concreto: Implementacion de las diferentes clases.
+
+2.1.4. Frameworks de desarrollo aplicaciones web
+
+Un “framework” de desarrollo o marco de trabajo es un conjunto grande de código
+fuente compuesto por clases, funciones, estructuras de datos, organizado bajo cierta arquitectura que puede servir para desarrollar una aplicación web rápidamente. Se puede
+pensar un framework como una aplicación medio lista que se puede extender y moldear
+de acuerdo a las necesidades requeridas [5], los “frameworks” de desarrollo por lo regular
+ofrecen un estilo para codificar bien definido y buenas prácticas que aseguran el buen
+diseño y rendimiento de una aplicación, sin embargo en su mayoría son lo suficientemente flexibles para permitir hacer cambios profundos en el código fuente e integraciones
+necesarias dependiendo de las necesidades. La grandes ventajas de los frameworks son la
+elegancia del código de la aplicación y la reducción en el riesgo de errores. Actualmente
+algunos de los frameworks de desarrollo web escritos en el lenguaje de programación
+PHP más populares según el portal hongkiat | son:
+
+= Laravel ?
+
+ 
+
+Iwww.hongkiat.com/
+
+“https: / /laravel.com/= Symfony*
+
+= Codelgniter *
+
+ 
+
+“https: / /symfony.com/
+“https: / /www.codeigniter.com/Capítulo 3
+
+Moódulos para la gestión y reserva
+de beneficios y venta de
+membresías
+
+En el presente capitulo se detalla lo aportado a los modulos del aplicativo de la
+clinica IMEKT abordados en ese trabajo.
+
+3.1. Módulo de gestión de beneficios
+
+3.1.1. Diagnóstico Inicial
+
+Desde este módulo se puede administrar la información más relevante para el funcionamiento de la clínica, este tiene como fin el registro, la visualización y la modificación
+de los datos de líneas de venta, sublíneas de venta, beneficios, organizaciones y contactos
+de la clínica, información que será la base de las operaciones de venta y reserva que se
+realizarán posteriormente. El registro de la informacion anterioremente mencionada se
+debe hacer siguiendo un orden claro, detallado en la Figura 3.1.Registrar
+organizaciones y
+contactos
+
+Registrar Linea de
+“venta
+
+Registrar inventario
+beneficio
+
+Registrar beneficio y
+enlazarlo con el
+inventario
+
+| Registrar Sublinea y
+vincular lista de
+beneficios
+
+ 
+
+Figura 3.1: Diagrama proceso registro beneficios - Fuente: Elaboracion propia
+
+El proceso de desarrollo de este módulo estaba totalmente completado al iniciar este
+trabajo, sin embargo existian alguno errores criticos:
+Este modulo permite registrar la información de dos formas : una manual donde es
+necesario rellenar formularios de registro y una automática (también llamada parametrización) donde es necesario guardar la información en un archivo plano formato
+CSV !, donde los registros se separan por saltos de línea y los datos de cada registro
+por medio de comas u otro carácter. Este es un ejemplo de la estructura un archivo CSV:
+
+ 
+
+ 
+
+CODIGO, NOMBRE, PRECIO, TIPO
+COD001, BENEFICIO 1, 20000, 2
+COD002, BENEFICIO 2, 40000, 1
+
+ 
+
+Estos archivos luego son subidos al aplicativo que se encarga de almacenar la información que estos contienen en la base de datos, este último método no estaba implementado en su totalidad, Dado lo anterior los usuarios de la plataforma se veían
+obligados a registrar la información de aproximadamente 200 registros relacionados con
+líneas de venta, sublíneas de venta, beneficios, organizaciones y contactos de forma ma
+ 
+
+!Comma Separated Value
+
+10nual. No obstante al registrar y modificar manualmente la información relacionada los
+inventarios de beneficios y sublineas presentaban incoherencias. Evidenciando errores
+en la codificación del aplicativo.
+
+Cargar Archivo * CSW
+
+Identificar tipo de
+estructura
+
+Separar por fila
+
+"Tokenizar” fila y
+guardar en estructura
+de datos
+
+Werificar disponibilidad
+inventarios
+
+Guardaren la base de
+datos
+
+ 
+
+Figura 3.2: Diagrama de flujo carga archivos planos - Fuente: Elaboracion propia
+
+113.1.2. Resultado del proceso de rediseño
+
+máB Co
+
+       
+
+EAN A
+
+ENE
+
+RAUL ORTIZ JARAMILLO
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Pa ) CONSULTAR ANDINA AIN OS
+MA INERCIA O A A IO NOA IN lO)
+» CLIENTES Asignar Beneficios a Grupos Asignar Beneficios a Sublineas
+archivo de configuracion para la parametrizacion Subir Informacion en bloque para relacionar
+AAA, de grupos de beneficios beneficios existentes con lineas existentes.
+E ) REPORTE DE VENTAS y Asignar li tes a A Solá
+y a Subir información en bloque para relacionar Subir información en bloque de los beneficios que
+Pa vendedores y clientes. se comercializarán.
+) USUARIOS =
+Espacios Fisicos y Publicitarios Lineas de Venta
+Subir información en bloque de los espacios fisicos Subir información en bloque de las lineas de venta.
+E » VENTAS y publicitarios
+Organizaciones y Contactos Sub lineas de Venta
+Subir información en bloque de organizaciones y Subir información en bloque de Sub lineas de Venta
+E ») ARCHIVOS. PLANOS, ca
+Usuarios Del Sistema Descargar informacion de
+'ARAMETROS == E 5
+» PARAMETROS INICIALES 7 Subir información en bloque de los usuarios del organizaciones
+A sistema, sus roles y sus zonas UT. Obtener la informacion de todas las organizaciones
+ADMINISTRACION MODULOS en un archivo plano formato CSV
+» ADMINISTRACION DE
+MODULOS (Y
+AGENDAMIENTO
+Pa » AGENDAMIENTO = Y
+
+ 
+
+ 
+
+Figura 3.3: Vista principal modulo archivos planos - Fuente: Elaboracion propia
+
+Para rediseñar este módulo fue esencial realizar pruebas manuales por cada funcionalidad para detectar los errores, con estos ya identificados y un balance de estado
+del modulo, lo primordial fue refactorizar el codigo fuente del mismo, para después
+planear, modelar y codificar el método automático de registro de beneficios. Posterior
+al proceso de rediseño de este módulo el registro de los datos relacionados con líneas,
+sublíneas, beneficios, organizaciones y contactos se hace de manera apropiada, sin presentar inexactitudes, Además el proceso de parametrización de los datos quedó completamente funcional añadiendo soporte para las siguientes parametrizaciones solicitadas
+por el usuario:
+
+= Registrar organizaciones y contactos.
+= Registrar espacios físicos.
+
+= Registrar beneficios.
+
+= Relacionar beneficios con sublíneas.
+
+= Relacionar beneficios con grupos.
+
+3.2. Módulo Venta de membresías
+
+3.2.1. Diagnóstico Inicial
+
+El Módulo de venta de membresías tiene como fin el registro de las ventas realizadas
+por los vendedores de la clínica. La clínica IMEKT agrupa los beneficios en sublíneas,
+
+12una sublínea posee varios beneficios y un beneficio puede ser parte de varias sublíneas.
+La clínica solo comercializa sublíneas o beneficios agrupados, también llamadas membresías. NO se venden beneficios por separado.
+
+Al registrar la venta de una membresía se requiere vincular datos de la sublínea que se
+comercializa con los datos del tercero, hacer descuentos en los inventario de los beneficios y de la sublínea, y complementar informacion del tercero como su identificacion,
+representante legal en caso de ser una compañía, datos de contacto, entre otra informacion.
+
+Luego de registrada una venta esta debe ser evaluada por el coordinador de ventas
+
+de la clínica quien decide si la aprueba o la rechaza, en el caso de ser aprobada el
+sistema creará un nuevo usuario en la plataforma que contará con alcance para usar
+el módulo de reserva dandole la posibiidad de reservar y visualizar todos los detalles
+de los beneficios que adquirio, este modulo sera detallado en la siguente seccion. En el
+caso de ser rechazada el sistema revertira los decuentos reaizados en los inventarios de
+la sublinea y los beneficios al momento del registro.
+El proceso de desarrollo de este módulo no estaba totalmente completado al iniciar este
+trabajo, de las anteriores funcionalidades el aplicativo cumplia satisfactoriamente con
+el registro, aprobacion y rechazo de la venta. El formulario de venta no contaba con los
+campos necesarios para registrar la todalidad de la información requerida del cliente, y
+al aprobar una venta el sistema no registraba el nuevo usuario.
+
+Registrar Venta
+
+Descontar inventario
+sublinea y beneficios
+
+ 
+ 
+    
+ 
+
+  
+
+Reponer inventario
+sublinea y beneficios
+
+Crear usuario con
+perfil Usuario
+Membresia
+
+Crear Inventario por
+cada beneficio para el
+usuario
+
+ 
+
+Figura 3.4: Diagrama flujo autorización venta - Fuente: Elaboracion propia
+
+133.2.2. Resultado del Proceso de Rediseno
+
+Para rediseñar este modulo fue necesario refactorizar el codigo fuente del modulo
+y la codificacion de nuevas funcionaidades Luego del este proceso para el módulo de
+venta de membresías en el formulario de venta se agregaron los campos faltantes para
+el registro de la totalidad de la información requerda del cliente. Además se desarrollo
+la funcionalidad para que luego de aprobada una venta automaticamente se registrara
+un nuevo usuario y se le asignara: un inventario por cada beneficio adquirido durante
+5 años, las credenciales de ingreso (nombre de usuario y contraseña) relacionadas con
+la informacion de la venta y el perfil “Usuario Memebresia” para que tuviera el alcance
+de ingresar al aplicativo visualizar y reservar sus beneficios.
+
+14eIdoId UOIDRIOQP[A :9JU9NH - SEJUIA AP OLIB]NULIO] Tedtourtad e3stA :G € eIn31 q
+
+ 
+
+WIN3A VI1 30 SITIVL30O O SINOIOVWAY3S9O
+
+ 
+
+VISIYAN3H V1 30 VIONIDIA V1 30 NOIODVZITVNI1 30 WHI33
+
+             
+          
+
+ 
+
+AWLN30IDDO NS
+
+UA aya OTYVWI2NA1I3 O5I0OD
+
+ 
+
+ 
+
+*VSIYdH3 TVWI931 J1NVINISIYUAF3Y ONOJ3VL *«1W931 J1NVWIN3SIYA3Y TIVH3
+
+* WSIYdH3 TVI931 J1NVIN3SIYUdA3Y NOIOWII311N301 *WSIYdH3 TVWI931 J1NVINISIUNATY TYANHON
+
+14931 31NVIN3ISIYUd]Y NOIOVNYHOJNI
+
+ 
+
+ 
+
+ 
+
+| | J | 2  NOIDWIIILN30I NIS OLINOY
+
+*VSIYAH3 V1 30 ONOJ3HL *VSIYdAWH3 Y1 30 NOIDOIYIO *VSIYdAH3 NOIODVWIIJ11N301 ON VWSIYdAWH3 NOIOVII3ILN30O1 OdIL
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+VSIYUAN] NOIOVNYOJNI
+Wo eb eje une HZ6EZE9 TE De ZILYOY OTIINVYV[ ZILYO 1NVY
+
+TVH3 YVWI10139 ONO33131 ONO33141 ae ER NOIOVIIJILN301
+
+(W)IYOOIONZA
+
+ 
+
+ 
+
+31N31D 130 NOIDVHyYO3NI
+
+31N31ID YVWNOID93135S
+
+YION3A Y V3NIT 8NS VI 3NODDOTS
+
+YIONA Y V3NIN ans
+
+V3NIT INS 30 VINIA YUVYALSIDIY
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+SVLN3A 30 OINAOMN 2]
+
+ 
+
+OTINVyYVE ZILYO INV
+
+ala Sul
+
+A E3.3. Módulo de Reserva de beneficios
+
+Desde este modulo los terceros pueden visualizar y reservar los beneficios obtenidos
+en la compra de la membresía, para esto el aplicativo debe proveer a usuario una interfaz
+que le permita conocer todos los detalles de los beneficios que adquirió y permitir al
+usuario reservar sus beneficios. Por otra parte el coordinador de la clinica tendra acceso a
+los detalles de todas las reservas realizadas por los terceros y los diferentes coordinadores
+acceso a las reservas de cada grupo de beneficios que administran (publicidad, web,
+etcetera) Para el desarrollo de este módulo se siguieron las etapas de análisis, diseño,
+desarrollo, pruebas de aceptación y despliegue.
+
+3.3.1. Fase de Análisis
+
+En la etapa de análisis de este módulo se cumplieron reuniones presenciales y vittuales con el cliente según la metodología de IPSOF'T, de estas reuniones se derivaron
+varias actas redactadas voluntariamente por el cliente, donde manifestó en un lenguaje
+informal las funcionalidades requeridas para este nuevo módulo, ademas los perfiles que
+tendrian acceso al mismo y el alcance de cada uno de los perfiles. Luego se formalizaron estas actas en requerimientos e historias de usuario, esta etapa se desarrollo sin
+contratiempos arrojando como resultado: 2 actas y 27 requerimientos.
+
+3.3.2. Fase de Diseno
+
+En la etapa de diseño se construyeron los artefactos de diseño esenciales: el diagrama
+de clases y el diagrama relacional. Con el apoyo del director del equipo de desarrollo,
+
+se modelo y se codifico el modulo basándose en la arquitectura M.V.C (Modelo Vista
+Controlador).
+
+3.3.3. Fase de codificación
+
+En la etapa de codificación del módulo de reserva de beneficios se usó el “framework”
+SIS desarrollado por la empresa IPSOFT en el lenguaje de programación PHP. Se
+implementaron los modelos de datos descritos en el diagrama entidad relación y la lógica
+del negocio plasmada en los requerimientos, también se diseñaron e implementaron las
+vistas que permiten al usuario interactuar con el sistema. Como resultado de la fase
+de codificación se tuvo un módulo de reserva funcional acorde a los requerimientos
+expresados por el usuario hasta la fecha. Con diferente alcance para cada perfil.
+
+Para el perfil usuario con membresía:
+
+= Visualizar lo detalles de los beneficios adquiridos en la venta
+= Reservar los beneficios que requieran la carga de un documento
+= Visualizar los documentos subidos y su estado (espera, aprobado, rechazado)
+
+Para el perfil coordinador total:
+
+16= Visualizar las reservas hechas por los clientes (Usuarios con membresía).
+= Visualizar los documentos subidos por los clientes (Usuarios con membresía).
+
+= Cambiar el estado de los documentos subidos por los usuarios de espera a aprobado, de espera a rechazado.
+
+Para los coordinadores de cada área, la visualizacion de los beneficios, los documentos
+y su estado.
+
+= Visualizar lo detalles de los beneficios pertenencientes a su grupo adquiridos en la
+venta.
+
+= Reservar los beneficios pertenecientes a su grupo que requieran la carga de un
+documento.
+
+= Visualizar los documentos subidos y su estado (espera, aprobado, rechazado).
+
+3.3.4. Pruebas de aceptación
+
+Para aprobar las nuevas funcionalidades integradas en el aplicativo se usaron pruebas
+de aceptación, las pruebas de aceptación consistieron en la revisión de la funcionalidades
+por parte del cliente. En este caso el cliente probo cada funcionalidad implementada a
+medida que se integraba en el aplicativo, y redacto un acta consolidando los resultados
+de comportamiento del aplicativo. El resultado de este proceso fue la verificacion de la
+totalidad de las requerimientos.
+
+17eIdoId UOTIBIOQP[A :9JU9NH - SOLDYIUIQ PALSSIL O[NPOV1 Tedrourid e3srIA :9'€ CInStA
+
+ojuanuepusbyse10440pej043u0> oquanuepusby
+
+   
+
+£8T"0 : 93X3
+
+                 
+
+tl
+
+tí tz
+st bt
+
+80 £0
+
+         
+      
+     
+
+Tr or
+Cro MER
+CAE EA
+9T0Z ONW pa 3Y8MWN315910 |¡SIWH
+
+NOIDVYNA 30 $353 9 vere /ww/aa =psea [eeee-u-pp] EE
+
+ 
+
+ 
+
+    
+
+INES
+
+ 
+
+OIYWASA NN NOD93135S OIYVYASA NN NOS
+Rel jajaj PELEA Elapl
+
+NENE
+
+ 
+
+   
+
+   
+
+3 100002 1t8z
+
+OINJINVOANIOV
+
+31N31ID 3NOI9931W5S
+ió | carrmara dé vd |
+
+OTINVyYVC ZILHO TNVY
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+0I103M DIMIIMIDONO) 10 NOISIMEN TA
+
+a El a MISMA UUI
+
+A AS O
+
+183.4. Manuales de usuario para los módulos: venta de membresías, gestión de beneficios y reserva de beneficios
+
+Para capacitar a los usuarios finales en el uso del aplicativo de la clínica IMEK'T se
+crearon manuales de usuario. En este caso se optó por la utilización de una wiki ?*, debido
+a su modularidad, facilidad en su lectura y escritura. Se usó una librería codificada en
+JavaScript llamada MDWIKI ?, que permite escribir las páginas y secciones de la wiki
+en un formato MARKDOWN ? esta librería renderiza el contenido de los archivos fuente
+en el lado del cliente, es decir no tiene ninguna dependencia en el lado del servidor, para
+su correcto funcionamiento basto con servir el archivo principal en formato HTML y
+todas los dependencias que son archivos en formato ( CSS, JavaScript y MARKDOWN
+), para servir dichos se uso el servidor web apache.
+
+Se escribieron manuales de usuario para los módulos de gestión de beneficios, venta
+de membresías y reserva de beneficios, con la firme conviccion de acortar la curva de
+aprendizaje en el funcionamiento del aplicativo por parte de los usuarios.
+
+€ C | 0 201.234.74.36/IMEK/wiki/+*lindex.md ¡$4 O :
+
+SNE UN NES ade Modulo Ventas le)
+
+ 
+
+Bienvenido a la WIKI del aplicativo IMEKT CLINIC
+
+IMEKT Clinic
+
+D IMEKT Clinic
+
+Primera vista del aplicativo o o o . o o
+IMEKT CLINIC es una clinica de difusion del conocimiento medico y cientifico,IMEKT Clinic cuenta con una plataforma que
+
+Perfiles sistematiza la mayorÁa de procesos relacionados con su funcionamiento,
+.en esta wiki encontrara la informacion
+necesaria para el uso de la plataforma. En la parte superior encontrar el menu de navegacion , este menu tiene varios
+items con el nombre de un modulo, si usted presiona alguno de estos item sera llevado a la seccion donde se detalla
+
+e Las Funcionalidades del modulo
+e Elalcance de cada perfil en el modulo
+* Lasinstrucciones deuso del modulo
+
+Primera vista del aplicativo
+
+    
+
+lead
+
+imektcinic /
+ed
+
+ñ P CONSULTAR
+A P ADMINISTRACIÓN
+
+Ea » cunas
+Pa DP REPORTE DE VENTAS Y
+
+ñ DP USUARIOS
+
+AA Un v
+
+Figura 3.7: Primer pantallazo WIKI IMEK'T- Fuente: Elaboracion Propia
+
+ 
+
+ 
+
+“Sistema de trabajo informático utilizado en los sitios web que permite a los usuarios modificar o
+crear su contenido de forma rápida y sencilla.
+
+¿www.mdwiki.info/
+
+“https: / /es.wikipedia.org/wiki/Markdown
+
+19ele) NES Nas Modulo Ventas Modulo Agendamiento
+
+ 
+
+EN ESTE CASO LOS DATOS SON SEPARADOS POR PUNTO Y COMA (;)
+
+Descripcion EJEMPLO:
+
+Menu Lineas de venta + CODIGO BENEFICIO; NOMBRE BENEFICIO; DESCRIPCION;
+CODBENO001; BENEFICIO UNO; ESTE ES UN BENEFICIO DE PRUEBA
+
+Menu Sublineas de venta CODBENO002; BENEFICIO DOS; ESTE ES UN BENEFICIO DE PRUEBA2
+
+)
+
+y
+
+CODIGO-N; BENEFICIO-N; DESCRIPCION-N
+
+Menu Beneficios
+
+Menu Asignar beneficios a . a á deE ó
+sublineas Al ingresar a cada uno de los menus, tendra el mismo formulario que le permitira adjuntar
+
+el archivo que contiene la informacion a parametrizar, y un boton para subir el archivo.
+
+Menu Organizaciones y Contactos
+
+AIN SI A
+
+ 
+
+0d £xamnar.. | No se ha seleccionado ningún archivo.
+
+SEPARADOR * PUNTO Y COMA [;] TABS[ ]
+
+MTL
+3217)
+
+ 
+
+ 
+
+ 
+
+ 
+
+Usted debera seguir un orden estricto para subir los archivos, esto garantizara la correcta
+parametrizacion de la informacion. Este orden es:
+
+e Lineas de venta
+
++ Sublineas de venta
+
+* Espacios Fisicos y Publicitarios
++. Beneficios
+
++ Asignar Beneficios a Sublineas
+
++ Organizaciones y Contactos
+
++ Asignar clientes a agentes libres.
+
+Menu Lineas de venta
+
+Figura 3.8: Detalle WIKI IMEKT (Modulo Archivos Planos) - Fuente: Elaboracion
+propia)
+
+20Capítulo 4
+
+Aspectos del desarrollo de
+software
+
+La metodología de desarrollo usada por la empresa IPSOF'T-SA es una adaptación
+de la metodología de desarrollo de software tradicional llamada cascada. El proceso inicia con una reunión entre los interesados, donde se expone de forma general el proyecto
+por parte del cliente y el alcance del framework SIIS por parte de los representantes de
+IPSOFT-SA. Posteriormente se siguen cumpliendo reuniones para especificar los requerimientos de la nueva implementación donde se precisan formalmente las nuevas funcionalidades que tendrá el aplicativo. Luego se disenan los nuevos módulos y funcionalidades
+usando artefactos de diseño como diagramas de clase, diagramas entidad-relación y diagrama relacional. Después se codifican los nuevos módulos y funcionalidades basándose
+en los artefactos de análisis y diseno anteriormente elaborados, la verificación de los
+requisitos se hace por parte del cliente mediante pruebas de aceptación. Por último se
+hace el despliegue en el servidor de producción de la nueva implementación, asimismo
+se parametrizan los datos del cliente en el nuevo aplicativo y los usuarios del sistema
+son capacitados presencialmente por personal de IPSOF'T-SA. Después del proceso de
+desarrollo es probable que el cliente no haya expresado algunos requisitos o que las funcionalidades existentes presenten fallas, en estos casos el cliente especificará los nuevos
+requisitos y se llevará a cabo una iteración a pequeña escala del proceso de desarrollo
+para integrar las nuevas funcionalidades o correcciones al aplicativo.
+
+Para este trabajo se usó fielmente la metodología propuesta por IPSOFT-SA y se
+siguieron las fases de análisis, diseño, codificación, pruebas, despliegue descritas a detalle
+en los próximos párrafos. Es importante aclarar que la documentación producida a lo
+largo del proceso de desarrollo no se puede anexar al presente documento por políticas
+de la empresa IPSOFT-SA y por decisión de los directivos de la clínica IMEKT, ya que
+expone de forma explícita su modelo de negocio e información confidencial y de uso
+exclusivo de estas dos companías.
+
+214.1. Fase de Análisis
+
+Con el fin de obtener toda la información relacionada con el modelo de negocio de
+IMEKT CLINIC y funcionamiento detallado del proceso de reserva de los beneficios
+de la clínica se llevaron a cabo reuniones presenciales y virtuales con el encargado del
+proyecto IMEKT', de estas reuniones se derivó la siguiente documentación.
+
+4.1.1. Actas
+
+Estos documentos redactados por representantes de la clínica IMEKT contienen de
+forma muy general y en un lenguaje informal, la descripción y justificación de los nuevos
+módulos y funcionalidades esperadas en el aplicativo para la clínica.
+
+4.1.2. Anexos
+
+Estos documentos contienen información detallada para la parametrización de datos
+de la clínica en el aplicativo, por ejemplo la lista de beneficios, los permisos de los
+usuarios sobre los módulos y beneficios, entre otros.
+
+4.1.3. Requerimientos
+
+Para la especificación de los requisitos del sistema se usaron requerimientos con el
+propósito de expresar de forma atómica y puntual cada funcionalidad del sistema, se
+trabajó sobre una plantilla proporcionada por la empresa IPSOFT-SA que contiene lo
+siguientes campos.
+
+= Identificador: Es un identificador numérico único para cada requerimiento.
+= Título: El título del requerimiento o su resumen de la funcionalidad.
+
+= Descripción: El cuerpo del requerimiento, donde se desglosa el mismo siguiendo la
+siguiente estructura:
+
+[LUGAR, TIEMPO, EVENTO, OBJETO]+ “Debe, deberá, no debe, no deberá” +
+[ACCION, VERBO, SENTENCIA] + [A QUIEN, SUJETO]+ [RESULTADO ESPERADO, DESTINO]
+
+= Usuarios: Perfil(es) que podrán ejecutar esta funcionalidad.
+
+4.1.4. Historias de Usuario
+
+Se usaron como un sustituto para los casos de uso y para dar una idea de cómo
+los requerimientos interactúan entre sí al ser un artefacto de análisis con un nivel de
+detalle más amplio, que permite que el proceso de implementación de una funcionalidad
+del sistema sea más fácil de comprobar, ya que, al contar con criterios de aceptación el
+desarrollador tiene un objetivo más claro y acotado al momento de codificar el requisito
+del sistema. Se trabajó con un plantilla que contiene los siguientes campos:
+
+22= Identificador: Un identificador alfanumérico único para cada Historia de usuario
+
+= Rol: Es el rol que está desempeñando el usuario cuando utiliza la funcionalidad
+que se está describiendo
+
+= Funcionalidad: Representa la función que el rol quiere o necesita hacer en el sistema
+que se está desarrollando.
+
+= Resultado: Lo que el rol necesita lograr al ejecutar la acción.
+
+= Criterio de Aceptación: Describe el contexto del escenario que define un comportamiento.
+
+= Comportamiento Esperado: Dado el contexto y la acción ejecutada por el usuario,
+la consecuencia es el comportamiento del sistema en esa situación.
+
+4.2. Fase de Diseno
+
+4.2.1. Modelo de Datos
+
+Luego de tener una especificación clara y formal del comportamiento esperado del
+sistema, vino la creación y adaptación de modelos y estructuras de datos con el propósito
+de abstraer de la mejor forma posible todos los datos involucrados en el modelo de
+negocio de la clínica IMEK'T, se usó el artefacto de diseño diagrama entidad-relación y
+diagramas de clases para lograr este fin.
+
+4.3. Diseno de la arquitectura
+
+Teniendo en cuenta que el proceso de desarrollo está relacionado con la extensión
+del “framework” SIIS, la arquitectura del aplicativo ya está definida, el aplicativo se
+basa en el patron de arquitectura M.V.C (Modelo-Vista-Controlador). El “framework
+” SIIS está diseñado basado en el patrón de arquitectura de tres capas conocido como
+M.V.C (Modelo-Vista-Controlador) , donde la capa del modelo es la que se encarga
+de la interacción con la base de datos, en esta capa se declaran las sentencias SQL
+necesarias para registrar, leer, editar y eliminar los datos y modelos del aplicativo. La
+vista se encarga de mostrar la información de forma legible y amigable al usuario del
+aplicativo, también de mostrar los componentes gráficos necesarios para que el usuario
+interactúe con el aplicativo. Finalmente el controlador se encarga de responder a eventos,
+generalmente acciones del usuario, e invoca funciones del modelo, de igual forma envía
+información a la vista para su presentación al usuario, por tanto se puede decir que el
+controlador actúa como un intermediario entre el modelo y la vista.
+
+234.4. Fase de Codificación
+
+Previo a la etapa de codificación, por parte de la empresa IPSOF'T-SA se me brindó
+una capacitación, donde se me transmitió el conocimiento necesario acerca del funcionamiento del framework SIIS esta capacitación se hizo mediante el acompañamiento
+personal por el director del área de desarrollo y poniendo a disposición una wiki que
+contiene la documentación del framework, esto es, información detallada de las clases,
+métodos, módulos y funcionalidades que lo componen.
+
+En la etapa de codificación se respetó el estilo de programación de la empresa
+IPSOFT-SA, no se añadieron dependencias adicionales a las existentes, y se procuró
+la utilización de buenas prácticas de desarrollo. Durante esta etapa como primera medida, se centraron esfuerzos en la implementación de las entidades y sus relaciones en la
+base datos al igual que las consultas en lenguaje SQL(Structured Query Language) para
+obtener, registrar, actualizar y eliminar información de los mismos, para ese fin se usó el
+motor de base de datos POSTGRESQL ! versión 9. Luego se definieron los modelos que
+permiten obtener y modificar los datos, esto usando una capa intermedia denominada
+“Database Access Abstraction Layer” (DAAL) o capa de abstracción de acceso a la base
+de datos, que facilita la comunicación con la base de datos y el aplicativo, exponiendo
+una API consistente que permite desde determinado lenguaje de programación acceder
+a las funciones del motor de base de datos, en este caso se usó ADOdb una librería
+que abstrae la comunicación entre PHP y algunos motores de base de datos. Además se
+definieron los controladores que capturan la información desde la vista mediante formas,
+válidan dicha información y lanzan funciones en el modelo, de forma análoga obtiene
+información del modelo y la envía a la vista, para la la definición de los modelos y los
+controladores se usó el lenguaje de programación PHP.
+
+Para realizar comunicaciones asíncronas entre el servidor y el cliente (AJAX), se usó
+la librería Xajax * escrita en PHP, esta librería permite realizar llamadas asíncronas sin
+escribir métodos o funciones en el lado del cliente, es decir la libreria se encarga de
+traducir una función en el lenguaje PHP a el lenguaje JavaScript e inyectarla en tiempo
+de ejecución en el navegador. Por último se implementaron las interfaces de usuario,
+que son artefactos graficos que permiten al usuario interactuar con el aplicativo, para
+ese propósito se usó el lenguaje de hipertexto H'TML, el lenguaje de estilos CSS y el
+lenguaje de programación JavaScript apoyado en la librería JQUERY ?.
+
+Para facilitar la escritura y edición del código fuente del aplicativo se usó el editor de
+texto ATOM * desarrollado por la compañía Github? que cuenta con licencia MIT que
+permite sea usado de forma gratuita, ATOM es muy potente y cuenta con componentes
+eráficos muy amigables, además cuenta con una gran comunidad que brinda soporte y
+diseña temas y paquetes para personalizar el editor en distintos aspectos y para llevar
+a cabo tareas específicas, en este caso se integraron paquetes gratuitos para la revisión
+
+ 
+
+Iwrww.postgresql.org.es/
+
+“http: //www.xajax-project.org/ /
+“https: / /¡query.com/
+
+“https: / /atom.io/
+
+eithub.com
+
+24de la sintaxis de los lenguajes: PHP, JavaScript, HTML, CSS. Y un visualizador de
+archivos CSV, estos fueron los paquetes que se integraron al editor:
+
+= language-php ?.
+
+= language-css ”.
+
+= tablr $.
+
+= linter ?.
+
+4.5. Pruebas de Aceptación
+
+La empresa IPSOFT no cuenta con una metodología para realizar pruebas unitarias O funcionales, dado esto para la verificación de la correcta implementación de las
+funcionalidades se realizaron pruebas de aceptación por parte del cliente, se hicieron de
+forma manual, simulando el funcionamiento de la plataforma.
+
+4.6. Despliegue de la aplicación
+
+Para el proceso de despliegue de la aplicación se usó el cliente FTP WINSCP *
+para copiar el código fuente en el servidor de despliegue, las dependendencias que debe
+cumplir el servidor de despliegue son las siguientes:
+
+= Sistema Operativo LINUX.
+= Motor de base de datos POSTGRESQL 9.
+= Servidor Web Apache ??.
+
+= Lenguaje de programación PHP versión 5 *?.
+
+ 
+
+https: / /atom.io/packages /language-php
+"https: / /atom.io/packages /language-css
+Shttps: / /atom.io/packages/tablr
+“https: / /atom.io/packages /linter
+
+https: / /winscp.net /
+
+“https: / /httpd.apache.org/
+
+II avrww.php.net /
+
+20Capítulo 5
+
+Conclusiones
+
+Al finalizar la pasantía se integraron dos módulos rediseñados y un módulo desarrollado al aplicativo de IMEK'T CLINIC de acuerdo a las necesidades del cliente, dicho
+aplicativo permite la gestión de beneficios, la venta de membresías y la reserva de beneficios. El aplicativo se codificó usando el “framework” SIIS desarrollado por los ingenieros
+de la empresa IPSOF'T.
+
+En el presente trabajo de grado modalidad pasantía se propusieron los siguientes
+objetivos específicos, de los cuales se concluye:
+
+Redisenar módulo de gestión de beneficios para IMEKT CLINIC y
+Redisenar venta de membresías para IMEKT CLINIC
+
+Se propuso el rediseño de dos módulos existentes en el aplicativo de la clínica
+IMEK'T, después de terminado este proceso se corrigieron procesos importantes e
+indispensables para su funcionamiento, con las nuevas funcionalidades integradas
+se mejoró la experiencia de usuario, y se agilizo el proceso de registro de beneficios.
+
+Desarrollar módulo de reserva de beneficios para IMEKT CLINIC
+
+Se propuso el desarrollo de un módulo para la reserva de beneficios de la clínica, el
+módulo de agendamiento cuenta con las funcionalidades necesarias que permiten
+al usuario, luego de autorizada su venta, ingresar a la plataforma para visualizar sus beneficios. El usuario puede adjuntar archivos a sus beneficios en el caso
+de necesitarlo, y los administradores de la clínica podrán visualizar, rechazar o
+aprobar dichos archivos.
+
+Construir manuales de usuario para los módulos: venta de membresías,
+gestión de beneficios y reserva de beneficios.
+
+Los usuarios finales podrán visualizar los manuales de uso de la plataforma en un
+formato más amigable mediante una WIKI.
+
+Respecto las metodologías y tecnologías usadas por la empresa IPSOFT-SA:
+
+26Referente a la metodología de desarrollo, si en lugar de una metodología tradicional
+se implementara una metodología de desarrollo ágil como SCRUM | se mejoraría notablemente la comunicación entre los integrantes de los equipos de desarrollo y soporte,
+además haría el proceso de desarrollo software más expedito mejorando la productividad
+y haciendo el proceso de software mucho más ameno principalmente para el cliente.
+
+Referente a las tecnologías, el proyecto IMEK'T y los demás proyectos desarrollados
+por la empresa IPSOF'T están construidos con base en el framework SIIS desarrollado
+por los ingenieros de la misma empresa, este framework sigue una arquitectura M.V.C
+(Modelo Vista Controlador). En ocasiones para el desarrollador implementar funcionalidades relativamente sencillas se convierte en una tarea compleja debido a la errónea
+delegación en las responsabilidades en las tecnologías, se hace una sobrecarga de responsabilidades sobre la capa del servidor, haciéndolo responsable, por ejemplo, de actualizar
+el D.O.M (Document Object Model) de forma asíncrona mediante la libreria Xajax.
+Una correcta delegación de responsabilidades entre las tecnologías podría ser solucionada usando una arquitectura RESTFUL ? , donde la aplicación contaría con dos capas,
+la primera capa o “BACKEND” que por medio de servicios web expondría los datos en
+un formato JSON mediante los metodos HT'T'P : GET, POST, DELETE, PUT. Y en la
+segunda capa o “FRONTEND” la interfaz entre el usuario y el sistema que consistiría
+en una aplicación corriendo en el navegador preferiblemente desarrollada en el lenguaje
+de programación JavaScript, con los métodos necesarios para consumir los servicios de
+la primera capa mediante llamadas asíncronas (AJAX), dado el reciente avance de las
+herramientas de desarrollo web, también se podría utilizar un “framework” de desarrollo
+web del lado del cliente, M.V.C como AngularJS * o EmberJS * ,que dada la experiencia
+además de agilizar el desarrollo de la aplicación, garantizaría su robustez y velocidad.
+Otra opción que se puede considerar es usar aleún “framework” de desarrollo que esté
+basado en el patrón de arquitectura M.V.C (Modelo Vista Controlador), la ventaja de
+estos “frameworks” es su gran soporte, reflejado en sus grandes comunidades y documentación, además que la mayoría exponen una filosofía para desarrollar aplicaciones,
+garantizando buenas prácticas de programación y buen rendimiento en la aplicación.
+
+El gran inconveniente con las dos últimas opciones es que implicaría reescribir los
+aplicativos de los proyectos desarrollados por la empresa IPSOF'T exigiendo gran cantidad de tiempo, capital y recurso humano. La opción más factible es mejorar el diseño
+y arquitectura del framework SIIS; esto se puede lograr añadiendo una interfaz ORM
+(Object Relational Mapping) a la capa del modelo, existen bastantes librerías que gozan
+de buen soporte y popularidad como Doctrine ? o RedBeanPHP * que pueden ayudar a
+cumplir este propósito , otra mejora factible es la incorporación de un motor de plantillas en la aplicación esto facilita notablemente el desarrollo si se compara con el método
+utilizado actualmente mediante la concatenación de cadenas, también existen bastantes
+
+ 
+
+https: / /www.scrum.org/
+
+“http: / /docs.oracle.com /javaee /6/tutorial/doc /gijqy.html
+“https: / /angularjs.org/
+
+*emberjs.com/
+
+www.doctrine-project.org/
+
+www.redbeanphp.com/
+
+27librerías para cumplir este propósito como Mustache ”, Smarty $.
+
+En cuanto a la interfaz gráfica el “framework”, SIIS usa hojas de estilo desactualizadas, no soportadas por dispositivos moviles y no optimizadas lo que además de producir
+una experiencia negativa en el usuario, alarga sustancialmente el tiempo de carga de
+la aplicación. Sería pertinente el uso de un “framework” HTML/CSS/JavaScript como
+Bootstrap? o Foundation!*?, con soporte para dispositivos móviles, de la mano de “task
+runners” como GULPJS!!, para el diseño y optimización de las vistas de los aplicativos.
+
+Mi experiencia al hacer parte de un proyecto real de desarrollo de software fue muy
+excitante y enriquecedora en todos los aspectos, desde el aspecto personal hasta el profesional, conocí la realidad de un ambiente laboral, y dada la relación directa con el
+cliente adquirí experiencia en el levantamiento de requerimientos, relaciones interpersonales y comunicación asertiva. Además al pertenecer a un equipo de desarrollo aprendí
+a trabajar en equipo.
+
+Mejore notablemente mis habilidades en el diseño de los modelos de datos y su im
+plementación, en la resolución de problemas, y en las tecnologías PHP, POSTGRESQL,
+HTML, CSS, JAVASCRIPT.
+
+ 
+
+"https: / /mustache.github.io/
+
+Swww.smarty.net/
+
+“getbootstrap.com/
+"roundation.zurb.com/
+Mou]pjs.com
+
+28Bibliografía
+
+[11] La difusion del conocimiento. Interciencia, 33:786 — 786, 11 2008.
+
+[2] Eduardo Barboza Besada. Avances de la cirugía en los últimos 30 años. DIAGNOSTICO, 47:122 -128, 9 2008.
+
+[3] L. DEBRAUWER and Y. EVAIN. Patrones de diseño en PHP: Los 23 modelos de
+diseño: descripciones y soluciones ilustradas en UML2 y PHP. Expert IT. Ediciones
+ENT, 2015.
+
+[4] F. Durán, F. Gutiérrez, and E. Pimentel. Programación orientada a objetos con
+Java. Ediciones Paraninfo. S.A., 2007.
+
+15] B. Porebski, K. Przystalski, and L. Nowak. Building PHP Applications with Symfony, Cake PHP, and Zend Framework. IT Pro. Wiley, 2011.
+
+16] S.A.C.T.D.A.V.Z. Sonia Jaramillo Valbuena. Programación Avanzada en Java. Elizcom S.a.s.
+
+29

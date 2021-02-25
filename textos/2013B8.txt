@@ -1,0 +1,2186 @@
+Universidad
+del Valle
+
+Sede Tuluá
+
+SISTEMA DE INFORMACIÓN WEB DE AUTOGESTIÓN DE
+INFORMACIÓN Y SOLICITUDES PARA LOS COLABORADORES DE LAS
+EMPRESAS CONTRATANTES DEL SERVICIO DE LA CAPACIDAD BPO
+DE CARVAJAL TECNOLOGÍA Y SERVICIOS
+
+ESPINAL ARANA HECTOR ANDRES
+Cód. 1113032
+
+hector.espinal O correounivalle.edu.co
+
+UNIVERSIDAD DEL VALLE SEDE TULUÁ
+PROGRAMA DE INGENIERÍA DE SISTEMAS Y CIENCIAS DE LA
+COMPUTACIÓN
+TULUÁ - VALLE
+NOVIEMBRE, 2014SISTEMA DE INFORMACIÓN WEB DE AUTOGESTIÓN DE
+INFORMACIÓN Y SOLICITUDES PARA LOS COLABORADORES DE LAS
+EMPRESAS CONTRATANTES DEL SERVICIO DE LA CAPACIDAD BPO
+DE CARVAJAL TECNOLOGÍA Y SERVICIOS
+
+ESPINAL ARANA HECTOR ANDRES
+Cód. 1113032
+
+hector.espinal O correounivalle.edu.co
+
+Trabajo de grado para optar al título de Ingeniero de Sistemas
+Modalidad Pasantía
+
+Director: Pavel Franco Marin, Ing.
+pavelfmO gmail.com
+
+Codirector: Olga Lucia Molano Tovar, Ing.
+olga.molano Ocarvajal.com
+
+UNIVERSIDAD DEL VALLE SEDE TULUÁ
+PROGRAMA DE INGENIERÍA DE SISTEMAS Y CIENCIAS DE LA
+COMPUTACIÓN
+TULUÁ - VALLE
+NOVIEMBRE, 2014Nota de Aceptación
+
+Presidente del jurado
+
+Jurado 1
+
+Jurado 2
+
+Tuluá, 4 de Noviembre de 2014Resumen
+
+En la actualidad, en la empresa Carvajal Tecnología y Servicios, se presenta una
+problemática en la dependencia de Tercerización de Procesos de Negocio, donde se brindan
+soluciones integrales que se enfocan en las áreas de Tercerización de Procesos de Back Office
+(BO), Soluciones de Fábrica de Procesos, Centros de Contacto y Red de Servicios, donde se
+evidencian dificultades con la ejecución de actividades inherentes a los procesos de
+recepción, procesamiento de información y solicitudes de los colaboradores.
+
+Actualmente, los Centros de Contacto y Red de Servicios se encargan de manejar los
+procesos referenciados anteriormente, y de atender las solicitudes de los empleados de las
+empresas contratantes, pero no se cuenta con un sistema de información que permita
+dinamizar dichos procesos para los colaboradores y así administrar efectivamente su
+atención. Lo anterior ocasiona pérdida de tiempo, reproceso en las solicitudes, inconformidad
+en los colaboradores e incremento en los costos del negocio, elementos que en sí mismos se
+constituyen en el problema identificado.
+
+En consecuencia, la solución planteada a la problemática es diseñar e implementar un
+sistema de información web que permita a los colaboradores gestionar de forma autónoma su
+
+información y sus solicitudes, y a los jefes directos atenderlas oportunamente.
+
+Palabras clave: Sistema de información, web, autogestión, procesos, solicitudes.
+
+11Abstract
+
+Currently, Carvajal Technology and Services company has a dependency problem over
+outsourcing of business process where they provide complete solutions that are focused on
+areas of Back-Office (BO), Solutions Factory Process, Contact Centers and Contact Network.
+Carvajal is getting inconveniences when they are executing activities related to Reception
+Processes, Information Process and Employees Requests.
+
+At present, the Contact Centers and Services Networks are handled all processes
+mentioned before, also they are responsible to attend requests from people that work for
+Carvajal?”s customers. So there is not an information system that allows improve these
+processes, minimizing time and the effort from Carvajal”s employees. Said that, it is causing
+lost time, reprocessing and increase of business costs.
+
+In consequence, this solution is to design and implement an information system over web
+to allow to Carvajal”s employees handle in an autonomous way their information and their
+requests, and also allow their bosses to manage their requests at time.
+
+Keywords: system information, web, self management, processes, request.
+
+111Dedicatoria
+
+A Dios, por permitirme participar de este proceso formativo y brindarme la vida y
+capacidades para afrontarlo, a mis padres por su incondicional apoyo y sacrificio, a mi esposa
+e hijos por soportar tantas veces mi ausencia, a mis docentes y compañeros por compartir
+siempre sus conocimientos.
+
+Héctor Andrés Espinal Arana
+
+1vAgradecimientos
+
+A mis amigos y compañeros, con los que viví la experiencia de un proceso de formación
+y compartí el arduo camino para ser un profesional.
+
+Al profesor Pavel Franco quien más que un director y docente es alguien que me ha
+brindado su confianza, dedicación y motivo para obtener los mejores resultados en este
+proyecto.
+
+Por ultimo a todos aquellos que pertenecen a la Universidad del Valle Sede Tuluá, por
+brindarme el espacio idóneo para llegar a donde estoy hoy en día y culminar este camino.Tabla de Contenido
+
+1. Introducción
+
+1.1 Descripción General connnnnnnncnoniononoccnnnnnos:
+1.2 Problema .......occcnnnnnnnnnnnnnnnnnononanannorrnnnnnononoss
+.2.1 Descripción del Problema..................
+
+.2.2 Formulación del Problema.................
+
+3 ODEtiVOS........ooooooccnoccnnncnnnncnnnnnnnnncnnnananannos
+.3.1 Objetivo General.......ocooncnnnnnnnnnnnnnnnn...
+
+.3.2 Objetivos EspecÍfiCOS ....ccoonnnnnnnnnnnnm..
+
+1.4 Estructura del Documento ...oocccocooooncnnccco..
+
+2. Marco Referencial
+
+2.1 Marco Conceptual .ooooonnnnnnninicinionnooonanonononos:
+1.1 Outsourcing ....oocccccccnnnnnnnnnnnnnnnnnnnnnnnnos
+1.2 Business Process Outsourcing (BPO)
+1.3 Content Management (CM) ...ooooconnnnn.
+1.4 Content Management System (CMS).
+. arco TeÓTrICO....ccoooooocnnnnnnooccnnnnnnnconononanionoss
+.] SISTEMAS cooocccnnconnccnnnnnononcnnnonarocononaninoss
+.2 Sistemas de Información.........o.o.........
+.3 Sistema de Información Web.............
+4 Lenguaje de Modelado Unificado
+5 Base de DatoS ....occcccncccccnnconococinonnninoss
+¿O InterfaZ....ooocccoonnoccnnnnnnnoccnnnonaronononaninoss
+DtECOdentesS c.coooooccnnnnnnnoccnnnnnnconnnonanioronnninoss
+Ll Querix TD ooooccnnnnnnnccnnninanoconnnnnaronanonanonoss
+DAA coccccnnnnnoncnnnnnnconnnnnnnnrcnnnnnnccnnnonananoss
+3 Meta coooocccnnnnnnnccnnnnonionocnnnnnnnccnnnnnanonoss
+A EpsSilON ....cccccccnnnnnnnnnnnnonananannn nono nonnnnnoos
+
+5 mi |
+.) MI-NOMINA.COMcoooooconcnnccnnnnnnnnnancnnnnnnns
+6 Simple HRM ooooonocccccccconononanancnnnnnnos
+
+N NN
+
+>
+
+N NN»
+
+3. Aspectos del desarrollo de software
+3.1 Selección de la metodología de desarrollo.
+3.2 Metodología de desarrollo .........................
+3.2.1 Scrum TeaM.........oococcccnncnnnnnnnnnnnnnnnnnos
+3.2.2 Componentes de ScruM .ocoooncnnnnnnnnnnn..
+3.3 Ejecución de la metodología de desarrollo
+3.1 Planeación........occccccnccnnnncinnnnnnnnnnnnnnnnos
+3.3.2 DISOÑO .....ooococccnccnoncncncnnnncnnnnncnnnananana nos
+3.3.3 CodificaciÓn........ooccccccccncccnnncnnnnnnnnnanos
+3.3.4 Pruebas.........coccccncccncncccnnccnonncnnnnncnnnnnos
+
+ 
+
+.
+
+.
+
+.
+
+EU 0 UND DF a
+
+ONO woO NO 0 0 —J DDD O Un Ur U Un Yn
+
+12
+12
+13
+14
+14
+14
+14
+16
+21
+224. Portal del Colaborador 23
+
+4.1 Módulo para el mantenimiento de información personal y hojas de vida ................... 25
+4.2 Módulo para la atención de solicitudes simples..................oooooocccnncnnnnnonoconononininaninananns 27
+4.3 Módulo para la atención de solicitudes complejas y gestión del jefe ............oooocnnn..... 29
+4.4 Interfaz de acceso adatoS occoooccccconoononooonnoonononononnnnnnononnnnnnnnnnncnnnnnnnnnnonnnnnnnnnnncnnnnnnnnnannnns 31
+5. Conclusiones y Trabajos futuros 34
+5.1 ConclusiON€S...cccoccnnnnonnnonnnonononnnonnononnnnnonnnnnnnnnnnnonnnnnnnnnnnnnnnnnnnnnnnnnn nana nan nn nn nen nn nn n nr nnnnnrnnss 34
+5.2 Trabajos fUtUTOS .0ococooonnnnoonooononononoononnnonnnnnnnnnnnnnnnncnnoncnnnnnnnnnnnnnnnnnnn naar nana nn rca nn n rn nn nnnnnnnnnss 35
+
+vilListado de Tablas
+
+1 Relación objetivos específicos con los resultados obtenidos
+
+2 Comparativo de Herramientas Existentes.
+
+viiiLista de Figuras
+
+VD 0 QDD Aa Bb QU NR
+
+Rh a a. a a Ra Ra pa pa pa
+VD 0 1 NY UU Bb 0 DN Re.OoO
+
+20
+
+Tecnologías empleadas para una aplicación Web en el cliente y en el servidor................ 7
+Proceso de desarrollo metodología SCrUM.........ooccccncnnnnnnnnnonnnonaninnnananannnan non nono n nono rnnnnnnnnos 13
+Historias de Usuario Gestión de Usuarios .........cocccccccncncccnoncnonnnnnnnanannnanann nn nn nono non nnnnnnnnnss 15
+Arquitectura Sistema de Información ..........coooccccnccnnnnnnnnnnnnncnnonaconnnnnnnann nono nn nn nn nn nn rn nnnnnnnos 17
+Capas Arquitectura Portal del Colaborador ..................... ¡Error! Marcador no definido.
+Procesos Actualización de Información .........oocccccccncnnnnnnnnnncnnnnnnnnnnnannnn nono non nn nro nn nnnnnnnnnos 20
+Procesos de Integración ...oococonoconooooonooocnnnononnnnnnnnnnncnnncnononnnnncnnnnnnnnnnnnnnnn nana nn nan nn nr nn nn rnnnnnnnss 21
+Interfaz principal Portal del Colaborador ...............occcccccccnnnconnnnconnnnnnnnnnnnnn nono nn on non nnnnnnnnos 24
+Panel de Control Joomla, Gestión de USUATLIOS.........oooccnoccnnccnnoconoccnoconocnnnccnnccnncconoconeconeso 24
+Menú de gestión de información personal..............cccccccnncnnncnnonoconnnannnnnanann nro nn nn non nnnnnnnnnnos 25
+Visualización de información personal..............coocccnccccnnncnnnnnnnnnnnnnnnnnnnnnann corno nn nn nn nro nnnnnnnos 25
+Gestión y solicitud de registro de estudios .........occccccccnnccnnnncnnnnanannnnnnnnnn nono nn nn nn nn nn nnnnnnnnnos 26
+Gestión y solicitud de registro de beneficiarios. ........coccccccnnnonnnnnnnnnnanananananananrn nn non nono nnnnnos 27
+Interfaz generación de certificados laborales.................coccccccnnnnnnnnnnnnnnnnnnnnanananronononononnnnss 21
+Interfaz comprobante de pago por periodo. ........occccccccnncncnnncnnnnncnnnnnnnnann nano nn nono nn non nnnnnnnnnss 28
+Interfaz Mi Gestión (Jefe).........ocoooonccnonoccnnoncccnnnoccnnnnocononanocnnnnacononorononnronnonoronnnacccnonicicinons 29
+IAEA 29
+Interfaz validación vacaciones Jefe. ..............ooooooocccnnnnnnoninnncnonnnnnnnanannnnnnnnn nn on nn nono r nn nnnnnnnss 30
+Interfaz solicitud vacaciones ColaboradoT...........oocccccccnnnnnnnnccnnnaconnnanonanannn corno nn nn ono rnnnnnnnnos 30
+Diagrama de Componentes Bus WSOZ..........ccccccccnnncnonocononcconancnnnanannnnn ocn n nn nn nono nono nnnnnnnnos 33
+
+1xCapítulo 1
+
+Introducción
+
+1.1 Descripción General
+
+La multinacional Carvajal S.A., está compuesta por las empresas: Carvajal Educación,
+Carvajal Espacios, Carvajal Empaques, Carvajal Pulpa y Papel, Carvajal Tecnología y
+Servicios, Carvajal Soluciones de Comunicación y Carvajal Información.
+
+A su vez, la empresa Carvajal Tecnología y Servicios, se encuentra dividida en las
+capacidades BPO (Subcontratación de Procesos de Negocio) APP (Tercerización de
+Aplicaciones) e ITO (Tercerización de Tecnología). Ahora bien, la capacidad de BPO cuenta
+con una amplia oferta de servicios y soluciones orientadas a la estandarización y
+optimización de Procesos de Back Office (BO), Soluciones de Fábrica de Procesos, Centros
+de Contacto y Red de Servicios, que permiten resolver las necesidades tecnológicas y
+subcontratación del negocio organizacional de sus clientes en distintos sectores de la
+industria, como son: Clientes del grupo Carvajal (Procesos Internos de la Empresa); y
+Clientes Externos (Sector Consumo e Industria, Sector Financiero y Seguros, Sector
+Gobierno, Sector Salud, y Sector Servicios).
+
+Así, según Carvajal Tecnología y Servicios [1], integran: “soluciones de negocio, con
+entendimiento del contexto latinoamericano, para transformar el desempeño de los clientes
+mediante tecnologías de información y tercerización de procesos”.
+
+Una de las soluciones referenciadas anteriormente se conoce como Red de Servicios que
+se encarga, entre otras, de administrar la nomina y atender las solicitudes de los empleados de
+las empresas contratantes. En el desarrollo de esta función se ha identificado una
+problemática recurrente que consiste en la falta de información actualizada de los
+colaboradores, y la ineficiencia en el proceso de comunicación y atención de sus solicitudes.
+
+Es así como surge el presente proyecto y es en este documento donde se presenta el
+proceso de desarrollo del mismo, mostrando como el sistema de información web que plantea
+solucionar el problema, facilita la autogestión de información personal y laboral, brindando
+una herramienta que permita la gestión de principio a fin de las solicitudes realizadas por los
+colaboradores, descongestionando de esta forma al personal encargado de atenderlas.1.2 Problema
+
+1.2.1 Descripción del Problema
+
+Como parte de sus funciones, la capacidad BPO se encarga de atender y resolver las
+solicitudes de los empleados, relacionadas con las áreas de gestión humana, financiera,
+logística y general, de las empresas para las que presta el servicio de tercerización de
+procesos, donde se han detectado algunas problemáticas al interior, que se deben resolver
+para continuar con la etapa de mejora continua.
+
+De allí se identifica que el primer eje problemático, tiene que ver con el desgaste
+operativo, pues actualmente las personas de las áreas de Carvajal Tecnología y Servicios
+atienden dichas solicitudes en forma directa y deben recibir las llamadas telefónicas o los
+correos electrónicos, para posteriormente diligenciar los respectivos formatos internos,
+situación que resulta susceptible a errores humanos y mala comunicación entre las partes.
+
+El segundo eje problemático que se identifica, tiene que ver con la ineficiencia en los
+siguientes aspectos:
+
+"=  Larecepción de una solicitud por vía telefónica o correo electrónico para la empresa
+Carvajal Tecnología y Servicios, requiere la dedicación de un empleado durante un
+determinado tiempo, el diligenciamiento de un formato escrito, y la asignación de un
+funcionario que la resuelva dependiendo del tipo y el nivel de responsabilidad de la
+solicitud.
+
+= Algunas solicitudes requieren solo la gestión de algún documento, pero otras
+requieren la autorización por parte de un superior y la actualización de datos de otros
+sistemas, lo que aumenta la complejidad y demora del proceso pues se realiza
+manualmente.
+
+"= No se realiza un seguimiento de las solicitudes entregadas y debido a esto no se
+puede registrar el tiempo de respuesta de las mismas.
+
+= Los usuarios no tienen forma de conocer el estado de su petición y por ende recurren
+de nuevo al uso de las líneas telefónicas, generando congestión innecesaria de las
+mismas.
+
+En síntesis, la capacidad BPO de Carvajal Tecnología y Servicios no dispone de
+herramientas para facilitar la autogestión en relación a la información de los colaboradores y
+la atención de solicitudes internas, que permita que los usuarios comuniquen sus
+requerimientos y sean atendidos oportunamente, generando reprocesos, pérdida de tiempo e
+incremento en los costos.
+
+1.2.2 Formulación del Problema
+
+¿Cómo generar una solución informática para la capacidad de BPO de Carvajal
+Tecnología y Servicios, que apoye los procesos de gestión de solicitudes internas de los
+colaboradores, generada en la operación de servicios?
+
+21.3 Objetivos
+
+1.3.1 Objetivo General
+
+Implementar un sistema de información web para la gestión de información personal,
+laboral y solicitudes, que permita la atención de colaboradores de las empresas contratantes
+del servicio de la capacidad BPO de Carvajal Tecnología y Servicios.
+
+1.3.2 Objetivos Específicos
+
+SECCIÓN DE
+
+ODIAN COITO RESULTADOS
+
+1. Desarrollar un módulo para el mantenimiento de información
+personal y hojas de vida que permita la autogestión de información
+personal de los colaboradores
+
+ 
+
+2. Desarrollar un módulo para la atención de solicitudes simples que
+permita la autogestión de datos laborales.
+
+3. Desarrollar un módulo para la atención de solicitudes complejas
+que permita la autogestión de solicitudes que requieran autorización
+
+ 
+
+4. Desarrollar un módulo de gestión del jefe, para la atención de
+solicitudes complejas que permita el trámite de aquellas solicitudes
+que requieren autorización.
+
+ 
+
+5. Realizar la implementación de una interfaz de acceso a datos que
+permita la comunicación bidireccional con la base de datos de
+nómina para obtener la integración total con el sistema actual de la
+empresa.
+
+ 
+
+ 
+
+Tabla 1: Relación objetivos específicos con los resultados obtenidos1.4 Estructura del Documento
+
+En el capítulo 2 se presenta el Marco referencial, donde se encuentra el marco
+conceptual, teórico y los antecedentes sobre herramientas de apoyo a la gestión de
+información y solicitudes de los colaboradores.
+
+En el capítulo 3 se presenta el sistema de información web Portal del Colaborador,
+mostrando los resultados obtenidos del proceso de desarrollo.
+
+En el capítulo 4 se presentan los Aspectos del proceso de desarrollo de software,
+mostrando las etapas de la ingeniería de software llevadas a cabo para cumplir con los
+objetivos propuestos. De igual manera, se modelan y ejecutan los diferentes escenarios de
+pruebas para medir la calidad y efectividad del sistema frente a los objetivos y alcance
+propuestos en el proceso de desarrollo.
+
+Este trabajo finaliza con el capítulo 5, Conclusiones y trabajos futuros.Capítulo 2
+
+Marco Referencial
+
+2.1 Marco Conceptual
+
+2.1.1 Outsourcing
+
+Según indica Pavisich [2], Outsourcing también conocido como subcontratación,
+administración adelgazada o empresas de manufactura conjunta, el outsourcing es la acción
+de recurrir a una agencia exterior para Operar una función que anteriormente se realizaba
+dentro de una compañía. El objetivo principal de la empresa es reducir los gastos directos
+basados en una subcontratación o tercerización de servicios que no afectan la actividad
+principal de la empresa.
+
+2.1.2 Business Process Outsourcing (BPO)
+
+Para Sánchez G. [3], BPO se denomina tercerización de servicios a una forma especial
+de organización y división del trabajo en función de la cual la empresa principal se reserva
+una ocupación central o esencial, y todos los servicios periféricos no esenciales o secundarios
+son encomendados a otras empresas especializadas en cada una de las actividades. El
+Business Process Outsourcing (BPO), en español Outsourcing de Procesos de Negocio, es
+una nueva conciencia que potencializa al outsourcing como herramienta de gestión. Su
+objetivo es la redefinición radical de las condiciones de los procesos de negocios con el fin de
+alcanzar resultados que superen por completo a los que se obtendrían simplemente recortando
+costos.
+
+2.1.3 Content Management (CM)
+
+Según Caraballo P. [4], La gestión de contenidos proviene del término en inglés Content
+Management (CM), que es una expresión de reciente aparición aunque no sin cierta
+ambigiedad. Se asocia a un nuevo método para el diseño y desarrollo de portales Web que
+conlleva:
+
+"= La inclusión de elementos digitales de diferentes tipos (textuales, gráficos y
+audiovisuales).= El desarrollo de forma cooperativa y descentralizada.
+= El paso de un modelo estático a otro más dinámico.
+=  Lareutilización de los contenidos.
+
+Este concepto se asocia también con los nuevos enfoques de la Intranet, donde el mayor
+peso recae en los aspectos relacionados con la identificación de recursos de información
+internos y externos, su valoración, gestión y tratamiento eficiente. Á esto se le une, la
+necesidad de utilizar tecnologías de la información y sistemas informáticos para el
+almacenamiento y distribución de información de naturaleza textual.
+
+2.1.4 Content Management System (CMS)
+
+García M. [5], muestra que la idea básica que existe detrás de un sistema de gestión de
+contenidos es separar la gestión del contenido de su diseño. El diseño de las páginas se
+almacena en plantillas mientras que el contenido puede almacenarse en bases de datos o
+ficheros separados. Cuando un usuario solicita una página Web, las partes se combinan para
+producir una página Hypertext Markup Language (HTML) estándar. La página Web
+resultante puede incluir contenido de múltiples fuentes. Otro criterio es que “Un sistema de
+gestión de contenidos sirve para que la gestión de un sitio Web, por pequeño que sea, no se
+vaya de las manos: permite tener una apariencia y navegación uniforme en todo el sitio, así
+como actualizar y gestionar su contenido fácilmente”.
+
+2.2 Marco Teórico
+
+2.2.1 Sistemas
+
+Para Checkland, P. [6], la palabra “Sistema” tiene muchas interpretaciones dependiendo
+del punto de vista en que se use, por ejemplo, se puede definir como un conjunto de 7 cosas
+que ordenadamente y relacionadas entre sí cumplen con un determinado objetivo.
+
+El término sistema aunque se ha venido divulgando en diversas disciplinas al pasar de
+varios siglos, es aceptado en la ciencia moderna como una materia que puede hacer referencia
+de diferentes temas y cuyos principios pueden ser aplicados dentro de otra disciplina. Una
+definición de sistemas podría ser la siguiente: “Es un conjunto de elementos conectados entre
+sí y que forman un todo que muestran las propiedades más bien del todo que de sus partes
+componentes”.
+
+2.2.2 Sistemas de Información
+
+Kendall [7] dice, que un sistema de información es un conjunto de elementos que
+interactúan entre sí con el fin de apoyar las actividades de una empresa o negocio. En un
+sentido amplio, un sistema de información no necesariamente incluye equipos electrónicos
+(Hardware). Sin embargo, en la práctica se utiliza como sinónimo de “sistema de información
+computarizado”. Un Sistema de Información ejecuta tres (3) actividades generales: recibe
+datos de fuentes internas y/o externas de la empresa o institución como elementos de entrada;
+
+6actúa sobre los datos para producir información en un sistema “generador” de información; y
+con la información obtenida, genera informaciones específicas para cualquier petición que se
+realice y a cualquier nivel.
+
+El objetrvo común de todo sistema de información es el de “apoyar las actividades de la
+organización y toma de decisiones de una empresa o una institución”. Y además también
+debe “asegurar que la información generada sea exacta, confiable y esté disponible en
+cualquier instante”, lo cual permitiría un incremento en la eficiencia y eficacia, y en la
+competitividad de cualquier empresa o institución.
+
+2.2.3 Sistema de Información Web
+
+Según Lujan M. [8], se denominan aplicaciones Web a aquellas aplicaciones cuya
+interfaz se construye a partir de páginas Web. Las páginas Web son ficheros de texto en un
+formato estándar denominado HTML. Estos ficheros se almacenan en un contenedor Web al
+cual se accede principalmente utilizando el protocolo HTTP, que es uno de los protocolos de
+Internet. Para utilizar una aplicación Web desde una máquina concreta, basta con tener
+instalado un navegador Web. Desde la máquina cliente, donde se ejecuta el navegador, se
+accede a través de la red al servidor Web donde está alojada la aplicación y, de esa forma, se
+puede utilizar la aplicación sin que el usuario tenga que instalarla previamente en su máquina.
+Es un tipo especial de aplicación cliente/servidor, donde tanto el cliente (el navegador,
+explorador o visualizador) como el servidor (el servidor Web) y el protocolo mediante el que
+se comunican, están estandarizados y no han de ser creados por el programador de
+aplicaciones.
+
+(BACK-END)
+
+(FRONT-END) SERVIDOR
+CLIENTE
+
+HTML DHTML CSS CGI SSI
+
+JavaScript VBScript ASP PHP
+ActiveX JSP Servlets
+Applets ColdFusion
+
+ 
+
+Figura 1: Tecnologías empleadas para una aplicación Web en el cliente y en el servidor.
+
+Front-end: Es un programa con el que interactúa el usuario para solicitar a un servidor
+Web el envío de los recursos que desea obtener mediante el protocolo HT'T'P. El front-end de
+las aplicaciones Web suele estar formada por el código HTML que forma la pagina Web más
+
+7código interpretado por el navegador escrito comúnmente en JavaScript, VBScript o mediante
+pequeños programas (applets) realizados en java. Por tanto la misión del navegador es
+interpretar la paginas HTML y los diferentes recursos que contienen (imágenes, sonidos, etc).
+
+Back-end: El back-end se encarga de recibir las solicitudes del front-end, procesarlas y
+retornar el resultado mediante el protocolo HTTP. El contenedor Web principalmente está
+conformado por programas que son ejecutados por el servidor Web para generar páginas
+dinámicas y dar respuesta a las peticiones provenientes del cliente, usando para tal fin
+paginas estáticas (documentos HTML), datos almacenados y recursos adicionales
+(multimedia, documentos, etc.), entre otros.
+
+2.2.4 Lenguaje de Modelado Unificado (UML)
+
+Según Kendall [7], el Lenguaje de Modelado Unificado (UML - Unified Modeling
+Language) es un lenguaje gráfico que proporciona un conjunto estandarizado de herramientas
+para documentar el análisis y diseño de un sistema de software. El conjunto de herramientas
+incluye diagramas que permiten a las personas visualizar la construcción de un sistema
+orientado a objetos similar a la forma en que un conjunto de planos permite a las personas
+visualizar la construcción de un edificio. Ya sea que usted esté trabajando individualmente o
+con un equipo de desarrollo de sistemas, la documentación que crea con UML proporciona
+un medio eficaz de comunicación entre el equipo de desarrollo y el equipo de negocios en un
+proyecto. Esta herramienta ayuda a visualizar, especificar y documentar cada una de las
+partes que comprende el desarrollo de software, modelado de negocios y sistemas que no
+sean software. UML entrega una forma de modelar cosas conceptuales como los procesos de
+negocio y funciones de sistema, además de cosas concretas como lo son escribir clases en un
+lenguaje determinado, esquemas de base de datos y componentes de software reutilizables.
+
+UML fue desarrollado en Rational Software Corporation, con contribuciones de otros
+metodologistas, líderes vendedores de software y usuarios. La esencia de UML radica en el
+uso de varios tipos de diagramas para ilustrar los distintos puntos de vista de la realidad. Cada
+diagrama usa la notación pertinente y la suma de estos diagramas crean las diferentes vistas.
+
+2.2.5 Base de Datos
+
+Según Ramez [9], es un conjunto de datos que pertenecen al mismo contexto
+almacenados sistemáticamente para su uso posterior. En este sentido, una biblioteca puede
+considerarse una base de datos compuesta en su mayoría por documentos y texto impresos en
+papel e indexados por su consulta.
+
+Un Sistema Manejador de Base de Datos (S.M.B.D.) es un conjunto de programas que se
+encargan de manejar la creación y todos los accesos a las bases de datos. Se compone de un
+lenguaje de definición de datos, de un lenguaje de manipulación de datos y de un lenguaje de
+consulta.2.2.6 Interfaz
+
+Para Mañaz M. [10], (del inglés interface, superficie de contacto), es una conexión física
+y funcional entre dos aparatos o sistemas independientes. Dados dos sistemas cualesquiera
+que se deben comunicar entre ellos la interfaz será el mecanismo, entorno o herramienta que
+hace posible dicha comunicación.
+
+Los tipos abstractos de datos (PAD), describen un conjunto de objetos con la misma
+representación y comportamiento. Los tipos abstractos de datos presentan una separación
+clara entre la interfaz externa de un tipo de datos y su implementación interna. La
+implementación de un tipo abstracto de datos está oculta. Por consiguiente, se pueden utilizar
+implementaciones alternativas para el mismo tipo abstracto de dato sin cambiar su interfaz.
+
+2.2.7 CRUD
+
+Es el acrónimo de Crear, Obtener, Actualizar y Borrar. Es usado para referirse a las
+funciones básicas en bases de datos o la capa de persistencia en un software.
+
+2.2.8 Scrum
+
+Según Hundermark P. [11], Scrum es un framework para el manejo de proyectos que
+tienen como objetivo el desarrollo de productos complejos. Scrum tiene sus orígenes en los
+campos del manejo del conocimiento, los sistemas adaptativos complejos y la teoría de
+control empírico de procesos. Ha sido influenciado también de patrones observados durante
+el desarrollo de software y la Teoría de las Limitaciones.
+
+2.3 Antecedentes
+
+Entre los antecedentes de soluciones informáticas para el proceso de autogestión de
+información y solicitudes de empleados, podemos citar algunos que se destacan:
+
+2.3.1 Querix 7
+
+Querix 7 [12], es un módulo de Autogestión desarrollado por la empresa “SQL
+Software” de la ciudad de Bogotá, que le permite a las organizaciones atender de manera
+oportuna las necesidades y solicitudes de los empleados, generando confianza debido a la
+oportunidad en las respuestas y agregando valor a la organización toda vez que se reducen los
+costos asociados al proceso de atención al cliente interno.2.3.2 Sara
+
+Sara [13], es un sistema de administración de gestión humana desarrollado por la
+empresa Unión Soluciones LTDA con sede en Bogotá. Permite controlar los procesos de
+talento humano y cuenta con un modulo para el autoservicio del empleado.
+
+2.3.3 Meta4
+
+Meta4 [14], es una empresa con 1.300 clientes en 100 países que gestiona a más de 18
+millones de personas en todo el mundo. Desde su centro de I+D+i ubicado en España
+desarrolla aplicaciones capaces de cubrir las necesidades locales y globales de cualquier
+empresa sea cual sea el tamaño y complejidad.
+
+2.3.4 Epsilon
+
+Epsilon [15] es un sistema de información desarrollado por el Grupo Castilla que es una
+empresa española líder en el desarrollo e implantación de soluciones para la gestión del
+capital humano.
+
+2.3.5 mi-nomina.com
+
+Es una empresa radicada en la ciudad de Bogota (Colombia) que cuenta con un sistema
+de autogestión de empleados online [16].
+
+2.3.6 SimpleHRM
+
+SimpleHRM [17] es una solución de código abierto con la cual se pueden gestionar los
+procesos relacionados con los recursos humanos de una empresa.
+
+La mayoría de estas aplicaciones son privativas y forman parte de sistemas de nómina
+completos. Es decir, estas empresas no ofrecen el sistema de autogestión de los empleados
+como un servicio individual sino como parte integral del sistema completo de administración
+de nómina. La intención de Carvajal Tecnología y Servicios es contar con un sistema de
+autogestión del colaborador que no tenga ninguna dependencia con un sistema de nómina
+particular y que por el contrario permita la integración con cualquier sistema que la empresa
+desee implementar.
+
+10Software
+
+DNA LO!
+
+ 
+
+3 SimpleHRM
+
+SNA
+
+Carvajal
+
+ 
+
+ 
+
+ 
+
+AA mi-nomina
+
+ 
+
+AS Queryx”7
+
+  
+
+AA EPSILON
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tabla 2: Comparativo de Herramientas Existentes.
+
+11
+
+ 
+
+ 
+
+>
+E
+E
+==
+2
+Mantenimiento de la contraseña de acceso. X X
+Consulta del histórico de vacaciones y de Xx Xx
+vacaciones pendientes.
+o Generación del comprobante de pago. X X
+5 G mm Xx Xx
+£ | Generación de constancias de trabajo
+S Consulta y actualización de datos de
+3 | personales, de beneficiarios y estudios Xx Xx Xx Xx
+2 | realizados.
+E | Solicitud de traslados de personal, para
+o E X Xx XxX
+>. aprobación del responsable.
+2 | Solicitud de vacaciones, para la aprobación
+ES del jefe directo y el paso directo de la X X X X
+3 | novedad a nómina.
+3 | Cargue masivo de novedades de descuento Xx Xx
+S y devengos
+S Notificaciones por correo de solicitudes y Xx
+EL, | flujos de aprobación
+Generar las opciones de menú de acuerdo a Xx
+la empresa del usuario
+Generar las opciones de menú de acuerdo al Xx
+rol del usuario
+Software Libre
+Soporte técnico
+Servidor Web 3 E 3
+eo a,
+<XIER| <
+S Tiene salida a internet SI
+a
+e) <<
+y
+Z Lenguaje S =
+S eu) a a
+3 a
+a
+Multicompañía Xx
+Multimoneda X
+Dom
+] : ¡q 2
+Multilenguaje S "ab
+E ECapítulo 3
+
+Aspectos del desarrollo de software
+
+En el presente capítulo se muestra el proceso de desarrollo de software de la aplicación y la
+documentación asociada que se obtuvo. Se exponen las diferentes tecnologías usadas para la
+implementación de la aplicación Web.
+
+3.1 Selección de la metodología de desarrollo
+
+Al desarrollar un sistema de información, sobre todo cuando se trata de una aplicación
+multiempresarial, es muy importante definir claramente una estructura que permita organizar
+la forma en que se realizará dicho desarrollo. El presente proyecto no es la excepción, por lo
+cual se evaluaron diversas metodologías que podrían ser aplicadas, entre las que se destacan:
+
+Proceso Racional Unificado (RUP): Es un proceso de desarrollo de software, que está
+centrado en la arquitectura y es guiado por los casos de uso. Incluye artefactos (que son los
+productos tangibles del proceso como por ejemplo, el modelo de casos de uso, el código
+fuente, etc.) y roles (papel que desempeña una persona en un determinado momento, una
+persona puede desempeñar distintos roles a lo largo del proceso). En resumen, propone una
+forma disciplinada de asignar tareas y responsabilidades que a su vez contemplan una gran
+cantidad de artefactos.
+
+Esto implica un alto impacto en el cronograma de trabajo que podría afectar los tiempos
+cortos y previamente establecidos para el presente proyecto que se encuentra regido por los
+lineamientos de un trabajo de grado [18].
+
+La programación extrema (XP): es un enfoque de desarrollo de software que enfatiza
+en la adaptabilidad y no en la previsibilidad. Las características fundamentales del método
+son: desarrollo iterativo e incremental, pruebas unitarias continuas, programación en parejas,
+frecuente integración del equipo de programación con el cliente o usuario, corrección de
+todos los errores antes de añadir nueva funcionalidad, refactorización del código, propiedad
+del código compartida, simplicidad en el código [19].
+
+Scrum: es un proceso en el que se aplican de manera regular un conjunto de buenas
+prácticas para trabajar colaborativamente en equipo y obtener el mejor resultado posible de
+un proyecto. En Scrum se realizan entregas parciales y regulares del producto final
+priorizadas por el beneficio que aportan al receptor del proyecto. El desarrollo de productos
+se produce en pequeñas partes con cada pieza basándose en piezas creadas previamente. Esta
+situación se acomoda a los procesos paralelos del desarrollo de un trabajo de grado.
+
+12Proporciona un pequeño conjunto de reglas que crean apenas suficiente estructura para
+que los equipos puedan enfocar su innovación en resolver lo que podría ser un desafío, que
+permite el desarrollo en los tiempos cortos establecidos por el trabajo de grado [20].
+
+Según explica Sutherland J. [20], emplea un enfoque iterativo e incremental para
+optimizar la previsibilidad y control del riesgo en el desarrollo de proyectos, y reconoce que
+durante un proyecto los clientes pueden cambiar de idea sobre lo que quieren y necesitan, lo
+que permitiría la inclusión del cliente sin necesidad de afectar sus limitantes de tiempo.
+
+Teniendo en cuenta que para el desarrollo de este proyecto se debían realizar entregas
+parciales y permitir la adaptabilidad oportuna ante cualquier nuevo requerimiento por parte
+de la empresa, así como cumplir con las limitantes de tiempo establecidas para la entrega y
+finalización del trabajo de grado, se tomó la decisión de utilizar la metodología ágil Scrum.
+
+3.2 Metodología de desarrollo
+
+Scrum es actualmente una de las metodologías ágiles para el desarrollo de software de
+mayor difusión en la industria. Al inicio del proyecto se define el Product Backlog que
+contiene los requerimientos funcionales y no funcionales del sistema. Estos deberían estar
+especificados de acuerdo a las convenciones de cada organización donde usualmente se
+utiliza un artefacto de alto nivel como lo son las historias de usuario. A partir de este, el
+Product Backlog, se definen las iteraciones conocidas como Sprint. Cada Sprint tendrá su
+propio Product Backlog que será subconjunto del Product Backlog definido inicialmente; la
+duración recomendada para cada Sprint es de una a cuatro semanas. La Figura 2 presenta el
+proceso de desarrollo de la metodología Scrum:
+
+  
+  
+    
+   
+
+Revisión
+Diaria
+
+Sprint
+1la4semanas
+
+  
+
+ 
+
+Dan Reunión de
+Y Boa Revisión
+1400 => 080 E==>
+
+Vista
+
+Product Reunión de Sprint Reuniónde Incremento
+Backlog Planeamiento  Backlog Retrospectiva deProducto
+A J
+az 7
+
+
+ 
+
+Figura 2: Proceso de desarrollo metodología Scrum
+
+Los principales beneficios que proporciona Scrum son:
+e Entregas por Sprint de resultados (los requisitos más prioritarios en ese momento, ya
+completados) lo cual proporciona las siguientes ventajas:
+
+- Gestión regular de las expectativas del cliente y basada en resultados tangibles.
+
+13- Resultados anticipados (time to market).
+
+- Flexibilidad y adaptación respecto a las necesidades del cliente, cambios en el
+mercado, etc.
+
+- Mitigación sistemática de los riesgos del proyecto.
+
+- Productividad y calidad.
+
+- Alineamiento entre el cliente y el equipo de desarrollo.
+
+- Equipo motivado.
+
+3.2.1 Scrum Team
+
+El equipo Scrum se conforma con los siguientes roles: el Product Owner, que representa
+la voz del cliente y se asegura de que el equipo Scrum trabaje de forma adecuada desde la
+perspectiva del negocio; el Scrum Master (o Facilitador) cuyo trabajo primario es eliminar los
+obstáculos que impiden que el equipo alcance el objetivo del sprint, se asegura de que el
+proceso se utiliza como es debido y que las reglas se cumplan; el equipo que incluye a los
+desarrolladores y tiene la responsabilidad de entregar el producto.
+
+El equipo Scrum entrega productos de forma iterativa e incremental maximizando las
+oportunidades para obtener retroalimentación. Las entregas incrementales de producto
+aseguran que siempre esté disponible una versión potencialmente útil y funcional del
+producto.
+
+Para este proyecto el Scrum Team se conforma con el desarrollador, el director y el
+codirector del Trabajo de Grado, mencionando principalmente al gerente de proyectos de
+Carvajal Tecnología y Servicios, quien representaba la voz del cliente y realizaba
+recomendaciones en cada una de las iteraciones.
+
+3.2.2 Componentes de Scrum
+
+El corazón de Scrum es un Sprint, un periodo de tiempo de un mes o menos durante el
+cual es creado un incremento del producto usable y potencialmente entregable. Los mejores
+Sprints tienen duraciones consistentes a lo largo del desarrollo. Un nuevo Sprint se inicia
+inmediatamente después de la terminación del Sprint previo [21]. Igual que en los proyectos,
+los Sprint pretenden alcanzar un logro, es decir, cada Sprint tiene una definición de qué va a
+ser construido, un diseño y un plan flexible que guiará la construcción, el trabajo y el
+producto resultante.
+
+3.3 Ejecución de la metodología de desarrollo
+
+3.3.1 Planeación
+
+Como se mencionó anteriormente la metodología de desarrollo de software empleada
+para llevar a cabo el proceso de elaboración del sistema de información aquí presentado, fue
+Scrum con el uso de algunos artefactos UML (Unified Modeling Language), como fueron los
+diagramas de componentes disponible en la sección 4.3.1, de procesos disponible en la
+
+14sección 4.3.2 y de clases disponibles en la sección 4.3.3, con el fin de establecer una base más
+sólida para el proceso de desarrollo y codificación.
+
+Historias de Usuario (Product Backlog)
+
+Es un documento de alto nivel para todo el proyecto. Contiene descripciones genéricas
+de todos los requisitos y funcionalidades deseables. Indica qué va a ser construido. Es abierto
+y solo puede ser modificado por el Product Owner. Contiene estimaciones realizadas a
+grandes rasgos, tanto del valor para el negocio como del esfuerzo de desarrollo requerido. Es
+un conjunto de requisitos de alto nivel priorizados que definen el trabajo a realizar [20].
+
+El Product Backlog lista todas las características, funcionalidades, requerimientos,
+
+mejoras y correcciones que constituyen cambios a ser hechos sobre el producto para entregas
+futuras. Los ítems en un Product Backlog tienen los atributos de descripción, orden, estimado
+
+y valor [20].
+
+A continuación en la Figura 3, se presentan las Historias de Usuario para el módulo
+Gestión de Usuarios. Para ver en detalle todas las historias de usuario dirigirse al Anexo A Historias de Usuario, que se encuentra en el cd que acompaña este documento.
+
+Carvajal a
+
+Historias de Usuario
+TECNOLOGÍA
+
+Y SERVICIOS
+
+HU-0001 | Alias: Gestión de Usuarios
+
+HA KEKEK$2K<$2—K2$_g_gs__ OOOO]
+Rol, Funcionalidad y Resultado Como Administrador del sitio requiero realizar gestión de
+
+usuarios para administrar los permisos del portal
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+ 
+
+ 
+
+Escenario | Criterio Aceptación Contexto
+1 Ve los usuarios Si necesita ver los usuarios Cuando da clic en
+registrados en el sitio | registrados Usuarios
+2 Busca usuarios por En caso de requerir ver los usuarios | Cuando realice el
+grupo de un determinado grupo filtrado
+3 Activa y desactiva Si quiero activar o desactivar un z
+al presionar el botón
+usuarios usuario
+4 l En caso que quiera crear un nuevo | cuando presione
+Agrega usuarios
+usuario nuevo
+5 En caso que quiera borrar uno o
+Elimina usuarios varios usuarios, luego de presiona borrar
+seleccionarlos
+6 En caso que quiera modificar la
+
+Edita usuarios da clic en guardar
+
+información de un usuario
+
+ 
+
+ 
+
+Figura 3: Historias de Usuario Gestión de Usuarios
+
+La historia de usuario se compone de una tabla con tres partes principales, la primera de
+ellas hace referencia a la identificación de la misma, la segunda al enunciado, identificando el
+rol o usuario que llevará a cabo la funcionalidad y los resultados esperados. La última sección
+
+15abarca los criterios de aceptación donde se establecen los escenarios, contextos, eventos y
+resultados esperados para cada uno de ellos.
+
+Pila del Sprint (Sprint Backlog)
+
+Es un documento detallado donde se describe cómo el equipo va a implementar los
+requisitos durante el siguiente sprint. Es un listado de tareas que proviene del desglose de las
+Historias de Usuario que conforman la Pila de Producto (Product Backlog). Entendiendo
+como tarea las divisiones del trabajo que se puedan realizar en periodos de tiempo
+establecidos; que sean atómicas en el sentido de que se puedan finalizar sin necesidad de que
+sean dependientes de otras; que estén asignadas y así el equipo pueda saber de forma sencilla
+quien o quienes las están realizando; y que estén estimadas para poder saber cuantas
+podremos añadir al sprint o para calcular la velocidad del equipo [21].
+
+La Pila de Sprint, se compone de una tabla donde se establecen las tareas para la
+elaboración del sistema, en esta se tiene en cuenta la prioridad de las mismas con el fin de
+definir una consecución de funcionalidades coherentes, ya que algunas se relacionan con
+otras o son la base de estas. También en la pila, se muestra el estado de finalización y el
+esfuerzo de trabajo que poseen en cada momento para determinar al final del proyecto un
+análisis que permita evolucionar y mejorar en procesos tan importantes como la planeación y
+priorización, validando que lo plasmado inicialmente tomó más esfuerzo del esperado o por
+el contrario menos tiempo.
+
+Para la construcción de este documento se utilizó la especificación de historias de
+
+usuario para seguir el paso a paso de las funcionalidades requeridas. El esfuerzo de desarrollo
+
+se evidencia en el Anexo B - Pila del Producto, que se encuentra en el cd que acompaña este
+documento.
+
+3.3.2 Diseño
+
+Arquitectura - Diagrama de componentes
+El sistema de información Web Portal del Colaborador se basa en una arquitectura de
+
+cuatro capas cliente-servidor. La Figura 4 muestra la arquitectura sobre la cual se soporta el
+sistema mediante un diagrama de componentes.
+
+16<<Back-end>>
+
+<<Front-end>>
+
+App Server
+Protocolo HTTP Yii
+Controller
+
+(*.php)
+— 0 — — Model
+(*.php)
+
+ 
+
+Dataservices
+
+ 
+
+Integration Layer
+
+Figura 4: Arquitectura Sistema de Información
+
+La arquitectura utilizada en el presente proyecto está definida por la construcción de una
+aplicación empresarial que permita alcanzar no solamente las funcionalidades previamente
+anotadas sino también tener independencia entre el elemento visual y el elemento funcional.
+
+Capa de Negocio
+
+Aquí se define la persistencia de los datos y la lógica del negocio. Teniendo en cuenta
+que el lenguaje de programación escogido es PHP, se ha tomado la decisión de utilizar el
+framework de desarrollo Yii' para la construcción de aplicaciones web, este fue construido
+bajo el paradigma orientado a objetos, lenguaje de programación PHP, software libre, de alto
+rendimiento, basado en componentes. Cuenta con características como: manejo del patrón de
+diseño Modelo Vista Controlador (MVC), Database Access Objects (DAO), query builder,
+active record y migración de base de datos; integración con ¡Query, entradas de formulario y
+validación, personalización de aspectos y temas, generación, especificaciones y
+administración de peticiones Web service, entre otras.
+
+Capa de Datos
+
+En cuanto al almacenamiento, se evidenció la necesidad de una base de datos que
+brindara estabilidad, potencia, robustez, facilidad de administración e implementación de
+estándares, que cumpliera con las expectativas de una empresa usualmente acostumbrada a
+trabajar con Oracle pero que brindara la suficiente independencia; por esta razón se decidió
+usar el motor de base de datos Postgresql”, cuyas características técnicas la hacen una de las
+bases de datos más potentes y robustas del mercado.
+
+'http://www.yiiframework.com/doc/guide/1.1/es/quickstart.what-is-yii
+2 http://www.postgresql.org.es/
+
+17Capa de Presentación
+
+Esta capa es donde se consumen y presentan los modelos de datos, exponiendo al usuario
+los servicios de la capa de negocio.
+
+Sobre este concepto se decidió por parte de Carvajal Tecnología y Servicios decidió que
+el portal fuera implementado sobre el Sistema Manejador de Contenidos mas utilizado en la
+empresa, Joomla en su versión 3.0 que presenta soporte para funcionamiento con bases de
+datos Postgresql, y que integra la visualización en dispositivos móviles. La utilización de este
+CMS permite una configuración efectiva de los usuarios, un manejo independiente de la parte
+visual, y además, Carvajal Tecnología y Servicios cuenta con una plantilla visual que pudo
+ser implementada en el portal garantizando además la integridad visual y la imagen
+corporativa que la empresa quiere conservar.
+
+También es importante mencionar, que en el proyecto se utiliza Bootstrap” que es el
+framework HTML, CSS y JS mas utilizado para desarrollo responsive o diseño web
+adaptativo, el cual es una técnica de diseño web que prioriza la correcta visualización de una
+misma página en distintos dispositivos incluyendo ordenadores, tablets y teléfonos móviles.
+
+Capa de Integración
+
+Esta capa se genera como particularidad del presente proyecto, debido a que el sistema
+de información es ofrecido por Carvajal Tecnología y Servicios como un servicio adicional
+para el outsourcing de Nomina y Gestión humana, es decir, la información presente en el
+portal siempre está alimentada desde un sistema externo y dicha comunicación debe ser
+bidireccional. Es así como esta capa permite el enlace entre el portal y cualquier sistema
+externo que opere sobre bases de datos relacionales.
+
+Para la implementación de esta capa en el presente proyecto fue necesario utilizar una
+arquitectura orientada a servicios (SOA)' mas exactamente servicios Web, lo cual facilita la
+interacción entre diferentes sistemas propios o de terceros mediante la configuración de un
+Enterprise Service Bus (ESB) denominado WSO2” que se encuentra disponible bajo la
+
+licencia Apache v2.0, y que añade una mejor gestión, desarrollo, soporte de configuración y
+capacidades SOAP?.
+
+> http://getbootstrap.com/
+* http://www.oracle.com/lad/products/middleware/soa/overview/index.html
+
+> http://wso02.com/
+S http://www.w3schools.com/webservices/ws_soap_intro.asp
+
+18Servidor Web
+
+Browser,
+HTML, JS,
+
+AS Capa de presentación
+
+Mysql
+
+ 
+
+Servidor de Aplicaciones
+
+ 
+   
+  
+
+Capa de Negocio
+WS Cliente
+
+Capa de Datos
+
+Figura 5: Capas Arquitectura Portal del Colaborador.
+
+  
+   
+ 
+
+Diagramas de Procesos
+
+Entre las diferentes actividades se identificó el proceso de actualización de la
+información que garantizaría la integridad de los datos almacenados tanto en el portal como
+en el sistema externo, permitiendo el acceso concurrente. En la Figura 6 y en la Figura 7, se
+presentan los diagramas de actualización de información e integración.
+
+19Actualización
+de Información
+Inicio
+
+Crear Solicitud
+(Interfaz)
+
+  
+    
+ 
+ 
+ 
+
+Requiere Estado NEW
+validación Asigna Validador
+
+   
+
+Validación de la
+Solicitud
+
+Estado
+APPROVED
+
+ 
+  
+   
+  
+
+Aprobada
+
+  
+ 
+
+  
+
+Estado
+REJECTED
+
+Ejecuta
+Integración
+
+    
+
+Figura 6: Procesos Actualización de Información
+
+20Ejecutar
+Integración
+Inicio
+
+Enviar Solicitud
+(Web Service)
+
+Dar formato de Actualizar BD de
+sistema externo sistema externo
+
+ 
+ 
+
+Database
+Nómina
+
+ 
+ 
+    
+  
+
+Actualizar BD de Ejecución
+Portal correcta
+
+   
+
+ 
+  
+
+Database
+Portal
+
+ 
+  
+
+Ejecución
+correcta
+
+  
+
+Informa Error
+
+Figura 7: Procesos de Integración
+
+Diagrama de Clases
+El diagrama de clases se encuentra disponible en el CD en el Anexo C - Diagrama de Clases.
+
+3.3.3 Codificación
+
+En la codificación del servicio Web en el lado del servidor se usó el framework Yii 1.1,
+el cual es un marco de trabajo que usa el paradigma orientado a objetos, de software libre y
+basado en componentes, emplea PHP como lenguaje de programación y es ideal para el
+desarrollo de aplicaciones web, facilitando a su vez la implementación de una arquitectura
+Modelo Vista Controlador (MVC). Se usó el servidor Linux Redhat, como contenedor Web
+se empleó Apache HTTP Server para probar y desplegar el servicio Web. Para generar la
+parte visual y la interfaz de comunicación de esta con el servidor se empleó el sistema gestor
+de contenidos (CMS) Joomla 3, para facilitar las tareas de creación, actualización y
+eliminación de los entes que intervienen en el sistema, y la creación de las interfaces de
+
+21usuario. Como motor de Base de datos se empleo MySQL para Joomla y Postgresql 9.3 para
+el back-end.
+
+Recursos para desarrollo
+
+Recursos de hardware:
+
+e Un (1) computador portátil con procesador Intel Core I3 a 2,7 Ghz, memoria Ram de
+4Gb, y disco duro de 5S00GB.
+
+Recursos de software:
+
+e Sistema Operativo Microsoft Windows 7
+
+e Java Development Kit (JDK 7)
+
+e Eclipse Luna, empleado como interactive development environment (IDE)
+e Motor de base de datos Postgresql
+
+e Servidor de aplicaciones Apache 2.0
+
+e Navegador Web Google Chrome
+
+e Cliente FTP Filezilla
+e Bus de Servicio Empresarial WSO2
+
+La aplicación se encuentra en el siguiente enlace https://portalrh.carvajal.com/jess/.
+
+3.3.4 Pruebas
+
+Las pruebas del sistema se realizaron por medio de pruebas funcionales producto de las
+historias de usuario para su aceptación y unitarias, en compañía del equipo de la empresa
+Carvajal Tecnología y Servicios, pasando por los servidores de prueba y por los diferentes
+escenarios posibles hasta determinar que el sistema en cada uno de sus módulos es estable y
+puede ponerse en producción.
+
+Para las pruebas unitarias se uso el entorno PhpUnit”, el cual se fundamenta en el
+lenguaje de programación PHP. Este es un framework de la familia xUnit” originada con
+SUnit'” de Kent Beck. PhpUnit se puede encontrar en GitHub'' y ha sido creado por
+Sebastian Bergmann.
+
+El objetivo de las pruebas unitarias es aislar cada parte del programa y demostrar que el
+funcionamiento o comportamiento es el esperado. Una prueba unitaria proporciona un
+contrato escrito que la pieza de código debe satisfacer. Como resultado, las pruebas unitarias
+encuentran problemas en las fases iniciales del desarrollo de software. Las pruebas de
+producto que se realizaron al sistema se encuentran en el Anexo Pruebas Producto.xls que se
+encuentran en el cd que acompaña este documento.
+
+7 https://eclipse.org/ide/
+* https://phpunit.de/
+? http://www.martinfowler.com/bliki/Xunit.html
+
+19 https://www.gnu.org/software/smalltalk/manual/html node/SUnit.html
+'https://github.com/
+
+22Capítulo 4
+
+Portal del Colaborador
+
+En este capítulo se presenta la aplicación Portal del Colaborador un sistema de
+información web como herramienta para facilitar los procesos llevados a cabo en la
+autogestión de información de los colaboradores, logrando además la atención de solicitudes
+internas, permitiendo que los usuarios comuniquen sus necesidades y sean atendidos
+oportunamente, reduciendo reprocesos, pérdida de tiempo y costos. El Portal del Colaborador
+contempla la facilidad de accederse desde diferentes dispositivos al contar con interfaces de
+usuario responsivas.
+
+Se trata de un sistema de información compuesto por dos partes que trabajan
+colaborativamente para alcanzar la funcionalidad esperada:
+
+La primera parte es un paquete Joomla denominado JESS, que se usa para realizar la
+función administrativa del portal como gestión de usuarios, grupos, accesos y parte visual.
+Desde aquí el administrador podrá encargarse de definir qué usuarios tendrán acceso al
+portal, así como decidir qué opciones estarán o no disponibles. Cada opción se define como
+una ventana embebida que ejecuta partes del segundo paquete.
+
+La segunda parte es un paquete denominado CESS que ha sido desarrollado en PHP
+siguiendo los lineamientos del Framework Yii, éste es el core de la aplicación y es el
+encargado de ejecutar toda la lógica del negocio, realizar las actualizaciones de información
+en la base de datos postgresql, y en la base de datos del sistema externo de nómina usando
+para tal fin un bus de integración empresarial SOA. Cada funcionalidad en este paquete, sólo
+puede ser accedida desde una sesión activa del paquete Joomla.
+
+Ambos paquetes son independientes y se encuentran instalados al mismo nivel sobre un
+servidor apache. Con esto es posible realizar el cambio de CMS en cualquier momento.
+
+Dentro del sistema de información intervienen cuatro perfiles, administrador,
+validadores, jefes y colaboradores, en donde se expone a continuación las diferentes
+secciones de las que se componen las interfaces principales para cada uno de los perfiles
+mencionados.
+
+23La interfaz principal para el validador, jefe y colaborador se compone de dos secciones:
+(1) acceso a las diferentes funcionalidades del sistema, (2) espacio de identificación del
+usuario. La Figura 8 muestra la interfaz principal del Portal del Colaborador, la diferencia de
+perfiles en el sistema radica en ciertas funcionalidades adicionales para el perfil jefe y
+validador.
+
+¿Tiene preguntas? Llámenos al PBX: =57 (1) 730 5470 Ext. 201
+
+Carvajal Y
+
+TECNOLOGÍA
+Y SERVICIOS
+
+1 f% Inicio Perfil «<Q Solicitudes []Empresa (Desconectar
+
+2) HECTOR ESPINAL - 10 de febrero del 2015
+
+ 
+
+Figura 8: Interfaz principal Portal del Colaborador
+
+La interfaz principal para el administrador se presenta desde el paquete Joomla (JESS),
+que permite la gestión de usuarios, menús, módulos, entre otras funcionalidades y verificando
+en cada funcionalidad el usuario de acceso Joomla. En la Figura 9 se presenta el panel de
+control del CMS para la gestión de usuarios.
+
+Sistema +» Usuarios » Menús +» Contenido» Componentes » Extensiones » Ayuda + O e TES
+
+ 
+
+ERAN Carvajal €
+
+Tiene mensajes de posinstalación
+
+L£ A ] Hay mensajes de posinstalación importantes y que requiren de su atención. Para ver dichos mensajes, por favor, haga clic en el botón "Revisar mensajes' que
+
+j / culo S: .
+Añadir nuevo artículo aparece a continuación
+
+O Gestor de artículos Puede revisar los mensajes en cualquier momento haciendo clic sobre el elemento del menú Mensajes de posinstalación' del menú 'Componentes' que hay en
+UN SA la zona de la administración. Dicha área de información no se mostrará si lo bene configurado en 'Ocultar todos los mensajes
+
+ll Gestor de categorías
+
+re di ios
+E Gestor multimedia Revisar mensajes
+
+a DN USERS
+== Gestor de menús
+
+NA Gestor de módulos Super User Administración E 2014-11-03
+
+CONFIGURAR CERTIFICADOS LABORALE
+
+ARS
+
+4% Gestor de usuarios
+
+o Configuración global
+
+Y Gestor de plantillas
+
+FULARN ARI L )
+E) ía Ingreso E 2014-06-12
+
+”m Gestor de idiomas
+ED Bienvenido 3 2014-08-12
+TENSIONES
+. (5 Article Exit 2014-06-12
++ verso. (O) vistartes Q) Acminisacor mm ) — Descones 1324 — 02014 Portal Colaborador
+
+ 
+
+Figura 9: Panel de Control Joomla, Gestión de Usuarios
+
+244.1 Módulo para el mantenimiento de información
+personal y hojas de vida
+
+En esta sección se presenta uno de los procesos más importantes que permite llevar a
+cabo el Portal donde se hace referencia al proceso de gestión de información personal y hojas
+de vida, en este se ven involucrados los colaboradores permitiéndoles acceder a su
+información personal, actualizarla y/o modificarla además de poder cambiar la contraseña de
+acceso al portal. En la Figura 10 y en la Figura 11 se muestra el menú de gestión de
+información personal y la visualización de la misma.
+
+¿Tiene preguntas? Llámenos al PBX: +57 (1) 730 5470 Ext. 201
+
+Inicio Perfil <Q Solicitudes [E] Empresa (Desconectar
+
+  
+   
+   
+
+8) DATOS PERSONAL [E DATOS LABORALE
+INFORMACIÓN PERSONAL COMPROBANTE DE PAGO
+CERTIFICADOS LABORALES
+ESTUDIOS
+BENEFICIARIOS
+
+CAMBIAR CONTRASEÑA
+
+Figura 10: Menú de gestión de información personal
+
+3
+Carvajal *
+ici ici =E Mi ió 1
+mcioinól 4 Inicio Perfil <KHSolicitudes ¿3 Mi Gestión [Empresa (M Desconectar
+Y SERVICIOS
+
+SOPORTE - 10 de febrero del 2015
+
+Inicio » Informacion personal
+
+da Información básica
+
+Colaborador: BERNARDO ANTONIO GONZALEZ DIAZ
+
+Fecha de nacimiento: 24/01/1982
+
+Nacionalidad: COLOMBIA
+
+Cédula: 79998159
+
+Estado Civil: SOLTERO
+
+4 Modificar
+
+ 
+
+ 
+
+ 
+
+3) Información de contacto
+
+Correo electrónico bagdivalGhotmail.corr
+
+Teléfono
+
+4 Modificar
+
+ 
+
+A EE
+
+Dirección de residencia CI 2C NO. 12-51 OLIVOS, NO DISPONIBLE, NO DISPONIBLE
+NO DISPONIBLE, COLOMBIA
+
+Código postal
+
+Barrio/Colonia
+
+4 Modificar
+
+ 
+
+ 
+
+ 
+
+Figura 11: Visualización de información personal
+
+25En esta sección es importante resaltar el mecanismo de solicitud de estudios y
+beneficiarios, donde se garantiza un proceso de validación de la información suministrada por
+los colaboradores y de esta forma poder proteger la calidad y certeza de la información. Para
+la validación existen un conjunto de estados que determinan la situación de la solicitud hasta
+
+que es finalmente aprobada o eliminada; las solicitudes que son validadas no pueden ser
+eliminadas posteriormente.
+
+El retiro o eliminación de solicitudes puede realizarse por parte tanto del colaborador
+como del validador o jefe. En la Figura 12 se muestra la interfaz de gestión y solicitud de
+registro de estudios.
+
+ 
+
+ 
+
+     
+   
+         
+   
+
+  
+
+Inicio » Información de Estudios » Editar estudio FORMULARIO ESTUDIOS
+mm Este formulario se
+A Seminario de Redes usa para creacion
+de nuevas
+Ciudad solicitudes, edicion
+de solicitudes sín
+aprobar, y vista de
+Inicio Fin Nível Académico solicitudes
+15/01/2010 15/06/2014 Tecnólogo v aprobadas
+Centro De Formación Area De Conocimiento! Especialidad
+Universidad del Valle Administración v
+Area De Estudio / Tipo De Formación Estado Actual Tarjeta Profesional
+Ing. Sistemas / Computacio: Y Estudiando v No la requiere la carrera
+, Las opciones son
+Periodicidad De Nivel Nivel hd NES MEE .
+OeSe DE Ives er Si la requiere la carrera y está pendiente lu diferentes Para
+Añols) v |_ Si la requiere la carrera y la adjunto ] cada empresa y se
+Esta Solicitud Ya Fue Aprobada, Solo Puede Visualizarl muestran de
+sta Solici a Fue Apr a, Solo Puede Visualizarla
+pro 0 E acuerdo a una tabla
+
+ 
+
+ 
+
+ 
+
+Se deben mostras
+las solicitudes de
+titulaciones en esta
+pantalla, de la
+
+misma forma que Nivel A
+en la pantalla IM ve [ed El Estado LE
+
+E Académico ap
+anterior solicitud
+
+Seminario de Redes Seminario Universidad del Actualizar Aprobado, pendiente e 14-10Valle de envío a la nómina
+
+AAN
+
+00:00:00
+
+Figura 12: Gestión y solicitud de registro de estudios
+
+Una solicitud debe terminar su proceso de validación antes de poderse realizar otro
+cambio sobre la misma información, tal es el caso de las dependencias de beneficiarios del
+colaborador. En la Figura 13 se muestra la interfaz de solicitud de beneficiarios.
+
+26Inicio » Información de Beneficiarios
+
+Y Información de Beneficiarios
+
+ 
+
+II eii
+
+VALENTINA AMAYA AMAYA HIJA A Ya tiene una solicitud solicitudes de cambio
+dient «q pr sobre un registro del
+sistema externo
+
+ 
+
++ Adicionar un Beneficiario
+
+% Solicitud de Beneficiarios
+Dependencia Novedad Estado An E
+Er at!
+
+La eliminacion
+
+ES a CARLOS AMAYA Hermano (a) Actualizar Aprobado, pendiente 2014-10-14
+de solicitudes de envio a la nómina 17:04:49
+tiene la misma ] '
+
+- - ADRIANA BENAVIDES Conyugue Actualizar Aprobado, pendiente 2014-10-14
+restriccion que de envío a la nómina 17:16:13
+en tudios VALENTINA AMAYA BENAVIDES Hija Actualizar Nuevo, pendiente de 2014-10-14
+
+validación 17:17:07
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figura 13: Gestión y solicitud de registro de beneficiarios.
+
+4.2 Módulo para la atención de solicitudes simples
+
+Las solicitudes simples por parte de los colaboradores hacen referencia a aquellas que no
+requieren un proceso de validación humano para su atención como podría ser el caso de
+gestión de información laboral como comprobantes de pago por periodo y certificados
+laborales. En la Figura 14 se muestra la interfaz para la generación de certificados laborales.
+
+Carvajal S
+
+TECNOLOGÍA
+Y SERVICIOS
+
+fi Inicio £Perfil «Solicitudes 33 Mi Gestión [E] Empresa () Desconectar
+
+ADRIANA PATRICIA DE LA PAVA MEJIA - 24 de octubre del 2014
+
+Adel
+
+ 
+
+ 
+
+Escoge tipo certificado EA eleccione Tipo de Certificado Y
+Seleccione Tipo de Certificado
+
+| Estándar
+
+y y
+Presiona descargar  (C>AXA
+
+ 
+
+ 
+
+y se genera pdf
+
+Los certificados laborales se generan segun plantillas preestablecidas por cada empresa, y
+teniendo en cuenta datos como tipo de contrato y tipo de salario
+
+Carvajal Tecnología y Servicios O 2014 - Condiciones de Uso
+Manual de Uso
+
+1>
+
+ 
+
+Figura 14: Interfaz generación de certificados laborales.
+
+27Para los comprobantes de pago y cualquier tipo de solicitud, el Portal del Colaborador
+carga la información relacionada desde el sistema contable de la empresa por medio del bus
+de integración WSO2 a través de DataServices permitiendo una integración en diferentes
+fuentes de información, actualizando los datos del portal cada semana. La Figura 15 muestra
+las interfaces para la creación de comprobantes de pago por periodo, estos tienen la
+posibilidad de ser exportados en un archivo con extensión .pdf.
+
+Inicio » Comprobante de pago por periodo » Comprobante de pago
+
+e I)
+
+Compañía INTERNEXAS.A. Período de pago 2014-07-01 / 2014-07-31
+
+No. Colaborador 8200 Número de documento 43628610
+
+Colaborador ADRIANA PATRICIA DE LA
+PAVA MEJIA
+
+Centro de costos 2115 EQUIPO MERCADEO
+
+ 
+
+   
+
+  
+
+101 SUELDO BASICO 100 52,948,387
+1320 COMP VARIABLE COMISIONES 100 5649 037
+4302 BONIFICACION ALTO DESEMPEÑO 100 $1,193,889
+4607 RF-APORTE VOL INS PENS EMPRESA 100 $48,780
+4612 RF-APORTE VOLUNTARIO ADICIONAL 100 5$650,400
+4625 RF-AP WOL ADIC AFC DAVIVIENDA 100 $650,400
+4635 RF-AP VOL EMPR PROTECCION 100 548,780
+5001 PENSION - APORTE ORDINARIO 2.00 $346 814
+5002 PENSION - APORTE SOLIDARIDAD 2.00 $86,704
+5101 SALUD 2.00 $346 814
+5201 RETENCION EN LA FUENTE 100 $170,000
+5602 CUENTA AFC DAVIVIENDA 100 $649 037
+6201 APORTE FONDO EMPLEADOS FEISA 100 $166 496
+6202 DEDUCCIONES VARIAS FEISA 100 $750,076
+7738 PLAN CELULAR 100 $40,777
+AS $5,490,473 53,255,898
+
+a $2,234,575
+
+Figura 15: Interfaz comprobante de pago por periodo.
+
+284.3 Módulo para la atención de solicitudes complejas
+y gestión del jefe
+
+En esta sección se presentan las funcionalidades llevadas a cabo por el Jefe y
+colaboradores en relación a solicitudes que requieren un proceso de validación, como son las
+vacaciones. En la Figura 16 se muestra la interfaz denominada “M1 Gestión” desde donde el
+Jefe realiza su proceso de visualización de colaboradores a cargo y su aprobación de
+vacaciones.
+
+ftInicio BPerfil < Solicitudes =3 Mi Gestión [ElEmpresa (Desconectar
+
+ 
+
+| mis colaboradores uy
+
+mes Internús
+Inicio » Mis colaboradores
+
+HA E
+Total días
+
+LE ed E vacaciones
+vacaciones 5
+Ts
+
+ 
+
+Figura 16: Interfaz Mi Gestión (Jefe)
+
+Una vez que el jefe ingresa a su opción Mi Gestión, puede observar el sistema de alertas que
+le permite identificar si tiene alguna tarea pendiente. Como se muestra en la Figura 17.
+
+Carvajal Y
+
+TECNOLOGÍA
+Y SERVICIOS
+
+fi Inicio Perfil <Q Solicitudes ES Mi Gestión [E]Empresa () Desconectar
+
+Alerta de tarea pediente a AO AUGUSTO CORREDOR SANTAMARIA - 31 de octubre del 2014
+
+ 
+
+Detalle de tareas +5
+
+pendientes ES] Mis Tareas
+
+Consulta los procesos que tienes pendientes. Puedes obtener más información a traves del nombre de la tarea
+
+TAE E Eta] Pendientes
+
+Validar Vacaciones
+
+ 
+
+ 
+
+Figura 17: Interfaz alertas Jefe
+
+29Para la aprobación de solicitudes de vacaciones el Jefe abre la interfaz que se muestra en
+la Figura 18 donde puede ver todo un historial de las acciones realizadas con las solicitudes,
+las que fueron aprobadas, rechazadas o las que están pendientes por revisar.
+
+Vacaciones
+
+O Pendientes M Y Aprobadas M VO Rechazadas
+A EN
+Boton
+
+WILNER ANDRES GALLEGO GARZON 2014-11-10 2014-11-12 Nuevo, pendiente de validación iZ desplegado
+
+ 
+
+> Más información
+
+ 
+
+Comentario Jefe: Comentario jefe
+
+Comentario colaborador:
+
+L
+
+Fecha de la primera validación :
+Fecha de la segunda validación:
+
+Aprobar o rechaza SOLO esta
+solicitud
+
+ 
+
+ 
+
+ 
+
+ 
+
+Aprobar o rechazar
+
+las solicitudes A
+, dl probar || Rechazar |
+seleccionadas | 
+ 
+
+ 
+
+Página 1 de 1
+
+Figura 18: Interfaz validación vacaciones Jefe.
+
+Ya por parte del colaborador, este se encuentra con la interfaz que se muestra en la
+Figura 19 para su solicitud de vacaciones donde podrá realizar todo el seguimiento de las
+mismas y su proceso de validación por medio de tres estados.
+
+e Pendiente de Validación: significa que necesita la aprobación del jefe.
+
+e Aprobado, pendiente de envío a Nómina: significa que el jefe ya lo aprobó y solo falta
+el ingreso a la nómina.
+
+e Enviado a la Nómina con éxito: significa que ya el proceso finalizó con éxito.
+
+Fecha Inicio ( Inclusive)
+
+Fecha Fin ( Inclusive)
+
+La solicitud se pone en
+estado "Nuevo”, que
+significa que está
+pendiente de ser validada
+
+Calcular fecha fin
+
+Comentarios
+
+  
+   
+ 
+    
+  
+   
+
+Solo puede realizar una
+solicitud a la vez. Mientras
+la que tiene pendiente no
+sea atendida, no podrá
+realizar mas
+
+Mientras no haya sido
+revisada por el validador
+puede ser eliminada
+
+No puede realizar una nueva solicitud hasta que la actual sea atendida
+
+ 
+
+ 
+
+ 
+
+Cuando diligencia bien los
+datos se genera una
+solicitud que debe ser
+validada por el jefe. En esta
+tabla se listarán todas las
+solicitudes realizadas por el
+colaborador.
+
+Muestra los comentarios
+del validador
+
+ 
+ 
+
+Solicitud de vacaciones
+
+ 
+ 
+ 
+  
+ 
+ 
+
+     
+
+Fecha inicio RT MNAE SN
+
+   
+
+2014-11-10 2014-11-12 Nuevo, pendiente de
+
+validación
+
+    
+  
+
+ 
+
+Página 1 de 1
+
+Figura 19: Interfaz solicitud vacaciones colaborador
+
+304.4 Interfaz de acceso a datos
+
+La interfaz de acceso a datos, es decir la conexión física y funcional entre el sistema de
+autogestión del colaborador y el sistema de nómina externo de la empresa, se lleva a cabo
+usando WSO2””, que es un bus de servicios empresariales Open Source que provee una
+arquitectura orientada a servicios (SOA), y que posee las siguientes características:
+
+Facilidad para integrarse con diferentes tecnologías.
+
+e Transportes: HTTP'”, HTTPS'*, IMAP”, SMTP**, JMS””, AMQP*, TCP”
+
+Enrutamiento, Mediación y Transformación
+e  Enrutamiento: basado en prioridades, en reglas y en el contenido.
+
+e Mediación: CIE (incluyendo scatter / gather, filtros de mensajes, lista de destinatarios,
+canales de letra muerta, entrega garantizada y mensaje de enriquecimiento), integración
+de bases de datos, la publicación de sucesos, de auditoría, validación, ideales para las
+funcionalidades de aprobación de estudios y beneficiarios.
+
+Transformación: XSLT 1.0 / 2.0%, XPath”', XQuery”, Smooks”
+
+e  Dealto rendimiento, alta disponibilidad, escalabilidad y estabilidad
+
+e Soporta 1000 de HTTP sin bloqueo (S) conexiones simultáneas por servidor
+
+e Transmisión Pura y procesamiento bajo demanda de los mensajes
+
+e  Latencia sub-milisegundo para escenarios de alto rendimiento
+
+e Apoya la implementación de alta disponibilidad
+
+e  Escalado horizontal a través de la agrupación con la arquitectura del servidor sin estado
+
+e Estabilidad, ejecución a largo plazo con baja utilización de recursos
+
+2 http://ws02.com/products/enterprise-service-bus/
+
+5 http://www.thefreedictionary.com/Hhtp
+
+4 http://www.alegsa.com.ar/Dic/https.php
+
+15 http://www.one.com/es/support/faq/que-significa-imap-y-pop3
+16 http://www.dommia.com/es/faqs/-Que-es-el-SMTP-/34.html
+
+'7 http://docs.oracle.com/javaee/6/tutorial/doc/bncdq.html
+
+18 http://www.amqp.org/
+
+2 http://www.w3schools.com/website/webtcpip.asp
+
+2 http://www. w3schools.com/xsl/
+
+2 http://www.w3schools.com/xpath/
+
+2 http://www.w3schools.com/xquery/
+
+3 http://www.smooks.org/mediawiki/index.php?title=MainP age
+
+31Ligero, desarrollador amable y fácil de implementar
+e Desarrollo declarativo con configuración en vez de código.
+
+e Fácil configuración de las mediaciones tolerantes a fallos con soporte para el manejo de
+Errores
+
+e Personalización del servidor mediante la función de aprovisionamiento de cualquier
+capacidad de middleware WSO2.,
+
+e Elección de despliegue de servidores en premisa, de nube privada o nube pública (WS02
+Enterprise Service Bus-as-a-Service) sin cambios de configuración.
+
+e  Extiende lenguaje de configuración con DSL personalizados a través de plantillas
+
+e Código de lenguaje de scripting incrustar en Javascript, JRuby, Groovy y más como
+mediadores personalizados.
+
+e Integrado con SVN, Maven, Ant y otras herramientas estándar para el desarrollo y
+despliegue.
+
+e Integrado a WSO2 Developer Studio, IDE basado en Eclipse para todos los productos
+W502.
+
+En la empresa Carvajal Tecnología y Servicios recién se está implementando esta
+tecnología, siendo el Portal del Colaborador el sistema piloto, para la implementación de
+otras herramientas en el futuro con el mismo bus de integración.
+
+WSO2 en el sistema de información Web trabaja por medio de DataServices que son
+llamados desde la aplicación al momento de aprobar alguna solicitud de cambio. Tal es el
+caso, cuando un colaborador quiere modificar algo de lo permitido en su información, o
+quiere realizar por ejemplo una solicitud de vacaciones, registro de beneficiarios o estudios
+dicha solicitud debe ser aprobada. Cuando esta es aprobada se ejecuta un evento que dispara
+la ejecución del DataService.
+
+En la Figura 20 se presenta un diagrama de componentes que permite entender la forma
+como trabaja el sistema.
+
+32Figura 20: Diagrama de Componentes Bus WSO2
+
+33Capítulo 5
+
+Conclusiones y Trabajos futuros
+
+En este capítulo se presentan las conclusiones del trabajo de grado con respecto a los
+objetivos cumplidos y en general al proceso de desarrollo de la herramienta.
+
+5.1 Conclusiones
+
+Después del proceso para llevar a cabo el sistema de información web y toda la experiencia
+resultante de éste, se pueden obtener las siguientes conclusiones:
+
+e Para la elaboración de este sistema que se encuentra en un contexto laboral real fue
+indispensable la comunicación continua con las partes interesadas en la empresa Carvajal
+Tecnología y Servicios para obtener los resultados lo mas cercano posible a lo esperado,
+dejando de lado aspectos negativos, como retrasos e inconsistencias con lo finalmente
+desarrollado.
+
+e El Portal del Colaborador ha demostrado ser un sistema que satisface las necesidades
+esperadas a cumplir siendo además un sistema piloto a nivel tecnológico para la creación
+de otras herramientas en el futuro.
+
+e Hacer uso de tecnologías open source genera ventajas en el sistema al facilitar procesos
+que podrían resultar más complejos de llevar a cabo si fuese necesario su creación desde
+cero. Sin embargo, también presentan ciertas desventajas que radican en la
+documentación y soporte de las mismas, no existe un ente muy definido que pueda dar
+solución a problemas puntuales en cualquier momento y situación, generando
+inconvenientes por ejemplo de integración y configuración de tecnologías como fue el
+caso de la comunicación entre Joomla y el lenguaje de programación PHP.
+
+e Es posible realizar aplicaciones robustas con metodologías ágiles cuando se tiene el
+apoyo continuo del cliente, ya que se pueden identificar oportunamente las falencias y
+realizar las correcciones a satisfacción sin necesidad de seguir rígidamente lineamientos
+de documentación y procedimiento.
+
+e El desarrollo de una solución informática para una empresa con la dimensión y
+experiencia de Carvajal Tecnología y Servicios permite adquirir experiencia y una visión
+más amplia de lo que es un sistema de información real y cada una de las partes que
+llegan a conformarlo, ya que implica la solución de problemas de tipo empresarial que no
+son fácilmente visibles.
+
+34e En la ingeniería de sistemas es posible combinar diversas tecnologías y lograr que
+articuladamente funcionen para alcanzar el rendimiento esperado, en el caso de este
+proyecto, se logró la coordinación entre un gestor de contenidos, un framework de
+desarrollo y un bus de servicios empresariales que trabajan de forma independiente pero
+a su vez están articulados para conseguir la funcionalidad del sistema.
+
+e Hoy en día se debe tener en cuenta que las aplicaciones no solo son ejecutadas en
+computadores personales sino que deben ser pensadas para su despliegue en muchos
+dispositivos móviles, es así como en el desarrollo de este proyecto se utilizaron
+herramientas para lograrlo, generando un gran impacto y funcionalidad en el sistema.
+
+5.2 Trabajos futuros
+
+Con base en el proceso realizado a lo largo del presente proyecto se identificaron varias
+funcionalidades que serían de gran valor para el negocio y que pueden ser desarrolladas a
+futuro, entre las cuales se destacan:
+
+e Generación del certificado de ingresos y retenciones del colaborador que consiste en
+brindar a la empresa una funcionalidad dentro del sistema que le permita generar
+automáticamente este documento para cada año gravable según las especificaciones
+definidas por la Dirección de Impuestos y Aduanas Nacionales. Cabe aclarar que estos
+certificados deben ser expedidos a todo tipo de “empleados” sin importar si ellos mismos
+lo solicitan o no, utilizando para tal fin el formulario 220 de la DIAN y teniendo en
+cuenta que la empresa cuenta con cerca de 3.000 colaboradores, sería una funcionalidad
+de gran impacto en el desarrollo de esta actividad.
+
+e Permitir a través del sistema la gestión de vacaciones internas que es una modalidad
+implementada por Carvajal, para brindar a los colaboradores una herramienta que les
+permita administrar sus permisos y días de descanso con el fin de acumularlos y
+disfrutarlos juntos.
+
++ Aumentar la complejidad del proceso de validación adicionando la gestión de un
+segundo jefe, lo que permitiría incluir más tipos de solicitudes. Es decir, brindar la
+posibilidad de que en el flujo de trabajo exista un segundo jefe que dé el visto bueno
+final en la validación de las solicitudes, con lo cuál se podría dar manejo en su totalidad
+al flujo de aprobación que actualmente utiliza la empresa.
+
+e En varias conversaciones realizadas con el cliente se percibió la necesidad de
+implementar una opción para la gestión de prorrogas, ya que en la actualidad no se
+cuenta con una herramienta que permita que el jefe advierta anticipadamente sobre el
+vencimiento en los contratos de sus colaboradores y por ende se genere inconformidad
+en los mismos con una gestión ineficiente.
+
+35Referencias
+
+[1]
+
+[2]
+
+[3]
+
+[4]
+
+[5]
+
+[6]
+
+[7]
+[8]
+
+[9]
+
+CT y $. Carvajal tecnología y servicios. http://www.carvajaltys.com/, 2014, enero 1.
+[Accesado 08-Agosto-2013].
+
+P. Luis. Outsourcing. http://www.gerencie.com/outsourcing.html, 2008, Sept 7.
+[Accesado 09-A gosto-2013].
+
+S.G. Germay. Tercerización para grandes negocios.
+http://www10.iadb.org/intal/intalcdi/PE/2013/11723a10.pdf, 2012, Nov 29.
+[Accesado 09-A gosto-2013].
+
+C.P. Yeter. La gestión de contenidos en portales web.
+http://eprints.rclis.org/14368/1/aci07307.pdf, 2007. [Accesado 11-Agosto-2013].
+
+G. María. Sistema de gestión de contenido para la presentación de la información y el
+
+aprendizaje virtual.
+http://infodite.milaulas.com/pluginfile.php/1998/1/GestionW20de%20contenido.pdf,
+
+2008, Nov. [Accesado 09-Agosto-2013].
+
+C. Peter. Pensamiento de sistemas, practica de sistemas. México: Noriega Editores, 4th
+ed. México D.F., 1993.
+
+K. Keneth. Análisis y diseño de sistemas. México: Editorial Prentice Hall, 6th ed, 2005.
+
+L. M. Sergio. Programación de aplicaciones web. España: Editorial Club Universitario,
+2th ed. Madrid, 2002.
+
+R. Elmasri. Fundamentos de sistemas de bases de datos. España: Ed. Pearson, 5th ed.
+Madrid, 2007.
+
+[10] M. Moisés. Interfaces reglas y teorías. México: (2006), 2th ed. México D.F., 2006.
+
+[11] H. Peter. Un mejor scrum. Sudáfrica: (2009), 2th ed. Ciudad del Cabo, 2009.
+
+[12] Queryx 7. http://www.sqlsoftware.com.co/queryx7_modulo_gestion_autogestion.html
+
+[Accesado 15-Noviembre-2013].
+
+[13] Sara. http://www.catalogodesoftware.com/producto-sara-569. [Accesado 15
+Noviembre-2013].
+
+[14] Meta4. http: //www.meta4.es/. [Accesado 15-Noviembre-2013].
+
+[15] Epsilon. http://www.grupocastilla.es/Soluciones/EmpresaPrivada.aspx.
+
+[Accesado 16-Noviembre-2013].
+
+36[16]
+
+[17]
+
+[18]
+
+[19]
+
+[20]
+
+[21]
+
+mi-nomina. http://www.mi-nomina.com/. [Accesado 16-Noviembre-2013].
+
+SimpleHRM.  http://sourceforge.net/projects/simplehrm/. [Accesado 16-Noviembre2013].
+
+Mtra. María de Lourdes Santiago Zaragoza Profesora del Programa Educativo de
+Tecnologías de la Información y Comunicación. Desarrollando aplicaciones
+informáticas con el proceso de desarrollo unificado (rup).
+http://www.utvm.edu.mx/OrganolInformativo/orgJul07/RUP.htm. [Accesado 10Agosto-2013].
+
+Escuela de Ingeniería de Sistemas y Computación Universidad del Valle. Programación
+
+extrema. http://eisc.univalle.edu.co/materias/WWW/material/lecturas/xp.pdf. [Accesado
+10-Agosto-2013].
+
+S. Ken, S. Jeff. (2013). The Scrum Guide (The Definitive Guide to Scrum ed.).
+http: //www.scrumguides.org/. [Accesado: 20-Noviembre-2013].
+
+Daily scrum. Sprint backlog. http://www.daily-scrum.com/scrum/sprint/backlog, 2014.
+[Accesado 08-Agosto-2013].
+
+37
