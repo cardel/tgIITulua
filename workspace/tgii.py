@@ -187,7 +187,7 @@ document_matrix = vectorizer.fit_transform(documents)
 feature_names = vectorizer.get_feature_names()
 
 #Set variables umber of topics and top words.
-no_topics = 15
+no_topics = 12
 no_top_words = 10
 # Function for displaying topics
 def display_topic(model, feature_names, num_topics, no_top_words, model_name):
