@@ -55,6 +55,7 @@ for est in estudiantesN:
 	est = str(est)
 	estN = est.replace("\n","")
 	estN = estN.replace(",","")
+	estN = estN.lower()
 	res = estN.split()
 	estudiantesN2 = np.append(estudiantesN2,res)
 	
@@ -65,6 +66,7 @@ for dire in directoresD:
 	direN = direN.replace("\\n","")
 	direN = direN.replace("(","")
 	direN = direN.replace(")","")
+	direN = direN.lower()
 	res = direN.split()
 	directoresD2 = np.append(directoresD2,res)
 		
@@ -140,7 +142,7 @@ tokenized_data = tokenized_data.apply(lambda x: [item.lower() for item in x])
 # remove stop-words
 stop_words = stopwords.words('spanish')
 
-palabras = np.array(['grado','trabajo',"universidad","valle","tulua","tuluá","inglés","clinica","clínica","francisco","carvajal","ciat","municipio","buga","trujillo","caicedonia","cada","éste","sede","figura","contenido","tabla"])
+palabras = np.array(['juan','id','grado','trabajo',"universidad","valle","tulua","tuluá","inglés","clinica","clínica","francisco","carvajal","ciat","municipio","buga","trujillo","caicedonia","cada","éste","sede","figura","contenido","tabla"])
 palabras = np.append(palabras,estudiantesN2)
 palabras = np.append(palabras,directoresD2)
 stop_words.extend(palabras.tolist())
