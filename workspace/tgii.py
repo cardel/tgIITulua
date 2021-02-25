@@ -105,7 +105,7 @@ tokenized_data = tokenized_data.apply(lambda x: [re.sub('[.]', ' ', item) for it
 tokenized_data = tokenized_data.apply(lambda x: [item.lower() for item in x])
 # remove stop-words
 stop_words = stopwords.words('spanish')
-stop_words.extend(["inteligencia_artificial","institucin_educativa","virtuales_aprendizaje","_selecciona","_posteriormente_selecciona","descripcin_aplicacin_selecciona","xsd","_elaboracin_propia","ilustrain","presente_proyecto","varchar","consultar","_usuario","_usuario_permisos","_descripcin_general","findelementby","tinyint","grado","trabajo","universidad","valle","tulua","tuluá","inglés","clinica","clínica","francisco","carvajal","ciat","municipio","buga","trujillo","caicedonia","cada","éste","sede","figura","contenido","tabla"])
+stop_words.extend(["_descripcin_general","_usuario","inteligencia_artificial","institucin_educativa","virtuales_aprendizaje","_selecciona","_posteriormente_selecciona","descripcin_aplicacin_selecciona","xsd","_elaboracin_propia","ilustrain","presente_proyecto","varchar","consultar","_usuario","_usuario_permisos","_descripcin_general","findelementby","tinyint","grado","trabajo","universidad","valle","tulua","tuluá","inglés","clinica","clínica","francisco","carvajal","ciat","municipio","buga","trujillo","caicedonia","cada","éste","sede","figura","contenido","tabla"])
 #stop_words.extend(['from','use', 'using','uses','user', 'users', 'well', 'study', 'survey', 'think'])
 # remove words of length less than 3
 tokenized_data = tokenized_data.apply(lambda x: [item for item in x if item not in stop_words and len(item)>3])
