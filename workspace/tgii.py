@@ -32,12 +32,46 @@ from sklearn.decomposition import NMF
 import pyLDAvis
 from pyLDAvis import sklearn as sklearn_lda
 import re
+import numpy as np
 
 #!wget https://github.com/cardel/tgIITulua/raw/main/datosTG.xlsx
 
 data = pd.read_excel("datosTG.xlsx")
 
 data.head()
+
+estudiantes = pd.read_excel("estudiantes.xlsx")
+directores = pd.read_excel("directores.xlsx")
+
+estudiantesN = estudiantes.values
+directoresD = directores.values
+
+estudiantesN = estudiantesN.flatten()
+directoresD = directoresD.flatten()
+
+estudiantesN2 = np.array([])
+directoresD2 = np.array([])
+for est in estudiantesN:
+	est = str(est)
+	estN = est.replace("\n","")
+	estN = estN.replace(",","")
+	res = estN.split()
+	estudiantesN2 = np.append(estudiantesN2,res)
+	
+for dire in directoresD:
+	dire = str(dire)
+	direN = dire.replace("\n","")
+	direN = direN.replace(",","")
+	direN = direN.replace("\\n","")
+	direN = direN.replace("(","")
+	direN = direN.replace(")","")
+	res = direN.split()
+	directoresD2 = np.append(directoresD2,res)
+		
+estudiantesN2 = estudiantesN2.flatten()
+directoresD2 = directoresD2.flatten()
+
+
 
 #!wget https://github.com/cardel/tgIITulua/raw/main/textos.zip
 #!unzip textos.zip
@@ -105,7 +139,11 @@ tokenized_data = tokenized_data.apply(lambda x: [re.sub('[.]', ' ', item) for it
 tokenized_data = tokenized_data.apply(lambda x: [item.lower() for item in x])
 # remove stop-words
 stop_words = stopwords.words('spanish')
-stop_words.extend(['grado','trabajo',"universidad","valle","tulua","tuluá","inglés","clinica","clínica","francisco","carvajal","ciat","municipio","buga","trujillo","caicedonia","cada","éste","sede","figura","contenido","tabla"])
+
+palabras = np.array(['grado','trabajo',"universidad","valle","tulua","tuluá","inglés","clinica","clínica","francisco","carvajal","ciat","municipio","buga","trujillo","caicedonia","cada","éste","sede","figura","contenido","tabla"])
+palabras = np.append(palabras,estudiantesN2)
+palabras = np.append(palabras,directoresD2)
+stop_words.extend(palabras.tolist())
 #stop_words.extend(['from','use', 'using','uses','user', 'users', 'well', 'study', 'survey', 'think'])
 # remove words of length less than 3
 tokenized_data = tokenized_data.apply(lambda x: [item for item in x if item not in stop_words and len(item)>3])
