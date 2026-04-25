@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Degree project classification verdict",
+  "description": "Structured output produced by classify.py for a single degree project, using a 23-term IEEE Thesaurus curated taxonomy.",
+  "type": "object",
+  "required": [
+    "project_id",
+    "model_id",
+    "prompt_version",
+    "input_hash",
+    "generated_at",
+    "verdict"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "project_id": {
+      "type": "string",
+      "description": "Identifier from the ID column of datosTG.xlsx (e.g., 2018A3)."
+    },
+    "model_id": {
+      "type": "string",
+      "description": "Ollama model tag used for this verdict (e.g., qwen2.5:14b-instruct)."
+    },
+    "prompt_version": {
+      "type": "string",
+      "description": "Version tag of the prompt used (matches a file under prompts/)."
+    },
+    "input_hash": {
+      "type": "string",
+      "description": "SHA-256 prefix over (project_id, prompt_version, source text) — cache key."
+    },
+    "input_source": {
+      "type": "string",
+      "enum": ["full_text", "metadata_only"],
+      "description": "full_text if extracted-text/<ID>.txt was available, metadata_only otherwise."
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "verdict": {
+      "type": "object",
+      "required": ["primary_term", "confidence", "justification"],
+      "additionalProperties": false,
+      "properties": {
+        "primary_term": {
+          "type": "string",
+          "enum": [
+            "Information systems",
+            "Database management systems",
+            "Enterprise information systems",
+            "Web applications",
+            "Mobile applications",
+            "Software engineering",
+            "Artificial intelligence",
+            "Machine learning",
+            "Natural language processing",
+            "Image processing",
+            "Computer vision",
+            "Recommender systems",
+            "Data mining",
+            "Ontologies",
+            "Multi-agent systems",
+            "Cybersecurity",
+            "Constraint programming",
+            "Complex networks",
+            "Internet of Things",
+            "Gamification",
+            "Serious games",
+            "E-learning",
+            "Other"
+          ]
+        },
+        "secondary_term": {
+          "type": ["string", "null"],
+          "description": "Optional second IEEE term to capture a cross-cutting aspect; same enum as primary_term or null."
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0
+        },
+        "justification": {
+          "type": "string",
+          "description": "One- or two-sentence justification grounded in the input."
+        },
+        "keywords_cited": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Up to five keywords or phrases from the input that drove the decision."
+        }
+      }
+    }
+  }
+}
