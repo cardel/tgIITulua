@@ -1,7 +1,7 @@
 # LLM-assisted classifier — degree projects of Universidad del Valle, Tuluá
 
 This subdirectory hosts the LLM-based classification pipeline used to label the
-256 degree projects (2012–2025) of the Systems Engineering program at
+277 degree projects (2012–2025) of the Systems Engineering program at
 Universidad del Valle, Tuluá, against a curated 23-term subset of the
 **IEEE Thesaurus**. It is the reproducibility and audit-trail companion of the
 paper *Classification and Impact of the Degree Projects of a Professional
@@ -55,11 +55,11 @@ llm-classifier/
 
 ## Models evaluated
 
-| Model tag                     | Parameters | 4-bit footprint | Macro-F1 (gold N=29–60) |
-|-------------------------------|-----------:|----------------:|------------------------:|
-| `qwen2.5:14b-instruct`        | 14.7 B     | ≈ 9 GB          | 24.4 %                  |
-| `llama3.1:8b`                 | 8.0 B      | ≈ 5 GB          | 25.5 %                  |
-| `mistral:7b-instruct`         | 7.2 B      | ≈ 4 GB          | 17.1 %                  |
+| Model tag                     | Parameters | 4-bit footprint | Macro-F1 (gold N=109–111) |
+|-------------------------------|-----------:|----------------:|--------------------------:|
+| `qwen2.5:14b-instruct`        | 14.7 B     | ≈ 9 GB          | 34.2 %                    |
+| `llama3.1:8b`                 | 8.0 B      | ≈ 5 GB          | 34.1 %                    |
+| `mistral:7b-instruct`         | 7.2 B      | ≈ 4 GB          | 33.4 %                    |
 
 Headline numbers and per-class breakdowns are in `results/models_comparison.json`
 and `results/metrics_<model>.json`. The figures under `figures/` are the same
@@ -119,20 +119,22 @@ repo; it is the same one used by the legacy NMF pipeline.
 
 ## Caveats
 
-- `evaluate.py` reports macro-averaged metrics; five of the twelve gold-set
-  classes have support N ≤ 2, which makes a single misclassification drop the
-  class F1 to zero and depresses the macro average. Per-class F1 above 80 %
-  is observed on `Recommender systems`, `Artificial intelligence`,
-  `Serious games`, `Complex networks`, and `E-learning`.
+- `evaluate.py` reports macro-averaged metrics; eight of the sixteen
+  gold-set classes have support N ≤ 2, so a single misclassification drops
+  the class F1 to zero and pulls the macro average down. When the macro
+  average is restricted to classes with support ≥ 3, qwen2.5:14b-instruct
+  rises from 34.2 % to about 57 %.
 - The IEEE taxonomy is finer than the 16-label expert vocabulary, so projects
   the experts placed under `Information Systems` are reassigned by the model
   to legitimate children of that family (`Enterprise information systems`,
   `Web applications`, `Mobile applications`). This shows up as high precision
   with low recall on the parent classes; the figure
   `figures/precision_recall_gap.tex` makes the pattern explicit.
-- Between 22 % and 39 % of the verdicts fail JSON-schema validation (returning
-  a malformed JSON or an out-of-vocabulary term). Those projects are excluded
-  from the distributions and from the gold-set comparison.
+- Schema-failure rates collapse to under 4 % across the three models once
+  classification runs on uniform metadata-only inputs. The validator drops
+  out-of-vocabulary `secondary_term` values (e.g. `Semantic web`) and the
+  `"Term | null"` artifact occasionally emitted by Qwen, keeping the primary
+  classification.
 
 ## License
 

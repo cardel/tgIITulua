@@ -265,12 +265,27 @@ def call_ollama(base_url: str, model: str,
 
 def validate_verdict(v: dict) -> list[str]:
     errs = []
+    # Some local LLMs emit "Term | null" or "Term, null" in place of a clean
+    # term. Strip the trailing null marker before validating.
+    for key in ("primary_term", "secondary_term"):
+        val = v.get(key)
+        if isinstance(val, str):
+            stripped = re.sub(r"\s*[|,/;]\s*null\s*$", "", val, flags=re.IGNORECASE).strip()
+            if stripped.lower() in ("", "null", "none"):
+                v[key] = None if key == "secondary_term" else val
+            else:
+                v[key] = stripped
     primary = v.get("primary_term")
     if primary not in ALLOWED_TERMS:
         errs.append(f"primary_term not in allowed set: {primary!r}")
     secondary = v.get("secondary_term")
     if secondary is not None and secondary not in ALLOWED_TERMS:
-        errs.append(f"secondary_term not in allowed set: {secondary!r}")
+        # Drop out-of-vocabulary secondaries instead of failing the verdict;
+        # the primary classification is what feeds the aggregate analyses.
+        v["secondary_term"] = None
+        v.setdefault("notes", {})
+        if isinstance(v.get("notes"), dict):
+            v["notes"]["secondary_dropped"] = secondary
     conf = v.get("confidence")
     if not isinstance(conf, (int, float)) or not (0.0 <= float(conf) <= 1.0):
         errs.append(f"confidence out of range: {conf!r}")
@@ -334,6 +349,9 @@ def main() -> int:
     ap.add_argument("--input-xlsx", default=None, metavar="PATH",
                     help="Pre-built corpus xlsx (from build_corpus.py). "
                          "Default: tgIITulua/processed-data/datosTG.xlsx")
+    ap.add_argument("--metadata-only", action="store_true",
+                    help="Skip loading extracted full text; classify on "
+                         "title+keywords+abstract only (uniform inputs).")
     args = ap.parse_args()
 
     input_xlsx = Path(args.input_xlsx) if args.input_xlsx else None
@@ -369,7 +387,7 @@ def main() -> int:
         pid = row["id"]
         out_path = verdict_path(args.model, pid)
         out_path.parent.mkdir(parents=True, exist_ok=True)
-        fulltext = load_fulltext(pid)
+        fulltext = None if args.metadata_only else load_fulltext(pid)
         blob = build_input_blob(row, fulltext)
         h = hash_input(pid, blob, args.model)
 

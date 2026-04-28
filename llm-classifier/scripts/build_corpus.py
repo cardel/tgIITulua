@@ -9,10 +9,9 @@ Sources
    Columns used: ID, NOMBRE DEL TRABAJO, PALABRAS CLAVE, RESUMEN,
                  CATEGORÍA, CATEGORIA REVISA.
 
-2. versions/latest/Seguimiento TG1 -TG2 - C1 (Autoguardado).xlsx
-   Program tracking file: 2018-2025, N=131 projects.
-   Sheets used: 2019-2024 (2018 already covered by datosTG; sheet '2024'
-   contains the 2025A cohort).
+2. sources/actualizado/Seguimiento TG1 -TG2 - C1.xlsx
+   Program tracking file: 2018-2025, N=147 projects with title.
+   Sheets used: 2019-2025 (2018 already covered by datosTG).
    Columns: No., Propuesta/Proyecto, Estudiante(s), [Año,] Resumen,
             Palabras clave[s|vs], ...
 
@@ -42,8 +41,8 @@ TGII  = PAPER / "sources" / "tgIITulua"
 
 DATOS_XLSX     = TGII / "processed-data" / "datosTG.xlsx"
 SEGUIMIENTO_XLSX = (
-    PAPER / "versions" / "latest"
-    / "Seguimiento TG1 -TG2 - C1 (Autoguardado).xlsx"
+    PAPER / "sources" / "actualizado"
+    / "Seguimiento TG1 -TG2 - C1.xlsx"
 )
 OUT_DIR = PAPER / "sections" / "_auto"
 OUT_XLSX = OUT_DIR / "corpus.xlsx"
@@ -51,7 +50,7 @@ OUT_STATS = OUT_DIR / "corpus_stats.txt"
 
 # Sheets in Seguimiento that are NOT already covered by datosTG.
 # Sheet '2018' projects overlap with datosTG 2018 entries → skip it.
-SEGUIMIENTO_YEARS = ["2019", "2020", "2021", "2022", "2023", "2024"]
+SEGUIMIENTO_YEARS = ["2019", "2020", "2021", "2022", "2023", "2024", "2025"]
 
 
 # -----------------------------------------------------------------------
@@ -93,7 +92,7 @@ def _col_idx(header: list, *candidates: str) -> int | None:
 
 
 def load_seguimiento() -> pd.DataFrame:
-    """Load 2019-2025 projects from the Seguimiento file."""
+    """Load 2019-2024 projects from the Seguimiento file."""
     wb = openpyxl.load_workbook(SEGUIMIENTO_XLSX, read_only=True, data_only=True)
     records = []
 
@@ -128,14 +127,15 @@ def load_seguimiento() -> pd.DataFrame:
             title    = str(r[title_col]).strip()   if title_col    is not None and r[title_col]    else ""
             abstract = str(r[abstract_col]).strip() if abstract_col is not None and r[abstract_col] else ""
             keywords = str(r[kw_col]).strip()       if kw_col       is not None and r[kw_col]       else ""
+            # Skip placeholder rows that have a sequence number but no title.
+            if not title:
+                continue
             # Year: use sheet-label year if column missing
             if year_col is not None and r[year_col] and str(r[year_col]).isdigit():
                 year = int(r[year_col])
             else:
                 year = int(sheet_name)
-            # Sheet '2024' = 2025A cohort → label as 2025
-            display_year = 2025 if sheet_name == "2024" else year
-            pid = f"{display_year}S{seq:02d}"
+            pid = f"{year}S{seq:02d}"
             records.append({
                 "id":              pid,
                 "title":           title,
