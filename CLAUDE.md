@@ -64,3 +64,18 @@ done
 
 Con `cardel/claude-work` clonado, `bash scripts/bootstrap-graft.sh` hace las dos
 cosas en todos los repositorios de `~/repositorios` de una sola pasada.
+
+---
+
+## Orquestación por niveles
+
+Regla del workspace del 24 de septiembre de 2026. La sesión, que aquí corre con
+Opus, orquesta y decide con Carlos; cada subtarea baja al nivel más barato que
+la resuelve: `tarea-local` (el modelo de Ollama, manejado por Haiku),
+`tarea-basica` (Haiku), `tarea-media` (Sonnet) y, para sacar del hilo una
+subtarea que exige juicio, `tarea-compleja` (Opus). Un subagente sin modelo
+hereda el de la sesión, así que `Explore` y `general-purpose` no se usan a
+secas. Contrato de cada subtarea: rutas exactas, tajada de 30 KB o menos,
+archivo de salida y respuesta de diez líneas; commits, rastreadores y
+decisiones no se delegan. Los cuatro agentes están enlazados en `.claude/agents/`
+de este proyecto; la tabla completa está en `~/repositorios/work/CLAUDE.md`.
