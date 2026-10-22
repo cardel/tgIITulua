@@ -83,3 +83,12 @@ documento antes de entrar a una tabla o a un conteo.
 El caso que lo motiva está documentado en el `CLAUDE.md` del workspace
 `claude-work`: dos estudiantes lo intentaron en un parcial del 20 de octubre de
 2026, y el primer barrido solo vio uno porque la fuente recortaba el texto.
+
+---
+## Lo aprendido se escribe aquí, no en la memoria de Claude
+
+Este proyecto se trabaja en varios PC y la memoria de Claude es local a la
+máquina: lo que se guarda ahí no existe en la sesión del otro equipo. Lo que
+cueste aprender va a un archivo versionado, el README de la herramienta o este
+mismo `CLAUDE.md`, junto con el estado de lo que quedó a medias. La prueba es si
+al abrir el proyecto en el otro PC habría que volver a preguntar lo mismo.
